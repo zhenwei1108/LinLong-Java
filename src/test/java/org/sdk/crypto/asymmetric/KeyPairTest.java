@@ -14,15 +14,15 @@ public class KeyPairTest {
   @Test
   public void genSm2KeyPairTest()
       throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException {
-    KeyPair keyPair = GenKeyPair.genSm2KeyPair();
+    KeyPair keyPair = AsymmetricKeyPairGenerator.genSm2KeyPair();
     System.out.println("SM2公钥为: "+encoder.encodeToString(keyPair.getPublic().getEncoded()));
     System.out.println("SM2私钥为: "+encoder.encodeToString(keyPair.getPrivate().getEncoded()));
 
   }
 
   @Test
-  public void genRsaKeyPairTest() throws NoSuchAlgorithmException {
-    KeyPair keyPair = GenKeyPair.genRsa1024KeyPair();
+  public void genRsaKeyPairTest() throws NoSuchAlgorithmException, NoSuchProviderException {
+    KeyPair keyPair = AsymmetricKeyPairGenerator.genRsa1024KeyPair();
     System.out.println("RSA公钥为: "+encoder.encodeToString(keyPair.getPublic().getEncoded()));
     System.out.println("RSA私钥为: "+encoder.encodeToString(keyPair.getPrivate().getEncoded()));
   }

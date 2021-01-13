@@ -2,13 +2,14 @@ package org.sdk.crypto.asymmetric;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.SignatureException;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.sdk.crypto.init.InitProvider;
 
-public class SignVerify {
+public class AsymmetricSignVerify extends InitProvider {
 
   /*
   定义G为SM2曲线的基点，n为G的阶，用户私钥d，待签名的摘要信息为e
@@ -20,16 +21,16 @@ public class SignVerify {
 
    */
   public static byte[] sm2SignData(PrivateKey privateKey, byte[] sourceData)
-      throws SignatureException, InvalidKeyException, NoSuchAlgorithmException {
-    Signature signature = Signature.getInstance("SM3WithSM2", new BouncyCastleProvider());
+      throws SignatureException, InvalidKeyException, NoSuchAlgorithmException, NoSuchProviderException {
+    Signature signature = Signature.getInstance("SM3WithSM2", BC_PROVIDER);
     signature.initSign(privateKey);
     signature.update(sourceData);
     return signature.sign();
   }
 
   public static boolean sm2VerifyData(PublicKey publicKey, byte[] sourceData, byte[] signedData)
-      throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-    Signature signature = Signature.getInstance("SM3WithSM2", new BouncyCastleProvider());
+      throws NoSuchAlgorithmException, InvalidKeyException, SignatureException, NoSuchProviderException {
+    Signature signature = Signature.getInstance("SM3WithSM2", BC_PROVIDER);
     signature.initVerify(publicKey);
     signature.update(sourceData);
     return signature.verify(signedData);
