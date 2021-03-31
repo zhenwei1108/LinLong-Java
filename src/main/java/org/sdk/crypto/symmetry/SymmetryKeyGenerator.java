@@ -4,7 +4,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import org.sdk.crypto.enums.SymmetryEnum;
+import org.sdk.crypto.enums.SymmetryKeyEnum;
 import org.sdk.crypto.init.InitProvider;
 
 /**
@@ -15,7 +15,7 @@ import org.sdk.crypto.init.InitProvider;
 public class SymmetryKeyGenerator extends InitProvider {
 
 
-  public static SecretKey genKey(SymmetryEnum algType)
+  public static SecretKey genKey(SymmetryKeyEnum algType)
       throws NoSuchProviderException, NoSuchAlgorithmException {
     KeyGenerator generator = KeyGenerator.getInstance(algType.name(), BC_PROVIDER);
     generator.init(algType.getKeyLength());
