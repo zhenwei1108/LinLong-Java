@@ -28,7 +28,7 @@ public class VerityData {
     String alg = "SHA1WithRSA";
     String source = "mvE1caNu9UFWNPWqarPXSRvWOGM=";
 
-    Certificate certificate = CertBuilder.buildCert(cert);
+    Certificate certificate = CertBuilder.buildBcCert(cert);
     SubjectPublicKeyInfo subjectPublicKeyInfo = certificate.getSubjectPublicKeyInfo();
     PublicKey key = KeyBuilder.buildByteToKey("RSA", subjectPublicKeyInfo.getEncoded());
     boolean b = verifySignedData(alg, Base64Util.decodeFromString(signData),
