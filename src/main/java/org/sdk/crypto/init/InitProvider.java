@@ -6,7 +6,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class InitProvider {
 
-  public static final String BC_PROVIDER = "BC";
+  public static final String BC_PROVIDER = BouncyCastleProvider.PROVIDER_NAME;
 
   static final Object PROVIDER_INSTRUCTION = new Object();
 

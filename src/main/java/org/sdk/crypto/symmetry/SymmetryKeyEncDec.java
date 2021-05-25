@@ -1,11 +1,15 @@
 package org.sdk.crypto.symmetry;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.CipherInputStream;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
@@ -54,6 +58,28 @@ public class SymmetryKeyEncDec extends InitProvider {
     }
     cipher.update(encData);
     return cipher.doFinal();
+  }
+
+
+  public void encStreamData(SymmetryCipherEnum symmetry, SecretKey key, InputStream inputStream,
+      OutputStream outputStream, int bufferLength, byte[] iv)
+      throws InvalidAlgorithmParameterException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException, IOException {
+    Cipher cipher = Cipher.getInstance(symmetry.getCipherAlg(), BC_PROVIDER);
+    IvParameterSpec ivParameterSpec = new IvParameterSpec(iv);
+    cipher.init(Cipher.ENCRYPT_MODE, key, ivParameterSpec);
+    CipherInputStream cipherInputStream = new CipherInputStream(inputStream, cipher);
+    byte[] buffer = new byte[bufferLength];
+    while (true) {
+      int read = cipherInputStream.read(buffer);
+      if (read == -1) {
+        break;
+      } else {
+        outputStream.write(buffer);
+      }
+    }
+    cipherInputStream.close();
+    inputStream.close();
+    outputStream.close();
   }
 
 
