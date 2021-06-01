@@ -1,4 +1,4 @@
-package org.sdk.crypto.asymmetric;
+package org.sdk.crypto.key.asymmetric;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
@@ -15,11 +15,11 @@ public class SignVerifyTest {
   @Test
   public void sm2SignVerifyTest()
       throws InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchProviderException, SignatureException, InvalidKeyException {
-    KeyPair keyPair = AsymmetricKeyPairGenerator.genSm2KeyPair();
+    KeyPair keyPair = SM2Key.genSm2KeyPair();
     byte[] data = "afadfwer234".getBytes(StandardCharsets.UTF_8);
-    byte[] signData = AsymmetricSignVerify.sm2SignData(keyPair.getPrivate(), data);
+    byte[] signData = SignVerify.sm2SignData(keyPair.getPrivate(), data);
     System.out.println("SM2签名值:"+ Base64Util.encodeToString(signData));
-    boolean b = AsymmetricSignVerify.sm2VerifyData(keyPair.getPublic(), data, signData);
+    boolean b = SignVerify.sm2VerifyData(keyPair.getPublic(), data, signData);
     System.out.println(b);
   }
 

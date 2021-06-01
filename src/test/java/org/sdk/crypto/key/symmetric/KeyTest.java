@@ -1,4 +1,4 @@
-package org.sdk.crypto.symmetry;
+package org.sdk.crypto.key.symmetric;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;

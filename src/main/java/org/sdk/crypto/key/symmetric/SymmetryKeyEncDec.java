@@ -1,4 +1,4 @@
-package org.sdk.crypto.symmetry;
+package org.sdk.crypto.key.symmetric;
 
 import java.io.IOException;
 import java.io.InputStream;

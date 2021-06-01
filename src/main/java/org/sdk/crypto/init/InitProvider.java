@@ -11,6 +11,11 @@ public class InitProvider {
   static final Object PROVIDER_INSTRUCTION = new Object();
 
   static {
+    init();
+  }
+
+
+  public static void init(){
     synchronized (PROVIDER_INSTRUCTION) {
       Provider bc = Security.getProvider(BC_PROVIDER);
       if (bc == null) {

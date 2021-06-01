@@ -1,4 +1,4 @@
-package org.sdk.crypto.asymmetric;
+package org.sdk.crypto.key.asymmetric;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -9,7 +9,7 @@ import java.security.Signature;
 import java.security.SignatureException;
 import org.sdk.crypto.init.InitProvider;
 
-public class AsymmetricSignVerify extends InitProvider {
+public class SignVerify extends InitProvider {
 
   /*
   定义G为SM2曲线的基点，n为G的阶，用户私钥d，待签名的摘要信息为e
