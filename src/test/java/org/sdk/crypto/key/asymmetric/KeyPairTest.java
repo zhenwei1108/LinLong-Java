@@ -1,33 +1,50 @@
 package org.sdk.crypto.key.asymmetric;
 
-import java.security.InvalidAlgorithmParameterException;
+import java.math.BigInteger;
 import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
+import java.security.interfaces.RSAPublicKey;
 import java.util.Base64;
 import java.util.Base64.Encoder;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.sdk.crypto.init.InitProvider;
 
 
 public class KeyPairTest {
+
   Encoder encoder = Base64.getEncoder();
-  @Test
-  public void genSm2KeyPairTest()
-      throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException {
-    KeyPair keyPair = SM2Key.genSm2KeyPair();
-    System.out.println("SM2公钥为: "+encoder.encodeToString(keyPair.getPublic().getEncoded()));
-    System.out.println("SM2私钥为: "+encoder.encodeToString(keyPair.getPrivate().getEncoded()));
 
+  @BeforeAll
+  public static void before(){
+    InitProvider.init();
   }
 
   @Test
-  public void genRsaKeyPairTest() throws NoSuchAlgorithmException, NoSuchProviderException {
-    KeyPair keyPair = RSAKey.genRsa1024KeyPair();
-    System.out.println("RSA公钥为: "+encoder.encodeToString(keyPair.getPublic().getEncoded()));
-    System.out.println("RSA私钥为: "+encoder.encodeToString(keyPair.getPrivate().getEncoded()));
+  public void genSm2KeyPairTest() {
+    KeyPair keyPair = Asymmetry.genKeyPair(AsymmetryKeyEnums.SM2_256);
+    System.out.println("SM2公钥为: " + encoder.encodeToString(keyPair.getPublic().getEncoded()));
+    System.out.println("SM2私钥为: " + encoder.encodeToString(keyPair.getPrivate().getEncoded()));
+  }
+
+  @Test
+  public void genED25519KeyPairTest() {
+    KeyPair keyPair = Asymmetry.genKeyPair(AsymmetryKeyEnums.ED25519_256);
+    System.out.println("ED25519公钥为: " + encoder.encodeToString(keyPair.getPublic().getEncoded()));
+    System.out.println("ED25519私钥为: " + encoder.encodeToString(keyPair.getPrivate().getEncoded()));
   }
 
 
+  @Test
+  public void genRsaKeyPairTest()  {
+    KeyPair keyPair = Asymmetry.genKeyPair(AsymmetryKeyEnums.RSA_1024);
+    RSAPublicKey aPublic = (RSAPublicKey) keyPair.getPublic();
+    BigInteger modulus = aPublic.getModulus();
+    System.out.println(modulus);
+    BigInteger publicExponent = aPublic.getPublicExponent();
+    System.out.println(publicExponent);
+    System.out.println("RSA公钥为: " + encoder.encodeToString(keyPair.getPublic().getEncoded()));
+    System.out.println("RSA私钥为: " + encoder.encodeToString(keyPair.getPrivate().getEncoded()));
+  }
 
 
 }
