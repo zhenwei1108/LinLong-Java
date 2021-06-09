@@ -21,14 +21,14 @@ public class KeyPairTest {
 
   @Test
   public void genSm2KeyPairTest() {
-    KeyPair keyPair = Asymmetry.genKeyPair(AsymmetryKeyEnums.SM2_256);
+    KeyPair keyPair = AsymmetryKey.genKeyPair(AsymmetryKeyEnums.SM2_256);
     System.out.println("SM2公钥为: " + encoder.encodeToString(keyPair.getPublic().getEncoded()));
     System.out.println("SM2私钥为: " + encoder.encodeToString(keyPair.getPrivate().getEncoded()));
   }
 
   @Test
   public void genED25519KeyPairTest() {
-    KeyPair keyPair = Asymmetry.genKeyPair(AsymmetryKeyEnums.ED25519_256);
+    KeyPair keyPair = AsymmetryKey.genKeyPair(AsymmetryKeyEnums.ED25519_256);
     System.out.println("ED25519公钥为: " + encoder.encodeToString(keyPair.getPublic().getEncoded()));
     System.out.println("ED25519私钥为: " + encoder.encodeToString(keyPair.getPrivate().getEncoded()));
   }
@@ -36,7 +36,7 @@ public class KeyPairTest {
 
   @Test
   public void genRsaKeyPairTest()  {
-    KeyPair keyPair = Asymmetry.genKeyPair(AsymmetryKeyEnums.RSA_1024);
+    KeyPair keyPair = AsymmetryKey.genKeyPair(AsymmetryKeyEnums.RSA_1024);
     RSAPublicKey aPublic = (RSAPublicKey) keyPair.getPublic();
     BigInteger modulus = aPublic.getModulus();
     System.out.println(modulus);

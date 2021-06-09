@@ -8,6 +8,7 @@ package org.sdk.crypto.key.asymmetric;
 public enum AsymmetryKeyEnums {
   RSA_1024("RSA", 1024),
   RSA_2048("RSA", 2048),
+  RSA_4096("RSA", 4096),
   SM2_256("EC", 256),
   ED25519_256("ED25519", 256),
 

@@ -12,9 +12,8 @@ import org.sdk.crypto.init.InitProvider;
  * @author: zhangzhenwei@bjca.org.cn
  * @date: 2021/6/5 23:02
  */
-public class Asymmetry {
+public class AsymmetryKey {
 
-  static String providerName = InitProvider.BC_PROVIDER;
 
   /**
    * @param [asymmetryEnums]  {@link AsymmetryKeyEnums}
@@ -26,14 +25,13 @@ public class Asymmetry {
    * SM2 算法见 {@link org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi}
    * ED25519 算法见 {@link org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi}
    *
-   *
    * @date 2021/6/5 23:04
    */
   public static KeyPair genKeyPair(AsymmetryKeyEnums asymmetryKeyEnums) throws CryptoSDKException {
 
     try {
       KeyPairGenerator generator = KeyPairGenerator
-          .getInstance(asymmetryKeyEnums.getAlgName(), providerName);
+          .getInstance(asymmetryKeyEnums.getAlgName(), InitProvider.BC_PROVIDER);
       if (asymmetryKeyEnums == AsymmetryKeyEnums.SM2_256) {
         /**
          * sm2p256v1 为国密指定曲线
@@ -51,12 +49,4 @@ public class Asymmetry {
     }
   }
 
-
-  public static String getProviderName() {
-    return providerName;
-  }
-
-  public static void setProviderName(String providerName) {
-    Asymmetry.providerName = providerName;
-  }
 }
