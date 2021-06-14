@@ -12,7 +12,7 @@ MAC(HMAC)
 密钥派生
 证书组装
 密钥共享
-FPE(format preserving encryption, FF1,FF3)
+FPE(保留格式加密format preserving encryption, FF1,FF3)
 ...
 ```
 
