@@ -29,3 +29,4 @@ FPE(保留格式加密format preserving encryption, FF1,FF3)
 ## 参考
 * https://github.com/google/tink
 * https://github.com/cossacklabs/themis
+* https://github.com/bcgit/bc-java
