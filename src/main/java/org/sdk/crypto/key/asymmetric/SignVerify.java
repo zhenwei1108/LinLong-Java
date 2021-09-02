@@ -1,6 +1,8 @@
 package org.sdk.crypto.key.asymmetric;
 
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
+import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
@@ -36,5 +38,12 @@ public class SignVerify extends InitProvider {
     return signature.verify(signedData);
   }
 
+
+
+  public static void main(String[] args)
+      throws SignatureException, NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException {
+    KeyPair keyPair = AsymmetryKey.genKeyPair(AsymmetryKeyEnums.SM2_256);
+    byte[] bytes = sm2SignData(keyPair.getPrivate(), "adsf".getBytes(StandardCharsets.UTF_8));
+  }
 
 }
