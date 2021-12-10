@@ -2,7 +2,6 @@ package org.sdk.crypto.key;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
@@ -32,7 +31,7 @@ public class KeyBuilder {
   }
 
   public static void main(String[] args)
-      throws IOException, InvalidKeyException, InvalidKeySpecException, NoSuchAlgorithmException {
+      throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
     byte[] decode = Base64.decode(
         "MIGJAoGBAOQE89YwfJ0KP/NylMS/zlWKYzyw/hrHoa1+ZbSU+/+rRPrPY9Hf7Wqm/qfQkaCzrRDtI0KZ4uKYUKlqo1SlAFXWLFloko1zuhy3E//RT5HrvrZWysj+5zuTB4xfcRkfla54YlvP6jVmaT/XLPsW8uLDcxHXLp9zUnS/mJyhTODdAgMBAAE=");
     DerValue derValue = new DerValue(decode);
@@ -40,7 +39,7 @@ public class KeyBuilder {
   }
 
   public static void buildRsaPriKey()
-      throws InvalidKeyException, IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+      throws IOException {
     byte[] byteD = Hex.decode(
         "84f6a2e6ca2b5c94db0208d018141dd71f35c2db084d0585891a89b526069c1d69e6de54fffe1b81349c6f5478eb897462c2b3a22ba84e04aab41a12ae8c85606c1d2fb47944c26d288bbb853c146a5d9c3bd69fe1c9db044b752fc81e4f5324b208f15f57935ec5473a89f71c13250371d68815789693ff323093eee6420041");
     byte[] bytePrime1 = Hex
