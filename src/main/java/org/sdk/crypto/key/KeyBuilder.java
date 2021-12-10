@@ -10,7 +10,6 @@ import java.security.spec.X509EncodedKeySpec;
 import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
 import org.bouncycastle.util.encoders.Base64;
 import org.bouncycastle.util.encoders.Hex;
-import sun.security.util.DerValue;
 
 public class KeyBuilder {
 
@@ -30,13 +29,6 @@ public class KeyBuilder {
     return publicKey;
   }
 
-  public static void main(String[] args)
-      throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    byte[] decode = Base64.decode(
-        "MIGJAoGBAOQE89YwfJ0KP/NylMS/zlWKYzyw/hrHoa1+ZbSU+/+rRPrPY9Hf7Wqm/qfQkaCzrRDtI0KZ4uKYUKlqo1SlAFXWLFloko1zuhy3E//RT5HrvrZWysj+5zuTB4xfcRkfla54YlvP6jVmaT/XLPsW8uLDcxHXLp9zUnS/mJyhTODdAgMBAAE=");
-    DerValue derValue = new DerValue(decode);
-    buildByteToKey("RSA", decode);
-  }
 
   public static void buildRsaPriKey()
       throws IOException {
@@ -75,5 +67,9 @@ public class KeyBuilder {
     byte[] encoded = rsaPrivateKey.getEncoded();
 
     System.out.println(Base64.toBase64String(encoded));
+
+    BigInteger prime11 = rsaPrivateKey.getPrime1();
+    BigInteger modulus = rsaPrivateKey.getModulus();
+
   }
 }
