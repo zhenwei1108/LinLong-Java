@@ -30,3 +30,5 @@ FPE(保留格式加密format preserving encryption, FF1,FF3)
 * https://github.com/google/tink
 * https://github.com/cossacklabs/themis
 * https://github.com/bcgit/bc-java
+#注:
+1. BC使用对称加解密,有长度限制. 可以替换jre/security下面的包
