@@ -15,7 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<bouncy.verion>1.67</bouncy.verion>
+		<bouncycastle.bcpkix.verion>1.69</bouncycastle.bcpkix.verion>
+		<bouncycastle.bcprov.verion>1.69</bouncycastle.bcprov.verion>
+		<bouncycastle.bcprov.verion>1.46</bouncycastle.bcprov.verion>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -37,21 +39,21 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
-			<version>${bouncy.verion}</version>
+			<version>${bouncycastle.bcprov.verion}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcpkix-jdk15on</artifactId>
-			<version>${bouncy.verion}</version>
+			<version>${bouncycastle.bcpkix.verion}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk16</artifactId>
-			<version>1.46</version>
+			<version>${bouncycastle.bcprov.verion}</version>
 		</dependency>
 
 		<!-- bc jar end -->
