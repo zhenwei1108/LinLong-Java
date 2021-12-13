@@ -14,7 +14,6 @@ import org.sdk.crypto.init.InitProvider;
  * {@link BouncyCastleProvider#setup()}
  * 各种实现方式在如下包下
  * {@link org.bouncycastle.jcajce.provider.symmetric}
- * @author: zhangzhenwei@bjca.org.cn
  * @date: 2021/6/1 23:07
  */
 public class SymmetricKeyBuilder {
@@ -23,7 +22,6 @@ public class SymmetricKeyBuilder {
   /**
    * @param alg=算法 len=密钥长度
    * @return javax.crypto.SecretKey
-   * @author zhangzhenwei@bjca.org.cn
    * @description 生成对称密钥, 实质为生成随机数 {@link CipherKeyGenerator#generateKey()}
    * @date 2021/6/1 22:59
    * 算法请参考:

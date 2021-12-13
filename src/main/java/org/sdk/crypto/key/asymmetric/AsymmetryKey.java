@@ -9,7 +9,6 @@ import org.sdk.crypto.init.InitProvider;
 
 /**
  * @description: 非对称算法工具类
- * @author: zhangzhenwei@bjca.org.cn
  * @date: 2021/6/5 23:02
  */
 public class AsymmetryKey {
@@ -18,7 +17,6 @@ public class AsymmetryKey {
   /**
    * @param [asymmetryEnums]  {@link AsymmetryKeyEnums}
    * @return java.security.KeyPair
-   * @author zhangzhenwei@bjca.org.cn
    * @description
    * 生成非对称密钥对  当前仅支持部分算法
    * RSA 算法见 {@link org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyPairGeneratorSpi}

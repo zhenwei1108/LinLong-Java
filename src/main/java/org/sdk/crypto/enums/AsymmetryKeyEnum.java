@@ -2,7 +2,6 @@ package org.sdk.crypto.enums;
 
 /**
  * @description: 非对称算法标识
- * @author: zhangzhenwei@bjca.org.cn
  * @date: 2021/4/25 5:45 下午
  */
 public enum AsymmetryKeyEnum {

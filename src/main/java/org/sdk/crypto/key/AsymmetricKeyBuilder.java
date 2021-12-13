@@ -8,7 +8,6 @@ import org.sdk.crypto.init.InitProvider;
 
 /**
  * @description: 非对称密钥生成
- * @author: zhangzhenwei@bjca.org.cn
  * @date: 2021/6/1 23:15
  * {@link org.bouncycastle.jce.provider.BouncyCastleProvider#setup()}
  * BC默认实现在:
@@ -20,7 +19,6 @@ public class AsymmetricKeyBuilder {
   /**
    * @param [alg = 算法, len = 长度]
    * @return java.security.KeyPair
-   * @author zhangzhenwei@bjca.org.cn
    * @description 产生非对称密钥. 常见算法:RSA,SM2
    * 详细算法见: {@link org.bouncycastle.jce.provider.BouncyCastleProvider#ASYMMETRIC_CIPHERS}
    * @date 2021/6/1 23:13

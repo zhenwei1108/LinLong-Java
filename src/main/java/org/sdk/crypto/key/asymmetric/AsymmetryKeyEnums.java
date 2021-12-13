@@ -2,7 +2,6 @@ package org.sdk.crypto.key.asymmetric;
 
 /**
  * @description: 非对称算法枚举  算法_模长
- * @author: zhangzhenwei@bjca.org.cn
  * @date: 2021/6/4 23:52
  */
 public enum AsymmetryKeyEnums {

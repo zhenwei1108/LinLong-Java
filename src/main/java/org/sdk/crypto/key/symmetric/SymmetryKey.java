@@ -12,7 +12,6 @@ public class SymmetryKey {
   /**
    * @param [enums]
    * @return javax.crypto.SecretKey
-   * @author zhangzhenwei@bjca.org.cn
    * @description 对称密钥生成实际为随机数. 各自差异于随机数发生器
    * @see java.security.SecureRandom
    *
