@@ -3,7 +3,7 @@ package org.sdk.crypto.sign;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.signers.SM2Signer;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+import org.bouncycastle.jce.provider.asymmetric.ec.ECUtil;
 import org.sdk.crypto.init.InitProvider;
 
 import java.security.InvalidKeyException;
