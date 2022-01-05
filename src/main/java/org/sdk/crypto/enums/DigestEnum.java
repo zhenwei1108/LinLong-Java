@@ -6,7 +6,20 @@ package org.sdk.crypto.enums;
  * @date 2021/1/13 11:19 上午
  */
 public enum DigestEnum {
-  SHA1, SHA224, SHA256, SHA384, SHA512, SM3,
+  SHA1, SHA224, SHA256, SHA384, SHA512, SM3(true),
   ;
 
+  boolean isNeedPubKey;
+
+  DigestEnum() {
+    this.isNeedPubKey = false;
+  }
+
+  DigestEnum(boolean isNeedPubKey) {
+    this.isNeedPubKey = isNeedPubKey;
+  }
+
+  public boolean isNeedPubKey() {
+    return isNeedPubKey;
+  }
 }
