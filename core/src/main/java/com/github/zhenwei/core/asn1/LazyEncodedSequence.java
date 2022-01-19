@@ -1,0 +1,163 @@
+package com.github.zhenwei.core.asn1;
+
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Iterator;
+import org.bouncycastle.asn1.ASN1BitString;
+import org.bouncycastle.asn1.ASN1Encodable;
+import org.bouncycastle.asn1.ASN1EncodableVector;
+import org.bouncycastle.asn1.ASN1External;
+import org.bouncycastle.asn1.ASN1InputStream;
+import org.bouncycastle.asn1.ASN1OctetString;
+import org.bouncycastle.asn1.ASN1OutputStream;
+import org.bouncycastle.asn1.ASN1ParsingException;
+import org.bouncycastle.asn1.ASN1Primitive;
+import org.bouncycastle.asn1.ASN1Sequence;
+import org.bouncycastle.asn1.ASN1Set;
+import org.bouncycastle.asn1.BERTags;
+
+/**
+ * Note: this class is for processing DER/DL encoded sequences only.
+ */
+class LazyEncodedSequence
+    extends ASN1Sequence
+{
+    private byte[] encoded;
+
+    LazyEncodedSequence(byte[] encoded) throws IOException
+    {
+        // NOTE: Initially, the actual 'elements' will be empty
+        super();
+
+        this.encoded = encoded;
+    }
+
+    public synchronized ASN1Encodable getObjectAt(int index)
+    {
+        force();
+
+        return super.getObjectAt(index);
+    }
+
+    public synchronized Enumeration getObjects()
+    {
+        if (null != encoded)
+        {
+            return new LazyConstructionEnumeration(encoded);
+        }
+
+        return super.getObjects();
+    }
+
+    public synchronized int hashCode()
+    {
+        force();
+
+        return super.hashCode();
+    }
+
+    public synchronized Iterator<ASN1Encodable> iterator()
+    {
+        force();
+
+        return super.iterator();
+    }
+
+    public synchronized int size()
+    {
+        force();
+
+        return super.size();
+    }
+
+    public synchronized ASN1Encodable[] toArray()
+    {
+        force();
+
+        return super.toArray();
+    }
+
+    ASN1Encodable[] toArrayInternal()
+    {
+        force();
+
+        return super.toArrayInternal();
+    }
+
+    synchronized int encodedLength(boolean withTag)
+        throws IOException
+    {
+        if (null != encoded)
+        {
+            return ASN1OutputStream.getLengthOfEncodingDL(withTag, encoded.length);
+        }
+
+        return super.toDLObject().encodedLength(withTag);
+    }
+
+    synchronized void encode(ASN1OutputStream out, boolean withTag) throws IOException
+    {
+        if (null != encoded)
+        {
+            out.writeEncodingDL(withTag, BERTags.CONSTRUCTED | BERTags.SEQUENCE, encoded);
+        }
+        else
+        {
+            super.toDLObject().encode(out, withTag);
+        }
+    }
+
+    ASN1BitString toASN1BitString()
+    {
+        return ((ASN1Sequence)toDLObject()).toASN1BitString();
+    }
+
+    ASN1External toASN1External()
+    {
+        return ((ASN1Sequence)toDLObject()).toASN1External();
+    }
+
+    ASN1OctetString toASN1OctetString()
+    {
+        return ((ASN1Sequence)toDLObject()).toASN1OctetString();
+    }
+
+    ASN1Set toASN1Set()
+    {
+        return ((ASN1Sequence)toDLObject()).toASN1Set();
+    }
+
+    synchronized ASN1Primitive toDERObject()
+    {
+        force();
+
+        return super.toDERObject();
+    }
+
+    synchronized ASN1Primitive toDLObject()
+    {
+        force();
+
+        return super.toDLObject();
+    }
+
+    private void force()
+    {
+        if (null != encoded)
+        {
+            ASN1InputStream aIn = new ASN1InputStream(encoded, true);
+            try
+            {
+                ASN1EncodableVector v = aIn.readVector();
+                aIn.close();
+
+                this.elements = v.takeElements();
+                this.encoded = null;
+            }
+            catch (IOException e)
+            {
+                throw new ASN1ParsingException("malformed ASN.1: " + e, e);
+            }
+        }
+    }
+}
