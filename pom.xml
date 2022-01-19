@@ -50,9 +50,9 @@
 	<modules>
 		<module>crypto</module>
 		<module>sdk</module>
-		<module>jce</module>
 		<module>pkix</module>
 		<module>provider</module>
+		<module>core</module>
 	</modules>
 
 
