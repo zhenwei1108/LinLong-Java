@@ -1,7 +1,8 @@
 package com.github.zhenwei.provider.jce.interfaces;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.util.Enumeration;
 
 /**

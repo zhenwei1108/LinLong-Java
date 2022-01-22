@@ -2,18 +2,20 @@ package com.github.zhenwei.core.crypto.kems;
 
 
 import ECMultiplier;
- 
 import FixedPointCombMultiplier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.KDFParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.KeyEncapsulation;
- 
 import org.bouncycastle.crypto.params.ECKeyParameters;
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-
 import org.bouncycastle.crypto.params.KeyParameter;
 
  
@@ -70,7 +72,7 @@ public class ECIESKeyEncapsulation
         this.rnd = rnd;
 
         // If both cofactorMode and oldCofactorMode are set to true
-        // then the implementation will use the new cofactor ECDH 
+        // then the implementation will use the new cofactor ECDH
         this.CofactorMode = cofactorMode;
         // https://www.shoup.net/iso/std4.pdf, Page 34.
         if (cofactorMode)

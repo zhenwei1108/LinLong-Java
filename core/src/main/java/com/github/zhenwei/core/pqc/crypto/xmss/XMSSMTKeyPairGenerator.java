@@ -1,13 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSNode;
 
 /**
  * Key pair generator for XMSS^MT keys.

@@ -2,7 +2,6 @@ package com.github.zhenwei.core.crypto.paddings;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
 
 /**
  * A padder that adds Trailing-Bit-Compliment padding to a block.

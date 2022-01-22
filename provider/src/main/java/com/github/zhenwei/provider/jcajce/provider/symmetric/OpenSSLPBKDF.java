@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+import com.github.zhenwei.core.util.Strings;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;

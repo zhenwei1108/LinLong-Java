@@ -1,13 +1,9 @@
 package com.github.zhenwei.core.util.test;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.io.PrintStream;
 import java.util.Enumeration;
 import java.util.Vector;
-
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestFailedException;
-import org.bouncycastle.util.test.TestResult;
 
 public abstract class SimpleTest
     implements Test

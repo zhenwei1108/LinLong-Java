@@ -1,18 +1,32 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-
-
-
-
-
-
-import bsi.BSIObjectIdentifiers;
-import cms.CMSObjectIdentifiers;
-
-import  EACObjectIdentifiers;
-import edec.EdECObjectIdentifiers;
-import isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.bsi.BSIObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.eac.EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
@@ -35,21 +49,10 @@ import java.util.Map;
 import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import kisa.KISAObjectIdentifiers;
-
-
-
- 
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
-
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
-import org.bouncycastle.operator.OperatorCreationException;
- 
 
-import pkcs.RSASSAPSSparams;
-import rosstandart.RosstandartObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
 
 class OperatorHelper
 {

@@ -1,24 +1,23 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
 import ASN1GeneralizedTime;
-
-
-
-
-import Extensions;
 import ExtensionsGenerator;
 import TBSCertList;
 import Time;
 import V2TBSCertListGenerator;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Locale;
-import org.bouncycastle.operator.ContentSigner;
+
 
 /**
  * class to produce an X.509 Version 2 CRL.
@@ -322,7 +321,8 @@ public class X509v2CRLBuilder
     {
         try
         {
-            extGenerator = CertUtils.doReplaceExtension(extGenerator, new Extension(oid, isCritical, value.toASN1Primitive().getEncoded(ASN1Encoding.DER)));
+            extGenerator = CertUtils.doReplaceExtension(extGenerator, new Extension(oid, isCritical, value.toASN1Primitive().getEncoded(
+                ASN1Encoding.DER)));
         }
         catch (IOException e)
         {

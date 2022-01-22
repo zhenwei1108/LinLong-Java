@@ -1,8 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,7 +17,7 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.util.Enumeration;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+ 
 
 
 
@@ -30,7 +35,7 @@ public class BCRSAPrivateKey
 
     protected transient AlgorithmIdentifier algorithmIdentifier = BCRSAPublicKey.DEFAULT_ALGORITHM_IDENTIFIER;
     protected transient RSAKeyParameters rsaPrivateKey;
-    protected transient PKCS12BagAttributeCarrierImpl   attrCarrier = new PKCS12BagAttributeCarrierImpl();
+    protected transient PKCS12BagAttributeCarrierImpl attrCarrier = new PKCS12BagAttributeCarrierImpl();
 
     BCRSAPrivateKey(
         RSAKeyParameters key)

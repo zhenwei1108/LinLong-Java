@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.util.StoreException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;

@@ -1,11 +1,14 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
-import ASN1BitString;
-
-
-import CertificateList;
 
 import IssuingDistributionPoint;
+import com.github.zhenwei.core.asn1.ASN1BitString;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.security.cert.CRLException;
 

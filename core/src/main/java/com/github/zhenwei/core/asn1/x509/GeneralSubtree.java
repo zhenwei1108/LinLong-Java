@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.math.BigInteger;
 
 /**
@@ -20,7 +21,7 @@ import java.math.BigInteger;
  *       {
  *         base                    GeneralName,
  *         minimum         [0]     BaseDistance DEFAULT 0,
- *         maximum         [1]     BaseDistance OPTIONAL 
+ *         maximum         [1]     BaseDistance OPTIONAL
  *       }
  * </pre>
  * 
@@ -190,7 +191,7 @@ public class GeneralSubtree
      *       {
      *         base                    GeneralName,
      *         minimum         [0]     BaseDistance DEFAULT 0,
-     *         maximum         [1]     BaseDistance OPTIONAL 
+     *         maximum         [1]     BaseDistance OPTIONAL
      *       }
      * </pre>
      * 

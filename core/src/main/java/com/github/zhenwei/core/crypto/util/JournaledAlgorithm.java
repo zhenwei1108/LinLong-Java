@@ -1,11 +1,15 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,8 +22,6 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.security.SecureRandom;
 
-import org.bouncycastle.crypto.util.JournalingSecureRandom;
-import org.bouncycastle.util.Encodable;
 
 
 /**
@@ -97,7 +99,8 @@ public class JournaledAlgorithm
         ASN1Sequence seq = ASN1Sequence.getInstance(encoding);
 
         this.algID = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-        this.journaling = new JournalingSecureRandom(ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets(), random);
+        this.journaling = new JournalingSecureRandom(
+            ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets(), random);
     }
 
     public JournalingSecureRandom getJournalingSecureRandom()

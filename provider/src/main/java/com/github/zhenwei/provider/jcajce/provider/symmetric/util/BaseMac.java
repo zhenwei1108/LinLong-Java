@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.provider.jcajce.PKCS12Key;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -13,7 +15,6 @@ import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
- 
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.AEADParameters;
@@ -21,7 +22,6 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.RC2Parameters;
 import org.bouncycastle.crypto.params.SkeinParameters;
-
 import org.bouncycastle.jcajce.spec.AEADParameterSpec;
 import org.bouncycastle.jcajce.spec.SkeinParameterSpec;
 
@@ -60,7 +60,7 @@ public class BaseMac
         final AlgorithmParameterSpec  params)
         throws InvalidKeyException, InvalidAlgorithmParameterException
     {
-        CipherParameters        param;
+        CipherParameters param;
 
         if (key == null)
         {

@@ -1,12 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
 import ASN1GeneralizedTime;
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERSet;
 
 
 /**
@@ -39,7 +41,7 @@ public class V2AttributeCertificateInfoGenerator
 
     // Note: validity period start/end dates stored directly
     //private AttCertValidityPeriod attrCertValidityPeriod;
-    private ASN1GeneralizedTime startDate, endDate; 
+    private ASN1GeneralizedTime startDate, endDate;
 
     public V2AttributeCertificateInfoGenerator()
     {
@@ -52,7 +54,7 @@ public class V2AttributeCertificateInfoGenerator
         this.holder = holder;
     }
     
-    public void addAttribute(String oid, ASN1Encodable value) 
+    public void addAttribute(String oid, ASN1Encodable value)
     {
         attributes.add(new Attribute(new ASN1ObjectIdentifier(oid), new DERSet(value)));
     }

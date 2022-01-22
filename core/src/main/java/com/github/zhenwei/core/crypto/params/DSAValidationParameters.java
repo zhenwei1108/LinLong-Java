@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 
+import com.github.zhenwei.core.util.Arrays;
 
 public class DSAValidationParameters
 {

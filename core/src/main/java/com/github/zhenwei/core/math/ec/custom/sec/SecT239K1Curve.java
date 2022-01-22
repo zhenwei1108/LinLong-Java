@@ -1,14 +1,16 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
-
 import ECCurve.AbstractF2m;
-
-
 import ECMultiplier;
- 
 import WTauNafMultiplier;
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.raw.Nat256;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 
 
@@ -16,7 +18,8 @@ import java.math.BigInteger;
 public class SecT239K1Curve extends AbstractF2m
 {
     private static final int SECT239K1_DEFAULT_COORDS = COORD_LAMBDA_PROJECTIVE;
-    private static final ECFieldElement[] SECT239K1_AFFINE_ZS = new ECFieldElement[] { new SecT239FieldElement(ECConstants.ONE) };
+    private static final ECFieldElement[] SECT239K1_AFFINE_ZS = new ECFieldElement[] { new SecT239FieldElement(
+        ECConstants.ONE) };
 
     protected SecT239K1Point infinity;
 

@@ -1,6 +1,9 @@
 package com.github.zhenwei.pkix.mime.smime;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -11,9 +14,8 @@ import org.bouncycastle.mime.MimeContext;
 import org.bouncycastle.mime.MimeMultipartContext;
 import org.bouncycastle.mime.MimeParserContext;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.io.TeeInputStream;
-import org.bouncycastle.util.io.TeeOutputStream;
+
 
 public class SMimeMultipartContext
     implements MimeMultipartContext

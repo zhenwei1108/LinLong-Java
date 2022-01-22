@@ -1,8 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import gm.GMObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.crypto.digests.SM3Digest;
 import org.bouncycastle.crypto.CipherKeyGenerator;
- 
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;

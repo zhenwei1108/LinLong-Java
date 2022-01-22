@@ -1,11 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.util.Enumeration;
 import java.util.Vector;
-import org.bouncycastle.pqc.crypto.gmss.GMSSLeaf;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootCalc;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootSig;
-import org.bouncycastle.pqc.crypto.gmss.Treehash;
 
 
 class GMSSUtils

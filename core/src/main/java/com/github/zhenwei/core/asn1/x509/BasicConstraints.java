@@ -1,20 +1,20 @@
 package com.github.zhenwei.core.asn1.x509;
 
 import ASN1Boolean;
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class BasicConstraints
     extends ASN1Object
 {
     ASN1Boolean  cA = ASN1Boolean.getInstance(false);
-    ASN1Integer  pathLenConstraint = null;
+    ASN1Integer pathLenConstraint = null;
 
     public static BasicConstraints getInstance(
         ASN1TaggedObject obj,
@@ -28,7 +28,7 @@ public class BasicConstraints
     {
         if (obj instanceof BasicConstraints)
         {
-            return (x509.BasicConstraints)obj;
+            return (BasicConstraints)obj;
         }
         if (obj instanceof X509Extension)
         {

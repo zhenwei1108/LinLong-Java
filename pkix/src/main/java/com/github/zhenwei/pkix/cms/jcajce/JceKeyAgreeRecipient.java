@@ -1,16 +1,22 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
-
-
-
-import cms.ecc.ECCCMSSharedInfo;
-import cms.ecc.MQVuserKeyingMaterial;
-
 import Gost2814789EncryptedKey;
 import Gost2814789KeyWrapParameters;
+import KeyAgreeRecipient;
+import cms.ecc.ECCCMSSharedInfo;
+import cms.ecc.MQVuserKeyingMaterial;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
@@ -28,8 +34,6 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyAgreeRecipient;
 import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
 import org.bouncycastle.jcajce.spec.MQVParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
@@ -37,8 +41,8 @@ import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.SecretKeySizeProvider;
 
 
-import pkcs.PrivateKeyInfo;
-import X9ObjectIdentifiers;
+ 
+
 
 public abstract class JceKeyAgreeRecipient
     implements KeyAgreeRecipient
@@ -68,7 +72,7 @@ public abstract class JceKeyAgreeRecipient
      * @param provider provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipient setProvider(Provider provider)
+    public jcajce.JceKeyAgreeRecipient setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
         this.contentHelper = helper;
@@ -82,7 +86,7 @@ public abstract class JceKeyAgreeRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipient setProvider(String providerName)
+    public jcajce.JceKeyAgreeRecipient setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
         this.contentHelper = helper;
@@ -97,7 +101,7 @@ public abstract class JceKeyAgreeRecipient
      * @param provider the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipient setContentProvider(Provider provider)
+    public jcajce.JceKeyAgreeRecipient setContentProvider(Provider provider)
     {
         this.contentHelper = CMSUtils.createContentHelper(provider);
 
@@ -111,7 +115,7 @@ public abstract class JceKeyAgreeRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipient setContentProvider(String providerName)
+    public jcajce.JceKeyAgreeRecipient setContentProvider(String providerName)
     {
         this.contentHelper = CMSUtils.createContentHelper(providerName);
 
@@ -125,7 +129,7 @@ public abstract class JceKeyAgreeRecipient
      * @param privKeyAlgID the algorithm identifier for the private key.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipient setPrivateKeyAlgorithmIdentifier(AlgorithmIdentifier privKeyAlgID)
+    public jcajce.JceKeyAgreeRecipient setPrivateKeyAlgorithmIdentifier(AlgorithmIdentifier privKeyAlgID)
     {
         this.privKeyAlgID = privKeyAlgID;
 

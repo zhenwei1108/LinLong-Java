@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.CharToByteConverter;
-import org.bouncycastle.crypto.PBEParametersGenerator;
-
 /**
  * Standard char[] to byte[] converters for password based derivation algorithms.
  */

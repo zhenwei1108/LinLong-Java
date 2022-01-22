@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.math.ec.custom.djb;
 
 
+import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.raw.Nat256;
@@ -20,7 +21,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
 
     protected ECPoint detach()
     {
-        return new custom.djb.Curve25519Point(null, getAffineXCoord(), getAffineYCoord());
+        return new Curve25519Point(null, getAffineXCoord(), getAffineYCoord());
     }
 
     public ECFieldElement getZCoord(int index)
@@ -159,7 +160,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
 
         ECFieldElement[] zs = new ECFieldElement[]{ Z3, W3 };
 
-        return new custom.djb.Curve25519Point(curve, X3, Y3, zs);
+        return new Curve25519Point(curve, X3, Y3, zs);
     }
 
     public ECPoint twice()
@@ -227,7 +228,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
             return this;
         }
 
-        return new custom.djb.Curve25519Point(this.getCurve(), this.x, this.y.negate(), this.zs);
+        return new Curve25519Point(this.getCurve(), this.x, this.y.negate(), this.zs);
     }
 
     protected Curve25519FieldElement calculateJacobianModifiedW(Curve25519FieldElement Z, int[] ZSquared)
@@ -260,7 +261,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
         return W;
     }
 
-    protected custom.djb.Curve25519Point twiceJacobianModified(boolean calculateW)
+    protected Curve25519Point twiceJacobianModified(boolean calculateW)
     {
         Curve25519FieldElement X1 = (Curve25519FieldElement)this.x, Y1 = (Curve25519FieldElement)this.y,
             Z1 = (Curve25519FieldElement)this.zs[0], W1 = getJacobianModifiedW();
@@ -311,6 +312,6 @@ public class Curve25519Point extends ECPoint.AbstractFp
             Curve25519Field.twice(W3.x, W3.x);
         }
 
-        return new custom.djb.Curve25519Point(this.getCurve(), X3, Y3, new ECFieldElement[]{ Z3, W3 });
+        return new Curve25519Point(this.getCurve(), X3, Y3, new ECFieldElement[]{ Z3, W3 });
     }
 }

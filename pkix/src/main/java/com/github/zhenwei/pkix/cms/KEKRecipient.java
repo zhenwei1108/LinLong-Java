@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public interface KEKRecipient
     extends Recipient

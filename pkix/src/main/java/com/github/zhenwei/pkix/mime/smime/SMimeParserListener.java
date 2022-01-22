@@ -1,16 +1,19 @@
 package com.github.zhenwei.pkix.mime.smime;
 
 
+import CMSEnvelopedDataParser;
+import CMSSignedData;
+import OriginatorInformation;
+import RecipientInformationStore;
+import SignerInformationStore;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.cms.CMSEnvelopedDataParser;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSSignedData;
-import org.bouncycastle.cms.OriginatorInformation;
-import org.bouncycastle.cms.RecipientInformationStore;
-import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.mime.ConstantMimeContext;
 import org.bouncycastle.mime.Headers;
 import org.bouncycastle.mime.MimeContext;
@@ -18,7 +21,7 @@ import org.bouncycastle.mime.MimeIOException;
 import org.bouncycastle.mime.MimeParserContext;
 import org.bouncycastle.mime.MimeParserListener;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.Store;
+
 
 
 public abstract class SMimeParserListener

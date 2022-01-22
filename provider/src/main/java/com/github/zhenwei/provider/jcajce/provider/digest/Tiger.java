@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import iana.IANAObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.iana.IANAObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.TigerDigest;
 import org.bouncycastle.crypto.macs.HMac;

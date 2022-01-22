@@ -1,5 +1,8 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+import com.github.zhenwei.core.math.raw.Interleave;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat256;
 import java.math.BigInteger;
 
 

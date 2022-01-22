@@ -1,16 +1,17 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public class RSAESOAEPparams
     extends ASN1Object
@@ -19,7 +20,8 @@ public class RSAESOAEPparams
     private AlgorithmIdentifier maskGenAlgorithm;
     private AlgorithmIdentifier pSourceAlgorithm;
     
-    public final static AlgorithmIdentifier DEFAULT_HASH_ALGORITHM = new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1, DERNull.INSTANCE);
+    public final static AlgorithmIdentifier DEFAULT_HASH_ALGORITHM = new AlgorithmIdentifier(
+        OIWObjectIdentifiers.idSHA1, DERNull.INSTANCE);
     public final static AlgorithmIdentifier DEFAULT_MASK_GEN_FUNCTION = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_mgf1, DEFAULT_HASH_ALGORITHM);
     public final static AlgorithmIdentifier DEFAULT_P_SOURCE_ALGORITHM = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_pSpecified, new DEROctetString(new byte[0]));
     
@@ -67,7 +69,7 @@ public class RSAESOAEPparams
         
         for (int i = 0; i != seq.size(); i++)
         {
-            ASN1TaggedObject    o = (ASN1TaggedObject)seq.getObjectAt(i);
+            ASN1TaggedObject o = (ASN1TaggedObject)seq.getObjectAt(i);
             
             switch (o.getTagNo())
             {

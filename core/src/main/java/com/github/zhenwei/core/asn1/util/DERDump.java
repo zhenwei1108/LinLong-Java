@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.asn1.util;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 
 /**
  * @deprecated use ASN1Dump.

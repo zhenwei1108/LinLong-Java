@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
 
+import com.github.zhenwei.core.crypto.Digest;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.digests.SHA224Digest;
 import org.bouncycastle.crypto.digests.SHA256Digest;

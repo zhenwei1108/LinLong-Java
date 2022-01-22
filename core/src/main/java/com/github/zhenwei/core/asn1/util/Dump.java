@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.util;
 
- 
+
+import com.github.zhenwei.core.asn1.ASN1InputStream;
 import java.io.FileInputStream;
 
 /**

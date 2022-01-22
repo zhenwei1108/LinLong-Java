@@ -1,7 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
 
-
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
@@ -9,9 +13,7 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
- 
 import org.bouncycastle.crypto.DSAExt;
-
 import org.bouncycastle.crypto.digests.GOST3411Digest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.signers.GOST3410Signer;
@@ -41,7 +43,7 @@ public class SignatureSpi
         PublicKey   publicKey)
         throws InvalidKeyException
     {
-        CipherParameters    param;
+        CipherParameters param;
 
         if (publicKey instanceof ECPublicKey)
         {

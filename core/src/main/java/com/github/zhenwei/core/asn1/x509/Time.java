@@ -2,12 +2,13 @@ package com.github.zhenwei.core.asn1.x509;
 
 
 import ASN1GeneralizedTime;
-
-
-
 import ASN1UTCTime;
 import DERGeneralizedTime;
 import DERUTCTime;
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +37,7 @@ public class Time
             throw new IllegalArgumentException("unknown object passed to Time");
         }
 
-        this.time = time; 
+        this.time = time;
     }
 
     /**

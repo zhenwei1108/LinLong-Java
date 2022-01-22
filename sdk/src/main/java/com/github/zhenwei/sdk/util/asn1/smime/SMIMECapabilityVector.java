@@ -1,17 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * Handler for creating a vector S/MIME Capabilities
  */
 public class SMIMECapabilityVector
 {
-    private ASN1EncodableVector    capabilities = new ASN1EncodableVector();
+    private ASN1EncodableVector capabilities = new ASN1EncodableVector();
 
     public void addCapability(
         ASN1ObjectIdentifier capability)

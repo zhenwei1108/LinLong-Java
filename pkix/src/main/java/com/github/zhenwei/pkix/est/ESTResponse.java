@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.est;
 
+import com.github.zhenwei.core.util.Properties;
+import com.github.zhenwei.core.util.Strings;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;

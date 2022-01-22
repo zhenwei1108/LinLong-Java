@@ -1,15 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.sphincs;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-
-
-
 import org.bouncycastle.crypto.digests.SHA3Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.digests.SHA512tDigest;

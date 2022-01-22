@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import org.bouncycastle.crypto.BlockCipher;
- 
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.RC5Parameters;
 
@@ -71,7 +71,7 @@ public class RC532Engine
      */
     public void init(
         boolean             forEncryption,
-        CipherParameters    params)
+        CipherParameters params)
     {
         if (params instanceof RC5Parameters)
         {

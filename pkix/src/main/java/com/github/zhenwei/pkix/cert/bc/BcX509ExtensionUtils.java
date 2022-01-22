@@ -1,16 +1,16 @@
 package com.github.zhenwei.pkix.cert.bc;
 
 
-
-
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
 import org.bouncycastle.cert.X509ExtensionUtils;
-
 import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;
 import org.bouncycastle.operator.DigestCalculator;
 

@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-
-
- 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
 import java.math.BigInteger;
-import X9ECParameters;
+
 
 public class ECNamedDomainParameters
     extends ECDomainParameters

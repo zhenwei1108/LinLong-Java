@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.oiw;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * OIW organization's OIDs:
@@ -11,7 +12,7 @@ package com.github.zhenwei.core.asn1.oiw;
 public interface OIWObjectIdentifiers
 {
     /** OID: 1.3.14.3.2.2 */
-    static final ASN1ObjectIdentifier    md4WithRSA              = new ASN1ObjectIdentifier("1.3.14.3.2.2");
+    static final ASN1ObjectIdentifier md4WithRSA              = new ASN1ObjectIdentifier("1.3.14.3.2.2");
     /** OID: 1.3.14.3.2.3 */
     static final ASN1ObjectIdentifier    md5WithRSA              = new ASN1ObjectIdentifier("1.3.14.3.2.3");
     /** OID: 1.3.14.3.2.4 */

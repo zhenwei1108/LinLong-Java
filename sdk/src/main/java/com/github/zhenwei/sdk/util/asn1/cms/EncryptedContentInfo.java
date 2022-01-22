@@ -1,15 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
-
 import BERTaggedObject;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.BERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.1">RFC 5652</a> EncryptedContentInfo object.
@@ -18,7 +19,7 @@ import BERTaggedObject;
  * EncryptedContentInfo ::= SEQUENCE {
  *     contentType ContentType,
  *     contentEncryptionAlgorithm ContentEncryptionAlgorithmIdentifier,
- *     encryptedContent [0] IMPLICIT EncryptedContent OPTIONAL 
+ *     encryptedContent [0] IMPLICIT EncryptedContent OPTIONAL
  * }
  * </pre>
  */
@@ -27,7 +28,7 @@ public class EncryptedContentInfo
 {
     private ASN1ObjectIdentifier contentType;
     private AlgorithmIdentifier contentEncryptionAlgorithm;
-    private ASN1OctetString     encryptedContent;
+    private ASN1OctetString encryptedContent;
     
     public EncryptedContentInfo(
         ASN1ObjectIdentifier contentType, 
@@ -105,7 +106,7 @@ public class EncryptedContentInfo
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(3);
+        ASN1EncodableVector v = new ASN1EncodableVector(3);
         
         v.add(contentType);
         v.add(contentEncryptionAlgorithm);

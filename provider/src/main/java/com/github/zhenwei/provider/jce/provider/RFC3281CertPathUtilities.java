@@ -4,12 +4,13 @@ import CRLDistPoint;
 import CRLReason;
 import DistributionPoint;
 import DistributionPointName;
-
-
 import GeneralNames;
-import TargetInformation;
 import X500Name;
 import X509Extensions;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.TargetInformation;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
@@ -41,7 +42,6 @@ import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
 import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
-
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
 import org.bouncycastle.x509.PKIXAttrCertChecker;
 import org.bouncycastle.x509.X509AttributeCertificate;

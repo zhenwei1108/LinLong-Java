@@ -1,11 +1,15 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-import NameConstraintValidatorException;
 import RDN;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,10 +18,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
- 
-
-
 import style.IETFUtils;
 import style.RFC4519Style;
 
@@ -275,7 +275,7 @@ public class PKIXNameConstraintValidator
         {
             return false;
         }
-        PKIXNameConstraintValidator constraintValidator = (x509.PKIXNameConstraintValidator)o;
+        PKIXNameConstraintValidator constraintValidator = (PKIXNameConstraintValidator)o;
         return collectionsAreEqual(constraintValidator.excludedSubtreesDN, excludedSubtreesDN)
             && collectionsAreEqual(constraintValidator.excludedSubtreesDNS, excludedSubtreesDNS)
             && collectionsAreEqual(constraintValidator.excludedSubtreesEmail, excludedSubtreesEmail)

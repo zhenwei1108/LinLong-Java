@@ -1,22 +1,23 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public class CertID
     extends ASN1Object
 {
-    AlgorithmIdentifier    hashAlgorithm;
-    ASN1OctetString        issuerNameHash;
+    AlgorithmIdentifier hashAlgorithm;
+    ASN1OctetString issuerNameHash;
     ASN1OctetString        issuerKeyHash;
-    ASN1Integer             serialNumber;
+    ASN1Integer serialNumber;
 
     public CertID(
         AlgorithmIdentifier hashAlgorithm,
@@ -31,7 +32,7 @@ public class CertID
     }
 
     private CertID(
-        ASN1Sequence    seq)
+        ASN1Sequence seq)
     {
         hashAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
         issuerNameHash = (ASN1OctetString)seq.getObjectAt(1);

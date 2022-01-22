@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.sigi;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Object Identifiers of SigI specifciation (German Signature Law

@@ -1,14 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 import ASN1Boolean;
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERUTF8String;
 
 
 /**
@@ -29,7 +30,7 @@ public class MetaData
 {
     private ASN1Boolean hashProtected;
     private ASN1UTF8String fileName;
-    private ASN1IA5String  mediaType;
+    private ASN1IA5String mediaType;
     private Attributes otherMetaData;
 
     public MetaData(

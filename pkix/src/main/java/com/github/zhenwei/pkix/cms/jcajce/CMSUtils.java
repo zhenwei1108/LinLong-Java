@@ -1,12 +1,18 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
-import Certificate;
-
 import cms.IssuerAndSerialNumber;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.PrivateKey;
@@ -15,13 +21,12 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
 import org.bouncycastle.jcajce.util.AnnotatedPrivateKey;
 
-import rosstandart.RosstandartObjectIdentifiers;
-import sec.SECObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
 
 class CMSUtils
 {

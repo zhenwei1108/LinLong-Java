@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.crypto;
 
- 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 /**
  * a holding class for public/private parameter pairs.
  */
 public class AsymmetricCipherKeyPair
 {
-    private AsymmetricKeyParameter    publicParam;
+    private AsymmetricKeyParameter publicParam;
     private AsymmetricKeyParameter    privateParam;
 
     /**

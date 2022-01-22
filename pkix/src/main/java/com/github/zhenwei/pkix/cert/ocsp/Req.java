@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
-import Extensions;
+
 import ocsp.Request;
 
 public class Req

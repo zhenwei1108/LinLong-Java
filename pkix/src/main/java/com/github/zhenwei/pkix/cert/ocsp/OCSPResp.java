@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 import ASN1Exception;
- 
-
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;

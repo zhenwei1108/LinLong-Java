@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
+ 
 
 
 /**

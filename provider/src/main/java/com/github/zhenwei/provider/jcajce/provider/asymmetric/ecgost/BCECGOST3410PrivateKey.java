@@ -1,21 +1,31 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-import ECGOST3410NamedCurves;
-import GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -25,24 +35,20 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPrivateKeySpec;
 import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
- 
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-
-
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import pkcs.PrivateKeyInfo;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
+ 
+ 
+
+
 
 public class BCECGOST3410PrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder
+    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    PKCS12BagAttributeCarrier, ECPointEncoder
 {
     static final long serialVersionUID = 7245981689601667138L;
 
@@ -191,7 +197,7 @@ public class BCECGOST3410PrivateKey
     private void populateFromPrivKeyInfo(PrivateKeyInfo info)
         throws IOException
     {
-        AlgorithmIdentifier pkAlg = info.getPrivateKeyAlgorithm(); 
+        AlgorithmIdentifier pkAlg = info.getPrivateKeyAlgorithm();
         ASN1Encodable pkParams = pkAlg.getParameters();
         ASN1Primitive p = pkParams.toASN1Primitive();
 
@@ -200,7 +206,8 @@ public class BCECGOST3410PrivateKey
             GOST3410PublicKeyAlgParameters gParams = GOST3410PublicKeyAlgParameters.getInstance(pkParams);
             gostParams = gParams;
 
-            ECNamedCurveParameterSpec spec = ECGOST3410NamedCurveTable.getParameterSpec(ECGOST3410NamedCurves.getName(gParams.getPublicKeyParamSet()));
+            ECNamedCurveParameterSpec spec = ECGOST3410NamedCurveTable.getParameterSpec(
+                ECGOST3410NamedCurves.getName(gParams.getPublicKeyParamSet()));
 
             ECCurve curve = spec.getCurve();
             EllipticCurve ellipticCurve = EC5Util.convertCurve(curve, spec.getSeed());
@@ -320,7 +327,8 @@ public class BCECGOST3410PrivateKey
 
             try
             {
-                PrivateKeyInfo info = new PrivateKeyInfo(new AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3410_2001, gostParams), new DEROctetString(encKey));
+                PrivateKeyInfo info = new PrivateKeyInfo(new AlgorithmIdentifier(
+                    CryptoProObjectIdentifiers.gostR3410_2001, gostParams), new DEROctetString(encKey));
 
                 return info.getEncoded(ASN1Encoding.DER);
             }

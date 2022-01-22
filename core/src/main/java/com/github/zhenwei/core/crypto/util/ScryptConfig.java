@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.util;
 
-import misc.MiscObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 
 /**
  * Configuration class for a PBKDF based around scrypt.

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 
+import com.github.zhenwei.core.crypto.Digest;
 
 class SeedDerive
 {

@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import iso.ISOIECObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.iso.ISOIECObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.WhirlpoolDigest;
 import org.bouncycastle.crypto.macs.HMac;

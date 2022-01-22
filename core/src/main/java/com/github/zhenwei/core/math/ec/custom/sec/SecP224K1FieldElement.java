@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import SecP224K1Field;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.raw.Nat224;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
-
-
-
 
 public class SecP224K1FieldElement extends ECFieldElement.AbstractFp
 {

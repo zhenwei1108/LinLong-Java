@@ -1,25 +1,28 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import ocsp.CertID;
-
- 
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class CertificateID
 {
-    public static final AlgorithmIdentifier HASH_SHA1 = new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1, DERNull.INSTANCE);
+    public static final AlgorithmIdentifier HASH_SHA1 = new AlgorithmIdentifier(
+        OIWObjectIdentifiers.idSHA1, DERNull.INSTANCE);
 
     private final CertID id;
 

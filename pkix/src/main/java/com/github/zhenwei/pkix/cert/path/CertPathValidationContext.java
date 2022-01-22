@@ -1,6 +1,8 @@
 package com.github.zhenwei.pkix.cert.path;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.util.Memoable;
 import java.util.HashSet;
 import java.util.Set;
 

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 import java.io.Serializable;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
+ 
 
 /**
  * Binary tree node.

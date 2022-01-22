@@ -2,13 +2,14 @@ package com.github.zhenwei.core.asn1.x509;
 
 
 import ASN1GeneralizedTime;
-
-
 import ASN1UTCTime;
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.io.IOException;
 
 /**
@@ -36,7 +37,7 @@ import java.io.IOException;
  */
 public class V2TBSCertListGenerator
 {
-    private ASN1Integer         version = new ASN1Integer(1);
+    private ASN1Integer version = new ASN1Integer(1);
     private AlgorithmIdentifier signature;
     private X500Name            issuer;
     private Time                thisUpdate, nextUpdate=null;

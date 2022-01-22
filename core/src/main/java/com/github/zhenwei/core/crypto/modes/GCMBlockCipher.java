@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.modes.AEADBlockCipher;
 import org.bouncycastle.crypto.modes.gcm.BasicGCMExponentiator;
 import org.bouncycastle.crypto.modes.gcm.GCMExponentiator;
 import org.bouncycastle.crypto.modes.gcm.GCMMultiplier;

@@ -1,10 +1,9 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.BlockCipher;
- 
-
 import org.bouncycastle.crypto.StreamBlockCipher;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.ParametersWithRandom;

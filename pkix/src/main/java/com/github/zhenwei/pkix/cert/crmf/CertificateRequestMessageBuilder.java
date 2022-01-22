@@ -1,18 +1,18 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-
 import ASN1Null;
-
-
-
-
 import ExtensionsGenerator;
-
-
 import Time;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import crmf.AttributeTypeAndValue;
 import crmf.CertReqMsg;
 import crmf.CertRequest;
@@ -29,7 +29,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.bouncycastle.cert.CertIOException;
-import org.bouncycastle.operator.ContentSigner;
+
 
 public class CertificateRequestMessageBuilder
 {
@@ -56,7 +56,8 @@ public class CertificateRequestMessageBuilder
         this.controls = new ArrayList();
     }
 
-    public org.bouncycastle.cert.crmf.CertificateRequestMessageBuilder setPublicKey(SubjectPublicKeyInfo publicKey)
+    public org.bouncycastle.cert.crmf.CertificateRequestMessageBuilder setPublicKey(
+        SubjectPublicKeyInfo publicKey)
     {
         if (publicKey != null)
         {
@@ -124,7 +125,7 @@ public class CertificateRequestMessageBuilder
     public org.bouncycastle.cert.crmf.CertificateRequestMessageBuilder addExtension(
         ASN1ObjectIdentifier oid,
         boolean              critical,
-        ASN1Encodable        value)
+        ASN1Encodable value)
         throws CertIOException
     {
         CRMFUtil.addExtension(extGenerator, oid, critical, value);

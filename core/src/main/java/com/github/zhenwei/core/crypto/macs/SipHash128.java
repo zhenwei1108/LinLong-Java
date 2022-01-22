@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.macs;
 
 
-import org.bouncycastle.crypto.macs.SipHash;
-
+import com.github.zhenwei.core.crypto.DataLengthException;
 
 /**
  * Implementation of SipHash with 128 bit output.

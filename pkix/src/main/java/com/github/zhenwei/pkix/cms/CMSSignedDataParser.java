@@ -1,25 +1,30 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import ASN1Generator;
-
 import ASN1OctetStringParser;
 import ASN1SequenceParser;
-
 import ASN1SetParser;
 import ASN1StreamParser;
-
 import BERSequenceGenerator;
 import BERSetParser;
 import BERTaggedObject;
-
-
-
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfoParser;
 import cms.SignedDataParser;
 import cms.SignerInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BERTags;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,17 +37,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.Store;
+
+
 
 
 /**
  * Parsing class for an CMS Signed Data object from an input stream.
  * <p>
- * Note: that because we are in a streaming mode only one signer can be tried and it is important 
+ * Note: that because we are in a streaming mode only one signer can be tried and it is important
  * that the methods on the parser are called in the appropriate order.
  * </p>
  * <p>
@@ -90,13 +94,13 @@ public class CMSSignedDataParser
     private static final DefaultDigestAlgorithmIdentifierFinder dgstAlgFinder = new DefaultDigestAlgorithmIdentifierFinder();
 
     private SignedDataParser        _signedData;
-    private ASN1ObjectIdentifier    _signedContentType;
+    private ASN1ObjectIdentifier _signedContentType;
     private CMSTypedStream          _signedContent;
     private Map                     digests;
     private Set<AlgorithmIdentifier> digestAlgorithms;
 
     private SignerInformationStore  _signerInfoStore;
-    private ASN1Set                 _certSet, _crlSet;
+    private ASN1Set _certSet, _crlSet;
     private boolean                 _isCertCrlParsed;
 
     public CMSSignedDataParser(
@@ -149,7 +153,7 @@ public class CMSSignedDataParser
             digests = new HashMap();
 
             ASN1SetParser digAlgs = _signedData.getDigestAlgorithms();
-            ASN1Encodable  o;
+            ASN1Encodable o;
 
             Set<AlgorithmIdentifier> algSet = new HashSet<AlgorithmIdentifier>();
 

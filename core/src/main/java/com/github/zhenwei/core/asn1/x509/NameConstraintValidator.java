@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import NameConstraintValidatorException;
-
 public interface NameConstraintValidator
 {
     void checkPermitted(GeneralName name)

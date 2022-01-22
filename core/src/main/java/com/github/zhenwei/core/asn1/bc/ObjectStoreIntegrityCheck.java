@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.bc;
 
 
+import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
@@ -59,7 +60,7 @@ public class ObjectStoreIntegrityCheck
     {
         if (o instanceof ObjectStoreIntegrityCheck)
         {
-            return (bc.ObjectStoreIntegrityCheck)o;
+            return   ( ObjectStoreIntegrityCheck)o;
         }
         else if (o instanceof byte[])
         {

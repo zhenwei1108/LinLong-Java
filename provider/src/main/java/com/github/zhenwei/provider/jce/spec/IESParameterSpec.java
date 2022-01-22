@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jce.spec;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.security.spec.AlgorithmParameterSpec;
 
 

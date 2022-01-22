@@ -1,14 +1,13 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.math.BigInteger;
- 
 import org.bouncycastle.crypto.DSA;
 import org.bouncycastle.crypto.DSAExt;
-
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.signers.DSAEncoding;
 
 public class DSADigestSigner
     implements Signer
@@ -39,7 +38,7 @@ public class DSADigestSigner
 
     public void init(
         boolean           forSigning,
-        CipherParameters   parameters)
+        CipherParameters parameters)
     {
         this.forSigning = forSigning;
 

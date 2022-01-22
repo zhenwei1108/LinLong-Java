@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-
-
 import rfc8032.Ed448;
 
 public final class Ed448PublicKeyParameters

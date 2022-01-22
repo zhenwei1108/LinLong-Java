@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -24,7 +25,7 @@ public class OriginatorPublicKey
     extends ASN1Object
 {
     private AlgorithmIdentifier algorithm;
-    private DERBitString        publicKey;
+    private DERBitString publicKey;
     
     public OriginatorPublicKey(
         AlgorithmIdentifier algorithm,
@@ -51,7 +52,7 @@ public class OriginatorPublicKey
      *          tagged object cannot be converted.
      */
     public static cms.OriginatorPublicKey getInstance(
-        ASN1TaggedObject    obj,
+        ASN1TaggedObject obj,
         boolean             explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));

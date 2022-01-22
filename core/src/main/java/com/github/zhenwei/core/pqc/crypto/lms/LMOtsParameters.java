@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
 

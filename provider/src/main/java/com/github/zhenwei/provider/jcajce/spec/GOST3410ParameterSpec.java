@@ -1,10 +1,12 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 
-
-import ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import java.security.spec.AlgorithmParameterSpec;
-import rosstandart.RosstandartObjectIdentifiers;
+
 
 /**
  * ParameterSpec for a GOST 3410-1994/2001/2012 algorithm parameters.

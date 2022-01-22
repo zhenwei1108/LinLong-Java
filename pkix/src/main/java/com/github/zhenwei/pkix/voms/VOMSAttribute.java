@@ -1,13 +1,14 @@
 package com.github.zhenwei.pkix.voms;
 
 
-
-
-import Attribute;
 import IetfAttrSyntax;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
+
 
 /**
  * Representation of the authorization information (VO, server address

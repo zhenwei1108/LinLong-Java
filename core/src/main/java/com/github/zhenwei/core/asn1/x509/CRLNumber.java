@@ -1,8 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
  
 
@@ -46,7 +48,7 @@ public class CRLNumber
     {
         if (o instanceof CRLNumber)
         {
-            return (x509.CRLNumber)o;
+            return (CRLNumber)o;
         }
         else if (o != null)
         {

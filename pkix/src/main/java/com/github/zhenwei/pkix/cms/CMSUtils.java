@@ -1,22 +1,35 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
- 
-
-
-
-
 import BEROctetStringGenerator;
 import BERSet;
-
-
-
 import DLSet;
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfo;
-import cms.OtherRevocationInfoFormat;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -28,21 +41,13 @@ import java.util.List;
 import java.util.Set;
 import ocsp.OCSPResponse;
 import ocsp.OCSPResponseStatus;
-
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.X509CRLHolder;
- 
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.Store;
-
-
 import org.bouncycastle.util.io.TeeInputStream;
-import org.bouncycastle.util.io.TeeOutputStream;
 
-import rosstandart.RosstandartObjectIdentifiers;
-import sec.SECObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
+
 
 class CMSUtils
 {

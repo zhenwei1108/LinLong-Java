@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.digests.GeneralDigest;
-
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * Implementation of Chinese SM3 digest as described at

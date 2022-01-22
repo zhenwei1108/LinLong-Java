@@ -1,10 +1,7 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.SecureRandom;
-
-import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialRingGF2;
-import org.bouncycastle.pqc.math.linearalgebra.RandUtils;
 
 /**
  * This class describes operations with elements from the finite field F =

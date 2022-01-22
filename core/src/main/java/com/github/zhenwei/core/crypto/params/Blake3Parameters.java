@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Blake3 Parameters.

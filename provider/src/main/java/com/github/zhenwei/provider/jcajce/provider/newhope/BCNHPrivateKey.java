@@ -1,16 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.newhope;
 
 
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.crypto.newhope.NHPrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-import org.bouncycastle.pqc.crypto.newhope.NHPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.pqc.jcajce.interfaces.NHPrivateKey;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class BCNHPrivateKey
     implements NHPrivateKey

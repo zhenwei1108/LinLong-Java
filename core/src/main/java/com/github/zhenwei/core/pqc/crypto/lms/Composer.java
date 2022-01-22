@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.util.Encodable;
 import java.io.ByteArrayOutputStream;
-import org.bouncycastle.util.Encodable;
+
 
 /**
  * Type to assist in build LMS messages.

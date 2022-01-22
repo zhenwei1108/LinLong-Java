@@ -1,20 +1,32 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
-
-import AttributeCertificate;
-import Certificate;
-import CertificateList;
-
-
-import cms.OtherRevocationInfoFormat;
-
-import  EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.eac.EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AttributeCertificate;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -22,20 +34,9 @@ import java.util.List;
 import java.util.Map;
 
 
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.X509CRLHolder;
- 
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
-import org.bouncycastle.util.CollectionStore;
-import org.bouncycastle.util.Store;
-
-import rosstandart.RosstandartObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
-
 class CMSSignedHelper
 {
-    static final org.bouncycastle.cms.CMSSignedHelper INSTANCE = new org.bouncycastle.cms.CMSSignedHelper();
+    static final CMSSignedHelper INSTANCE = new CMSSignedHelper();
 
     private static final Map     encryptionAlgs = new HashMap();
 

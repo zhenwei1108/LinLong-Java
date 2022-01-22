@@ -2,7 +2,6 @@ package com.github.zhenwei.core.pqc.crypto.mceliece;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceParameters;
 
 public class McElieceKeyGenerationParameters
     extends KeyGenerationParameters

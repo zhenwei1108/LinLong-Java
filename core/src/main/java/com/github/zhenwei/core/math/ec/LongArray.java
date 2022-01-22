@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
 
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 
 
@@ -656,7 +657,7 @@ class LongArray implements Cloneable
 //        m_ints[otherUsedLen + words] ^= carry;
 //    }
 
-    private void addShiftedByBitsSafe(org.bouncycastle.math.ec.LongArray other, int otherDegree, int bits)
+    private void addShiftedByBitsSafe (LongArray other, int otherDegree, int bits)
     {
         int otherLen = (otherDegree + 63) >>> 6;
 
@@ -703,7 +704,7 @@ class LongArray implements Cloneable
         return prev;
     }
 
-    public void addShiftedByWords(org.bouncycastle.math.ec.LongArray other, int words)
+    public void addShiftedByWords (LongArray other, int words)
     {
         int otherUsedLen = other.getUsedLength();
         if (otherUsedLen == 0)
@@ -860,7 +861,7 @@ class LongArray implements Cloneable
         }
     }
 
-    public LongArray modMultiplyLD(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray modMultiplyLD (LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -992,7 +993,7 @@ class LongArray implements Cloneable
         return reduceResult(c, 0, cLen, m, ks);
     }
 
-    public LongArray modMultiply(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray modMultiply (LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -1349,7 +1350,7 @@ class LongArray implements Cloneable
         return new LongArray(buf, 0, rLen);
     }
 
-    public LongArray multiply(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray multiply (LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -2070,7 +2071,7 @@ class LongArray implements Cloneable
         }
 
         // u(z) := a(z)
-        LongArray uz = (org.bouncycastle.math.ec.LongArray)clone();
+        LongArray uz =  (LongArray)clone();
 
         int t = (m + 63) >>> 6;
 
@@ -2140,7 +2141,7 @@ class LongArray implements Cloneable
         {
             return false;
         }
-        LongArray other = (org.bouncycastle.math.ec.LongArray) o;
+        LongArray other =  (LongArray) o;
         int usedLen = getUsedLength();
         if (other.getUsedLength() != usedLen)
         {

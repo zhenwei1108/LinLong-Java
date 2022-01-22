@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.RuntimeCryptoException;
-
 /**
  * this exception is thrown whenever a cipher requires a change of key, iv
  * or similar after x amount of bytes enciphered

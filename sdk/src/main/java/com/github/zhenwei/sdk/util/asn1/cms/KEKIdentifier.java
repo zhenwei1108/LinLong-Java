@@ -2,12 +2,14 @@ package com.github.zhenwei.sdk.util.asn1.cms;
 
 
 import ASN1GeneralizedTime;
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 
 /**
@@ -25,7 +27,7 @@ import ASN1GeneralizedTime;
 public class KEKIdentifier
     extends ASN1Object
 {
-    private ASN1OctetString    keyIdentifier;
+    private ASN1OctetString keyIdentifier;
     private ASN1GeneralizedTime date;
     private OtherKeyAttribute  other;
 
@@ -132,7 +134,7 @@ public class KEKIdentifier
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(3);
+        ASN1EncodableVector v = new ASN1EncodableVector(3);
 
         v.add(keyIdentifier);
         

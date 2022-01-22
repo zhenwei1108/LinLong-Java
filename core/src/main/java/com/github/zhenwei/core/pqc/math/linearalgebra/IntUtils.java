@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import org.bouncycastle.pqc.math.linearalgebra.BigEndianConversions;
-import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
-
 public final class IntUtils
 {
 

@@ -1,14 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
 import java.util.Vector;
-
-import org.bouncycastle.pqc.crypto.gmss.GMSSDigestProvider;
-import org.bouncycastle.pqc.crypto.gmss.GMSSKeyParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSLeaf;
-import org.bouncycastle.pqc.crypto.gmss.GMSSParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootCalc;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootSig;
-import org.bouncycastle.pqc.crypto.gmss.Treehash;
 import org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
 import org.bouncycastle.pqc.crypto.gmss.util.WinternitzOTSignature;
 

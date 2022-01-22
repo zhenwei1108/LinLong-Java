@@ -1,22 +1,27 @@
 package com.github.zhenwei.provider.jcajce.provider.sphincs;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
- 
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.pqc.jcajce.interfaces.SPHINCSKey;
 
-import pkcs.PrivateKeyInfo;
+;
+
+ 
 
 public class BCSphincs256PrivateKey
     implements PrivateKey, SPHINCSKey
@@ -97,7 +102,8 @@ public class BCSphincs256PrivateKey
             }
             else
             {
-                AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(PQCObjectIdentifiers.sphincs256,
+                AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(
+                    PQCObjectIdentifiers.sphincs256,
                     new SPHINCS256KeyParams(new AlgorithmIdentifier(treeDigest)));
                 pki = new PrivateKeyInfo(algorithmIdentifier, new DEROctetString(params.getKeyData()), attributes);
             }

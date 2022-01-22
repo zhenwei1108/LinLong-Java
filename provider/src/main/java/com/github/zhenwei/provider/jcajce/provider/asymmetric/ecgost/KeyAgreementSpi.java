@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
+import X9IntegerConverter;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -7,13 +12,9 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.agreement.ECVKOAgreement;
 import org.bouncycastle.crypto.digests.GOST3411Digest;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
- 
-
 import org.bouncycastle.crypto.params.ParametersWithUKM;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
@@ -21,7 +22,6 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
-import X9IntegerConverter;
 
 public class KeyAgreementSpi
     extends BaseAgreementSpi
@@ -30,7 +30,7 @@ public class KeyAgreementSpi
 
     private String                 kaAlgorithm;
 
-    private ECDomainParameters     parameters;
+    private ECDomainParameters parameters;
     private ECVKOAgreement agreement;
 
     private byte[]             result;

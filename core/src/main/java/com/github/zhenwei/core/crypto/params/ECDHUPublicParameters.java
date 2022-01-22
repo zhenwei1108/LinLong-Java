@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 
 /**
  * Parameters holder for public unified static/ephemeral agreement as described in NIST SP 800-56A using EC DH/CDH.

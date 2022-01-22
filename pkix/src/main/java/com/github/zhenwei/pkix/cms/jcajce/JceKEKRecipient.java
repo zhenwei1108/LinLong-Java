@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import KEKRecipient;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.security.Key;
 import java.security.Provider;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KEKRecipient;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.SymmetricKeyUnwrapper;
 
@@ -29,7 +30,7 @@ public abstract class JceKEKRecipient
      * @param provider provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKEKRecipient setProvider(Provider provider)
+    public jcajce.JceKEKRecipient setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
         this.contentHelper = helper;
@@ -43,7 +44,7 @@ public abstract class JceKEKRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKEKRecipient setProvider(String providerName)
+    public jcajce.JceKEKRecipient setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
         this.contentHelper = helper;
@@ -57,7 +58,7 @@ public abstract class JceKEKRecipient
      * @param provider the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKEKRecipient setContentProvider(Provider provider)
+    public jcajce.JceKEKRecipient setContentProvider(Provider provider)
     {
         this.contentHelper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
 
@@ -70,7 +71,7 @@ public abstract class JceKEKRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKEKRecipient setContentProvider(String providerName)
+    public jcajce.JceKEKRecipient setContentProvider(String providerName)
     {
         this.contentHelper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
 
@@ -86,7 +87,7 @@ public abstract class JceKEKRecipient
      * @param doValidate true if unwrapped key's should be validated against the content encryption algorithm, false otherwise.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKEKRecipient setKeySizeValidation(boolean doValidate)
+    public jcajce.JceKEKRecipient setKeySizeValidation(boolean doValidate)
     {
         this.validateKeySize = doValidate;
 

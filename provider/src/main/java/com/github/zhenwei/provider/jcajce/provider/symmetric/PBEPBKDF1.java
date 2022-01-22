@@ -1,6 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;

@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.operator.bc;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.Wrapper;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.SymmetricKeyWrapper;
 

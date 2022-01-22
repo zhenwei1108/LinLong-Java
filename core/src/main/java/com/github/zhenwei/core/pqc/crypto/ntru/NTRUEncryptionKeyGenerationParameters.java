@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.SecureRandom;
-import java.util.Arrays;
-
-
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;

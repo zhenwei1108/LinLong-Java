@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
-
-
-
- 
-import SecP192R1Field;
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.math.raw.Nat192;
@@ -17,7 +17,8 @@ public class SecP192R1Curve extends ECCurve.AbstractFp
     public static final BigInteger q = SecP192R1FieldElement.Q;
 
     private static final int SECP192R1_DEFAULT_COORDS = COORD_JACOBIAN;
-    private static final ECFieldElement[] SECP192R1_AFFINE_ZS = new ECFieldElement[] { new SecP192R1FieldElement(ECConstants.ONE) }; 
+    private static final ECFieldElement[] SECP192R1_AFFINE_ZS = new ECFieldElement[] { new SecP192R1FieldElement(
+        ECConstants.ONE) };
 
     protected SecP192R1Point infinity;
 

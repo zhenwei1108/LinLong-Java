@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.prng;
 
 
-import org.bouncycastle.crypto.prng.RandomGenerator;
-
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Random generation based on the digest with counter. Calling addSeedMaterial will
@@ -18,7 +18,7 @@ public class DigestRandomGenerator
 
     private long                stateCounter;
     private long                seedCounter;
-    private Digest              digest;
+    private Digest digest;
     private byte[]              state;
     private byte[]              seed;
 

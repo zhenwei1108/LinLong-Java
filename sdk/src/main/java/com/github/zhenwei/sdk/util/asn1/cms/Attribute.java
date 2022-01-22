@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.DERSequence;
 
 
@@ -36,7 +36,7 @@ public class Attribute
     extends ASN1Object
 {
     private ASN1ObjectIdentifier attrType;
-    private ASN1Set             attrValues;
+    private ASN1Set attrValues;
 
     /**
      * Return an Attribute object from the given object.

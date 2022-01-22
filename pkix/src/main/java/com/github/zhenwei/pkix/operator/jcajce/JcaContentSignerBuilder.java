@@ -1,13 +1,29 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DefaultSignatureAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.RuntimeOperatorException;
+import com.github.zhenwei.pkix.operator.SignatureAlgorithmIdentifierFinder;
+import com.github.zhenwei.provider.jcajce.CompositePrivateKey;
+import com.github.zhenwei.provider.jcajce.spec.CompositeAlgorithmSpec;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
@@ -20,23 +36,8 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.List;
-import misc.MiscObjectIdentifiers;
-import org.bouncycastle.jcajce.CompositePrivateKey;
-import org.bouncycastle.jcajce.io.OutputStreamFactory;
-import org.bouncycastle.jcajce.spec.CompositeAlgorithmSpec;
+import sun.corba.OutputStreamFactory;
 
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
-import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.RuntimeOperatorException;
-import org.bouncycastle.operator.SignatureAlgorithmIdentifierFinder;
-import org.bouncycastle.util.io.TeeOutputStream;
-
-import pkcs.RSASSAPSSparams;
 
 public class JcaContentSignerBuilder
 {

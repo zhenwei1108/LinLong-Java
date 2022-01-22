@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.math.BigInteger;
-
-import org.bouncycastle.crypto.params.DSAValidationParameters;
 
 public class DSAParameters
     implements CipherParameters

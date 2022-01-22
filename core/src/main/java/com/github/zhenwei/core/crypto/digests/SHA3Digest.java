@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.KeccakDigest;
-
 /**
  * implementation of SHA-3 based on following KeccakNISTInterface.c from https://keccak.noekeon.org/
  * <p>

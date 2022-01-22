@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPoint;
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Class for describing an ECPoint as a DER object.

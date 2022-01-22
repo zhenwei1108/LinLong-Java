@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.Ed448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 
 public class Ed448KeyPairGenerator

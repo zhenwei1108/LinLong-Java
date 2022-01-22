@@ -1,5 +1,6 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

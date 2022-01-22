@@ -1,13 +1,16 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.crypto.engines.GOST28147Engine;
 
-import rosstandart.RosstandartObjectIdentifiers;
+
 
 /**
  * A parameter spec for the GOST-28147 cipher.

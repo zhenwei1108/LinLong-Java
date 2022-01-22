@@ -1,15 +1,17 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
-
-
-import AttCertValidityPeriod;
-import Attribute;
-import AttributeCertificate;
-import AttributeCertificateInfo;
-
-import Extensions;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AttCertValidityPeriod;
+import com.github.zhenwei.core.asn1.x509.AttributeCertificate;
+import com.github.zhenwei.core.asn1.x509.AttributeCertificateInfo;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.sun.org.apache.xalan.internal.lib.Extensions;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -20,9 +22,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.util.Encodable;
+
 
 /**
  * Holding class for an X.509 AttributeCertificate structure.

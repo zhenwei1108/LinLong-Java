@@ -1,5 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.generators.KDF2BytesGenerator;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.ByteArrayOutputStream;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -19,7 +29,6 @@ import javax.crypto.ShortBufferException;
 import javax.crypto.interfaces.DHKey;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.KeyEncoder;
 import org.bouncycastle.crypto.agreement.DHBasicAgreement;
@@ -28,25 +37,19 @@ import org.bouncycastle.crypto.engines.DESedeEngine;
 import org.bouncycastle.crypto.engines.IESEngine;
 import org.bouncycastle.crypto.generators.DHKeyPairGenerator;
 import org.bouncycastle.crypto.generators.EphemeralKeyPairGenerator;
-
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DHKeyGenerationParameters;
 import org.bouncycastle.crypto.params.DHKeyParameters;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.IESWithCipherParameters;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.parsers.DHIESPublicKeyParser;
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.IESUtil;
 import org.bouncycastle.jcajce.provider.util.BadBlockException;
-;
-
 import org.bouncycastle.jce.interfaces.IESKey;
 import org.bouncycastle.jce.spec.IESParameterSpec;
+
+;
  
 
 

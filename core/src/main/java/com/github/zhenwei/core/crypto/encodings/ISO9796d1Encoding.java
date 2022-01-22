@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.encodings;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
- 
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
@@ -44,7 +44,7 @@ public class ISO9796d1Encoding
 
     public void init(
         boolean             forEncryption,
-        CipherParameters    param)
+        CipherParameters param)
     {
         RSAKeyParameters  kParam = null;
 

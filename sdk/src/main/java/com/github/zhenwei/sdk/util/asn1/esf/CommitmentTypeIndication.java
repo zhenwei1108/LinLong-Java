@@ -1,17 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class CommitmentTypeIndication
     extends ASN1Object
 {
-    private ASN1ObjectIdentifier   commitmentTypeId;
-    private ASN1Sequence          commitmentTypeQualifier;
+    private ASN1ObjectIdentifier commitmentTypeId;
+    private ASN1Sequence commitmentTypeQualifier;
     
     private CommitmentTypeIndication(
         ASN1Sequence seq)

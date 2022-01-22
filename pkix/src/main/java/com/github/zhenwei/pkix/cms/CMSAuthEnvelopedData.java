@@ -1,17 +1,20 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
 import cms.AttributeTable;
 import cms.AuthEnvelopedData;
 import cms.ContentInfo;
 import cms.EncryptedContentInfo;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Encodable;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.bouncycastle.util.Encodable;
+
 
 /**
  * containing class for an CMS AuthEnveloped Data object
@@ -23,8 +26,8 @@ public class CMSAuthEnvelopedData
     ContentInfo contentInfo;
 
     private OriginatorInformation  originatorInfo;
-    private AlgorithmIdentifier    authEncAlg;
-    private ASN1Set                authAttrs;
+    private AlgorithmIdentifier authEncAlg;
+    private ASN1Set authAttrs;
     private byte[]                 mac;
     private ASN1Set                unauthAttrs;
 
@@ -72,7 +75,8 @@ public class CMSAuthEnvelopedData
             public InputStream getInputStream()
                 throws IOException, CMSException
             {
-                return new ByteArrayInputStream(Arrays.concatenate(authEncInfo.getEncryptedContent().getOctets(), mac));
+                return new ByteArrayInputStream(
+                    Arrays.concatenate(authEncInfo.getEncryptedContent().getOctets(), mac));
             }
         };
 

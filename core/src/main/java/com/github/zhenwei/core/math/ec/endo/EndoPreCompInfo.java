@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.ec.endo;
 
 
-import PreCompInfo;
+import com.github.zhenwei.core.math.ec.PreCompInfo;
 
 public class EndoPreCompInfo implements PreCompInfo
 {

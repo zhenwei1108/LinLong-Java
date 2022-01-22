@@ -1,7 +1,11 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.io.OutputStream;
 import java.security.AlgorithmParameters;
 import java.security.Provider;
@@ -9,10 +13,7 @@ import java.security.SecureRandom;
 import javax.crypto.KeyGenerator;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.jcajce.io.MacOutputStream;
-import org.bouncycastle.operator.GenericKey;
-import org.bouncycastle.operator.MacCalculator;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
 
 public class JceCMSMacCalculatorBuilder
@@ -41,7 +42,7 @@ public class JceCMSMacCalculatorBuilder
      * @param provider the provider object to use for MAC and default parameters creation.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSMacCalculatorBuilder setProvider(Provider provider)
+    public jcajce.JceCMSMacCalculatorBuilder setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
 
@@ -54,7 +55,7 @@ public class JceCMSMacCalculatorBuilder
      * @param providerName the name of the provider to use for MAC and default parameters creation.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSMacCalculatorBuilder setProvider(String providerName)
+    public jcajce.JceCMSMacCalculatorBuilder setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
 
@@ -67,7 +68,7 @@ public class JceCMSMacCalculatorBuilder
      * @param random the secure random to use.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSMacCalculatorBuilder setSecureRandom(SecureRandom random)
+    public jcajce.JceCMSMacCalculatorBuilder setSecureRandom(SecureRandom random)
     {
         this.random = random;
 
@@ -80,7 +81,7 @@ public class JceCMSMacCalculatorBuilder
      * @param algorithmParameters algorithmParameters for MAC initialisation.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSMacCalculatorBuilder setAlgorithmParameters(AlgorithmParameters algorithmParameters)
+    public jcajce.JceCMSMacCalculatorBuilder setAlgorithmParameters(AlgorithmParameters algorithmParameters)
     {
         this.algorithmParameters = algorithmParameters;
 

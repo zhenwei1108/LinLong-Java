@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.gm;
 
 
-
- 
-import custom.gm.SM2P256V1Field;
-
-
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat256;
 
 public class SM2P256V1Point extends ECPoint.AbstractFp
 {

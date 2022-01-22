@@ -1,14 +1,15 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
+import KeyTransRecipientInfoGenerator;
 import cms.IssuerAndSerialNumber;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
-import org.bouncycastle.cms.KeyTransRecipientInfoGenerator;
 import org.bouncycastle.operator.AsymmetricKeyWrapper;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyWrapper;
 
@@ -61,14 +62,14 @@ public class JceKeyTransRecipientInfoGenerator
         super(subjectKeyIdentifier, new JceAsymmetricKeyWrapper(algorithmIdentifier, publicKey));
     }
 
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator setProvider(String providerName)
+    public jcajce.JceKeyTransRecipientInfoGenerator setProvider(String providerName)
     {
         ((JceAsymmetricKeyWrapper)this.wrapper).setProvider(providerName);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator setProvider(Provider provider)
+    public jcajce.JceKeyTransRecipientInfoGenerator setProvider(Provider provider)
     {
         ((JceAsymmetricKeyWrapper)this.wrapper).setProvider(provider);
 
@@ -88,7 +89,8 @@ public class JceKeyTransRecipientInfoGenerator
      * @param algorithmName JCE algorithm name to use.
      * @return the current RecipientInfoGenerator.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
+    public jcajce.JceKeyTransRecipientInfoGenerator setAlgorithmMapping(
+        ASN1ObjectIdentifier algorithm, String algorithmName)
     {
         ((JceAsymmetricKeyWrapper)this.wrapper).setAlgorithmMapping(algorithm, algorithmName);
 

@@ -1,12 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.elgamal;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.oiw.ElGamalParameter;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.DHParameterSpec;
-import oiw.ElGamalParameter;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
 

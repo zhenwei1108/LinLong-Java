@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.params;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.DHParameters;
+ 
 
 public class DHKeyGenerationParameters
     extends KeyGenerationParameters

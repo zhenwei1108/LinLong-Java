@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.kisa;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Korea Information Security Agency (KISA)

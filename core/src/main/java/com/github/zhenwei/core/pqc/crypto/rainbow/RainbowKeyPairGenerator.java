@@ -1,15 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.rainbow.Layer;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.rainbow.util.ComputeInField;
 import org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;
 
@@ -106,7 +101,8 @@ public class RainbowKeyPairGenerator
 
     private void initializeDefault()
     {
-        RainbowKeyGenerationParameters rbKGParams = new RainbowKeyGenerationParameters(CryptoServicesRegistrar.getSecureRandom(), new RainbowParameters());
+        RainbowKeyGenerationParameters rbKGParams = new RainbowKeyGenerationParameters(
+            CryptoServicesRegistrar.getSecureRandom(), new RainbowParameters());
         initialize(rbKGParams);
     }
 

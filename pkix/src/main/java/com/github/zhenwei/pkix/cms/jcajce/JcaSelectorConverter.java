@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import KeyTransRecipientId;
+import SignerId;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
 import java.io.IOException;
 import java.security.cert.X509CertSelector;
-import org.bouncycastle.cms.KeyTransRecipientId;
-import org.bouncycastle.cms.SignerId;
 
 public class JcaSelectorConverter
 {

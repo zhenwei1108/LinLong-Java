@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
 
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.SHA3Digest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;

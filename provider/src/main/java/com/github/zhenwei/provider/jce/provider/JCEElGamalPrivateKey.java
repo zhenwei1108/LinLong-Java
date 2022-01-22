@@ -1,9 +1,16 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.oiw.ElGamalParameter;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,16 +19,13 @@ import java.util.Enumeration;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPrivateKeySpec;
-import oiw.ElGamalParameter;
-
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.interfaces.ElGamalPrivateKey;
-
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
 import org.bouncycastle.jce.spec.ElGamalPrivateKeySpec;
-import pkcs.PrivateKeyInfo;
+
+;
+ 
 
 public class JCEElGamalPrivateKey
     implements ElGamalPrivateKey, DHPrivateKey, PKCS12BagAttributeCarrier
@@ -67,18 +71,18 @@ public class JCEElGamalPrivateKey
     }
     
     JCEElGamalPrivateKey(
-        PrivateKeyInfo  info)
+        PrivateKeyInfo info)
         throws IOException
     {
-        ElGamalParameter     params = ElGamalParameter.getInstance(info.getPrivateKeyAlgorithm().getParameters());
-        ASN1Integer      derX = ASN1Integer.getInstance(info.parsePrivateKey());
+        ElGamalParameter params = ElGamalParameter.getInstance(info.getPrivateKeyAlgorithm().getParameters());
+        ASN1Integer derX = ASN1Integer.getInstance(info.parsePrivateKey());
 
         this.x = derX.getValue();
         this.elSpec = new ElGamalParameterSpec(params.getP(), params.getG());
     }
 
     JCEElGamalPrivateKey(
-        ElGamalPrivateKeyParameters  params)
+        ElGamalPrivateKeyParameters params)
     {
         this.x = params.getX();
         this.elSpec = new ElGamalParameterSpec(params.getParameters().getP(), params.getParameters().getG());

@@ -1,25 +1,34 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-import Extensions;
-
 import KeyUsage;
 import TBSCertificate;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.util.ASN1Dump;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Properties;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.io.OutputStreamFactory;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -49,20 +58,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import misc.MiscObjectIdentifiers;
 import misc.NetscapeCertType;
 import misc.NetscapeRevocationURL;
 import misc.VerisignCzagExtension;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
-import org.bouncycastle.jcajce.io.OutputStreamFactory;
-
 import org.bouncycastle.jce.X509Principal;
-
-
- 
-
-
 import style.RFC4519Style;
 
 
@@ -227,7 +228,7 @@ abstract class X509CertificateImpl
 
     public boolean[] getIssuerUniqueID()
     {
-        DERBitString    id = c.getTBSCertificate().getIssuerUniqueId();
+        DERBitString id = c.getTBSCertificate().getIssuerUniqueId();
 
         if (id != null)
         {
@@ -497,7 +498,7 @@ abstract class X509CertificateImpl
                 if (ext.getExtnValue() != null)
                 {
                     byte[]                  octs = ext.getExtnValue().getOctets();
-                    ASN1InputStream         dIn = new ASN1InputStream(octs);
+                    ASN1InputStream dIn = new ASN1InputStream(octs);
                     buf.append("                       critical(").append(ext.isCritical()).append(") ");
                     try
                     {

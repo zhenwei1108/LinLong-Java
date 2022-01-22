@@ -2,7 +2,6 @@ package com.github.zhenwei.core.util.encoders;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.util.encoders.Encoder;
 
 /**
  * A streaming Base64 encoder.

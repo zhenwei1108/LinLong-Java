@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.digests.HarakaBase;
-
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Haraka-512 v2, https://eprint.iacr.org/2016/098.pdf

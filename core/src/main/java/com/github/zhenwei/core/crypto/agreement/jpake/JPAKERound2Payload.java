@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.agreement.jpake;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEUtil;
 
 
 /**

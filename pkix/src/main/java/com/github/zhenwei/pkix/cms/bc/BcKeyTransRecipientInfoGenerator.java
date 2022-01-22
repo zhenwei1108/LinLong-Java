@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cms.bc;
 
+import KeyTransRecipientInfoGenerator;
 import cms.IssuerAndSerialNumber;
- 
-import org.bouncycastle.cms.KeyTransRecipientInfoGenerator;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import org.bouncycastle.operator.bc.BcAsymmetricKeyWrapper;
 
 public abstract class BcKeyTransRecipientInfoGenerator

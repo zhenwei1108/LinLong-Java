@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto.modes.kgcm;
 
-import org.bouncycastle.crypto.modes.kgcm.KGCMMultiplier;
-import org.bouncycastle.crypto.modes.kgcm.KGCMUtil_256;
-
 public class BasicKGCMMultiplier_256
     implements KGCMMultiplier
 {

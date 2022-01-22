@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.generators;
 
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.generators.DESKeyGenerator;
 import org.bouncycastle.crypto.params.DESedeParameters;
 
 public class DESedeKeyGenerator

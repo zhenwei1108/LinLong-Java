@@ -1,12 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 
 /**
@@ -39,8 +40,8 @@ import java.util.Enumeration;
 public class DataGroupHash 
     extends ASN1Object
 {
-    ASN1Integer dataGroupNumber;    
-    ASN1OctetString    dataGroupHashValue;
+    ASN1Integer dataGroupNumber;
+    ASN1OctetString dataGroupHashValue;
     
     public static icao.DataGroupHash getInstance(
         Object obj)

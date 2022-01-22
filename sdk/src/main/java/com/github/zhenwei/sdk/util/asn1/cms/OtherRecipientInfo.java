@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.5">RFC 5652</a>:
@@ -21,8 +22,8 @@ package com.github.zhenwei.sdk.util.asn1.cms;
 public class OtherRecipientInfo
     extends ASN1Object
 {
-    private ASN1ObjectIdentifier    oriType;
-    private ASN1Encodable           oriValue;
+    private ASN1ObjectIdentifier oriType;
+    private ASN1Encodable oriValue;
 
     public OtherRecipientInfo(
         ASN1ObjectIdentifier     oriType,
@@ -49,7 +50,7 @@ public class OtherRecipientInfo
      *          tagged object cannot be converted.
      */
     public static cms.OtherRecipientInfo getInstance(
-        ASN1TaggedObject    obj,
+        ASN1TaggedObject obj,
         boolean             explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));

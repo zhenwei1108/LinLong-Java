@@ -1,20 +1,20 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import CMSAttributeTableGenerator;
+import DefaultSignedAttributeTableGenerator;
+import SignerInfoGenerator;
+import SignerInfoGeneratorBuilder;
 import cms.AttributeTable;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
- 
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.DefaultSignedAttributeTableGenerator;
-import org.bouncycastle.cms.SignerInfoGenerator;
-import org.bouncycastle.cms.SignerInfoGeneratorBuilder;
-import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
@@ -57,7 +57,7 @@ public class JcaSimpleSignerInfoGeneratorBuilder
         this.helper = new Helper();
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setProvider(String providerName)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setProvider(String providerName)
         throws OperatorCreationException
     {
         this.helper = new NamedHelper(providerName);
@@ -65,7 +65,7 @@ public class JcaSimpleSignerInfoGeneratorBuilder
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setProvider(Provider provider)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setProvider(Provider provider)
         throws OperatorCreationException
     {
         this.helper = new ProviderHelper(provider);
@@ -79,21 +79,21 @@ public class JcaSimpleSignerInfoGeneratorBuilder
      *
      * @return the builder object
      */
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setDirectSignature(boolean hasNoSignedAttributes)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setDirectSignature(boolean hasNoSignedAttributes)
     {
         this.hasNoSignedAttributes = hasNoSignedAttributes;
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setContentDigest(AlgorithmIdentifier contentDigest)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setContentDigest(AlgorithmIdentifier contentDigest)
     {
         this.contentDigest = contentDigest;
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setSignedAttributeGenerator(CMSAttributeTableGenerator signedGen)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setSignedAttributeGenerator(CMSAttributeTableGenerator signedGen)
     {
         this.signedGen = signedGen;
 
@@ -106,14 +106,14 @@ public class JcaSimpleSignerInfoGeneratorBuilder
      * @param attrTable table of attributes for priming generator
      * @return this.
      */
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setSignedAttributeGenerator(AttributeTable attrTable)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setSignedAttributeGenerator(AttributeTable attrTable)
     {
         this.signedGen = new DefaultSignedAttributeTableGenerator(attrTable);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoGeneratorBuilder setUnsignedAttributeGenerator(CMSAttributeTableGenerator unsignedGen)
+    public jcajce.JcaSimpleSignerInfoGeneratorBuilder setUnsignedAttributeGenerator(CMSAttributeTableGenerator unsignedGen)
     {
         this.unsignedGen = unsignedGen;
 

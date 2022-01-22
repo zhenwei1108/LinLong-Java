@@ -1,20 +1,21 @@
 package com.github.zhenwei.core.crypto.util;
 
 import ASN1Null;
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.io.OutputStream;
 import kisa.KISAObjectIdentifiers;
 import misc.CAST5CBCParameters;
-import misc.MiscObjectIdentifiers;
-
-
-
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
- 
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.engines.AESEngine;
 import org.bouncycastle.crypto.engines.CAST5Engine;
@@ -35,7 +36,6 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.RC2Parameters;
 import org.bouncycastle.internal.asn1.cms.CCMParameters;
 import org.bouncycastle.internal.asn1.cms.GCMParameters;
-
 import pkcs.RC2CBCParameter;
 
 /**

@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.examples;
 
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;

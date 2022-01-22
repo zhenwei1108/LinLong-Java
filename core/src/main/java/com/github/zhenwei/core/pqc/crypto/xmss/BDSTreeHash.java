@@ -2,7 +2,6 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
 
 import java.io.Serializable;
 import java.util.Stack;
-import org.bouncycastle.pqc.crypto.xmss.XMSSNode;
 
 
 class BDSTreeHash

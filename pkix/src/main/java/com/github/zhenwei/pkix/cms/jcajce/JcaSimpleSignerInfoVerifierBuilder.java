@@ -1,16 +1,16 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import DefaultCMSSignatureAlgorithmNameGenerator;
+import SignerInformationVerifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.DefaultSignatureAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
- 
-import org.bouncycastle.cms.DefaultCMSSignatureAlgorithmNameGenerator;
-import org.bouncycastle.cms.SignerInformationVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
@@ -18,14 +18,14 @@ public class JcaSimpleSignerInfoVerifierBuilder
 {
     private Helper helper = new Helper();
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder setProvider(Provider provider)
+    public jcajce.JcaSimpleSignerInfoVerifierBuilder setProvider(Provider provider)
     {
         this.helper = new ProviderHelper(provider);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder setProvider(String providerName)
+    public jcajce.JcaSimpleSignerInfoVerifierBuilder setProvider(String providerName)
     {
         this.helper = new NamedHelper(providerName);
 

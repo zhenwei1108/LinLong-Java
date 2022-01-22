@@ -1,18 +1,27 @@
 package com.github.zhenwei.pkix.operator;
 
 
-
-
-
-import BCObjectIdentifiers;
-
-import bsi.BSIObjectIdentifiers;
-import cms.CMSObjectIdentifiers;
-
-import  EACObjectIdentifiers;
-import edec.EdECObjectIdentifiers;
-import gm.GMObjectIdentifiers;
-import isara.IsaraObjectIdentifiers;
+import EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.bc.BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.bsi.BSIObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Strings;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -21,10 +30,10 @@ import java.util.Set;
 
 
 
-import pkcs.RSASSAPSSparams;
-import rosstandart.RosstandartObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
+
 
 public class DefaultSignatureAlgorithmIdentifierFinder
     implements SignatureAlgorithmIdentifierFinder

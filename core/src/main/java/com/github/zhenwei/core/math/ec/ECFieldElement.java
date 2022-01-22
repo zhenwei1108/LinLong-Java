@@ -1,6 +1,9 @@
 package com.github.zhenwei.core.math.ec;
 
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.Integers;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -155,7 +158,7 @@ public abstract class ECFieldElement
             return q;
         }
 
-        public ECFieldElement add(org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement add (ECFieldElement b)
         {
             return new Fp(q, r, modAdd(x, b.toBigInteger()));
         }

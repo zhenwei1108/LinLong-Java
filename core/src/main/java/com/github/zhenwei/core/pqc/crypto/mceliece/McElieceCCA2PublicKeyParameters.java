@@ -1,6 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2KeyParameters;
 import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
 
 /**

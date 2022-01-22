@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
+import com.github.zhenwei.core.asn1.DERBitString;
 
 /**
  * <pre>

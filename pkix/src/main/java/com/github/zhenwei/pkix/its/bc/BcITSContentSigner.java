@@ -1,23 +1,26 @@
 package com.github.zhenwei.pkix.its.bc;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
-
-
 import org.bouncycastle.crypto.io.DigestOutputStream;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-
 import org.bouncycastle.crypto.signers.DSADigestSigner;
 import org.bouncycastle.crypto.signers.ECDSASigner;
 import org.bouncycastle.its.ITSCertificate;
 import org.bouncycastle.its.operator.ITSContentSigner;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.bc.BcDefaultDigestProvider;
 
-import sec.SECObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
+
+
 
 public class BcITSContentSigner
     implements ITSContentSigner

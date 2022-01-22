@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 
 class Utils
 {

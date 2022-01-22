@@ -1,10 +1,6 @@
 package com.github.zhenwei.core.crypto.prng;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.EntropySourceProvider;
-import org.bouncycastle.crypto.prng.SP800SecureRandom;
-import org.bouncycastle.crypto.prng.X931SecureRandom;
 
 /**
  * An EntropySourceProvider where entropy generation is based on a SecureRandom output using SecureRandom.generateSeed().

@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.params.DESParameters;
-
 public class DESedeParameters
     extends DESParameters
 {

@@ -1,10 +1,15 @@
 package com.github.zhenwei.pkix.mozilla;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.InvalidKeyException;
@@ -16,10 +21,10 @@ import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.X509EncodedKeySpec;
 import mozilla.PublicKeyAndChallenge;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.Encodable;
+
+
+
+
 
 /**
  * This is designed to parse the SignedPublicKeyAndChallenge created by the

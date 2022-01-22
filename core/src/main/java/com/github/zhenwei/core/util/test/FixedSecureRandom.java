@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.util.test;
 
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.Provider;

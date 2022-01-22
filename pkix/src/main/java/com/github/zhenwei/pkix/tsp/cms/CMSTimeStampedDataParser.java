@@ -1,21 +1,23 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 
-
+import CMSContentInfoParser;
 import cms.AttributeTable;
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfoParser;
 import cms.TimeStampedDataParser;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.BERTags;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import org.bouncycastle.cms.CMSContentInfoParser;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TimeStampToken;
 
 
@@ -46,7 +48,8 @@ public class CMSTimeStampedDataParser
         {
             if (CMSObjectIdentifiers.timestampedData.equals(contentInfo.getContentType()))
             {
-                this.timeStampedData = TimeStampedDataParser.getInstance(contentInfo.getContent(BERTags.SEQUENCE));
+                this.timeStampedData = TimeStampedDataParser.getInstance(contentInfo.getContent(
+                    BERTags.SEQUENCE));
             }
             else
             {

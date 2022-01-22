@@ -1,10 +1,9 @@
 package com.github.zhenwei.core.util.encoders;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.io.OutputStream;
-
-
-import org.bouncycastle.util.encoders.Encoder;
 
 /**
  * A streaming Base32 encoder.

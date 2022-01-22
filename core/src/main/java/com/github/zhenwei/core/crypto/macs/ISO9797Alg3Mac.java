@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.macs;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import org.bouncycastle.crypto.BlockCipher;
-
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.engines.DESEngine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
@@ -17,7 +17,7 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
  */
 
 public class ISO9797Alg3Mac 
-    implements Mac 
+    implements Mac
 {
     private byte[]              mac;
     

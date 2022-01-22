@@ -1,14 +1,19 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-
-
+import CMSEncryptedDataGenerator;
+import CMSProcessableByteArray;
 import DLSequence;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.pkcs.AuthenticatedSafe;
+import com.github.zhenwei.core.asn1.pkcs.MacData;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.Pfx;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
-import org.bouncycastle.cms.CMSEncryptedDataGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessableByteArray;
 import org.bouncycastle.operator.OutputEncryptor;
 
 
@@ -159,7 +164,7 @@ public class PKCS12PfxPduBuilder
         }
 
         ContentInfo       mainInfo = new ContentInfo(PKCSObjectIdentifiers.data, new DEROctetString(encAuth));
-        MacData           mData = null;
+        MacData mData = null;
 
         if (macCalcBuilder != null)
         {

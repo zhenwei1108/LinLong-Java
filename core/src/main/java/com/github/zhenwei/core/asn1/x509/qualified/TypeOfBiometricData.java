@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.qualified;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 
 /**
  * The TypeOfBiometricData object.
@@ -26,7 +27,7 @@ public class TypeOfBiometricData
     public static final int PICTURE                     = 0;
     public static final int HANDWRITTEN_SIGNATURE       = 1;
 
-    ASN1Encodable      obj;
+    ASN1Encodable obj;
 
     public static qualified.TypeOfBiometricData getInstance(Object obj)
     {

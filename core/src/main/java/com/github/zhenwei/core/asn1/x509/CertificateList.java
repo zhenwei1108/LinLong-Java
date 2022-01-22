@@ -2,13 +2,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 
 /**
@@ -29,7 +30,7 @@ public class CertificateList
 {
     TBSCertList            tbsCertList;
     AlgorithmIdentifier    sigAlgId;
-    DERBitString           sig;
+    DERBitString sig;
     boolean                isHashCodeSet = false;
     int                    hashCodeValue;
 
@@ -45,7 +46,7 @@ public class CertificateList
     {
         if (obj instanceof CertificateList)
         {
-            return (x509.CertificateList)obj;
+            return (CertificateList)obj;
         }
         else if (obj != null)
         {

@@ -1,19 +1,22 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
 
-
-
-
-
-
-
-
-
-
 import GeneralNames;
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.Integers;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -30,7 +33,6 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
 import javax.security.auth.x500.X500Principal;
-
 import org.bouncycastle.cert.X509ExtensionUtils;
 import org.bouncycastle.operator.DigestCalculator;
  

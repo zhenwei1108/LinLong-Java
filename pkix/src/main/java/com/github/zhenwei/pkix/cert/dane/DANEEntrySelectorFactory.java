@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.cert.dane;
 
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.operator.DigestCalculator;

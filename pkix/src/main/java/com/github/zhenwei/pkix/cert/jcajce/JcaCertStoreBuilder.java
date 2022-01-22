@@ -1,5 +1,8 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.security.GeneralSecurityException;
 import java.security.Provider;
 import java.security.cert.CRLException;
@@ -9,9 +12,9 @@ import java.security.cert.CollectionCertStoreParameters;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.cert.X509CRLHolder;
+
  
-import org.bouncycastle.util.Store;
+
 
 /**
  * Builder to create a CertStore from certificate and CRL stores.
@@ -42,7 +45,8 @@ public class JcaCertStoreBuilder
      *
      * @param cert  the X509 certificate holder containing the certificate.
      */
-    public org.bouncycastle.cert.jcajce.JcaCertStoreBuilder addCertificate(X509CertificateHolder cert)
+    public org.bouncycastle.cert.jcajce.JcaCertStoreBuilder addCertificate(
+        X509CertificateHolder cert)
     {
         certs.add(cert);
 

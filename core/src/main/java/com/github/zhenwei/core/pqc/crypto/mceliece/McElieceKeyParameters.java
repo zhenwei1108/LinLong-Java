@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceParameters;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 public class McElieceKeyParameters
     extends AsymmetricKeyParameter

@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 import X500Name;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 
 
@@ -70,7 +71,7 @@ class OriginatorId
 
     public Object clone()
     {
-        return new org.bouncycastle.cms.OriginatorId(this.issuer, this.serialNumber, this.subjectKeyId);
+        return new OriginatorId(this.issuer, this.serialNumber, this.subjectKeyId);
     }
 
     public int hashCode()
@@ -93,12 +94,12 @@ class OriginatorId
     public boolean equals(
         Object  o)
     {
-        if (!(o instanceof org.bouncycastle.cms.OriginatorId))
+        if (!(o instanceof OriginatorId))
         {
             return false;
         }
 
-        org.bouncycastle.cms.OriginatorId id = (org.bouncycastle.cms.OriginatorId)o;
+        OriginatorId id = (org.bouncycastle.cms.OriginatorId)o;
 
         return Arrays.areEqual(subjectKeyId, id.subjectKeyId)
             && equalsObj(this.serialNumber, id.serialNumber)

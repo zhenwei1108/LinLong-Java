@@ -1,12 +1,14 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -14,8 +16,6 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.MGF1ParameterSpec;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-
 import pkcs.RSAESOAEPparams;
 
 public class JcaAlgorithmParametersConverter
@@ -70,7 +70,8 @@ public class JcaAlgorithmParametersConverter
                     mgf1HashAlgorithm = new AlgorithmIdentifier(mgf1HashAlgorithm.getAlgorithm(), DERNull.INSTANCE);
                 }
                 return new AlgorithmIdentifier(algorithm,
-                    new RSAESOAEPparams(hashAlgorithm, new AlgorithmIdentifier(PKCSObjectIdentifiers.id_mgf1, mgf1HashAlgorithm),
+                    new RSAESOAEPparams(hashAlgorithm, new AlgorithmIdentifier(
+                        PKCSObjectIdentifiers.id_mgf1, mgf1HashAlgorithm),
                         new AlgorithmIdentifier(PKCSObjectIdentifiers.id_pSpecified, new DEROctetString(((PSource.PSpecified)pSource).getValue()))));
             }
         }

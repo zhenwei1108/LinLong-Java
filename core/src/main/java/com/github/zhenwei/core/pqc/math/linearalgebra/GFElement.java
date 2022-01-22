@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 import java.math.BigInteger;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nElement;
 
 
 /**

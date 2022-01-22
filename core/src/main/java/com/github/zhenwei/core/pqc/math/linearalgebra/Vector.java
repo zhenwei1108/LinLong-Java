@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-
 /**
  * This abstract class defines vectors. It holds the length of vector.
  */

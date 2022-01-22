@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.signers.DSAKCalculator;
 
  
 

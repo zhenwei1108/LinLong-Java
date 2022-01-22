@@ -1,16 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.elgamal;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ElGamalParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ElGamalParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
 import org.bouncycastle.jce.interfaces.ElGamalPrivateKey;
 import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
+
+;
 
 /**
  * utility class for converting jce/jca ElGamal objects

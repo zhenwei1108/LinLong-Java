@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.math.field;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.field.FiniteField;
 
 class PrimeField implements FiniteField
 {

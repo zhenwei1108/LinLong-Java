@@ -1,8 +1,6 @@
 
 package com.github.zhenwei.core.i18n.filter;
 
-import org.bouncycastle.i18n.filter.Filter;
-
 /**
  * Filter for strings to store in a SQL table.
  * 

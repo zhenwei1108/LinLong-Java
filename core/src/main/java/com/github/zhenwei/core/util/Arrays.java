@@ -2,7 +2,6 @@ package com.github.zhenwei.core.util;
 
 import java.math.BigInteger;
 import java.util.NoSuchElementException;
-import org.bouncycastle.util.Objects;
 
 /**
  * General array utilities.

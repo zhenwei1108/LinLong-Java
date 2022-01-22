@@ -1,9 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.elgamal;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.oiw.ElGamalParameter;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -11,8 +14,6 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import oiw.ElGamalParameter;
-
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
 import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
@@ -72,8 +73,8 @@ public class BCElGamalPublicKey
     BCElGamalPublicKey(
         SubjectPublicKeyInfo info)
     {
-        ElGamalParameter        params = ElGamalParameter.getInstance(info.getAlgorithm().getParameters());
-        ASN1Integer              derY = null;
+        ElGamalParameter params = ElGamalParameter.getInstance(info.getAlgorithm().getParameters());
+        ASN1Integer derY = null;
 
         try
         {
@@ -102,7 +103,8 @@ public class BCElGamalPublicKey
     {
         try
         {
-            SubjectPublicKeyInfo    info = new SubjectPublicKeyInfo(new AlgorithmIdentifier(OIWObjectIdentifiers.elGamalAlgorithm, new ElGamalParameter(elSpec.getP(), elSpec.getG())), new ASN1Integer(y));
+            SubjectPublicKeyInfo    info = new SubjectPublicKeyInfo(new AlgorithmIdentifier(
+                OIWObjectIdentifiers.elGamalAlgorithm, new ElGamalParameter(elSpec.getP(), elSpec.getG())), new ASN1Integer(y));
 
             return info.getEncoded(ASN1Encoding.DER);
         }

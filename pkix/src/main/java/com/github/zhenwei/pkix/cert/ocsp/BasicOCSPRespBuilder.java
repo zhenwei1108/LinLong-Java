@@ -1,16 +1,17 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-
 import ASN1GeneralizedTime;
-
 import CRLReason;
-
 import DERGeneralizedTime;
-
-
-import Extensions;
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,8 +22,6 @@ import ocsp.CertStatus;
 import ocsp.ResponseData;
 import ocsp.RevokedInfo;
 import ocsp.SingleResponse;
- 
-import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculator;
 
 /**
@@ -246,7 +245,7 @@ public class BasicOCSPRespBuilder
         }
 
         ResponseData  tbsResp = new ResponseData(responderID.toASN1Primitive(), new ASN1GeneralizedTime(producedAt), new DERSequence(responses), responseExtensions);
-        DERBitString    bitSig;
+        DERBitString bitSig;
 
         try
         {

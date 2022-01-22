@@ -1,11 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 public interface ESFAttributes
 {
-    public static final ASN1ObjectIdentifier  sigPolicyId = PKCSObjectIdentifiers.id_aa_ets_sigPolicyId;
+    public static final ASN1ObjectIdentifier sigPolicyId = PKCSObjectIdentifiers.id_aa_ets_sigPolicyId;
     public static final ASN1ObjectIdentifier  commitmentType = PKCSObjectIdentifiers.id_aa_ets_commitmentType;
     public static final ASN1ObjectIdentifier  signerLocation = PKCSObjectIdentifiers.id_aa_ets_signerLocation;
     public static final ASN1ObjectIdentifier  signerAttr = PKCSObjectIdentifiers.id_aa_ets_signerAttr;

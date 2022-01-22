@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.prng;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.prng.EntropySource;
 
 public class X931RNG
 {

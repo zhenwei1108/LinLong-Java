@@ -1,12 +1,13 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import RecipientOperator;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.InputStream;
 import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.RecipientOperator;
 import org.bouncycastle.jcajce.io.CipherInputStream;
 import org.bouncycastle.operator.InputDecryptor;
 

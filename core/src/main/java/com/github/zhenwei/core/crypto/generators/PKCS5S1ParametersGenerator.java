@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Digest;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
@@ -18,7 +19,7 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 public class PKCS5S1ParametersGenerator
     extends PBEParametersGenerator
 {
-    private Digest  digest;
+    private Digest digest;
 
     /**
      * Construct a PKCS 5 Scheme 1 Parameters generator. 

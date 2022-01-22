@@ -1,11 +1,13 @@
 package com.github.zhenwei.core.crypto.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import java.security.SecureRandom;
 import kisa.KISAObjectIdentifiers;
-
-
-
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.generators.DESKeyGenerator;

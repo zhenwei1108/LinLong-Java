@@ -1,11 +1,20 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
-
- 
-
-import ECGOST3410NamedCurves;
-import GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.field.PolynomialExtensionField;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.math.BigInteger;
 import java.security.spec.ECField;
 import java.security.spec.ECFieldF2m;
@@ -17,20 +26,17 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
- 
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
-
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
 
 
-import ECNamedCurveTable;
-import X962Parameters;
-import X9ECParameters;
+ 
+ 
+
 
 public class EC5Util
 {
@@ -341,7 +347,7 @@ public class EC5Util
         return curve.createPoint(point.getAffineX(), point.getAffineY());
     }
 
-    public static ECPoint convertPoint(org.bouncycastle.math.ec.ECPoint point)
+    public static ECPoint convertPoint (ECPoint point)
     {
         point = point.normalize();
 

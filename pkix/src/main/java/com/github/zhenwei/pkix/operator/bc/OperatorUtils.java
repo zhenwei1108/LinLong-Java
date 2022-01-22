@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.operator.bc;
 
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.Key;
-import org.bouncycastle.operator.GenericKey;
+
 
 class OperatorUtils
 {

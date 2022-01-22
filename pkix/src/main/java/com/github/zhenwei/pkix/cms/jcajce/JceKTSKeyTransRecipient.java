@@ -1,19 +1,21 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
-
+import KeyTransRecipient;
+import KeyTransRecipientId;
 import cms.IssuerAndSerialNumber;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
 import java.security.Key;
 import java.security.PrivateKey;
 import java.security.Provider;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyTransRecipient;
-import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.jcajce.JceKTSKeyUnwrapper;
 
@@ -44,7 +46,7 @@ public abstract class JceKTSKeyTransRecipient
      * @param provider provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipient setProvider(Provider provider)
+    public jcajce.JceKTSKeyTransRecipient setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
         this.contentHelper = helper;
@@ -58,7 +60,7 @@ public abstract class JceKTSKeyTransRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipient setProvider(String providerName)
+    public jcajce.JceKTSKeyTransRecipient setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
         this.contentHelper = helper;
@@ -79,7 +81,7 @@ public abstract class JceKTSKeyTransRecipient
      * @param algorithmName JCE algorithm name to use.
      * @return the current Recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipient setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
+    public jcajce.JceKTSKeyTransRecipient setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
     {
         extraMappings.put(algorithm, algorithmName);
 
@@ -93,7 +95,7 @@ public abstract class JceKTSKeyTransRecipient
      * @param provider the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipient setContentProvider(Provider provider)
+    public jcajce.JceKTSKeyTransRecipient setContentProvider(Provider provider)
     {
         this.contentHelper = CMSUtils.createContentHelper(provider);
 
@@ -107,7 +109,7 @@ public abstract class JceKTSKeyTransRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipient setContentProvider(String providerName)
+    public jcajce.JceKTSKeyTransRecipient setContentProvider(String providerName)
     {
         this.contentHelper = CMSUtils.createContentHelper(providerName);
 
@@ -123,7 +125,7 @@ public abstract class JceKTSKeyTransRecipient
      * @param doValidate true if unwrapped key's should be validated against the content encryption algorithm, false otherwise.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipient setKeySizeValidation(boolean doValidate)
+    public jcajce.JceKTSKeyTransRecipient setKeySizeValidation(boolean doValidate)
     {
         this.validateKeySize = doValidate;
 
@@ -157,7 +159,8 @@ public abstract class JceKTSKeyTransRecipient
     {
         if (recipientId.getSerialNumber() != null)
         {
-            return new IssuerAndSerialNumber(recipientId.getIssuer(), recipientId.getSerialNumber()).getEncoded(ASN1Encoding.DER);
+            return new IssuerAndSerialNumber(recipientId.getIssuer(), recipientId.getSerialNumber()).getEncoded(
+                ASN1Encoding.DER);
         }
         else
         {

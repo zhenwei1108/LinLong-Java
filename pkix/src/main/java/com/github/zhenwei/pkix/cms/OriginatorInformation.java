@@ -1,19 +1,24 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-import Certificate;
-import CertificateList;
 import cms.OriginatorInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import org.bouncycastle.cert.X509CRLHolder;
+
  
-import org.bouncycastle.util.CollectionStore;
-import org.bouncycastle.util.Store;
+
+
 
 public class OriginatorInformation
 {

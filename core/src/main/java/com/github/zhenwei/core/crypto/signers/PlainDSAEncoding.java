@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.signers.DSAEncoding;
 
  
 

@@ -1,12 +1,13 @@
 package com.github.zhenwei.pkix.pkix.jcajce;
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
- 
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.pkix.PKIXIdentity;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * Holder class for public/private key based identity information.

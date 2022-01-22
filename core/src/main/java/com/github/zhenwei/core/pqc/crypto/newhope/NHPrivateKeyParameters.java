@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 
 public class NHPrivateKeyParameters
     extends AsymmetricKeyParameter

@@ -1,7 +1,14 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 
- 
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
@@ -10,22 +17,17 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
 import java.util.Hashtable;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
 import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
- 
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
-
 import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
  
-import X9ECParameters;
+
 
 public abstract class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator
@@ -160,9 +162,9 @@ public abstract class KeyPairGeneratorSpi
                 initialize(strength, new SecureRandom());
             }
 
-            AsymmetricCipherKeyPair     pair = engine.generateKeyPair();
+            AsymmetricCipherKeyPair pair = engine.generateKeyPair();
             ECPublicKeyParameters       pub = (ECPublicKeyParameters)pair.getPublic();
-            ECPrivateKeyParameters      priv = (ECPrivateKeyParameters)pair.getPrivate();
+            ECPrivateKeyParameters priv = (ECPrivateKeyParameters)pair.getPrivate();
 
             if (ecParams instanceof ECParameterSpec)
             {

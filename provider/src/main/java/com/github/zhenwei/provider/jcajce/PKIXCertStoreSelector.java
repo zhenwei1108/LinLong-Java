@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce;
 
+import com.github.zhenwei.core.util.Selector;
 import java.io.IOException;
 import java.security.cert.CertSelector;
 import java.security.cert.CertStore;

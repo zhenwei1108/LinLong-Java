@@ -1,21 +1,30 @@
 package com.github.zhenwei.pkix.cms;
 
 
-import bsi.BSIObjectIdentifiers;
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.bsi.BSIObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import kisa.KISAObjectIdentifiers;
 
 
 
 
-import rosstandart.RosstandartObjectIdentifiers;
-import sec.SECObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
+
 
 public class CMSAlgorithm
 {
-    public static final ASN1ObjectIdentifier  DES_CBC         = OIWObjectIdentifiers.desCBC.intern();
+    public static final ASN1ObjectIdentifier DES_CBC         = OIWObjectIdentifiers.desCBC.intern();
     public static final ASN1ObjectIdentifier  DES_EDE3_CBC    = PKCSObjectIdentifiers.des_EDE3_CBC.intern();
     public static final ASN1ObjectIdentifier  RC2_CBC         = PKCSObjectIdentifiers.RC2_CBC.intern();
     public static final ASN1ObjectIdentifier  IDEA_CBC        = new ASN1ObjectIdentifier("1.3.6.1.4.1.188.7.1.1.2").intern();

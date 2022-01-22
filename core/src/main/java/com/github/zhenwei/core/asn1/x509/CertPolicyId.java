@@ -14,6 +14,10 @@ package com.github.zhenwei.core.asn1.x509;
  * </pre>
  */
 
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+
 /**
  * CertPolicyId, used in the CertificatePolicies and PolicyMappings
  * X509V3 Extensions.
@@ -36,7 +40,7 @@ public class CertPolicyId
     {
         if (o instanceof CertPolicyId)
         {
-            return (x509.CertPolicyId)o;
+            return (CertPolicyId)o;
         }
         else if (o != null)
         {

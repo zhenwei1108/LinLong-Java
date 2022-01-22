@@ -1,12 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.RIPEMD128Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import teletrust.TeleTrusTObjectIdentifiers;
+
 
 public class RIPEMD128
 {
@@ -67,7 +68,7 @@ public class RIPEMD128
         public void configure(ConfigurableProvider provider)
         {
             provider.addAlgorithm("MessageDigest.RIPEMD128", PREFIX + "$Digest");
-            provider.addAlgorithm("Alg.Alias.MessageDigest." + TeleTrusTObjectIdentifiers.ripemd128, "RIPEMD128");            
+            provider.addAlgorithm("Alg.Alias.MessageDigest." + TeleTrusTObjectIdentifiers.ripemd128, "RIPEMD128");
 
             addHMACAlgorithm(provider, "RIPEMD128", PREFIX + "$HashMac", PREFIX + "$KeyGenerator");
         }

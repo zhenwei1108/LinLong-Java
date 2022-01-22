@@ -1,16 +1,18 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
 import BERSequenceGenerator;
 import BERTaggedObject;
-
-import cms.CMSObjectIdentifiers;
 import cms.SignerInfo;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
+
 
 /**
  * General class for generating a pkcs7-signature message stream.

@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.dvcs;
 
 
+import CMSProcessableByteArray;
+import CMSSignedData;
+import CMSSignedDataGenerator;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessableByteArray;
-import org.bouncycastle.cms.CMSSignedData;
-import org.bouncycastle.cms.CMSSignedDataGenerator;
 
 public class SignedDVCSMessageGenerator
 {
@@ -28,7 +29,8 @@ public class SignedDVCSMessageGenerator
     {
         try
         {
-            byte[] encapsulatedData = message.getContent().toASN1Primitive().getEncoded(ASN1Encoding.DER);
+            byte[] encapsulatedData = message.getContent().toASN1Primitive().getEncoded(
+                ASN1Encoding.DER);
 
             return signedDataGen.generate(new CMSProcessableByteArray(message.getContentType(), encapsulatedData), true);
         }

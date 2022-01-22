@@ -1,15 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -30,11 +31,11 @@ package com.github.zhenwei.sdk.util.asn1.cms;
 public class KeyAgreeRecipientInfo
     extends ASN1Object
 {
-    private ASN1Integer                  version;
+    private ASN1Integer version;
     private OriginatorIdentifierOrKey   originator;
-    private ASN1OctetString             ukm;
-    private AlgorithmIdentifier         keyEncryptionAlgorithm;
-    private ASN1Sequence                recipientEncryptedKeys;
+    private ASN1OctetString ukm;
+    private AlgorithmIdentifier keyEncryptionAlgorithm;
+    private ASN1Sequence recipientEncryptedKeys;
 
     public KeyAgreeRecipientInfo(
         OriginatorIdentifierOrKey   originator,

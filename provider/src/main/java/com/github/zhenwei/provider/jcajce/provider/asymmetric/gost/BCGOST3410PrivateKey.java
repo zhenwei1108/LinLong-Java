@@ -1,14 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
 
-
-
-
-
-
-
-
-import GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,14 +21,12 @@ import java.security.InvalidKeyException;
 import java.util.Enumeration;
 import org.bouncycastle.crypto.params.GOST3410PrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.interfaces.GOST3410Params;
 import org.bouncycastle.jce.interfaces.GOST3410PrivateKey;
-
 import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
 import org.bouncycastle.jce.spec.GOST3410PrivateKeySpec;
 import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
-import pkcs.PrivateKeyInfo;
+ 
 
 public class BCGOST3410PrivateKey
     implements GOST3410PrivateKey, PKCS12BagAttributeCarrier
@@ -58,7 +60,7 @@ public class BCGOST3410PrivateKey
         PrivateKeyInfo info)
         throws IOException
     {
-        GOST3410PublicKeyAlgParameters    params = GOST3410PublicKeyAlgParameters.getInstance(info.getPrivateKeyAlgorithm().getParameters());
+        GOST3410PublicKeyAlgParameters params = GOST3410PublicKeyAlgParameters.getInstance(info.getPrivateKeyAlgorithm().getParameters());
 
         ASN1Encodable privKey = info.parsePrivateKey();
 

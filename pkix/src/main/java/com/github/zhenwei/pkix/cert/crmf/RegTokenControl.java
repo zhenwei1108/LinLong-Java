@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERUTF8String;
 import crmf.CRMFObjectIdentifiers;
 
 /**

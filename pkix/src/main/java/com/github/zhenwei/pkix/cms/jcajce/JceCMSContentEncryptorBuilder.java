@@ -1,10 +1,16 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
-
 import cms.GCMParameters;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.OutputStream;
 import java.security.AccessController;
 import java.security.AlgorithmParameters;
@@ -15,12 +21,8 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-
-import org.bouncycastle.cms.CMSException;
-
 import org.bouncycastle.jcajce.io.CipherOutputStream;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.MacCaptureStream;
 import org.bouncycastle.operator.OutputAEADEncryptor;
 import org.bouncycastle.operator.OutputEncryptor;
@@ -97,7 +99,7 @@ public class JceCMSContentEncryptorBuilder
      * @param provider the provider object to use for cipher and default parameters creation.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder setProvider(Provider provider)
+    public jcajce.JceCMSContentEncryptorBuilder setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
 
@@ -110,7 +112,7 @@ public class JceCMSContentEncryptorBuilder
      * @param providerName the name of the provider to use for cipher and default parameters creation.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder setProvider(String providerName)
+    public jcajce.JceCMSContentEncryptorBuilder setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
 
@@ -123,7 +125,7 @@ public class JceCMSContentEncryptorBuilder
      * @param random the secure random to use.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder setSecureRandom(SecureRandom random)
+    public jcajce.JceCMSContentEncryptorBuilder setSecureRandom(SecureRandom random)
     {
         this.random = random;
 
@@ -136,7 +138,7 @@ public class JceCMSContentEncryptorBuilder
      * @param algorithmParameters algorithmParameters for content encryption.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder setAlgorithmParameters(AlgorithmParameters algorithmParameters)
+    public jcajce.JceCMSContentEncryptorBuilder setAlgorithmParameters(AlgorithmParameters algorithmParameters)
     {
         this.algorithmParameters = algorithmParameters;
 

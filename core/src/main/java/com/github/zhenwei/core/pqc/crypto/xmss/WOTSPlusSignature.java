@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
+ 
 
 /**
  * WOTS+ signature.

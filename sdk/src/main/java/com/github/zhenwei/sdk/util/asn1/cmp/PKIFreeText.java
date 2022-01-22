@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERUTF8String;
 import java.util.Enumeration;
 
 public class PKIFreeText
@@ -16,7 +17,7 @@ public class PKIFreeText
     ASN1Sequence strings;
 
     public static cmp.PKIFreeText getInstance(
-        ASN1TaggedObject    obj,
+        ASN1TaggedObject obj,
         boolean             explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));

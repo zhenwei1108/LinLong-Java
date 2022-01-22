@@ -1,5 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.provider.jcajce.PKCS12Key;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -16,13 +20,9 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
- 
-
-
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-
 import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
 
 public class BaseStreamCipher
@@ -187,7 +187,7 @@ public class BaseStreamCipher
         SecureRandom            random)
         throws InvalidKeyException, InvalidAlgorithmParameterException
     {
-        CipherParameters        param;
+        CipherParameters param;
 
         this.pbeSpec = null;
         this.pbeAlgorithm = null;

@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.Digest;
 import java.util.HashMap;
 import java.util.Map;
-
-
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;

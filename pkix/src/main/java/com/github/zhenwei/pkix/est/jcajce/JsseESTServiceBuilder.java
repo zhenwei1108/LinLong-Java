@@ -1,11 +1,11 @@
 package com.github.zhenwei.pkix.est.jcajce;
 
 
+import com.github.zhenwei.core.util.Arrays;
 import java.net.Socket;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
 import java.security.SecureRandom;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import javax.net.ssl.KeyManager;

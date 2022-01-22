@@ -1,12 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.7">RFC 5652</a>: OtherKeyAttribute object.
@@ -22,7 +23,7 @@ public class OtherKeyAttribute
     extends ASN1Object
 {
     private ASN1ObjectIdentifier keyAttrId;
-    private ASN1Encodable        keyAttr;
+    private ASN1Encodable keyAttr;
 
     /**
      * Return an OtherKeyAttribute object from the given object.

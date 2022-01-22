@@ -1,14 +1,15 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
 import Time;
 import V1TBSCertificateGenerator;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Locale;
-import org.bouncycastle.operator.ContentSigner;
+
 
 
 /**

@@ -1,13 +1,14 @@
 package com.github.zhenwei.pkix.cms.bc;
 
- 
-import org.bouncycastle.cms.CMSSignatureAlgorithmNameGenerator;
-import org.bouncycastle.cms.SignerInformationVerifier;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
+
+import CMSSignatureAlgorithmNameGenerator;
+import SignerInformationVerifier;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.SignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.SignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.bc.BcRSAContentVerifierProviderBuilder;
 
 public class BcRSASignerInfoVerifierBuilder

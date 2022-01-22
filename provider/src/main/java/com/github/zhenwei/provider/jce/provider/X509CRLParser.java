@@ -1,11 +1,13 @@
 package com.github.zhenwei.provider.jce.provider;
 
- 
 
-
-
-
-import CertificateList;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,7 +18,6 @@ import java.util.Collection;
 import java.util.List;
 import org.bouncycastle.X509StreamParserSpi;
 import org.bouncycastle.util.StreamParsingException;
-
 import pkcs.SignedData;
 
 public class X509CRLParser
@@ -24,7 +25,7 @@ public class X509CRLParser
 {
     private static final PEMUtil PEM_PARSER = new PEMUtil("CRL");
 
-    private ASN1Set     sData = null;
+    private ASN1Set sData = null;
     private int         sDataObjectCount = 0;
     private InputStream currentStream = null;
 

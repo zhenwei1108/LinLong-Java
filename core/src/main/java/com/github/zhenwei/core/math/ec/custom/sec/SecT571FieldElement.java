@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import com.github.zhenwei.core.math.ec.ECFieldElement.F2m;
-import SecT571Field;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
 import java.math.BigInteger;
 import org.bouncycastle.math.raw.Nat576;
 

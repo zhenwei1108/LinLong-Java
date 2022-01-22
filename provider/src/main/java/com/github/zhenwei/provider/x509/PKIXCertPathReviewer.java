@@ -2,30 +2,32 @@ package com.github.zhenwei.provider.x509;
 
 
 import ASN1Enumerated;
-
- 
-
-
-
-
-
-
 import AccessDescription;
-
 import AuthorityInformationAccess;
-
- 
 import CRLDistPoint;
-
 import DistributionPoint;
 import DistributionPointName;
-
-
 import GeneralNames;
 import GeneralSubtree;
 import IssuingDistributionPoint;
 import NameConstraints;
 import PolicyInformation;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.util.Integers;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -69,7 +71,6 @@ import org.bouncycastle.jce.provider.AnnotatedException;
 import org.bouncycastle.jce.provider.PKIXNameConstraintValidator;
 import org.bouncycastle.jce.provider.PKIXNameConstraintValidatorException;
 import org.bouncycastle.jce.provider.PKIXPolicyNode;
- 
 import org.bouncycastle.util.Objects;
 import qualified.Iso4217CurrencyCode;
 import qualified.MonetaryValue;
@@ -414,7 +415,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities
                 {
                     X500Principal principal = getSubjectPrincipal(cert);
                     ASN1InputStream aIn = new ASN1InputStream(new ByteArrayInputStream(principal.getEncoded()));
-                    ASN1Sequence    dns;
+                    ASN1Sequence dns;
 
                     try
                     {

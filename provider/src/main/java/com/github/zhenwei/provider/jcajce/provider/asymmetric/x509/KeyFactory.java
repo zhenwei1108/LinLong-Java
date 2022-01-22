@@ -1,6 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.KeyFactorySpi;
@@ -11,7 +14,7 @@ import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class KeyFactory
     extends KeyFactorySpi

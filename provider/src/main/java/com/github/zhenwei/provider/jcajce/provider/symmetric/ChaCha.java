@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.ChaCha7539Engine;
 import org.bouncycastle.crypto.engines.ChaChaEngine;

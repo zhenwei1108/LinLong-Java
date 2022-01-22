@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.util;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 import java.math.BigInteger;
 
 

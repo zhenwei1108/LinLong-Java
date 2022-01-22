@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -25,8 +26,8 @@ public class BasicOCSPResponse
 {
     private ResponseData        tbsResponseData;
     private AlgorithmIdentifier signatureAlgorithm;
-    private DERBitString        signature;
-    private ASN1Sequence        certs;
+    private DERBitString signature;
+    private ASN1Sequence certs;
 
     public BasicOCSPResponse(
         ResponseData        tbsResponseData,

@@ -1,39 +1,41 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
-import ASN1BitString;
- 
 
-
-
-
-import BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1BitString;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.bc.BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PrivateKey;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTPrivateKey;
+import com.github.zhenwei.core.pqc.asn1.XMSSPrivateKey;
+import com.github.zhenwei.core.pqc.crypto.lms.HSSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.lms.LMSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.newhope.NHPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.BDS;
+import com.github.zhenwei.core.pqc.crypto.xmss.BDSStateMap;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSUtil;
+import com.github.zhenwei.core.util.Pack;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.asn1.McElieceCCA2PrivateKey;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
-import org.bouncycastle.pqc.asn1.XMSSKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTPrivateKey;
-import org.bouncycastle.pqc.asn1.XMSSPrivateKey;
-import org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.BDS;
-import org.bouncycastle.pqc.crypto.xmss.BDSStateMap;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
 
-
-
-import pkcs.PrivateKeyInfo;
+;
 
 /**
  * Factory for creating private key objects from PKCS8 PrivateKeyInfo objects.
@@ -86,7 +88,8 @@ public class PrivateKeyFactory
         else if (algOID.equals(BCObjectIdentifiers.sphincs256))
         {
             return new SPHINCSPrivateKeyParameters(ASN1OctetString.getInstance(keyInfo.parsePrivateKey()).getOctets(),
-                Utils.sphincs256LookupTreeAlgName(SPHINCS256KeyParams.getInstance(keyInfo.getPrivateKeyAlgorithm().getParameters())));
+                Utils.sphincs256LookupTreeAlgName(
+                    SPHINCS256KeyParams.getInstance(keyInfo.getPrivateKeyAlgorithm().getParameters())));
         }
         else if (algOID.equals(BCObjectIdentifiers.newHope))
         {
@@ -142,7 +145,7 @@ public class PrivateKeyFactory
 
                 if (xmssPrivateKey.getBdsState() != null)
                 {
-                    BDS bds = (BDS)XMSSUtil.deserialize(xmssPrivateKey.getBdsState(), BDS.class);
+                    BDS bds = (BDS) XMSSUtil.deserialize(xmssPrivateKey.getBdsState(), BDS.class);
                     keyBuilder.withBDSState(bds.withWOTSDigest(treeDigest));
                 }
 

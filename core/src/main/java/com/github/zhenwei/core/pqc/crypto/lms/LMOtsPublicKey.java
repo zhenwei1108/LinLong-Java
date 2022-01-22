@@ -2,14 +2,17 @@ package com.github.zhenwei.core.pqc.crypto.lms;
 
 import static org.bouncycastle.pqc.crypto.lms.LM_OTS.D_MESG;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 
-import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.util.Encodable;
+ 
+
 
 
 class LMOtsPublicKey

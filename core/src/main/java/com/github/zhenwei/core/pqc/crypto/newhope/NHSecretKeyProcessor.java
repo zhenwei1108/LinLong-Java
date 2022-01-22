@@ -1,15 +1,13 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.pqc.crypto.ExchangePair;
-import org.bouncycastle.pqc.crypto.newhope.NHAgreement;
-import org.bouncycastle.pqc.crypto.newhope.NHExchangePairGenerator;
-import org.bouncycastle.pqc.crypto.newhope.NHKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
+ 
 
 
 /**

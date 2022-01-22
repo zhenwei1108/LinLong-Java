@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
  
 
@@ -20,7 +22,7 @@ public class RSAEngine
      */
     public void init(
         boolean             forEncryption,
-        CipherParameters    param)
+        CipherParameters param)
     {
         if (core == null)
         {

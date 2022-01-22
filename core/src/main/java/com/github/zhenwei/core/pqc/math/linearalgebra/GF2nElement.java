@@ -1,12 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2nField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialElement;
-import org.bouncycastle.pqc.math.linearalgebra.GFElement;
-
 /**
  * This abstract class implements an element of the finite field <i>GF(2)<sup>n
  * </sup></i> in either <i>optimal normal basis</i> representation (<i>ONB</i>)

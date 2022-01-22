@@ -1,19 +1,26 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Strings;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import nist.NISTNamedCurves;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
  
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
+ 
+ 
 
-import sec.SECObjectIdentifiers;
-import X9ECParameters;
+
+
 
 public class SSHNamedCurves
 {

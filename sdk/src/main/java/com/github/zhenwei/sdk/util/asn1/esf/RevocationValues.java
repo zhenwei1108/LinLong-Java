@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
 
-
-
-
-
-import CertificateList;
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
 import java.util.Enumeration;
 import ocsp.BasicOCSPResponse;
 

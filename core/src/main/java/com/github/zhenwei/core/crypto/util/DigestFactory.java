@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.util;
 
+import com.github.zhenwei.core.crypto.Digest;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.bouncycastle.crypto.digests.MD5Digest;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.digests.SHA224Digest;

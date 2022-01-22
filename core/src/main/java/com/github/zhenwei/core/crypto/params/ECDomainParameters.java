@@ -1,18 +1,21 @@
 package com.github.zhenwei.core.crypto.params;
 
- 
 
-
- 
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 
  
-import X9ECParameters;
+
 
 public class ECDomainParameters
     implements ECConstants
 {
-    private final ECCurve     curve;
+    private final ECCurve curve;
     private final byte[]      seed;
     private final ECPoint     G;
     private final BigInteger  n;

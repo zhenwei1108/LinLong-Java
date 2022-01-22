@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.tsp;
 
 
+import com.github.zhenwei.core.asn1.ASN1Integer;
 import tsp.Accuracy;
 
 public class GenTimeAccuracy

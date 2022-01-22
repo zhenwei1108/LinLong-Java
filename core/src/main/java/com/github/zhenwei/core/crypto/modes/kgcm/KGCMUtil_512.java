@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.modes.kgcm;
 
 
+import com.github.zhenwei.core.math.raw.Interleave;
 
 /**
  * Utilities for the GF(2^m) field with corresponding extension polynomial:

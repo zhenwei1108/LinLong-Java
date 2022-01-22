@@ -1,12 +1,24 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.cryptopro.GOST28147Parameters;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PBES2Parameters;
+import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
+import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.provider.jcajce.spec.PBKDF2KeySpec;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.io.InputStream;
 import java.security.AlgorithmParameters;
 import java.security.Provider;
@@ -16,23 +28,15 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-import misc.MiscObjectIdentifiers;
 import misc.ScryptParams;
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.jcajce.PBKDF1Key;
 import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
 import org.bouncycastle.jcajce.io.CipherInputStream;
-
-
 import org.bouncycastle.jcajce.spec.ScryptKeySpec;
-
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.SecretKeySizeProvider;
 import pkcs.PBEParameter;
 

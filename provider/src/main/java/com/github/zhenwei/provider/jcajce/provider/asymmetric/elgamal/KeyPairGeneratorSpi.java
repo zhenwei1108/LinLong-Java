@@ -1,20 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.elgamal;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.ElGamalParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
 import org.bouncycastle.crypto.generators.ElGamalKeyPairGenerator;
 import org.bouncycastle.crypto.generators.ElGamalParametersGenerator;
 import org.bouncycastle.crypto.params.ElGamalKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ElGamalParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
-
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
+
+;
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

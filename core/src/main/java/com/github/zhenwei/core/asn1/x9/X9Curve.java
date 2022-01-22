@@ -140,7 +140,7 @@ public class X9Curve
     {
         ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-        if (fieldIdentifier.equals(prime_field)) 
+        if (fieldIdentifier.equals(prime_field))
         { 
             v.add(new X9FieldElement(curve.getA()).toASN1Primitive());
             v.add(new X9FieldElement(curve.getB()).toASN1Primitive());

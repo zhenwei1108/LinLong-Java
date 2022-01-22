@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import SecP192R1Field;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import org.bouncycastle.math.raw.Nat192;
 

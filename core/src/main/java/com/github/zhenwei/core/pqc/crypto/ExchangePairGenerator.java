@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.crypto.ExchangePair;
+
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 /**
  * Interface for NewHope style key material exchange generators.

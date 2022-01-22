@@ -2,10 +2,12 @@ package com.github.zhenwei.core.asn1.x500;
 
 
 import com.github.zhenwei.core.asn1.ASN1BMPString;
+import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1PrintableString;
+import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.ASN1T61String;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.ASN1UTF8String;

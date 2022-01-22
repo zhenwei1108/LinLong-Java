@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.1">RFC 5652</a>: OtherRevocationInfoFormat object.
@@ -49,7 +50,7 @@ public class OtherRevocationInfoFormat
      *          tagged object cannot be converted.
      */
     public static cms.OtherRevocationInfoFormat getInstance(
-        ASN1TaggedObject    obj,
+        ASN1TaggedObject obj,
         boolean             explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;

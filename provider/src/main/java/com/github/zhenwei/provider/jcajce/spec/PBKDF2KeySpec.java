@@ -1,7 +1,9 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 
-
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import javax.crypto.spec.PBEKeySpec;
 
 
@@ -11,7 +13,8 @@ import javax.crypto.spec.PBEKeySpec;
 public class PBKDF2KeySpec
     extends PBEKeySpec
 {
-    private static final AlgorithmIdentifier defaultPRF = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA1, DERNull.INSTANCE);
+    private static final AlgorithmIdentifier defaultPRF = new AlgorithmIdentifier(
+        PKCSObjectIdentifiers.id_hmacWithSHA1, DERNull.INSTANCE);
 
     private AlgorithmIdentifier prf;
 

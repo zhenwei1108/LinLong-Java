@@ -3,6 +3,7 @@ package com.github.zhenwei.pkix.cms;
 
 import cms.KEKIdentifier;
 import cms.KEKRecipientInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.IOException;
 
 /**
@@ -16,7 +17,7 @@ public class KEKRecipientInformation
 
     KEKRecipientInformation(
         KEKRecipientInfo        info,
-        AlgorithmIdentifier     messageAlgorithm,
+        AlgorithmIdentifier messageAlgorithm,
         CMSSecureReadable       secureReadable,
         AuthAttributesProvider  additionalData)
     {

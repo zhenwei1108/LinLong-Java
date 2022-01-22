@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.digests.LongDigest;
-
+import com.github.zhenwei.core.util.Memoable;
 import org.bouncycastle.util.MemoableResetException;
 
 

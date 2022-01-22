@@ -1,18 +1,20 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
+import Gost2814789KeyWrapParameters;
 import cms.KeyAgreeRecipientInfo;
 import cms.OriginatorIdentifierOrKey;
 import cms.OriginatorPublicKey;
 import cms.RecipientInfo;
-
-import Gost2814789KeyWrapParameters;
-import org.bouncycastle.operator.GenericKey;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.pkix.operator.GenericKey;
 
 
 public abstract class KeyAgreeRecipientInfoGenerator
@@ -36,13 +38,15 @@ public abstract class KeyAgreeRecipientInfoGenerator
             createOriginatorPublicKey(originatorKeyInfo));
 
         AlgorithmIdentifier keyEncAlg;
-        if (CMSUtils.isDES(keyEncryptionOID.getId()) || keyEncryptionOID.equals(PKCSObjectIdentifiers.id_alg_CMSRC2wrap))
+        if (CMSUtils.isDES(keyEncryptionOID.getId()) || keyEncryptionOID.equals(
+            PKCSObjectIdentifiers.id_alg_CMSRC2wrap))
         {
             keyEncAlg = new AlgorithmIdentifier(keyEncryptionOID, DERNull.INSTANCE);
         }
         else if (CMSUtils.isGOST(keyAgreementOID))
         {
-            keyEncAlg = new AlgorithmIdentifier(keyEncryptionOID, new Gost2814789KeyWrapParameters(CryptoProObjectIdentifiers.id_Gost28147_89_CryptoPro_A_ParamSet));
+            keyEncAlg = new AlgorithmIdentifier(keyEncryptionOID, new Gost2814789KeyWrapParameters(
+                CryptoProObjectIdentifiers.id_Gost28147_89_CryptoPro_A_ParamSet));
         }
         else
         {

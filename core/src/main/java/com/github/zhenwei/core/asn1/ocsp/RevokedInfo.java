@@ -3,12 +3,14 @@ package com.github.zhenwei.core.asn1.ocsp;
 
 import ASN1Enumerated;
 import ASN1GeneralizedTime;
-
-
-
-
 import CRLReason;
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 
 public class RevokedInfo
@@ -26,7 +28,7 @@ public class RevokedInfo
     }
 
     private RevokedInfo(
-        ASN1Sequence    seq)
+        ASN1Sequence seq)
     {
         this.revocationTime = ASN1GeneralizedTime.getInstance(seq.getObjectAt(0));
 

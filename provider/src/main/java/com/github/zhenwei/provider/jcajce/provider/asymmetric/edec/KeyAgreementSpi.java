@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
+import com.github.zhenwei.core.crypto.generators.KDF2BytesGenerator;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -11,16 +16,13 @@ import org.bouncycastle.crypto.agreement.X25519Agreement;
 import org.bouncycastle.crypto.agreement.X448Agreement;
 import org.bouncycastle.crypto.agreement.XDHUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
-
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.X448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.XDHUPrivateParameters;
 import org.bouncycastle.crypto.params.XDHUPublicParameters;
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
+
+;
 
 public class KeyAgreementSpi
     extends BaseAgreementSpi

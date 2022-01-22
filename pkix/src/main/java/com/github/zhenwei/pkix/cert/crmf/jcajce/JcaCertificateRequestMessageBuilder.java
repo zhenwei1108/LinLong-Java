@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
-
 import X500Name;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.math.BigInteger;
 import java.security.PublicKey;
 import javax.security.auth.x500.X500Principal;

@@ -1,10 +1,12 @@
 package com.github.zhenwei.provider.jce;
 
 
-import ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import java.util.Enumeration;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import X9ECParameters;
+
 
 /**
  * a table of locally supported named curves.
@@ -21,7 +23,7 @@ public class ECGOST3410NamedCurveTable
     public static ECNamedCurveParameterSpec getParameterSpec(
         String  name)
     {
-        X9ECParameters  ecP = ECGOST3410NamedCurves.getByNameX9(name);
+        X9ECParameters ecP = ECGOST3410NamedCurves.getByNameX9(name);
         if (ecP == null)
         {
             try

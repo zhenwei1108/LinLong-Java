@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.agreement;
 
- 
- 
+
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
-
- 
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 
 /**

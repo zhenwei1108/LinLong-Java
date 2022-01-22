@@ -1,17 +1,20 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-import cmp.CMPObjectIdentifiers;
-import cmp.PBMParameter;
-import iana.IANAObjectIdentifiers;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.iana.IANAObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.pkix.operator.MacCalculator;
+import com.github.zhenwei.pkix.operator.RuntimeOperatorException;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.security.SecureRandom;
 
-import org.bouncycastle.operator.GenericKey;
-import org.bouncycastle.operator.MacCalculator;
-import org.bouncycastle.operator.RuntimeOperatorException;
+
+
 
 
 public class PKMACBuilder
@@ -27,7 +30,8 @@ public class PKMACBuilder
 
     public PKMACBuilder(PKMACValuesCalculator calculator)
     {
-        this(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1), 1000, new AlgorithmIdentifier(IANAObjectIdentifiers.hmacSHA1, DERNull.INSTANCE), calculator);
+        this(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1), 1000, new AlgorithmIdentifier(
+            IANAObjectIdentifiers.hmacSHA1, DERNull.INSTANCE), calculator);
     }
 
     /**

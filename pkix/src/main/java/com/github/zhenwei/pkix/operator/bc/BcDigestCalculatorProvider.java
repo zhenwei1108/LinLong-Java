@@ -1,12 +1,14 @@
 package com.github.zhenwei.pkix.operator.bc;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
-
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class BcDigestCalculatorProvider
     implements DigestCalculatorProvider

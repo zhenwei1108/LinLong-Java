@@ -1,19 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.qtesla;
 
 
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
- 
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.pqc.jcajce.interfaces.QTESLAKey;
 import org.bouncycastle.pqc.jcajce.spec.QTESLAParameterSpec;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class BCqTESLAPrivateKey
     implements PrivateKey, QTESLAKey

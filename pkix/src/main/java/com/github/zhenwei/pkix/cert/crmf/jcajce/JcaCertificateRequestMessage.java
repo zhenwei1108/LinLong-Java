@@ -1,8 +1,12 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import crmf.CertReqMsg;
 import java.io.IOException;
 import java.security.Provider;
@@ -11,8 +15,8 @@ import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.cert.crmf.CRMFException;
 import org.bouncycastle.cert.crmf.CertificateRequestMessage;
 
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
+
+
 
 public class JcaCertificateRequestMessage
     extends CertificateRequestMessage

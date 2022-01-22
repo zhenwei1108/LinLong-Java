@@ -1,15 +1,16 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ies;
 
 
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
@@ -114,7 +115,7 @@ public class AlgorithmParametersSpi
     {
         try
         {
-            ASN1Sequence s = (ASN1Sequence)ASN1Primitive.fromByteArray(params);
+            ASN1Sequence s = (ASN1Sequence) ASN1Primitive.fromByteArray(params);
 
             if (s.size() == 1)
             {
@@ -126,7 +127,8 @@ public class AlgorithmParametersSpi
 
                 if (tagged.getTagNo() == 0)
                 {
-                    this.currentSpec = new IESParameterSpec(ASN1OctetString.getInstance(tagged, false).getOctets(), null, ASN1Integer.getInstance(s.getObjectAt(1)).intValueExact());
+                    this.currentSpec = new IESParameterSpec(
+                        ASN1OctetString.getInstance(tagged, false).getOctets(), null, ASN1Integer.getInstance(s.getObjectAt(1)).intValueExact());
                 }
                 else
                 {

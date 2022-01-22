@@ -1,29 +1,30 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class IssuerSerial
     extends ASN1Object
 {
     GeneralNames            issuer;
-    ASN1Integer              serial;
-    DERBitString            issuerUID;
+    ASN1Integer serial;
+    DERBitString issuerUID;
 
     public static IssuerSerial getInstance(
             Object  obj)
     {
         if (obj instanceof IssuerSerial)
         {
-            return (x509.IssuerSerial)obj;
+            return (IssuerSerial)obj;
         }
 
         if (obj != null)

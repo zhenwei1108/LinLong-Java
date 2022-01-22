@@ -1,8 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.util.CollectionStore;
 import java.util.Collection;
-import org.bouncycastle.util.CollectionStore;
-
 import org.bouncycastle.x509.X509CollectionStoreParameters;
 import org.bouncycastle.x509.X509StoreParameters;
 import org.bouncycastle.x509.X509StoreSpi;

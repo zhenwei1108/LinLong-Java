@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
+import com.github.zhenwei.core.crypto.Digest;
 
 /**
  * Base class for Haraka v2, https://eprint.iacr.org/2016/098.pdf

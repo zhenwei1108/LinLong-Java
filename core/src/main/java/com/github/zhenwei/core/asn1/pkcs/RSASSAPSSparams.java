@@ -1,15 +1,17 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.math.BigInteger;
 
 
@@ -18,10 +20,11 @@ public class RSASSAPSSparams
 {
     private AlgorithmIdentifier hashAlgorithm;
     private AlgorithmIdentifier maskGenAlgorithm;
-    private ASN1Integer          saltLength;
+    private ASN1Integer saltLength;
     private ASN1Integer          trailerField;
     
-    public final static AlgorithmIdentifier DEFAULT_HASH_ALGORITHM = new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1, DERNull.INSTANCE);
+    public final static AlgorithmIdentifier DEFAULT_HASH_ALGORITHM = new AlgorithmIdentifier(
+        OIWObjectIdentifiers.idSHA1, DERNull.INSTANCE);
     public final static AlgorithmIdentifier DEFAULT_MASK_GEN_FUNCTION = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_mgf1, DEFAULT_HASH_ALGORITHM);
     public final static ASN1Integer          DEFAULT_SALT_LENGTH = new ASN1Integer(20);
     public final static ASN1Integer          DEFAULT_TRAILER_FIELD = new ASN1Integer(1);
@@ -74,7 +77,7 @@ public class RSASSAPSSparams
         
         for (int i = 0; i != seq.size(); i++)
         {
-            ASN1TaggedObject    o = (ASN1TaggedObject)seq.getObjectAt(i);
+            ASN1TaggedObject o = (ASN1TaggedObject)seq.getObjectAt(i);
             
             switch (o.getTagNo())
             {

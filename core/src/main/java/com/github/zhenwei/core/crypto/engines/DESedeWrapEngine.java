@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.engines.DESedeEngine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
@@ -52,7 +53,7 @@ public class DESedeWrapEngine
     //
     // checksum digest
     //
-    Digest  sha1 = DigestFactory.createSHA1();
+    Digest sha1 = DigestFactory.createSHA1();
     byte[]  digest = new byte[20];
 
    /**

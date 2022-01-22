@@ -2,11 +2,18 @@ package com.github.zhenwei.provider.jce.provider;
 
 
 import ASN1Null;
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -18,9 +25,9 @@ import java.security.spec.PSSParameterSpec;
 
 
 
-import pkcs.RSASSAPSSparams;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
 
 class X509SignatureUtil
 {
@@ -59,7 +66,7 @@ class X509SignatureUtil
     }
     
     static String getSignatureName(
-        AlgorithmIdentifier sigAlgId) 
+        AlgorithmIdentifier sigAlgId)
     {
         ASN1Encodable params = sigAlgId.getParameters();
         

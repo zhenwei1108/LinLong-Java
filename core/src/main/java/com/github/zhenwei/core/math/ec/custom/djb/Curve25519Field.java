@@ -1,5 +1,8 @@
 package com.github.zhenwei.core.math.ec.custom.djb;
 
+import com.github.zhenwei.core.math.raw.Mod;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat256;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

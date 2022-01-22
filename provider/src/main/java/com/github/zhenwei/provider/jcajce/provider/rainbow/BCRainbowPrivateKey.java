@@ -1,17 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
 
-
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.security.PrivateKey;
-import java.util.Arrays;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
 import org.bouncycastle.pqc.asn1.RainbowPrivateKey;
 import org.bouncycastle.pqc.crypto.rainbow.Layer;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
 import org.bouncycastle.pqc.jcajce.spec.RainbowPrivateKeySpec;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * The Private key in Rainbow consists of the linear affine maps L1, L2 and the

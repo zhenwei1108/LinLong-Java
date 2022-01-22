@@ -20,7 +20,7 @@ public interface BCObjectIdentifiers
      * <p>
      * 1.3.6.1.4.1.22554.1
      */
-    public static final ASN1ObjectIdentifier bc_pbe        = branch("1");
+    public static final ASN1ObjectIdentifier bc_pbe        = bc.branch("1");
 
     /**
      * SHA-1(1)
@@ -71,7 +71,7 @@ public interface BCObjectIdentifiers
     /**
      * signature(2) algorithms
      */
-    public static final ASN1ObjectIdentifier bc_sig        = branch("2");
+    public static final ASN1ObjectIdentifier bc_sig        = bc.branch("2");
 
     /**
      * Sphincs-256
@@ -160,7 +160,7 @@ public interface BCObjectIdentifiers
     /**
      * key_exchange(3) algorithms
      */
-    public static final ASN1ObjectIdentifier bc_exch = branch("3");
+    public static final ASN1ObjectIdentifier bc_exch = bc.branch("3");
 
     /**
      * NewHope
@@ -172,7 +172,7 @@ public interface BCObjectIdentifiers
      * <p>
      * 1.3.6.1.4.1.22554.4
      */
-    public static final ASN1ObjectIdentifier bc_ext        = branch("4");
+    public static final ASN1ObjectIdentifier bc_ext        = bc.branch("4");
 
     public static final ASN1ObjectIdentifier linkedCertificate = bc_ext.branch("1");
 }

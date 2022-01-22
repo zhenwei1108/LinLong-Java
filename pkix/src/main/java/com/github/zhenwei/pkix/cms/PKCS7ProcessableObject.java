@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Iterator;

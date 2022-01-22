@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
 
-import org.bouncycastle.crypto.engines.GOST28147Engine;
-import org.bouncycastle.crypto.engines.GOST28147WrapEngine;
+import com.github.zhenwei.core.crypto.CipherParameters;
 import org.bouncycastle.crypto.modes.GCFBBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;

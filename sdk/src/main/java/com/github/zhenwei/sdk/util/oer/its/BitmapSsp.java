@@ -1,7 +1,8 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
 
 public class BitmapSsp

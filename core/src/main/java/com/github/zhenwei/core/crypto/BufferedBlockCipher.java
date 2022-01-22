@@ -1,13 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
 
-import org.bouncycastle.crypto.BlockCipher;
-
-
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.StreamCipher;
-
 /**
  * A wrapper class that allows block ciphers to be used to process data in
  * a piecemeal fashion. The BufferedBlockCipher outputs a block only when the

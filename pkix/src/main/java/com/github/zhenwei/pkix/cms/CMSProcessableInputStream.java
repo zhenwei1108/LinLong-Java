@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;

@@ -1,12 +1,25 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-import cms.CMSObjectIdentifiers;
-import cms.OtherRevocationInfoFormat;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,17 +29,17 @@ import java.util.Map;
 import java.util.Set;
 
 
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.X509CRLHolder;
+
+
  
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 
-import org.bouncycastle.util.Store;
 
-import rosstandart.RosstandartObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
+
+
+
 
 public class CMSSignedGenerator
 {
@@ -194,7 +207,7 @@ public class CMSSignedGenerator
      */
     public void addOtherRevocationInfo(
         ASN1ObjectIdentifier   otherRevocationInfoFormat,
-        ASN1Encodable          otherRevocationInfo)
+        ASN1Encodable otherRevocationInfo)
     {
         crls.add(new DERTaggedObject(false, 1, new OtherRevocationInfoFormat(otherRevocationInfoFormat, otherRevocationInfo)));
     }

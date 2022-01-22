@@ -1,10 +1,11 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyTransRecipient;
- 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import KeyTransRecipient;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.pkix.cms.CMSException;
 import org.bouncycastle.operator.AsymmetricKeyUnwrapper;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.bc.BcRSAAsymmetricKeyUnwrapper;

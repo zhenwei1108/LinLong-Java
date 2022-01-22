@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-import org.bouncycastle.crypto.generators.BaseKDFBytesGenerator;
+import com.github.zhenwei.core.crypto.Digest;
 
 /**
  * KDF2 generator for derived keys and ivs as defined by IEEE P1363a/ISO 18033
@@ -18,7 +18,7 @@ public class KDF2BytesGenerator
      * @param digest the digest to be used as the source of derived keys.
      */
     public KDF2BytesGenerator(
-        Digest  digest)
+        Digest digest)
     {
         super(1, digest);
     }

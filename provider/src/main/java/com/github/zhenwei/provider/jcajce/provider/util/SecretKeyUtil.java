@@ -1,6 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.util.Integers;
 import java.util.HashMap;
 import java.util.Map;
 

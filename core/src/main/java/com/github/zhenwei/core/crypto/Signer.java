@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
- 
-import org.bouncycastle.crypto.CryptoException;
-
 
 /**
  * Generic signer interface for hash based and message recovery signers.

@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSKeyParameters;
-
+import com.github.zhenwei.core.util.Arrays;
 
 public class SPHINCSPrivateKeyParameters
     extends SPHINCSKeyParameters

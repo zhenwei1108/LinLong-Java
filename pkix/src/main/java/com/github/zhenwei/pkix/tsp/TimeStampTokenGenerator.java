@@ -1,17 +1,27 @@
 package com.github.zhenwei.pkix.tsp;
 
 import ASN1Boolean;
-
 import ASN1GeneralizedTime;
-
-
-
-import Extensions;
+import CMSAttributeTableGenerationException;
+import CMSAttributeTableGenerator;
+import CMSProcessableByteArray;
+import CMSSignedData;
+import CMSSignedDataGenerator;
 import ExtensionsGenerator;
-
 import GeneralNames;
-
+import SignerInfoGenerator;
 import cms.AttributeTable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.IssuerSerial;
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.cms.CMSException;
 import ess.ESSCertID;
 import ess.ESSCertIDv2;
 import ess.SigningCertificate;
@@ -30,19 +40,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-
- 
-import org.bouncycastle.cms.CMSAttributeTableGenerationException;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessableByteArray;
-import org.bouncycastle.cms.CMSSignedData;
-import org.bouncycastle.cms.CMSSignedDataGenerator;
-import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.CollectionStore;
-import org.bouncycastle.util.Store;
-
 import tsp.Accuracy;
 import tsp.MessageImprint;
 import tsp.TSTInfo;
@@ -113,7 +111,7 @@ public class TimeStampTokenGenerator
 
     GeneralName tsa = null;
     
-    private ASN1ObjectIdentifier  tsaPolicyOID;
+    private ASN1ObjectIdentifier tsaPolicyOID;
 
     private List certs = new ArrayList();
     private List crls = new ArrayList();
@@ -181,7 +179,8 @@ public class TimeStampTokenGenerator
 
             dOut.close();
 
-            if (digestCalculator.getAlgorithmIdentifier().getAlgorithm().equals(OIWObjectIdentifiers.idSHA1))
+            if (digestCalculator.getAlgorithmIdentifier().getAlgorithm().equals(
+                OIWObjectIdentifiers.idSHA1))
             {
                 final ESSCertID essCertid = new ESSCertID(digestCalculator.getDigest(),
                                             isIssuerSerialIncluded ? new IssuerSerial(new GeneralNames(new GeneralName(assocCert.getIssuer())), assocCert.getSerialNumber())

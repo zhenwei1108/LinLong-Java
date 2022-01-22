@@ -1,9 +1,8 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.EncodableDigest;
-
-
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * Base class for SHA-384 and SHA-512.

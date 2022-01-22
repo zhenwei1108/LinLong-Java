@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.eac;
 
 
- 
-import  CVCertificateRequest;
-import  PublicKeyDataObject;
+import CVCertificateRequest;
+import PublicKeyDataObject;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ParsingException;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.eac.operator.EACSignatureVerifier;

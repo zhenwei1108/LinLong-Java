@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
 
-
-
-
-
-
-import Certificate;
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERSet;
 
 /**
  * The CscaMasterList object. This object can be wrapped in a

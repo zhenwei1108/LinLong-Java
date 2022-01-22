@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
- 
-import SecP384R1Field;
-
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat384;
 
 public class SecP384R1Point extends ECPoint.AbstractFp

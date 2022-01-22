@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Vector;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
@@ -17,7 +18,7 @@ import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
  * https://www.gemplus.com/smart/rd/publications/pdf/NS98pkcs.pdf
  */
 public class NaccacheSternKeyPairGenerator 
-    implements AsymmetricCipherKeyPairGenerator 
+    implements AsymmetricCipherKeyPairGenerator
 {
 
     private static int[] smallPrimes =

@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
 
-
-
-
 import cms.IssuerAndSerialNumber;
 import cms.RecipientKeyIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * The SMIMEEncryptionKeyPreference object.
@@ -31,7 +31,7 @@ public class SMIMEEncryptionKeyPreferenceAttribute
         RecipientKeyIdentifier rKeyId)
     {
 
-        super(SMIMEAttributes.encrypKeyPref, 
+        super(SMIMEAttributes.encrypKeyPref,
                     new DERSet(new DERTaggedObject(false, 1, rKeyId)));
     }
     

@@ -1,10 +1,13 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-
+import com.github.zhenwei.core.asn1.pkcs.MacData;
+import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
+import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.io.OutputStream;
-import org.bouncycastle.operator.MacCalculator;
+
 
 
 
@@ -20,7 +23,7 @@ class MacDataGenerator
     public MacData build(char[] password, byte[] data)
         throws PKCSException
     {
-        MacCalculator     macCalculator;
+        MacCalculator macCalculator;
 
         try
         {

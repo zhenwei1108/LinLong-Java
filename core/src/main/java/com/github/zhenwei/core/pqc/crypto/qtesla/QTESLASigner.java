@@ -1,13 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.qtesla;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.SecureRandom;
-
-
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.MessageSigner;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 
 /**
  * Signer for the qTESLA algorithm (https://qtesla.org/)

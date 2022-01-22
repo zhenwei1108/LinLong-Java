@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.macs;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.paddings.BlockCipherPadding;
@@ -49,7 +49,7 @@ class MacCFBBlockCipher
      * inappropriate.
      */
     public void init(
-        CipherParameters    params)
+        CipherParameters params)
         throws IllegalArgumentException
     {
         if (params instanceof ParametersWithIV)

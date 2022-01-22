@@ -1,13 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-
-
 import org.bouncycastle.crypto.digests.SHA224Digest;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA384Digest;

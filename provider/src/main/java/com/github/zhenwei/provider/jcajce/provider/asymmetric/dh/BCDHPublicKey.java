@@ -1,10 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
 
-
-
-
-
+import DomainParameters;
+import ValidationParams;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.pkcs.DHParameter;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHValidationParameters;
+import com.github.zhenwei.provider.jcajce.spec.DHDomainParameterSpec;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,17 +21,9 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.crypto.params.DHValidationParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
-import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
 import org.bouncycastle.jcajce.spec.DHExtendedPublicKeySpec;
-import pkcs.DHParameter;
 
-import DomainParameters;
-import ValidationParams;
-import X9ObjectIdentifiers;
 
 public class BCDHPublicKey
     implements DHPublicKey
@@ -31,9 +32,9 @@ public class BCDHPublicKey
     
     private BigInteger              y;
 
-    private transient DHPublicKeyParameters   dhPublicKey;
+    private transient DHPublicKeyParameters dhPublicKey;
     private transient DHParameterSpec         dhSpec;
-    private transient SubjectPublicKeyInfo    info;
+    private transient SubjectPublicKeyInfo info;
     
     BCDHPublicKey(
         DHPublicKeySpec spec)
@@ -106,7 +107,7 @@ public class BCDHPublicKey
     {
         this.info = info;
 
-        ASN1Integer              derY;
+        ASN1Integer derY;
         try
         {
             derY = (ASN1Integer)info.parsePublicKey();
@@ -124,7 +125,7 @@ public class BCDHPublicKey
         // we need the PKCS check to handle older keys marked with the X9 oid.
         if (id.equals(PKCSObjectIdentifiers.dhKeyAgreement) || isPKCSParam(seq))
         {
-            DHParameter             params = DHParameter.getInstance(seq);
+            DHParameter params = DHParameter.getInstance(seq);
 
             if (params.getL() != null)
             {

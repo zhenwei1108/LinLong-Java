@@ -1,8 +1,10 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Properties;
 import java.math.BigInteger;
 
-import org.bouncycastle.crypto.params.DHValidationParameters;
+ 
 
 
 public class DHParameters

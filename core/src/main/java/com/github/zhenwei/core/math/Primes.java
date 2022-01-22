@@ -1,5 +1,8 @@
 package com.github.zhenwei.core.math;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

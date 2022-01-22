@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.operator;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public interface DigestAlgorithmIdentifierFinder
 {

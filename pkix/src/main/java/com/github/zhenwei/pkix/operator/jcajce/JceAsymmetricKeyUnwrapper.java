@@ -1,7 +1,12 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
@@ -15,11 +20,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.AsymmetricKeyUnwrapper;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 
 public class JceAsymmetricKeyUnwrapper
@@ -79,7 +80,8 @@ public class JceAsymmetricKeyUnwrapper
      * @param algorithmName JCE algorithm name to use.
      * @return  the current Unwrapper.
      */
-    public org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
+    public org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper setAlgorithmMapping(
+        ASN1ObjectIdentifier algorithm, String algorithmName)
     {
         extraMappings.put(algorithm, algorithmName);
 

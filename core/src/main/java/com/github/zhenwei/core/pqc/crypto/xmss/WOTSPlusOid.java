@@ -3,7 +3,6 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.pqc.crypto.xmss.XMSSOid;
 
 /**
  * WOTS+ OID class.

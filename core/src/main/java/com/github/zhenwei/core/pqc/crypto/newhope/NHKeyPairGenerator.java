@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
+ 
+ 
 
 public class NHKeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator

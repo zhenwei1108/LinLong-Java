@@ -1,18 +1,22 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
 import cms.ContentInfo;
 import cms.DigestedData;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 
-import org.bouncycastle.util.Encodable;
+
+
 
 /**
  * containing class for an CMS Digested Data object

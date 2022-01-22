@@ -1,21 +1,22 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public class Signature
     extends ASN1Object
 {
     AlgorithmIdentifier signatureAlgorithm;
-    DERBitString        signature;
-    ASN1Sequence        certs;
+    DERBitString signature;
+    ASN1Sequence certs;
 
     public Signature(
         AlgorithmIdentifier signatureAlgorithm,

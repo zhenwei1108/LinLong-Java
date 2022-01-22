@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
 import AuthorityInformationAccess;
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class ServiceLocator
     extends ASN1Object

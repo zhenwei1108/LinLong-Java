@@ -76,7 +76,7 @@ public class LinkedCertificate
     {
         if (o instanceof LinkedCertificate)
         {
-            return (bc.LinkedCertificate)o;
+            return   ( LinkedCertificate)o;
         }
         else if (o != null)
         {

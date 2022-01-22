@@ -75,7 +75,7 @@ public class ObjectStore
     {
         if (o instanceof ObjectStore)
         {
-            return (bc.ObjectStore)o;
+            return   ( ObjectStore)o;
         }
         else if (o != null)
         {

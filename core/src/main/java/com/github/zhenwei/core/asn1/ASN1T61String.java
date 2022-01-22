@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * ASN.1 T61String (also the teletex string), try not to use this if you don't need to. The standard support the encoding for

@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 
 /**
  * The KeyPurposeId object.

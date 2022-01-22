@@ -1,20 +1,23 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 import X500Name;
-import X509NameTokenizer;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.ASN1UniversalString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -352,7 +355,7 @@ public class X509Name
     private Vector                  values = new Vector();
     private Vector                  added = new Vector();
 
-    private ASN1Sequence            seq;
+    private ASN1Sequence seq;
 
     private boolean                 isHashCodeCalculated;
     private int                     hashCodeValue;
@@ -376,7 +379,7 @@ public class X509Name
     {
         if (obj instanceof X509Name)
         {
-            return (x509.X509Name)obj;
+            return (X509Name)obj;
         }
         else if (obj instanceof X500Name)
         {
@@ -409,7 +412,7 @@ public class X509Name
 
         while (e.hasMoreElements())
         {
-            ASN1Set         set = ASN1Set.getInstance(((ASN1Encodable)e.nextElement()).toASN1Primitive());
+            ASN1Set set = ASN1Set.getInstance(((ASN1Encodable)e.nextElement()).toASN1Primitive());
 
             for (int i = 0; i < set.size(); i++)
             {
@@ -439,7 +442,8 @@ public class X509Name
                    {
                        try
                        {
-                           values.addElement("#" + bytesToString(Hex.encode(value.toASN1Primitive().getEncoded(ASN1Encoding.DER))));
+                           values.addElement("#" + bytesToString(
+                               Hex.encode(value.toASN1Primitive().getEncoded(ASN1Encoding.DER))));
                        }
                        catch (IOException e1)
                        {
@@ -920,7 +924,7 @@ public class X509Name
     {
         if (seq == null)
         {
-            ASN1EncodableVector  vec = new ASN1EncodableVector();
+            ASN1EncodableVector vec = new ASN1EncodableVector();
             ASN1EncodableVector  sVec = new ASN1EncodableVector();
             ASN1ObjectIdentifier  lstOid = null;
             

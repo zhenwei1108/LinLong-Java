@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
-
 import ECCurve.AbstractF2m;
-
-
-
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import org.bouncycastle.math.raw.Nat576;
 
@@ -14,7 +15,8 @@ import org.bouncycastle.math.raw.Nat576;
 public class SecT571R1Curve extends AbstractF2m
 {
     private static final int SECT571R1_DEFAULT_COORDS = COORD_LAMBDA_PROJECTIVE;
-    private static final ECFieldElement[] SECT571R1_AFFINE_ZS = new ECFieldElement[] { new SecT571FieldElement(ECConstants.ONE) };
+    private static final ECFieldElement[] SECT571R1_AFFINE_ZS = new ECFieldElement[] { new SecT571FieldElement(
+        ECConstants.ONE) };
 
     protected SecT571R1Point infinity;
 

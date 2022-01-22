@@ -1,18 +1,20 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.SecureRandom;
-
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.modes.AEADBlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.util.CipherFactory;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.MacCaptureStream;
 import org.bouncycastle.operator.OutputAEADEncryptor;
 import org.bouncycastle.operator.OutputEncryptor;
@@ -65,7 +67,7 @@ public class BcCMSContentEncryptorBuilder
         }
     }
 
-    public org.bouncycastle.cms.bc.BcCMSContentEncryptorBuilder setSecureRandom(SecureRandom random)
+    public bc.BcCMSContentEncryptorBuilder setSecureRandom(SecureRandom random)
     {
         this.random = random;
 

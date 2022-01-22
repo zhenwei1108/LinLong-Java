@@ -3,8 +3,6 @@ package com.github.zhenwei.core.i18n;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.TimeZone;
-import org.bouncycastle.i18n.MissingEntryException;
-import org.bouncycastle.i18n.TextBundle;
 
 public class MessageBundle extends TextBundle
 {

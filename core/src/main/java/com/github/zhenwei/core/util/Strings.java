@@ -7,7 +7,6 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.Vector;
-import org.bouncycastle.util.StringList;
 import org.bouncycastle.util.encoders.UTF8;
 
 /**

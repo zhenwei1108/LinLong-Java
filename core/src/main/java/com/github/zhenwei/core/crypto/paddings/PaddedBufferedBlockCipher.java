@@ -1,13 +1,11 @@
 package com.github.zhenwei.core.crypto.paddings;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.paddings.PKCS7Padding;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
 /**
@@ -61,7 +59,7 @@ public class PaddedBufferedBlockCipher
      */
     public void init(
         boolean             forEncryption,
-        CipherParameters    params)
+        CipherParameters params)
         throws IllegalArgumentException
     {
         this.forEncryption = forEncryption;

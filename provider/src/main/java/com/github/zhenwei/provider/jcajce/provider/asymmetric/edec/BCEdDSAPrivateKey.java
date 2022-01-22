@@ -1,21 +1,25 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
 
-
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Properties;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PrivateKeyParameters;
 import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.jcajce.interfaces.EdDSAPrivateKey;
 import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class BCEdDSAPrivateKey
     implements EdDSAPrivateKey

@@ -1,19 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.Digest;
 import java.security.SecureRandom;
 import java.util.Vector;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSDigestProvider;
-import org.bouncycastle.pqc.crypto.gmss.GMSSKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootCalc;
-import org.bouncycastle.pqc.crypto.gmss.GMSSSigner;
-import org.bouncycastle.pqc.crypto.gmss.Treehash;
 import org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
 import org.bouncycastle.pqc.crypto.gmss.util.WinternitzOTSVerify;
 import org.bouncycastle.pqc.crypto.gmss.util.WinternitzOTSignature;

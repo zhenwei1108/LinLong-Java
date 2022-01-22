@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.elgamal.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;

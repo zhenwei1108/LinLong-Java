@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
@@ -22,7 +23,7 @@ public class ExtendedKeyUsage
     extends ASN1Object
 {
     Hashtable     usageTable = new Hashtable();
-    ASN1Sequence  seq;
+    ASN1Sequence seq;
 
     /**
      * Return an ExtendedKeyUsage from the passed in tagged object.
@@ -49,7 +50,7 @@ public class ExtendedKeyUsage
     {
         if (obj instanceof ExtendedKeyUsage)
         {
-            return (x509.ExtendedKeyUsage)obj;
+            return (ExtendedKeyUsage)obj;
         }
         else if (obj != null)
         {

@@ -1,17 +1,24 @@
 package com.github.zhenwei.provider.jcajce.util;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
+import com.github.zhenwei.core.math.ec.ECCurve;
 import java.io.IOException;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import ECNamedCurveTable;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
+ 
+ 
+ 
+
+
 
 /**
  * Utility class for EC Keys.

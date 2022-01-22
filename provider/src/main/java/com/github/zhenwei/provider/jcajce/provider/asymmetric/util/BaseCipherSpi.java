@@ -1,5 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.ByteArrayOutputStream;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -23,11 +27,12 @@ import javax.crypto.spec.RC5ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Wrapper;
+
 ;
 
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public abstract class BaseCipherSpi
     extends CipherSpi
@@ -179,7 +184,7 @@ public abstract class BaseCipherSpi
                  */
             try
             {
-                PrivateKeyInfo       in = PrivateKeyInfo.getInstance(encoded);
+                PrivateKeyInfo in = PrivateKeyInfo.getInstance(encoded);
 
                 PrivateKey privKey = BouncyCastleProvider.getPrivateKey(in);
 

@@ -1,6 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;

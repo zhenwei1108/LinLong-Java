@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.x500;
 
 
+import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;

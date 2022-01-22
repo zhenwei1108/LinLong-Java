@@ -1,14 +1,14 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 import ASN1Boolean;
-
-
-
-
 import cms.Attributes;
 import cms.MetaData;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERUTF8String;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.net.URI;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 
 public class CMSTimeStampedGenerator

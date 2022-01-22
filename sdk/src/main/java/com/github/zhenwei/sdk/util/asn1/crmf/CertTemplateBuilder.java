@@ -1,16 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
 
-
-
-
-
-
-
-import Extensions;
-
 import X500Name;
 import X509Extensions;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
 public class CertTemplateBuilder
 {

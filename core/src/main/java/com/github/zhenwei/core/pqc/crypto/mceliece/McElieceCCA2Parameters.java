@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
-import org.bouncycastle.pqc.crypto.mceliece.McElieceParameters;
-
 public class McElieceCCA2Parameters
     extends McElieceParameters
 {

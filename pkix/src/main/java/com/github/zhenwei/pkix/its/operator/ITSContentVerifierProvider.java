@@ -1,8 +1,10 @@
 package com.github.zhenwei.pkix.its.operator;
 
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import org.bouncycastle.its.ITSCertificate;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.OperatorCreationException;
+
+
 
 public interface ITSContentVerifierProvider
 {

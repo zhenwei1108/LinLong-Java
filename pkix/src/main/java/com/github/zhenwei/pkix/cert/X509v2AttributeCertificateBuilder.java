@@ -1,23 +1,22 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
 import ASN1GeneralizedTime;
-
-
 import AttCertIssuer;
-import Attribute;
-
-
-import Extensions;
 import ExtensionsGenerator;
 import V2AttributeCertificateInfoGenerator;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.sun.org.apache.xalan.internal.lib.Extensions;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Locale;
-import org.bouncycastle.operator.ContentSigner;
+
 
 /**
  * class to produce an X.509 Version 2 AttributeCertificate.
@@ -243,7 +242,8 @@ public class X509v2AttributeCertificateBuilder
     {
         try
         {
-            extGenerator = CertUtils.doReplaceExtension(extGenerator, new Extension(oid, isCritical, value.toASN1Primitive().getEncoded(ASN1Encoding.DER)));
+            extGenerator = CertUtils.doReplaceExtension(extGenerator, new Extension(oid, isCritical, value.toASN1Primitive().getEncoded(
+                ASN1Encoding.DER)));
         }
         catch (IOException e)
         {

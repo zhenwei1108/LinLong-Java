@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import cms.KEKIdentifier;
 import cms.KEKRecipientInfo;
 import cms.RecipientInfo;
-import org.bouncycastle.operator.GenericKey;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.SymmetricKeyWrapper;
 

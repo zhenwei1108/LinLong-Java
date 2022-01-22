@@ -61,7 +61,7 @@ public class ObjectStoreData
     {
         if (o instanceof ObjectStoreData)
         {
-            return (bc.ObjectStoreData)o;
+            return   ( ObjectStoreData)o;
         }
         else if (o != null)
         {

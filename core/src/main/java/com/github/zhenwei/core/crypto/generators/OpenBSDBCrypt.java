@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 import java.io.ByteArrayOutputStream;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.bouncycastle.crypto.generators.BCrypt;
 
 
 

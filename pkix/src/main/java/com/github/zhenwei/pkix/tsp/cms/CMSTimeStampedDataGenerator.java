@@ -1,20 +1,22 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 
-
-
-
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfo;
 import cms.Evidence;
 import cms.TimeStampAndCRL;
 import cms.TimeStampTokenEvidence;
 import cms.TimeStampedData;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.tsp.TimeStampToken;
 
 
@@ -64,6 +66,7 @@ public class CMSTimeStampedDataGenerator
             asn1DataUri = new DERIA5String(dataUri.toString());
         }
         
-        return new CMSTimeStampedData(new ContentInfo(CMSObjectIdentifiers.timestampedData, new TimeStampedData(asn1DataUri, metaData, encContent, new Evidence(new TimeStampTokenEvidence(stamp)))));
+        return new CMSTimeStampedData(new ContentInfo(
+            CMSObjectIdentifiers.timestampedData, new TimeStampedData(asn1DataUri, metaData, encContent, new Evidence(new TimeStampTokenEvidence(stamp)))));
     }
 }

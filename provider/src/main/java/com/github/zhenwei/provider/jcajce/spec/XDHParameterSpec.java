@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
-import edec.EdECObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
 import java.security.spec.AlgorithmParameterSpec;
 
 /**

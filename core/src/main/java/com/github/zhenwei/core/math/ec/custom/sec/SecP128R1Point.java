@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
- 
-import SecP128R1Field;
-
-
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat128;
 
 public class SecP128R1Point extends ECPoint.AbstractFp
 {

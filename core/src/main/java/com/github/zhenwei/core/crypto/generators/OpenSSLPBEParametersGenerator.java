@@ -1,7 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
@@ -18,7 +20,7 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 public class OpenSSLPBEParametersGenerator
     extends PBEParametersGenerator
 {
-    private final Digest  digest;
+    private final Digest digest;
 
     /**
      * Construct a OpenSSL Parameters generator - digest the original MD5.

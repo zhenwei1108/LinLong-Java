@@ -2,7 +2,6 @@ package com.github.zhenwei.pkix.cert.crmf.bc;
 
 import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.EncryptedValuePadder;
-
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.generators.MGF1BytesGenerator;
 import org.bouncycastle.crypto.params.MGFParameters;

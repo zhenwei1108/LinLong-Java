@@ -9,7 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * <pre>
@@ -41,7 +41,7 @@ public class EncryptedSecretKeyData
     {
         if (o instanceof EncryptedSecretKeyData)
         {
-            return (bc.EncryptedSecretKeyData)o;
+            return   ( EncryptedSecretKeyData)o;
         }
         else if (o != null)
         {

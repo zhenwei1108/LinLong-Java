@@ -1,17 +1,20 @@
 package com.github.zhenwei.provider.x509;
 
 
-
-
-
-
-
-
-
 import TBSCertificate;
 import Time;
 import V1TBSCertificateGenerator;
 import X509Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -29,9 +32,9 @@ import java.util.Date;
 import java.util.Iterator;
 import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.jcajce.provider.asymmetric.CertificateFactory;
-;
-
 import org.bouncycastle.jce.X509Principal;
+
+;
 
 /**
  * class to produce an X.509 Version 1 certificate.
@@ -43,8 +46,8 @@ public class X509V1CertificateGenerator
     private final CertificateFactory certificateFactory = new CertificateFactory();
 
     private V1TBSCertificateGenerator   tbsGen;
-    private ASN1ObjectIdentifier         sigOID;
-    private AlgorithmIdentifier         sigAlgId;
+    private ASN1ObjectIdentifier sigOID;
+    private AlgorithmIdentifier sigAlgId;
     private String                      signatureAlgorithm;
 
     public X509V1CertificateGenerator()

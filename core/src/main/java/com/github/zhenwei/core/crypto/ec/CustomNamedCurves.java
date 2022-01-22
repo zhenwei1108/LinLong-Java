@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.crypto.ec;
 
 
-
-import WNafUtil;
-import cryptlib.CryptlibObjectIdentifiers;
-import custom.djb.Curve25519;
-import custom.gm.SM2P256V1Curve;
+import Curve25519;
 import SecP128R1Curve;
 import SecP160K1Curve;
 import SecP160R1Curve;
@@ -36,20 +32,31 @@ import SecT409K1Curve;
 import SecT409R1Curve;
 import SecT571K1Curve;
 import SecT571R1Curve;
-import endo.GLVTypeBEndomorphism;
-import endo.GLVTypeBParameters;
-import endo.ScalarSplitParameters;
-import gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptlib.CryptlibObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParametersHolder;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.WNafUtil;
+import com.github.zhenwei.core.math.ec.custom.gm.SM2P256V1Curve;
+import com.github.zhenwei.core.math.ec.endo.GLVTypeBEndomorphism;
+import com.github.zhenwei.core.math.ec.endo.GLVTypeBParameters;
+import com.github.zhenwei.core.math.ec.endo.ScalarSplitParameters;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
 
-import sec.SECObjectIdentifiers;
-import X9ECParameters;
-import X9ECParametersHolder;
-import X9ECPoint;
+
+
+
+
 
 public class CustomNamedCurves
 {

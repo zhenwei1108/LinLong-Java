@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.params.DHParameters;
+ 
 
 public class DHParametersGenerator
 {

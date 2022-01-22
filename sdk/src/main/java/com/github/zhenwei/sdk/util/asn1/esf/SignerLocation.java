@@ -1,15 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
 
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.DERUTF8String;
+import com.github.zhenwei.core.asn1.x500.DirectoryString;
 import java.util.Enumeration;
 
 /**
@@ -27,9 +28,9 @@ import java.util.Enumeration;
 public class SignerLocation
     extends ASN1Object
 {
-    private DirectoryString   countryName;
+    private DirectoryString countryName;
     private DirectoryString   localityName;
-    private ASN1Sequence      postalAddress;
+    private ASN1Sequence postalAddress;
     
     private SignerLocation(
         ASN1Sequence seq)
@@ -92,7 +93,7 @@ public class SignerLocation
     }
 
     public SignerLocation(
-        ASN1UTF8String   countryName,
+        ASN1UTF8String countryName,
         ASN1UTF8String   localityName,
         ASN1Sequence    postalAddress)
     {

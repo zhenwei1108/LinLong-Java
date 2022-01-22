@@ -1,6 +1,10 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.io.InputStream;
 import java.security.Key;
 import java.security.PrivateKey;
@@ -10,9 +14,6 @@ import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.cert.crmf.CRMFException;
 import org.bouncycastle.cert.crmf.ValueDecryptorGenerator;
 import org.bouncycastle.jcajce.io.CipherInputStream;
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;

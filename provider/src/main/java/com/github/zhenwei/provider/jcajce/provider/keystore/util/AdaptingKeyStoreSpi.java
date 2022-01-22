@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.keystore.util;
 
+import com.github.zhenwei.core.util.Properties;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;

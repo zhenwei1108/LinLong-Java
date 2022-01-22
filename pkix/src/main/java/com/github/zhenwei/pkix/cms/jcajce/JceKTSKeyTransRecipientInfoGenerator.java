@@ -1,16 +1,18 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
+import KeyTransRecipientInfoGenerator;
 import cms.IssuerAndSerialNumber;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
-import org.bouncycastle.cms.KeyTransRecipientInfoGenerator;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyWrapper;
 import org.bouncycastle.operator.jcajce.JceKTSKeyWrapper;
 
@@ -98,14 +100,14 @@ public class JceKTSKeyTransRecipientInfoGenerator
         super(subjectKeyIdentifier, new JceAsymmetricKeyWrapper(algorithmIdentifier, publicKey));
     }
 
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipientInfoGenerator setProvider(String providerName)
+    public jcajce.JceKTSKeyTransRecipientInfoGenerator setProvider(String providerName)
     {
         ((JceKTSKeyWrapper)this.wrapper).setProvider(providerName);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKTSKeyTransRecipientInfoGenerator setProvider(Provider provider)
+    public jcajce.JceKTSKeyTransRecipientInfoGenerator setProvider(Provider provider)
     {
         ((JceKTSKeyWrapper)this.wrapper).setProvider(provider);
 

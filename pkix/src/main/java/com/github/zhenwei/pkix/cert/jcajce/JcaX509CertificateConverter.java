@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.NoSuchProviderException;

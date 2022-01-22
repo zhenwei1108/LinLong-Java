@@ -1,14 +1,16 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 
 
@@ -17,7 +19,7 @@ public class MacData
 {
     private static final BigInteger ONE = BigInteger.valueOf(1);
 
-    DigestInfo                  digInfo;
+    DigestInfo digInfo;
     byte[]                      salt;
     BigInteger                  iterationCount;
 

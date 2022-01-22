@@ -1,16 +1,17 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import cms.IssuerAndSerialNumber;
 import cms.SignerIdentifier;
- 
-import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 /**
  * Builder for SignerInfo generator objects.
@@ -54,7 +55,7 @@ public class SignerInfoGeneratorBuilder
      *
      * @return the builder object
      */
-    public org.bouncycastle.cms.SignerInfoGeneratorBuilder setDirectSignature(boolean hasNoSignedAttributes)
+    public SignerInfoGeneratorBuilder setDirectSignature(boolean hasNoSignedAttributes)
     {
         this.directSignature = hasNoSignedAttributes;
 
@@ -67,7 +68,7 @@ public class SignerInfoGeneratorBuilder
      *
      * @return the builder object
      */
-    public org.bouncycastle.cms.SignerInfoGeneratorBuilder setContentDigest(AlgorithmIdentifier contentDigest)
+    public SignerInfoGeneratorBuilder setContentDigest(AlgorithmIdentifier contentDigest)
     {
         this.contentDigest = contentDigest;
 
@@ -80,7 +81,7 @@ public class SignerInfoGeneratorBuilder
      * @param signedGen a generator of signed attributes.
      * @return the builder object
      */
-    public org.bouncycastle.cms.SignerInfoGeneratorBuilder setSignedAttributeGenerator(CMSAttributeTableGenerator signedGen)
+    public SignerInfoGeneratorBuilder setSignedAttributeGenerator(CMSAttributeTableGenerator signedGen)
     {
         this.signedGen = signedGen;
 
@@ -93,7 +94,7 @@ public class SignerInfoGeneratorBuilder
      * @param unsignedGen  a generator for signed attributes.
      * @return the builder object
      */
-    public org.bouncycastle.cms.SignerInfoGeneratorBuilder setUnsignedAttributeGenerator(CMSAttributeTableGenerator unsignedGen)
+    public SignerInfoGeneratorBuilder setUnsignedAttributeGenerator(CMSAttributeTableGenerator unsignedGen)
     {
         this.unsignedGen = unsignedGen;
 

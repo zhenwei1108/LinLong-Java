@@ -1,19 +1,21 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import java.io.IOException;
 import java.security.PrivateKey;
-
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.pqc.asn1.McEliecePrivateKey;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePrivateKeyParameters;
 import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
 import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
 import org.bouncycastle.pqc.math.linearalgebra.Permutation;
 import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * This class implements a McEliece private key and is usually instantiated by

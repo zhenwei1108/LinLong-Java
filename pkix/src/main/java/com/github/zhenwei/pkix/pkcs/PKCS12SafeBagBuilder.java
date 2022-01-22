@@ -1,27 +1,31 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-
-import Certificate;
-import CertificateList;
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.pkcs.CertBag;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.SafeBag;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
-import org.bouncycastle.cert.X509CRLHolder;
- 
 import org.bouncycastle.operator.OutputEncryptor;
 import pkcs.Attribute;
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 
 public class PKCS12SafeBagBuilder
 {
     private ASN1ObjectIdentifier bagType;
-    private ASN1Encodable        bagValue;
-    private ASN1EncodableVector  bagAttrs = new ASN1EncodableVector();
+    private ASN1Encodable bagValue;
+    private ASN1EncodableVector bagAttrs = new ASN1EncodableVector();
 
     public PKCS12SafeBagBuilder(PrivateKeyInfo privateKeyInfo, OutputEncryptor encryptor)
     {

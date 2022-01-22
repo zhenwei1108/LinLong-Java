@@ -1,14 +1,14 @@
 package com.github.zhenwei.provider.x509;
 
 
-
- 
-
-
-import AttributeCertificate;
-
-
-import Extensions;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.x509.AttributeCertificate;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,7 +38,7 @@ import java.util.Set;
 public class X509V2AttributeCertificate
     implements X509AttributeCertificate
 {
-    private AttributeCertificate    cert;
+    private AttributeCertificate cert;
     private Date                    notBefore;
     private Date                    notAfter;
 
@@ -122,7 +122,7 @@ public class X509V2AttributeCertificate
     
     public boolean[] getIssuerUniqueID()
     {
-        DERBitString    id = cert.getAcinfo().getIssuerUniqueID();
+        DERBitString id = cert.getAcinfo().getIssuerUniqueID();
 
         if (id != null)
         {

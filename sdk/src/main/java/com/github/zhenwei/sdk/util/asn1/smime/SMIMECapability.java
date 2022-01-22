@@ -1,14 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 public class SMIMECapability
     extends ASN1Object
@@ -31,7 +32,7 @@ public class SMIMECapability
     public static final ASN1ObjectIdentifier aES256_CBC = NISTObjectIdentifiers.id_aes256_CBC;
     
     private ASN1ObjectIdentifier capabilityID;
-    private ASN1Encodable        parameters;
+    private ASN1Encodable parameters;
 
     public SMIMECapability(
         ASN1Sequence seq)

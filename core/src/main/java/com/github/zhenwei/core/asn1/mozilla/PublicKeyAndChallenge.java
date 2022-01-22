@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.mozilla;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
 /**
  * This is designed to parse
@@ -22,9 +23,9 @@ package com.github.zhenwei.core.asn1.mozilla;
 public class PublicKeyAndChallenge
     extends ASN1Object
 {
-    private ASN1Sequence         pkacSeq;
+    private ASN1Sequence pkacSeq;
     private SubjectPublicKeyInfo spki;
-    private ASN1IA5String         challenge;
+    private ASN1IA5String challenge;
 
     public static mozilla.PublicKeyAndChallenge getInstance(Object obj)
     {

@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
- 
+
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 
 class ValidationUtils
 {

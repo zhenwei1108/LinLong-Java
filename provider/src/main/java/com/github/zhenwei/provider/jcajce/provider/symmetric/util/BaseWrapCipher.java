@@ -1,5 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.ByteArrayOutputStream;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -26,7 +32,6 @@ import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
- 
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Wrapper;
 import org.bouncycastle.crypto.params.KeyParameter;
@@ -35,11 +40,12 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.ParametersWithSBox;
 import org.bouncycastle.crypto.params.ParametersWithUKM;
 import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
+
 ;
 
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public abstract class BaseWrapCipher
     extends CipherSpi
@@ -169,7 +175,7 @@ public abstract class BaseWrapCipher
         SecureRandom            random)
     throws InvalidKeyException, InvalidAlgorithmParameterException
     {
-        CipherParameters        param;
+        CipherParameters param;
 
         if (key instanceof BCPBEKey)
         {
@@ -507,7 +513,7 @@ public abstract class BaseWrapCipher
              */
             try
             {
-                PrivateKeyInfo       in = PrivateKeyInfo.getInstance(encoded);
+                PrivateKeyInfo in = PrivateKeyInfo.getInstance(encoded);
 
                 PrivateKey privKey = BouncyCastleProvider.getPrivateKey(in);
 

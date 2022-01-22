@@ -1,9 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
 
-
-
-
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Strings;
 
 class HashFunctions
 {

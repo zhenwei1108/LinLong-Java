@@ -188,7 +188,7 @@ final class Conversions
         int tt = t;
         for (int i = 0; i < n; i++)
         {
-            bc = (bc.multiply(new BigInteger(Integer.toString(nn - tt))))
+            bc =   ( multiply(new BigInteger(Integer.toString(nn - tt))))
                 .divide(new BigInteger(Integer.toString(nn)));
             nn--;
 

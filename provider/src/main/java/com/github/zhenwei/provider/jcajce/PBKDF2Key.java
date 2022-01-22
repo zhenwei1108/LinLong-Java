@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce;
 
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.CharToByteConverter;
 
 

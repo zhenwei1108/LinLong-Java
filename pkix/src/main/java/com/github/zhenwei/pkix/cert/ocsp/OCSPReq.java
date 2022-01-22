@@ -2,13 +2,15 @@ package com.github.zhenwei.pkix.cert.ocsp;
 
 
 import ASN1Exception;
- 
-
-
-import Certificate;
-
-import Extensions;
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -17,8 +19,8 @@ import ocsp.OCSPRequest;
 import ocsp.Request;
 import org.bouncycastle.cert.CertIOException;
  
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
+
+
 
 /**
  * <pre>
@@ -110,7 +112,7 @@ public class OCSPReq
 
     public Req[] getRequestList()
     {
-        ASN1Sequence    seq = req.getTbsRequest().getRequestList();
+        ASN1Sequence seq = req.getTbsRequest().getRequestList();
         Req[]           requests = new Req[seq.size()];
 
         for (int i = 0; i != requests.length; i++)

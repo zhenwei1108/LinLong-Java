@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 
 /**
@@ -34,7 +35,7 @@ public class TargetInformation
     {
         if (obj instanceof TargetInformation)
         {
-            return (x509.TargetInformation)obj;
+            return (TargetInformation)obj;
         }
         else if (obj != null)
         {

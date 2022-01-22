@@ -1,26 +1,27 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class AttributeCertificateInfo
     extends ASN1Object
 {
-    private ASN1Integer             version;
+    private ASN1Integer version;
     private Holder                  holder;
     private AttCertIssuer           issuer;
     private AlgorithmIdentifier     signature;
     private ASN1Integer              serialNumber;
     private AttCertValidityPeriod   attrCertValidityPeriod;
-    private ASN1Sequence            attributes;
-    private DERBitString            issuerUniqueID;
+    private ASN1Sequence attributes;
+    private DERBitString issuerUniqueID;
     private Extensions              extensions;
 
     public static AttributeCertificateInfo getInstance(
@@ -74,7 +75,7 @@ public class AttributeCertificateInfo
         
         for (int i = start + 6; i < seq.size(); i++)
         {
-            ASN1Encodable    obj = seq.getObjectAt(i);
+            ASN1Encodable obj = seq.getObjectAt(i);
 
             if (obj instanceof DERBitString)
             {

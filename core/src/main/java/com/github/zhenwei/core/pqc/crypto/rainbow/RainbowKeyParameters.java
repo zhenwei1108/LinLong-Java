@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 
-public class RainbowKeyParameters 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+
+public class RainbowKeyParameters
     extends AsymmetricKeyParameter
 {
     private int docLength;

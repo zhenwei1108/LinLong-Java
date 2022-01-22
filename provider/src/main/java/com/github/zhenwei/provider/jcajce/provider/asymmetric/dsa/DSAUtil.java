@@ -1,7 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
@@ -9,13 +15,8 @@ import java.security.PublicKey;
 import java.security.interfaces.DSAParams;
 import java.security.interfaces.DSAPrivateKey;
 import java.security.interfaces.DSAPublicKey;
-
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
-
 import org.bouncycastle.util.Fingerprint;
-import X9ObjectIdentifiers;
+
 
 /**
  * utility class for converting jce/jca DSA objects
@@ -105,6 +106,7 @@ public class DSAUtil
 
     static String generateKeyFingerprint(BigInteger y, DSAParams params)
     {
-        return new Fingerprint(Arrays.concatenate(y.toByteArray(), params.getP().toByteArray(), params.getQ().toByteArray(), params.getG().toByteArray())).toString();
+        return new Fingerprint(
+            Arrays.concatenate(y.toByteArray(), params.getP().toByteArray(), params.getQ().toByteArray(), params.getG().toByteArray())).toString();
     }
 }

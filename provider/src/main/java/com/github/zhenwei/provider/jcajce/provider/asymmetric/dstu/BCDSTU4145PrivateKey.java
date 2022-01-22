@@ -1,16 +1,27 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
 
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -20,30 +31,25 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPrivateKeySpec;
 import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
- 
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-
-
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import pkcs.PrivateKeyInfo;
 import ua.DSTU4145BinaryField;
 import ua.DSTU4145ECBinary;
 import ua.DSTU4145NamedCurves;
 import ua.DSTU4145Params;
 import ua.DSTU4145PointEncoder;
 import ua.UAObjectIdentifiers;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
-import X9ObjectIdentifiers;
+ 
+
+
+
 
 public class BCDSTU4145PrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder
+    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    PKCS12BagAttributeCarrier, ECPointEncoder
 {
     static final long serialVersionUID = 7245981689601667138L;
 

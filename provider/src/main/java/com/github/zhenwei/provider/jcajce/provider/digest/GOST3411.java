@@ -1,6 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
 
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.GOST3411Digest;
 import org.bouncycastle.crypto.digests.GOST3411_2012_256Digest;
@@ -10,7 +12,7 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
-import rosstandart.RosstandartObjectIdentifiers;
+
 
 public class GOST3411
 {

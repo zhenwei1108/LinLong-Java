@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms.bc;
 
+import KEKRecipientInfoGenerator;
 import cms.KEKIdentifier;
-import org.bouncycastle.cms.KEKRecipientInfoGenerator;
 import org.bouncycastle.operator.bc.BcSymmetricKeyWrapper;
 
 public class BcKEKRecipientInfoGenerator

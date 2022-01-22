@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
-
 /**
  * This abstract class defines matrices. It holds the number of rows and the
  * number of columns of the matrix and defines some basic methods.

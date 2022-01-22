@@ -1,13 +1,17 @@
 package com.github.zhenwei.pkix.cms;
 
 import cms.OriginatorInfo;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.util.ArrayList;
 import java.util.List;
 import kisa.KISAObjectIdentifiers;
 
 
 
-import X9ObjectIdentifiers;
+
 
 /**
  * General class for generating a CMS enveloped-data message.

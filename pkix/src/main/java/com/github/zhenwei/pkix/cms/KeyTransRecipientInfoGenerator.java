@@ -5,8 +5,9 @@ import cms.IssuerAndSerialNumber;
 import cms.KeyTransRecipientInfo;
 import cms.RecipientIdentifier;
 import cms.RecipientInfo;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import org.bouncycastle.operator.AsymmetricKeyWrapper;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 
 public abstract class KeyTransRecipientInfoGenerator

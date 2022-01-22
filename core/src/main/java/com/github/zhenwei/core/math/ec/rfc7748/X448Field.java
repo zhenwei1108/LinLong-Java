@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.math.ec.rfc7748;
 
 
+import com.github.zhenwei.core.math.raw.Mod;
 
 public abstract class X448Field
 {

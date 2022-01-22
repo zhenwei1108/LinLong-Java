@@ -1,7 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
 import java.security.SignatureException;
 

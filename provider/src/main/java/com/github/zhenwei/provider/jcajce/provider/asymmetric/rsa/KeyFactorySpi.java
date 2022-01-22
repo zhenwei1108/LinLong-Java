@@ -1,7 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -15,17 +20,15 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPrivateCrtKeySpec;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
-
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.crypto.util.OpenSSHPrivateKeyUtil;
 import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ExtendedInvalidKeySpecException;
 import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
 import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
-import pkcs.PrivateKeyInfo;
-import pkcs.RSAPrivateKey;
+ 
+ 
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.operator.bc;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import kisa.KISAObjectIdentifiers;
 
 class SEEDUtil

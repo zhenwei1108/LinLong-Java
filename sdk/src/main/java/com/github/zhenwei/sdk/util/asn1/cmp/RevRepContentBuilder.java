@@ -1,9 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
-import CertificateList;
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
 import crmf.CertId;
 
 public class RevRepContentBuilder

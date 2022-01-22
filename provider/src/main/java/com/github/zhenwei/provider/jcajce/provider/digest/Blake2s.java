@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import misc.MiscObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.crypto.digests.Blake2sDigest;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 

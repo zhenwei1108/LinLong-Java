@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
+import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1IA5String;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -13,6 +14,7 @@ import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.util.IPAddress;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
@@ -175,7 +177,7 @@ public class GeneralName
     {
         if (obj == null || obj instanceof GeneralName)
         {
-            return (x509.GeneralName)obj;
+            return (GeneralName)obj;
         }
 
         if (obj instanceof ASN1TaggedObject)

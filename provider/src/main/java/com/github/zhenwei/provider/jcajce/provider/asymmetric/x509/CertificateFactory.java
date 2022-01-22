@@ -1,12 +1,17 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
- 
 
-
-
-
-import Certificate;
-import CertificateList;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -22,11 +27,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-;
-
-
-
 import pkcs.SignedData;
+
+;
 
 /**
  * class for dealing with X509 certificates.

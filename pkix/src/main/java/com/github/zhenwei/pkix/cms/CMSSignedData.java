@@ -1,18 +1,25 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
- 
-
-
-
-
-
-
 import DLSet;
 import cms.ContentInfo;
 import cms.SignedData;
 import cms.SignerInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -25,13 +32,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.X509CRLHolder;
+
+
  
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.Store;
+
+
+
+
 
 /**
  * general class for handling a pkcs7-signature message.
@@ -75,7 +82,7 @@ public class CMSSignedData
     private Map             hashes;
 
     private CMSSignedData(
-        org.bouncycastle.cms.CMSSignedData c)
+        CMSSignedData c)
     {
         this.signedData = c.signedData;
         this.contentInfo = c.contentInfo;
@@ -244,7 +251,7 @@ public class CMSSignedData
     {
         if (signerInfoStore == null)
         {
-            ASN1Set         s = signedData.getSignerInfos();
+            ASN1Set s = signedData.getSignerInfos();
             List            signerInfos = new ArrayList();
 
             for (int i = 0; i != s.size(); i++)
@@ -490,14 +497,14 @@ public class CMSSignedData
      * @param signerInformationStore the new signer information store to use.
      * @return a new signed data object.
      */
-    public static org.bouncycastle.cms.CMSSignedData replaceSigners(
-        org.bouncycastle.cms.CMSSignedData signedData,
+    public static CMSSignedData replaceSigners(
+        CMSSignedData signedData,
         SignerInformationStore  signerInformationStore)
     {
         //
         // copy
         //
-        org.bouncycastle.cms.CMSSignedData cms = new org.bouncycastle.cms.CMSSignedData(signedData);
+        CMSSignedData cms = new CMSSignedData(signedData);
         
         //
         // replace the store
@@ -520,7 +527,7 @@ public class CMSSignedData
 
         ASN1Set             digests = CMSUtils.convertToBERSet(digestAlgs);
         ASN1Set             signers = new DLSet(vec);
-        ASN1Sequence        sD = (ASN1Sequence)signedData.signedData.toASN1Primitive();
+        ASN1Sequence sD = (ASN1Sequence)signedData.signedData.toASN1Primitive();
 
         vec = new ASN1EncodableVector();
 
@@ -558,8 +565,8 @@ public class CMSSignedData
      * @return a new signed data object.
      * @exception CMSException if there is an error processing the CertStore
      */
-    public static org.bouncycastle.cms.CMSSignedData replaceCertificatesAndCRLs(
-        org.bouncycastle.cms.CMSSignedData signedData,
+    public static CMSSignedData replaceCertificatesAndCRLs(
+        CMSSignedData signedData,
         Store           certificates,
         Store           attrCerts,
         Store           revocations)
@@ -568,7 +575,7 @@ public class CMSSignedData
         //
         // copy
         //
-        org.bouncycastle.cms.CMSSignedData cms = new org.bouncycastle.cms.CMSSignedData(signedData);
+        CMSSignedData cms = new CMSSignedData(signedData);
 
         //
         // replace the certs and revocations in the SignedData object

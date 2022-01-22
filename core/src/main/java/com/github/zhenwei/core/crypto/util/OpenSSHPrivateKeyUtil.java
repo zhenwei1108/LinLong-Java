@@ -1,31 +1,40 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
+import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
+import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.math.BigInteger;
 import nist.NISTNamedCurves;
-
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
+ 
 
  
 
-import pkcs.PrivateKeyInfo;
-import pkcs.RSAPrivateKey;
-import sec.ECPrivateKey;
-import ECNamedCurveTable;
-import X9ECParameters;
+ 
+ 
+ 
+ 
+
 
 
 /**
@@ -162,7 +171,8 @@ public class OpenSSHPrivateKeyUtil
 
             if (sequence.size() == 6)
             {
-                if (allIntegers(sequence) && ((ASN1Integer)sequence.getObjectAt(0)).getPositiveValue().equals(BigIntegers.ZERO))
+                if (allIntegers(sequence) && ((ASN1Integer)sequence.getObjectAt(0)).getPositiveValue().equals(
+                    BigIntegers.ZERO))
                 {
                     // length of 6 and all Integers -- DSA
                     result = new DSAPrivateKeyParameters(

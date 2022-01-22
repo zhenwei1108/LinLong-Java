@@ -1,17 +1,17 @@
 package com.github.zhenwei.pkix.dvcs;
 
 
-
+import CMSSignedDataGenerator;
 import DVCSObjectIdentifiers;
 import DVCSRequestInformationBuilder;
 import Data;
 import ExtensionsGenerator;
-
 import GeneralNames;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.cms.CMSSignedDataGenerator;
 
 /**
  * Common base class for client DVCRequest builders.

@@ -1,19 +1,20 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 import java.util.Enumeration;
 
 public class DSAParameter
     extends ASN1Object
 {
-    ASN1Integer      p, q, g;
+    ASN1Integer p, q, g;
 
     public static DSAParameter getInstance(
         ASN1TaggedObject obj,
@@ -27,7 +28,7 @@ public class DSAParameter
     {
         if (obj instanceof DSAParameter)
         {
-            return (x509.DSAParameter)obj;
+            return (DSAParameter)obj;
         }
         
         if(obj != null)

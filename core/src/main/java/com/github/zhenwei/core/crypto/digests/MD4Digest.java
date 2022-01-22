@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.GeneralDigest;
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * implementation of MD4 as RFC 1320 by R. Rivest, MIT Laboratory for

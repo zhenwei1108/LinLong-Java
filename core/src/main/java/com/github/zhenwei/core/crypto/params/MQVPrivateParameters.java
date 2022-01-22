@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
- 
-import FixedPointCombMultiplier;
 
+import FixedPointCombMultiplier;
+import com.github.zhenwei.core.crypto.CipherParameters;
 
 
 public class MQVPrivateParameters

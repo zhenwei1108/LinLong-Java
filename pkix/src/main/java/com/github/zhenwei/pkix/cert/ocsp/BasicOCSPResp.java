@@ -1,12 +1,16 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-
-
-
-import Certificate;
-
-import Extensions;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Date;
@@ -16,9 +20,9 @@ import ocsp.BasicOCSPResponse;
 import ocsp.ResponseData;
 import ocsp.SingleResponse;
  
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.util.Encodable;
+
+
+
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -88,7 +92,7 @@ public class BasicOCSPResp
 
     public SingleResp[] getResponses()
     {
-        ASN1Sequence    s = data.getResponses();
+        ASN1Sequence s = data.getResponses();
         SingleResp[]    rs = new SingleResp[s.size()];
 
         for (int i = 0; i != rs.length; i++)

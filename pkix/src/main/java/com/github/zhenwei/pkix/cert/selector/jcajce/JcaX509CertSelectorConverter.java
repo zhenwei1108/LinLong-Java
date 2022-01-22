@@ -2,6 +2,7 @@ package com.github.zhenwei.pkix.cert.selector.jcajce;
 
 
 import X500Name;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.cert.X509CertSelector;

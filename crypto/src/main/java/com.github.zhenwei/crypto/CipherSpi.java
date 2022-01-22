@@ -17,7 +17,7 @@ import javax.crypto.ShortBufferException;
 /**
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Cipher</code> class.
- * All the abstract methods in this class must be implemented by each 
+ * All the abstract methods in this class must be implemented by each
  * cryptographic service provider who wishes to supply the implementation
  * of a particular cipher algorithm.
  * <p>

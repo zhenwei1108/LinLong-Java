@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;

@@ -1,21 +1,22 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class PKIStatusInfo
     extends ASN1Object
 {
-    ASN1Integer      status;
+    ASN1Integer status;
     PKIFreeText     statusString;
-    DERBitString    failInfo;
+    DERBitString failInfo;
 
     public static cmp.PKIStatusInfo getInstance(
         ASN1TaggedObject obj,
@@ -145,7 +146,7 @@ public class PKIStatusInfo
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(3);
+        ASN1EncodableVector v = new ASN1EncodableVector(3);
 
         v.add(status);
 

@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 public class CertBag
     extends ASN1Object
@@ -17,7 +18,7 @@ public class CertBag
     private ASN1Encodable certValue;
 
     private CertBag(
-        ASN1Sequence    seq)
+        ASN1Sequence seq)
     {
         this.certId = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
         this.certValue = ASN1TaggedObject.getInstance(seq.getObjectAt(1)).getObject();

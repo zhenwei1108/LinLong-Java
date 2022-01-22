@@ -1,13 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
 
-
-
-
-
-
-
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -16,8 +22,6 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.X509EncodedKeySpec;
-
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
@@ -33,7 +37,7 @@ import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
 import org.bouncycastle.jcajce.spec.RawEncodedKeySpec;
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi
@@ -228,7 +232,8 @@ public class KeyFactorySpi
 
         if (isXdh)
         {
-            if ((specificBase == 0 || specificBase == x448_type) && algOid.equals(EdECObjectIdentifiers.id_X448))
+            if ((specificBase == 0 || specificBase == x448_type) && algOid.equals(
+                EdECObjectIdentifiers.id_X448))
             {
                 return new BCXDHPrivateKey(keyInfo);
             }

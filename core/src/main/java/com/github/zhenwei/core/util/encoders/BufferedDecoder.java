@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.util.encoders;
 
 
-import org.bouncycastle.util.encoders.Translator;
-
 /**
  * A buffering class to allow translation from one format to another to
  * be done in discrete chunks.

@@ -1,6 +1,6 @@
 package com.github.zhenwei.crypto.kmip.wire;
 
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;

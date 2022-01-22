@@ -1,8 +1,13 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import crmf.AttributeTypeAndValue;
 import crmf.CRMFObjectIdentifiers;
 import crmf.CertReqMsg;
@@ -14,10 +19,10 @@ import crmf.POPOSigningKey;
 import crmf.ProofOfPossession;
 import java.io.IOException;
 import org.bouncycastle.cert.CertIOException;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.Encodable;
+
+
+
+
 
 /**
  * Carrier for a CRMF CertReqMsg.

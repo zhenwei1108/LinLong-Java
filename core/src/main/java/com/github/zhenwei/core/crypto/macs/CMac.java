@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.macs;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import org.bouncycastle.crypto.BlockCipher;
- 
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.paddings.ISO7816d4Padding;
@@ -19,11 +19,11 @@ import org.bouncycastle.crypto.params.KeyParameter;
  * CMAC/OMAC1 is a blockcipher-based message authentication code designed and
  * analyzed by Tetsu Iwata and Kaoru Kurosawa.
  * </p><p>
- * CMAC/OMAC1 is a simple variant of the CBC MAC (Cipher Block Chaining Message 
+ * CMAC/OMAC1 is a simple variant of the CBC MAC (Cipher Block Chaining Message
  * Authentication Code). OMAC stands for One-Key CBC MAC.
  * </p><p>
  * It supports 128- or 64-bits block ciphers, with any key size, and returns
- * a MAC with dimension less or equal to the block size of the underlying 
+ * a MAC with dimension less or equal to the block size of the underlying
  * cipher.
  * </p>
  */

@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.EncodableDigest;
-import org.bouncycastle.crypto.digests.GeneralDigest;
-
-
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * FIPS 180-2 implementation of SHA-256.

@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Integers;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-
-import org.bouncycastle.pqc.crypto.xmss.DefaultXMSSOid;
-import org.bouncycastle.pqc.crypto.xmss.XMSSOid;
  
 
 /**

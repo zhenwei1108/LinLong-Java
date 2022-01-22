@@ -1,7 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -17,7 +19,7 @@ import org.bouncycastle.pqc.asn1.RainbowPrivateKey;
 import org.bouncycastle.pqc.asn1.RainbowPublicKey;
 import org.bouncycastle.pqc.jcajce.spec.RainbowPrivateKeySpec;
 import org.bouncycastle.pqc.jcajce.spec.RainbowPublicKeySpec;
-import pkcs.PrivateKeyInfo;
+ 
 
 
 /**

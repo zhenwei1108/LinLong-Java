@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * The base class for symmetric, or secret, cipher key generators.

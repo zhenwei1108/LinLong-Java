@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.math.ec;
 
+import com.github.zhenwei.core.math.raw.Nat;
 import java.math.BigInteger;
 
 

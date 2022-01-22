@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.misc;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 public interface MiscObjectIdentifiers
 {

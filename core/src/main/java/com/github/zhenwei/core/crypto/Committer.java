@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.Commitment;
-
 /**
  * General interface fdr classes that produce and validate commitments.
  */

@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
-import Certificate;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.Certificate;
 import java.io.IOException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
@@ -8,7 +9,7 @@ import java.security.cert.X509Certificate;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.pkcs.PKCS12SafeBagBuilder;
 import org.bouncycastle.pkcs.PKCSIOException;
-import pkcs.PrivateKeyInfo;
+ 
 
 public class JcaPKCS12SafeBagBuilder
     extends PKCS12SafeBagBuilder

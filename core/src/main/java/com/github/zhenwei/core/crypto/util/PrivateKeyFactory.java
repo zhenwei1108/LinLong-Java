@@ -1,52 +1,57 @@
 package com.github.zhenwei.core.crypto.util;
 
 
- 
-
-
-
-
-
-
-import DSAParameter;
-
-
-import ECGOST3410NamedCurves;
-import GOST3410PublicKeyAlgParameters;
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.ElGamalParameter;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.DHParameter;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
+import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
-import oiw.ElGamalParameter;
 
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
- 
-import org.bouncycastle.crypto.params.ECGOST3410Parameters;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
+;
+;
+;
 
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PrivateKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.X448PrivateKeyParameters;
 
-import pkcs.DHParameter;
-
-import pkcs.PrivateKeyInfo;
-import pkcs.RSAPrivateKey;
-import rosstandart.RosstandartObjectIdentifiers;
-import sec.ECPrivateKey;
-import ECNamedCurveTable;
-import X962Parameters;
-import X9ECParameters;
-import X9ObjectIdentifiers;
 
 /**
  * Factory for creating private key objects from PKCS8 PrivateKeyInfo objects.

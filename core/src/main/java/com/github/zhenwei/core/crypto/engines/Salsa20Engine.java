@@ -1,7 +1,10 @@
 package com.github.zhenwei.core.crypto.engines;
 
 
-
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Strings;
 import org.bouncycastle.crypto.MaxBytesExceededException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.SkippingStreamCipher;
@@ -22,7 +25,8 @@ public class Salsa20Engine
     /** Constants */
     private final static int STATE_SIZE = 16; // 16, 32 bit ints = 64 bytes
 
-    private final static int[] TAU_SIGMA = Pack.littleEndianToInt(Strings.toByteArray("expand 16-byte k" + "expand 32-byte k"), 0, 8);
+    private final static int[] TAU_SIGMA = Pack.littleEndianToInt(
+        Strings.toByteArray("expand 16-byte k" + "expand 32-byte k"), 0, 8);
 
     protected void packTauOrSigma(int keyLength, int[] state, int stateOffset)
     {
@@ -87,7 +91,7 @@ public class Salsa20Engine
      */
     public void init(
         boolean             forEncryption, 
-        CipherParameters     params)
+        CipherParameters params)
     {
         /* 
         * Salsa20 encryption and decryption is completely

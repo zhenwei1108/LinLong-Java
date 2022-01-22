@@ -1,16 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.sphincs;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PublicKey;
- 
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.util.PublicKeyFactory;
 import org.bouncycastle.pqc.crypto.util.SubjectPublicKeyInfoFactory;
 import org.bouncycastle.pqc.jcajce.interfaces.SPHINCSKey;
@@ -93,7 +95,8 @@ public class BCSphincs256PublicKey
             }
             else
             {
-                AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(PQCObjectIdentifiers.sphincs256, new SPHINCS256KeyParams(new AlgorithmIdentifier(treeDigest)));
+                AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(
+                    PQCObjectIdentifiers.sphincs256, new SPHINCS256KeyParams(new AlgorithmIdentifier(treeDigest)));
                 pki = new SubjectPublicKeyInfo(algorithmIdentifier, params.getKeyData());
             }
 

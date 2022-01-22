@@ -1,18 +1,19 @@
 package com.github.zhenwei.core.asn1.oiw;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 import java.util.Enumeration;
 
 public class ElGamalParameter
     extends ASN1Object
 {
-    ASN1Integer      p, g;
+    ASN1Integer p, g;
 
     public ElGamalParameter(
         BigInteger  p,
@@ -23,7 +24,7 @@ public class ElGamalParameter
     }
 
     private ElGamalParameter(
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {
         Enumeration     e = seq.getObjects();
 

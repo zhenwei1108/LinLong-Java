@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
- 
-import org.bouncycastle.crypto.params.KeyParameter;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Arrays;
 
 public class AEADParameters
     implements CipherParameters

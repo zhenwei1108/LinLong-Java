@@ -1,10 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.EncodableDigest;
-import org.bouncycastle.crypto.digests.GeneralDigest;
-
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * implementation of MD5 as outlined in "Handbook of Applied Cryptography", pages 346 - 347.

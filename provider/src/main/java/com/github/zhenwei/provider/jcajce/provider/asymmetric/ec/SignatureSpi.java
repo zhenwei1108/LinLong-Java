@@ -1,12 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-
 import org.bouncycastle.crypto.DSAExt;
-
 import org.bouncycastle.crypto.digests.NullDigest;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
@@ -17,7 +17,6 @@ import org.bouncycastle.crypto.signers.ECNRSigner;
 import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
 import org.bouncycastle.crypto.signers.PlainDSAEncoding;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.DSABase;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 

@@ -1,18 +1,29 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-
-
-
-
-
-
-
-
-
-
-import ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,24 +33,19 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPrivateKeySpec;
 import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
- 
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-
-import pkcs.PrivateKeyInfo;
 import sec.ECPrivateKeyStructure;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
-import X9ObjectIdentifiers;
+ 
+
+
+
 
 public class JCEECPrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder
+    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    PKCS12BagAttributeCarrier, ECPointEncoder
 {
     private String          algorithm = "EC";
     private BigInteger      d;
@@ -108,7 +114,7 @@ public class JCEECPrivateKey
 
     public JCEECPrivateKey(
         String                  algorithm,
-        ECPrivateKeyParameters  params,
+        ECPrivateKeyParameters params,
         JCEECPublicKey          pubKey,
         ECParameterSpec         spec)
     {
@@ -178,7 +184,7 @@ public class JCEECPrivateKey
     }
 
     JCEECPrivateKey(
-        PrivateKeyInfo      info)
+        PrivateKeyInfo info)
         throws IOException
     {
         populateFromPrivKeyInfo(info);

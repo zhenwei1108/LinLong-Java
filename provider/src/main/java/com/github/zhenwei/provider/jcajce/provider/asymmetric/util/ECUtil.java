@@ -1,10 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
-
- 
 import FixedPointCombMultiplier;
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.security.AccessController;
@@ -15,25 +27,18 @@ import java.security.PublicKey;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Enumeration;
 import java.util.Map;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
- 
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
-
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-
 import org.bouncycastle.util.Fingerprint;
 
-import pkcs.PrivateKeyInfo;
-import ECNamedCurveTable;
-import X962Parameters;
-import X9ECParameters;
+ 
+ 
+ 
+
 
 /**
  * utility class for converting jce/jca ECDSA, ECDH, and ECDHC
@@ -418,7 +423,8 @@ public class ECUtil
 
         if (curve != null)
         {
-            return new Fingerprint(Arrays.concatenate(publicPoint.getEncoded(false), curve.getA().getEncoded(), curve.getB().getEncoded(), g.getEncoded(false))).toString();
+            return new Fingerprint(
+                Arrays.concatenate(publicPoint.getEncoded(false), curve.getA().getEncoded(), curve.getB().getEncoded(), g.getEncoded(false))).toString();
         }
 
         return new Fingerprint(publicPoint.getEncoded(false)).toString();

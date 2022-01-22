@@ -1,19 +1,20 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class PBEParameter
     extends ASN1Object
 {
-    ASN1Integer      iterations;
+    ASN1Integer iterations;
     ASN1OctetString salt;
 
     public PBEParameter(
@@ -29,7 +30,7 @@ public class PBEParameter
     }
 
     private PBEParameter(
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {
         salt = (ASN1OctetString)seq.getObjectAt(0);
         iterations = (ASN1Integer)seq.getObjectAt(1);

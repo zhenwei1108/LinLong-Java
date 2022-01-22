@@ -1,10 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
 
-
-
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
 /**
  * base interface that a public/private key block cipher needs
  * to conform to.

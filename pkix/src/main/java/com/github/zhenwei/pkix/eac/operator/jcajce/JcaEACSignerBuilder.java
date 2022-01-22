@@ -1,9 +1,13 @@
 package com.github.zhenwei.pkix.eac.operator.jcajce;
 
 
-
-
-import  EACObjectIdentifiers;
+import EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.RuntimeOperatorException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
@@ -14,12 +18,10 @@ import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.Signature;
 import java.security.SignatureException;
-import java.util.Arrays;
 import java.util.Hashtable;
 import org.bouncycastle.eac.operator.EACSigner;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.OperatorStreamException;
-import org.bouncycastle.operator.RuntimeOperatorException;
+
 
 public class JcaEACSignerBuilder
 {

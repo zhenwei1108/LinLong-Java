@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.util.encoders;
 
-import org.bouncycastle.util.encoders.Base64Encoder;
-
 /**
  * Convert binary data to and from UrlBase64 encoding.  This is identical to
  * Base64 encoding, except that the padding character is "." and the other 

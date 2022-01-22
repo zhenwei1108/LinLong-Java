@@ -1,30 +1,29 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
-
-
-
-
-
-import Certificate;
-
-
-
-import Extensions;
 import ExtensionsGenerator;
-
 import TBSCertificate;
 import Time;
 import V3TBSCertificateGenerator;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.Locale;
-import org.bouncycastle.operator.ContentSigner;
+
 
 
 /**
@@ -256,7 +255,8 @@ public class X509v3CertificateBuilder
     {
         try
         {
-            extGenerator = CertUtils.doReplaceExtension(extGenerator, new Extension(oid, isCritical, value.toASN1Primitive().getEncoded(ASN1Encoding.DER)));
+            extGenerator = CertUtils.doReplaceExtension(extGenerator, new Extension(oid, isCritical, value.toASN1Primitive().getEncoded(
+                ASN1Encoding.DER)));
         }
         catch (IOException e)
         {

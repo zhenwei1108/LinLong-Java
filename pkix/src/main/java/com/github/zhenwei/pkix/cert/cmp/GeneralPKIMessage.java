@@ -1,9 +1,7 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-import cmp.PKIBody;
-import cmp.PKIHeader;
-import cmp.PKIMessage;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 import java.io.IOException;
 import org.bouncycastle.cert.CertIOException;
 

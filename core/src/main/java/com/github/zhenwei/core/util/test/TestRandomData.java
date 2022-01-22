@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.util.test;
 
 
-import org.bouncycastle.util.test.FixedSecureRandom;
+import com.github.zhenwei.core.util.encoders.Hex;
 
 /**
  * A fixed secure random designed to return data for someone needing random bytes.

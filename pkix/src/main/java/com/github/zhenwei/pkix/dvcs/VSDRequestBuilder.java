@@ -1,12 +1,12 @@
 package com.github.zhenwei.pkix.dvcs;
 
+import CMSSignedData;
 import DVCSRequestInformationBuilder;
 import DVCSTime;
 import Data;
 import ServiceType;
 import java.io.IOException;
 import java.util.Date;
-import org.bouncycastle.cms.CMSSignedData;
 
 /**
  * Builder of DVCS requests to VSD service (Verify Signed Document).

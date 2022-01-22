@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.asn1.x509.qualified;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.util.Enumeration;
 import qualified.TypeOfBiometricData;
 
@@ -27,15 +28,15 @@ public class BiometricData
 {
     private TypeOfBiometricData typeOfBiometricData;
     private AlgorithmIdentifier hashAlgorithm;
-    private ASN1OctetString     biometricDataHash;
-    private ASN1IA5String       sourceDataUri;
+    private ASN1OctetString biometricDataHash;
+    private ASN1IA5String sourceDataUri;
 
     public static qualified.BiometricData getInstance(
         Object obj)
     {
         if (obj instanceof qualified.BiometricData)
         {
-            return (x509.qualified.BiometricData)obj;
+            return (qualified.BiometricData)obj;
         }
 
         if (obj != null)

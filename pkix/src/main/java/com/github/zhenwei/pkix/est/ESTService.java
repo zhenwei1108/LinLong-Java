@@ -1,9 +1,16 @@
 package com.github.zhenwei.pkix.est;
 
- 
-
 
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.util.Selector;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.core.util.encoders.Base64;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import est.CsrAttrs;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,15 +24,12 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-import org.bouncycastle.cert.X509CRLHolder;
- 
 import org.bouncycastle.cmc.CMCException;
 import org.bouncycastle.cmc.SimplePKIResponse;
-import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
 
-import org.bouncycastle.util.Store;
+
 
 
 
@@ -363,7 +367,8 @@ public class ESTService
                         ByteArrayOutputStream bos = new ByteArrayOutputStream();
                         byte[] tlsUnique = ((TLSUniqueProvider)source).getTLSUnique();
 
-                        localBuilder.setAttribute(PKCSObjectIdentifiers.pkcs_9_at_challengePassword, new DERPrintableString(Base64.toBase64String(tlsUnique)));
+                        localBuilder.setAttribute(PKCSObjectIdentifiers.pkcs_9_at_challengePassword, new DERPrintableString(
+                            Base64.toBase64String(tlsUnique)));
                         bos.write(annotateRequest(localBuilder.build(contentSigner).getEncoded()).getBytes());
                         bos.flush();
 

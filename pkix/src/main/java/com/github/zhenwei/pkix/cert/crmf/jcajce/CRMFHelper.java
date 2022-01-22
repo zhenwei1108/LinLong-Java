@@ -2,13 +2,20 @@ package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
 import ASN1Null;
-
-
-
-
-
-
-import iana.IANAObjectIdentifiers;
+import CMSAlgorithm;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.iana.IANAObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.security.AlgorithmParameterGenerator;
 import java.security.AlgorithmParameters;
@@ -33,14 +40,11 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
-
-
 import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
 
 
-import X9ObjectIdentifiers;
+
 
 class CRMFHelper
 {

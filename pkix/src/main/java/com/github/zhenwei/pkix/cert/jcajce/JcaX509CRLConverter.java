@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.NoSuchProviderException;
@@ -8,7 +9,7 @@ import java.security.cert.CRLException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509CRL;
-import org.bouncycastle.cert.X509CRLHolder;
+
 
 /**
  * Class for converting an X509CRLHolder into a corresponding X509CRL object tied to a

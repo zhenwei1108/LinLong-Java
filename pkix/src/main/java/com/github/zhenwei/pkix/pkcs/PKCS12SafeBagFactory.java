@@ -1,9 +1,12 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-import org.bouncycastle.cms.CMSEncryptedData;
-import org.bouncycastle.cms.CMSException;
+import CMSEncryptedData;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.SafeBag;
+import com.github.zhenwei.pkix.cms.CMSException;
 import org.bouncycastle.operator.InputDecryptorProvider;
 
 

@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import crmf.EncryptedValue;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;
@@ -9,7 +10,7 @@ import org.bouncycastle.cert.crmf.EncryptedValueBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.operator.KeyWrapper;
 import org.bouncycastle.operator.OutputEncryptor;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * JCA convenience class for EncryptedValueBuilder

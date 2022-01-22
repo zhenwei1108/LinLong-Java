@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Generic interface for a CertificateRequestMessage control value.

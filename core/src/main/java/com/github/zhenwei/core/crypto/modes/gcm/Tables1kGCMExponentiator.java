@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.modes.gcm;
 
 import java.util.Vector;
-import org.bouncycastle.crypto.modes.gcm.GCMExponentiator;
-import org.bouncycastle.crypto.modes.gcm.GCMUtil;
 
 public class Tables1kGCMExponentiator
     implements GCMExponentiator

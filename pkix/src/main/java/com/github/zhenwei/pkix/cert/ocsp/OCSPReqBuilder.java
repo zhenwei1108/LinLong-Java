@@ -1,13 +1,14 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-
-
-
-
-import Extensions;
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +18,7 @@ import ocsp.Request;
 import ocsp.Signature;
 import ocsp.TBSRequest;
  
-import org.bouncycastle.operator.ContentSigner;
+
 
 public class OCSPReqBuilder
 {
@@ -147,7 +148,7 @@ public class OCSPReqBuilder
                 throw new OCSPException("exception processing TBSRequest: " + e, e);
             }
 
-            DERBitString    bitSig = new DERBitString(contentSigner.getSignature());
+            DERBitString bitSig = new DERBitString(contentSigner.getSignature());
 
             AlgorithmIdentifier sigAlgId = contentSigner.getAlgorithmIdentifier();
 

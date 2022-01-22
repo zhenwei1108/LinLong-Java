@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 import ASN1GeneralizedTime;
-import Extensions;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;

@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.io;
 
 import java.io.IOException;
-import org.bouncycastle.crypto.io.CipherIOException;
 
 /**
  * {@link IOException} wrapper around an exception indicating an invalid ciphertext, such as in

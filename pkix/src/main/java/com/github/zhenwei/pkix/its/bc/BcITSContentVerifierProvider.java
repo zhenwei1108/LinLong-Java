@@ -1,10 +1,13 @@
 package com.github.zhenwei.pkix.its.bc;
 
 
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
-
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.signers.DSADigestSigner;
 import org.bouncycastle.crypto.signers.ECDSASigner;
@@ -15,8 +18,6 @@ import org.bouncycastle.oer.its.PublicVerificationKey;
 import org.bouncycastle.oer.its.ToBeSignedCertificate;
 import org.bouncycastle.oer.its.VerificationKeyIndicator;
 import org.bouncycastle.oer.its.template.IEEE1609dot2;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.bc.BcDefaultDigestProvider;
 
 

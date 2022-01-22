@@ -1,6 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.BufferedInputStream;
 import java.io.FilterInputStream;
 import java.io.IOException;
@@ -12,7 +15,7 @@ public class CMSTypedStream
 {
     private static final int BUF_SIZ = 32 * 1024;
     
-    private final ASN1ObjectIdentifier      _oid;
+    private final ASN1ObjectIdentifier _oid;
 
     protected InputStream _in;
 

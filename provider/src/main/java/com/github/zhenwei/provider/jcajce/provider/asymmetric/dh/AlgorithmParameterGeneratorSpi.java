@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.generators.DHParametersGenerator;
+import com.github.zhenwei.core.crypto.params.DHParameters;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.BaseAlgorithmParameterGeneratorSpi;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
@@ -7,10 +12,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.DHGenParameterSpec;
 import javax.crypto.spec.DHParameterSpec;
 
-import org.bouncycastle.crypto.generators.DHParametersGenerator;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAlgorithmParameterGeneratorSpi;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
+ 
 
 public class AlgorithmParameterGeneratorSpi
     extends BaseAlgorithmParameterGeneratorSpi

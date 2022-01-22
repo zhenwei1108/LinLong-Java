@@ -1,18 +1,20 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.util.Integers;
 import java.util.HashMap;
 import java.util.Map;
-
-
-
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
@@ -20,10 +22,12 @@ import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
 
 class Utils
 {
-    static final AlgorithmIdentifier AlgID_qTESLA_p_I = new AlgorithmIdentifier(PQCObjectIdentifiers.qTESLA_p_I);
+    static final AlgorithmIdentifier AlgID_qTESLA_p_I = new AlgorithmIdentifier(
+        PQCObjectIdentifiers.qTESLA_p_I);
     static final AlgorithmIdentifier AlgID_qTESLA_p_III = new AlgorithmIdentifier(PQCObjectIdentifiers.qTESLA_p_III);
 
-    static final AlgorithmIdentifier SPHINCS_SHA3_256 = new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha3_256);
+    static final AlgorithmIdentifier SPHINCS_SHA3_256 = new AlgorithmIdentifier(
+        NISTObjectIdentifiers.id_sha3_256);
     static final AlgorithmIdentifier SPHINCS_SHA512_256 = new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha512_256);
 
     static final AlgorithmIdentifier XMSS_SHA256 = new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256);

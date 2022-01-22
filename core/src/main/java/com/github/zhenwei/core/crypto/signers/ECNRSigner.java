@@ -1,19 +1,20 @@
 package com.github.zhenwei.core.crypto.signers;
 
- 
 
- 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
- 
-
 import org.bouncycastle.crypto.DSAExt;
-
 import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
 import org.bouncycastle.crypto.params.ECKeyParameters;
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
  
@@ -38,7 +39,7 @@ public class ECNRSigner
      */
     public void init(
         boolean          forSigning, 
-        CipherParameters param) 
+        CipherParameters param)
     {
         this.forSigning = forSigning;
         

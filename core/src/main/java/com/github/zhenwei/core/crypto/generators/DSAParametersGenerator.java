@@ -1,11 +1,14 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.params.DSAParameterGenerationParameters;
-import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAValidationParameters;
 
 
@@ -21,7 +24,7 @@ public class DSAParametersGenerator
     private static final BigInteger ONE = BigInteger.valueOf(1);
     private static final BigInteger TWO = BigInteger.valueOf(2);
 
-    private Digest          digest;
+    private Digest digest;
     private int             L, N;
     private int             certainty;
     private int             iterations;

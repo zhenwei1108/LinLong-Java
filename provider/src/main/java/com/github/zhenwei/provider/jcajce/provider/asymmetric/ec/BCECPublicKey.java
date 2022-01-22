@@ -1,12 +1,20 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 
-
-
-
-
-
-
+import X9IntegerConverter;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Properties;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -15,7 +23,6 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
- 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
@@ -23,11 +30,6 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
 
-
-import X962Parameters;
-import X9ECPoint;
-import X9IntegerConverter;
-import X9ObjectIdentifiers;
 
 public class BCECPublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
@@ -97,7 +99,7 @@ public class BCECPublicKey
         ECParameterSpec spec,
         ProviderConfiguration configuration)
     {
-        ECDomainParameters      dp = params.getParameters();
+        ECDomainParameters dp = params.getParameters();
 
         this.algorithm = algorithm;
         this.ecPublicKey = params;
@@ -192,7 +194,7 @@ public class BCECPublicKey
         ECCurve curve = EC5Util.getCurve(configuration, params);
         ecSpec = EC5Util.convertToSpec(params, curve);
 
-        DERBitString    bits = info.getPublicKeyData();
+        DERBitString bits = info.getPublicKeyData();
         byte[]          data = bits.getBytes();
         ASN1OctetString key = new DEROctetString(data);
 

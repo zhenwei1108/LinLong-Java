@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.io.IOException;
 import java.util.Enumeration;
 
@@ -21,7 +22,7 @@ public class SubjectPublicKeyInfo
     extends ASN1Object
 {
     private AlgorithmIdentifier     algId;
-    private DERBitString            keyData;
+    private DERBitString keyData;
 
     public static SubjectPublicKeyInfo getInstance(
         ASN1TaggedObject obj,
@@ -47,7 +48,7 @@ public class SubjectPublicKeyInfo
 
     public SubjectPublicKeyInfo(
         AlgorithmIdentifier algId,
-        ASN1Encodable       publicKey)
+        ASN1Encodable publicKey)
         throws IOException
     {
         this.keyData = new DERBitString(publicKey);

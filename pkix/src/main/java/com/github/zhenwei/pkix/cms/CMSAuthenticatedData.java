@@ -1,22 +1,25 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
 import cms.AttributeTable;
 import cms.AuthenticatedData;
 import cms.CMSAlgorithmProtection;
 import cms.CMSAttributes;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 
-import org.bouncycastle.util.Encodable;
+
+
 
 /**
  * containing class for an CMS Authenticated Data object

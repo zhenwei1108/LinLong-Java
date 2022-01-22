@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
 import DERGeneralizedTime;
-
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.DERUTF8String;
 import java.io.IOException;
 
 /**
@@ -24,7 +25,7 @@ public class X509DefaultEntryConverter
      * @return the ASN.1 equivalent for the string value.
      */
     public ASN1Primitive getConvertedValue(
-        ASN1ObjectIdentifier  oid,
+        ASN1ObjectIdentifier oid,
         String               value)
     {
         if (value.length() != 0 && value.charAt(0) == '#')

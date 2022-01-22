@@ -1,8 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Properties;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.bouncycastle.internal.asn1.bsi.BSIObjectIdentifiers;
 import org.bouncycastle.internal.asn1.cms.CMSObjectIdentifiers;
 import org.bouncycastle.internal.asn1.eac.EACObjectIdentifiers;
@@ -10,9 +14,9 @@ import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
-import sec.SECObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
 
 public class EC
 {

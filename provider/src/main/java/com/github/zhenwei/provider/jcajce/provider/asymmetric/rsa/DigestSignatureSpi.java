@@ -1,10 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -15,11 +23,7 @@ import java.security.SignatureSpi;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.AlgorithmParameterSpec;
-
-
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-
-
 import org.bouncycastle.crypto.digests.MD2Digest;
 import org.bouncycastle.crypto.digests.MD4Digest;
 import org.bouncycastle.crypto.digests.NullDigest;
@@ -31,7 +35,7 @@ import org.bouncycastle.crypto.engines.RSABlindedEngine;
 
 
 
-import teletrust.TeleTrusTObjectIdentifiers;
+
 
 public class DigestSignatureSpi
     extends SignatureSpi

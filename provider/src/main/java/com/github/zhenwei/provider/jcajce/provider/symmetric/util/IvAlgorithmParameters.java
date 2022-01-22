@@ -1,8 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
@@ -71,7 +73,7 @@ public class IvAlgorithmParameters
         if ((params.length % 8) != 0
             && params[0] == 0x04 && params[1] == params.length - 2)
         {
-            ASN1OctetString oct = (ASN1OctetString)ASN1Primitive.fromByteArray(params);
+            ASN1OctetString oct = (ASN1OctetString) ASN1Primitive.fromByteArray(params);
 
             params = oct.getOctets();
         }

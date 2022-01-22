@@ -6,6 +6,7 @@ import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.BERTags;
 import com.github.zhenwei.core.asn1.DERApplicationSpecific;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;

@@ -1,15 +1,18 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-
-
-
 import org.bouncycastle.crypto.params.ElGamalKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
+
+;
  
 
 /**
@@ -35,7 +38,7 @@ public class ElGamalEngine
      */
     public void init(
         boolean             forEncryption,
-        CipherParameters    param)
+        CipherParameters param)
     {
         if (param instanceof ParametersWithRandom)
         {

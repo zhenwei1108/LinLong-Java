@@ -76,12 +76,12 @@ public class SignerId
     public boolean equals(
         Object  o)
     {
-        if (!(o instanceof org.bouncycastle.cms.SignerId))
+        if (!(o instanceof SignerId))
         {
             return false;
         }
 
-        org.bouncycastle.cms.SignerId id = (org.bouncycastle.cms.SignerId)o;
+        SignerId id = (org.bouncycastle.cms.SignerId)o;
 
         return this.baseSelector.equals(id.baseSelector);
     }
@@ -98,6 +98,6 @@ public class SignerId
 
     public Object clone()
     {
-        return new org.bouncycastle.cms.SignerId(this.baseSelector);
+        return new SignerId(this.baseSelector);
     }
 }

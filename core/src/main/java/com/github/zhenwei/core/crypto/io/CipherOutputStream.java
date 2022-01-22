@@ -6,8 +6,6 @@ import java.io.OutputStream;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.io.CipherIOException;
-import org.bouncycastle.crypto.io.InvalidCipherTextIOException;
 import org.bouncycastle.crypto.modes.AEADBlockCipher;
 
 /**

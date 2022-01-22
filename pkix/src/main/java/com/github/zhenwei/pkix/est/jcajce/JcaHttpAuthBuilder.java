@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.est.jcajce;
 
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.Provider;
 import java.security.SecureRandom;
 import org.bouncycastle.est.HttpAuth;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
 /**

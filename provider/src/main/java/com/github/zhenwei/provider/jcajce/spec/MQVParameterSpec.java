@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;

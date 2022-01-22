@@ -1,12 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
 import ASN1SequenceParser;
 import ASN1SetParser;
 import ASN1TaggedObjectParser;
 import ASN1Util;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.BERTags;
 import java.io.IOException;
 
 /** 
@@ -18,15 +19,15 @@ import java.io.IOException;
  *     originatorInfo [0] IMPLICIT OriginatorInfo OPTIONAL,
  *     recipientInfos RecipientInfos,
  *     encryptedContentInfo EncryptedContentInfo,
- *     unprotectedAttrs [1] IMPLICIT UnprotectedAttributes OPTIONAL 
+ *     unprotectedAttrs [1] IMPLICIT UnprotectedAttributes OPTIONAL
  * }
  * </pre>
  */
 public class EnvelopedDataParser
 {
     private ASN1SequenceParser _seq;
-    private ASN1Integer        _version;
-    private ASN1Encodable      _nextObject;
+    private ASN1Integer _version;
+    private ASN1Encodable _nextObject;
     private boolean            _originatorInfoCalled;
     
     public EnvelopedDataParser(

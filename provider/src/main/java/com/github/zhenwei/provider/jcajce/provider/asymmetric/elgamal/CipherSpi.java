@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.elgamal;
 
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Strings;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -21,8 +24,6 @@ import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.encodings.ISO9796d1Encoding;
 import org.bouncycastle.crypto.encodings.OAEPEncoding;
@@ -206,7 +207,7 @@ public class CipherSpi
         SecureRandom            random)
         throws InvalidKeyException, InvalidAlgorithmParameterException
     {
-        CipherParameters        param;
+        CipherParameters param;
 
         if (key instanceof DHPublicKey)
         {
@@ -227,7 +228,8 @@ public class CipherSpi
 
             paramSpec = params;
 
-            if (!spec.getMGFAlgorithm().equalsIgnoreCase("MGF1") && !spec.getMGFAlgorithm().equals(PKCSObjectIdentifiers.id_mgf1.getId()))
+            if (!spec.getMGFAlgorithm().equalsIgnoreCase("MGF1") && !spec.getMGFAlgorithm().equals(
+                PKCSObjectIdentifiers.id_mgf1.getId()))
             {
                 throw new InvalidAlgorithmParameterException("unknown mask generation function specified");
             }

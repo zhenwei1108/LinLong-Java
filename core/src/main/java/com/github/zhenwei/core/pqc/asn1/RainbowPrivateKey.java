@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.pqc.asn1;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import org.bouncycastle.pqc.crypto.rainbow.Layer;
 import org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
 
@@ -44,7 +45,7 @@ import org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
 public class RainbowPrivateKey
     extends ASN1Object
 {
-    private ASN1Integer  version;
+    private ASN1Integer version;
     private ASN1ObjectIdentifier oid;
 
     private byte[][] invA1;

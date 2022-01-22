@@ -1,37 +1,37 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
-
 import ASN1GeneralizedTime;
-
-
-
-
-import AttributeCertificate;
-import AttributeCertificateInfo;
-import Certificate;
-import CertificateList;
-
-
-
-
-import Extensions;
 import ExtensionsGenerator;
 import TBSCertList;
 import TBSCertificate;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AttributeCertificate;
+import com.github.zhenwei.core.asn1.x509.AttributeCertificateInfo;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Properties;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.operator.ContentSigner;
+
 
 
 class CertUtils

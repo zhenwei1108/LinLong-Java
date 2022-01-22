@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow.util;
 
-import org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;
-
 /**
  * This class is needed for the conversions while encoding and decoding, as well as for
  * comparison between arrays of some dimensions

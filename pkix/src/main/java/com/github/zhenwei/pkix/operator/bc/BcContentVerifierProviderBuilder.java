@@ -1,15 +1,20 @@
 package com.github.zhenwei.pkix.operator.bc;
 
 
-
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
- 
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+ 
+
+
+
 
 public abstract class BcContentVerifierProviderBuilder
 {
@@ -95,7 +100,8 @@ public abstract class BcContentVerifierProviderBuilder
      * @return an AsymmetricKeyParameter object containing the appropriate public key.
      * @throws IOException if the publicKeyInfo data cannot be parsed,
      */
-    protected abstract AsymmetricKeyParameter extractKeyParameters(SubjectPublicKeyInfo publicKeyInfo)
+    protected abstract AsymmetricKeyParameter extractKeyParameters(
+        SubjectPublicKeyInfo publicKeyInfo)
         throws IOException;
 
     /**

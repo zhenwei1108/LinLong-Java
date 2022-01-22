@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.operator;
 
 
- 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 
 /**
  * General interface for providers of ContentVerifier objects.

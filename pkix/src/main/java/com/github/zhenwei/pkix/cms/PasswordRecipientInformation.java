@@ -1,8 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import cms.PasswordRecipientInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Integers;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +37,7 @@ public class PasswordRecipientInformation
 
     PasswordRecipientInformation(
         PasswordRecipientInfo   info,
-        AlgorithmIdentifier     messageAlgorithm,
+        AlgorithmIdentifier messageAlgorithm,
         CMSSecureReadable       secureReadable,
         AuthAttributesProvider  additionalData)
     {

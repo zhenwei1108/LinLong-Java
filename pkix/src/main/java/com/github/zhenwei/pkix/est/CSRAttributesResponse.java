@@ -1,13 +1,15 @@
 package com.github.zhenwei.pkix.est;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.util.Encodable;
 import est.AttrOrOID;
 import est.CsrAttrs;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
-import org.bouncycastle.util.Encodable;
+
 
 /**
  * Wrapper class around a CsrAttrs structure.

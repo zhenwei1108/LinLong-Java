@@ -1,17 +1,18 @@
 package com.github.zhenwei.provider.jce.netscape;
 
 
-
-
- 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -45,7 +46,7 @@ import java.security.spec.X509EncodedKeySpec;
 public class NetscapeCertRequest
     extends ASN1Object
 {
-    AlgorithmIdentifier    sigAlg;
+    AlgorithmIdentifier sigAlg;
     AlgorithmIdentifier    keyAlg;
     byte        sigBits [];
     String challenge;

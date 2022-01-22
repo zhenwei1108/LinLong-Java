@@ -1,16 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
 
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -20,14 +26,12 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
- 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import ua.DSTU4145BinaryField;
@@ -36,9 +40,9 @@ import ua.DSTU4145NamedCurves;
 import ua.DSTU4145Params;
 import ua.DSTU4145PointEncoder;
 import ua.UAObjectIdentifiers;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
+ 
+
+
 
 public class BCDSTU4145PublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
@@ -185,7 +189,7 @@ public class BCDSTU4145PublicKey
 
         try
         {
-            key = (ASN1OctetString)ASN1Primitive.fromByteArray(bits.getBytes());
+            key = (ASN1OctetString) ASN1Primitive.fromByteArray(bits.getBytes());
         }
         catch (IOException ex)
         {

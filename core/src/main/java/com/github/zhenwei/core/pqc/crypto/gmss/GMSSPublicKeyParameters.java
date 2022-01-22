@@ -1,9 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
 
-import org.bouncycastle.pqc.crypto.gmss.GMSSKeyParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSParameters;
-
 public class GMSSPublicKeyParameters
     extends GMSSKeyParameters
 {

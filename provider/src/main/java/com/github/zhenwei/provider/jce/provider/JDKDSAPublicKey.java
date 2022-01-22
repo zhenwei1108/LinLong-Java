@@ -1,12 +1,15 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-
-
-
-import DSAParameter;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,7 +20,7 @@ import java.security.spec.DSAParameterSpec;
 import java.security.spec.DSAPublicKeySpec;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
 
-import X9ObjectIdentifiers;
+
 
 public class JDKDSAPublicKey
     implements DSAPublicKey
@@ -57,10 +60,10 @@ public class JDKDSAPublicKey
     }
 
     JDKDSAPublicKey(
-        SubjectPublicKeyInfo    info)
+        SubjectPublicKeyInfo info)
     {
 
-        ASN1Integer              derY;
+        ASN1Integer derY;
 
         try
         {
@@ -102,7 +105,8 @@ public class JDKDSAPublicKey
         {
             if (dsaSpec == null)
             {
-                return new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa), new ASN1Integer(y)).getEncoded(ASN1Encoding.DER);
+                return new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa), new ASN1Integer(y)).getEncoded(
+                    ASN1Encoding.DER);
             }
 
             return new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(dsaSpec.getP(), dsaSpec.getQ(), dsaSpec.getG())), new ASN1Integer(y)).getEncoded(ASN1Encoding.DER);

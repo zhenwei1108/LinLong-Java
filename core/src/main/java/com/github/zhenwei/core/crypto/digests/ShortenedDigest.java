@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
+import com.github.zhenwei.core.crypto.ExtendedDigest;
 
 /**
  * Wrapper class that reduces the output length of a particular digest to

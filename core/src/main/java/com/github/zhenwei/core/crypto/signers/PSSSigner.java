@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.Digest;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-
 import org.bouncycastle.crypto.CryptoException;
-
-
-
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
@@ -25,7 +25,7 @@ public class PSSSigner
 {
     static final public byte   TRAILER_IMPLICIT    = (byte)0xBC;
 
-    private Digest                      contentDigest;
+    private Digest contentDigest;
     private Digest                      mgfDigest;
     private AsymmetricBlockCipher       cipher;
     private SecureRandom                random;
@@ -130,7 +130,7 @@ public class PSSSigner
 
     public void init(
         boolean                 forSigning,
-        CipherParameters        param)
+        CipherParameters param)
     {
         CipherParameters  params;
 

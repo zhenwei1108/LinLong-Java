@@ -1,19 +1,20 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class RC2CBCParameter
     extends ASN1Object
 {
-    ASN1Integer      version;
+    ASN1Integer version;
     ASN1OctetString iv;
 
     public static pkcs.RC2CBCParameter getInstance(

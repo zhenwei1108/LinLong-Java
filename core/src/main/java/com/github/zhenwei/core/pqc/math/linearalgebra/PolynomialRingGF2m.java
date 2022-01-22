@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-
 /**
  * This class represents polynomial rings <tt>GF(2^m)[X]/p(X)</tt> for
  * <tt>m&lt;32</tt>. If <tt>p(X)</tt> is irreducible, the polynomial ring

@@ -1,19 +1,21 @@
 package com.github.zhenwei.pkix.pkcs.bc;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.OutputStream;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
- 
-
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
 import org.bouncycastle.crypto.io.CipherOutputStream;
 import org.bouncycastle.crypto.paddings.PKCS7Padding;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OutputEncryptor;
 
 

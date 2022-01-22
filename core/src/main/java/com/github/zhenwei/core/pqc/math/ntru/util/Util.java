@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.pqc.math.ntru.util;
 
+import com.github.zhenwei.core.util.Integers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;

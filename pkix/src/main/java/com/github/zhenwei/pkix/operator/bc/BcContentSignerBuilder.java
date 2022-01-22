@@ -1,15 +1,18 @@
 package com.github.zhenwei.pkix.operator.bc;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.RuntimeOperatorException;
 import java.io.OutputStream;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.RuntimeOperatorException;
+
+
+
 
 public abstract class BcContentSignerBuilder
 {

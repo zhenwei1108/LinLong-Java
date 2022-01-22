@@ -1,19 +1,19 @@
 package com.github.zhenwei.pkix.tsp;
 
 
-
- 
 import DLSequence;
 import cmp.PKIFailureInfo;
 import cmp.PKIFreeText;
 import cmp.PKIStatus;
-
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-
 import tsp.TimeStampResp;
 
 /**

@@ -1,11 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceParameters;

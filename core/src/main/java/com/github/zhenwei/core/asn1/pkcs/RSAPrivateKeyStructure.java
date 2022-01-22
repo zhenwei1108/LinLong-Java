@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 import java.util.Enumeration;
 
@@ -167,7 +168,7 @@ public class RSAPrivateKeyStructure
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(10);
+        ASN1EncodableVector v = new ASN1EncodableVector(10);
 
         v.add(new ASN1Integer(version));                       // version
         v.add(new ASN1Integer(getModulus()));

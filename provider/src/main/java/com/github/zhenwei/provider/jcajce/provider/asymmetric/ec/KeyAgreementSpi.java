@@ -1,5 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
+import X9IntegerConverter;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.generators.KDF2BytesGenerator;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -9,7 +16,6 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.crypto.BasicAgreement;
- 
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
 import org.bouncycastle.crypto.agreement.ECDHCBasicAgreement;
@@ -17,15 +23,11 @@ import org.bouncycastle.crypto.agreement.ECDHCUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.ECMQVBasicAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-
 import org.bouncycastle.crypto.params.ECDHUPrivateParameters;
 import org.bouncycastle.crypto.params.ECDHUPublicParameters;
- 
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.MQVPrivateParameters;
 import org.bouncycastle.crypto.params.MQVPublicParameters;
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;
@@ -35,8 +37,6 @@ import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
 import org.bouncycastle.jce.interfaces.MQVPrivateKey;
 import org.bouncycastle.jce.interfaces.MQVPublicKey;
-
-import X9IntegerConverter;
 
 /**
  * Diffie-Hellman key agreement using elliptic curve keys, ala IEEE P1363

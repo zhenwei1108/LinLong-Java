@@ -1,14 +1,16 @@
 package com.github.zhenwei.pkix.pkcs.bc;
 
 
+import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.InputStream;
-
-
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
 import org.bouncycastle.crypto.io.CipherInputStream;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
 
@@ -35,7 +37,7 @@ public class BcPKCS12PBEInputDecryptorProviderBuilder
             {
                 final PaddedBufferedBlockCipher engine = PKCS12PBEUtils.getEngine(algorithmIdentifier.getAlgorithm());
 
-                PKCS12PBEParams           pbeParams = PKCS12PBEParams.getInstance(algorithmIdentifier.getParameters());
+                PKCS12PBEParams pbeParams = PKCS12PBEParams.getInstance(algorithmIdentifier.getParameters());
 
                 CipherParameters params = PKCS12PBEUtils.createCipherParameters(algorithmIdentifier.getAlgorithm(), digest, engine.getBlockSize(), pbeParams, password);
 

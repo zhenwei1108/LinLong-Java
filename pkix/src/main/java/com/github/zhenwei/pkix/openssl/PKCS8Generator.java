@@ -1,20 +1,23 @@
 package com.github.zhenwei.pkix.openssl;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.pem.PemGenerationException;
+import com.github.zhenwei.core.util.io.pem.PemObject;
+import com.github.zhenwei.core.util.io.pem.PemObjectGenerator;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
 import org.bouncycastle.operator.OutputEncryptor;
-
-
-
 import pkcs.EncryptedPrivateKeyInfo;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class PKCS8Generator
     implements PemObjectGenerator
@@ -37,7 +40,8 @@ public class PKCS8Generator
     public static final AlgorithmIdentifier PRF_HMACSHA256 = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA256, DERNull.INSTANCE);
     public static final AlgorithmIdentifier PRF_HMACSHA384 = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA384, DERNull.INSTANCE);
     public static final AlgorithmIdentifier PRF_HMACSHA512 = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA512, DERNull.INSTANCE);
-    public static final AlgorithmIdentifier PRF_HMACGOST3411 = new AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3411Hmac, DERNull.INSTANCE);
+    public static final AlgorithmIdentifier PRF_HMACGOST3411 = new AlgorithmIdentifier(
+        CryptoProObjectIdentifiers.gostR3411Hmac, DERNull.INSTANCE);
 
     public static final AlgorithmIdentifier PRF_HMACSHA3_224 = new AlgorithmIdentifier(NISTObjectIdentifiers.id_hmacWithSHA3_224, DERNull.INSTANCE);
     public static final AlgorithmIdentifier PRF_HMACSHA3_256 = new AlgorithmIdentifier(NISTObjectIdentifiers.id_hmacWithSHA3_256, DERNull.INSTANCE);

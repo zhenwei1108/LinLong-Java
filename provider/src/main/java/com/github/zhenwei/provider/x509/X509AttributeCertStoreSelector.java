@@ -1,13 +1,12 @@
 package com.github.zhenwei.provider.x509;
 
- 
 
-
-
-
-import Target;
-import TargetInformation;
-import Targets;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.TargetInformation;
+import com.github.zhenwei.core.asn1.x509.Targets;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.cert.CertificateExpiredException;
@@ -18,6 +17,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import sun.security.x509.GeneralName;
 
 
 /**

@@ -1,14 +1,15 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.security.AlgorithmParameters;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
 import java.security.SecureRandom;
-import org.bouncycastle.cms.CMSException;
+ 
 
 public class JceAlgorithmIdentifierConverter
 {
@@ -19,14 +20,14 @@ public class JceAlgorithmIdentifierConverter
     {
     }
 
-    public org.bouncycastle.cms.jcajce.JceAlgorithmIdentifierConverter setProvider(Provider provider)
+    public jcajce.JceAlgorithmIdentifierConverter setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceAlgorithmIdentifierConverter setProvider(String providerName)
+    public jcajce.JceAlgorithmIdentifierConverter setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
 

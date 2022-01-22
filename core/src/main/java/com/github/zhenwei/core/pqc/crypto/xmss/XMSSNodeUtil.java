@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import org.bouncycastle.pqc.crypto.xmss.XMSSAddress;
-import org.bouncycastle.pqc.crypto.xmss.XMSSNode;
-
 class XMSSNodeUtil
 {
     /**

@@ -1,15 +1,26 @@
 package com.github.zhenwei.pkix.openssl;
 
- 
-
-
-
-
-
-
-import DSAParameter;
 
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.core.util.io.pem.PemHeader;
+import com.github.zhenwei.core.util.io.pem.PemObject;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Collections;
@@ -19,22 +30,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.X509CRLHolder;
- 
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-
-
-
 import org.bouncycastle.util.io.pem.PemObjectParser;
 import org.bouncycastle.util.io.pem.PemReader;
 import pkcs.EncryptedPrivateKeyInfo;
-
-import pkcs.PrivateKeyInfo;
 import pkcs.RSAPublicKey;
-import X9ECParameters;
-import X9ObjectIdentifiers;
+
+
 
 /**
  * Class for parsing OpenSSL PEM encoded streams containing
@@ -237,7 +240,8 @@ public class PEMParser
                 ASN1Integer x = ASN1Integer.getInstance(seq.getObjectAt(5));
 
                 return new PEMKeyPair(
-                    new SubjectPublicKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(p.getValue(), q.getValue(), g.getValue())), y),
+                    new SubjectPublicKeyInfo(new AlgorithmIdentifier(
+                        X9ObjectIdentifiers.id_dsa, new DSAParameter(p.getValue(), q.getValue(), g.getValue())), y),
                     new PrivateKeyInfo(new AlgorithmIdentifier(X9ObjectIdentifiers.id_dsa, new DSAParameter(p.getValue(), q.getValue(), g.getValue())), x));
             }
             catch (IOException e)

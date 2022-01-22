@@ -1,15 +1,17 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-import cms.CMSObjectIdentifiers;
+import CMSEnvelopedData;
 import cms.ContentInfo;
 import cms.EnvelopedData;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.cms.CMSException;
 import crmf.CRMFObjectIdentifiers;
 import crmf.EncryptedKey;
 import crmf.PKIArchiveOptions;
-import org.bouncycastle.cms.CMSEnvelopedData;
-import org.bouncycastle.cms.CMSException;
+ 
 
 /**
  * Carrier for a PKIArchiveOptions structure.

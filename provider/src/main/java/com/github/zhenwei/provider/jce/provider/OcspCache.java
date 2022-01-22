@@ -2,11 +2,14 @@ package com.github.zhenwei.provider.jce.provider;
 
 
 import ASN1GeneralizedTime;
-
-
-
-
-import Extensions;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -170,7 +173,8 @@ class OcspCache
                 // TODO: make configurable
                 contentLength = DEFAULT_MAX_RESPONSE_SIZE;
             }
-            OCSPResponse response = OCSPResponse.getInstance(Streams.readAllLimited(reqIn, contentLength));
+            OCSPResponse response = OCSPResponse.getInstance(
+                Streams.readAllLimited(reqIn, contentLength));
 
             if (OCSPResponseStatus.SUCCESSFUL == response.getResponseStatus().getIntValue())
             {

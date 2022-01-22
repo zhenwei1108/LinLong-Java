@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.agreement.srp;
 
+import com.github.zhenwei.core.crypto.Digest;
 import java.math.BigInteger;
-
-import org.bouncycastle.crypto.agreement.srp.SRP6Util;
 import org.bouncycastle.crypto.params.SRP6GroupParameters;
 
 /**

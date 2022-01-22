@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.io;
 
+import com.github.zhenwei.core.crypto.Digest;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;

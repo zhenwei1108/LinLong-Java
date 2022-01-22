@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 
 /**
  * Builder and holder class for preparing SP 800-56A compliant MacData. Elements in the data are encoded

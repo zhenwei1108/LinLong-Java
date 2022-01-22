@@ -1,17 +1,19 @@
 package com.github.zhenwei.core.asn1.sec;
 
 
-
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.util.Enumeration;
  
@@ -23,7 +25,7 @@ import java.util.Enumeration;
 public class ECPrivateKeyStructure
     extends ASN1Object
 {
-    private ASN1Sequence  seq;
+    private ASN1Sequence seq;
 
     public ECPrivateKeyStructure(
         ASN1Sequence  seq)
@@ -53,7 +55,7 @@ public class ECPrivateKeyStructure
 
     public ECPrivateKeyStructure(
         BigInteger    key,
-        DERBitString  publicKey,
+        DERBitString publicKey,
         ASN1Encodable parameters)
     {
         byte[] bytes = BigIntegers.asUnsignedByteArray(key);
@@ -78,7 +80,7 @@ public class ECPrivateKeyStructure
 
     public BigInteger getKey()
     {
-        ASN1OctetString  octs = (ASN1OctetString)seq.getObjectAt(1);
+        ASN1OctetString octs = (ASN1OctetString)seq.getObjectAt(1);
 
         return new BigInteger(1, octs.getOctets());
     }

@@ -1,24 +1,32 @@
 package com.github.zhenwei.provider.jce.provider;
 
-import ASN1BitString;
-
-
-
- 
-
-
-
-
-
- 
-
-
-
-
-import Extensions;
 
 import KeyUsage;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1BitString;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.util.ASN1Dump;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.InetAddress;
@@ -48,17 +56,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import misc.MiscObjectIdentifiers;
 import misc.NetscapeCertType;
 import misc.NetscapeRevocationURL;
 import misc.VerisignCzagExtension;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.X509Principal;
-
-
- 
-
-
 import style.RFC4519Style;
 
 
@@ -70,7 +71,7 @@ public class X509CertificateObject
     implements PKCS12BagAttributeCarrier
 {
     private Certificate    c;
-    private BasicConstraints            basicConstraints;
+    private BasicConstraints basicConstraints;
     private boolean[]                   keyUsage;
     private boolean                     hashValueSet;
     private int                         hashValue;
@@ -338,7 +339,7 @@ public class X509CertificateObject
             try
             {
                 ASN1InputStream dIn = new ASN1InputStream(bytes);
-                ASN1Sequence    seq = (ASN1Sequence)dIn.readObject();
+                ASN1Sequence seq = (ASN1Sequence)dIn.readObject();
                 List            list = new ArrayList();
 
                 for (int i = 0; i != seq.size(); i++)
@@ -618,7 +619,7 @@ public class X509CertificateObject
 
     public void setBagAttribute(
         ASN1ObjectIdentifier oid,
-        ASN1Encodable        attribute)
+        ASN1Encodable attribute)
     {
         attrCarrier.setBagAttribute(oid, attribute);
     }

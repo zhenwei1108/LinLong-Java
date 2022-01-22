@@ -1,9 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.CipherParameters;
 
 /**
  * Parameters holder for private unified static/ephemeral agreement as described in NIST SP 800-56A.

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-import Extensions;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 import java.util.Date;
 import ocsp.ResponseData;
 import ocsp.SingleResponse;
@@ -44,7 +44,7 @@ public class RespData
 
     public SingleResp[] getResponses()
     {
-        ASN1Sequence    s = data.getResponses();
+        ASN1Sequence s = data.getResponses();
         SingleResp[]    rs = new SingleResp[s.size()];
 
         for (int i = 0; i != rs.length; i++)

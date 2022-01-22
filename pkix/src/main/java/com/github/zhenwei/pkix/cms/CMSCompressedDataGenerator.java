@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-import cms.CMSObjectIdentifiers;
 import cms.CompressedData;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -41,8 +42,8 @@ public class CMSCompressedDataGenerator
         OutputCompressor compressor)
         throws CMSException
     {
-        AlgorithmIdentifier     comAlgId;
-        ASN1OctetString         comOcts;
+        AlgorithmIdentifier comAlgId;
+        ASN1OctetString comOcts;
 
         try
         {

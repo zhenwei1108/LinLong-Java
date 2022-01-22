@@ -1,18 +1,22 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-
-import Certificate;
-import CertificateList;
-import org.bouncycastle.cert.X509CRLHolder;
- 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.pkcs.CertBag;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.SafeBag;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import pkcs.Attribute;
 import pkcs.CRLBag;
-
 import pkcs.EncryptedPrivateKeyInfo;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 
 public class PKCS12SafeBag
@@ -75,7 +79,8 @@ public class PKCS12SafeBag
         {
             CertBag certBag = CertBag.getInstance(safeBag.getBagValue());
 
-            return new X509CertificateHolder(Certificate.getInstance(ASN1OctetString.getInstance(certBag.getCertValue()).getOctets()));
+            return new X509CertificateHolder(
+                Certificate.getInstance(ASN1OctetString.getInstance(certBag.getCertValue()).getOctets()));
         }
         if (getType().equals(PKCSObjectIdentifiers.keyBag))
         {
@@ -85,7 +90,8 @@ public class PKCS12SafeBag
         {
             CRLBag crlBag = CRLBag.getInstance(safeBag.getBagValue());
 
-            return new X509CRLHolder(CertificateList.getInstance(ASN1OctetString.getInstance(crlBag.getCrlValue()).getOctets()));
+            return new X509CRLHolder(
+                CertificateList.getInstance(ASN1OctetString.getInstance(crlBag.getCrlValue()).getOctets()));
         }
 
         return safeBag.getBagValue();

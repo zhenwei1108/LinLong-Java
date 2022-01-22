@@ -1,12 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
-
-
 /**
  * This class implements vectors over the finite field
  * <tt>GF(2<sup>m</sup>)</tt> for small <tt>m</tt> (i.e.,

@@ -1,17 +1,18 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
-
-
 import X500Name;
 import X509Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.util.Enumeration;
 
 /**
@@ -35,10 +36,10 @@ import java.util.Enumeration;
 public class CertificationRequestInfo
     extends ASN1Object
 {
-    ASN1Integer              version = new ASN1Integer(0);
+    ASN1Integer version = new ASN1Integer(0);
     X500Name                subject;
-    SubjectPublicKeyInfo    subjectPKInfo;
-    ASN1Set                 attributes = null;
+    SubjectPublicKeyInfo subjectPKInfo;
+    ASN1Set attributes = null;
 
     public static pkcs.CertificationRequestInfo getInstance(
         Object  obj)

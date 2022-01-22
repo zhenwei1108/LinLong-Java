@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
-import edec.EdECObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;

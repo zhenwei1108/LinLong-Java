@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 
 /**
@@ -23,7 +24,7 @@ public class KeySpecificInfo
     extends ASN1Object
 {
     private ASN1ObjectIdentifier algorithm;
-    private ASN1OctetString      counter;
+    private ASN1OctetString counter;
 
     /**
      * Base constructor.

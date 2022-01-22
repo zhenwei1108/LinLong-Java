@@ -1,24 +1,26 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
 
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.IssuerSerial;
+import com.github.zhenwei.core.util.Arrays;
 
 public class ESSCertIDv2
     extends ASN1Object
 {
     private AlgorithmIdentifier hashAlgorithm;
     private byte[]              certHash;
-    private IssuerSerial        issuerSerial;
-    private static final AlgorithmIdentifier DEFAULT_ALG_ID = new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256);
+    private IssuerSerial issuerSerial;
+    private static final AlgorithmIdentifier DEFAULT_ALG_ID = new AlgorithmIdentifier(
+        NISTObjectIdentifiers.id_sha256);
 
     public static ess.ESSCertIDv2 getInstance(
         Object o)

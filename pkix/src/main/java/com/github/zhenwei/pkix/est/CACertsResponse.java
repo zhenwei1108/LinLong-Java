@@ -1,8 +1,9 @@
 package com.github.zhenwei.pkix.est;
 
-import org.bouncycastle.cert.X509CRLHolder;
- 
-import org.bouncycastle.util.Store;
+
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 
 /**
  * Holder class for a SimplePKIResponse containing the details making up /cacerts response.

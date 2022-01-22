@@ -1,18 +1,19 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import ASN1OctetStringParser;
 import ASN1SequenceParser;
-
 import ASN1SetParser;
-
-
-
 import cms.AttributeTable;
 import cms.EncryptedContentInfoParser;
 import cms.EnvelopedDataParser;
 import cms.OriginatorInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BERTags;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +21,7 @@ import java.io.InputStream;
 /**
  * Parsing class for an CMS Enveloped Data object from an input stream.
  * <p>
- * Note: that because we are in a streaming mode only one recipient can be tried and it is important 
+ * Note: that because we are in a streaming mode only one recipient can be tried and it is important
  * that the methods on the parser are called in the appropriate order.
  * </p>
  * <p>
@@ -74,7 +75,8 @@ public class CMSEnvelopedDataParser
         super(envelopedData);
 
         this.attrNotRead = true;
-        this.envelopedData = new EnvelopedDataParser((ASN1SequenceParser)_contentInfo.getContent(BERTags.SEQUENCE));
+        this.envelopedData = new EnvelopedDataParser((ASN1SequenceParser)_contentInfo.getContent(
+            BERTags.SEQUENCE));
 
         // TODO Validate version?
         //ASN1Integer version = this._envelopedData.getVersion();
@@ -177,7 +179,7 @@ public class CMSEnvelopedDataParser
             if (set != null)
             {
                 ASN1EncodableVector v = new ASN1EncodableVector();
-                ASN1Encodable        o;
+                ASN1Encodable o;
                 
                 while ((o = set.readObject()) != null)
                 {

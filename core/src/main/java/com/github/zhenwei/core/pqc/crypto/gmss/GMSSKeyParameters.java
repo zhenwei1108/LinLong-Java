@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.crypto.gmss.GMSSParameters;
+
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 public class GMSSKeyParameters
     extends AsymmetricKeyParameter

@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.pkix.jcajce;
 
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.core.util.StoreException;
 import java.security.cert.CertStore;
 import java.security.cert.CertStoreException;
 import java.security.cert.X509CRL;
@@ -10,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.bouncycastle.jcajce.PKIXCRLStoreSelector;
-import org.bouncycastle.util.Store;
+
 
 
 abstract class PKIXCRLUtil

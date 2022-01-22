@@ -1,8 +1,8 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
 
-
-
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERSet;
 
 public class SMIMECapabilitiesAttribute
     extends Attribute

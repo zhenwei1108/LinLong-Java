@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.spec;
 
 
- 
+import com.github.zhenwei.core.math.ec.ECCurve;
 import java.math.BigInteger;
 
 /**
@@ -17,7 +17,7 @@ public class ECNamedCurveParameterSpec
 
     public ECNamedCurveParameterSpec(
         String      name,
-        ECCurve     curve,
+        ECCurve curve,
         ECPoint     G,
         BigInteger  n)
     {

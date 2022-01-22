@@ -1,17 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.newhope;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.crypto.newhope.NHPublicKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.ShortBufferException;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.pqc.crypto.ExchangePair;
 import org.bouncycastle.pqc.crypto.newhope.NHAgreement;
 import org.bouncycastle.pqc.crypto.newhope.NHExchangePairGenerator;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
+ 
 
 
 public class KeyAgreementSpi

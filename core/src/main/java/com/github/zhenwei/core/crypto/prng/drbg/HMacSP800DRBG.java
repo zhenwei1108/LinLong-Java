@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
 
 
 /**

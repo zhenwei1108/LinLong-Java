@@ -1,21 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.xmss;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPublicKeyParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPublicKeyParameters;
 import org.bouncycastle.pqc.jcajce.spec.XMSSParameterSpec;
 
 public class XMSSKeyPairGeneratorSpi

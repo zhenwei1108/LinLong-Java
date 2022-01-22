@@ -1,12 +1,16 @@
 package com.github.zhenwei.pkix.its.operator;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.io.IOException;
 import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
@@ -14,8 +18,8 @@ import org.bouncycastle.oer.its.EcdsaP256Signature;
 import org.bouncycastle.oer.its.EcdsaP384Signature;
 import org.bouncycastle.oer.its.Signature;
  
-import sec.SECObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
+
+
 
 public class ECDSAEncoder
 {

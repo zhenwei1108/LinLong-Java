@@ -1,9 +1,17 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.security.Provider;
@@ -11,12 +19,6 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import kisa.KISAObjectIdentifiers;
-
-
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.SymmetricKeyWrapper;
 

@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 
-
 import cms.Attributes;
 import cms.MetaData;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 
 class MetaDataUtil

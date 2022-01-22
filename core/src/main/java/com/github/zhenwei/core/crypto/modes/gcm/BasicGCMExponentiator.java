@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto.modes.gcm;
 
-import org.bouncycastle.crypto.modes.gcm.GCMExponentiator;
-import org.bouncycastle.crypto.modes.gcm.GCMUtil;
-
 public class BasicGCMExponentiator
     implements GCMExponentiator
 {

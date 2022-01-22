@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
 
+import com.github.zhenwei.core.asn1.ASN1Integer;
 
 public class SubsequentMessage
     extends ASN1Integer

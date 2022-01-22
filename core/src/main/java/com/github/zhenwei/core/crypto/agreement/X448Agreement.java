@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
 import org.bouncycastle.crypto.RawAgreement;
-import org.bouncycastle.crypto.params.X448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.X448PublicKeyParameters;
 
 public final class X448Agreement

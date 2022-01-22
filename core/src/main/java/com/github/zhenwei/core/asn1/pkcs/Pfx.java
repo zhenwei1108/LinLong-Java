@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.BERSequence;
 
 /**
  * the infamous Pfx from PKCS12
@@ -18,7 +19,7 @@ public class Pfx
     private MacData                 macData = null;
 
     private Pfx(
-        ASN1Sequence   seq)
+        ASN1Sequence seq)
     {
         ASN1Integer version = ASN1Integer.getInstance(seq.getObjectAt(0));
         if (!version.hasValue(3))

@@ -1,25 +1,28 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
 import ASN1OctetStringParser;
 import ASN1SequenceParser;
-
 import ASN1SetParser;
-
-
-
 import cms.AttributeTable;
 import cms.AuthenticatedDataParser;
 import cms.CMSAttributes;
 import cms.ContentInfoParser;
 import cms.OriginatorInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BERTags;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 
 /**
@@ -105,7 +108,8 @@ public class CMSAuthenticatedDataParser
         super(envelopedData);
 
         this.authAttrNotRead = true;
-        this.authData = new AuthenticatedDataParser((ASN1SequenceParser)_contentInfo.getContent(BERTags.SEQUENCE));
+        this.authData = new AuthenticatedDataParser((ASN1SequenceParser)_contentInfo.getContent(
+            BERTags.SEQUENCE));
 
         // TODO Validate version?
         //ASN1Integer version = this.authData.getVersion();

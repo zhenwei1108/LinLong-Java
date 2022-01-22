@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * <code>UserNotice</code> class, used in
@@ -63,7 +64,7 @@ public class UserNotice
      * instance or from parsing it from a DER-encoded stream. 
      */
     private UserNotice(
-       ASN1Sequence as) 
+       ASN1Sequence as)
     {
        if (as.size() == 2)
        {
@@ -99,7 +100,7 @@ public class UserNotice
     {
         if (obj instanceof UserNotice)
         {
-            return (x509.UserNotice)obj;
+            return (UserNotice)obj;
         }
 
         if (obj != null)

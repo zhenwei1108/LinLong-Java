@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * Implementation of the RoleSyntax object as specified by the RFC3281.
@@ -43,7 +44,7 @@ public class RoleSyntax
 
         if (obj instanceof RoleSyntax)
         {
-            return (x509.RoleSyntax)obj;
+            return (RoleSyntax)obj;
         }
         else if (obj != null)
         {

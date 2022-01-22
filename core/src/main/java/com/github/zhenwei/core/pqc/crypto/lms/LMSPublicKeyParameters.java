@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMSContextBasedVerifier;
-import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
 
 
 

@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
-
- 
 import ECPoint.AbstractF2m;
-import SecT571Field;
-
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat576;
 
 public class SecT571R1Point extends AbstractF2m

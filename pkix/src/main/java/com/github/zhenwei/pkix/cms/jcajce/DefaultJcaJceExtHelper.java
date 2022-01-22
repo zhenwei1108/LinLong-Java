@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
 import java.security.PrivateKey;
 import javax.crypto.SecretKey;
-
 import org.bouncycastle.operator.SymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceKTSKeyUnwrapper;
@@ -13,7 +14,8 @@ class DefaultJcaJceExtHelper
     extends DefaultJcaJceHelper
     implements JcaJceExtHelper
 {
-    public JceAsymmetricKeyUnwrapper createAsymmetricUnwrapper(AlgorithmIdentifier keyEncryptionAlgorithm, PrivateKey keyEncryptionKey)
+    public JceAsymmetricKeyUnwrapper createAsymmetricUnwrapper(
+        AlgorithmIdentifier keyEncryptionAlgorithm, PrivateKey keyEncryptionKey)
     {
         keyEncryptionKey = CMSUtils.cleanPrivateKey(keyEncryptionKey);
         return new JceAsymmetricKeyUnwrapper(keyEncryptionAlgorithm, keyEncryptionKey);

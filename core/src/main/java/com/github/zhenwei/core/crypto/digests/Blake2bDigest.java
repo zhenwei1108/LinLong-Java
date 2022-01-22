@@ -5,10 +5,10 @@ package com.github.zhenwei.core.crypto.digests;
  Philippe Aumasson, Samuel Neves, Zooko Wilcox-O'Hearn, and Christian
  Winnerlein.
    
- Reference Implementation and Description can be found at: https://blake2.net/      
+ Reference Implementation and Description can be found at: https://blake2.net/
  Internet Draft: https://tools.ietf.org/html/draft-saarinen-blake2-02
 
- This implementation does not support the Tree Hashing Mode. 
+ This implementation does not support the Tree Hashing Mode.
  
    For unkeyed hashing, developers adapting BLAKE2 to ASN.1 - based
    message formats SHOULD use the OID tree at x = 1.3.6.1.4.1.1722.12.2.
@@ -25,8 +25,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Arrays;
-
-
+import com.github.zhenwei.core.util.Longs;
 
 
 /**

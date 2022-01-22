@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.iso;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * OIDS from  ISO/IEC 10118-3:2004

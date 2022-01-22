@@ -1,23 +1,24 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 
- 
 import cms.AttributeTable;
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfo;
 import cms.Evidence;
 import cms.TimeStampAndCRL;
 import cms.TimeStampTokenEvidence;
 import cms.TimeStampedData;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TimeStampToken;
 
 public class CMSTimeStampedData

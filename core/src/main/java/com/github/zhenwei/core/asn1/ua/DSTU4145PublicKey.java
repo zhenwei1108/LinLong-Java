@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.asn1.ua;
 
 
-
-
-
- 
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DEROctetString;
 
 public class DSTU4145PublicKey
     extends ASN1Object

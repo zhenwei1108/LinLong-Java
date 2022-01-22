@@ -1,18 +1,20 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.util.Enumeration;
-
 import org.bouncycastle.crypto.digests.SHA1Digest;
 
 
@@ -119,7 +121,7 @@ public class AuthorityKeyIdentifier
         GeneralNames            name,
         BigInteger              serialNumber)
     {
-        Digest  digest = new SHA1Digest();
+        Digest digest = new SHA1Digest();
         byte[]  resBuf = new byte[digest.getDigestSize()];
 
         byte[] bytes = spki.getPublicKeyData().getBytes();

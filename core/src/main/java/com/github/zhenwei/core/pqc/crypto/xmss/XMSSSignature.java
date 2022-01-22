@@ -1,10 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
+import com.github.zhenwei.core.util.Encodable;
 import java.io.IOException;
-import org.bouncycastle.pqc.crypto.xmss.XMSSReducedSignature;
-import org.bouncycastle.pqc.crypto.xmss.XMSSStoreableObjectInterface;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
-import org.bouncycastle.util.Encodable;
+ 
+
 
 
 /**

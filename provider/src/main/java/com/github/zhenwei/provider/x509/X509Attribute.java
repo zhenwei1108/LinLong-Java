@@ -1,13 +1,13 @@
 package com.github.zhenwei.provider.x509;
 
 
-
-
-
-
-
-import Attribute;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERSet;
 
 /**
  * Class for carrying the values in an X.509 Attribute.
@@ -22,7 +22,7 @@ public class X509Attribute
      * @param at an object representing an attribute.
      */
     X509Attribute(
-        ASN1Encodable   at)
+        ASN1Encodable at)
     {
         this.attr = Attribute.getInstance(at);
     }
@@ -62,7 +62,7 @@ public class X509Attribute
     
     public ASN1Encodable[] getValues()
     {
-        ASN1Set         s = attr.getAttrValues();
+        ASN1Set s = attr.getAttrValues();
         ASN1Encodable[] values = new ASN1Encodable[s.size()];
         
         for (int i = 0; i != s.size(); i++)

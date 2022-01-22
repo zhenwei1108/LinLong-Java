@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.math.ec.custom.gm;
 
 
-
-
-
-
- 
-import custom.gm.SM2P256V1Field;
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.raw.Nat256;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -17,7 +18,8 @@ public class SM2P256V1Curve extends ECCurve.AbstractFp
     public static final BigInteger q = SM2P256V1FieldElement.Q;
 
     private static final int SM2P256V1_DEFAULT_COORDS = COORD_JACOBIAN;
-    private static final ECFieldElement[] SM2P256V1_AFFINE_ZS = new ECFieldElement[] { new SM2P256V1FieldElement(ECConstants.ONE) }; 
+    private static final ECFieldElement[] SM2P256V1_AFFINE_ZS = new ECFieldElement[] { new SM2P256V1FieldElement(
+        ECConstants.ONE) };
 
     protected SM2P256V1Point infinity;
 

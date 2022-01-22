@@ -1,12 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
 import java.math.BigInteger;
 import java.security.SignatureException;
 import java.security.SignatureSpi;
 import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.crypto.DSAExt;
-
 import org.bouncycastle.crypto.signers.DSAEncoding;
 
 

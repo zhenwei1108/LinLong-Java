@@ -1,16 +1,20 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-import Certificate;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import crmf.EncryptedValue;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
- 
 import org.bouncycastle.operator.InputDecryptor;
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * Parser for EncryptedValue structures.

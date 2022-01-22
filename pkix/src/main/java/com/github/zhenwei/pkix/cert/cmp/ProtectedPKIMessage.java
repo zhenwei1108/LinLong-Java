@@ -1,21 +1,19 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-
-
-import cmp.CMPCertificate;
-import cmp.CMPObjectIdentifiers;
-import cmp.PBMParameter;
-import cmp.PKIBody;
-import cmp.PKIHeader;
-import cmp.PKIMessage;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.cert.crmf.PKMACBuilder;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.io.IOException;
 import java.io.OutputStream;
- 
-import org.bouncycastle.cert.crmf.PKMACBuilder;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.MacCalculator;
+import java.util.Arrays;
+
+
 
 
 /**

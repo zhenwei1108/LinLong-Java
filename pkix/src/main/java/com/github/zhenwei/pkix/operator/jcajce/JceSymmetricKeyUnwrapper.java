@@ -1,15 +1,16 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.SymmetricKeyUnwrapper;
 

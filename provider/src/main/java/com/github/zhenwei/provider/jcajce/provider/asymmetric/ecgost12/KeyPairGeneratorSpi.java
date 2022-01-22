@@ -1,8 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost12;
 
 
-
-import ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
@@ -10,21 +17,17 @@ import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
- 
-import org.bouncycastle.crypto.params.ECGOST3410Parameters;
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.spec.GOST3410ParameterSpec;
-
 import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import X9ECParameters;
+
+;
+
 
 /**
  * KeyPairGenerator for GOST34.10 2012. Algorithm is the same as for GOST34.10 2001

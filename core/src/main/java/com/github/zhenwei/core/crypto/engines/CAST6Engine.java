@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.engines;
 
 
-import org.bouncycastle.crypto.engines.CAST5Engine;
-
 /**
  * A class that provides CAST6 key encryption operations,
  * such as encoding data and generating keys.

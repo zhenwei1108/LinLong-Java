@@ -1,7 +1,8 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
- 
 
+import com.github.zhenwei.core.asn1.ASN1ApplicationSpecific;
+import com.github.zhenwei.core.asn1.BERTags;
 
 public class EACTags
 {

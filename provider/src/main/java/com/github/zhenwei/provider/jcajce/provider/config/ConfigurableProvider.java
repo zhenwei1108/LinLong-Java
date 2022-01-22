@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.config;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.util.Map;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
 

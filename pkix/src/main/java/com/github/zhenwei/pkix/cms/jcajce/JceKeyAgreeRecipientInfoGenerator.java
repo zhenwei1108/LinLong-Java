@@ -1,21 +1,27 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
-
-
-
-
-
-
+import Gost2814789EncryptedKey;
+import KeyAgreeRecipientInfoGenerator;
 import cms.KeyAgreeRecipientIdentifier;
 import cms.OriginatorPublicKey;
 import cms.RecipientEncryptedKey;
 import cms.RecipientKeyIdentifier;
 import cms.ecc.MQVuserKeyingMaterial;
-
-import Gost2814789EncryptedKey;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -33,13 +39,10 @@ import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyAgreeRecipientInfoGenerator;
 import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
 import org.bouncycastle.jcajce.spec.MQVParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.SecretKeySizeProvider;
 
 
@@ -67,28 +70,28 @@ public class JceKeyAgreeRecipientInfoGenerator
         this.senderPrivateKey = CMSUtils.cleanPrivateKey(senderPrivateKey);
     }
 
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator setUserKeyingMaterial(byte[] userKeyingMaterial)
+    public jcajce.JceKeyAgreeRecipientInfoGenerator setUserKeyingMaterial(byte[] userKeyingMaterial)
     {
         this.userKeyingMaterial = Arrays.clone(userKeyingMaterial);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator setProvider(Provider provider)
+    public jcajce.JceKeyAgreeRecipientInfoGenerator setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator setProvider(String providerName)
+    public jcajce.JceKeyAgreeRecipientInfoGenerator setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator setSecureRandom(SecureRandom random)
+    public jcajce.JceKeyAgreeRecipientInfoGenerator setSecureRandom(SecureRandom random)
     {
         this.random = random;
 
@@ -102,7 +105,7 @@ public class JceKeyAgreeRecipientInfoGenerator
      * @return the current instance.
      * @throws CertificateEncodingException  if the necessary data cannot be extracted from the certificate.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator addRecipient(X509Certificate recipientCert)
+    public jcajce.JceKeyAgreeRecipientInfoGenerator addRecipient(X509Certificate recipientCert)
         throws CertificateEncodingException
     {
         recipientIDs.add(new KeyAgreeRecipientIdentifier(CMSUtils.getIssuerAndSerialNumber(recipientCert)));
@@ -119,7 +122,7 @@ public class JceKeyAgreeRecipientInfoGenerator
      * @return the current instance.
      * @throws CertificateEncodingException
      */
-    public org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator addRecipient(byte[] subjectKeyID, PublicKey publicKey)
+    public jcajce.JceKeyAgreeRecipientInfoGenerator addRecipient(byte[] subjectKeyID, PublicKey publicKey)
         throws CertificateEncodingException
     {
         recipientIDs.add(new KeyAgreeRecipientIdentifier(new RecipientKeyIdentifier(subjectKeyID)));

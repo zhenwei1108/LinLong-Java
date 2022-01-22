@@ -1,7 +1,10 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
 

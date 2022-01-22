@@ -2,24 +2,25 @@ package com.github.zhenwei.core.crypto.generators;
 
 
 import ECMultiplier;
- 
 import FixedPointCombMultiplier;
-import WNafUtil;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.WNafUtil;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
- 
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
  
 
 public class ECKeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator, ECConstants
 {
-    ECDomainParameters  params;
+    ECDomainParameters params;
     SecureRandom        random;
 
     public void init(

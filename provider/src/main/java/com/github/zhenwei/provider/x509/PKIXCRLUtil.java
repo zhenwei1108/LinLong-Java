@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.x509;
 
+import com.github.zhenwei.core.util.StoreException;
 import java.security.cert.CertStore;
 import java.security.cert.CertStoreException;
 import java.security.cert.PKIXParameters;

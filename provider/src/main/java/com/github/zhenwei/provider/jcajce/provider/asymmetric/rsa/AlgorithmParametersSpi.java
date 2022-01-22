@@ -1,12 +1,16 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
@@ -14,12 +18,10 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-
 import org.bouncycastle.jcajce.provider.util.DigestFactory;
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
-
 import pkcs.RSAESOAEPparams;
-import pkcs.RSASSAPSSparams;
+
 
 public abstract class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi
@@ -128,7 +130,8 @@ public abstract class AlgorithmParametersSpi
                                        MessageDigestUtils.getDigestName(oaepP.getHashAlgorithm().getAlgorithm()),
                                        OAEPParameterSpec.DEFAULT.getMGFAlgorithm(),
                                        new MGF1ParameterSpec(MessageDigestUtils.getDigestName(AlgorithmIdentifier.getInstance(oaepP.getMaskGenAlgorithm().getParameters()).getAlgorithm())),
-                                       new PSource.PSpecified(ASN1OctetString.getInstance(oaepP.getPSourceAlgorithm().getParameters()).getOctets()));
+                                       new PSource.PSpecified(
+                                           ASN1OctetString.getInstance(oaepP.getPSourceAlgorithm().getParameters()).getOctets()));
             }
             catch (ClassCastException e)
             {

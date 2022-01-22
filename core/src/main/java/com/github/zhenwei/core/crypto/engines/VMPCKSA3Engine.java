@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import org.bouncycastle.crypto.engines.VMPCEngine;
-
 public class VMPCKSA3Engine extends VMPCEngine
 {
     public String getAlgorithmName()

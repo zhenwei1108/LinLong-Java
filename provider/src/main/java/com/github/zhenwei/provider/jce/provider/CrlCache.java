@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.core.util.Store;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,9 +28,9 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
 import org.bouncycastle.jcajce.PKIXCRLStore;
-import org.bouncycastle.util.CollectionStore;
 
-import org.bouncycastle.util.Store;
+
+
 
 class CrlCache
 {

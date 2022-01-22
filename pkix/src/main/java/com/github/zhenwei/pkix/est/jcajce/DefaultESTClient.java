@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.est.jcajce;
 
 
+import com.github.zhenwei.core.util.Properties;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;

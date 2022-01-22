@@ -1,12 +1,14 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.pkix.operator.MacCalculator;
 import crmf.PKMACValue;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.operator.MacCalculator;
+
 
 class PKMACValueGenerator
 {

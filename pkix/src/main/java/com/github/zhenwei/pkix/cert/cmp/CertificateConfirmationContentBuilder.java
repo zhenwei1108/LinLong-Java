@@ -1,19 +1,21 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-
-
 import cmp.CertConfirmContent;
 import cmp.CertStatus;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
- 
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class CertificateConfirmationContentBuilder
 {
@@ -31,7 +33,8 @@ public class CertificateConfirmationContentBuilder
         this.digestAlgFinder = digestAlgFinder;
     }
     
-    public org.bouncycastle.cert.cmp.CertificateConfirmationContentBuilder addAcceptedCertificate(X509CertificateHolder certHolder, BigInteger certReqID)
+    public org.bouncycastle.cert.cmp.CertificateConfirmationContentBuilder addAcceptedCertificate(
+        X509CertificateHolder certHolder, BigInteger certReqID)
     {
         acceptedCerts.add(certHolder);
         acceptedReqIds.add(certReqID);

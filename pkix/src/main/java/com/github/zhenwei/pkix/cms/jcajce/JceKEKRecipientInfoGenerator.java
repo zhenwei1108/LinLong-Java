@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import KEKRecipientInfoGenerator;
 import cms.KEKIdentifier;
 import java.security.Provider;
 import java.security.SecureRandom;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.KEKRecipientInfoGenerator;
 import org.bouncycastle.operator.jcajce.JceSymmetricKeyWrapper;
 
 public class JceKEKRecipientInfoGenerator
@@ -20,21 +20,21 @@ public class JceKEKRecipientInfoGenerator
         this(new KEKIdentifier(keyIdentifier, null, null), keyEncryptionKey);
     }
 
-    public org.bouncycastle.cms.jcajce.JceKEKRecipientInfoGenerator setProvider(Provider provider)
+    public jcajce.JceKEKRecipientInfoGenerator setProvider(Provider provider)
     {
         ((JceSymmetricKeyWrapper)this.wrapper).setProvider(provider);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKEKRecipientInfoGenerator setProvider(String providerName)
+    public jcajce.JceKEKRecipientInfoGenerator setProvider(String providerName)
     {
         ((JceSymmetricKeyWrapper)this.wrapper).setProvider(providerName);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JceKEKRecipientInfoGenerator setSecureRandom(SecureRandom random)
+    public jcajce.JceKEKRecipientInfoGenerator setSecureRandom(SecureRandom random)
     {
         ((JceSymmetricKeyWrapper)this.wrapper).setSecureRandom(random);
 

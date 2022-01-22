@@ -1,14 +1,16 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
-
-
-
-import pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
 public class KeyUtil
 {
-    public static byte[] getEncodedSubjectPublicKeyInfo(AlgorithmIdentifier algId, ASN1Encodable keyData)
+    public static byte[] getEncodedSubjectPublicKeyInfo(
+        AlgorithmIdentifier algId, ASN1Encodable keyData)
     {
         try
         {

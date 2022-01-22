@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
- 
+
+import com.github.zhenwei.core.crypto.CipherParameters;
 
 public class RainbowParameters
     implements CipherParameters

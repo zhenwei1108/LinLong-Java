@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.math.ec;
 
+import com.github.zhenwei.core.util.Integers;
 import java.math.BigInteger;
  
 

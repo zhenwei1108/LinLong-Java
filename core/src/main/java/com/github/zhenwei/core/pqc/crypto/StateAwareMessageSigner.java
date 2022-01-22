@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto;
 
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.crypto.MessageSigner;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 /**
  * Base interface for a PQC stateful signature algorithm.

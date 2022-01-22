@@ -1,13 +1,13 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-
-
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import crmf.CertRequest;
 import crmf.PKMACValue;
 import crmf.POPOSigningKey;
 import crmf.POPOSigningKeyInput;
-import org.bouncycastle.operator.ContentSigner;
+
 
 public class ProofOfPossessionSigningKeyBuilder
 {

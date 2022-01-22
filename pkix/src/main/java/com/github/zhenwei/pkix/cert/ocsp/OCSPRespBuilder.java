@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
 import ocsp.OCSPObjectIdentifiers;
 import ocsp.OCSPResponse;

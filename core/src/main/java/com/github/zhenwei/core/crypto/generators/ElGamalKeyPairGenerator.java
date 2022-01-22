@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.params.ElGamalParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.ElGamalKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ElGamalParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
+
+;
 
 /**
  * a ElGamal key pair generator.

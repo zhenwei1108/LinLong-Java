@@ -1,12 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
 import ASN1SequenceParser;
-
 import ASN1SetParser;
 import ASN1TaggedObjectParser;
-
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BERTags;
 import java.io.IOException;
 
 /**
@@ -26,7 +27,7 @@ import java.io.IOException;
 public class SignedDataParser
 {
     private ASN1SequenceParser _seq;
-    private ASN1Integer         _version;
+    private ASN1Integer _version;
     private Object             _nextObject;
     private boolean            _certsCalled;
     private boolean            _crlsCalled;

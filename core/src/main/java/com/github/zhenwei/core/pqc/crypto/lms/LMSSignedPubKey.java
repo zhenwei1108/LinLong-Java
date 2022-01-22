@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.util.Encodable;
 import java.io.IOException;
-import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
-import org.bouncycastle.util.Encodable;
+ 
+ 
+
 
 class LMSSignedPubKey
     implements Encodable

@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.util;
 
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.security.Provider;
 import java.security.Security;
 

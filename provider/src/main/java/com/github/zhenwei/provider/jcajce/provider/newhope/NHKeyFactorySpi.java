@@ -1,7 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.newhope;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -13,7 +15,7 @@ import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
-import pkcs.PrivateKeyInfo;
+ 
 
 public class NHKeyFactorySpi
     extends KeyFactorySpi

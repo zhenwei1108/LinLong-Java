@@ -1,16 +1,18 @@
 package com.github.zhenwei.provider.jcajce;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import misc.MiscObjectIdentifiers;
+
 
 /**
  * A composite key class.
@@ -72,7 +74,8 @@ public class CompositePublicKey
         try
         {
             return new SubjectPublicKeyInfo(
-                new AlgorithmIdentifier(MiscObjectIdentifiers.id_alg_composite), new DERSequence(v)).getEncoded(ASN1Encoding.DER);
+                new AlgorithmIdentifier(MiscObjectIdentifiers.id_alg_composite), new DERSequence(v)).getEncoded(
+                ASN1Encoding.DER);
         }
         catch (IOException e)
         {

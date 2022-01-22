@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.EncodableDigest;
-import org.bouncycastle.crypto.digests.GeneralDigest;
-
-
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * SHA-224 as described in RFC 3874

@@ -1,9 +1,15 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
+import com.github.zhenwei.core.asn1.pkcs.MacData;
+import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
+import com.github.zhenwei.core.asn1.pkcs.Pfx;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 
 
@@ -53,7 +59,8 @@ public class PKCS12PfxPdu
      */
     public ContentInfo[] getContentInfos()
     {
-        ASN1Sequence seq = ASN1Sequence.getInstance(ASN1OctetString.getInstance(this.pfx.getAuthSafe().getContent()).getOctets());
+        ASN1Sequence seq = ASN1Sequence.getInstance(
+            ASN1OctetString.getInstance(this.pfx.getAuthSafe().getContent()).getOctets());
         ContentInfo[] content = new ContentInfo[seq.size()];
 
         for (int i = 0; i != seq.size(); i++)

@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * Target structure used in target information extension for attribute
@@ -46,7 +47,7 @@ public class Target
     {
         if (obj == null || obj instanceof Target)
         {
-            return (x509.Target) obj;
+            return (Target) obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {

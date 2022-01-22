@@ -1,9 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.digests.LongDigest;
-
-
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * FIPS 180-2 implementation of SHA-512.

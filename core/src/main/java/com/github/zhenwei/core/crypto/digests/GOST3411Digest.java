@@ -1,7 +1,9 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Memoable;
 import org.bouncycastle.crypto.BlockCipher;
-
 import org.bouncycastle.crypto.engines.GOST28147Engine;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithSBox;

@@ -1,10 +1,12 @@
 package com.github.zhenwei.provider.jce.provider;
 
- 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +17,6 @@ import org.bouncycastle.X509AttributeCertificate;
 import org.bouncycastle.X509StreamParserSpi;
 import org.bouncycastle.X509V2AttributeCertificate;
 import org.bouncycastle.util.StreamParsingException;
-
 import pkcs.SignedData;
 
 public class X509AttrCertParser
@@ -23,7 +24,7 @@ public class X509AttrCertParser
 {
     private static final PEMUtil PEM_PARSER = new PEMUtil("ATTRIBUTE CERTIFICATE");
 
-    private ASN1Set     sData = null;
+    private ASN1Set sData = null;
     private int         sDataObjectCount = 0;
     private InputStream currentStream = null;
 

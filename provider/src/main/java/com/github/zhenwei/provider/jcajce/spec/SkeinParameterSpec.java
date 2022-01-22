@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;

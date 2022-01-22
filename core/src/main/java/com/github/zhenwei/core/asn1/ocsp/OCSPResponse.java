@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -34,7 +35,7 @@ public class OCSPResponse
     }
 
     private OCSPResponse(
-        ASN1Sequence    seq)
+        ASN1Sequence seq)
     {
         responseStatus = OCSPResponseStatus.getInstance(seq.getObjectAt(0));
 

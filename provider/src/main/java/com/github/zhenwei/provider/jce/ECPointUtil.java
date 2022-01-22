@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jce;
 
 
+import com.github.zhenwei.core.math.ec.ECCurve;
 import java.security.spec.ECFieldF2m;
 import java.security.spec.ECFieldFp;
 import java.security.spec.ECPoint;

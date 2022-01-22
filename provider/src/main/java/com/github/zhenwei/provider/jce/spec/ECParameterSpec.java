@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.spec;
 
 
-
+import com.github.zhenwei.core.math.ec.ECCurve;
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
 
@@ -11,7 +11,7 @@ import java.security.spec.AlgorithmParameterSpec;
 public class ECParameterSpec
     implements AlgorithmParameterSpec
 {
-    private ECCurve     curve;
+    private ECCurve curve;
     private byte[]      seed;
     private ECPoint     G;
     private BigInteger  n;

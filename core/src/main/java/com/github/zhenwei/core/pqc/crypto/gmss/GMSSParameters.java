@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
 
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * This class provides a specification for the GMSS parameters that are used by

@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
@@ -8,7 +10,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
  
-import org.bouncycastle.util.CollectionStore;
+
 
 /**
  * Class for storing Certificates for later lookup.

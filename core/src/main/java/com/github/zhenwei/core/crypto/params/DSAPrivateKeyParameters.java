@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.DSAKeyParameters;
-import org.bouncycastle.crypto.params.DSAParameters;
+ 
 
 public class DSAPrivateKeyParameters
     extends DSAKeyParameters

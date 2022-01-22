@@ -1,16 +1,17 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.util.Strings;
 
 public class CRLDistPoint
     extends ASN1Object
 {
-    ASN1Sequence  seq = null;
+    ASN1Sequence seq = null;
 
     public static CRLDistPoint getInstance(
         ASN1TaggedObject obj,

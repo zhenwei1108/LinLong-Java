@@ -9,7 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5084">RFC 5084</a>: CCMParameters object.

@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.1">RFC 5652</a>: OriginatorInfo object.
@@ -16,7 +17,7 @@ package com.github.zhenwei.sdk.util.asn1.cms;
  *
  * OriginatorInfo ::= SEQUENCE {
  *     certs [0] IMPLICIT CertificateSet OPTIONAL,
- *     crls  [1] IMPLICIT CertificateRevocationLists OPTIONAL 
+ *     crls  [1] IMPLICIT CertificateRevocationLists OPTIONAL
  * }
  * CertificateRevocationLists ::= SET OF CertificateList (from X.509)
  *

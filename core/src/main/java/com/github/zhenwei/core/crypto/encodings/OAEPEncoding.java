@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.encodings;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
- 
-
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
@@ -19,7 +20,7 @@ public class OAEPEncoding
     implements AsymmetricBlockCipher
 {
     private byte[]                  defHash;
-    private Digest                  mgf1Hash;
+    private Digest mgf1Hash;
 
     private AsymmetricBlockCipher   engine;
     private SecureRandom            random;
@@ -73,7 +74,7 @@ public class OAEPEncoding
 
     public void init(
         boolean             forEncryption,
-        CipherParameters    param)
+        CipherParameters param)
     {
         if (param instanceof ParametersWithRandom)
         {

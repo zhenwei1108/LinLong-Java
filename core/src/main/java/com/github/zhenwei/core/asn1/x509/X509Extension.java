@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
 import ASN1Boolean;
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 import java.io.IOException;
 
 /**
@@ -169,7 +169,7 @@ public class X509Extension
     public static final ASN1ObjectIdentifier targetInformation = new ASN1ObjectIdentifier("2.5.29.55");
         
     boolean             critical;
-    ASN1OctetString     value;
+    ASN1OctetString value;
 
     public X509Extension(
         ASN1Boolean             critical,

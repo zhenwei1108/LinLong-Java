@@ -3,12 +3,6 @@ package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 import java.math.BigInteger;
 import java.util.Random;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialField;
-import org.bouncycastle.pqc.math.linearalgebra.GFElement;
-import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
 
 
 /**

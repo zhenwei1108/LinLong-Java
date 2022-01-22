@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.SkippingStreamCipher;
 import org.bouncycastle.crypto.StreamBlockCipher;
@@ -45,7 +46,7 @@ public class SICBlockCipher
 
     public void init(
         boolean             forEncryption, //ignored by this CTR mode
-        CipherParameters    params)
+        CipherParameters params)
         throws IllegalArgumentException
     {
         if (params instanceof ParametersWithIV)

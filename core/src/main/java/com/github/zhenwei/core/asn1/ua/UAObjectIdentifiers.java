@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.ua;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Ukrainian object identifiers

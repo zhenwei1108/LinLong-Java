@@ -1,16 +1,16 @@
 package com.github.zhenwei.pkix.cert.selector;
 
 
-
-import Target;
-import TargetInformation;
-import Targets;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.TargetInformation;
+import com.github.zhenwei.core.asn1.x509.Targets;
+import com.github.zhenwei.pkix.cert.AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.AttributeCertificateIssuer;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
-import org.bouncycastle.cert.AttributeCertificateHolder;
-import org.bouncycastle.cert.AttributeCertificateIssuer;
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
+import sun.security.x509.GeneralName;
 
 
 /**

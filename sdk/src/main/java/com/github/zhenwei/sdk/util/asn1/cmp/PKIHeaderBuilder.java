@@ -1,15 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
-
 import ASN1GeneralizedTime;
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 
 public class PKIHeaderBuilder
@@ -25,7 +26,7 @@ public class PKIHeaderBuilder
     private ASN1OctetString senderNonce;
     private ASN1OctetString recipNonce;
     private PKIFreeText     freeText;
-    private ASN1Sequence    generalInfo;
+    private ASN1Sequence generalInfo;
 
     public PKIHeaderBuilder(
         int pvno,

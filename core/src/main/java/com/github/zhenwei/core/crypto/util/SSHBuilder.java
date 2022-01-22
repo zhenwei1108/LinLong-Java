@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.util;
 
+import com.github.zhenwei.core.util.Strings;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;

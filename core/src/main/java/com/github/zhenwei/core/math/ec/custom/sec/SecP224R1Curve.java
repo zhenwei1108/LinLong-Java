@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
-
-
-
- 
-import SecP224R1Field;
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.raw.Nat224;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -17,7 +18,8 @@ public class SecP224R1Curve extends ECCurve.AbstractFp
     public static final BigInteger q = SecP224R1FieldElement.Q;
 
     private static final int SECP224R1_DEFAULT_COORDS = COORD_JACOBIAN;
-    private static final ECFieldElement[] SECP224R1_AFFINE_ZS = new ECFieldElement[] { new SecP224R1FieldElement(ECConstants.ONE) };
+    private static final ECFieldElement[] SECP224R1_AFFINE_ZS = new ECFieldElement[] { new SecP224R1FieldElement(
+        ECConstants.ONE) };
 
     protected SecP224R1Point infinity;
 

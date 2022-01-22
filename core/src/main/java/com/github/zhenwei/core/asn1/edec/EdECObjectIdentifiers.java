@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.edec;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Edwards Elliptic Curve Object Identifiers (RFC 8410)

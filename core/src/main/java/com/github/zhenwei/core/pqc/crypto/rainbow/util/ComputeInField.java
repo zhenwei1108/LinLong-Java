@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow.util;
 
-import org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;
-
 /**
  * This class offers different operations on matrices in field GF2^8.
  * <p>

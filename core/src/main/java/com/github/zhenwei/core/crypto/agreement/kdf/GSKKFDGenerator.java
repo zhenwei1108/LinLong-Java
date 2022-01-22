@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.crypto.agreement.kdf;
 
 
-
-
-
-import org.bouncycastle.crypto.agreement.kdf.GSKKDFParameters;
-
-
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.DerivationParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.DigestDerivationFunction;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * BSI Key Derivation Function for Session Keys (see BSI-TR-03111 Section 4.3.3)

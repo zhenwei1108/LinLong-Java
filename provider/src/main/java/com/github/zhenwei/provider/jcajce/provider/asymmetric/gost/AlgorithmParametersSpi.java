@@ -1,10 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
 
-
-
-
-import GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
@@ -98,7 +99,7 @@ public class AlgorithmParametersSpi
     {
         try
         {
-            ASN1Sequence seq = (ASN1Sequence)ASN1Primitive.fromByteArray(params);
+            ASN1Sequence seq = (ASN1Sequence) ASN1Primitive.fromByteArray(params);
 
             this.currentSpec = GOST3410ParameterSpec.fromPublicKeyAlg(
                 GOST3410PublicKeyAlgParameters.getInstance(seq));

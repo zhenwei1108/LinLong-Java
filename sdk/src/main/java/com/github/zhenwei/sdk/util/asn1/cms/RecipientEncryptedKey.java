@@ -1,12 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -41,7 +42,7 @@ public class RecipientEncryptedKey
      *          tagged object cannot be converted.
      */
     public static cms.RecipientEncryptedKey getInstance(
-        ASN1TaggedObject    obj,
+        ASN1TaggedObject obj,
         boolean             explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));

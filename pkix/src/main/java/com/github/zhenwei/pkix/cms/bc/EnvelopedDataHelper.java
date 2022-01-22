@@ -1,20 +1,23 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
-
+import CMSAlgorithm;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-
-import org.bouncycastle.cms.CMSAlgorithm;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.crypto.CipherKeyGenerator;
-
-
 import org.bouncycastle.crypto.Wrapper;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.digests.SHA224Digest;
@@ -30,7 +33,6 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
 import org.bouncycastle.crypto.util.CipherFactory;
 import org.bouncycastle.crypto.util.CipherKeyGeneratorFactory;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.bc.BcDigestProvider;
 
 

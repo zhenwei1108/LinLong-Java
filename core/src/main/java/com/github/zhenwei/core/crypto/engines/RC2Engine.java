@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.BlockCipher;
- 
-
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.RC2Parameters;
@@ -119,7 +119,7 @@ public class RC2Engine
      */
     public void init(
         boolean           encrypting,
-        CipherParameters  params)
+        CipherParameters params)
     {
         this.encrypting = encrypting;
 

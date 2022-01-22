@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
 import java.util.Hashtable;
-
 import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
 
  
 
@@ -31,7 +32,7 @@ public class HashSP800DRBG
         seedlens.put("SHA-512", Integers.valueOf(888));
     }
 
-    private Digest        _digest;
+    private Digest _digest;
     private byte[]        _V;
     private byte[]        _C;
     private long          _reseedCounter;

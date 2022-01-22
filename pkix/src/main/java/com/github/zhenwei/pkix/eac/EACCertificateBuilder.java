@@ -1,15 +1,16 @@
 package com.github.zhenwei.pkix.eac;
 
 
- 
-import  CVCertificate;
-import  CertificateBody;
-import  CertificateHolderAuthorization;
-import  CertificateHolderReference;
-import  CertificationAuthorityReference;
-import  EACTags;
-import  PackedDate;
-import  PublicKeyDataObject;
+import CVCertificate;
+import CertificateBody;
+import CertificateHolderAuthorization;
+import CertificateHolderReference;
+import CertificationAuthorityReference;
+import EACTags;
+import PackedDate;
+import PublicKeyDataObject;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERApplicationSpecific;
 import java.io.OutputStream;
 import org.bouncycastle.eac.operator.EACSigner;
 
@@ -42,7 +43,7 @@ public class EACCertificateBuilder
 
     private CertificateBody buildBody()
     {
-        DERApplicationSpecific  certificateProfileIdentifier;
+        DERApplicationSpecific certificateProfileIdentifier;
 
         certificateProfileIdentifier = new DERApplicationSpecific(
                 EACTags.INTERCHANGE_PROFILE, ZeroArray);

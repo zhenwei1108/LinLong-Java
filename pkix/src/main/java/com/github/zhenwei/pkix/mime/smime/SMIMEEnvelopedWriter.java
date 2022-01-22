@@ -1,14 +1,15 @@
 package com.github.zhenwei.pkix.mime.smime;
 
+import CMSAttributeTableGenerator;
+import CMSEnvelopedDataStreamGenerator;
+import OriginatorInformation;
+import RecipientInfoGenerator;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSEnvelopedDataStreamGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.OriginatorInformation;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.mime.Headers;
 import org.bouncycastle.mime.MimeIOException;
 import org.bouncycastle.mime.MimeWriter;

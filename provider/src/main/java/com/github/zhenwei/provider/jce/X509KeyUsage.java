@@ -1,8 +1,9 @@
 package com.github.zhenwei.provider.jce;
 
 
-
 import KeyUsage;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 
 /**
  * A holding class for constructing an X509 Key Usage extension.

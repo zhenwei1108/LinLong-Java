@@ -1,10 +1,12 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Memoable;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.digests.SkeinDigest;
 import org.bouncycastle.crypto.engines.ThreefishEngine;
 import org.bouncycastle.crypto.macs.SkeinMac;
 import org.bouncycastle.crypto.params.SkeinParameters;

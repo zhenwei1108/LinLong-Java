@@ -1,19 +1,28 @@
 package com.github.zhenwei.provider.jce;
 
 
-
- 
-
-
-
-
-
-
-
-
-
 import X509Name;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -32,16 +41,12 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-
-
-
-
 import pkcs.CertificationRequest;
 import pkcs.CertificationRequestInfo;
 
-import pkcs.RSASSAPSSparams;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
 
 /**
  * A class for verifying and creating PKCS10 Certification requests. 
@@ -206,7 +211,7 @@ public class PKCS10CertificationRequest
     {
         try
         {
-            ASN1InputStream         dIn = new ASN1InputStream(bytes);
+            ASN1InputStream dIn = new ASN1InputStream(bytes);
 
             return (ASN1Sequence)dIn.readObject();
         }
@@ -239,7 +244,7 @@ public class PKCS10CertificationRequest
         String              signatureAlgorithm,
         X509Name            subject,
         PublicKey           key,
-        ASN1Set             attributes,
+        ASN1Set attributes,
         PrivateKey          signingKey)
         throws NoSuchAlgorithmException, NoSuchProviderException,
                 InvalidKeyException, SignatureException
@@ -344,7 +349,7 @@ public class PKCS10CertificationRequest
 
         try
         {
-            ASN1Sequence seq = (ASN1Sequence)ASN1Primitive.fromByteArray(key.getEncoded());
+            ASN1Sequence seq = (ASN1Sequence) ASN1Primitive.fromByteArray(key.getEncoded());
             this.reqInfo = new CertificationRequestInfo(subject, SubjectPublicKeyInfo.getInstance(seq), attributes);
         }
         catch (IOException e)

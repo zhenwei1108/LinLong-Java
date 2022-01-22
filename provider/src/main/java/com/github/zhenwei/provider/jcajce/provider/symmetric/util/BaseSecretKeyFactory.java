@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.lang.reflect.Constructor;
 import java.security.InvalidKeyException;
 import java.security.spec.InvalidKeySpecException;
@@ -14,7 +15,7 @@ public class BaseSecretKeyFactory
     implements PBE
 {
     protected String                algName;
-    protected ASN1ObjectIdentifier   algOid;
+    protected ASN1ObjectIdentifier algOid;
 
     protected BaseSecretKeyFactory(
         String algName,

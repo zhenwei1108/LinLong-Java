@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import KeyTransRecipientId;
+import SignerId;
 import java.security.cert.X509CertSelector;
-import org.bouncycastle.cms.KeyTransRecipientId;
-import org.bouncycastle.cms.SignerId;
 
 public class JcaX509CertSelectorConverter
     extends org.bouncycastle.cert.selector.jcajce.JcaX509CertSelectorConverter

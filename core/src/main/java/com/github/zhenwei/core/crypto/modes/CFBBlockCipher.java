@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.StreamBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 
@@ -63,7 +64,7 @@ public class CFBBlockCipher
      */
     public void init(
         boolean             encrypting,
-        CipherParameters    params)
+        CipherParameters params)
         throws IllegalArgumentException
     {
         this.encrypting = encrypting;

@@ -1,11 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBE.Util;
-
-import gm.GMObjectIdentifiers;
+import com.github.zhenwei.provider.jcajce.spec.PBKDF2KeySpec;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidKeySpecException;
@@ -16,8 +23,6 @@ import java.util.Map;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-
- 
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.jcajce.PBKDF2Key;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;

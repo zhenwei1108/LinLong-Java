@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.crypto.modes;
 
 
-
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * A cipher mode that includes authenticated encryption with a streaming mode and optional associated data.
  * <p>
- * Implementations of this interface may operate in a packet mode (where all input data is buffered and 
+ * Implementations of this interface may operate in a packet mode (where all input data is buffered and
  * processed during the call to {@link #doFinal(byte[], int)}), or in a streaming mode (where output data is
  * incrementally produced with each call to {@link #processByte(byte, byte[], int)} or 
  * {@link #processBytes(byte[], int, int, byte[], int)}.

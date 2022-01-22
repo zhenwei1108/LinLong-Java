@@ -1,7 +1,14 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PrivateKey;
+import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PublicKey;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -13,12 +20,12 @@ import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
-import org.bouncycastle.pqc.asn1.McElieceCCA2PrivateKey;
-import org.bouncycastle.pqc.asn1.McElieceCCA2PublicKey;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
-import pkcs.PrivateKeyInfo;
+ 
+ 
+ 
+ 
+ 
+ 
 
 /**
  * This class is used to translate between McEliece CCA2 keys and key

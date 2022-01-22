@@ -1,6 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 import org.bouncycastle.crypto.params.X25519PublicKeyParameters;

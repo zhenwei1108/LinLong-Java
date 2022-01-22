@@ -1,11 +1,15 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
-
 import Gost2814789EncryptedKey;
 import GostR3410KeyTransport;
 import GostR3410TransportParameters;
+import KeyTransRecipient;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
@@ -18,8 +22,6 @@ import java.util.Map;
 import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import javax.crypto.SecretKey;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyTransRecipient;
 import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.OperatorException;
@@ -48,7 +50,7 @@ public abstract class JceKeyTransRecipient
      * @param provider provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setProvider(Provider provider)
+    public jcajce.JceKeyTransRecipient setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
         this.contentHelper = helper;
@@ -62,7 +64,7 @@ public abstract class JceKeyTransRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setProvider(String providerName)
+    public jcajce.JceKeyTransRecipient setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
         this.contentHelper = helper;
@@ -84,7 +86,7 @@ public abstract class JceKeyTransRecipient
      * @param algorithmName JCE algorithm name to use.
      * @return the current Recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
+    public jcajce.JceKeyTransRecipient setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
     {
         extraMappings.put(algorithm, algorithmName);
 
@@ -98,7 +100,7 @@ public abstract class JceKeyTransRecipient
      * @param provider the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setContentProvider(Provider provider)
+    public jcajce.JceKeyTransRecipient setContentProvider(Provider provider)
     {
         this.contentHelper = CMSUtils.createContentHelper(provider);
 
@@ -113,7 +115,7 @@ public abstract class JceKeyTransRecipient
      * @param unwrappedKeyMustBeEncodable true if getEncoded() should return key bytes, false if not necessary.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setMustProduceEncodableUnwrappedKey(boolean unwrappedKeyMustBeEncodable)
+    public jcajce.JceKeyTransRecipient setMustProduceEncodableUnwrappedKey(boolean unwrappedKeyMustBeEncodable)
     {
         this.unwrappedKeyMustBeEncodable = unwrappedKeyMustBeEncodable;
 
@@ -127,7 +129,7 @@ public abstract class JceKeyTransRecipient
      * @param providerName the name of the provider to use.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setContentProvider(String providerName)
+    public jcajce.JceKeyTransRecipient setContentProvider(String providerName)
     {
         this.contentHelper = CMSUtils.createContentHelper(providerName);
 
@@ -144,7 +146,7 @@ public abstract class JceKeyTransRecipient
      * @param doValidate true if unwrapped key's should be validated against the content encryption algorithm, false otherwise.
      * @return this recipient.
      */
-    public org.bouncycastle.cms.jcajce.JceKeyTransRecipient setKeySizeValidation(boolean doValidate)
+    public jcajce.JceKeyTransRecipient setKeySizeValidation(boolean doValidate)
     {
         this.validateKeySize = doValidate;
 

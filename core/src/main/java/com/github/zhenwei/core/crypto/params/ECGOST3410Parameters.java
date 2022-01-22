@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.params;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 public class ECGOST3410Parameters
     extends ECNamedDomainParameters
 {
-    private final ASN1ObjectIdentifier  publicKeyParamSet;
+    private final ASN1ObjectIdentifier publicKeyParamSet;
     private final ASN1ObjectIdentifier  digestParamSet;
     private final ASN1ObjectIdentifier  encryptionParamSet;
 

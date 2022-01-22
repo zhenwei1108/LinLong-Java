@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.util.test;
 
-import java.math.BigInteger;
- 
-import org.bouncycastle.util.test.FixedSecureRandom;
+import com.github.zhenwei.core.util.BigIntegers;
 
 /**
  * A fixed secure random designed to return data for someone needing to create a single BigInteger.
@@ -28,7 +26,8 @@ public class TestRandomBigInteger
      */
     public TestRandomBigInteger(String encoding, int radix)
     {
-        super(new Source[] { new BigInteger(BigIntegers.asUnsignedByteArray(new java.math.BigInteger(encoding, radix))) });
+        super(new Source[] { new BigInteger(
+            BigIntegers.asUnsignedByteArray(new java.math.BigInteger(encoding, radix))) });
     }
 
     /**

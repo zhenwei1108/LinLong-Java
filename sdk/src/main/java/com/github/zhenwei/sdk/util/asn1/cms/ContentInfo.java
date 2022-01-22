@@ -1,14 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
 import BERTaggedObject;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.BERSequence;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-3">RFC 5652</a> ContentInfo, and
@@ -31,7 +32,7 @@ public class ContentInfo
     implements CMSObjectIdentifiers
 {
     private ASN1ObjectIdentifier contentType;
-    private ASN1Encodable        content;
+    private ASN1Encodable content;
 
     /**
      * Return an ContentInfo object from the given object.
@@ -113,7 +114,7 @@ public class ContentInfo
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(2);
+        ASN1EncodableVector v = new ASN1EncodableVector(2);
 
         v.add(contentType);
 

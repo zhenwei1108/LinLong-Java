@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.HSSKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters;
+ 
 
 public class HSSKeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator

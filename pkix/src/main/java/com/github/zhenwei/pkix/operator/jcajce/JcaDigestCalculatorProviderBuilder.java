@@ -1,18 +1,20 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
 import java.security.Provider;
-
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class JcaDigestCalculatorProviderBuilder
 {
@@ -23,7 +25,8 @@ public class JcaDigestCalculatorProviderBuilder
     }
 
 
-    public org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder setHelper(JcaJceHelper helper)
+    public org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder setHelper(
+        JcaJceHelper helper)
     {
         this.helper = new OperatorHelper(helper);
 

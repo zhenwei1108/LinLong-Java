@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-
+import com.github.zhenwei.core.crypto.DerivationParameters;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Parameter class for the HKDFBytesGenerator class.

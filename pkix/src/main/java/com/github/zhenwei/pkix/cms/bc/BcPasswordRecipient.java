@@ -1,9 +1,11 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
-
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.PasswordRecipient;
+import PasswordRecipient;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.Wrapper;
@@ -29,7 +31,7 @@ public abstract class BcPasswordRecipient
         this.password = password;
     }
 
-    public org.bouncycastle.cms.bc.BcPasswordRecipient setPasswordConversionScheme(int schemeID)
+    public bc.BcPasswordRecipient setPasswordConversionScheme(int schemeID)
     {
         this.schemeID = schemeID;
 

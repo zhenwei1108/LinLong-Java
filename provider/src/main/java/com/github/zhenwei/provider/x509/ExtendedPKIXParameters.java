@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.x509;
 
+import com.github.zhenwei.core.util.Store;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.cert.CertSelector;
 import java.security.cert.CertStore;
@@ -13,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.bouncycastle.util.Store;
+
 
 /**
  * This class extends the PKIXParameters with a validity model parameter.

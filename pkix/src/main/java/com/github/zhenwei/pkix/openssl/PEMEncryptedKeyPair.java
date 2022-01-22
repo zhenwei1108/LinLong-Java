@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.openssl;
 
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class PEMEncryptedKeyPair
 {

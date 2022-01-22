@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-
-
 import rfc7748.X448;
 
 public final class X448PrivateKeyParameters

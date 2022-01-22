@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.asn1.x509;
 
 import ASN1Enumerated;
-
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.util.Integers;
 import java.math.BigInteger;
 import java.util.Hashtable;
  

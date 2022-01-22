@@ -2,9 +2,11 @@ package com.github.zhenwei.core.asn1.x9;
 
 
 import ASN1Null;
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 
 
 /**
@@ -14,7 +16,7 @@ public class X962Parameters
     extends ASN1Object
     implements ASN1Choice
 {
-    private ASN1Primitive           params = null;
+    private ASN1Primitive params = null;
 
     public static X962Parameters getInstance(
         Object obj)
@@ -24,7 +26,7 @@ public class X962Parameters
             return  (X962Parameters)obj;
         }
         
-        if (obj instanceof ASN1Primitive) 
+        if (obj instanceof ASN1Primitive)
         {
             return new X962Parameters((ASN1Primitive)obj);
         }
@@ -58,7 +60,7 @@ public class X962Parameters
     }
 
     public X962Parameters(
-        ASN1ObjectIdentifier  namedCurve)
+        ASN1ObjectIdentifier namedCurve)
     {
         this.params = namedCurve;
     }

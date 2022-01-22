@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.crypto.ec;
 
- 
+
 import ECMultiplier;
- 
 import FixedPointCombMultiplier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-
-
- 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
@@ -29,7 +29,7 @@ public class ECNewRandomnessTransform
      * @param param the necessary EC key parameters.
      */
     public void init(
-        CipherParameters    param)
+        CipherParameters param)
     {
         if (param instanceof ParametersWithRandom)
         {
@@ -78,7 +78,8 @@ public class ECNewRandomnessTransform
         BigInteger k = ECUtil.generateK(n, random);
 
         ECPoint[] gamma_phi = new ECPoint[]{
-            basePointMultiplier.multiply(ec.getG(), k).add(ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getX())),
+            basePointMultiplier.multiply(ec.getG(), k).add(
+                ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getX())),
             key.getQ().multiply(k).add(ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getY()))
         };
 

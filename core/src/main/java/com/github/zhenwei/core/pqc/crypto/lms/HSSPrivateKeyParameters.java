@@ -2,17 +2,16 @@ package com.github.zhenwei.core.pqc.crypto.lms;
 
 import static org.bouncycastle.pqc.crypto.lms.HSS.rangeTestKeys;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
+ 
 
 
 public class HSSPrivateKeyParameters

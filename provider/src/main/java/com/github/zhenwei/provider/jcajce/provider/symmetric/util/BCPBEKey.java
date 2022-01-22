@@ -1,11 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.security.auth.Destroyable;
-
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
@@ -27,7 +29,7 @@ public class BCPBEKey
     private final byte[] salt;
     private final int iterationCount;
 
-    private final CipherParameters    param;
+    private final CipherParameters param;
 
     boolean             tryWrong = false;
 

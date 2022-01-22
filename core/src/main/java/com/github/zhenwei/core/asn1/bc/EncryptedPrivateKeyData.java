@@ -45,7 +45,7 @@ public class EncryptedPrivateKeyData
     {
         if (o instanceof EncryptedPrivateKeyData)
         {
-            return (bc.EncryptedPrivateKeyData)o;
+            return   ( EncryptedPrivateKeyData)o;
         }
         else if (o != null)
         {

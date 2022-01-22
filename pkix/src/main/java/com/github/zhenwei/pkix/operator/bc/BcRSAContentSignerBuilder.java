@@ -1,10 +1,12 @@
 package com.github.zhenwei.pkix.operator.bc;
 
 
-
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.signers.RSADigestSigner;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class BcRSAContentSignerBuilder
     extends BcContentSignerBuilder

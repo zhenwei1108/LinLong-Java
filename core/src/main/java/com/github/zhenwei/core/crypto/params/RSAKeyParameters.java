@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.util.Properties;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+
 
 
 public class RSAKeyParameters

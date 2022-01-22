@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -20,8 +21,8 @@ package com.github.zhenwei.core.asn1.ocsp;
 public class ResponseBytes
     extends ASN1Object
 {
-    ASN1ObjectIdentifier    responseType;
-    ASN1OctetString        response;
+    ASN1ObjectIdentifier responseType;
+    ASN1OctetString response;
 
     public ResponseBytes(
         ASN1ObjectIdentifier responseType,
@@ -32,7 +33,7 @@ public class ResponseBytes
     }
 
     private ResponseBytes(
-        ASN1Sequence    seq)
+        ASN1Sequence seq)
     {
         responseType = (ASN1ObjectIdentifier)seq.getObjectAt(0);
         response = (ASN1OctetString)seq.getObjectAt(1);

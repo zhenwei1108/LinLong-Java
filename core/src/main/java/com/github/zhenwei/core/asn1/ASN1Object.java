@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
 
+import com.github.zhenwei.core.util.Encodable;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;

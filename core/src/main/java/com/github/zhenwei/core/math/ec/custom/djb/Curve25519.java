@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.math.ec.custom.djb;
 
 
-
-
-
-
- 
-import custom.djb.Curve25519Field;
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.raw.Nat256;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -41,7 +42,7 @@ public class Curve25519 extends ECCurve.AbstractFp
 
     protected ECCurve cloneCurve()
     {
-        return new custom.djb.Curve25519();
+        return new Curve25519();
     }
 
     public boolean supportsCoordinateSystem(int coord)

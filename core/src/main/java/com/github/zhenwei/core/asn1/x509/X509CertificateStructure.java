@@ -1,12 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 
 /**
@@ -24,10 +26,10 @@ public class X509CertificateStructure
     extends ASN1Object
     implements X509ObjectIdentifiers, PKCSObjectIdentifiers
 {
-    ASN1Sequence  seq;
+    ASN1Sequence seq;
     TBSCertificateStructure tbsCert;
     AlgorithmIdentifier     sigAlgId;
-    DERBitString            sig;
+    DERBitString sig;
 
     public static X509CertificateStructure getInstance(
         ASN1TaggedObject obj,
@@ -41,7 +43,7 @@ public class X509CertificateStructure
     {
         if (obj instanceof X509CertificateStructure)
         {
-            return (x509.X509CertificateStructure)obj;
+            return (X509CertificateStructure)obj;
         }
         else if (obj != null)
         {

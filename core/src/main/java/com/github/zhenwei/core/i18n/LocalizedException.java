@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.i18n;
 
 import java.util.Locale;
-import org.bouncycastle.i18n.ErrorBundle;
 
 /**
  * Base class for all Exceptions with localized messages.

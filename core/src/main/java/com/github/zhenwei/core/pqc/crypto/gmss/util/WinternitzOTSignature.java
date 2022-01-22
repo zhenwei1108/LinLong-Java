@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.gmss.util;
 
 
-import org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
+import com.github.zhenwei.core.crypto.Digest;
 
 /**
  * This class implements key pair generation and signature generation of the

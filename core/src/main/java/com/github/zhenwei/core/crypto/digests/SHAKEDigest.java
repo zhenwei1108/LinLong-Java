@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import org.bouncycastle.crypto.Xof;
-import org.bouncycastle.crypto.digests.KeccakDigest;
 
 
 /**

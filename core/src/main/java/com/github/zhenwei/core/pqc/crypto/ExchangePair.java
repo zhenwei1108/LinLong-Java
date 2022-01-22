@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Pair for a value exchange algorithm where the responding party has no private key, such as NewHope.

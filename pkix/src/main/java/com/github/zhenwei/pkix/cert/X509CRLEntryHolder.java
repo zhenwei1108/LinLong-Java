@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
-import Extensions;
 import GeneralNames;
 import TBSCertList;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.Extension;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;

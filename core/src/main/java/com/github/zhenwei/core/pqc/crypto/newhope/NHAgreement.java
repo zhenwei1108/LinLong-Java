@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
 
-import org.bouncycastle.pqc.crypto.newhope.NHPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.CipherParameters;
 
 public class NHAgreement
 {

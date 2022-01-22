@@ -1,6 +1,8 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.StreamOverflowException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;

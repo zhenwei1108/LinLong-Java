@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  *
@@ -12,7 +13,7 @@ public interface ICAOObjectIdentifiers
     // base id
     //
     /**  2.23.136  */
-    static final ASN1ObjectIdentifier    id_icao                   = new ASN1ObjectIdentifier("2.23.136");
+    static final ASN1ObjectIdentifier id_icao                   = new ASN1ObjectIdentifier("2.23.136");
 
     /**  2.23.136.1  */
     static final ASN1ObjectIdentifier    id_icao_mrtd              = id_icao.branch("1");

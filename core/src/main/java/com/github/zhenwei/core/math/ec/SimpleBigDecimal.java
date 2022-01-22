@@ -55,7 +55,7 @@ class SimpleBigDecimal
         this.scale = scale;
     }
 
-    private void checkScale(org.bouncycastle.math.ec.SimpleBigDecimal b)
+    private void checkScale (SimpleBigDecimal b)
     {
         if (scale != b.scale)
         {
@@ -80,7 +80,7 @@ class SimpleBigDecimal
                 newScale);
     }
 
-    public SimpleBigDecimal add(org.bouncycastle.math.ec.SimpleBigDecimal b)
+    public SimpleBigDecimal add (SimpleBigDecimal b)
     {
         checkScale(b);
         return new SimpleBigDecimal(bigInt.add(b.bigInt), scale);
@@ -138,7 +138,7 @@ class SimpleBigDecimal
         return new SimpleBigDecimal(bigInt.shiftLeft(n), scale);
     }
 
-    public int compareTo(org.bouncycastle.math.ec.SimpleBigDecimal val)
+    public int compareTo (SimpleBigDecimal val)
     {
         checkScale(val);
         return bigInt.compareTo(val.bigInt);
@@ -239,7 +239,7 @@ class SimpleBigDecimal
             return false;
         }
 
-        SimpleBigDecimal other = (org.bouncycastle.math.ec.SimpleBigDecimal)o;
+        SimpleBigDecimal other =  (SimpleBigDecimal)o;
         return ((bigInt.equals(other.bigInt)) && (scale == other.scale));
     }
 

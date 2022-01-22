@@ -1,18 +1,20 @@
 package com.github.zhenwei.pkix.cert;
 
 
- 
-
-
-import CertificateList;
-
-import Extensions;
-
 import GeneralNames;
 import IssuingDistributionPoint;
 import TBSCertList;
 import Time;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,9 +29,9 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.util.Encodable;
+
+
+
 
 /**
  * Holding class for an X.509 CRL structure.

@@ -1,33 +1,52 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
- 
 
-
-
-
-
-import isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PublicKey;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSPublicKey;
+import com.github.zhenwei.core.pqc.crypto.lms.HSSPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.lms.LMSPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.newhope.NHPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPublicKeyParameters;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.asn1.McElieceCCA2PublicKey;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
-import org.bouncycastle.pqc.asn1.XMSSKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSPublicKey;
-import org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPublicKeyParameters;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
@@ -140,7 +159,8 @@ public class PublicKeyFactory
             throws IOException
         {
             return new SPHINCSPublicKeyParameters(keyInfo.getPublicKeyData().getBytes(),
-                Utils.sphincs256LookupTreeAlgName(SPHINCS256KeyParams.getInstance(keyInfo.getAlgorithm().getParameters())));
+                Utils.sphincs256LookupTreeAlgName(
+                    SPHINCS256KeyParams.getInstance(keyInfo.getAlgorithm().getParameters())));
         }
     }
 

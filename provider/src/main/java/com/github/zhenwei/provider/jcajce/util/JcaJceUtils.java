@@ -1,15 +1,20 @@
 package com.github.zhenwei.provider.jcajce.util;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 
 
 
-import teletrust.TeleTrusTObjectIdentifiers;
+
 
 /**
  * General JCA/JCE utility methods.

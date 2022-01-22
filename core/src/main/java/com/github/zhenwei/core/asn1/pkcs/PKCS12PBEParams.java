@@ -1,19 +1,20 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class PKCS12PBEParams
     extends ASN1Object
 {
-    ASN1Integer      iterations;
+    ASN1Integer iterations;
     ASN1OctetString iv;
 
     public PKCS12PBEParams(
@@ -25,7 +26,7 @@ public class PKCS12PBEParams
     }
 
     private PKCS12PBEParams(
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {
         iv = (ASN1OctetString)seq.getObjectAt(0);
         iterations = ASN1Integer.getInstance(seq.getObjectAt(1));

@@ -9,8 +9,6 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
-import org.bouncycastle.i18n.LocaleString;
-import org.bouncycastle.i18n.MissingEntryException;
 import org.bouncycastle.i18n.filter.Filter;
 import org.bouncycastle.i18n.filter.TrustedInput;
 import org.bouncycastle.i18n.filter.UntrustedInput;
@@ -180,12 +178,12 @@ public class LocalizedMessage
             String template,
             Object[] arguments, 
             Locale locale,
-            TimeZone timezone) 
+            TimeZone timezone)
     {
         MessageFormat mf = new MessageFormat(" ");
         mf.setLocale(locale);
         mf.applyPattern(template);
-        if (!timezone.equals(TimeZone.getDefault())) 
+        if (!timezone.equals(TimeZone.getDefault()))
         {
             Format[] formats = mf.getFormats();
             for (int i = 0; i < formats.length; i++) 

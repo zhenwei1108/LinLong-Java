@@ -1,13 +1,9 @@
 package com.github.zhenwei.core.util.encoders;
 
+import com.github.zhenwei.core.util.Strings;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import org.bouncycastle.util.encoders.Base32Encoder;
-import org.bouncycastle.util.encoders.DecoderException;
-import org.bouncycastle.util.encoders.Encoder;
-import org.bouncycastle.util.encoders.EncoderException;
 
 /**
  * Utility class for converting Base32 data to bytes and back again.

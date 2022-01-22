@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+ 
 
 /**
  * Public key parameters for NaccacheStern cipher. For details on this cipher,

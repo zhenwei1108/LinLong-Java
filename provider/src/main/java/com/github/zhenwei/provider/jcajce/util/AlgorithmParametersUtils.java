@@ -1,7 +1,8 @@
 package com.github.zhenwei.provider.jcajce.util;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 

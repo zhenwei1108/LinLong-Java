@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.SkeinEngine;
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.util.Memoable;
 import org.bouncycastle.crypto.engines.ThreefishEngine;
 import org.bouncycastle.crypto.params.SkeinParameters;
 

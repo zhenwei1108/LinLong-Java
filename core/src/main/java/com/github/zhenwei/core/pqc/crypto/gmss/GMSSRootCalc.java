@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.util.Enumeration;
 import java.util.Vector;
-
-import org.bouncycastle.pqc.crypto.gmss.GMSSDigestProvider;
-import org.bouncycastle.pqc.crypto.gmss.Treehash;
 
  
 

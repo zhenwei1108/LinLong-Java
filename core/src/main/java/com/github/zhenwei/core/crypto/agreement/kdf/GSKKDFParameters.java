@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.agreement.kdf;
 
 
+import com.github.zhenwei.core.crypto.DerivationParameters;
 
 /**
  * BSI Key Derivation Function Parameters for Session Keys (see BSI-TR-03111 Section 4.3.3)

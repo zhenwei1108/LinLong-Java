@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.dvcs;
 
 
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
 import java.io.OutputStream;
 import org.bouncycastle.operator.DigestCalculator;
 

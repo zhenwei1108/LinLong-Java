@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.agreement.kdf;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.crypto.DerivationParameters;
 
 public class DHKDFParameters
     implements DerivationParameters

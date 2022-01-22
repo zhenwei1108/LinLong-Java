@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
 import java.security.InvalidParameterException;
@@ -9,10 +12,7 @@ import java.security.PublicKey;
 import java.security.SignatureException;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 import org.bouncycastle.crypto.signers.Ed25519Signer;
 import org.bouncycastle.crypto.signers.Ed448Signer;

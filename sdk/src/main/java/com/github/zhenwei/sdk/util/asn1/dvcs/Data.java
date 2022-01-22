@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
 
+import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

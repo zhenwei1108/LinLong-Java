@@ -1,18 +1,19 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
 
+import SignerInformationVerifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Date;
- 
-import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TSPException;
 import org.bouncycastle.tsp.TimeStampToken;
-
-import org.bouncycastle.util.Store;
 import tsp.ArchiveTimeStamp;
 import tsp.PartialHashtree;
 

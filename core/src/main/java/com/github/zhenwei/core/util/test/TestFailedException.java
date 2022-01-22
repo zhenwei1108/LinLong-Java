@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.util.test;
 
-import org.bouncycastle.util.test.TestResult;
-
 public class TestFailedException
     extends RuntimeException
 {

@@ -2,6 +2,7 @@ package com.github.zhenwei.sdk.util.asn1.smime;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 
 public interface SMIMEAttributes

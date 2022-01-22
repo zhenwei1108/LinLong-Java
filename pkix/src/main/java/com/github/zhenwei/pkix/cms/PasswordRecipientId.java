@@ -19,7 +19,7 @@ public class PasswordRecipientId
     public boolean equals(
         Object o)
     {
-        if (!(o instanceof org.bouncycastle.cms.PasswordRecipientId))
+        if (!(o instanceof PasswordRecipientId))
         {
             return false;
         }
@@ -29,7 +29,7 @@ public class PasswordRecipientId
 
     public Object clone()
     {
-        return new org.bouncycastle.cms.PasswordRecipientId();
+        return new PasswordRecipientId();
     }
 
     public boolean match(Object obj)

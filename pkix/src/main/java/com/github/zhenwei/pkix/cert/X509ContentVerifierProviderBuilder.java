@@ -1,8 +1,9 @@
 package com.github.zhenwei.pkix.cert;
 
 
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 
 public interface X509ContentVerifierProviderBuilder
 {

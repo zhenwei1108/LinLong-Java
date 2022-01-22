@@ -2,7 +2,6 @@ package com.github.zhenwei.core.crypto.params;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.CramerShoupParameters;
 
 public class CramerShoupKeyGenerationParameters
     extends KeyGenerationParameters

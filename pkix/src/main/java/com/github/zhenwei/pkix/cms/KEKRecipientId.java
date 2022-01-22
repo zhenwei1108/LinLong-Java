@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 
+import com.github.zhenwei.core.util.Arrays;
 
 public class KEKRecipientId
     extends RecipientId
@@ -27,12 +28,12 @@ public class KEKRecipientId
     public boolean equals(
         Object o)
     {
-        if (!(o instanceof org.bouncycastle.cms.KEKRecipientId))
+        if (!(o instanceof KEKRecipientId))
         {
             return false;
         }
 
-        org.bouncycastle.cms.KEKRecipientId id = (org.bouncycastle.cms.KEKRecipientId)o;
+        KEKRecipientId id = (org.bouncycastle.cms.KEKRecipientId)o;
 
         return Arrays.areEqual(keyIdentifier, id.keyIdentifier);
     }
@@ -44,7 +45,7 @@ public class KEKRecipientId
 
     public Object clone()
     {
-        return new org.bouncycastle.cms.KEKRecipientId(keyIdentifier);
+        return new KEKRecipientId(keyIdentifier);
     }
 
     public boolean match(Object obj)

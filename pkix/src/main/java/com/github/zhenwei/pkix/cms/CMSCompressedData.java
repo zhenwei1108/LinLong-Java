@@ -1,14 +1,16 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import cms.CompressedData;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.util.Encodable;
 import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.operator.InputExpander;
 import org.bouncycastle.operator.InputExpanderProvider;
-import org.bouncycastle.util.Encodable;
+
 
 /**
  * containing class for an CMS Compressed Data object

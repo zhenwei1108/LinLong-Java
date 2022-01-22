@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Object;
 import java.io.IOException;
 import java.io.OutputStream;
 

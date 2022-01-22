@@ -1,8 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -14,11 +17,10 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.jce.spec.ECPublicKeySpec;
-import pkcs.PrivateKeyInfo;
+ 
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

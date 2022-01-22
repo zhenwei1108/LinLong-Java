@@ -1,13 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mVector;
-import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
-import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.RandUtils;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
 
 
 /**

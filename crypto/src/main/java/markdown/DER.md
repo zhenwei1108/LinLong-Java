@@ -109,4 +109,3 @@ B2 8C CB C5 50 6A 94 39  69 D8 07 AA BD E9 D1 57
 * 81 9F二进制表示为: 1000 0001 1001 1111, 81标识 9F标识后续长
 
 本文引自: [wikipedia](https://en.wikipedia.org/wiki/X.690#DER_encoding)
-

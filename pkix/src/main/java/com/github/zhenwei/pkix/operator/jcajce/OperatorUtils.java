@@ -1,8 +1,9 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.Key;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.operator.GenericKey;
+
 
 class OperatorUtils
 {

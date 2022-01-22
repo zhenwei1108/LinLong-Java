@@ -1,9 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowPublicKeyParameters;
 

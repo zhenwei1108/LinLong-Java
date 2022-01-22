@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.CryptoException;
-
 /**
  * this exception is thrown whenever we find something we don't expect in a
  * message.

@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.openssl;
 
 
-import pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
 public class PEMKeyPair
 {

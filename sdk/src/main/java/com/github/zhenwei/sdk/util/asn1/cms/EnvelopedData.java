@@ -1,14 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.BERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.util.Enumeration;
 
 /**
@@ -19,16 +20,16 @@ import java.util.Enumeration;
  *     originatorInfo [0] IMPLICIT OriginatorInfo OPTIONAL,
  *     recipientInfos RecipientInfos,
  *     encryptedContentInfo EncryptedContentInfo,
- *     unprotectedAttrs [1] IMPLICIT UnprotectedAttributes OPTIONAL 
+ *     unprotectedAttrs [1] IMPLICIT UnprotectedAttributes OPTIONAL
  * }
  * </pre>
  */
 public class EnvelopedData
     extends ASN1Object
 {
-    private ASN1Integer              version;
+    private ASN1Integer version;
     private OriginatorInfo          originatorInfo;
-    private ASN1Set                 recipientInfos;
+    private ASN1Set recipientInfos;
     private EncryptedContentInfo    encryptedContentInfo;
     private ASN1Set                 unprotectedAttrs;
 
@@ -160,7 +161,7 @@ public class EnvelopedData
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(5);
+        ASN1EncodableVector v = new ASN1EncodableVector(5);
 
         v.add(version);
 

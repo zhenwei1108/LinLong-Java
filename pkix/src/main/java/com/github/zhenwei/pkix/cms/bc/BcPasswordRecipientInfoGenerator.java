@@ -1,17 +1,20 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
-
-
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.PasswordRecipient;
-import org.bouncycastle.cms.PasswordRecipientInfoGenerator;
+import PasswordRecipient;
+import PasswordRecipientInfoGenerator;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.Wrapper;
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.operator.GenericKey;
+
 
 
 public class BcPasswordRecipientInfoGenerator

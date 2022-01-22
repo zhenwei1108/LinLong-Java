@@ -1,21 +1,10 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-
-
-
-
-
-
- 
 import CRLDistPoint;
 import CRLReason;
-
 import DistributionPoint;
 import DistributionPointName;
-
-
 import GeneralNames;
 import GeneralSubtree;
 import IssuingDistributionPoint;
@@ -23,6 +12,20 @@ import NameConstraints;
 import PolicyInformation;
 import RDN;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1String;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.GeneralSecurityException;
@@ -57,9 +60,7 @@ import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
 import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
-
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
-
 import style.BCStyle;
 
 class RFC3280CertPathUtilities
@@ -2040,7 +2041,7 @@ class RFC3280CertPathUtilities
         }
         if (bc != null)
         {
-            if (!(bc.isCA()))
+            if (!  ( isCA()))
             {
                 throw new CertPathValidatorException("Not a CA certificate", null, certPath, index);
             }

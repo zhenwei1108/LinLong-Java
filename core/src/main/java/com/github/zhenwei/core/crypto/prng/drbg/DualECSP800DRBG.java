@@ -2,13 +2,14 @@ package com.github.zhenwei.core.crypto.prng.drbg;
 
 
 import ECMultiplier;
- 
 import FixedPointCombMultiplier;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import nist.NISTNamedCurves;
-
 import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
 
  
 
@@ -61,7 +62,7 @@ public class DualECSP800DRBG
     private static final int        MAX_ENTROPY_LENGTH = 1 << (13 - 1);
     private static final int        MAX_PERSONALIZATION_STRING = 1 << (13 -1);
 
-    private Digest                 _digest;
+    private Digest _digest;
     private long                   _reseedCounter;
     private EntropySource          _entropySource;
     private int                    _securityStrength;

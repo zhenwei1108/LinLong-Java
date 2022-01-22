@@ -2,15 +2,16 @@ package com.github.zhenwei.core.asn1.ocsp;
 
 
 import ASN1GeneralizedTime;
-
-
-
-
-
-
-
-import Extensions;
 import X509Extensions;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.Extensions;
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -33,7 +34,7 @@ public class ResponseData
     private ASN1Integer          version;
     private ResponderID         responderID;
     private ASN1GeneralizedTime  producedAt;
-    private ASN1Sequence        responses;
+    private ASN1Sequence responses;
     private Extensions      responseExtensions;
 
     public ResponseData(

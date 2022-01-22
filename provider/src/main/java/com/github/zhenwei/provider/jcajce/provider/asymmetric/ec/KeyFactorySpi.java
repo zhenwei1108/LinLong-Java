@@ -1,8 +1,14 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -12,8 +18,6 @@ import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
- 
- 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
@@ -22,12 +26,11 @@ import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
 import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
-
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.jce.spec.ECPublicKeySpec;
-import pkcs.PrivateKeyInfo;
-import X9ObjectIdentifiers;
+ 
+
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi
@@ -151,7 +154,8 @@ public class KeyFactorySpi
             {
                 try
                 {
-                    return new OpenSSHPrivateKeySpec(PrivateKeyInfo.getInstance(key.getEncoded()).parsePrivateKey().toASN1Primitive().getEncoded());
+                    return new OpenSSHPrivateKeySpec(
+                        PrivateKeyInfo.getInstance(key.getEncoded()).parsePrivateKey().toASN1Primitive().getEncoded());
                 }
                 catch (IOException e)
                 {

@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.cert.dane;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
  
 

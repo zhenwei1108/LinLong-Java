@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
-import misc.MiscObjectIdentifiers;
- 
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.crypto.generators.SCrypt;
 import org.bouncycastle.crypto.params.KeyParameter;

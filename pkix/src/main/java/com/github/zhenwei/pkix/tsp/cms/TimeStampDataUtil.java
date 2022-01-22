@@ -1,20 +1,22 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 
-
-
 import cms.AttributeTable;
 import cms.ContentInfo;
 import cms.Evidence;
 import cms.TimeStampAndCRL;
 import cms.TimeStampedData;
 import cms.TimeStampedDataParser;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TSPException;
 import org.bouncycastle.tsp.TimeStampToken;
 import org.bouncycastle.tsp.TimeStampTokenInfo;

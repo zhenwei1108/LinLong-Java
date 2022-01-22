@@ -1,6 +1,9 @@
 package com.github.zhenwei.pkix.mime.smime;
 
 
+import CMSAlgorithm;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.util.Strings;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FilterOutputStream;
@@ -13,7 +16,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import org.bouncycastle.cms.CMSAlgorithm;
 
 
 class SMimeUtils

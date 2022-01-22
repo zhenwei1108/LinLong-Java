@@ -1,6 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import BCObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.bc.BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -10,13 +15,9 @@ import java.security.spec.InvalidParameterSpecException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.spec.IvParameterSpec;
-
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
- 
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.engines.AESEngine;

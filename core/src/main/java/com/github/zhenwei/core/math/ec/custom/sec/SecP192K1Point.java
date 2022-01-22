@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
- 
-import SecP192K1Field;
-
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.raw.Nat;
 import org.bouncycastle.math.raw.Nat192;
 
 public class SecP192K1Point extends ECPoint.AbstractFp

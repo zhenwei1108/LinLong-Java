@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 import java.io.IOException;
 import java.io.InputStream;
 

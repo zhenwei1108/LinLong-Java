@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
- 
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
+
+import com.github.zhenwei.core.crypto.CipherParameters;
 
 /**
  * Parameters holder for static/ephemeral agreement as described in NIST SP 800-56A.

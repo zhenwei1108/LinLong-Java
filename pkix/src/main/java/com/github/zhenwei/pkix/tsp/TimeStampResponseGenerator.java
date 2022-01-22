@@ -1,19 +1,19 @@
 package com.github.zhenwei.pkix.tsp;
 
 
-
-
-
-
-
-
 import DLSequence;
-import Extensions;
 import cmp.PKIFailureInfo;
 import cmp.PKIFreeText;
 import cmp.PKIStatus;
 import cmp.PKIStatusInfo;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERUTF8String;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Date;

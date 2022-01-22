@@ -1,6 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
 
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
 import java.math.BigInteger;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -10,9 +14,7 @@ import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.SignatureSpi;
 import java.security.spec.AlgorithmParameterSpec;
-
 import org.bouncycastle.crypto.DSAExt;
-
 import org.bouncycastle.crypto.digests.NullDigest;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
@@ -43,7 +45,7 @@ public class DSASigner
         PublicKey   publicKey)
         throws InvalidKeyException
     {
-        CipherParameters    param = DSAUtil.generatePublicKeyParameter(publicKey);
+        CipherParameters param = DSAUtil.generatePublicKeyParameter(publicKey);
 
         digest.reset();
         signer.init(false, param);

@@ -1,9 +1,12 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
 import org.bouncycastle.crypto.RawAgreement;
-import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
+
+;
 
 public final class X25519Agreement
     implements RawAgreement

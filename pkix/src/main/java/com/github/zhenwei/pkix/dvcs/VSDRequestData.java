@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.dvcs;
 
+import CMSSignedData;
 import Data;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSSignedData;
+import com.github.zhenwei.pkix.cms.CMSException;
 
 /**
  * Data piece of DVCS request to VSD service (Verify Signed Document).

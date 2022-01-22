@@ -1,18 +1,26 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-
-
-
-
-
-
-
-
-
-import ECGOST3410NamedCurves;
-import GOST3410PublicKeyAlgParameters;
+import X9IntegerConverter;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,7 +30,6 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
- 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
@@ -32,11 +39,6 @@ import org.bouncycastle.jce.interfaces.ECPointEncoder;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
-import X9IntegerConverter;
-import X9ObjectIdentifiers;
 
 public class JCEECPublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
@@ -45,7 +47,7 @@ public class JCEECPublicKey
     private ECPoint q;
     private ECParameterSpec         ecSpec;
     private boolean                 withCompression;
-    private GOST3410PublicKeyAlgParameters       gostParams;
+    private GOST3410PublicKeyAlgParameters gostParams;
 
     public JCEECPublicKey(
         String              algorithm,
@@ -98,7 +100,7 @@ public class JCEECPublicKey
         ECPublicKeyParameters   params,
         ECParameterSpec         spec)
     {
-        ECDomainParameters      dp = params.getParameters();
+        ECDomainParameters dp = params.getParameters();
 
         this.algorithm = algorithm;
         this.q = params.getQ();
@@ -169,7 +171,7 @@ public class JCEECPublicKey
     }
 
     JCEECPublicKey(
-        SubjectPublicKeyInfo    info)
+        SubjectPublicKeyInfo info)
     {
         populateFromPubKeyInfo(info);
     }
@@ -205,7 +207,8 @@ public class JCEECPublicKey
 
             gostParams = GOST3410PublicKeyAlgParameters.getInstance(algID.getParameters());
 
-            ECNamedCurveParameterSpec spec = ECGOST3410NamedCurveTable.getParameterSpec(ECGOST3410NamedCurves.getName(gostParams.getPublicKeyParamSet()));
+            ECNamedCurveParameterSpec spec = ECGOST3410NamedCurveTable.getParameterSpec(
+                ECGOST3410NamedCurves.getName(gostParams.getPublicKeyParamSet()));
 
             ECCurve curve = spec.getCurve();
             EllipticCurve ellipticCurve = EC5Util.convertCurve(curve, spec.getSeed());
@@ -301,7 +304,7 @@ public class JCEECPublicKey
 
     public byte[] getEncoded()
     {
-        ASN1Encodable        params;
+        ASN1Encodable params;
         SubjectPublicKeyInfo info;
 
         if (algorithm.equals("ECGOST3410"))

@@ -12,7 +12,7 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.Certificate;
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * <pre>
@@ -65,7 +65,7 @@ public class SignatureCheck
     {
         if (o instanceof SignatureCheck)
         {
-            return (bc.SignatureCheck)o;
+            return   ( SignatureCheck)o;
         }
         else if (o != null)
         {

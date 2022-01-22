@@ -1,9 +1,11 @@
 package com.github.zhenwei.core.crypto.agreement.kdf;
 
 
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.DerivationParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.params.KDFParameters;
 import org.bouncycastle.crypto.DerivationFunction;
-
-
 import org.bouncycastle.crypto.OutputLengthException;
 
 
@@ -13,7 +15,7 @@ import org.bouncycastle.crypto.OutputLengthException;
 public class ConcatenationKDFGenerator
     implements DerivationFunction
 {
-    private Digest  digest;
+    private Digest digest;
     private byte[]  shared;
     private byte[]  otherInfo;
     private int     hLen;
@@ -29,7 +31,7 @@ public class ConcatenationKDFGenerator
     }
 
     public void init(
-        DerivationParameters    param)
+        DerivationParameters param)
     {
         if (param instanceof KDFParameters)
         {

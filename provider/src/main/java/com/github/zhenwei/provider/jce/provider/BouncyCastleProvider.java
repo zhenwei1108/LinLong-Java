@@ -1,8 +1,12 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-import isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import java.io.IOException;
 import java.security.AccessController;
 import java.security.PrivateKey;
@@ -17,7 +21,6 @@ import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
 import org.bouncycastle.pqc.jcajce.provider.lms.LMSKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.mceliece.McElieceCCA2KeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.mceliece.McElieceKeyFactorySpi;
@@ -28,7 +31,7 @@ import org.bouncycastle.pqc.jcajce.provider.sphincs.Sphincs256KeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.xmss.XMSSKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * To add the provider at runtime use:

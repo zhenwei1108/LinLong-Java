@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Longs;
 import org.bouncycastle.crypto.digests.Blake2bDigest;
 import org.bouncycastle.crypto.params.Argon2Parameters;
 

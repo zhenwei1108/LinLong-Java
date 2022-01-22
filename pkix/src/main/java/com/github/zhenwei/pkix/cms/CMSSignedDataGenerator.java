@@ -1,16 +1,18 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
-
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfo;
 import cms.SignedData;
 import cms.SignerInfo;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -19,7 +21,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
+
 
 /**
  * general class for generating a pkcs7-signature message.
@@ -128,7 +130,7 @@ public class CMSSignedDataGenerator
 //        }
 
         Set<AlgorithmIdentifier> digestAlgs = new LinkedHashSet<AlgorithmIdentifier>();
-        ASN1EncodableVector  signerInfos = new ASN1EncodableVector();
+        ASN1EncodableVector signerInfos = new ASN1EncodableVector();
 
         digests.clear();  // clear the current preserved digest state
 

@@ -1,7 +1,10 @@
 package com.github.zhenwei.provider.jce.spec;
 
- 
 
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.field.PolynomialExtensionField;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.security.spec.ECField;
 import java.security.spec.ECFieldF2m;
@@ -24,7 +27,7 @@ public class ECNamedCurveSpec
     private String  name;
 
     private static EllipticCurve convertCurve(
-        ECCurve  curve,
+        ECCurve curve,
         byte[]   seed)
     {
         ECField field = convertField(curve.getField());

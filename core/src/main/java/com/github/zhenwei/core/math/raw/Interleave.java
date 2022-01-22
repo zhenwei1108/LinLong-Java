@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.math.raw;
 
-import org.bouncycastle.math.raw.Bits;
-
 public class Interleave
 {
     private static final long M32 = 0x55555555L;

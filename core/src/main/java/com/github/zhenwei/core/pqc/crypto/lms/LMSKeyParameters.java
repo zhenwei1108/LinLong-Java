@@ -1,8 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Encodable;
 import java.io.IOException;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.util.Encodable;
+ 
+
 
 public abstract class LMSKeyParameters
     extends AsymmetricKeyParameter

@@ -1,15 +1,20 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
 import cms.PasswordRecipientInfo;
 import cms.RecipientInfo;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.SecureRandom;
-import org.bouncycastle.operator.GenericKey;
+
 
 
 
@@ -57,21 +62,21 @@ public abstract class PasswordRecipientInfoGenerator
         return size.intValue();
     }
 
-    public org.bouncycastle.cms.PasswordRecipientInfoGenerator setPasswordConversionScheme(int schemeID)
+    public PasswordRecipientInfoGenerator setPasswordConversionScheme(int schemeID)
     {
         this.schemeID = schemeID;
 
         return this;
     }
 
-    public org.bouncycastle.cms.PasswordRecipientInfoGenerator setPRF(PasswordRecipient.PRF prf)
+    public PasswordRecipientInfoGenerator setPRF(PasswordRecipient.PRF prf)
     {
         this.prf = prf;
 
         return this;
     }
 
-    public org.bouncycastle.cms.PasswordRecipientInfoGenerator setSaltAndIterationCount(byte[] salt, int iterationCount)
+    public PasswordRecipientInfoGenerator setSaltAndIterationCount(byte[] salt, int iterationCount)
     {
         this.salt = Arrays.clone(salt);
         this.iterationCount = iterationCount;
@@ -79,7 +84,7 @@ public abstract class PasswordRecipientInfoGenerator
         return this;
     }
 
-    public org.bouncycastle.cms.PasswordRecipientInfoGenerator setSecureRandom(SecureRandom random)
+    public PasswordRecipientInfoGenerator setSecureRandom(SecureRandom random)
     {
         this.random = random;
 
@@ -105,7 +110,8 @@ public abstract class PasswordRecipientInfoGenerator
             random.nextBytes(salt);
         }
 
-        keyDerivationAlgorithm = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_PBKDF2, new PBKDF2Params(salt, iterationCount, prf.prfAlgID));
+        keyDerivationAlgorithm = new AlgorithmIdentifier(
+            PKCSObjectIdentifiers.id_PBKDF2, new PBKDF2Params(salt, iterationCount, prf.prfAlgID));
 
         byte[] derivedKey = calculateDerivedKey(schemeID, keyDerivationAlgorithm, keySize);
 

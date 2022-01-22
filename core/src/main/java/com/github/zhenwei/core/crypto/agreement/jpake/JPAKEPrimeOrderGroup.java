@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.agreement.jpake;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEUtil;
 
 /**
  * A pre-computed prime order group for use during a J-PAKE exchange.

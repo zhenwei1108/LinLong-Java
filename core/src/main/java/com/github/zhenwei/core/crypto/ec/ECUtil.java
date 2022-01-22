@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.crypto.ec;
 
 
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
  

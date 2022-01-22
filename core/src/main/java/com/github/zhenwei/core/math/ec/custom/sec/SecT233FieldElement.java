@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import com.github.zhenwei.core.math.ec.ECFieldElement.F2m;
-import SecT233Field;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.raw.Nat256;
 import java.math.BigInteger;
 
 

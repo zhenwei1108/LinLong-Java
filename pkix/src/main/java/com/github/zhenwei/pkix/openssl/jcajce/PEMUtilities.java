@@ -1,8 +1,13 @@
 package com.github.zhenwei.pkix.openssl.jcajce;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
@@ -20,8 +25,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-
 import org.bouncycastle.openssl.EncryptionException;
 import org.bouncycastle.openssl.PEMException;
  

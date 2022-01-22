@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
 
-
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import java.io.IOException;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.util.DEROtherInfo;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
 import org.bouncycastle.pqc.crypto.ExchangePair;
-import org.bouncycastle.pqc.crypto.newhope.NHAgreement;
-import org.bouncycastle.pqc.crypto.newhope.NHExchangePairGenerator;
-import org.bouncycastle.pqc.crypto.newhope.NHKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
+ 
 
 /**
  * OtherInfo Generator for which can be used for populating the SuppPrivInfo field used to provide shared

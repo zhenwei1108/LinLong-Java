@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.modes.gcm;
 
+import com.github.zhenwei.core.math.raw.Interleave;
 import com.github.zhenwei.core.util.Longs;
 
 

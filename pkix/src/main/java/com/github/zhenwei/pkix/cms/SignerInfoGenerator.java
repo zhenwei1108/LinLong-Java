@@ -1,26 +1,28 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
 import cms.AttributeTable;
 import cms.SignerIdentifier;
 import cms.SignerInfo;
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
- 
-import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculator;
 
-import org.bouncycastle.util.io.TeeOutputStream;
+
 
 public class SignerInfoGenerator
 {
@@ -68,7 +70,7 @@ public class SignerInfoGenerator
     }
 
     public SignerInfoGenerator(
-        org.bouncycastle.cms.SignerInfoGenerator original,
+        SignerInfoGenerator original,
         CMSAttributeTableGenerator sAttrGen,
         CMSAttributeTableGenerator unsAttrGen)
     {
@@ -112,7 +114,7 @@ public class SignerInfoGenerator
         {
             if (sAttrGen == null)
             {
-                return new TeeOutputStream(digester.getOutputStream(), signer.getOutputStream());    
+                return new TeeOutputStream(digester.getOutputStream(), signer.getOutputStream());
             }
             return digester.getOutputStream();
         }

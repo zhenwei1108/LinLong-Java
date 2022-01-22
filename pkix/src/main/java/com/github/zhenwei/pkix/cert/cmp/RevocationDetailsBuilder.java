@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-
 import X500Name;
 import cmp.RevDetails;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import crmf.CertTemplateBuilder;
 import java.math.BigInteger;
 
@@ -11,7 +12,8 @@ public class RevocationDetailsBuilder
 {
     private CertTemplateBuilder templateBuilder = new CertTemplateBuilder();
     
-    public org.bouncycastle.cert.cmp.RevocationDetailsBuilder setPublicKey(SubjectPublicKeyInfo publicKey)
+    public org.bouncycastle.cert.cmp.RevocationDetailsBuilder setPublicKey(
+        SubjectPublicKeyInfo publicKey)
     {
         if (publicKey != null)
         {

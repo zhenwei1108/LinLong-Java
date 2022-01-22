@@ -1,11 +1,12 @@
 package com.github.zhenwei.provider.x509;
 
+import com.github.zhenwei.core.util.Store;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
 import java.util.Collection;
 
-import org.bouncycastle.util.Store;
+
 
 /**
  * @deprecated use CollectionStore - this class will be removed.

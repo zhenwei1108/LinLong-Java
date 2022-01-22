@@ -3,6 +3,8 @@ package com.github.zhenwei.pkix.est.jcajce;
 import AttributeTypeAndValue;
 import RDN;
 import X500Name;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,8 +18,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLSession;
 import org.bouncycastle.est.ESTException;
-
-
 import style.BCStyle;
 
 

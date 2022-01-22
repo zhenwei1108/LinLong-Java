@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.its;
 
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.its.operator.ECDSAEncoder;
@@ -10,8 +12,8 @@ import org.bouncycastle.oer.its.IssuerIdentifier;
 import org.bouncycastle.oer.its.PublicEncryptionKey;
 import org.bouncycastle.oer.its.Signature;
 import org.bouncycastle.oer.its.template.IEEE1609dot2;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.util.Encodable;
+
+
 
 public class ITSCertificate
     implements Encodable

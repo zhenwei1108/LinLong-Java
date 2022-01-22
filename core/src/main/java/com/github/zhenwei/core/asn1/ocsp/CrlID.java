@@ -2,32 +2,33 @@ package com.github.zhenwei.core.asn1.ocsp;
 
 
 import ASN1GeneralizedTime;
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.util.Enumeration;
 
 public class CrlID
     extends ASN1Object
 {
-    private ASN1IA5String        crlUrl;
-    private ASN1Integer          crlNum;
+    private ASN1IA5String crlUrl;
+    private ASN1Integer crlNum;
     private ASN1GeneralizedTime  crlTime;
 
     private CrlID(
-        ASN1Sequence    seq)
+        ASN1Sequence seq)
     {
         Enumeration    e = seq.getObjects();
 
         while (e.hasMoreElements())
         {
-            ASN1TaggedObject    o = (ASN1TaggedObject)e.nextElement();
+            ASN1TaggedObject o = (ASN1TaggedObject)e.nextElement();
 
             switch (o.getTagNo())
             {

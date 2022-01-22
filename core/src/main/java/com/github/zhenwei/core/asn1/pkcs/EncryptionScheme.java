@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public class EncryptionScheme
     extends ASN1Object
@@ -26,7 +27,7 @@ public class EncryptionScheme
     }
 
     private EncryptionScheme(
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {   
         this.algId = AlgorithmIdentifier.getInstance(seq);
     }

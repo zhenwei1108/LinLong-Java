@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.OutputStream;
 import java.util.zip.DeflaterOutputStream;
 import org.bouncycastle.operator.OutputCompressor;

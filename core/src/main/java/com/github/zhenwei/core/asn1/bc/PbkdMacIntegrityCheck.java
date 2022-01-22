@@ -10,7 +10,7 @@ import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.pkcs.KeyDerivationFunc;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * <pre>
@@ -46,7 +46,7 @@ public class PbkdMacIntegrityCheck
     {
         if (o instanceof PbkdMacIntegrityCheck)
         {
-            return (bc.PbkdMacIntegrityCheck)o;
+            return   ( PbkdMacIntegrityCheck)o;
         }
         else if (o != null)
         {

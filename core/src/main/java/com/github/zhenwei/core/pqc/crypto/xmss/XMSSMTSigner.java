@@ -1,14 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.pqc.crypto.StateAwareMessageSigner;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTSignature;
-import org.bouncycastle.pqc.crypto.xmss.XMSSNode;
-import org.bouncycastle.pqc.crypto.xmss.XMSSReducedSignature;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
+ 
 
 
 /**

@@ -1,19 +1,19 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.operator.ContentSigner;
 import pkcs.Attribute;
 import pkcs.CertificationRequest;
 import pkcs.CertificationRequestInfo;
@@ -80,7 +80,8 @@ public class PKCS10CertificationRequestBuilder
      * @param attrValue the ASN.1 structure that forms the value of the attribute.
      * @return this builder object.
      */
-    public org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder setAttribute(ASN1ObjectIdentifier attrType, ASN1Encodable attrValue)
+    public org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder setAttribute(
+        ASN1ObjectIdentifier attrType, ASN1Encodable attrValue)
     {
         // Remove existing copies of the attribute.
         for (Iterator it = attributes.iterator(); it.hasNext(); )

@@ -1,10 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
-
-
-import CertificateList;
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
 
 public class CRLAnnContent
     extends ASN1Object

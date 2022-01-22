@@ -1,18 +1,18 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import CMSSignatureAlgorithmNameGenerator;
+import DefaultCMSSignatureAlgorithmNameGenerator;
+import SignerInformationVerifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.DefaultSignatureAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.SignatureAlgorithmIdentifierFinder;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
- 
-import org.bouncycastle.cms.CMSSignatureAlgorithmNameGenerator;
-import org.bouncycastle.cms.DefaultCMSSignatureAlgorithmNameGenerator;
-import org.bouncycastle.cms.SignerInformationVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.SignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
@@ -28,14 +28,14 @@ public class JcaSignerInfoVerifierBuilder
         this.digestProvider = digestProvider;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder setProvider(Provider provider)
+    public jcajce.JcaSignerInfoVerifierBuilder setProvider(Provider provider)
     {
         this.helper = new ProviderHelper(provider);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder setProvider(String providerName)
+    public jcajce.JcaSignerInfoVerifierBuilder setProvider(String providerName)
     {
         this.helper = new NamedHelper(providerName);
 
@@ -48,14 +48,14 @@ public class JcaSignerInfoVerifierBuilder
      * @param sigAlgNameGen the algorithm name generator to use.
      * @return the current builder.
      */
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder setSignatureAlgorithmNameGenerator(CMSSignatureAlgorithmNameGenerator sigAlgNameGen)
+    public jcajce.JcaSignerInfoVerifierBuilder setSignatureAlgorithmNameGenerator(CMSSignatureAlgorithmNameGenerator sigAlgNameGen)
     {
         this.sigAlgNameGen = sigAlgNameGen;
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoVerifierBuilder setSignatureAlgorithmFinder(SignatureAlgorithmIdentifierFinder sigAlgIDFinder)
+    public jcajce.JcaSignerInfoVerifierBuilder setSignatureAlgorithmFinder(SignatureAlgorithmIdentifierFinder sigAlgIDFinder)
     {
         this.sigAlgIDFinder = sigAlgIDFinder;
 

@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.fpe;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Properties;
 import org.bouncycastle.crypto.BlockCipher;
-
 import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.fpe.FPEEngine;
 import org.bouncycastle.crypto.params.FPEParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 
@@ -49,7 +50,8 @@ public class FPEFF3_1Engine
 
         this.fpeParameters = (FPEParameters)parameters;
 
-        baseCipher.init(!fpeParameters.isUsingInverseFunction(), new KeyParameter(Arrays.reverse(fpeParameters.getKey().getKey())));
+        baseCipher.init(!fpeParameters.isUsingInverseFunction(), new KeyParameter(
+            Arrays.reverse(fpeParameters.getKey().getKey())));
 
         if (fpeParameters.getTweak().length != 7)
         {

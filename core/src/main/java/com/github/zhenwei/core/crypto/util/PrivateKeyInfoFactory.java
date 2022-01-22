@@ -1,45 +1,55 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
-
-
-
-
-import DSAParameter;
- 
 import FixedPointCombMultiplier;
-
-import GOST3410PublicKeyAlgParameters;
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
+import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
- 
-import org.bouncycastle.crypto.params.ECGOST3410Parameters;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.X448PrivateKeyParameters;
 
-import pkcs.PrivateKeyInfo;
-import pkcs.RSAPrivateKey;
-import rosstandart.RosstandartObjectIdentifiers;
-import sec.ECPrivateKey;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
-import X9ObjectIdentifiers;
+;
+;
+ 
+
+ 
+ 
+
+ 
+ 
+
+
+
 
 /**
  * Factory to create ASN.1 private key info objects from lightweight private keys.

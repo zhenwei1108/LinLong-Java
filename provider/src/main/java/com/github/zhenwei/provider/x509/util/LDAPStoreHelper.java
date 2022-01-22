@@ -1,8 +1,10 @@
 package com.github.zhenwei.provider.util;
 
- 
-import Certificate;
+
 import CertificatePair;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.core.util.StoreException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.Principal;
@@ -39,7 +41,6 @@ import org.bouncycastle.jce.provider.X509AttrCertParser;
 import org.bouncycastle.jce.provider.X509CRLParser;
 import org.bouncycastle.jce.provider.X509CertPairParser;
 import org.bouncycastle.jce.provider.X509CertParser;
-
 import org.bouncycastle.util.StreamParsingException;
 
 /**

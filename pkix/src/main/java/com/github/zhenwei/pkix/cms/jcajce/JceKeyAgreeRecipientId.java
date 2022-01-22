@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import KeyAgreeRecipientId;
 import X500Name;
 import java.math.BigInteger;
 import java.security.cert.X509Certificate;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.cms.KeyAgreeRecipientId;
 
 public class JceKeyAgreeRecipientId
     extends KeyAgreeRecipientId

@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.prng;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.prng.EntropyUtil;
-import org.bouncycastle.crypto.prng.X931RNG;
 
 public class X931SecureRandom
     extends SecureRandom

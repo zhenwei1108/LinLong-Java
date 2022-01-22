@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.provider.jcajce.spec.DHDomainParameterSpec;
 import java.security.Permission;
 import java.security.spec.DSAParameterSpec;
 import java.util.Collections;
@@ -8,14 +10,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.crypto.spec.DHParameterSpec;
-
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission;
-import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 
 class BouncyCastleProviderConfiguration

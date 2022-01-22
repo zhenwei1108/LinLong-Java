@@ -1,23 +1,24 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
-
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 public class ResponderID
     extends ASN1Object
     implements ASN1Choice
 {
-    private ASN1Encodable    value;
+    private ASN1Encodable value;
 
     public ResponderID(
-        ASN1OctetString    value)
+        ASN1OctetString value)
     {
         this.value = value;
     }

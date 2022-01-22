@@ -1,15 +1,16 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-
+import PasswordRecipient;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.security.Provider;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.PasswordRecipient;
 
 /**
  * the RecipientInfo class for a recipient who has been sent a message
@@ -28,21 +29,21 @@ public abstract class JcePasswordRecipient
         this.password = password;
     }
 
-    public org.bouncycastle.cms.jcajce.JcePasswordRecipient setPasswordConversionScheme(int schemeID)
+    public jcajce.JcePasswordRecipient setPasswordConversionScheme(int schemeID)
     {
         this.schemeID = schemeID;
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcePasswordRecipient setProvider(Provider provider)
+    public jcajce.JcePasswordRecipient setProvider(Provider provider)
     {
         this.helper = new EnvelopedDataHelper(new ProviderJcaJceExtHelper(provider));
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcePasswordRecipient setProvider(String providerName)
+    public jcajce.JcePasswordRecipient setProvider(String providerName)
     {
         this.helper = new EnvelopedDataHelper(new NamedJcaJceExtHelper(providerName));
 
@@ -56,7 +57,8 @@ public abstract class JcePasswordRecipient
 
         try
         {
-            IvParameterSpec ivSpec = new IvParameterSpec(ASN1OctetString.getInstance(keyEncryptionAlgorithm.getParameters()).getOctets());
+            IvParameterSpec ivSpec = new IvParameterSpec(
+                ASN1OctetString.getInstance(keyEncryptionAlgorithm.getParameters()).getOctets());
 
             keyEncryptionCipher.init(Cipher.UNWRAP_MODE, new SecretKeySpec(derivedKey, keyEncryptionCipher.getAlgorithm()), ivSpec);
 

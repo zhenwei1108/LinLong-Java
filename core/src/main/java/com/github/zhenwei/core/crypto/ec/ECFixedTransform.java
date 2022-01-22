@@ -1,13 +1,12 @@
 package com.github.zhenwei.core.crypto.ec;
 
- 
+
 import ECMultiplier;
- 
 import FixedPointCombMultiplier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
- 
-import org.bouncycastle.crypto.ec.ECPairFactorTransform;
- 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 
 /**
@@ -31,7 +30,7 @@ public class ECFixedTransform
      * @param param the necessary EC key parameters.
      */
     public void init(
-        CipherParameters    param)
+        CipherParameters param)
     {
         if (!(param instanceof ECPublicKeyParameters))
         {
@@ -63,7 +62,8 @@ public class ECFixedTransform
         BigInteger k = this.k.mod(n);
 
         ECPoint[] gamma_phi = new ECPoint[]{
-            basePointMultiplier.multiply(ec.getG(), k).add(ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getX())),
+            basePointMultiplier.multiply(ec.getG(), k).add(
+                ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getX())),
             key.getQ().multiply(k).add(ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getY()))
         };
 

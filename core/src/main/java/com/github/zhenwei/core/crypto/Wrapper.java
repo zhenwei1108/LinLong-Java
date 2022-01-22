@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
 
-import org.bouncycastle.crypto.InvalidCipherTextException;
-
 public interface Wrapper
 {
     public void init(boolean forWrapping, CipherParameters param);

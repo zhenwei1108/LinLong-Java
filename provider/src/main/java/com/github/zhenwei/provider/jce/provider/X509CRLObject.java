@@ -1,20 +1,23 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
- 
-
-
-
 import CRLDistPoint;
 import CRLNumber;
-import CertificateList;
-
-import Extensions;
 import GeneralNames;
 import IssuingDistributionPoint;
 import TBSCertList;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.util.ASN1Dump;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
@@ -91,7 +94,8 @@ public class X509CRLObject
 
             if (c.getSignatureAlgorithm().getParameters() != null)
             {
-                this.sigAlgParams = ((ASN1Encodable)c.getSignatureAlgorithm().getParameters()).toASN1Primitive().getEncoded(ASN1Encoding.DER);
+                this.sigAlgParams = ((ASN1Encodable)c.getSignatureAlgorithm().getParameters()).toASN1Primitive().getEncoded(
+                    ASN1Encoding.DER);
             }
             else
             {

@@ -1,18 +1,19 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class AttributeTypeAndValue
     extends ASN1Object
 {
     private ASN1ObjectIdentifier type;
-    private ASN1Encodable       value;
+    private ASN1Encodable value;
 
     private AttributeTypeAndValue(ASN1Sequence seq)
     {

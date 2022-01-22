@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.math.ec.endo;
 
-import endo.ScalarSplitParameters;
+
 import java.math.BigInteger;
 
 public class GLVTypeBParameters

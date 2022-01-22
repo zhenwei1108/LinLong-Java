@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.est;
 
- 
-import org.bouncycastle.util.Store;
 
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 
 /**
  * Holder class for a response containing the details making up a /simpleenroll response.

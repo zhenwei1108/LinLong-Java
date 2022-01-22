@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.cert.dane;
 
- 
+
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import org.bouncycastle.operator.DigestCalculator;
 
 /**

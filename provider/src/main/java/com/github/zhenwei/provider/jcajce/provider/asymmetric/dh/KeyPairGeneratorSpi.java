@@ -1,21 +1,27 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.generators.DHBasicKeyPairGenerator;
+import com.github.zhenwei.core.crypto.generators.DHParametersGenerator;
+import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
+import com.github.zhenwei.provider.jcajce.spec.DHDomainParameterSpec;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Hashtable;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
-import org.bouncycastle.crypto.generators.DHBasicKeyPairGenerator;
-import org.bouncycastle.crypto.generators.DHParametersGenerator;
-import org.bouncycastle.crypto.params.DHKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
-import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
+ 
+ 
+ 
+ 
+ 
 
  
 

@@ -1,18 +1,19 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 public class AttCertIssuer
     extends ASN1Object
     implements ASN1Choice
 {
-    ASN1Encodable   obj;
+    ASN1Encodable obj;
     ASN1Primitive choiceObj;
     
     public static AttCertIssuer getInstance(
@@ -20,7 +21,7 @@ public class AttCertIssuer
     {
         if (obj == null || obj instanceof AttCertIssuer)
         {
-            return (x509.AttCertIssuer)obj;
+            return (AttCertIssuer)obj;
         }
         else if (obj instanceof V2Form)
         {

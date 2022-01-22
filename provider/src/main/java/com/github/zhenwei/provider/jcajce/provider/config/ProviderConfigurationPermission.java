@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.config;
 
+import com.github.zhenwei.core.util.Strings;
 import java.security.BasicPermission;
 import java.security.Permission;
 import java.util.StringTokenizer;

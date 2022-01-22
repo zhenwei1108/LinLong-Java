@@ -3,6 +3,8 @@ package com.github.zhenwei.sdk.util.asn1.isismtt;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectDirectoryAttributes;
+import com.github.zhenwei.sdk.util.asn1.isismtt.x509.AdditionalInformationSyntax;
+import com.github.zhenwei.sdk.util.asn1.isismtt.x509.Restriction;
 
 /**
  * ISISMT -- Industrial Signature Interoperability Specification

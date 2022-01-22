@@ -1,13 +1,10 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
-import org.bouncycastle.crypto.modes.OFBBlockCipher;
 
 /**
  * A Cipher Text Stealing (CTS) mode cipher. CTS allows block ciphers to

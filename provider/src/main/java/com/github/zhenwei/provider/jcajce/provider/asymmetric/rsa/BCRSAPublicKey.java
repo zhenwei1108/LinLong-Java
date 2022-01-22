@@ -1,8 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
 
-
-
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,7 +20,8 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 public class BCRSAPublicKey
     implements RSAPublicKey
 {
-    static final AlgorithmIdentifier DEFAULT_ALGORITHM_IDENTIFIER = new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE);
+    static final AlgorithmIdentifier DEFAULT_ALGORITHM_IDENTIFIER = new AlgorithmIdentifier(
+        PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE);
 
     static final long serialVersionUID = 2675817738516720772L;
 

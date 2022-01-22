@@ -1,5 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

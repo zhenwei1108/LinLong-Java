@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.CharToByteConverter;
 import org.bouncycastle.crypto.PasswordConverter;
 

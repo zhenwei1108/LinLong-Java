@@ -1,11 +1,24 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
 
-
-
-
-
-
+import DomainParameters;
+import ValidationParams;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.pkcs.DHParameter;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHValidationParameters;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jcajce.spec.DHDomainParameterSpec;
+import com.github.zhenwei.provider.jcajce.spec.DHExtendedPrivateKeySpec;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,19 +27,9 @@ import java.util.Enumeration;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPrivateKeySpec;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHValidationParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
-import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
-import org.bouncycastle.jcajce.spec.DHExtendedPrivateKeySpec;
+ 
+ 
 
-import pkcs.DHParameter;
-
-import pkcs.PrivateKeyInfo;
-import DomainParameters;
-import ValidationParams;
-import X9ObjectIdentifiers;
 
 
 public class BCDHPrivateKey
@@ -37,7 +40,7 @@ public class BCDHPrivateKey
     private BigInteger      x;
 
     private transient DHParameterSpec dhSpec;
-    private transient PrivateKeyInfo  info;
+    private transient PrivateKeyInfo info;
     private transient DHPrivateKeyParameters dhPrivateKey;
 
     private transient PKCS12BagAttributeCarrierImpl attrCarrier = new PKCS12BagAttributeCarrierImpl();
@@ -71,8 +74,8 @@ public class BCDHPrivateKey
         PrivateKeyInfo info)
         throws IOException
     {
-        ASN1Sequence    seq = ASN1Sequence.getInstance(info.getPrivateKeyAlgorithm().getParameters());
-        ASN1Integer      derX = (ASN1Integer)info.parsePrivateKey();
+        ASN1Sequence seq = ASN1Sequence.getInstance(info.getPrivateKeyAlgorithm().getParameters());
+        ASN1Integer derX = (ASN1Integer)info.parsePrivateKey();
         ASN1ObjectIdentifier id = info.getPrivateKeyAlgorithm().getAlgorithm();
 
         this.info = info;

@@ -4,6 +4,7 @@ import DVCSRequestInformation;
 import DVCSTime;
 import GeneralNames;
 import PolicyInformation;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.util.Date;
 import org.bouncycastle.tsp.TimeStampToken;

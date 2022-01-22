@@ -1,14 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialField;
-
 /**
  * This class implements polynomials over GF2nElements.
  *

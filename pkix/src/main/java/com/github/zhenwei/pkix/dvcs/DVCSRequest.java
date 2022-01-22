@@ -1,14 +1,14 @@
 package com.github.zhenwei.pkix.dvcs;
 
 
-
-
+import CMSSignedData;
 import DVCSObjectIdentifiers;
-
 import ServiceType;
 import cms.ContentInfo;
 import cms.SignedData;
-import org.bouncycastle.cms.CMSSignedData;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 
 /**
  * DVCRequest is general request to DVCS (RFC 3029).
@@ -58,7 +58,8 @@ public class DVCSRequest
             }
             else
             {
-                this.asn1 = DVCSRequest.getInstance(ASN1OctetString.getInstance(contentInfo.getContent()).getOctets());
+                this.asn1 = DVCSRequest.getInstance(
+                    ASN1OctetString.getInstance(contentInfo.getContent()).getOctets());
             }
         }
         catch (Exception e)

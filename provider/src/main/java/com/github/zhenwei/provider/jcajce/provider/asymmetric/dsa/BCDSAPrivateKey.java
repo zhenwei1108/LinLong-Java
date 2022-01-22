@@ -1,10 +1,17 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
 
-
-
-
-import DSAParameter;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,13 +21,12 @@ import java.security.interfaces.DSAPrivateKey;
 import java.security.spec.DSAParameterSpec;
 import java.security.spec.DSAPrivateKeySpec;
 import java.util.Enumeration;
-import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+ 
 
 
-import pkcs.PrivateKeyInfo;
-import X9ObjectIdentifiers;
+ 
+
 
 public class BCDSAPrivateKey
     implements DSAPrivateKey, PKCS12BagAttributeCarrier
@@ -54,8 +60,8 @@ public class BCDSAPrivateKey
         PrivateKeyInfo info)
         throws IOException
     {
-        DSAParameter    params = DSAParameter.getInstance(info.getPrivateKeyAlgorithm().getParameters());
-        ASN1Integer      derX = (ASN1Integer)info.parsePrivateKey();
+        DSAParameter params = DSAParameter.getInstance(info.getPrivateKeyAlgorithm().getParameters());
+        ASN1Integer derX = (ASN1Integer)info.parsePrivateKey();
 
         this.x = derX.getValue();
         this.dsaSpec = new DSAParameterSpec(params.getP(), params.getQ(), params.getG());

@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.eac.operator;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.io.OutputStream;
 
 public interface EACSignatureVerifier

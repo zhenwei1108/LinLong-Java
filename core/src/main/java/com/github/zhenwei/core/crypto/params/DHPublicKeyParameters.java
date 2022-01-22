@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.util.Integers;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.DHKeyParameters;
-import org.bouncycastle.crypto.params.DHParameters;
+ 
 
  
 

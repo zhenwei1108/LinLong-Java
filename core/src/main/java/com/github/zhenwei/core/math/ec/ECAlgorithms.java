@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.math.ec;
 
 
+import com.github.zhenwei.core.math.field.PolynomialExtensionField;
+import com.github.zhenwei.core.math.raw.Nat;
 import endo.ECEndomorphism;
 import endo.EndoUtil;
 import endo.GLVEndomorphism;

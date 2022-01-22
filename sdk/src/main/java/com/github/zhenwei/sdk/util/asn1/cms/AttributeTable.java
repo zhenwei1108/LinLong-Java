@@ -1,10 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERSet;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
@@ -34,7 +35,7 @@ public class AttributeTable
     }
 
     public AttributeTable(
-        ASN1Set    s)
+        ASN1Set s)
     {
         for (int i = 0; i != s.size(); i++)
         {

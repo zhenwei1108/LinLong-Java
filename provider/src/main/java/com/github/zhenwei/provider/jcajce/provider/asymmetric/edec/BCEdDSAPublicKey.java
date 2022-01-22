@@ -1,13 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
 
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;

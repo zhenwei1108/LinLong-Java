@@ -4,7 +4,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Locale;
 
-public class MissingEntryException extends RuntimeException 
+public class MissingEntryException extends RuntimeException
 {
 
     protected final String resource;

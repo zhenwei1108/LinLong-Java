@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.signers.DSAKCalculator;
  
 
 public class RandomDSAKCalculator

@@ -1,27 +1,32 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
 
-
-
-import isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PublicKey;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTPublicKey;
+import com.github.zhenwei.core.pqc.asn1.XMSSPublicKey;
+import com.github.zhenwei.core.pqc.crypto.lms.Composer;
+import com.github.zhenwei.core.pqc.crypto.lms.HSSPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.lms.LMSPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.newhope.NHPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPublicKeyParameters;
 import java.io.IOException;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.asn1.McElieceCCA2PublicKey;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
-import org.bouncycastle.pqc.asn1.XMSSKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTPublicKey;
-import org.bouncycastle.pqc.asn1.XMSSPublicKey;
-import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPublicKeyParameters;
+ 
+ 
+ 
 
 
 /**
@@ -93,7 +98,8 @@ public class SubjectPublicKeyInfoFactory
             byte[] keyEnc = keyParams.getEncoded();
             if (keyEnc.length > publicSeed.length + root.length)
             {
-                AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(IsaraObjectIdentifiers.id_alg_xmss);
+                AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(
+                    IsaraObjectIdentifiers.id_alg_xmss);
 
                 return new SubjectPublicKeyInfo(algorithmIdentifier, new DEROctetString(keyEnc));
             }

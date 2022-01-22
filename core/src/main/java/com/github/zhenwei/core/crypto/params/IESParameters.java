@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * parameters for using an integrated cipher in stream mode.

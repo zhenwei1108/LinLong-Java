@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.asn1.ua;
 
 
-
- 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
 import java.math.BigInteger;
  
 

@@ -1,16 +1,15 @@
 package com.github.zhenwei.pkix.tsp;
 
- 
 
-
-
-import Extensions;
 import cmp.PKIFailureInfo;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -41,7 +40,7 @@ public class TimeStampRequest
      * @param req byte array containing the request.
      * @throws IOException if the request is malformed.
      */
-    public TimeStampRequest(byte[] req) 
+    public TimeStampRequest(byte[] req)
         throws IOException
     {
         this(new ByteArrayInputStream(req));
@@ -53,7 +52,7 @@ public class TimeStampRequest
      * @param in input stream containing the request.
      * @throws IOException if the request is malformed.
      */
-    public TimeStampRequest(InputStream in) 
+    public TimeStampRequest(InputStream in)
         throws IOException
     {
         this(loadRequest(in));

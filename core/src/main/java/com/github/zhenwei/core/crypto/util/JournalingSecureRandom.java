@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.util;
 
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.SecureRandom;

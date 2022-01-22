@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
 
+import com.github.zhenwei.core.util.Arrays;
 import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**

@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * implementation of MD2

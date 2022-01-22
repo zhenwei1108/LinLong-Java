@@ -1,8 +1,7 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-
-import Extensions;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;

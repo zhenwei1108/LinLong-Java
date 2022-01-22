@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.qtesla;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;

@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.qtesla;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * qTESLA public key

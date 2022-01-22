@@ -11,6 +11,7 @@ import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.util.Properties;
 
 /**
  * The TBSCertificate object.
@@ -60,7 +61,7 @@ public class TBSCertificate
     {
         if (obj instanceof TBSCertificate)
         {
-            return (x509.TBSCertificate)obj;
+            return (TBSCertificate)obj;
         }
         else if (obj != null)
         {

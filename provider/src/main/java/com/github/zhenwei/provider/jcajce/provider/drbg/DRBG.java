@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.drbg;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Properties;
+import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;

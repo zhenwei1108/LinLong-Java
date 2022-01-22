@@ -1,7 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
 
-import cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;

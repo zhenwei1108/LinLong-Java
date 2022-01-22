@@ -1,11 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
 
 /**
  * This class describes decoding operations of an irreducible binary Goppa code.

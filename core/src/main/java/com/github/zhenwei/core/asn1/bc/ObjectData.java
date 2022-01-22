@@ -13,8 +13,9 @@ import com.github.zhenwei.core.asn1.DERGeneralizedTime;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERUTF8String;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
-import java.util.Arrays;
+import java.util.Date;
 
 /**
  * <pre>
@@ -63,7 +64,7 @@ public class ObjectData
     {
         if (obj instanceof ObjectData)
         {
-            return (bc.ObjectData)obj;
+            return   ( ObjectData)obj;
         }
         else if (obj != null)
         {

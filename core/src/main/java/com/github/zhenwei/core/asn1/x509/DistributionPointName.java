@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.util.Strings;
 
 /**
  * The DistributionPointName object.
@@ -22,7 +23,7 @@ public class DistributionPointName
     extends ASN1Object
     implements ASN1Choice
 {
-    ASN1Encodable        name;
+    ASN1Encodable name;
     int                 type;
 
     public static final int FULL_NAME = 0;

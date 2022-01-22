@@ -1,9 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+ 
 
 /**
  * utility class for converting jce/jca McElieceCCA2 objects

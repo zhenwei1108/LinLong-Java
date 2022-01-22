@@ -1,32 +1,43 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PrivateKey;
+import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTKeyParams;
+import com.github.zhenwei.core.pqc.asn1.XMSSMTPrivateKey;
+import com.github.zhenwei.core.pqc.asn1.XMSSPrivateKey;
+import com.github.zhenwei.core.pqc.crypto.lms.Composer;
+import com.github.zhenwei.core.pqc.crypto.lms.HSSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.lms.LMSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.newhope.NHPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.BDS;
+import com.github.zhenwei.core.pqc.crypto.xmss.BDSStateMap;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSUtil;
+import com.github.zhenwei.core.util.Pack;
 import java.io.IOException;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.asn1.McElieceCCA2PrivateKey;
-import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.pqc.asn1.SPHINCS256KeyParams;
-import org.bouncycastle.pqc.asn1.XMSSKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTKeyParams;
-import org.bouncycastle.pqc.asn1.XMSSMTPrivateKey;
-import org.bouncycastle.pqc.asn1.XMSSPrivateKey;
-import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.newhope.NHPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.BDS;
-import org.bouncycastle.pqc.crypto.xmss.BDSStateMap;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
+
+;
+ 
+ 
+ 
+ 
+ 
 
 
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * Factory to create ASN.1 private key info objects from lightweight private keys.
@@ -158,7 +169,7 @@ public class PrivateKeyInfoFactory
         int rootSize = n;
 
         int position = 0;
-        int index = (int)XMSSUtil.bytesToXBigEndian(keyData, position, indexSize);
+        int index = (int) XMSSUtil.bytesToXBigEndian(keyData, position, indexSize);
         if (!XMSSUtil.isIndexValid(totalHeight, index))
         {
             throw new IllegalArgumentException("index out of bounds");

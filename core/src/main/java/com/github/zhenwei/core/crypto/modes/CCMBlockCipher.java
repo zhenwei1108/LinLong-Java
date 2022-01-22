@@ -1,15 +1,14 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayOutputStream;
 import org.bouncycastle.crypto.BlockCipher;
- 
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-import org.bouncycastle.crypto.modes.AEADBlockCipher;
-import org.bouncycastle.crypto.modes.SICBlockCipher;
 import org.bouncycastle.crypto.params.AEADParameters;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 
@@ -29,7 +28,7 @@ public class CCMBlockCipher
     private byte[]                nonce;
     private byte[]                initialAssociatedText;
     private int                   macSize;
-    private CipherParameters      keyParam;
+    private CipherParameters keyParam;
     private byte[]                macBlock;
     private ExposedByteArrayOutputStream associatedText = new ExposedByteArrayOutputStream();
     private ExposedByteArrayOutputStream data = new ExposedByteArrayOutputStream();

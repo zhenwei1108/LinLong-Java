@@ -7,7 +7,6 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
  
 
-import Certificate;
 import org.sdk.crypto.utils.Base64Util;
 
 public class CertBuilder {

@@ -1,13 +1,15 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import WNafUtil;
+
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
+import com.github.zhenwei.core.math.ec.WNafUtil;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.math.Primes;
  
 

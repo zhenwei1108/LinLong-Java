@@ -1,25 +1,30 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
-
- 
-
-
-
-
-
-
 import CRLDistPoint;
 import CRLNumber;
-import CertificateList;
-
-
-import Extensions;
 import GeneralNames;
 import IssuingDistributionPoint;
 import TBSCertList;
 import Time;
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.util.ASN1Dump;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.io.OutputStreamFactory;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -47,8 +52,6 @@ import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.jcajce.CompositePublicKey;
-import org.bouncycastle.jcajce.io.OutputStreamFactory;
-
 import org.bouncycastle.jce.X509Principal;
 
 
@@ -240,7 +243,8 @@ abstract class X509CRLImpl
         {
             List<PublicKey> pubKeys = ((CompositePublicKey)key).getPublicKeys();
             ASN1Sequence keySeq = ASN1Sequence.getInstance(c.getSignatureAlgorithm().getParameters());
-            ASN1Sequence sigSeq = ASN1Sequence.getInstance(DERBitString.getInstance(c.getSignature()).getBytes());
+            ASN1Sequence sigSeq = ASN1Sequence.getInstance(
+                DERBitString.getInstance(c.getSignature()).getBytes());
 
             boolean success = false;
             for (int i = 0; i != pubKeys.size(); i++)

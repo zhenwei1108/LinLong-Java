@@ -1,16 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
 
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
+import com.github.zhenwei.core.asn1.x509.IssuerSerial;
 
 public class OtherCertID
     extends ASN1Object
@@ -60,7 +61,7 @@ public class OtherCertID
     }
 
     public OtherCertID(
-        AlgorithmIdentifier  algId,
+        AlgorithmIdentifier algId,
         byte[]               digest)
     {
         this.otherCertHash = new DigestInfo(algId, digest);

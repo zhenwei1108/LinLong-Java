@@ -1,10 +1,16 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-
-
-
-
+import DHDomainParameters;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.pkcs.DHParameter;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -12,12 +18,8 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
-import pkcs.DHParameter;
 
-import DHDomainParameters;
-import X9ObjectIdentifiers;
 
 public class JCEDHPublicKey
     implements DHPublicKey
@@ -26,7 +28,7 @@ public class JCEDHPublicKey
     
     private BigInteger              y;
     private DHParameterSpec         dhSpec;
-    private SubjectPublicKeyInfo    info;
+    private SubjectPublicKeyInfo info;
     
     JCEDHPublicKey(
         DHPublicKeySpec    spec)
@@ -43,7 +45,7 @@ public class JCEDHPublicKey
     }
 
     JCEDHPublicKey(
-        DHPublicKeyParameters  params)
+        DHPublicKeyParameters params)
     {
         this.y = params.getY();
         this.dhSpec = new DHParameterSpec(params.getParameters().getP(), params.getParameters().getG(), params.getParameters().getL());
@@ -62,7 +64,7 @@ public class JCEDHPublicKey
     {
         this.info = info;
 
-        ASN1Integer              derY;
+        ASN1Integer derY;
         try
         {
             derY = (ASN1Integer)info.parsePublicKey();
@@ -80,7 +82,7 @@ public class JCEDHPublicKey
         // we need the PKCS check to handle older keys marked with the X9 oid.
         if (id.equals(PKCSObjectIdentifiers.dhKeyAgreement) || isPKCSParam(seq))
         {
-            DHParameter             params = DHParameter.getInstance(seq);
+            DHParameter params = DHParameter.getInstance(seq);
 
             if (params.getL() != null)
             {

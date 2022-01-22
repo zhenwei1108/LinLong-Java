@@ -1,6 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.util.Integers;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.security.AccessController;

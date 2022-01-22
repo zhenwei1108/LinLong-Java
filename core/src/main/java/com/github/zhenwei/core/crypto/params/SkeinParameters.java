@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.util.Integers;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -9,7 +11,6 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
-
 import org.bouncycastle.crypto.digests.SkeinDigest;
 import org.bouncycastle.crypto.digests.SkeinEngine;
 import org.bouncycastle.crypto.macs.SkeinMac;

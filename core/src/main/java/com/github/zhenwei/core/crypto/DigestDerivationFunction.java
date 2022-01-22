@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.DerivationFunction;
-
-
 /**
  * base interface for general purpose Digest based byte derivation functions.
  */

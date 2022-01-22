@@ -1,7 +1,8 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
 import ASN1Enumerated;
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
 
 
 /**

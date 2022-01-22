@@ -1,18 +1,19 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
 
-
-
-
-
-
-
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.IOException;
 import java.math.BigInteger;
 
@@ -44,7 +45,7 @@ public class CertificationRequest
         X500Name                subject,
         AlgorithmIdentifier     subjectPublicAlgorithm,
         DERBitString            subjectPublicKey,
-        ASN1Set                 attributes,
+        ASN1Set attributes,
         AlgorithmIdentifier     signatureAlgorithm,
         DERBitString            signature)
     {

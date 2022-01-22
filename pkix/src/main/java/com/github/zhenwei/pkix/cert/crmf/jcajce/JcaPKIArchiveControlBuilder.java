@@ -2,10 +2,11 @@ package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
 import X500Name;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import java.security.PrivateKey;
 import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.cert.crmf.PKIArchiveControlBuilder;
-import pkcs.PrivateKeyInfo;
+ 
 
 public class JcaPKIArchiveControlBuilder
     extends PKIArchiveControlBuilder

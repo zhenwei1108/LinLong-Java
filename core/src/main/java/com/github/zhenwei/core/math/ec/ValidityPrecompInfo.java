@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.math.ec;
 
-import PreCompInfo;
-
 class ValidityPrecompInfo implements PreCompInfo
 {
     static final String PRECOMP_NAME = "bc_validity";

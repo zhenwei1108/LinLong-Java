@@ -1,39 +1,46 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
-
-
-import DSAParameter;
-
-
-import GOST3410PublicKeyAlgParameters;
-import edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
- 
-import org.bouncycastle.crypto.params.ECGOST3410Parameters;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.X448PublicKeyParameters;
-
 import pkcs.RSAPublicKey;
-import rosstandart.RosstandartObjectIdentifiers;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
-import X9ObjectIdentifiers;
+
+;
+
+ 
+
+
+
 
 /**
  * Factory to create ASN.1 subject public key info objects from lightweight public keys.

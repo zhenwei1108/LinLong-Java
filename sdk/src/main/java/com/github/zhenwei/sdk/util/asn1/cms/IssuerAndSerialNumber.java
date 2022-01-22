@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-import Certificate;
-
 import X500Name;
 import X509CertificateStructure;
 import X509Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 /**
@@ -28,7 +28,7 @@ public class IssuerAndSerialNumber
     extends ASN1Object
 {
     private X500Name    name;
-    private ASN1Integer  serialNumber;
+    private ASN1Integer serialNumber;
 
     /**
      * Return an IssuerAndSerialNumber object from the given object.

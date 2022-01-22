@@ -1,19 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.xmss;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.asn1.XMSSKeyParams;
+import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPrivateKeyParameters;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
- 
-import org.bouncycastle.pqc.asn1.XMSSKeyParams;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyInfoFactory;
-import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
 import org.bouncycastle.pqc.jcajce.interfaces.XMSSPrivateKey;
 
-import pkcs.PrivateKeyInfo;
+ 
 
 public class BCXMSSPrivateKey
     implements PrivateKey, XMSSPrivateKey

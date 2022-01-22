@@ -8,6 +8,7 @@ import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERApplicationSpecific;
+import com.github.zhenwei.core.util.Integers;
 import java.io.IOException;
 import java.util.Hashtable;
  

@@ -1,15 +1,16 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
 import BERSet;
 import cms.AttributeTable;
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfo;
 import cms.EncryptedContentInfo;
 import cms.EncryptedData;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -48,8 +49,8 @@ public class CMSEncryptedDataGenerator
         OutputEncryptor contentEncryptor)
         throws CMSException
     {
-        AlgorithmIdentifier     encAlgId;
-        ASN1OctetString         encContent;
+        AlgorithmIdentifier encAlgId;
+        ASN1OctetString encContent;
 
         ByteArrayOutputStream bOut = new ByteArrayOutputStream();
 

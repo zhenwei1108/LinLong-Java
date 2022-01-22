@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.crypto.digests.XofUtils;
-
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Customizable SHAKE function.

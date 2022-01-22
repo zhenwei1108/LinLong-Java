@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
+ 
+ 
 import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
 import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
 import org.bouncycastle.pqc.math.linearalgebra.GF2mField;

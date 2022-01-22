@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
+import com.github.zhenwei.core.util.Arrays;
 
 public class XofUtils
 {

@@ -8,7 +8,7 @@ import java.security.spec.AlgorithmParameterSpec;
 /**
  * This class defines the <i>Service Provider Interface</i> (<b>SPI</b>)
  * for the <code>Mac</code> class.
- * All the abstract methods in this class must be implemented by each 
+ * All the abstract methods in this class must be implemented by each
  * cryptographic service provider who wishes to supply the implementation
  * of a particular MAC algorithm.
  * <p>

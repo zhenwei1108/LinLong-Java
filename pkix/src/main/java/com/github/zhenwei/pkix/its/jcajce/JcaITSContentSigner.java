@@ -1,28 +1,33 @@
 package com.github.zhenwei.pkix.its.jcajce;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.Signature;
 import java.security.interfaces.ECPrivateKey;
-
 import org.bouncycastle.its.ITSCertificate;
 import org.bouncycastle.its.operator.ITSContentSigner;
-
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
-import pkcs.PrivateKeyInfo;
-import sec.SECObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
+ 
+
+
 
 public class JcaITSContentSigner
     implements ITSContentSigner

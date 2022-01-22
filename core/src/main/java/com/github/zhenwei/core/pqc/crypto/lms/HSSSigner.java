@@ -1,11 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.io.IOException;
-
 import org.bouncycastle.pqc.crypto.MessageSigner;
-import org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.HSSSignature;
 
 public class HSSSigner
     implements MessageSigner

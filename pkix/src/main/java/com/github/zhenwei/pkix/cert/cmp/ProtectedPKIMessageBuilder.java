@@ -1,27 +1,25 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-
 import ASN1GeneralizedTime;
-
-
-
-
-import cmp.CMPCertificate;
 import cmp.InfoTypeAndValue;
-import cmp.PKIBody;
 import cmp.PKIFreeText;
-import cmp.PKIHeader;
 import cmp.PKIHeaderBuilder;
-import cmp.PKIMessage;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
  
-import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.operator.MacCalculator;
+
+
 
 /**
  * Builder for creating a protected PKI message.
@@ -179,7 +177,8 @@ public class ProtectedPKIMessageBuilder
      * @param extraCert the extra certificate to add.
      * @return the current builder instance.
      */
-    public org.bouncycastle.cert.cmp.ProtectedPKIMessageBuilder addCMPCertificate(X509CertificateHolder extraCert)
+    public org.bouncycastle.cert.cmp.ProtectedPKIMessageBuilder addCMPCertificate(
+        X509CertificateHolder extraCert)
     {
         extraCerts.add(extraCert);
 

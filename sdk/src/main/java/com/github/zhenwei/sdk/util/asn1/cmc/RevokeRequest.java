@@ -2,16 +2,18 @@ package com.github.zhenwei.sdk.util.asn1.cmc;
 
 
 import ASN1GeneralizedTime;
-
-
-
-
-
-
 import CRLReason;
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERUTF8String;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 
 

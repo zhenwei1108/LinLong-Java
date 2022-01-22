@@ -2,8 +2,9 @@ package com.github.zhenwei.pkix.cert.cmp;
 
 import cmp.CertConfirmContent;
 import cmp.CertStatus;
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+
 
 public class CertificateConfirmationContent
 {

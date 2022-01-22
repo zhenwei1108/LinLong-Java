@@ -1,9 +1,11 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
-import CertificateList;
+
+import com.github.zhenwei.core.asn1.x509.CertificateList;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
-import org.bouncycastle.cert.X509CRLHolder;
+
 
 /**
  * JCA helper class for converting an X509CRL into a X509CRLHolder object.

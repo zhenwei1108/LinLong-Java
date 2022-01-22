@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -7,7 +8,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import org.bouncycastle.operator.DigestCalculator;
-
 import tsp.PartialHashtree;
 
 class ERSUtil

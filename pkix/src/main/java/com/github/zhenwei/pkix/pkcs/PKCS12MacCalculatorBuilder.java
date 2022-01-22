@@ -1,8 +1,9 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-import org.bouncycastle.operator.MacCalculator;
-import org.bouncycastle.operator.OperatorCreationException;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.MacCalculator;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 
 public interface PKCS12MacCalculatorBuilder
 {

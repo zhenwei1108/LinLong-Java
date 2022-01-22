@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.keystore;
 
+import com.github.zhenwei.core.util.Properties;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 

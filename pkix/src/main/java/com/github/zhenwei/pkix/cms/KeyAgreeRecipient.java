@@ -1,8 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
 public interface KeyAgreeRecipient
     extends Recipient

@@ -1,11 +1,12 @@
 package com.github.zhenwei.pkix.pkcs;
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.operator.OutputEncryptor;
 import pkcs.EncryptedPrivateKeyInfo;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * A class for creating EncryptedPrivateKeyInfo structures.

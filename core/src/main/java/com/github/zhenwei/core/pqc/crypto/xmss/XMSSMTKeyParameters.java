@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
+
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 public class XMSSMTKeyParameters
     extends AsymmetricKeyParameter

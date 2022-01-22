@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.gmss.util;
 
 
+import com.github.zhenwei.core.crypto.Digest;
 
 /**
  * This class provides a PRNG for GMSS

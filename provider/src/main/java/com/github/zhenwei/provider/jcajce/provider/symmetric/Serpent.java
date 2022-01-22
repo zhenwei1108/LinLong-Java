@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import gnu.GNUObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.gnu.GNUObjectIdentifiers;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;

@@ -2,12 +2,21 @@ package com.github.zhenwei.pkix.cms.jcajce;
 
 
 import ASN1Null;
-
-
-
-
-
-
+import CMSAlgorithm;
+import CMSEnvelopedDataGenerator;
+import PasswordRecipient;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.AlgorithmParameterGenerator;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -37,19 +46,11 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
-import org.bouncycastle.cms.CMSAlgorithm;
-import org.bouncycastle.cms.CMSEnvelopedDataGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.PasswordRecipient;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.SecretKeySizeProvider;
 import org.bouncycastle.operator.SymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceKTSKeyUnwrapper;
-
-
 import pkcs.RC2CBCParameter;
 
 public class EnvelopedDataHelper
@@ -203,7 +204,7 @@ public class EnvelopedDataHelper
     public void keySizeCheck(AlgorithmIdentifier keyAlgorithm, Key key)
         throws CMSException
     {
-        int expectedKeySize = org.bouncycastle.cms.jcajce.EnvelopedDataHelper.KEY_SIZE_PROVIDER.getKeySize(keyAlgorithm);
+        int expectedKeySize = jcajce.EnvelopedDataHelper.KEY_SIZE_PROVIDER.getKeySize(keyAlgorithm);
         if (expectedKeySize > 0)
         {
             byte[] keyEnc = null;

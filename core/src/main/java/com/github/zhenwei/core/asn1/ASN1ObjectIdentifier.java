@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 

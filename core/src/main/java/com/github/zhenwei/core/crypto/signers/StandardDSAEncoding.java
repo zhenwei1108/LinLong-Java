@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.crypto.signers;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.signers.DSAEncoding;
 
 
 public class StandardDSAEncoding
@@ -26,7 +27,7 @@ public class StandardDSAEncoding
 
     public BigInteger[] decode(BigInteger n, byte[] encoding) throws IOException
     {
-        ASN1Sequence seq = (ASN1Sequence)ASN1Primitive.fromByteArray(encoding);
+        ASN1Sequence seq = (ASN1Sequence) ASN1Primitive.fromByteArray(encoding);
         if (seq.size() == 2)
         {
             BigInteger r = decodeValue(n, seq, 0);

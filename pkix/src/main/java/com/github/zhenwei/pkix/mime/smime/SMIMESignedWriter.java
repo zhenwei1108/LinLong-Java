@@ -1,6 +1,14 @@
 package com.github.zhenwei.pkix.mime.smime;
 
 
+import CMSAlgorithm;
+import CMSSignedDataStreamGenerator;
+import SignerInfoGenerator;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -14,15 +22,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
- 
-import org.bouncycastle.cms.CMSAlgorithm;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSSignedDataStreamGenerator;
-import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.mime.Headers;
 import org.bouncycastle.mime.MimeWriter;
 import org.bouncycastle.mime.encoding.Base64OutputStream;
-import org.bouncycastle.util.Store;
+
 
 
 /**

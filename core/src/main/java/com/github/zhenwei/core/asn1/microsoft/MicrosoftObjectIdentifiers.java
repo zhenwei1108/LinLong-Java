@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.microsoft;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Microsoft
@@ -14,7 +15,7 @@ package com.github.zhenwei.core.asn1.microsoft;
 public interface MicrosoftObjectIdentifiers
 {
     /** Base OID: 1.3.6.1.4.1.311 */
-    static final ASN1ObjectIdentifier    microsoft               = new ASN1ObjectIdentifier("1.3.6.1.4.1.311");
+    static final ASN1ObjectIdentifier microsoft               = new ASN1ObjectIdentifier("1.3.6.1.4.1.311");
     /** OID: 1.3.6.1.4.1.311.20.2 */
     static final ASN1ObjectIdentifier    microsoftCertTemplateV1 = microsoft.branch("20.2");
     /** OID: 1.3.6.1.4.1.311.21.1 */

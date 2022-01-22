@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.util.test;
 
 
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import com.github.zhenwei.core.util.Strings;
 
 public class SimpleTestResult implements TestResult
 {

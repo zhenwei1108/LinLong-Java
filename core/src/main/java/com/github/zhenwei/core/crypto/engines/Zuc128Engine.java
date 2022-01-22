@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import org.bouncycastle.crypto.engines.Zuc128CoreEngine;
-
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * Zuc256 implementation.

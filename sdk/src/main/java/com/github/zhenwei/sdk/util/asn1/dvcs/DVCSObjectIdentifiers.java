@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * OIDs for <a href="https://tools.ietf.org/html/rfc3029">RFC 3029</a>

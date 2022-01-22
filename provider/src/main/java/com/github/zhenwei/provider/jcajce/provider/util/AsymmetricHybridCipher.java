@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.util;
 
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.InvalidParameterException;

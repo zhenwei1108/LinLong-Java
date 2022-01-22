@@ -1,22 +1,29 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-import BCObjectIdentifiers;
-
-import bsi.BSIObjectIdentifiers;
-
-import  EACObjectIdentifiers;
-import edec.EdECObjectIdentifiers;
-import gm.GMObjectIdentifiers;
+import EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.bc.BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.bsi.BSIObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
 
 
 
-import rosstandart.RosstandartObjectIdentifiers;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ObjectIdentifiers;
+
+
+
 
 public class DefaultCMSSignatureAlgorithmNameGenerator
     implements CMSSignatureAlgorithmNameGenerator

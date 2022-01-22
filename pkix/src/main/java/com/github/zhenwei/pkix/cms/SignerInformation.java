@@ -1,17 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
-
-
-
-
-
-
 import cms.AttributeTable;
 import cms.CMSAlgorithmProtection;
 import cms.CMSAttributes;
@@ -19,19 +8,32 @@ import cms.IssuerAndSerialNumber;
 import cms.SignerIdentifier;
 import cms.SignerInfo;
 import cms.Time;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
- 
-import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.RawContentVerifier;
 
-import org.bouncycastle.util.io.TeeOutputStream;
+
 
 /**
  * an expanded SignerInfo block from a CMS Signed message
@@ -41,7 +43,7 @@ public class SignerInformation
     private final SignerId                sid;
     private final CMSProcessable          content;
     private final byte[]                  signature;
-    private final ASN1ObjectIdentifier    contentType;
+    private final ASN1ObjectIdentifier contentType;
     private final boolean                 isCounterSignature;
 
     // Derived
@@ -50,9 +52,9 @@ public class SignerInformation
     private byte[]                        resultDigest;
 
     protected final SignerInfo            info;
-    protected final AlgorithmIdentifier   digestAlgorithm;
+    protected final AlgorithmIdentifier digestAlgorithm;
     protected final AlgorithmIdentifier   encryptionAlgorithm;
-    protected final ASN1Set               signedAttributeSet;
+    protected final ASN1Set signedAttributeSet;
     protected final ASN1Set               unsignedAttributeSet;
 
     SignerInformation(
@@ -138,7 +140,7 @@ public class SignerInformation
     }
 
     private byte[] encodeObj(
-        ASN1Encodable    obj)
+        ASN1Encodable obj)
         throws IOException
     {
         if (obj != null)
@@ -324,7 +326,7 @@ public class SignerInformation
                 */
                 SignerInfo si = SignerInfo.getInstance(en.nextElement());
 
-                counterSignatures.add(new org.bouncycastle.cms.SignerInformation(si, null, new CMSProcessableByteArray(getSignature()), null));
+                counterSignatures.add(new SignerInformation(si, null, new CMSProcessableByteArray(getSignature()), null));
             }
         }
 
@@ -695,8 +697,8 @@ public class SignerInformation
      * @param unsignedAttributes the unsigned attributes to add.
      * @return a copy of the original SignerInformationObject with the changed attributes.
      */
-    public static org.bouncycastle.cms.SignerInformation replaceUnsignedAttributes(
-        org.bouncycastle.cms.SignerInformation signerInformation,
+    public static SignerInformation replaceUnsignedAttributes(
+        SignerInformation signerInformation,
         AttributeTable      unsignedAttributes)
     {
         SignerInfo  sInfo = signerInformation.info;
@@ -707,7 +709,7 @@ public class SignerInformation
             unsignedAttr = new DERSet(unsignedAttributes.toASN1EncodableVector());
         }
         
-        return new org.bouncycastle.cms.SignerInformation(
+        return new SignerInformation(
                 new SignerInfo(sInfo.getSID(), sInfo.getDigestAlgorithm(),
                     sInfo.getAuthenticatedAttributes(), sInfo.getDigestEncryptionAlgorithm(), sInfo.getEncryptedDigest(), unsignedAttr),
                     signerInformation.contentType, signerInformation.content, null);
@@ -721,8 +723,8 @@ public class SignerInformation
      * @param counterSigners signer info objects carrying counter signature.
      * @return a copy of the original SignerInformationObject with the changed attributes.
      */
-    public static org.bouncycastle.cms.SignerInformation addCounterSigners(
-        org.bouncycastle.cms.SignerInformation signerInformation,
+    public static SignerInformation addCounterSigners(
+        SignerInformation signerInformation,
         SignerInformationStore   counterSigners)
     {
         // TODO Perform checks from RFC 3852 11.4
@@ -749,7 +751,7 @@ public class SignerInformation
 
         v.add(new Attribute(CMSAttributes.counterSignature, new DERSet(sigs)));
 
-        return new org.bouncycastle.cms.SignerInformation(
+        return new SignerInformation(
                 new SignerInfo(sInfo.getSID(), sInfo.getDigestAlgorithm(),
                     sInfo.getAuthenticatedAttributes(), sInfo.getDigestEncryptionAlgorithm(), sInfo.getEncryptedDigest(), new DERSet(v)),
                     signerInformation.contentType, signerInformation.content, null);

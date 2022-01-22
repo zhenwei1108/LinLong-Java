@@ -1,7 +1,9 @@
 package com.github.zhenwei.core.crypto.engines;
 
- 
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Memoable;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.params.KeyParameter;

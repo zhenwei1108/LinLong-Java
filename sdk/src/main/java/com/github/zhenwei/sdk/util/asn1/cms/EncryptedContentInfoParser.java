@@ -1,11 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
 import ASN1SequenceParser;
 import ASN1TaggedObjectParser;
 import ASN1Util;
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.IOException;
 
 /**
@@ -15,14 +16,14 @@ import java.io.IOException;
  * EncryptedContentInfo ::= SEQUENCE {
  *     contentType ContentType,
  *     contentEncryptionAlgorithm ContentEncryptionAlgorithmIdentifier,
- *     encryptedContent [0] IMPLICIT EncryptedContent OPTIONAL 
+ *     encryptedContent [0] IMPLICIT EncryptedContent OPTIONAL
  * }
  * </pre>
  */
 public class EncryptedContentInfoParser
 {
-    private ASN1ObjectIdentifier    _contentType;
-    private AlgorithmIdentifier     _contentEncryptionAlgorithm;
+    private ASN1ObjectIdentifier _contentType;
+    private AlgorithmIdentifier _contentEncryptionAlgorithm;
     private ASN1TaggedObjectParser _encryptedContent;
 
     public EncryptedContentInfoParser(

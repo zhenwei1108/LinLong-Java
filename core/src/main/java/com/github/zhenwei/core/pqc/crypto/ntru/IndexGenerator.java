@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
 
-
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * An implementation of the Index Generation Function in IEEE P1363.1.

@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.util;
 
-import org.bouncycastle.util.MemoableResetException;
-
 /**
  * Interface for Memoable objects. Memoable objects allow the taking of a snapshot of their internal state
  * via the copy() method and then reseting the object back to that state later using the reset() method.

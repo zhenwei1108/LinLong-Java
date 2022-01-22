@@ -1,10 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
 import cms.IssuerAndSerialNumber;
 import cms.KeyAgreeRecipientIdentifier;
 import cms.KeyAgreeRecipientInfo;
@@ -12,6 +8,11 @@ import cms.OriginatorIdentifierOrKey;
 import cms.OriginatorPublicKey;
 import cms.RecipientEncryptedKey;
 import cms.RecipientKeyIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class KeyAgreeRecipientInformation
     extends RecipientInformation
 {
     private KeyAgreeRecipientInfo info;
-    private ASN1OctetString       encryptedKey;
+    private ASN1OctetString encryptedKey;
 
     static void readRecipientInfo(List infos, KeyAgreeRecipientInfo info,
         AlgorithmIdentifier messageAlgorithm, CMSSecureReadable secureReadable, AuthAttributesProvider additionalData)
@@ -53,7 +54,7 @@ public class KeyAgreeRecipientInformation
                 rid = new KeyAgreeRecipientId(rKeyID.getSubjectKeyIdentifier().getOctets());
             }
 
-            infos.add(new org.bouncycastle.cms.KeyAgreeRecipientInformation(info, rid, id.getEncryptedKey(), messageAlgorithm,
+            infos.add(new KeyAgreeRecipientInformation(info, rid, id.getEncryptedKey(), messageAlgorithm,
                 secureReadable, additionalData));
         }
     }

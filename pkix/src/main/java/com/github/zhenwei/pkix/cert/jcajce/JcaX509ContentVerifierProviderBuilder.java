@@ -1,12 +1,13 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
 
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.Provider;
 import java.security.cert.CertificateException;
- 
 import org.bouncycastle.cert.X509ContentVerifierProviderBuilder;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
 
 public class JcaX509ContentVerifierProviderBuilder

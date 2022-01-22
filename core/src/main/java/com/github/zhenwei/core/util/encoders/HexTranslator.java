@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.util.encoders;
 
-import org.bouncycastle.util.encoders.Translator;
-
 /**
  * Converters for going from hex to binary and back. Note: this class assumes ASCII processing.
  */

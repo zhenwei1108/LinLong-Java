@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
+import RecipientOperator;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.InputStream;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.RecipientOperator;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.params.KeyParameter;

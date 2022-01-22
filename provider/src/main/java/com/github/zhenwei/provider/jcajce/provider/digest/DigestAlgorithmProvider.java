@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 

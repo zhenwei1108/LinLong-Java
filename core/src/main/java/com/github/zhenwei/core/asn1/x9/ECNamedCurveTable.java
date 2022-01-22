@@ -2,14 +2,15 @@ package com.github.zhenwei.core.asn1.x9;
 
 
 import anssi.ANSSINamedCurves;
-import cryptlib.CryptlibObjectIdentifiers;
-import ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptlib.CryptlibObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
+import com.github.zhenwei.core.asn1.sec.SECNamedCurves;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
 import gm.GMNamedCurves;
 import java.util.Enumeration;
 import java.util.Vector;
 import nist.NISTNamedCurves;
-import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import sec.SECNamedCurves;
 import teletrust.TeleTrusTNamedCurves;
 
 /**

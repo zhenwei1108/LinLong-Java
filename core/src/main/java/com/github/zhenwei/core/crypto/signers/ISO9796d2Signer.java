@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
- 
 import org.bouncycastle.crypto.CryptoException;
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.SignerWithRecovery;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.signers.ISOTrailers;
 
 
 /**
@@ -33,7 +33,7 @@ public class ISO9796d2Signer
     /** @deprecated use ISOTrailers */
     static final public int   TRAILER_WHIRLPOOL   = 0x37CC;
 
-    private Digest                      digest;
+    private Digest digest;
     private AsymmetricBlockCipher       cipher;
 
     private int         trailer;
@@ -96,7 +96,7 @@ public class ISO9796d2Signer
 
     public void init(
         boolean                 forSigning,
-        CipherParameters        param)
+        CipherParameters param)
     {
         RSAKeyParameters  kParam = (RSAKeyParameters)param;
 

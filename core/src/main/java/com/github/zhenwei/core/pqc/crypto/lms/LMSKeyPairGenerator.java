@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
+ 
 
 public class LMSKeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator

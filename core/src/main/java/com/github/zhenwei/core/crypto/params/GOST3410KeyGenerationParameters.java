@@ -2,7 +2,6 @@ package com.github.zhenwei.core.crypto.params;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
 
 public class GOST3410KeyGenerationParameters
         extends KeyGenerationParameters

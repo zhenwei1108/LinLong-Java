@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import misc.MiscObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.BlowfishEngine;
 import org.bouncycastle.crypto.macs.CMac;

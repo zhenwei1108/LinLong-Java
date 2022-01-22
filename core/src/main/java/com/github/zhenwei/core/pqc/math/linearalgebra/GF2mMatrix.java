@@ -1,11 +1,5 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
-import org.bouncycastle.pqc.math.linearalgebra.Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
-
 /**
  * This class describes some operations with matrices over finite field <i>GF(2<sup>m</sup>)</i>
  * with small <i>m</i> (1&lt; m &lt;32).

@@ -1,7 +1,8 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 public interface CommitmentTypeIdentifier
 {

@@ -1,12 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 
 /**
@@ -34,16 +36,16 @@ public class TBSCertificateStructure
     extends ASN1Object
     implements X509ObjectIdentifiers, PKCSObjectIdentifiers
 {
-    ASN1Sequence            seq;
+    ASN1Sequence seq;
 
-    ASN1Integer             version;
+    ASN1Integer version;
     ASN1Integer             serialNumber;
     AlgorithmIdentifier     signature;
     X500Name                issuer;
     Time                    startDate, endDate;
     X500Name                subject;
     SubjectPublicKeyInfo    subjectPublicKeyInfo;
-    DERBitString            issuerUniqueId;
+    DERBitString issuerUniqueId;
     DERBitString            subjectUniqueId;
     X509Extensions          extensions;
 

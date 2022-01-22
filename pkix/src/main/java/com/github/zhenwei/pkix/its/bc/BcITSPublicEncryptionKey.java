@@ -1,12 +1,15 @@
 package com.github.zhenwei.pkix.its.bc;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
 import nist.NISTNamedCurves;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.its.ITSPublicEncryptionKey;
 import org.bouncycastle.oer.its.BasePublicEncryptionKey;
@@ -15,10 +18,9 @@ import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
 import org.bouncycastle.oer.its.PublicEncryptionKey;
 import org.bouncycastle.oer.its.SymmAlgorithm;
-import sec.SECObjectIdentifiers;
 import teletrust.TeleTrusTNamedCurves;
-import teletrust.TeleTrusTObjectIdentifiers;
-import X9ECParameters;
+
+
 
 public class BcITSPublicEncryptionKey
     extends ITSPublicEncryptionKey

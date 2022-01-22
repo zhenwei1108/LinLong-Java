@@ -1,13 +1,13 @@
 package com.github.zhenwei.provider.extension;
 
 
-
-
-
-
 import GeneralNames;
-
 import X509Extension;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.PublicKey;
@@ -81,7 +81,7 @@ public class AuthorityKeyIdentifierStructure
 
                 if (ext != null)
                 {
-                    ASN1OctetString     str = (ASN1OctetString)X509ExtensionUtil.fromExtensionValue(ext);
+                    ASN1OctetString str = (ASN1OctetString)X509ExtensionUtil.fromExtensionValue(ext);
                 
                     return (ASN1Sequence)new AuthorityKeyIdentifier(
                                     str.getOctets(), new GeneralNames(genName), certificate.getSerialNumber()).toASN1Primitive();

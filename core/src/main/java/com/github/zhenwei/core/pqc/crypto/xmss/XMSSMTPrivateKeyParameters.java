@@ -1,8 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Encodable;
 import java.io.IOException;
 
-import org.bouncycastle.util.Encodable;
+
 
 /**
  * XMSS^MT Private Key.

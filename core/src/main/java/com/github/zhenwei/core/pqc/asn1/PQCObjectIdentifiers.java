@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.pqc.asn1;
 
 
-import BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.bc.BCObjectIdentifiers;
 
 /**
  * PQC:

@@ -1,17 +1,21 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
-
 import BERSet;
-
-
 import cms.AuthenticatedData;
-import cms.CMSObjectIdentifiers;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.operator.MacCalculator;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -20,9 +24,9 @@ import java.util.Iterator;
 import java.util.Map;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.MacCalculator;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.io.TeeOutputStream;
+
+
+
 
 /**
  * General class for generating a CMS authenticated-data message.
@@ -74,8 +78,8 @@ public class CMSAuthenticatedDataGenerator
     public CMSAuthenticatedData generate(CMSTypedData typedData, MacCalculator macCalculator, final DigestCalculator digestCalculator)
         throws CMSException
     {
-        ASN1EncodableVector     recipientInfos = new ASN1EncodableVector();
-        ASN1OctetString         encContent;
+        ASN1EncodableVector recipientInfos = new ASN1EncodableVector();
+        ASN1OctetString encContent;
         ASN1OctetString         macResult;
 
         for (Iterator it = recipientInfoGenerators.iterator(); it.hasNext();)

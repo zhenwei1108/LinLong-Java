@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.io.IOException;
-
 import org.bouncycastle.pqc.crypto.MessageSigner;
-import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
+ 
+ 
 
 public class LMSSigner
     implements MessageSigner

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 
+import com.github.zhenwei.core.crypto.DerivationParameters;
 
 /**
  * parameters for Key derivation functions for ISO-18033

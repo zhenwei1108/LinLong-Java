@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.qualified;
 
 
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 import java.util.Enumeration;
 import qualified.Iso4217CurrencyCode;
@@ -24,7 +25,7 @@ public class MonetaryValue
     extends ASN1Object
 {
     private Iso4217CurrencyCode currency;
-    private ASN1Integer         amount;
+    private ASN1Integer amount;
     private ASN1Integer         exponent;
         
     public static qualified.MonetaryValue getInstance(

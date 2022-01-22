@@ -1,18 +1,19 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
+import CMSAttributeTableGenerator;
+import CMSSignatureEncryptionAlgorithmFinder;
+import DefaultCMSSignatureEncryptionAlgorithmFinder;
+import SignerInfoGenerator;
+import SignerInfoGeneratorBuilder;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
- 
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSSignatureEncryptionAlgorithmFinder;
-import org.bouncycastle.cms.DefaultCMSSignatureEncryptionAlgorithmFinder;
-import org.bouncycastle.cms.SignerInfoGenerator;
-import org.bouncycastle.cms.SignerInfoGeneratorBuilder;
-import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 public class JcaSignerInfoGeneratorBuilder
 {
@@ -45,28 +46,28 @@ public class JcaSignerInfoGeneratorBuilder
      *
      * @return the builder object
      */
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder setDirectSignature(boolean hasNoSignedAttributes)
+    public jcajce.JcaSignerInfoGeneratorBuilder setDirectSignature(boolean hasNoSignedAttributes)
     {
         builder.setDirectSignature(hasNoSignedAttributes);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder setContentDigest(AlgorithmIdentifier contentDigest)
+    public jcajce.JcaSignerInfoGeneratorBuilder setContentDigest(AlgorithmIdentifier contentDigest)
     {
         builder.setContentDigest(contentDigest);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder setSignedAttributeGenerator(CMSAttributeTableGenerator signedGen)
+    public jcajce.JcaSignerInfoGeneratorBuilder setSignedAttributeGenerator(CMSAttributeTableGenerator signedGen)
     {
         builder.setSignedAttributeGenerator(signedGen);
 
         return this;
     }
 
-    public org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder setUnsignedAttributeGenerator(CMSAttributeTableGenerator unsignedGen)
+    public jcajce.JcaSignerInfoGeneratorBuilder setUnsignedAttributeGenerator(CMSAttributeTableGenerator unsignedGen)
     {
         builder.setUnsignedAttributeGenerator(unsignedGen);
 

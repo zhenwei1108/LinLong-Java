@@ -1,8 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public interface PasswordRecipient
     extends Recipient
@@ -12,7 +13,8 @@ public interface PasswordRecipient
 
     static final class PRF
     {
-        public static final PRF HMacSHA1 = new PRF("HMacSHA1", new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA1, DERNull.INSTANCE));
+        public static final PRF HMacSHA1 = new PRF("HMacSHA1", new AlgorithmIdentifier(
+            PKCSObjectIdentifiers.id_hmacWithSHA1, DERNull.INSTANCE));
         public static final PRF HMacSHA224 = new PRF("HMacSHA224", new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA224, DERNull.INSTANCE));
         public static final PRF HMacSHA256 = new PRF("HMacSHA256", new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA256, DERNull.INSTANCE));
         public static final PRF HMacSHA384 = new PRF("HMacSHA384", new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA384, DERNull.INSTANCE));

@@ -1,7 +1,9 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import SecP256R1Field;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.raw.Nat256;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 
 

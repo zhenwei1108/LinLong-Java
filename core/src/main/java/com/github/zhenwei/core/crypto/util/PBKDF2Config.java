@@ -1,16 +1,21 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
-import gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Integers;
 import java.util.HashMap;
 import java.util.Map;
 
  
 
-import rosstandart.RosstandartObjectIdentifiers;
+
 
 /**
  * Configuration class for a PBKDF using PKCS#5 Scheme 2.
@@ -21,7 +26,8 @@ public class PBKDF2Config
     /**
      * AlgorithmIdentifier for a PRF using HMac with SHA-1
      */
-    public static final AlgorithmIdentifier PRF_SHA1 = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_hmacWithSHA1, DERNull.INSTANCE);
+    public static final AlgorithmIdentifier PRF_SHA1 = new AlgorithmIdentifier(
+        PKCSObjectIdentifiers.id_hmacWithSHA1, DERNull.INSTANCE);
 
     /**
      * AlgorithmIdentifier for a PRF using HMac with SHA-256
@@ -36,7 +42,8 @@ public class PBKDF2Config
     /**
      * AlgorithmIdentifier for a PRF using HMac with SHA3-256
      */
-    public static final AlgorithmIdentifier PRF_SHA3_256 = new AlgorithmIdentifier(NISTObjectIdentifiers.id_hmacWithSHA3_256, DERNull.INSTANCE);
+    public static final AlgorithmIdentifier PRF_SHA3_256 = new AlgorithmIdentifier(
+        NISTObjectIdentifiers.id_hmacWithSHA3_256, DERNull.INSTANCE);
 
     /**
      * AlgorithmIdentifier for a PRF using SHA3-512

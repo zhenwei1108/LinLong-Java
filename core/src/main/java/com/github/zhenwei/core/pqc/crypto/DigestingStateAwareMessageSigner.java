@@ -1,10 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto;
 
 
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.pqc.crypto.DigestingMessageSigner;
-import org.bouncycastle.pqc.crypto.StateAwareMessageSigner;
-
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 /**
  * Implements the sign and verify functions for a Signature Scheme using a hash function to allow processing of large messages.

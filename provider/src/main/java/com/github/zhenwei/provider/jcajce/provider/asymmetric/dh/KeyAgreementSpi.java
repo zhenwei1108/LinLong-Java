@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
+import com.github.zhenwei.core.crypto.generators.KDF2BytesGenerator;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.provider.jcajce.spec.DHDomainParameterSpec;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -21,17 +26,11 @@ import org.bouncycastle.crypto.agreement.DHUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.MQVBasicAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
 import org.bouncycastle.crypto.agreement.kdf.DHKEKGenerator;
-
 import org.bouncycastle.crypto.params.DHMQVPrivateParameters;
 import org.bouncycastle.crypto.params.DHMQVPublicParameters;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.DHUPrivateParameters;
 import org.bouncycastle.crypto.params.DHUPublicParameters;
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
-import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;
 import org.bouncycastle.jcajce.spec.MQVParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;

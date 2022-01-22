@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-
+import com.github.zhenwei.core.crypto.DerivationParameters;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * This KDF has been defined by the publicly available NIST SP 800-108 specification.

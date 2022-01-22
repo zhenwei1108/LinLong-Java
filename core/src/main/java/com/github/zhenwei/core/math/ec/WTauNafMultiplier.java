@@ -1,6 +1,5 @@
 package com.github.zhenwei.core.math.ec;
 
-import PreCompInfo;
 import java.math.BigInteger;
 
 /**

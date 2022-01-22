@@ -1,5 +1,6 @@
 package com.github.zhenwei.sdk.util.oer;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;

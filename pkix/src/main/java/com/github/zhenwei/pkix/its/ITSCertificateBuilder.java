@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.its;
 
 
+import com.github.zhenwei.core.asn1.ASN1Integer;
 import org.bouncycastle.oer.its.CrlSeries;
 import org.bouncycastle.oer.its.HashedId;
 import org.bouncycastle.oer.its.PsidGroupPermissions;

@@ -1,13 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.qtesla;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 
 /**
  * Key-pair generator for qTESLA keys.

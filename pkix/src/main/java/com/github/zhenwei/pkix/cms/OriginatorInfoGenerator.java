@@ -1,10 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
 import cms.OriginatorInfo;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.util.ArrayList;
 import java.util.List;
  
-import org.bouncycastle.util.Store;
+
 
 public class OriginatorInfoGenerator
 {

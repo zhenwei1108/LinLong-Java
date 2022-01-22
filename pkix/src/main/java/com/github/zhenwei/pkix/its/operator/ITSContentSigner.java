@@ -1,6 +1,7 @@
 package com.github.zhenwei.pkix.its.operator;
 
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.OutputStream;
 import org.bouncycastle.its.ITSCertificate;
 

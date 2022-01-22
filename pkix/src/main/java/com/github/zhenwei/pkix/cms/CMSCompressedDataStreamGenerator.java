@@ -1,9 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
 import BERSequenceGenerator;
-import cms.CMSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.operator.OutputCompressor;

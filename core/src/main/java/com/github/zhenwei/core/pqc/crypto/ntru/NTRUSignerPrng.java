@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
+import com.github.zhenwei.core.crypto.Digest;
 import java.nio.ByteBuffer;
 
 

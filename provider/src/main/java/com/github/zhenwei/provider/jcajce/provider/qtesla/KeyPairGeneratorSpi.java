@@ -1,17 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.qtesla;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
+import com.github.zhenwei.core.util.Integers;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
 import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 import org.bouncycastle.pqc.jcajce.spec.QTESLAParameterSpec;
  

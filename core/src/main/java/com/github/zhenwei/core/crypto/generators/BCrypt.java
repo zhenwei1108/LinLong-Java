@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-
-
-
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 
 /**
  * Core of password hashing scheme Bcrypt,
@@ -16,7 +16,7 @@ package com.github.zhenwei.core.crypto.generators;
  * In contrast to the paper, the order of key setup and salt setup is reversed:
  * state &lt;- ExpandKey(state, 0, key)
  * state &lt;- ExpandKey(state, 0, salt)
- * This corresponds to the OpenBSD reference implementation of Bcrypt. 
+ * This corresponds to the OpenBSD reference implementation of Bcrypt.
  * </p><p>
  * Note: 
  * There is no successful cryptanalysis (status 2015), but

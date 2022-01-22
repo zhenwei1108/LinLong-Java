@@ -1,14 +1,16 @@
 package com.github.zhenwei.pkix.cmc;
 
 
+import CMSSignedData;
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.IOException;
-import org.bouncycastle.cert.X509CRLHolder;
- 
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSSignedData;
-import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.Store;
+
+
 
 /**
  * Carrier for a Simple PKI Response.

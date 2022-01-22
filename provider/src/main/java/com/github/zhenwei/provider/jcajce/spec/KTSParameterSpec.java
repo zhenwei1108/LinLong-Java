@@ -1,10 +1,14 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.spec.AlgorithmParameterSpec;
 
 
-import X9ObjectIdentifiers;
+
 
 /**
  * Parameter spec for doing KTS based wrapping via the Cipher API.
@@ -52,7 +56,8 @@ public class KTSParameterSpec
         {
             this.algorithmName = algorithmName;
             this.keySizeInBits = keySizeInBits;
-            this.kdfAlgorithm = new AlgorithmIdentifier(X9ObjectIdentifiers.id_kdf_kdf3, new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256));
+            this.kdfAlgorithm = new AlgorithmIdentifier(
+                X9ObjectIdentifiers.id_kdf_kdf3, new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256));
             this.otherInfo = (otherInfo == null) ? new byte[0] : Arrays.clone(otherInfo);
         }
 

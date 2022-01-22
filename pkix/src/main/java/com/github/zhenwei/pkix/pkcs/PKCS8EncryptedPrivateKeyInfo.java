@@ -1,14 +1,16 @@
 package com.github.zhenwei.pkix.pkcs;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
-
 import pkcs.EncryptedPrivateKeyInfo;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * Holding class for a PKCS#8 EncryptedPrivateKeyInfo structure.

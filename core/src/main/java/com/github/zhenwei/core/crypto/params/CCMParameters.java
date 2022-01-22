@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-
 /**
  * @deprecated use AEADParameters
  */

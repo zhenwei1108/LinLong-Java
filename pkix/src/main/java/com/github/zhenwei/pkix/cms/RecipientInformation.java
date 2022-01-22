@@ -1,9 +1,11 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
@@ -11,7 +13,7 @@ import java.io.IOException;
 public abstract class RecipientInformation
 {
     protected RecipientId rid;
-    protected AlgorithmIdentifier   keyEncAlg;
+    protected AlgorithmIdentifier keyEncAlg;
     protected AlgorithmIdentifier messageAlgorithm;
     protected CMSSecureReadable     secureReadable;
 
@@ -119,7 +121,8 @@ public abstract class RecipientInformation
                 {
                     try
                     {
-                        Streams.drain(operator.getInputStream(new ByteArrayInputStream(additionalData.getAuthAttributes().getEncoded(ASN1Encoding.DER))));
+                        Streams.drain(operator.getInputStream(new ByteArrayInputStream(additionalData.getAuthAttributes().getEncoded(
+                            ASN1Encoding.DER))));
                     }
                     catch (IOException e)
                     {

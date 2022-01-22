@@ -2,13 +2,17 @@ package com.github.zhenwei.core.asn1.x500.style;
 
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.ASN1UniversalString;
 import com.github.zhenwei.core.asn1.x500.AttributeTypeAndValue;
 import com.github.zhenwei.core.asn1.x500.RDN;
 import com.github.zhenwei.core.asn1.x500.X500NameBuilder;
 import com.github.zhenwei.core.asn1.x500.X500NameStyle;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;

@@ -74,19 +74,19 @@ public class KeyTransRecipientId
     public boolean equals(
         Object  o)
     {
-        if (!(o instanceof org.bouncycastle.cms.KeyTransRecipientId))
+        if (!(o instanceof KeyTransRecipientId))
         {
             return false;
         }
 
-        org.bouncycastle.cms.KeyTransRecipientId id = (org.bouncycastle.cms.KeyTransRecipientId)o;
+        KeyTransRecipientId id = (org.bouncycastle.cms.KeyTransRecipientId)o;
 
         return this.baseSelector.equals(id.baseSelector);
     }
 
     public Object clone()
     {
-        return new org.bouncycastle.cms.KeyTransRecipientId(this.baseSelector);
+        return new KeyTransRecipientId(this.baseSelector);
     }
 
     public boolean match(Object obj)

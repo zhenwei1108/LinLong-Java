@@ -1,11 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
 import org.bouncycastle.pqc.crypto.rainbow.RainbowKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowParameters;

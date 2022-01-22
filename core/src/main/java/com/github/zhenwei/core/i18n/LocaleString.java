@@ -2,7 +2,6 @@ package com.github.zhenwei.core.i18n;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
-import org.bouncycastle.i18n.LocalizedMessage;
 
 public class LocaleString extends LocalizedMessage
 {

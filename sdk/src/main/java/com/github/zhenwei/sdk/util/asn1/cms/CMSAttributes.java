@@ -1,8 +1,8 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652">RFC 5652</a> CMS attribute OID constants,
@@ -24,7 +24,7 @@ package com.github.zhenwei.sdk.util.asn1.cms;
 public interface CMSAttributes
 {
     /** PKCS#9: 1.2.840.113549.1.9.3 */
-    ASN1ObjectIdentifier  contentType = PKCSObjectIdentifiers.pkcs_9_at_contentType;
+    ASN1ObjectIdentifier contentType = PKCSObjectIdentifiers.pkcs_9_at_contentType;
     /** PKCS#9: 1.2.840.113549.1.9.4 */
     ASN1ObjectIdentifier  messageDigest = PKCSObjectIdentifiers.pkcs_9_at_messageDigest;
     /** PKCS#9: 1.2.840.113549.1.9.5 */

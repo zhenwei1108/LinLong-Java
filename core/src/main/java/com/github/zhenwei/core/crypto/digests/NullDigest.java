@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayOutputStream;
 
 

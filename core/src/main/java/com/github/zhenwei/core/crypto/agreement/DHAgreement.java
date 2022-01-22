@@ -1,16 +1,15 @@
 package com.github.zhenwei.core.crypto.agreement;
 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
- 
-
 import org.bouncycastle.crypto.generators.DHKeyPairGenerator;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DHKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
 /**
@@ -28,15 +27,15 @@ public class DHAgreement
 {
     private static final BigInteger ONE = BigInteger.valueOf(1);
 
-    private DHPrivateKeyParameters  key;
+    private DHPrivateKeyParameters key;
     private DHParameters            dhParams;
     private BigInteger              privateValue;
     private SecureRandom            random;
 
     public void init(
-        CipherParameters    param)
+        CipherParameters param)
     {
-        AsymmetricKeyParameter  kParam;
+        AsymmetricKeyParameter kParam;
 
         if (param instanceof ParametersWithRandom)
         {

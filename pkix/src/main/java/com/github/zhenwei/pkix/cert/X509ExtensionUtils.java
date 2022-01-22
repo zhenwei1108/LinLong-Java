@@ -1,12 +1,12 @@
 package com.github.zhenwei.pkix.cert;
 
 
-
-
-
 import GeneralNames;
-
-
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;

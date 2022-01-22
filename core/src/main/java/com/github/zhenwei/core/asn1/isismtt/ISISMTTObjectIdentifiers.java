@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.isismtt;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectDirectoryAttributes;
 
 /**

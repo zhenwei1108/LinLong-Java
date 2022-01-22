@@ -1,20 +1,29 @@
 package com.github.zhenwei.pkix.openssl;
 
 
-
-
-
-import DSAParameter;
-
 import cms.ContentInfo;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.core.util.io.pem.PemGenerationException;
+import com.github.zhenwei.core.util.io.pem.PemHeader;
+import com.github.zhenwei.core.util.io.pem.PemObject;
+import com.github.zhenwei.core.util.io.pem.PemObjectGenerator;
+import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.X509CRLHolder;
- 
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
 
@@ -23,8 +32,8 @@ import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
 
 
 
-import pkcs.PrivateKeyInfo;
-import X9ObjectIdentifiers;
+ 
+
 
 /**
  * PEM generator for the original set of PEM objects used in Open SSL.

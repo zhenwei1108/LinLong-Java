@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.util.Integers;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,7 +10,7 @@ import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
-import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
+ 
  
 
 public class BDSStateMap
@@ -119,7 +121,8 @@ public class BDSStateMap
         bdsState.put(Integers.valueOf(index), bds);
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.BDSStateMap withWOTSDigest(ASN1ObjectIdentifier digestName)
+    public org.bouncycastle.pqc.crypto.xmss.BDSStateMap withWOTSDigest(
+        ASN1ObjectIdentifier digestName)
     {
         org.bouncycastle.pqc.crypto.xmss.BDSStateMap newStateMap = new org.bouncycastle.pqc.crypto.xmss.BDSStateMap(this.maxIndex);
 

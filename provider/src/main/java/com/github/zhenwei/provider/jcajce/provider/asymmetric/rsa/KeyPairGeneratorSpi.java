@@ -1,26 +1,31 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
 
-
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.RSAKeyGenParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-
 import org.bouncycastle.crypto.generators.RSAKeyPairGenerator;
 import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
+ 
+ 
 
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator
 {
-    private static final AlgorithmIdentifier PKCS_ALGID = new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE);
+    private static final AlgorithmIdentifier PKCS_ALGID = new AlgorithmIdentifier(
+        PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE);
     private static final AlgorithmIdentifier PSS_ALGID = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_RSASSA_PSS);
 
     final static BigInteger defaultPublicExponent = BigInteger.valueOf(0x10001);

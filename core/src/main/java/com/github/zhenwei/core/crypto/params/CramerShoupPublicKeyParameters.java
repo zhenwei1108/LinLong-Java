@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.CramerShoupKeyParameters;
-import org.bouncycastle.crypto.params.CramerShoupParameters;
 
 public class CramerShoupPublicKeyParameters
     extends CramerShoupKeyParameters

@@ -1,18 +1,21 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-
-
 import org.bouncycastle.internal.asn1.cms.CMSObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
 
-import teletrust.TeleTrusTObjectIdentifiers;
+
 
 public class RSA
 {

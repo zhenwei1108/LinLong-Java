@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
- 
 import org.bouncycastle.crypto.CryptoException;
-
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.signers.ISOTrailers;
 
  
 
@@ -42,7 +43,7 @@ public class X931Signer
     /** @deprecated use ISOTrailers */
     static final public int   TRAILER_SHA224      = 0x38CC;
 
-    private Digest                      digest;
+    private Digest digest;
     private AsymmetricBlockCipher       cipher;
     private RSAKeyParameters            kParam;
 
@@ -99,7 +100,7 @@ public class X931Signer
 
     public void init(
         boolean                 forSigning,
-        CipherParameters        param)
+        CipherParameters param)
     {
         kParam = (RSAKeyParameters)param;
 

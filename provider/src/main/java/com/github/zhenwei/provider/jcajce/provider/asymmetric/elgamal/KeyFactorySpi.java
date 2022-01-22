@@ -1,7 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.elgamal;
 
 
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -13,15 +18,14 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHPrivateKeySpec;
 import javax.crypto.spec.DHPublicKeySpec;
-
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jce.interfaces.ElGamalPrivateKey;
 import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
 import org.bouncycastle.jce.spec.ElGamalPrivateKeySpec;
 import org.bouncycastle.jce.spec.ElGamalPublicKeySpec;
 
-import pkcs.PrivateKeyInfo;
-import X9ObjectIdentifiers;
+ 
+
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

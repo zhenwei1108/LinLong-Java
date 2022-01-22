@@ -1,13 +1,13 @@
 package com.github.zhenwei.pkix.cms;
 
 
-
-
-
-
 import cms.AttributeTable;
 import cms.CMSAlgorithmProtection;
 import cms.CMSAttributes;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Map;

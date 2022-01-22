@@ -1,14 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
 
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.3">RFC 5652</a>:
@@ -26,10 +27,10 @@ package com.github.zhenwei.sdk.util.asn1.cms;
 public class KEKRecipientInfo
     extends ASN1Object
 {
-    private ASN1Integer          version;
+    private ASN1Integer version;
     private KEKIdentifier       kekid;
     private AlgorithmIdentifier keyEncryptionAlgorithm;
-    private ASN1OctetString     encryptedKey;
+    private ASN1OctetString encryptedKey;
 
     public KEKRecipientInfo(
         KEKIdentifier       kekid,
@@ -61,7 +62,7 @@ public class KEKRecipientInfo
      *          tagged object cannot be converted.
      */
     public static cms.KEKRecipientInfo getInstance(
-        ASN1TaggedObject    obj,
+        ASN1TaggedObject obj,
         boolean             explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
@@ -121,7 +122,7 @@ public class KEKRecipientInfo
      */
     public ASN1Primitive toASN1Primitive()
     {
-        ASN1EncodableVector  v = new ASN1EncodableVector(4);
+        ASN1EncodableVector v = new ASN1EncodableVector(4);
 
         v.add(version);
         v.add(kekid);

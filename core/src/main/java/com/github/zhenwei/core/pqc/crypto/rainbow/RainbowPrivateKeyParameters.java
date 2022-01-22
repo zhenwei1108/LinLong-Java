@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
-import org.bouncycastle.pqc.crypto.rainbow.Layer;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowKeyParameters;
-
 public class RainbowPrivateKeyParameters
     extends RainbowKeyParameters
 {

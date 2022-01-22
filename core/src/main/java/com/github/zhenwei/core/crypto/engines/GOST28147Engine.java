@@ -1,10 +1,12 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Strings;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithSBox;
@@ -151,7 +153,7 @@ public class GOST28147Engine
 
     private static void addSBox(String sBoxName, byte[] sBox)
     {
-        sBoxes.put(Strings.toUpperCase(sBoxName), sBox);        
+        sBoxes.put(Strings.toUpperCase(sBoxName), sBox);
     }
     
     /**
@@ -171,7 +173,7 @@ public class GOST28147Engine
      */
     public void init(
         boolean           forEncryption,
-        CipherParameters  params)
+        CipherParameters params)
     {
         if (params instanceof ParametersWithSBox)
         {

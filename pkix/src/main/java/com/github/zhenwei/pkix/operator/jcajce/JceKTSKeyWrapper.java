@@ -3,25 +3,29 @@ package com.github.zhenwei.pkix.operator.jcajce;
 
 import cms.GenericHybridParameters;
 import cms.RsaKemParameters;
-import iso.ISOIECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.iso.ISOIECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import javax.crypto.Cipher;
-
 import org.bouncycastle.crypto.util.DEROtherInfo;
 import org.bouncycastle.jcajce.spec.KTSParameterSpec;
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.AsymmetricKeyWrapper;
-import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 
 
-import X9ObjectIdentifiers;
+
 
 public class JceKTSKeyWrapper
     extends AsymmetricKeyWrapper
@@ -37,7 +41,9 @@ public class JceKTSKeyWrapper
 
     public JceKTSKeyWrapper(PublicKey publicKey, String symmetricWrappingAlg, int keySizeInBits, byte[] partyUInfo, byte[] partyVInfo)
     {
-        super(new AlgorithmIdentifier(PKCSObjectIdentifiers.id_rsa_KEM, new GenericHybridParameters(new AlgorithmIdentifier(ISOIECObjectIdentifiers.id_kem_rsa, new RsaKemParameters(new AlgorithmIdentifier(X9ObjectIdentifiers.id_kdf_kdf3, new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256)), (keySizeInBits + 7) / 8)), JceSymmetricKeyWrapper.determineKeyEncAlg(symmetricWrappingAlg, keySizeInBits))));
+        super(new AlgorithmIdentifier(PKCSObjectIdentifiers.id_rsa_KEM, new GenericHybridParameters(new AlgorithmIdentifier(
+            ISOIECObjectIdentifiers.id_kem_rsa, new RsaKemParameters(new AlgorithmIdentifier(
+            X9ObjectIdentifiers.id_kdf_kdf3, new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256)), (keySizeInBits + 7) / 8)), JceSymmetricKeyWrapper.determineKeyEncAlg(symmetricWrappingAlg, keySizeInBits))));
 
         this.publicKey = publicKey;
         this.symmetricWrappingAlg = symmetricWrappingAlg;

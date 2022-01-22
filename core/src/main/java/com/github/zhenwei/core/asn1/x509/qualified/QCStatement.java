@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.qualified;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 import qualified.ETSIQCObjectIdentifiers;
 import qualified.RFC3739QCObjectIdentifiers;
@@ -25,7 +26,7 @@ public class QCStatement
     implements ETSIQCObjectIdentifiers, RFC3739QCObjectIdentifiers
 {
     ASN1ObjectIdentifier qcStatementId;
-    ASN1Encodable        qcStatementInfo;
+    ASN1Encodable qcStatementInfo;
 
     public static qualified.QCStatement getInstance(
         Object obj)

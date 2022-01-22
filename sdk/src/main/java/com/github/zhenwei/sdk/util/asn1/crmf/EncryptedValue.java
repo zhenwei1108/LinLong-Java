@@ -1,25 +1,26 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
 
-
-
-
-
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public class EncryptedValue
     extends ASN1Object
 {
     private AlgorithmIdentifier intendedAlg;
     private AlgorithmIdentifier symmAlg;
-    private DERBitString        encSymmKey;
+    private DERBitString encSymmKey;
     private AlgorithmIdentifier keyAlg;
-    private ASN1OctetString     valueHint;
+    private ASN1OctetString valueHint;
     private DERBitString        encValue;
 
     private EncryptedValue(ASN1Sequence seq)

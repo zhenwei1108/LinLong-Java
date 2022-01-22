@@ -1,10 +1,17 @@
 package com.github.zhenwei.provider.jce;
 
 
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.UnsupportedEncodingException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -17,11 +24,11 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 
-import pkcs.PrivateKeyInfo;
-import X962Parameters;
-import X9ECParameters;
-import X9ECPoint;
-import X9ObjectIdentifiers;
+ 
+ 
+
+
+
 
 /**
  * Utility class to allow conversion of EC key parameters to explicit from named

@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
 
@@ -435,7 +436,7 @@ private static final int[] Tinv0 =
      */
     public void init(
         boolean           forEncryption,
-        CipherParameters  params)
+        CipherParameters params)
     {
         if (params instanceof KeyParameter)
         {

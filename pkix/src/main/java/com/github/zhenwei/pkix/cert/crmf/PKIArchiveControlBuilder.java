@@ -1,19 +1,20 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
+import CMSEnvelopedData;
+import CMSEnvelopedDataGenerator;
+import CMSProcessableByteArray;
+import RecipientInfoGenerator;
 import cms.EnvelopedData;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.pkix.cms.CMSException;
 import crmf.CRMFObjectIdentifiers;
 import crmf.EncKeyWithID;
 import crmf.EncryptedKey;
 import crmf.PKIArchiveOptions;
 import java.io.IOException;
-import org.bouncycastle.cms.CMSEnvelopedData;
-import org.bouncycastle.cms.CMSEnvelopedDataGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessableByteArray;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.operator.OutputEncryptor;
-import pkcs.PrivateKeyInfo;
+ 
 
 /**
  * Builder for a PKIArchiveControl structure.

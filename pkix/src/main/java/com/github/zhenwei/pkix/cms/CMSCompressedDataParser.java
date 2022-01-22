@@ -2,9 +2,9 @@ package com.github.zhenwei.pkix.cms;
 
 import ASN1OctetStringParser;
 import ASN1SequenceParser;
-
 import cms.CompressedDataParser;
 import cms.ContentInfoParser;
+import com.github.zhenwei.core.asn1.BERTags;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,7 +55,8 @@ public class CMSCompressedDataParser
     {
         try
         {
-            CompressedDataParser  comData = new CompressedDataParser((ASN1SequenceParser)_contentInfo.getContent(BERTags.SEQUENCE));
+            CompressedDataParser  comData = new CompressedDataParser((ASN1SequenceParser)_contentInfo.getContent(
+                BERTags.SEQUENCE));
             ContentInfoParser     content = comData.getEncapContentInfo();
             InputExpander expander = expanderProvider.get(comData.getCompressionAlgorithmIdentifier());
 

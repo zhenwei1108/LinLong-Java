@@ -10,7 +10,7 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.PolicyInformation;
-import java.util.Arrays;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * <pre>

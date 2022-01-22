@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec.endo;
 
 
-
- 
-import PreCompCallback;
-import PreCompInfo;
-import endo.ScalarSplitParameters;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.ec.PreCompCallback;
+import com.github.zhenwei.core.math.ec.PreCompInfo;
 import java.math.BigInteger;
 
 public abstract class EndoUtil

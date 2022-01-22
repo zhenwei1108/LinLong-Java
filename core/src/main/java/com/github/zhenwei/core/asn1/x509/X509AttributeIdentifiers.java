@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 public interface X509AttributeIdentifiers
 {

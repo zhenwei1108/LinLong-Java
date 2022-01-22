@@ -1,13 +1,15 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-
 import ASN1Null;
-
-
-
 import ASN1Util;
-
+import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 
 public class CertStatus
@@ -15,7 +17,7 @@ public class CertStatus
     implements ASN1Choice
 {
     private int             tagNo;
-    private ASN1Encodable    value;
+    private ASN1Encodable value;
 
     /**
      * create a CertStatus object with a tag of zero.
@@ -42,7 +44,7 @@ public class CertStatus
     }
 
     private CertStatus(
-        ASN1TaggedObject    choice)
+        ASN1TaggedObject choice)
     {
         int tagNo = choice.getTagNo();
 

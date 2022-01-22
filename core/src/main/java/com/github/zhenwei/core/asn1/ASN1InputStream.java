@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1;
 
-import ASN1Exception;
-
+import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.EOFException;
 import java.io.FilterInputStream;

@@ -4,13 +4,6 @@ package com.github.zhenwei.core.pqc.math.linearalgebra;
 import java.security.SecureRandom;
 import java.util.Random;
 import java.util.Vector;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialElement;
-import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
 
 
 /**

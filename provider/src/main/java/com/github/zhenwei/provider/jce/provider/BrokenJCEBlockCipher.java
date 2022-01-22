@@ -1,5 +1,9 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Strings;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -23,9 +27,6 @@ import javax.crypto.spec.RC5ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
- 
-
-
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.engines.DESEngine;
 import org.bouncycastle.crypto.engines.DESedeEngine;
@@ -224,7 +225,7 @@ public class BrokenJCEBlockCipher
         SecureRandom            random)
     throws InvalidKeyException, InvalidAlgorithmParameterException
     {
-        CipherParameters        param;
+        CipherParameters param;
 
         //
         // a note on iv's - if ivLength is zero the IV gets ignored (we don't use it).

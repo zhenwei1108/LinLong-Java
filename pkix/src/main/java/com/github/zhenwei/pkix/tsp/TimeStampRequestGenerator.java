@@ -1,15 +1,14 @@
 package com.github.zhenwei.pkix.tsp;
 
 import ASN1Boolean;
-
-
-
-
-import Extensions;
 import ExtensionsGenerator;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import tsp.MessageImprint;
 import tsp.TimeStampReq;
 
@@ -59,7 +58,7 @@ public class TimeStampRequestGenerator
     public void addExtension(
         String          OID,
         boolean         critical,
-        ASN1Encodable   value)
+        ASN1Encodable value)
         throws IOException
     {
         this.addExtension(OID, critical, value.toASN1Primitive().getEncoded());

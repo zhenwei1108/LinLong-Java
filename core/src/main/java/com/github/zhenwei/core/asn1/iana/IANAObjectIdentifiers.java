@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.iana;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * IANA:
@@ -10,7 +11,7 @@ public interface IANAObjectIdentifiers
 {
 
     /** { iso(1) identifier-organization(3) dod(6) internet(1) } == IETF defined things */
-    static final ASN1ObjectIdentifier   internet       = new ASN1ObjectIdentifier("1.3.6.1");
+    static final ASN1ObjectIdentifier internet       = new ASN1ObjectIdentifier("1.3.6.1");
     /** 1.3.6.1.1: Internet directory: X.500 */
     static final ASN1ObjectIdentifier   directory      = internet.branch("1");
     /** 1.3.6.1.2: Internet management */

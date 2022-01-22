@@ -1,15 +1,16 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
-import edec.EdECObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-
 import org.bouncycastle.crypto.generators.Ed25519KeyPairGenerator;
 import org.bouncycastle.crypto.generators.Ed448KeyPairGenerator;
 import org.bouncycastle.crypto.generators.X25519KeyPairGenerator;

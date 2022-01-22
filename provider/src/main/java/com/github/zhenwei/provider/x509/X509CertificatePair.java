@@ -1,16 +1,19 @@
 package com.github.zhenwei.provider.x509;
 
 
- 
-import Certificate;
 import CertificatePair;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
-;
-
 import org.bouncycastle.jce.provider.X509CertificateObject;
+
+;
 
 /**
  * This class contains a cross certificate pair. Cross certificates pairs may

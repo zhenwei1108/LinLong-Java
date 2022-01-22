@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.crypto.agreement;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
-
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
 /**
@@ -21,13 +20,13 @@ public class DHBasicAgreement
 {
     private static final BigInteger ONE = BigInteger.valueOf(1);
 
-    private DHPrivateKeyParameters  key;
+    private DHPrivateKeyParameters key;
     private DHParameters            dhParams;
 
     public void init(
-        CipherParameters    param)
+        CipherParameters param)
     {
-        AsymmetricKeyParameter  kParam;
+        AsymmetricKeyParameter kParam;
 
         if (param instanceof ParametersWithRandom)
         {
@@ -60,7 +59,7 @@ public class DHBasicAgreement
     public BigInteger calculateAgreement(
         CipherParameters   pubKey)
     {
-        DHPublicKeyParameters   pub = (DHPublicKeyParameters)pubKey;
+        DHPublicKeyParameters pub = (DHPublicKeyParameters)pubKey;
 
         if (!pub.getParameters().equals(dhParams))
         {

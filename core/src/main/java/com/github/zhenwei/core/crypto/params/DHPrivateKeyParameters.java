@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.DHKeyParameters;
-import org.bouncycastle.crypto.params.DHParameters;
+ 
 
 public class DHPrivateKeyParameters
     extends DHKeyParameters

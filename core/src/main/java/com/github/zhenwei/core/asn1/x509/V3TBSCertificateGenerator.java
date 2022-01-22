@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
 import ASN1UTCTime;
-
-
-
 import X500Name;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * Generator for Version 3 TBSCertificateStructures.
@@ -28,7 +29,7 @@ import X500Name;
  */
 public class V3TBSCertificateGenerator
 {
-    DERTaggedObject         version = new DERTaggedObject(true, 0, new ASN1Integer(2));
+    DERTaggedObject version = new DERTaggedObject(true, 0, new ASN1Integer(2));
 
     ASN1Integer              serialNumber;
     AlgorithmIdentifier     signature;

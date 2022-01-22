@@ -3,10 +3,6 @@ package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nElement;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nField;
-import org.bouncycastle.pqc.math.linearalgebra.GF2nONBField;
-import org.bouncycastle.pqc.math.linearalgebra.GFElement;
 
 
 /**

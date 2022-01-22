@@ -1,18 +1,19 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.security.SecureRandom;
 import kisa.KISAObjectIdentifiers;
 import misc.CAST5CBCParameters;
-
-
-
 import org.bouncycastle.internal.asn1.cms.CCMParameters;
 import org.bouncycastle.internal.asn1.cms.GCMParameters;
-
 import pkcs.RC2CBCParameter;
 
 /**
@@ -25,7 +26,7 @@ public class AlgorithmIdentifierFactory
 
     }
 
-    static final ASN1ObjectIdentifier  IDEA_CBC        = new ASN1ObjectIdentifier("1.3.6.1.4.1.188.7.1.1.2").intern();
+    static final ASN1ObjectIdentifier IDEA_CBC        = new ASN1ObjectIdentifier("1.3.6.1.4.1.188.7.1.1.2").intern();
     static final ASN1ObjectIdentifier  CAST5_CBC       = new ASN1ObjectIdentifier("1.2.840.113533.7.66.10").intern();
 
     private static final short[] rc2Table = {

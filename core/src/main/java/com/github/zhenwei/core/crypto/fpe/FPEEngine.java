@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.fpe;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Pack;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.FPEParameters;
 

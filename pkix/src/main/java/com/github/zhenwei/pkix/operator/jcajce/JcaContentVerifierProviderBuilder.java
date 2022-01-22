@@ -1,9 +1,21 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.io.TeeOutputStream;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.ContentVerifier;
+import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.RuntimeOperatorException;
+import com.github.zhenwei.provider.jcajce.io.OutputStreamFactory;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.security.Provider;
@@ -14,20 +26,11 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.List;
-import misc.MiscObjectIdentifiers;
- 
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.jcajce.CompositePublicKey;
-import org.bouncycastle.jcajce.io.OutputStreamFactory;
-
-import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
-import org.bouncycastle.operator.ContentVerifier;
-import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.RawContentVerifier;
-import org.bouncycastle.operator.RuntimeOperatorException;
-import org.bouncycastle.util.io.TeeOutputStream;
+
+
 
 public class JcaContentVerifierProviderBuilder
 {

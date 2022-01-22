@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.MD2Digest;
 import org.bouncycastle.crypto.macs.HMac;

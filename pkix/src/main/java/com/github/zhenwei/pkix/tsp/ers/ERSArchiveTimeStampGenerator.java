@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -12,7 +13,6 @@ import org.bouncycastle.tsp.TSPException;
 import org.bouncycastle.tsp.TimeStampRequest;
 import org.bouncycastle.tsp.TimeStampRequestGenerator;
 import org.bouncycastle.tsp.TimeStampResponse;
-
 import tsp.ArchiveTimeStamp;
 import tsp.PartialHashtree;
 import tsp.TSTInfo;

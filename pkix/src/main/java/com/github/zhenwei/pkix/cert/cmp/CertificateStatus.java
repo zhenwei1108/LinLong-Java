@@ -3,17 +3,20 @@ package com.github.zhenwei.pkix.cert.cmp;
 
 import cmp.CertStatus;
 import cmp.PKIStatusInfo;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.math.BigInteger;
- 
-import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.operator.OperatorCreationException;
+
 
 
 public class CertificateStatus
 {
-    private DigestAlgorithmIdentifierFinder digestAlgFinder;    
+    private DigestAlgorithmIdentifierFinder digestAlgFinder;
     private CertStatus certStatus;
 
     CertificateStatus(DigestAlgorithmIdentifierFinder digestAlgFinder, CertStatus certStatus)

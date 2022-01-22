@@ -1,12 +1,17 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
-import ASN1BitString;
 
-
-
-
- 
-
+import com.github.zhenwei.core.asn1.ASN1BitString;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
@@ -16,7 +21,7 @@ import java.security.cert.CertificateParsingException;
 import java.util.Date;
 import java.util.Enumeration;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+ 
 
 
 

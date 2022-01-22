@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DataLengthException;
 import org.bouncycastle.crypto.BlockCipher;
-
-
 import org.bouncycastle.crypto.StreamBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 
@@ -64,7 +64,7 @@ public class GOFBBlockCipher
      */
     public void init(
         boolean             encrypting, //ignored by this CTR mode
-        CipherParameters    params)
+        CipherParameters params)
         throws IllegalArgumentException
     {
         firstStep = true;

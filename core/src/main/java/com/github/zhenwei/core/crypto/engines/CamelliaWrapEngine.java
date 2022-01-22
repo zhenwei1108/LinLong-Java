@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import org.bouncycastle.crypto.engines.CamelliaEngine;
-import org.bouncycastle.crypto.engines.RFC3394WrapEngine;
-
 /**
  * An implementation of the Camellia key wrapper based on RFC 3657/RFC 3394.
  * <p>

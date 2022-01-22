@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
 
-import PreCompInfo;
+import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Hashtable;
@@ -372,7 +372,7 @@ public abstract class ECPoint
             :   getCurve().createRawPoint(getRawXCoord().negate(), getRawYCoord().multiply(scale), getRawZCoords());
     }
 
-    public boolean equals(org.bouncycastle.math.ec.ECPoint other)
+    public boolean equals (ECPoint other)
     {
         if (null == other)
         {
@@ -433,7 +433,7 @@ public abstract class ECPoint
             return false;
         }
 
-        return equals((org.bouncycastle.math.ec.ECPoint)other);
+        return equals( (ECPoint)other);
     }
 
     public int hashCode()
@@ -511,11 +511,11 @@ public abstract class ECPoint
 
     protected abstract boolean getCompressionYTilde();
 
-    public abstract ECPoint add(org.bouncycastle.math.ec.ECPoint b);
+    public abstract ECPoint add (ECPoint b);
 
     public abstract ECPoint negate();
 
-    public abstract ECPoint subtract(org.bouncycastle.math.ec.ECPoint b);
+    public abstract ECPoint subtract (ECPoint b);
 
     public ECPoint timesPow2(int e)
     {
@@ -534,7 +534,7 @@ public abstract class ECPoint
 
     public abstract ECPoint twice();
 
-    public ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
+    public ECPoint twicePlus (ECPoint b)
     {
         return twice().add(b);
     }
@@ -613,7 +613,7 @@ public abstract class ECPoint
             return lhs.equals(rhs);
         }
 
-        public ECPoint subtract(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint subtract (ECPoint b)
         {
             if (b.isInfinity())
             {
@@ -656,7 +656,7 @@ public abstract class ECPoint
         }
 
         // B.3 pg 62
-        public ECPoint add(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint add (ECPoint b)
         {
             if (this.isInfinity())
             {
@@ -1007,7 +1007,7 @@ public abstract class ECPoint
             }
         }
 
-        public ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint twicePlus (ECPoint b)
         {
             if (this == b)
             {
@@ -1548,7 +1548,7 @@ public abstract class ECPoint
             return scaleY(scale);
         }
 
-        public ECPoint subtract(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint subtract (ECPoint b)
         {
             if (b.isInfinity())
             {
@@ -1712,7 +1712,7 @@ public abstract class ECPoint
             }
         }
 
-        public ECPoint add(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint add (ECPoint b)
         {
             if (this.isInfinity())
             {
@@ -2003,7 +2003,7 @@ public abstract class ECPoint
             }
         }
 
-        public ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint twicePlus (ECPoint b)
         {
             if (this.isInfinity())
             {

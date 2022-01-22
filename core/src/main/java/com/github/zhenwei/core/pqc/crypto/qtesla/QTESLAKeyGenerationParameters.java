@@ -2,7 +2,6 @@ package com.github.zhenwei.core.pqc.crypto.qtesla;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 
 /**
  * qTESLA key-pair generation parameters.

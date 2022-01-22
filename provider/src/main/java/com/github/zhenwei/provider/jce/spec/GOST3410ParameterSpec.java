@@ -1,10 +1,11 @@
 package com.github.zhenwei.provider.jce.spec;
 
 
-
 import GOST3410NamedParameters;
 import GOST3410ParamSetParameters;
-import GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
 import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.jce.interfaces.GOST3410Params;
 

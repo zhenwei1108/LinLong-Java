@@ -1,8 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
-
-import gnu.GNUObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gnu.GNUObjectIdentifiers;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.KDFParameters;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Strings;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -12,10 +22,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.SecretKeySpec;
 import kisa.KISAObjectIdentifiers;
-import misc.MiscObjectIdentifiers;
-
-
-
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.agreement.kdf.DHKDFParameters;
 import org.bouncycastle.crypto.agreement.kdf.DHKEKGenerator;

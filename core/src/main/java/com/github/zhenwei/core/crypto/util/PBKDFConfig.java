@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.util;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Base class for PBKDF configs.

@@ -1,9 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
- 
-
 import ASN1OutputStream;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -32,7 +34,7 @@ public class PKCS12BagAttributeCarrierImpl
 
     public void setBagAttribute(
         ASN1ObjectIdentifier oid,
-        ASN1Encodable        attribute)
+        ASN1Encodable attribute)
     {
         if (pkcs12Attributes.containsKey(oid))
         {                           // preserve original ordering

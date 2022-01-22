@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.KeyEncoder;
 
 public class EphemeralKeyPair
 {

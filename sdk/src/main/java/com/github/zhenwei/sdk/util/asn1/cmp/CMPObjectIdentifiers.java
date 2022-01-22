@@ -1,13 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 public interface CMPObjectIdentifiers
 {
     // RFC 4210
 
     /** id-PasswordBasedMac OBJECT IDENTIFIER ::= {1 2 840 113533 7 66 13} */
-    static final ASN1ObjectIdentifier    passwordBasedMac        = new ASN1ObjectIdentifier("1.2.840.113533.7.66.13");
+    static final ASN1ObjectIdentifier passwordBasedMac        = new ASN1ObjectIdentifier("1.2.840.113533.7.66.13");
 
     /** id-DHBasedMac OBJECT IDENTIFIER ::= {1 2 840 113533 7 66 30} */
     static final ASN1ObjectIdentifier    dhBasedMac              = new ASN1ObjectIdentifier("1.2.840.113533.7.66.30");

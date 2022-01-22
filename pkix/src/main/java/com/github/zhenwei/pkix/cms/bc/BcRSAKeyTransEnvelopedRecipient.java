@@ -1,14 +1,15 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
+import RecipientOperator;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.InputStream;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.RecipientOperator;
 import org.bouncycastle.crypto.BufferedBlockCipher;
-
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.io.CipherInputStream;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.operator.InputDecryptor;
 
 public class BcRSAKeyTransEnvelopedRecipient

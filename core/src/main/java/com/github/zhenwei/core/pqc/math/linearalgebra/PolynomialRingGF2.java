@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-
 /**
  * This class describes operations with polynomials over finite field GF(2), i e
  * polynomial ring R = GF(2)[X]. All operations are defined only for polynomials

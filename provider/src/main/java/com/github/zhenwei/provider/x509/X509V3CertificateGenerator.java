@@ -1,20 +1,23 @@
 package com.github.zhenwei.provider.x509;
 
 
-
-
- 
-
-
-
-
-
-
 import TBSCertificate;
 import Time;
 import V3TBSCertificateGenerator;
 import X509ExtensionsGenerator;
 import X509Name;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -33,10 +36,10 @@ import java.util.Date;
 import java.util.Iterator;
 import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory;
-;
-
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.x509.extension.X509ExtensionUtil;
+
+;
 
 /**
  * class to produce an X.509 Version 3 certificate.
@@ -48,8 +51,8 @@ public class X509V3CertificateGenerator
     private final CertificateFactory certificateFactory = new CertificateFactory();
 
     private V3TBSCertificateGenerator   tbsGen;
-    private ASN1ObjectIdentifier        sigOID;
-    private AlgorithmIdentifier         sigAlgId;
+    private ASN1ObjectIdentifier sigOID;
+    private AlgorithmIdentifier sigAlgId;
     private String                      signatureAlgorithm;
     private X509ExtensionsGenerator     extGenerator;
 
@@ -229,7 +232,7 @@ public class X509V3CertificateGenerator
     public void addExtension(
         String          oid,
         boolean         critical,
-        ASN1Encodable    value)
+        ASN1Encodable value)
     {
         this.addExtension(new ASN1ObjectIdentifier(oid), critical, value);
     }

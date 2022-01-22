@@ -24,6 +24,9 @@ package com.github.zhenwei.core.crypto.digests;
  * RFC: https://tools.ietf.org/html/rfc6986
  */
 
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.util.Memoable;
+
 /**
  * Base class for GOST3411-2012 256-bit and GOST3411-2012 512-bit digests.
  */

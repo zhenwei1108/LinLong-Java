@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
@@ -37,7 +38,7 @@ public class X509ExtensionsGenerator
     public void addExtension(
         ASN1ObjectIdentifier oid,
         boolean             critical,
-        ASN1Encodable       value)
+        ASN1Encodable value)
     {
         try
         {

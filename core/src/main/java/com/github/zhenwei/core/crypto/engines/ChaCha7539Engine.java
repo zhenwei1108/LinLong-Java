@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import org.bouncycastle.crypto.engines.ChaChaEngine;
-import org.bouncycastle.crypto.engines.Salsa20Engine;
-
-
 /**
  * Implementation of Daniel J. Bernstein's ChaCha stream cipher.
  */

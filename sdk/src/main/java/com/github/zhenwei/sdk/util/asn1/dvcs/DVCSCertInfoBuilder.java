@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
 
-
-
-
-
-
-
-import Extensions;
 import PolicyInformation;
 import cmp.PKIStatusInfo;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
 
 /**
  * <pre>

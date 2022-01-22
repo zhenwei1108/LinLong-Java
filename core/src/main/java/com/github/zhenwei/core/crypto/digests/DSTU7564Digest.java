@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.digests;
 
 
-
-
-
+import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Memoable;
 
 /**
  * Reference implementation of national ukrainian standard of hashing transformation DSTU7564.

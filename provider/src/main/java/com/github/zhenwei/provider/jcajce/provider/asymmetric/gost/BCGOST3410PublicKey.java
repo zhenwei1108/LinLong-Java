@@ -1,11 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
 
-
-
-
-
-import GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -61,8 +62,8 @@ public class BCGOST3410PublicKey
     BCGOST3410PublicKey(
         SubjectPublicKeyInfo info)
     {
-        GOST3410PublicKeyAlgParameters    params = GOST3410PublicKeyAlgParameters.getInstance(info.getAlgorithm().getParameters());
-        DEROctetString                    derY;
+        GOST3410PublicKeyAlgParameters params = GOST3410PublicKeyAlgParameters.getInstance(info.getAlgorithm().getParameters());
+        DEROctetString derY;
 
         try
         {
@@ -122,7 +123,8 @@ public class BCGOST3410PublicKey
             {
                 if (gost3410Spec.getEncryptionParamSetOID() != null)
                 {
-                    info = new SubjectPublicKeyInfo(new AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3410_94, new GOST3410PublicKeyAlgParameters(new ASN1ObjectIdentifier(gost3410Spec.getPublicKeyParamSetOID()), new ASN1ObjectIdentifier(gost3410Spec.getDigestParamSetOID()), new ASN1ObjectIdentifier(gost3410Spec.getEncryptionParamSetOID()))), new DEROctetString(keyBytes));
+                    info = new SubjectPublicKeyInfo(new AlgorithmIdentifier(
+                        CryptoProObjectIdentifiers.gostR3410_94, new GOST3410PublicKeyAlgParameters(new ASN1ObjectIdentifier(gost3410Spec.getPublicKeyParamSetOID()), new ASN1ObjectIdentifier(gost3410Spec.getDigestParamSetOID()), new ASN1ObjectIdentifier(gost3410Spec.getEncryptionParamSetOID()))), new DEROctetString(keyBytes));
                 }
                 else
                 {

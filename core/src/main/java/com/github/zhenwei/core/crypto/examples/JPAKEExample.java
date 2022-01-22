@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.examples;
 
+import com.github.zhenwei.core.crypto.Digest;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
-
 import org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroup;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;

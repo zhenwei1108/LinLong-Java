@@ -3,10 +3,6 @@ package com.github.zhenwei.core.util.encoders;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.util.encoders.DecoderException;
-import org.bouncycastle.util.encoders.Encoder;
-import org.bouncycastle.util.encoders.EncoderException;
-import org.bouncycastle.util.encoders.UrlBase64Encoder;
 
 /**
  * Convert binary data to and from UrlBase64 encoding.  This is identical to

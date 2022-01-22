@@ -2,7 +2,6 @@ package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
 import java.util.Vector;
-import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
 
 /**
  * Private key parameters for NaccacheStern cipher. For details on this cipher,

@@ -1,9 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
-import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
-import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
-
 /**
  * This is a utility class containing data type conversions using big-endian
  * byte order.

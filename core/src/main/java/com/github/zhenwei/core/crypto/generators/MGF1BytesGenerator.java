@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.DerivationParameters;
+import com.github.zhenwei.core.crypto.Digest;
 import org.bouncycastle.crypto.DerivationFunction;
-
-
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.MGFParameters;
 
@@ -13,7 +14,7 @@ import org.bouncycastle.crypto.params.MGFParameters;
 public class MGF1BytesGenerator
     implements DerivationFunction
 {
-    private Digest  digest;
+    private Digest digest;
     private byte[]  seed;
     private int     hLen;
 
@@ -28,7 +29,7 @@ public class MGF1BytesGenerator
     }
 
     public void init(
-        DerivationParameters    param)
+        DerivationParameters param)
     {
         if (!(param instanceof MGFParameters))
         {

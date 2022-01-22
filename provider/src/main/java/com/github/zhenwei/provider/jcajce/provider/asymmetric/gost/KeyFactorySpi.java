@@ -1,8 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
 
-
-
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -16,7 +18,7 @@ import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
 import org.bouncycastle.jce.spec.GOST3410PrivateKeySpec;
 import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
 import org.bouncycastle.jce.spec.GOST3410PublicKeySpec;
-import pkcs.PrivateKeyInfo;
+ 
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

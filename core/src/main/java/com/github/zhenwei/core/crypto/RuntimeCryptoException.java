@@ -3,7 +3,7 @@ package com.github.zhenwei.core.crypto;
 /**
  * the foundation class for the exceptions thrown by the crypto packages.
  */
-public class RuntimeCryptoException 
+public class RuntimeCryptoException
     extends RuntimeException
 {
     /**

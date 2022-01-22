@@ -1,7 +1,8 @@
 package com.github.zhenwei.pkix.eac.operator.jcajce;
 
 
-import  EACObjectIdentifiers;
+import EACObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Signature;

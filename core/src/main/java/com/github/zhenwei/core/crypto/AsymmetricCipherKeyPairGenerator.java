@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+ 
 
 /**
  * interface that a public/private key pair generator should conform to.

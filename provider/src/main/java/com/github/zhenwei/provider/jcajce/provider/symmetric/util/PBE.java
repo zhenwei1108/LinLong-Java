@@ -1,16 +1,17 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.digests.SM3Digest;
+import com.github.zhenwei.core.crypto.util.DigestFactory;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
- 
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.digests.GOST3411Digest;
 import org.bouncycastle.crypto.digests.MD2Digest;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;
- 
 import org.bouncycastle.crypto.digests.TigerDigest;
 import org.bouncycastle.crypto.generators.OpenSSLPBEParametersGenerator;
 import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
