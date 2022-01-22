@@ -1,11 +1,11 @@
 package com.github.zhenwei.pkix.cert.crmf.bc;
 
+
+
 import java.security.SecureRandom;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.cert.crmf.CRMFException;
 import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
 import org.bouncycastle.crypto.util.CipherFactory;

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
-import org.bouncycastle.util.Arrays;
+
+import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * A polynomial class that combines five coefficients into one <code>long</code> value for

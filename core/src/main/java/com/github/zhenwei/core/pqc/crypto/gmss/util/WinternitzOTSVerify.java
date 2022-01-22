@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.gmss.util;
 
-import org.bouncycastle.crypto.Digest;
+
 
 /**
  * This class implements signature verification of the Winternitz one-time

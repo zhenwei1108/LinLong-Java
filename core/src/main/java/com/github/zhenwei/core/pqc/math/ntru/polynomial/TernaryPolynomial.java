@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
+import sun.security.util.math.intpoly.IntegerPolynomial;
+
 /**
  * A polynomial whose coefficients are all equal to -1, 0, or 1
  */

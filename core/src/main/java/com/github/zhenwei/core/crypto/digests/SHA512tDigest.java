@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import org.bouncycastle.crypto.digests.LongDigest;
-import org.bouncycastle.util.Memoable;
+
 import org.bouncycastle.util.MemoableResetException;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * FIPS 180-4 implementation of SHA-512/t

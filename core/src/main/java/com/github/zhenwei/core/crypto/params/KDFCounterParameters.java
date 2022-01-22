@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.DerivationParameters;
-import org.bouncycastle.util.Arrays;
+
+
 
 /**
  * This KDF has been defined by the publicly available NIST SP 800-108 specification.

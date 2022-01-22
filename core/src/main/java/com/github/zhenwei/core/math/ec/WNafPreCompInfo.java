@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.math.ec;
 
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.PreCompInfo;
+import PreCompInfo;
 
 /**
  * Class holding precomputation data for the WNAF (Window Non-Adjacent Form)

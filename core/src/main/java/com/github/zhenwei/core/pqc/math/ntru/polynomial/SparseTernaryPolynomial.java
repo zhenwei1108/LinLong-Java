@@ -6,7 +6,8 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.pqc.math.ntru.util.ArrayEncoder;
 import org.bouncycastle.pqc.math.ntru.util.Util;
-import org.bouncycastle.util.Arrays;
+
+import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * A <code>TernaryPolynomial</code> with a "low" number of nonzero coefficients.

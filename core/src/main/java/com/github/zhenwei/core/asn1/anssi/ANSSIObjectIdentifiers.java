@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.anssi;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * Object Identifiers belong to the French Agency, ANSSI.

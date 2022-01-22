@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.crypto.util;
 
+
 import java.security.SecureRandom;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.kisa.KISAObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.ntt.NTTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+import kisa.KISAObjectIdentifiers;
+
+
+
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.generators.DESKeyGenerator;
 import org.bouncycastle.crypto.generators.DESedeKeyGenerator;
-import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
+
 
 /**
  * Factory methods for generating secret key generators for symmetric ciphers.

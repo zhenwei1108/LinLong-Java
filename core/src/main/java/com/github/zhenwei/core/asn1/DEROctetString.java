@@ -1,12 +1,8 @@
 package com.github.zhenwei.core.asn1;
 
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * Carrier class for a DER encoding OCTET STRING

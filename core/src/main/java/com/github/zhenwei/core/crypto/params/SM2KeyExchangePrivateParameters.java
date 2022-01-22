@@ -1,11 +1,9 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
+import ECMultiplier;
+
+import FixedPointCombMultiplier;
+
 
 /**
  * Private parameters for an SM2 key exchange. The ephemeralPrivateKey is used to calculate the random point used in the algorithm.

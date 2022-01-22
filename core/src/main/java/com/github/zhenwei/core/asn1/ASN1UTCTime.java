@@ -1,23 +1,18 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
 - * UTC time object.
- * Internal facade of {@link org.bouncycastle.asn1.ASN1UTCTime}.
+ * Internal facade of {@link ASN1UTCTime}.
  * <p>
  * This datatype is valid only from 1950-01-01 00:00:00 UTC until 2049-12-31 23:59:59 UTC.
  * </p>
@@ -39,7 +34,7 @@ import org.bouncycastle.util.Strings;
 public class ASN1UTCTime
     extends ASN1Primitive
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1UTCTime.class, BERTags.UTC_TIME)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1UTCTime.class, BERTags.UTC_TIME)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -54,26 +49,26 @@ public class ASN1UTCTime
      * @exception IllegalArgumentException if the object cannot be converted.
      * @return an ASN1UTCTime instance, or null.
      */
-    public static org.bouncycastle.asn1.ASN1UTCTime getInstance(
+    public static ASN1UTCTime getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1UTCTime)
+        if (obj == null || obj instanceof ASN1UTCTime)
         {
-            return (org.bouncycastle.asn1.ASN1UTCTime)obj;
+            return (ASN1UTCTime)obj;
         }
         if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1UTCTime)
+            if (primitive instanceof ASN1UTCTime)
             {
-                return (org.bouncycastle.asn1.ASN1UTCTime)primitive;
+                return (ASN1UTCTime)primitive;
             }
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1UTCTime)TYPE.fromByteArray((byte[])obj);
+                return (ASN1UTCTime)TYPE.fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -93,9 +88,9 @@ public class ASN1UTCTime
      * @exception IllegalArgumentException if the tagged object cannot be converted.
      * @return an ASN1UTCTime instance, or null.
      */
-    public static org.bouncycastle.asn1.ASN1UTCTime getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1UTCTime getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1UTCTime)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1UTCTime)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     final byte[] contents;
@@ -301,12 +296,12 @@ public class ASN1UTCTime
     boolean asn1Equals(
         ASN1Primitive o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1UTCTime))
+        if (!(o instanceof ASN1UTCTime))
         {
             return false;
         }
 
-        return Arrays.areEqual(contents, ((org.bouncycastle.asn1.ASN1UTCTime)o).contents);
+        return Arrays.areEqual(contents, ((ASN1UTCTime)o).contents);
     }
 
     public int hashCode()
@@ -319,8 +314,8 @@ public class ASN1UTCTime
       return Strings.fromByteArray(contents);
     }
 
-    static org.bouncycastle.asn1.ASN1UTCTime createPrimitive(byte[] contents)
+    static ASN1UTCTime createPrimitive(byte[] contents)
     {
-        return new org.bouncycastle.asn1.ASN1UTCTime(contents);
+        return new ASN1UTCTime(contents);
     }
 }

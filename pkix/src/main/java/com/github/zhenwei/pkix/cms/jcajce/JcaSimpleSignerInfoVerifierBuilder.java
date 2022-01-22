@@ -4,7 +4,7 @@ import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.cms.DefaultCMSSignatureAlgorithmNameGenerator;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.operator.ContentVerifierProvider;

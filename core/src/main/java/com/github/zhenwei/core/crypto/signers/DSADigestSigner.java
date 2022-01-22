@@ -1,15 +1,14 @@
 package com.github.zhenwei.core.crypto.signers;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.DSA;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.signers.DSAEncoding;
-import org.bouncycastle.crypto.signers.StandardDSAEncoding;
 
 public class DSADigestSigner
     implements Signer

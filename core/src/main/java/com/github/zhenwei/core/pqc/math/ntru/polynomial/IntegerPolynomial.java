@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.bouncycastle.pqc.math.ntru.euclid.BigIntEuclidean;
 import org.bouncycastle.pqc.math.ntru.util.ArrayEncoder;
 import org.bouncycastle.pqc.math.ntru.util.Util;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A polynomial with <code>int</code> coefficients.<br>

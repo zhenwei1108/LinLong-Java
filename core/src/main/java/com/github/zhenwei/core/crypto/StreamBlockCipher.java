@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.DataLengthException;
+
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.StreamCipher;
 

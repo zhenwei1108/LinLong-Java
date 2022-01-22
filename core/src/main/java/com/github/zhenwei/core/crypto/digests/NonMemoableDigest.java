@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.ExtendedDigest;
+
 
 /**
  * Wrapper removes exposure to the Memoable interface on an ExtendedDigest implementation.

@@ -1,17 +1,17 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extension;
 
 /**
  * <pre>
@@ -29,34 +29,34 @@ public class Extensions
     private Hashtable extensions = new Hashtable();
     private Vector ordering = new Vector();
 
-    public static Extension getExtension(org.bouncycastle.asn1.x509.Extensions extensions, ASN1ObjectIdentifier oid)
+    public static Extension getExtension(Extensions extensions, ASN1ObjectIdentifier oid)
     {
         return null == extensions ? null : extensions.getExtension(oid);
     }
 
     public static ASN1Encodable getExtensionParsedValue(
-        org.bouncycastle.asn1.x509.Extensions extensions, ASN1ObjectIdentifier oid)
+        Extensions extensions, ASN1ObjectIdentifier oid)
     {
         return null == extensions ? null : extensions.getExtensionParsedValue(oid);
     }
 
-    public static org.bouncycastle.asn1.x509.Extensions getInstance(
+    public static Extensions getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.Extensions getInstance(
+    public static Extensions getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.Extensions)
+        if (obj instanceof Extensions)
         {
-            return (org.bouncycastle.asn1.x509.Extensions)obj;
+            return (Extensions)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.Extensions(ASN1Sequence.getInstance(obj));
+            return new Extensions(ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -181,7 +181,7 @@ public class Extensions
     }
 
     public boolean equivalent(
-        org.bouncycastle.asn1.x509.Extensions other)
+        Extensions other)
     {
         if (extensions.size() != other.extensions.size())
         {

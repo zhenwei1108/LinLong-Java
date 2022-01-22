@@ -1,11 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.pqc.asn1.McElieceCCA2PrivateKey;
 import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
@@ -26,7 +24,9 @@ import org.bouncycastle.pqc.crypto.xmss.BDSStateMap;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
-import org.bouncycastle.util.Pack;
+
+
+import pkcs.PrivateKeyInfo;
 
 /**
  * Factory to create ASN.1 private key info objects from lightweight private keys.

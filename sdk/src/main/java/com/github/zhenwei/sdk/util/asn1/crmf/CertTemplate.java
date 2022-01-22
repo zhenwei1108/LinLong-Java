@@ -1,17 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
+
+
+
+
+
+
+import DERBitString;
+import Extensions;
+
+import X500Name;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.crmf.OptionalValidity;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 
 public class CertTemplate
     extends ASN1Object
@@ -76,15 +75,15 @@ public class CertTemplate
         }
     }
 
-    public static org.bouncycastle.asn1.crmf.CertTemplate getInstance(Object o)
+    public static crmf.CertTemplate getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.CertTemplate)
+        if (o instanceof crmf.CertTemplate)
         {
-            return (org.bouncycastle.asn1.crmf.CertTemplate)o;
+            return (crmf.CertTemplate)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.CertTemplate(ASN1Sequence.getInstance(o));
+            return new crmf.CertTemplate(ASN1Sequence.getInstance(o));
         }
 
         return null;

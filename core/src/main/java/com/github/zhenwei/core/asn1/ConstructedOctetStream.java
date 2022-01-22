@@ -2,9 +2,6 @@ package com.github.zhenwei.core.asn1;
 
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OctetStringParser;
-import org.bouncycastle.asn1.ASN1StreamParser;
 
 class ConstructedOctetStream
     extends InputStream

@@ -8,7 +8,6 @@ import javax.net.ssl.SSLSocket;
 import org.bouncycastle.est.LimitedSource;
 import org.bouncycastle.est.Source;
 import org.bouncycastle.est.TLSUniqueProvider;
-import org.bouncycastle.est.jcajce.ChannelBindingProvider;
 
 
 class LimitedSSLSocketSource

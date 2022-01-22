@@ -1,14 +1,14 @@
-package com.github.zhenwei.core.asn1.x509.sigi;
+package com.github.zhenwei.core.asn1.sigi;
+
+
+
+
+
+
+
+
 
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.DirectoryString;
 
 /**
  * Structure for a name or pseudonym.
@@ -23,7 +23,7 @@ import org.bouncycastle.asn1.x500.DirectoryString;
  *       }
  * </pre>
  * 
- * @see org.bouncycastle.asn1.x509.sigi.PersonalData
+ * @see sigi.PersonalData
  * 
  */
 public class NameOrPseudonym
@@ -36,21 +36,21 @@ public class NameOrPseudonym
 
     private ASN1Sequence givenName;
 
-    public static org.bouncycastle.asn1.x509.sigi.NameOrPseudonym getInstance(Object obj)
+    public static sigi.NameOrPseudonym getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.sigi.NameOrPseudonym)
+        if (obj == null || obj instanceof sigi.NameOrPseudonym)
         {
-            return (org.bouncycastle.asn1.x509.sigi.NameOrPseudonym)obj;
+            return (sigi.NameOrPseudonym)obj;
         }
 
         if (obj instanceof ASN1String)
         {
-            return new org.bouncycastle.asn1.x509.sigi.NameOrPseudonym(DirectoryString.getInstance(obj));
+            return new sigi.NameOrPseudonym(DirectoryString.getInstance(obj));
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.x509.sigi.NameOrPseudonym((ASN1Sequence)obj);
+            return new sigi.NameOrPseudonym((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "

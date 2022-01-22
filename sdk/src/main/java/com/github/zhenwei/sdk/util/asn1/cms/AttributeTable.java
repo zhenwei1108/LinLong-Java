@@ -1,15 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.Attributes;
 
 /**
  * This is helper tool to construct {@link Attributes} sets.
@@ -221,18 +219,18 @@ public class AttributeTable
      * @param attrValue the value corresponding to the attribute (will be wrapped in a SET).
      * @return a new table with the extra attribute in it.
      */
-    public org.bouncycastle.asn1.cms.AttributeTable add(ASN1ObjectIdentifier attrType, ASN1Encodable attrValue)
+    public cms.AttributeTable add(ASN1ObjectIdentifier attrType, ASN1Encodable attrValue)
     {
-        org.bouncycastle.asn1.cms.AttributeTable newTable = new org.bouncycastle.asn1.cms.AttributeTable(attributes);
+        cms.AttributeTable newTable = new cms.AttributeTable(attributes);
 
         newTable.addAttribute(attrType, new Attribute(attrType, new DERSet(attrValue)));
 
         return newTable;
     }
 
-    public org.bouncycastle.asn1.cms.AttributeTable remove(ASN1ObjectIdentifier attrType)
+    public cms.AttributeTable remove(ASN1ObjectIdentifier attrType)
     {
-        org.bouncycastle.asn1.cms.AttributeTable newTable = new org.bouncycastle.asn1.cms.AttributeTable(attributes);
+        cms.AttributeTable newTable = new cms.AttributeTable(attributes);
 
         newTable.attributes.remove(attrType);
 

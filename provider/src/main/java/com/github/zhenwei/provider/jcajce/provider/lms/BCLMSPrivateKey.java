@@ -1,19 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.lms;
 
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyFactory;
 import org.bouncycastle.pqc.crypto.util.PrivateKeyInfoFactory;
 import org.bouncycastle.pqc.jcajce.interfaces.LMSPrivateKey;
-import org.bouncycastle.util.Arrays;
+
+import pkcs.PrivateKeyInfo;
 
 public class BCLMSPrivateKey
     implements PrivateKey, LMSPrivateKey

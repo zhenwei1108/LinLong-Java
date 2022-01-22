@@ -1,5 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
+
+
+ 
+
+import ECGOST3410NamedCurves;
+import GOST3410PublicKeyAlgParameters;
 import java.math.BigInteger;
 import java.security.spec.ECField;
 import java.security.spec.ECFieldF2m;
@@ -11,27 +17,20 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
 import org.bouncycastle.math.field.PolynomialExtensionField;
-import org.bouncycastle.util.Arrays;
+
+import x9.ECNamedCurveTable;
+import x9.X962Parameters;
+import x9.X9ECParameters;
 
 public class EC5Util
 {
@@ -316,7 +315,7 @@ public class EC5Util
     {
         ECCurve curve = convertCurve(ecSpec.getCurve());
 
-        org.bouncycastle.math.ec.ECPoint g = convertPoint(curve, ecSpec.getGenerator());
+        ECPoint g = convertPoint(curve, ecSpec.getGenerator());
         BigInteger n = ecSpec.getOrder();
         BigInteger h = BigInteger.valueOf(ecSpec.getCofactor());
         byte[] seed = ecSpec.getCurve().getSeed();
@@ -332,12 +331,12 @@ public class EC5Util
         }
     }
 
-    public static org.bouncycastle.math.ec.ECPoint convertPoint(ECParameterSpec ecSpec, ECPoint point)
+    public static ECPoint convertPoint(ECParameterSpec ecSpec, ECPoint point)
     {
         return convertPoint(convertCurve(ecSpec.getCurve()), point);
     }
 
-    public static org.bouncycastle.math.ec.ECPoint convertPoint(ECCurve curve, ECPoint point)
+    public static ECPoint convertPoint(ECCurve curve, ECPoint point)
     {
         return curve.createPoint(point.getAffineX(), point.getAffineY());
     }

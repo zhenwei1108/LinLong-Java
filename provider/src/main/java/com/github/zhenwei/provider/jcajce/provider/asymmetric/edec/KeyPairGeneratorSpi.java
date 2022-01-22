@@ -1,15 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
+import edec.EdECObjectIdentifiers;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.generators.Ed25519KeyPairGenerator;
 import org.bouncycastle.crypto.generators.Ed448KeyPairGenerator;
 import org.bouncycastle.crypto.generators.X25519KeyPairGenerator;
@@ -18,10 +18,6 @@ import org.bouncycastle.crypto.params.Ed25519KeyGenerationParameters;
 import org.bouncycastle.crypto.params.Ed448KeyGenerationParameters;
 import org.bouncycastle.crypto.params.X25519KeyGenerationParameters;
 import org.bouncycastle.crypto.params.X448KeyGenerationParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.BCEdDSAPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.BCEdDSAPublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.BCXDHPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.BCXDHPublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.spec.EdDSAParameterSpec;
 import org.bouncycastle.jcajce.spec.XDHParameterSpec;

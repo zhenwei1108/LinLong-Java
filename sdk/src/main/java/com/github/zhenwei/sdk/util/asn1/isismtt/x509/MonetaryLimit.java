@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
  * Monetary limit for transactions. The QcEuMonetaryLimit QC statement MUST be
@@ -41,16 +41,16 @@ public class MonetaryLimit
     ASN1Integer amount;
     ASN1Integer exponent;
 
-    public static org.bouncycastle.asn1.isismtt.x509.MonetaryLimit getInstance(Object obj)
+    public static MonetaryLimit getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.x509.MonetaryLimit)
+        if (obj == null || obj instanceof MonetaryLimit)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.MonetaryLimit)obj;
+            return  (MonetaryLimit)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.MonetaryLimit(ASN1Sequence.getInstance(obj));
+            return new MonetaryLimit(ASN1Sequence.getInstance(obj));
         }
 
         throw new IllegalArgumentException("unknown object in getInstance");

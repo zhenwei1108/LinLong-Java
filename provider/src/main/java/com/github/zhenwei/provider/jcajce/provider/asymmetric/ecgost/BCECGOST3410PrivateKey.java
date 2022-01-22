@@ -1,5 +1,21 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
+
+
+
+
+
+
+
+
+import DERBitString;
+
+
+
+
+
+import ECGOST3410NamedCurves;
+import GOST3410PublicKeyAlgParameters;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -9,38 +25,21 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPrivateKeySpec;
 import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.ecgost.BCECGOST3410PublicKey;
+ 
+
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.ec.ECCurve;
+import pkcs.PrivateKeyInfo;
+import x9.X962Parameters;
+import x9.X9ECParameters;
+import x9.X9ECPoint;
 
 public class BCECGOST3410PrivateKey
     implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder
@@ -282,7 +281,7 @@ public class BCECGOST3410PrivateKey
             }
             else
             {
-                org.bouncycastle.asn1.sec.ECPrivateKey ec = org.bouncycastle.asn1.sec.ECPrivateKey.getInstance(privKey);
+                sec.ECPrivateKey ec = sec.ECPrivateKey.getInstance(privKey);
 
                 this.d = ec.getKey();
                 this.publicKey = ec.getPublicKey();
@@ -366,15 +365,15 @@ public class BCECGOST3410PrivateKey
             }
 
             PrivateKeyInfo info;
-            org.bouncycastle.asn1.sec.ECPrivateKey keyStructure;
+            sec.ECPrivateKey keyStructure;
 
             if (publicKey != null)
             {
-                keyStructure = new org.bouncycastle.asn1.sec.ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
+                keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
             }
             else
             {
-                keyStructure = new org.bouncycastle.asn1.sec.ECPrivateKey(orderBitLength, this.getS(), params);
+                keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), params);
             }
 
             try

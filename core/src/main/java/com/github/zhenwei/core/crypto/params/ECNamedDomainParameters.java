@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.crypto.params;
 
+
+
+
+ 
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import x9.X9ECParameters;
 
 public class ECNamedDomainParameters
     extends ECDomainParameters

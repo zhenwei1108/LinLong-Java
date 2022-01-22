@@ -1,14 +1,14 @@
-package com.github.zhenwei.core.asn1.x509.qualified;
+package com.github.zhenwei.core.asn1.qualified;
+
+
+
+
+
+
 
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode;
+import qualified.Iso4217CurrencyCode;
 
 /**
  * The MonetaryValue object.
@@ -27,17 +27,17 @@ public class MonetaryValue
     private ASN1Integer         amount;
     private ASN1Integer         exponent;
         
-    public static org.bouncycastle.asn1.x509.qualified.MonetaryValue getInstance(
+    public static qualified.MonetaryValue getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.qualified.MonetaryValue)
+        if (obj instanceof qualified.MonetaryValue)
         {
-            return (org.bouncycastle.asn1.x509.qualified.MonetaryValue)obj;
+            return (qualified.MonetaryValue)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.qualified.MonetaryValue(ASN1Sequence.getInstance(obj));
+            return new qualified.MonetaryValue(ASN1Sequence.getInstance(obj));
         }
         
         return null;

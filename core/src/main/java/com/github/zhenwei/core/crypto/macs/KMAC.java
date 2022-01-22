@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.crypto.macs;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.CSHAKEDigest;
 import org.bouncycastle.crypto.digests.XofUtils;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
  * KMAC - MAC with optional XOF mode.

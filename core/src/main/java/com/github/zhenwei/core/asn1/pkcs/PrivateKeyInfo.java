@@ -1,23 +1,23 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+import ASN1BitString;
+
+
+
+
+
+
+
+
+
+
+import DERBitString;
+
+
+
 import java.io.IOException;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * RFC 5958
@@ -65,20 +65,20 @@ public class PrivateKeyInfo
     private ASN1Set attributes;
     private ASN1BitString publicKey;
 
-    public static org.bouncycastle.asn1.pkcs.PrivateKeyInfo getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static pkcs.PrivateKeyInfo getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.pkcs.PrivateKeyInfo getInstance(Object obj)
+    public static pkcs.PrivateKeyInfo getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.PrivateKeyInfo)
+        if (obj instanceof pkcs.PrivateKeyInfo)
         {
-            return (org.bouncycastle.asn1.pkcs.PrivateKeyInfo)obj;
+            return (pkcs.PrivateKeyInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.PrivateKeyInfo(ASN1Sequence.getInstance(obj));
+            return new pkcs.PrivateKeyInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

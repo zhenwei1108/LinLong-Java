@@ -1,21 +1,15 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERGeneralizedTime;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
 
 /**
  * Base class representing the ASN.1 GeneralizedTime type.
@@ -51,7 +45,7 @@ public class ASN1GeneralizedTime
     extends ASN1Primitive
 {
     static final ASN1UniversalType TYPE = new ASN1UniversalType(
-        org.bouncycastle.asn1.ASN1GeneralizedTime.class, BERTags.GENERALIZED_TIME)
+        ASN1GeneralizedTime.class, BERTags.GENERALIZED_TIME)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -66,26 +60,26 @@ public class ASN1GeneralizedTime
      * @return an ASN1GeneralizedTime instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.ASN1GeneralizedTime getInstance(
+    public static ASN1GeneralizedTime getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1GeneralizedTime)
+        if (obj == null || obj instanceof ASN1GeneralizedTime)
         {
-            return (org.bouncycastle.asn1.ASN1GeneralizedTime)obj;
+            return (ASN1GeneralizedTime)obj;
         }
         if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1GeneralizedTime)
+            if (primitive instanceof ASN1GeneralizedTime)
             {
-                return (org.bouncycastle.asn1.ASN1GeneralizedTime)primitive;
+                return (ASN1GeneralizedTime)primitive;
             }
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1GeneralizedTime)TYPE.fromByteArray((byte[])obj);
+                return (ASN1GeneralizedTime)TYPE.fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -105,9 +99,9 @@ public class ASN1GeneralizedTime
      * @return an ASN1GeneralizedTime instance.
      * @throws IllegalArgumentException if the tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.ASN1GeneralizedTime getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1GeneralizedTime getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1GeneralizedTime)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1GeneralizedTime)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     final byte[] contents;
@@ -476,12 +470,12 @@ public class ASN1GeneralizedTime
 
     boolean asn1Equals(ASN1Primitive o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1GeneralizedTime))
+        if (!(o instanceof ASN1GeneralizedTime))
         {
             return false;
         }
 
-        return Arrays.areEqual(contents, ((org.bouncycastle.asn1.ASN1GeneralizedTime)o).contents);
+        return Arrays.areEqual(contents, ((ASN1GeneralizedTime)o).contents);
     }
 
     public int hashCode()
@@ -489,8 +483,8 @@ public class ASN1GeneralizedTime
         return Arrays.hashCode(contents);
     }
 
-    static org.bouncycastle.asn1.ASN1GeneralizedTime createPrimitive(byte[] contents)
+    static ASN1GeneralizedTime createPrimitive(byte[] contents)
     {
-        return new org.bouncycastle.asn1.ASN1GeneralizedTime(contents);
+        return new ASN1GeneralizedTime(contents);
     }
 }

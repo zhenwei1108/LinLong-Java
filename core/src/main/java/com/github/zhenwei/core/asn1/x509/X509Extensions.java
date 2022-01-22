@@ -1,19 +1,17 @@
 package com.github.zhenwei.core.asn1.x509;
 
+import ASN1Boolean;
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.X509Extension;
 
 /**
  * @deprecated use {@link Extensions}
@@ -210,29 +208,29 @@ public class X509Extensions
     private Hashtable               extensions = new Hashtable();
     private Vector                  ordering = new Vector();
 
-    public static org.bouncycastle.asn1.x509.X509Extensions getInstance(
+    public static X509Extensions getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.X509Extensions getInstance(
+    public static X509Extensions getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.X509Extensions)
+        if (obj == null || obj instanceof X509Extensions)
         {
-            return (org.bouncycastle.asn1.x509.X509Extensions)obj;
+            return (X509Extensions)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.x509.X509Extensions((ASN1Sequence)obj);
+            return new X509Extensions((ASN1Sequence)obj);
         }
 
         if (obj instanceof Extensions)
         {
-            return new org.bouncycastle.asn1.x509.X509Extensions((ASN1Sequence)((Extensions)obj).toASN1Primitive());
+            return new X509Extensions((ASN1Sequence)((Extensions)obj).toASN1Primitive());
         }
 
         if (obj instanceof ASN1TaggedObject)
@@ -412,7 +410,7 @@ public class X509Extensions
     }
 
     public boolean equivalent(
-        org.bouncycastle.asn1.x509.X509Extensions other)
+        X509Extensions other)
     {
         if (extensions.size() != other.extensions.size())
         {

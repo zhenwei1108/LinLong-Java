@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
+
 
 public class Attribute
     extends ASN1Object
@@ -21,17 +21,17 @@ public class Attribute
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.x509.Attribute getInstance(
+    public static Attribute getInstance(
         Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.x509.Attribute)
+        if (o instanceof Attribute)
         {
-            return (org.bouncycastle.asn1.x509.Attribute)o;
+            return (Attribute)o;
         }
         
         if (o != null)
         {
-            return new org.bouncycastle.asn1.x509.Attribute(ASN1Sequence.getInstance(o));
+            return new Attribute(ASN1Sequence.getInstance(o));
         }
 
         return null;

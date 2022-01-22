@@ -1,21 +1,19 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
+import ASN1Boolean;
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
+
+import Extensions;
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.tsp.Accuracy;
-import org.bouncycastle.asn1.tsp.MessageImprint;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 public class TSTInfo
     extends ASN1Object
@@ -31,15 +29,15 @@ public class TSTInfo
     private GeneralName tsa;
     private Extensions extensions;
 
-    public static org.bouncycastle.asn1.tsp.TSTInfo getInstance(Object o)
+    public static tsp.TSTInfo getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.tsp.TSTInfo)
+        if (o instanceof tsp.TSTInfo)
         {
-            return (org.bouncycastle.asn1.tsp.TSTInfo)o;
+            return (tsp.TSTInfo)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.tsp.TSTInfo(ASN1Sequence.getInstance(o));
+            return new tsp.TSTInfo(ASN1Sequence.getInstance(o));
         }
 
         return null;

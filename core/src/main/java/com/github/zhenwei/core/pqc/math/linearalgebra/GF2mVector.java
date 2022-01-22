@@ -5,7 +5,7 @@ import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
 import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
 import org.bouncycastle.pqc.math.linearalgebra.Permutation;
 import org.bouncycastle.pqc.math.linearalgebra.Vector;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class implements vectors over the finite field

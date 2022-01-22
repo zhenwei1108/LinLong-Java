@@ -1,16 +1,13 @@
 package com.github.zhenwei.pkix.cms;
 
+import cms.OriginatorInfo;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.cms.OriginatorInfo;
-import org.bouncycastle.asn1.kisa.KISAObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.ntt.NTTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.OriginatorInformation;
-import org.bouncycastle.cms.RecipientInfoGenerator;
+import kisa.KISAObjectIdentifiers;
+
+
+
+import x9.X9ObjectIdentifiers;
 
 /**
  * General class for generating a CMS enveloped-data message.

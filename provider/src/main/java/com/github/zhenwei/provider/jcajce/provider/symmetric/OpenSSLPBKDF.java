@@ -10,7 +10,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
-import org.bouncycastle.util.Strings;
+
 
 public final class OpenSSLPBKDF
 {

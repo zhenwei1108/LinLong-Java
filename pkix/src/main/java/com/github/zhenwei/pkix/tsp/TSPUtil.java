@@ -1,5 +1,19 @@
 package com.github.zhenwei.pkix.tsp;
 
+
+
+
+
+import ExtendedKeyUsage;
+
+import Extensions;
+import ExtensionsGenerator;
+import KeyPurposeId;
+
+import cms.AttributeTable;
+import cms.ContentInfo;
+
+import gm.GMObjectIdentifiers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -8,37 +22,18 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.ExtendedKeyUsage;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.ExtensionsGenerator;
-import org.bouncycastle.asn1.x509.KeyPurposeId;
-import org.bouncycastle.cert.X509CertificateHolder;
+
+
+ 
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.TSPIOException;
-import org.bouncycastle.tsp.TSPValidationException;
-import org.bouncycastle.tsp.TimeStampToken;
-import org.bouncycastle.tsp.TimeStampTokenInfo;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Integers;
+
+ 
+
+import rosstandart.RosstandartObjectIdentifiers;
+import teletrust.TeleTrusTObjectIdentifiers;
 
 public class TSPUtil
 {

@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.math.ec;
 
-import org.bouncycastle.math.ec.PreCompInfo;
+import PreCompInfo;
 
 class ValidityPrecompInfo implements PreCompInfo
 {

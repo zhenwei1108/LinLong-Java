@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.KeySpec;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Key Spec class for generating TLS key/iv material.

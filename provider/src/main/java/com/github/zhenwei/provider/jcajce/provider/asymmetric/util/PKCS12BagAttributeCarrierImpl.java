@@ -1,5 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
+
+ 
+
+import ASN1OutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -7,11 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
+
 
 public class PKCS12BagAttributeCarrierImpl
     implements PKCS12BagAttributeCarrier

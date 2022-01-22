@@ -1,8 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.x500.DirectoryString;
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.x500.DirectoryString;
 
 /**
  * Some other restriction regarding the usage of this certificate.
@@ -16,16 +17,16 @@ public class Restriction
 {
     private DirectoryString restriction;
 
-    public static org.bouncycastle.asn1.isismtt.x509.Restriction getInstance(Object obj)
+    public static Restriction getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.isismtt.x509.Restriction)
+        if (obj instanceof Restriction)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.Restriction)obj;
+            return  (Restriction)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.Restriction(DirectoryString.getInstance(obj));
+            return new Restriction(DirectoryString.getInstance(obj));
         }
 
         return null;

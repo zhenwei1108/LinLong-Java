@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.operator.bc;
 
-import org.bouncycastle.asn1.kisa.KISAObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+import kisa.KISAObjectIdentifiers;
 
 class SEEDUtil
 {

@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.util.Arrays;
+
 
 public class UserKeyingMaterialSpec
     implements AlgorithmParameterSpec

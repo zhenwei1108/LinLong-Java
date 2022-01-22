@@ -1,11 +1,9 @@
 package com.github.zhenwei.pkix.its;
 
+
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
+
 import org.bouncycastle.its.operator.ECDSAEncoder;
 import org.bouncycastle.its.operator.ITSContentSigner;
 import org.bouncycastle.oer.OEREncoder;
@@ -21,7 +19,9 @@ import org.bouncycastle.oer.its.Signature;
 import org.bouncycastle.oer.its.ToBeSignedCertificate;
 import org.bouncycastle.oer.its.VerificationKeyIndicator;
 import org.bouncycastle.oer.its.template.IEEE1609dot2;
-import org.bouncycastle.util.Arrays;
+
+import sec.SECObjectIdentifiers;
+import teletrust.TeleTrusTObjectIdentifiers;
 
 public class ITSExplicitCertificateBuilder
     extends ITSCertificateBuilder

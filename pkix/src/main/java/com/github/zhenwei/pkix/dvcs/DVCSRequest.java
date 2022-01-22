@@ -1,22 +1,14 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.SignedData;
-import org.bouncycastle.asn1.dvcs.DVCSObjectIdentifiers;
-import org.bouncycastle.asn1.dvcs.ServiceType;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+import DVCSObjectIdentifiers;
+
+import ServiceType;
+import cms.ContentInfo;
+import cms.SignedData;
 import org.bouncycastle.cms.CMSSignedData;
-import org.bouncycastle.dvcs.CCPDRequestData;
-import org.bouncycastle.dvcs.CPDRequestData;
-import org.bouncycastle.dvcs.DVCSConstructionException;
-import org.bouncycastle.dvcs.DVCSMessage;
-import org.bouncycastle.dvcs.DVCSRequestData;
-import org.bouncycastle.dvcs.DVCSRequestInfo;
-import org.bouncycastle.dvcs.VPKCRequestData;
-import org.bouncycastle.dvcs.VSDRequestData;
 
 /**
  * DVCRequest is general request to DVCS (RFC 3029).
@@ -26,7 +18,7 @@ import org.bouncycastle.dvcs.VSDRequestData;
 public class DVCSRequest
     extends DVCSMessage
 {
-    private org.bouncycastle.asn1.dvcs.DVCSRequest asn1;
+    private DVCSRequest asn1;
     private DVCSRequestInfo reqInfo;
     private DVCSRequestData data;
 
@@ -62,11 +54,11 @@ public class DVCSRequest
         {
             if (contentInfo.getContent().toASN1Primitive() instanceof ASN1Sequence)
             {
-                this.asn1 = org.bouncycastle.asn1.dvcs.DVCSRequest.getInstance(contentInfo.getContent());
+                this.asn1 = DVCSRequest.getInstance(contentInfo.getContent());
             }
             else
             {
-                this.asn1 = org.bouncycastle.asn1.dvcs.DVCSRequest.getInstance(ASN1OctetString.getInstance(contentInfo.getContent()).getOctets());
+                this.asn1 = DVCSRequest.getInstance(ASN1OctetString.getInstance(contentInfo.getContent()).getOctets());
             }
         }
         catch (Exception e)
@@ -102,7 +94,7 @@ public class DVCSRequest
     /**
      * Return the ASN.1 DVCSRequest structure making up the body of this request.
      *
-     * @return an org.bouncycastle.asn1.dvcs.DVCSRequest object.
+     * @return an DVCSRequest object.
      */
     public ASN1Encodable getContent()
     {

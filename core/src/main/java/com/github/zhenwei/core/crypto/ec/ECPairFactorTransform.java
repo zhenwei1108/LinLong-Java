@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.ec;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.ec.ECPairTransform;
 
 public interface ECPairFactorTransform
     extends ECPairTransform

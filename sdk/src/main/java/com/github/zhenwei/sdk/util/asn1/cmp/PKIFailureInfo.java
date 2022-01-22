@@ -1,6 +1,6 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.DERBitString;
+import DERBitString;
 
 /**
  * <pre>

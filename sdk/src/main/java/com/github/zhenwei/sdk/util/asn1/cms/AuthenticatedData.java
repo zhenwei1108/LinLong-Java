@@ -1,19 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.OriginatorInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-9.1">RFC 5652</a> section 9.1:
@@ -135,7 +133,7 @@ public class AuthenticatedData
      * @throws IllegalArgumentException if the object held by the
      *                                  tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.AuthenticatedData getInstance(
+    public static cms.AuthenticatedData getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
@@ -148,7 +146,7 @@ public class AuthenticatedData
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.AuthenticatedData} object
+     * <li> {@link cms.AuthenticatedData} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with AuthenticatedData structure inside
      * </ul>
      *
@@ -156,16 +154,16 @@ public class AuthenticatedData
      * @return a reference that can be assigned to AuthenticatedData (may be null)
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.AuthenticatedData getInstance(
+    public static cms.AuthenticatedData getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.AuthenticatedData)
+        if (obj instanceof cms.AuthenticatedData)
         {
-            return (org.bouncycastle.asn1.cms.AuthenticatedData)obj;
+            return (cms.AuthenticatedData)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.AuthenticatedData(ASN1Sequence.getInstance(obj));
+            return new cms.AuthenticatedData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

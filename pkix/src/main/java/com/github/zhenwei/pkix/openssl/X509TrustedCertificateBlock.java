@@ -1,11 +1,10 @@
 package com.github.zhenwei.pkix.openssl;
 
+ 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.openssl.CertificateTrustBlock;
-import org.bouncycastle.util.Arrays;
+ 
+
 
 /**
  * Holder for an OpenSSL trusted certificate block.

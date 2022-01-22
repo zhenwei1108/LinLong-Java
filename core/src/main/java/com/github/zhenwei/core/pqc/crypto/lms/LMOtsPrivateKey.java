@@ -4,10 +4,7 @@ import static org.bouncycastle.pqc.crypto.lms.LM_OTS.D_MESG;
 import static org.bouncycastle.pqc.crypto.lms.LM_OTS.SEED_LEN;
 import static org.bouncycastle.pqc.crypto.lms.LM_OTS.SEED_RANDOMISER_INDEX;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
+
 
 class LMOtsPrivateKey
 {

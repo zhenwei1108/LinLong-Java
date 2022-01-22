@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
+
+
+import BERTaggedObject;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.1">RFC 5652</a> EncryptedContentInfo object.
@@ -63,23 +63,23 @@ public class EncryptedContentInfo
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.EncryptedContentInfo} object
+     * <li> {@link cms.EncryptedContentInfo} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.EncryptedContentInfo getInstance(
+    public static cms.EncryptedContentInfo getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.EncryptedContentInfo)
+        if (obj instanceof cms.EncryptedContentInfo)
         {
-            return (org.bouncycastle.asn1.cms.EncryptedContentInfo)obj;
+            return (cms.EncryptedContentInfo)obj;
         }
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.EncryptedContentInfo(ASN1Sequence.getInstance(obj));
+            return new cms.EncryptedContentInfo(ASN1Sequence.getInstance(obj));
         }
         
         return null;

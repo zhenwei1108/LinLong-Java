@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 
 public class DHMQVPublicParameters

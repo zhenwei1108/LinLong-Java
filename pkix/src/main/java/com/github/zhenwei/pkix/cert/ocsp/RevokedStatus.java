@@ -1,10 +1,9 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+import ASN1GeneralizedTime;
+import CRLReason;
 import java.util.Date;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ocsp.RevokedInfo;
-import org.bouncycastle.asn1.x509.CRLReason;
-import org.bouncycastle.cert.ocsp.CertificateStatus;
+import ocsp.RevokedInfo;
 
 /**
  * wrapper for the RevokedInfo object

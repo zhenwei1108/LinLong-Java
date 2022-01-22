@@ -3,18 +3,8 @@ package com.github.zhenwei.core.asn1;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1ParsingException;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DLBitString;
-import org.bouncycastle.util.Arrays;
+import java.util.Arrays;
+
 
 /**
  * Base class for BIT STRING objects
@@ -23,7 +13,7 @@ public abstract class ASN1BitString
     extends ASN1Primitive
     implements ASN1String, ASN1BitStringParser
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1BitString.class, BERTags.BIT_STRING)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1BitString.class, BERTags.BIT_STRING)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -36,26 +26,26 @@ public abstract class ASN1BitString
         }
     };
 
-    public static org.bouncycastle.asn1.ASN1BitString getInstance(Object obj)
+    public static ASN1BitString getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1BitString)
+        if (obj == null || obj instanceof ASN1BitString)
         {
-            return (org.bouncycastle.asn1.ASN1BitString)obj;
+            return (ASN1BitString)obj;
         }
 //      else if (obj instanceof ASN1BitStringParser)
         else if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1BitString)
+            if (primitive instanceof ASN1BitString)
             {
-                return (org.bouncycastle.asn1.ASN1BitString)primitive;
+                return (ASN1BitString)primitive;
             }
         }
         else if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1BitString)TYPE.fromByteArray((byte[])obj);
+                return (ASN1BitString)TYPE.fromByteArray((byte[])obj);
             }
             catch (IOException e)
             {
@@ -66,9 +56,9 @@ public abstract class ASN1BitString
         throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.ASN1BitString getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1BitString getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1BitString)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1BitString)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     private static final char[]  table = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
@@ -351,12 +341,12 @@ public abstract class ASN1BitString
 
     boolean asn1Equals(ASN1Primitive other)
     {
-        if (!(other instanceof org.bouncycastle.asn1.ASN1BitString))
+        if (!(other instanceof ASN1BitString))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1BitString that = (org.bouncycastle.asn1.ASN1BitString)other;
+        ASN1BitString that = (ASN1BitString)other;
         byte[] thisContents = this.contents, thatContents = that.contents;
 
         int length = thisContents.length;
@@ -400,7 +390,7 @@ public abstract class ASN1BitString
         return new DLBitString(contents, false);
     }
 
-    static org.bouncycastle.asn1.ASN1BitString createPrimitive(byte[] contents)
+    static ASN1BitString createPrimitive(byte[] contents)
     {
         int length = contents.length;
         if (length < 1)

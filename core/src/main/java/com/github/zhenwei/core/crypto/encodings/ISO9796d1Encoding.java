@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.encodings;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.RSAKeyParameters;

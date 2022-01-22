@@ -1,25 +1,19 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
+
+
+
+import crmf.AttributeTypeAndValue;
+import crmf.CRMFObjectIdentifiers;
+import crmf.CertReqMsg;
+import crmf.CertTemplate;
+import crmf.Controls;
+import crmf.PKIArchiveOptions;
+import crmf.PKMACValue;
+import crmf.POPOSigningKey;
+import crmf.ProofOfPossession;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.crmf.AttributeTypeAndValue;
-import org.bouncycastle.asn1.crmf.CRMFObjectIdentifiers;
-import org.bouncycastle.asn1.crmf.CertReqMsg;
-import org.bouncycastle.asn1.crmf.CertTemplate;
-import org.bouncycastle.asn1.crmf.Controls;
-import org.bouncycastle.asn1.crmf.PKIArchiveOptions;
-import org.bouncycastle.asn1.crmf.PKMACValue;
-import org.bouncycastle.asn1.crmf.POPOSigningKey;
-import org.bouncycastle.asn1.crmf.ProofOfPossession;
 import org.bouncycastle.cert.CertIOException;
-import org.bouncycastle.cert.crmf.AuthenticatorControl;
-import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.cert.crmf.Control;
-import org.bouncycastle.cert.crmf.PKIArchiveControl;
-import org.bouncycastle.cert.crmf.PKMACBuilder;
-import org.bouncycastle.cert.crmf.RegTokenControl;
 import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.OperatorCreationException;

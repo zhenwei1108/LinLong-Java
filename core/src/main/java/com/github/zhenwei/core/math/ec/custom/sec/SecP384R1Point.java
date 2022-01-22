@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.custom.sec.SecP384R1Field;
-import org.bouncycastle.math.ec.custom.sec.SecP384R1FieldElement;
-import org.bouncycastle.math.raw.Nat;
+
+
+ 
+import SecP384R1Field;
+
 import org.bouncycastle.math.raw.Nat384;
 
 public class SecP384R1Point extends ECPoint.AbstractFp
@@ -22,7 +21,7 @@ public class SecP384R1Point extends ECPoint.AbstractFp
 
     protected ECPoint detach()
     {
-        return new org.bouncycastle.math.ec.custom.sec.SecP384R1Point(null, getAffineXCoord(), getAffineYCoord());
+        return new SecP384R1Point(null, getAffineXCoord(), getAffineYCoord());
     }
 
     public ECPoint add(ECPoint b)
@@ -148,7 +147,7 @@ public class SecP384R1Point extends ECPoint.AbstractFp
 
         ECFieldElement[] zs = new ECFieldElement[]{ Z3 };
 
-        return new org.bouncycastle.math.ec.custom.sec.SecP384R1Point(curve, X3, Y3, zs);
+        return new SecP384R1Point(curve, X3, Y3, zs);
     }
 
     public ECPoint twice()
@@ -220,7 +219,7 @@ public class SecP384R1Point extends ECPoint.AbstractFp
             SecP384R1Field.multiply(Z3.x, Z1.x, Z3.x);
         }
 
-        return new org.bouncycastle.math.ec.custom.sec.SecP384R1Point(curve, X3, Y3, new ECFieldElement[]{ Z3 });
+        return new SecP384R1Point(curve, X3, Y3, new ECFieldElement[]{ Z3 });
     }
 
     public ECPoint twicePlus(ECPoint b)
@@ -265,6 +264,6 @@ public class SecP384R1Point extends ECPoint.AbstractFp
             return this;
         }
 
-        return new org.bouncycastle.math.ec.custom.sec.SecP384R1Point(curve, this.x, this.y.negate(), this.zs);
+        return new SecP384R1Point(curve, this.x, this.y.negate(), this.zs);
     }
 }

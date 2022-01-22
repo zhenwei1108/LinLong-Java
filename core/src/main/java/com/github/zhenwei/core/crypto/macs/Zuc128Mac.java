@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.macs;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.engines.Zuc128CoreEngine;
 

@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 public interface X509ObjectIdentifiers
 {
     /** Subject RDN components: commonName = 2.5.4.3 */
-    static final ASN1ObjectIdentifier    commonName              = new ASN1ObjectIdentifier("2.5.4.3").intern();
+    static final ASN1ObjectIdentifier commonName              = new ASN1ObjectIdentifier("2.5.4.3").intern();
     /** Subject RDN components: countryName = 2.5.4.6 */
     static final ASN1ObjectIdentifier    countryName             = new ASN1ObjectIdentifier("2.5.4.6").intern();
     /** Subject RDN components: localityName = 2.5.4.7 */

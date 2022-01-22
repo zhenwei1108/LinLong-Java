@@ -1,29 +1,23 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+
+import BERSet;
+
+
+import cms.AuthenticatedData;
+import cms.CMSObjectIdentifiers;
+import cms.ContentInfo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.BEROctetString;
-import org.bouncycastle.asn1.BERSet;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.cms.AuthenticatedData;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSAuthenticatedData;
-import org.bouncycastle.cms.CMSAuthenticatedGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedData;
-import org.bouncycastle.cms.DefaultAuthenticatedAttributeTableGenerator;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.MacCalculator;

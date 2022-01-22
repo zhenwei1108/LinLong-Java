@@ -1,20 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.Attributes;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.SignedData;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.tsp.PartialHashtree;
-import org.bouncycastle.asn1.tsp.TSTInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
+
+import cms.Attributes;
+import cms.CMSObjectIdentifiers;
+import cms.ContentInfo;
+import cms.SignedData;
+
 
 /**
  * Implementation of the Archive Timestamp type defined in RFC4998.
@@ -47,15 +45,15 @@ public class ArchiveTimeStamp
      * @return an ArchiveTimestamp instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.tsp.ArchiveTimeStamp getInstance(final Object obj)
+    public static tsp.ArchiveTimeStamp getInstance(final Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.tsp.ArchiveTimeStamp)
+        if (obj instanceof tsp.ArchiveTimeStamp)
         {
-            return (org.bouncycastle.asn1.tsp.ArchiveTimeStamp)obj;
+            return (tsp.ArchiveTimeStamp)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.tsp.ArchiveTimeStamp(ASN1Sequence.getInstance(obj));
+            return new tsp.ArchiveTimeStamp(ASN1Sequence.getInstance(obj));
         }
 
         return null;

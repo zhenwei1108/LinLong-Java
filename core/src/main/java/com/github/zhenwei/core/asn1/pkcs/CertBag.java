@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
+
+
+
+
+
+
+
+
+
 
 public class CertBag
     extends ASN1Object
@@ -23,15 +23,15 @@ public class CertBag
         this.certValue = ASN1TaggedObject.getInstance(seq.getObjectAt(1)).getObject();
     }
 
-    public static org.bouncycastle.asn1.pkcs.CertBag getInstance(Object o)
+    public static pkcs.CertBag getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.pkcs.CertBag)
+        if (o instanceof pkcs.CertBag)
         {
-            return (org.bouncycastle.asn1.pkcs.CertBag)o;
+            return (pkcs.CertBag)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.pkcs.CertBag(ASN1Sequence.getInstance(o));
+            return new pkcs.CertBag(ASN1Sequence.getInstance(o));
         }
 
         return null;

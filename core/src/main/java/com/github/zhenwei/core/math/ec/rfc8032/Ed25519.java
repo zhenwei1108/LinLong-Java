@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.math.ec.rfc8032;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.math.ec.rfc7748.X25519;
-import org.bouncycastle.math.ec.rfc7748.X25519Field;
-import org.bouncycastle.math.raw.Interleave;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat256;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+import rfc7748.X25519;
+import rfc7748.X25519Field;
 
 public abstract class Ed25519
 {

@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
+
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -9,14 +10,12 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCipher;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.McElieceKeysToParams;
 import org.bouncycastle.pqc.jcajce.provider.util.AsymmetricBlockCipher;
+
 
 public class McEliecePKCSCipherSpi
     extends AsymmetricBlockCipher

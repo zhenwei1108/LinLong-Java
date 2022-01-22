@@ -1,16 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.CertOrEncCert;
-import org.bouncycastle.asn1.crmf.EncryptedKey;
-import org.bouncycastle.asn1.crmf.EncryptedValue;
-import org.bouncycastle.asn1.crmf.PKIPublicationInfo;
+
+
+
+
+
+
+
+import crmf.EncryptedKey;
+import crmf.EncryptedValue;
+import crmf.PKIPublicationInfo;
 
 /**
  * <pre>
@@ -55,16 +54,16 @@ public class CertifiedKeyPair
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.CertifiedKeyPair getInstance(Object o)
+    public static cmp.CertifiedKeyPair getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CertifiedKeyPair)
+        if (o instanceof cmp.CertifiedKeyPair)
         {
-            return (org.bouncycastle.asn1.cmp.CertifiedKeyPair)o;
+            return (cmp.CertifiedKeyPair)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.CertifiedKeyPair(ASN1Sequence.getInstance(o));
+            return new cmp.CertifiedKeyPair(ASN1Sequence.getInstance(o));
         }
 
         return null;

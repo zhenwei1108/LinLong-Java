@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms.ecc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.OriginatorPublicKey;
+
+
+
+
+
+
+
+
+import cms.OriginatorPublicKey;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5753">RFC 5753/3278</a>: MQVuserKeyingMaterial object.
@@ -64,7 +64,7 @@ public class MQVuserKeyingMaterial
      * @throws IllegalArgumentException if the object held by the
      *                                  tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial getInstance(
+    public static cms.ecc.MQVuserKeyingMaterial getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
@@ -77,23 +77,23 @@ public class MQVuserKeyingMaterial
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial} object
+     * <li> {@link cms.ecc.MQVuserKeyingMaterial} object
      * <li> {@link ASN1Sequence ASN1Sequence} with MQVuserKeyingMaterial inside it.
      * </ul>
      *
      * @param obj the object we want converted.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial getInstance(
+    public static cms.ecc.MQVuserKeyingMaterial getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial)
+        if (obj instanceof cms.ecc.MQVuserKeyingMaterial)
         {
-            return (org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial)obj;
+            return (cms.ecc.MQVuserKeyingMaterial)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial(ASN1Sequence.getInstance(obj));
+            return new cms.ecc.MQVuserKeyingMaterial(ASN1Sequence.getInstance(obj));
         }
 
         return null;

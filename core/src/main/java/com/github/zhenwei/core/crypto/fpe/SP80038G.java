@@ -2,9 +2,9 @@ package com.github.zhenwei.core.crypto.fpe;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Pack;
+
+ 
+
 
 /*
  * SP800-38G Format-Preserving Encryption

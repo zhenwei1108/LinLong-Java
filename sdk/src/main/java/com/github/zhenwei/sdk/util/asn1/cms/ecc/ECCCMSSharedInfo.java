@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cms.ecc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -73,23 +73,23 @@ public class ECCCMSSharedInfo
      * @throws IllegalArgumentException if the object held by the
      *                                  tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.ecc.ECCCMSSharedInfo getInstance(
+    public static cms.ecc.ECCCMSSharedInfo getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.cms.ecc.ECCCMSSharedInfo getInstance(
+    public static cms.ecc.ECCCMSSharedInfo getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.ecc.ECCCMSSharedInfo)
+        if (obj instanceof cms.ecc.ECCCMSSharedInfo)
         {
-            return (org.bouncycastle.asn1.cms.ecc.ECCCMSSharedInfo)obj;
+            return (cms.ecc.ECCCMSSharedInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.ecc.ECCCMSSharedInfo(ASN1Sequence.getInstance(obj));
+            return new cms.ecc.ECCCMSSharedInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

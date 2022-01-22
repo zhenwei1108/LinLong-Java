@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.DerivationParameters;
-import org.bouncycastle.util.Arrays;
+
+
 
 /**
  * Note that counter is only supported at the location presented in the

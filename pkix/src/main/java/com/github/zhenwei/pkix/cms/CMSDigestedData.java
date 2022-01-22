@@ -1,20 +1,17 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+import cms.ContentInfo;
+import cms.DigestedData;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.DigestedData;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessable;
-import org.bouncycastle.cms.CMSProcessableByteArray;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.Encodable;
 
 /**

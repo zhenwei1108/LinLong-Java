@@ -1,12 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIBody;
-import org.bouncycastle.asn1.cmp.PKIHeader;
+
+
+
+
+
 
 public class ProtectedPart
     extends ASN1Object
@@ -20,16 +18,16 @@ public class ProtectedPart
         body = PKIBody.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.cmp.ProtectedPart getInstance(Object o)
+    public static cmp.ProtectedPart getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.ProtectedPart)
+        if (o instanceof cmp.ProtectedPart)
         {
-            return (org.bouncycastle.asn1.cmp.ProtectedPart)o;
+            return (cmp.ProtectedPart)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.ProtectedPart(ASN1Sequence.getInstance(o));
+            return new cmp.ProtectedPart(ASN1Sequence.getInstance(o));
         }
 
         return null;

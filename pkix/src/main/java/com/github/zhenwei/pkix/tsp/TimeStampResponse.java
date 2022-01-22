@@ -1,25 +1,20 @@
 package com.github.zhenwei.pkix.tsp;
 
+
+
+ 
+import DLSequence;
+import cmp.PKIFailureInfo;
+import cmp.PKIFreeText;
+import cmp.PKIStatus;
+
+import cms.ContentInfo;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.DLSequence;
-import org.bouncycastle.asn1.cmp.PKIFailureInfo;
-import org.bouncycastle.asn1.cmp.PKIFreeText;
-import org.bouncycastle.asn1.cmp.PKIStatus;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.tsp.TimeStampResp;
-import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.TSPValidationException;
-import org.bouncycastle.tsp.TimeStampRequest;
-import org.bouncycastle.tsp.TimeStampToken;
-import org.bouncycastle.tsp.TimeStampTokenInfo;
-import org.bouncycastle.util.Arrays;
+
+
+import tsp.TimeStampResp;
 
 /**
  * Base class for an RFC 3161 Time Stamp Response object.

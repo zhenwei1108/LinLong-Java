@@ -1,7 +1,6 @@
 package com.github.zhenwei.provider.jcajce;
 
 import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.jcajce.PBKDFKey;
 
 /**
  * A password based key for use with PKCS#12.

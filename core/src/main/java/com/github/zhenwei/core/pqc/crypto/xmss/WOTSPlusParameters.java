@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.pqc.crypto.xmss.XMSSOid;
 import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
 

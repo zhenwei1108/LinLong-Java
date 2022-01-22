@@ -1,18 +1,13 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.TBSCertificateStructure;
-import org.bouncycastle.asn1.x509.Time;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
+
+
+
+
+
+import DERBitString;
+import X500Name;
+
 
 /**
  * an X509Certificate structure.
@@ -23,7 +18,7 @@ import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
  *      signature               BIT STRING
  *  }
  * </pre>
- * @deprecated use org.bouncycastle.asn1.x509.Certificate
+ * @deprecated use Certificate
  */
 public class X509CertificateStructure
     extends ASN1Object
@@ -34,23 +29,23 @@ public class X509CertificateStructure
     AlgorithmIdentifier     sigAlgId;
     DERBitString            sig;
 
-    public static org.bouncycastle.asn1.x509.X509CertificateStructure getInstance(
+    public static X509CertificateStructure getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.X509CertificateStructure getInstance(
+    public static X509CertificateStructure getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.X509CertificateStructure)
+        if (obj instanceof X509CertificateStructure)
         {
-            return (org.bouncycastle.asn1.x509.X509CertificateStructure)obj;
+            return (x509.X509CertificateStructure)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.X509CertificateStructure(ASN1Sequence.getInstance(obj));
+            return new X509CertificateStructure(ASN1Sequence.getInstance(obj));
         }
 
         return null;

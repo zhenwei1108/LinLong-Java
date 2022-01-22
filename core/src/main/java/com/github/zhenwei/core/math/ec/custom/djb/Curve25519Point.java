@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.math.ec.custom.djb;
 
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.custom.djb.Curve25519Field;
-import org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement;
-import org.bouncycastle.math.raw.Nat256;
+
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.raw.Nat256;
+
 
 public class Curve25519Point extends ECPoint.AbstractFp
 {
@@ -21,7 +20,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
 
     protected ECPoint detach()
     {
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519Point(null, getAffineXCoord(), getAffineYCoord());
+        return new custom.djb.Curve25519Point(null, getAffineXCoord(), getAffineYCoord());
     }
 
     public ECFieldElement getZCoord(int index)
@@ -160,7 +159,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
 
         ECFieldElement[] zs = new ECFieldElement[]{ Z3, W3 };
 
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519Point(curve, X3, Y3, zs);
+        return new custom.djb.Curve25519Point(curve, X3, Y3, zs);
     }
 
     public ECPoint twice()
@@ -228,7 +227,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
             return this;
         }
 
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519Point(this.getCurve(), this.x, this.y.negate(), this.zs);
+        return new custom.djb.Curve25519Point(this.getCurve(), this.x, this.y.negate(), this.zs);
     }
 
     protected Curve25519FieldElement calculateJacobianModifiedW(Curve25519FieldElement Z, int[] ZSquared)
@@ -261,7 +260,7 @@ public class Curve25519Point extends ECPoint.AbstractFp
         return W;
     }
 
-    protected org.bouncycastle.math.ec.custom.djb.Curve25519Point twiceJacobianModified(boolean calculateW)
+    protected custom.djb.Curve25519Point twiceJacobianModified(boolean calculateW)
     {
         Curve25519FieldElement X1 = (Curve25519FieldElement)this.x, Y1 = (Curve25519FieldElement)this.y,
             Z1 = (Curve25519FieldElement)this.zs[0], W1 = getJacobianModifiedW();
@@ -312,6 +311,6 @@ public class Curve25519Point extends ECPoint.AbstractFp
             Curve25519Field.twice(W3.x, W3.x);
         }
 
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519Point(this.getCurve(), X3, Y3, new ECFieldElement[]{ Z3, W3 });
+        return new custom.djb.Curve25519Point(this.getCurve(), X3, Y3, new ECFieldElement[]{ Z3, W3 });
     }
 }

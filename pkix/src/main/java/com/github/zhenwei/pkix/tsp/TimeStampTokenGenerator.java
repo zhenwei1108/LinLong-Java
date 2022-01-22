@@ -1,5 +1,21 @@
 package com.github.zhenwei.pkix.tsp;
 
+import ASN1Boolean;
+
+import ASN1GeneralizedTime;
+
+
+
+import Extensions;
+import ExtensionsGenerator;
+
+import GeneralNames;
+
+import cms.AttributeTable;
+import ess.ESSCertID;
+import ess.ESSCertIDv2;
+import ess.SigningCertificate;
+import ess.SigningCertificateV2;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
@@ -14,28 +30,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.ess.ESSCertID;
-import org.bouncycastle.asn1.ess.ESSCertIDv2;
-import org.bouncycastle.asn1.ess.SigningCertificate;
-import org.bouncycastle.asn1.ess.SigningCertificateV2;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.tsp.Accuracy;
-import org.bouncycastle.asn1.tsp.MessageImprint;
-import org.bouncycastle.asn1.tsp.TSTInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.ExtensionsGenerator;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuerSerial;
-import org.bouncycastle.cert.X509CertificateHolder;
+
+ 
 import org.bouncycastle.cms.CMSAttributeTableGenerationException;
 import org.bouncycastle.cms.CMSAttributeTableGenerator;
 import org.bouncycastle.cms.CMSException;
@@ -44,12 +40,12 @@ import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSSignedDataGenerator;
 import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.TSPUtil;
-import org.bouncycastle.tsp.TimeStampRequest;
-import org.bouncycastle.tsp.TimeStampToken;
 import org.bouncycastle.util.CollectionStore;
 import org.bouncycastle.util.Store;
+
+import tsp.Accuracy;
+import tsp.MessageImprint;
+import tsp.TSTInfo;
 
 /**
  * Currently the class supports ESSCertID by if a digest calculator based on SHA1 is passed in, otherwise it uses

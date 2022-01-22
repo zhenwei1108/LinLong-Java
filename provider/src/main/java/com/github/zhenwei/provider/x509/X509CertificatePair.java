@@ -1,15 +1,15 @@
 package com.github.zhenwei.provider.x509;
 
+
+ 
+import Certificate;
+import CertificatePair;
 import java.io.IOException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.asn1.x509.CertificatePair;
-import org.bouncycastle.jcajce.util.BCJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+;
+
 import org.bouncycastle.jce.provider.X509CertificateObject;
 
 /**
@@ -122,11 +122,11 @@ public class X509CertificatePair
         {
             return false;
         }
-        if (!(o instanceof org.bouncycastle.x509.X509CertificatePair))
+        if (!(o instanceof org.bouncycastle.X509CertificatePair))
         {
             return false;
         }
-        org.bouncycastle.x509.X509CertificatePair pair = (org.bouncycastle.x509.X509CertificatePair)o;
+        org.bouncycastle.X509CertificatePair pair = (org.bouncycastle.X509CertificatePair)o;
         boolean equalReverse = true;
         boolean equalForward = true;
         if (forward != null)

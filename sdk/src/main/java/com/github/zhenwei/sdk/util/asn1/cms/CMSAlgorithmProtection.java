@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
+
 
 /**
  * From RFC 6211
@@ -86,16 +86,16 @@ public class CMSAlgorithmProtection
         }
     }
 
-    public static org.bouncycastle.asn1.cms.CMSAlgorithmProtection getInstance(
+    public static cms.CMSAlgorithmProtection getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.CMSAlgorithmProtection)
+        if (obj instanceof cms.CMSAlgorithmProtection)
         {
-            return (org.bouncycastle.asn1.cms.CMSAlgorithmProtection)obj;
+            return (cms.CMSAlgorithmProtection)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.CMSAlgorithmProtection(ASN1Sequence.getInstance(obj));
+            return new cms.CMSAlgorithmProtection(ASN1Sequence.getInstance(obj));
         }
 
         return null;

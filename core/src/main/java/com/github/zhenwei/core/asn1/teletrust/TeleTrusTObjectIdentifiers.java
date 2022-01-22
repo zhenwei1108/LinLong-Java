@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.teletrust;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * Object identifiers based on the TeleTrust branch.

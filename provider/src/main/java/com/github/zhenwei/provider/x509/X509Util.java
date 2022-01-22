@@ -1,5 +1,12 @@
 package com.github.zhenwei.provider.x509;
 
+
+
+
+
+
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -18,21 +25,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+
+
 import org.bouncycastle.jce.X509Principal;
-import org.bouncycastle.util.Strings;
+
+
+import pkcs.RSASSAPSSparams;
+import teletrust.TeleTrusTObjectIdentifiers;
+import x9.X9ObjectIdentifiers;
 
 class X509Util
 {

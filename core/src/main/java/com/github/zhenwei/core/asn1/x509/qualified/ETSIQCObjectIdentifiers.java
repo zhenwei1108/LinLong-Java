@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.x509.qualified;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 public interface ETSIQCObjectIdentifiers
 {

@@ -1,14 +1,13 @@
 package com.github.zhenwei.core.asn1.x9;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 
 /**
  * ASN.1 def for Elliptic-Curve Field ID structure. See
@@ -102,16 +101,16 @@ public class X9FieldID
         this.parameters = seq.getObjectAt(1).toASN1Primitive();
     }
 
-    public static org.bouncycastle.asn1.x9.X9FieldID getInstance(Object obj)
+    public static x9.X9FieldID getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x9.X9FieldID)
+        if (obj instanceof x9.X9FieldID)
         {
-            return (org.bouncycastle.asn1.x9.X9FieldID)obj;
+            return (x9.X9FieldID)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x9.X9FieldID(ASN1Sequence.getInstance(obj));
+            return new x9.X9FieldID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

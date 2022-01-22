@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.modes;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.OutputLengthException;
@@ -11,8 +11,8 @@ import org.bouncycastle.crypto.modes.AEADCipher;
 import org.bouncycastle.crypto.params.AEADParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Pack;
+
+
 
 public class ChaCha20Poly1305
     implements AEADCipher

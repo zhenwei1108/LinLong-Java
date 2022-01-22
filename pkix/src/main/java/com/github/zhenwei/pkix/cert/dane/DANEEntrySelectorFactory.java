@@ -2,11 +2,9 @@ package com.github.zhenwei.pkix.cert.dane;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.cert.dane.DANEEntrySelector;
-import org.bouncycastle.cert.dane.DANEException;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+
 
 /**
  * Factory for creating selector objects to use with the DANECertificateStore.

@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.esf.CrlOcspRef;
 
 /**
  * <pre>
@@ -18,15 +17,15 @@ public class CompleteRevocationRefs
 
     private ASN1Sequence crlOcspRefs;
 
-    public static org.bouncycastle.asn1.esf.CompleteRevocationRefs getInstance(Object obj)
+    public static esf.CompleteRevocationRefs getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.CompleteRevocationRefs)
+        if (obj instanceof esf.CompleteRevocationRefs)
         {
-            return (org.bouncycastle.asn1.esf.CompleteRevocationRefs)obj;
+            return (esf.CompleteRevocationRefs)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.CompleteRevocationRefs(ASN1Sequence.getInstance(obj));
+            return new esf.CompleteRevocationRefs(ASN1Sequence.getInstance(obj));
         }
 
         return null;

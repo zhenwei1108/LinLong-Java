@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5084">RFC 5084</a>: CCMParameters object.
@@ -31,23 +31,23 @@ public class CCMParameters
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.CCMParameters} object
+     * <li> {@link cms.CCMParameters} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with CCMParameters structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.CCMParameters getInstance(
+    public static cms.CCMParameters getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.CCMParameters)
+        if (obj instanceof cms.CCMParameters)
         {
-            return (org.bouncycastle.asn1.cms.CCMParameters)obj;
+            return (cms.CCMParameters)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.CCMParameters(ASN1Sequence.getInstance(obj));
+            return new cms.CCMParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

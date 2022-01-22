@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.TimeStampAndCRL;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5544">RFC 5544</a>
@@ -46,7 +45,7 @@ public class TimeStampTokenEvidence
         }
     }
 
-    public static org.bouncycastle.asn1.cms.TimeStampTokenEvidence getInstance(ASN1TaggedObject tagged, boolean explicit)
+    public static cms.TimeStampTokenEvidence getInstance(ASN1TaggedObject tagged, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(tagged, explicit));
     }
@@ -57,22 +56,22 @@ public class TimeStampTokenEvidence
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.TimeStampTokenEvidence} object
+     * <li> {@link cms.TimeStampTokenEvidence} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with TimeStampTokenEvidence structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.TimeStampTokenEvidence getInstance(Object obj)
+    public static cms.TimeStampTokenEvidence getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.TimeStampTokenEvidence)
+        if (obj instanceof cms.TimeStampTokenEvidence)
         {
-            return (org.bouncycastle.asn1.cms.TimeStampTokenEvidence)obj;
+            return (cms.TimeStampTokenEvidence)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.TimeStampTokenEvidence(ASN1Sequence.getInstance(obj));
+            return new cms.TimeStampTokenEvidence(ASN1Sequence.getInstance(obj));
         }
 
         return null;

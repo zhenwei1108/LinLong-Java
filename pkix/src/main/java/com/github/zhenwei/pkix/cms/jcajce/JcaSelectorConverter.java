@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
+import X500Name;
 import java.io.IOException;
 import java.security.cert.X509CertSelector;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.SignerId;
 

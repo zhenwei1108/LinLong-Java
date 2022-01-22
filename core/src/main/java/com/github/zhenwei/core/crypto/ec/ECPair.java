@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.ec;
 
-import org.bouncycastle.math.ec.ECPoint;
+ 
 
 public class ECPair
 {

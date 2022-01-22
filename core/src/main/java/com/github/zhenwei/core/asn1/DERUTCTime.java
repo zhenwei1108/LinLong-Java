@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1;
 
 import java.util.Date;
-import org.bouncycastle.asn1.ASN1UTCTime;
 
 /**
  * DER UTC time object.

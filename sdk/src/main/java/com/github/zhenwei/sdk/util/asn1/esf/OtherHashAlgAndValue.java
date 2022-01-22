@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
 
 public class OtherHashAlgAndValue
     extends ASN1Object
@@ -15,16 +15,16 @@ public class OtherHashAlgAndValue
     private ASN1OctetString     hashValue;
 
 
-    public static org.bouncycastle.asn1.esf.OtherHashAlgAndValue getInstance(
+    public static esf.OtherHashAlgAndValue getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.OtherHashAlgAndValue)
+        if (obj instanceof esf.OtherHashAlgAndValue)
         {
-            return (org.bouncycastle.asn1.esf.OtherHashAlgAndValue) obj;
+            return (esf.OtherHashAlgAndValue) obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.OtherHashAlgAndValue(ASN1Sequence.getInstance(obj));
+            return new esf.OtherHashAlgAndValue(ASN1Sequence.getInstance(obj));
         }
 
         return null;

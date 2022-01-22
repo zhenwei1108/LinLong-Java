@@ -1,14 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.PolicyInformation;
+
+
+
+
+
+
 
 public class CertificatePolicies
     extends ASN1Object
@@ -22,23 +19,23 @@ public class CertificatePolicies
         return result;
     }
 
-    public static org.bouncycastle.asn1.x509.CertificatePolicies getInstance(
+    public static CertificatePolicies getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.CertificatePolicies)
+        if (obj instanceof CertificatePolicies)
         {
-            return (org.bouncycastle.asn1.x509.CertificatePolicies)obj;
+            return (CertificatePolicies)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.CertificatePolicies(ASN1Sequence.getInstance(obj));
+            return new CertificatePolicies(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.CertificatePolicies getInstance(
+    public static CertificatePolicies getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
@@ -51,7 +48,7 @@ public class CertificatePolicies
      * @param extensions the extensions object to be examined.
      * @return  the CertificatePolicies, null if the extension is not present.
      */
-    public static org.bouncycastle.asn1.x509.CertificatePolicies fromExtensions(Extensions extensions)
+    public static CertificatePolicies fromExtensions(Extensions extensions)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.certificatePolicies));
     }

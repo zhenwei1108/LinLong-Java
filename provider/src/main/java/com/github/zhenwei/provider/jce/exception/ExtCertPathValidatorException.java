@@ -2,7 +2,6 @@ package com.github.zhenwei.provider.jce.exception;
 
 import java.security.cert.CertPath;
 import java.security.cert.CertPathValidatorException;
-import org.bouncycastle.jce.exception.ExtException;
 
 public class ExtCertPathValidatorException
     extends CertPathValidatorException

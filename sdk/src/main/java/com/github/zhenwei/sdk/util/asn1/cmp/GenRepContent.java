@@ -1,10 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.InfoTypeAndValue;
+
+
+
+
 
 public class GenRepContent
     extends ASN1Object
@@ -16,16 +15,16 @@ public class GenRepContent
         content = seq;
     }
 
-    public static org.bouncycastle.asn1.cmp.GenRepContent getInstance(Object o)
+    public static cmp.GenRepContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.GenRepContent)
+        if (o instanceof cmp.GenRepContent)
         {
-            return (org.bouncycastle.asn1.cmp.GenRepContent)o;
+            return (cmp.GenRepContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.GenRepContent(ASN1Sequence.getInstance(o));
+            return new cmp.GenRepContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

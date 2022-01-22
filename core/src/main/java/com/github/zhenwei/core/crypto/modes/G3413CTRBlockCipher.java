@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.modes;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+ 
+
 import org.bouncycastle.crypto.StreamBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * implements the GOST 3412 2015 CTR counter mode (GCTR).

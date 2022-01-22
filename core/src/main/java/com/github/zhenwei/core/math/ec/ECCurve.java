@@ -1,28 +1,14 @@
 package com.github.zhenwei.core.math.ec;
 
+
+import com.github.zhenwei.core.math.ec.endo.ECEndomorphism;
+import com.github.zhenwei.core.math.ec.endo.GLVEndomorphism;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Hashtable;
 import java.util.Random;
-import org.bouncycastle.math.ec.AbstractECLookupTable;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.GLVMultiplier;
-import org.bouncycastle.math.ec.PreCompCallback;
-import org.bouncycastle.math.ec.PreCompInfo;
-import org.bouncycastle.math.ec.WNafL2RMultiplier;
-import org.bouncycastle.math.ec.WTauNafMultiplier;
-import org.bouncycastle.math.ec.endo.ECEndomorphism;
-import org.bouncycastle.math.ec.endo.GLVEndomorphism;
-import org.bouncycastle.math.field.FiniteField;
-import org.bouncycastle.math.field.FiniteFields;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Integers;
 
 /**
  * base class for an elliptic curve
@@ -75,15 +61,15 @@ public abstract class ECCurve
             return this;
         }
 
-        public org.bouncycastle.math.ec.ECCurve create()
+        public ECCurve create()
         {
             if (!supportsCoordinateSystem(coord))
             {
                 throw new IllegalStateException("unsupported coordinate system");
             }
 
-            org.bouncycastle.math.ec.ECCurve c = cloneCurve();
-            if (c == org.bouncycastle.math.ec.ECCurve.this)
+            ECCurve c = cloneCurve();
+            if (c == ECCurve.this)
             {
                 throw new IllegalStateException("implementation returned current curve");
             }
@@ -143,7 +129,7 @@ public abstract class ECCurve
         return createRawPoint(fromBigInteger(x), fromBigInteger(y));
     }
 
-    protected abstract org.bouncycastle.math.ec.ECCurve cloneCurve();
+    protected abstract ECCurve cloneCurve();
 
     protected abstract ECPoint createRawPoint(ECFieldElement x, ECFieldElement y);
 
@@ -281,8 +267,8 @@ public abstract class ECCurve
 
         switch (this.getCoordinateSystem())
         {
-        case org.bouncycastle.math.ec.ECCurve.COORD_AFFINE:
-        case org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_AFFINE:
+        case ECCurve.COORD_AFFINE:
+        case ECCurve.COORD_LAMBDA_AFFINE:
         {
             if (iso != null)
             {
@@ -464,7 +450,7 @@ public abstract class ECCurve
 
     /**
      * Create a cache-safe lookup table for the specified sequence of points. All the points MUST
-     * belong to this {@link org.bouncycastle.math.ec.ECCurve} instance, and MUST already be normalized.
+     * belong to this {@link ECCurve} instance, and MUST already be normalized.
      */
     public ECLookupTable createCacheSafeLookupTable(final ECPoint[] points, int off, final int len)
     {
@@ -570,7 +556,7 @@ public abstract class ECCurve
         }
     }
 
-    public boolean equals(org.bouncycastle.math.ec.ECCurve other)
+    public boolean equals( ECCurve other)
     {
         return this == other
             || (null != other
@@ -581,8 +567,8 @@ public abstract class ECCurve
 
     public boolean equals(Object obj)
     {
-        return this == obj || (obj instanceof org.bouncycastle.math.ec.ECCurve
-            && equals((org.bouncycastle.math.ec.ECCurve)obj));
+        return this == obj || (obj instanceof ECCurve
+            && equals(( ECCurve)obj));
     }
 
     public int hashCode()
@@ -592,7 +578,7 @@ public abstract class ECCurve
             ^ Integers.rotateLeft(getB().toBigInteger().hashCode(), 16);
     }
 
-    public static abstract class AbstractFp extends org.bouncycastle.math.ec.ECCurve
+    public static abstract class AbstractFp extends ECCurve
     {
         protected AbstractFp(BigInteger q)
         {
@@ -679,7 +665,7 @@ public abstract class ECCurve
      */
     public static class Fp extends AbstractFp
     {
-        private static final int FP_DEFAULT_COORDS = org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN_MODIFIED;
+        private static final int FP_DEFAULT_COORDS = ECCurve.COORD_JACOBIAN_MODIFIED;
 
         BigInteger q, r;
         ECPoint.Fp infinity;
@@ -722,7 +708,7 @@ public abstract class ECCurve
             this.coord = FP_DEFAULT_COORDS;
         }
 
-        protected org.bouncycastle.math.ec.ECCurve cloneCurve()
+        protected ECCurve cloneCurve()
         {
             return new Fp(this.q, this.r, this.a, this.b, this.order, this.cofactor);
         }
@@ -731,10 +717,10 @@ public abstract class ECCurve
         {
             switch (coord)
             {
-            case org.bouncycastle.math.ec.ECCurve.COORD_AFFINE:
-            case org.bouncycastle.math.ec.ECCurve.COORD_HOMOGENEOUS:
-            case org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN:
-            case org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN_MODIFIED:
+            case ECCurve.COORD_AFFINE:
+            case ECCurve.COORD_HOMOGENEOUS:
+            case ECCurve.COORD_JACOBIAN:
+            case ECCurve.COORD_JACOBIAN_MODIFIED:
                 return true;
             default:
                 return false;
@@ -768,13 +754,13 @@ public abstract class ECCurve
 
         public ECPoint importPoint(ECPoint p)
         {
-            if (this != p.getCurve() && this.getCoordinateSystem() == org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN && !p.isInfinity())
+            if (this != p.getCurve() && this.getCoordinateSystem() == ECCurve.COORD_JACOBIAN && !p.isInfinity())
             {
                 switch (p.getCurve().getCoordinateSystem())
                 {
-                case org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN:
-                case org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN_CHUDNOVSKY:
-                case org.bouncycastle.math.ec.ECCurve.COORD_JACOBIAN_MODIFIED:
+                case ECCurve.COORD_JACOBIAN:
+                case ECCurve.COORD_JACOBIAN_CHUDNOVSKY:
+                case ECCurve.COORD_JACOBIAN_MODIFIED:
                     return new ECPoint.Fp(this,
                         fromBigInteger(p.x.toBigInteger()),
                         fromBigInteger(p.y.toBigInteger()),
@@ -793,7 +779,7 @@ public abstract class ECCurve
         }
     }
 
-    public static abstract class AbstractF2m extends org.bouncycastle.math.ec.ECCurve
+    public static abstract class AbstractF2m extends ECCurve
     {
         public static BigInteger inverse(int m, int[] ks, BigInteger x)
         {
@@ -850,8 +836,8 @@ public abstract class ECCurve
 
             switch (coord)
             {
-            case org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_AFFINE:
-            case org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_PROJECTIVE:
+            case ECCurve.COORD_LAMBDA_AFFINE:
+            case ECCurve.COORD_LAMBDA_PROJECTIVE:
             {
                 if (X.isZero())
                 {
@@ -939,8 +925,8 @@ public abstract class ECCurve
 
                     switch (this.getCoordinateSystem())
                     {
-                    case org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_AFFINE:
-                    case org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_PROJECTIVE:
+                    case ECCurve.COORD_LAMBDA_AFFINE:
+                    case ECCurve.COORD_LAMBDA_PROJECTIVE:
                     {
                         y = z.add(x);
                         break;
@@ -1065,7 +1051,7 @@ public abstract class ECCurve
      */
     public static class F2m extends AbstractF2m
     {
-        private static final int F2M_DEFAULT_COORDS = org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_PROJECTIVE;
+        private static final int F2M_DEFAULT_COORDS = ECCurve.COORD_LAMBDA_PROJECTIVE;
 
         /**
          * The exponent <code>m</code> of <code>F<sub>2<sup>m</sup></sub></code>.
@@ -1252,7 +1238,7 @@ public abstract class ECCurve
             this.coord = F2M_DEFAULT_COORDS;
         }
 
-        protected org.bouncycastle.math.ec.ECCurve cloneCurve()
+        protected ECCurve cloneCurve()
         {
             return new F2m(this.m, this.k1, this.k2, this.k3, this.a, this.b, this.order, this.cofactor);
         }
@@ -1261,9 +1247,9 @@ public abstract class ECCurve
         {
             switch (coord)
             {
-            case org.bouncycastle.math.ec.ECCurve.COORD_AFFINE:
-            case org.bouncycastle.math.ec.ECCurve.COORD_HOMOGENEOUS:
-            case org.bouncycastle.math.ec.ECCurve.COORD_LAMBDA_PROJECTIVE:
+            case ECCurve.COORD_AFFINE:
+            case ECCurve.COORD_HOMOGENEOUS:
+            case ECCurve.COORD_LAMBDA_PROJECTIVE:
                 return true;
             default:
                 return false;

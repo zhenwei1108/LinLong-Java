@@ -1,7 +1,6 @@
 package com.github.zhenwei.pkix.cert.dane;
 
-import org.bouncycastle.cert.dane.DANEEntry;
-import org.bouncycastle.util.Selector;
+
 
 public class DANEEntrySelector
     implements Selector

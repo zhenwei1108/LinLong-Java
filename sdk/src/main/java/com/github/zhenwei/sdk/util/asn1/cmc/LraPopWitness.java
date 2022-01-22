@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
+
+
+
+
+
 
 /**
  * <pre>
@@ -39,16 +38,16 @@ public class LraPopWitness
         this.bodyIds = ASN1Sequence.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.cmc.LraPopWitness getInstance(Object o)
+    public static cmc.LraPopWitness getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.LraPopWitness)
+        if (o instanceof cmc.LraPopWitness)
         {
-            return (org.bouncycastle.asn1.cmc.LraPopWitness)o;
+            return (cmc.LraPopWitness)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.LraPopWitness(ASN1Sequence.getInstance(o));
+            return new cmc.LraPopWitness(ASN1Sequence.getInstance(o));
         }
 
         return null;

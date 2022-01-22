@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import org.bouncycastle.dvcs.DVCSException;
-
 /**
  * DVCS parsing exception - thrown when failed to parse DVCS message.
  */

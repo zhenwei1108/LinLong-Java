@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER IA5String object - this is a ISO 646 (ASCII) string encoding code points 0 to 127.
  * <p>
@@ -22,22 +18,22 @@ public class DERIA5String
      * 
      * @deprecated Use {@link ASN1IA5String#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERIA5String getInstance(
+    public static DERIA5String getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERIA5String)
+        if (obj == null || obj instanceof DERIA5String)
         {
-            return (org.bouncycastle.asn1.DERIA5String)obj;
+            return (DERIA5String)obj;
         }
         if (obj instanceof ASN1IA5String)
         {
-            return new org.bouncycastle.asn1.DERIA5String(((ASN1IA5String)obj).contents, false);
+            return new DERIA5String(((ASN1IA5String)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERIA5String)fromByteArray((byte[])obj);
+                return (DERIA5String)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -60,19 +56,19 @@ public class DERIA5String
      * @deprecated Use {@link ASN1IA5String#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERIA5String getInstance(
+    public static DERIA5String getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERIA5String)
+        if (explicit || o instanceof DERIA5String)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERIA5String(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERIA5String(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

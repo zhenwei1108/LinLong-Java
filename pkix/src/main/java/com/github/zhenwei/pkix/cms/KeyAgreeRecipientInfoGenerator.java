@@ -1,21 +1,19 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo;
-import org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey;
-import org.bouncycastle.asn1.cms.OriginatorPublicKey;
-import org.bouncycastle.asn1.cms.RecipientInfo;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.Gost2814789KeyWrapParameters;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.RecipientInfoGenerator;
+
+
+
+
+
+
+import cms.KeyAgreeRecipientInfo;
+import cms.OriginatorIdentifierOrKey;
+import cms.OriginatorPublicKey;
+import cms.RecipientInfo;
+
+import Gost2814789KeyWrapParameters;
 import org.bouncycastle.operator.GenericKey;
+
 
 public abstract class KeyAgreeRecipientInfoGenerator
     implements RecipientInfoGenerator

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import org.bouncycastle.crypto.digests.GOST3411_2012Digest;
-import org.bouncycastle.util.Memoable;
+
 
 /**
  * implementation of GOST R 34.11-2012 512-bit

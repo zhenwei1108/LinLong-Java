@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+
 
 /**
  * Parameters holder for public unified static/ephemeral agreement as described in NIST SP 800-56A using EC DH/CDH.

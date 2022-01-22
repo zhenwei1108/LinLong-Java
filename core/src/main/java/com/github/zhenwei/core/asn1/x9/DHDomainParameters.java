@@ -1,16 +1,15 @@
 package com.github.zhenwei.core.asn1.x9;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x9.DHValidationParms;
 
 /**
  * @deprecated use DomainParameters
@@ -21,21 +20,21 @@ public class DHDomainParameters
     private ASN1Integer p, g, q, j;
     private DHValidationParms validationParms;
 
-    public static org.bouncycastle.asn1.x9.DHDomainParameters getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static x9.DHDomainParameters getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x9.DHDomainParameters getInstance(Object obj)
+    public static x9.DHDomainParameters getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x9.DHDomainParameters)
+        if (obj == null || obj instanceof x9.DHDomainParameters)
         {
-            return (org.bouncycastle.asn1.x9.DHDomainParameters)obj;
+            return (x9.DHDomainParameters)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.x9.DHDomainParameters((ASN1Sequence)obj);
+            return new x9.DHDomainParameters((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("Invalid DHDomainParameters: "

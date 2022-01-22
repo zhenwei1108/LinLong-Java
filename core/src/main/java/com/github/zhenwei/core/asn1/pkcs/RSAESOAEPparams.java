@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
+
+
+
+
 
 public class RSAESOAEPparams
     extends ASN1Object
@@ -24,16 +23,16 @@ public class RSAESOAEPparams
     public final static AlgorithmIdentifier DEFAULT_MASK_GEN_FUNCTION = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_mgf1, DEFAULT_HASH_ALGORITHM);
     public final static AlgorithmIdentifier DEFAULT_P_SOURCE_ALGORITHM = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_pSpecified, new DEROctetString(new byte[0]));
     
-    public static org.bouncycastle.asn1.pkcs.RSAESOAEPparams getInstance(
+    public static pkcs.RSAESOAEPparams getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.RSAESOAEPparams)
+        if (obj instanceof pkcs.RSAESOAEPparams)
         {
-            return (org.bouncycastle.asn1.pkcs.RSAESOAEPparams)obj;
+            return (pkcs.RSAESOAEPparams)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.RSAESOAEPparams(ASN1Sequence.getInstance(obj));
+            return new pkcs.RSAESOAEPparams(ASN1Sequence.getInstance(obj));
         }
 
         return null;

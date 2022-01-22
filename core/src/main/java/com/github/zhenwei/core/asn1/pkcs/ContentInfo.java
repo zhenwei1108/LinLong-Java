@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+import BERTaggedObject;
+import DLSequence;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.DLSequence;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 
 public class ContentInfo
     extends ASN1Object
@@ -21,17 +20,17 @@ public class ContentInfo
     private ASN1Encodable content;
     private boolean       isBer = true;
 
-    public static org.bouncycastle.asn1.pkcs.ContentInfo getInstance(
+    public static pkcs.ContentInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.ContentInfo)
+        if (obj instanceof pkcs.ContentInfo)
         {
-            return (org.bouncycastle.asn1.pkcs.ContentInfo)obj;
+            return (pkcs.ContentInfo)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.ContentInfo(ASN1Sequence.getInstance(obj));
+            return new pkcs.ContentInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

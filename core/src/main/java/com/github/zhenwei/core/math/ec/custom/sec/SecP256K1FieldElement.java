@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+import SecP256K1Field;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecP256K1Field;
-import org.bouncycastle.math.raw.Nat256;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 public class SecP256K1FieldElement extends ECFieldElement.AbstractFp
 {
@@ -67,52 +67,52 @@ public class SecP256K1FieldElement extends ECFieldElement.AbstractFp
     public ECFieldElement add(ECFieldElement b)
     {
         int[] z = Nat256.create();
-        SecP256K1Field.add(x, ((org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        SecP256K1Field.add(x, ((SecP256K1FieldElement)b).x, z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement addOne()
     {
         int[] z = Nat256.create();
         SecP256K1Field.addOne(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement subtract(ECFieldElement b)
     {
         int[] z = Nat256.create();
-        SecP256K1Field.subtract(x, ((org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        SecP256K1Field.subtract(x, ((SecP256K1FieldElement)b).x, z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement multiply(ECFieldElement b)
     {
         int[] z = Nat256.create();
-        SecP256K1Field.multiply(x, ((org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        SecP256K1Field.multiply(x, ((SecP256K1FieldElement)b).x, z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement divide(ECFieldElement b)
     {
 //        return multiply(b.invert());
         int[] z = Nat256.create();
-        SecP256K1Field.inv(((org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement)b).x, z);
+        SecP256K1Field.inv(((SecP256K1FieldElement)b).x, z);
         SecP256K1Field.multiply(z, x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement negate()
     {
         int[] z = Nat256.create();
         SecP256K1Field.negate(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement square()
     {
         int[] z = Nat256.create();
         SecP256K1Field.square(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        return new SecP256K1FieldElement(z);
     }
 
     public ECFieldElement invert()
@@ -120,7 +120,7 @@ public class SecP256K1FieldElement extends ECFieldElement.AbstractFp
 //        return new SecP256K1FieldElement(toBigInteger().modInverse(Q));
         int[] z = Nat256.create();
         SecP256K1Field.inv(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(z);
+        return new SecP256K1FieldElement(z);
     }
 
     // D.1.4 91
@@ -190,7 +190,7 @@ public class SecP256K1FieldElement extends ECFieldElement.AbstractFp
         int[] t2 = x2;
         SecP256K1Field.square(t1, t2);
 
-        return Nat256.eq(x1, t2) ? new org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement(t1) : null;
+        return Nat256.eq(x1, t2) ? new SecP256K1FieldElement(t1) : null;
     }
 
     public boolean equals(Object other)
@@ -200,12 +200,12 @@ public class SecP256K1FieldElement extends ECFieldElement.AbstractFp
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement))
+        if (!(other instanceof SecP256K1FieldElement))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement o = (org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement)other;
+        SecP256K1FieldElement o = (SecP256K1FieldElement)other;
         return Nat256.eq(x, o.x);
     }
 

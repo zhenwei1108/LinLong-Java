@@ -12,9 +12,7 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import org.bouncycastle.est.ESTClientSourceProvider;
 import org.bouncycastle.est.Source;
-import org.bouncycastle.est.jcajce.ChannelBindingProvider;
-import org.bouncycastle.est.jcajce.JsseHostnameAuthorizer;
-import org.bouncycastle.util.Strings;
+
 
 class DefaultESTClientSourceProvider
     implements ESTClientSourceProvider

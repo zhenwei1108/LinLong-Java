@@ -1,13 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.lms;
 
+
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.lms.HSSKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.lms.HSSKeyPairGenerator;
@@ -20,8 +20,6 @@ import org.bouncycastle.pqc.crypto.lms.LMSParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
-import org.bouncycastle.pqc.jcajce.provider.lms.BCLMSPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.lms.BCLMSPublicKey;
 import org.bouncycastle.pqc.jcajce.spec.LMSHSSKeyGenParameterSpec;
 import org.bouncycastle.pqc.jcajce.spec.LMSHSSParameterSpec;
 import org.bouncycastle.pqc.jcajce.spec.LMSKeyGenParameterSpec;

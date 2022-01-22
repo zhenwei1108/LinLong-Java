@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.nist;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  *
@@ -13,7 +14,7 @@ public interface NISTObjectIdentifiers
     // nistalgorithms(4)
     //
     /** 2.16.840.1.101.3.4 -- algorithms */
-    static final ASN1ObjectIdentifier    nistAlgorithm           = new ASN1ObjectIdentifier("2.16.840.1.101.3.4");
+    static final ASN1ObjectIdentifier nistAlgorithm           = new ASN1ObjectIdentifier("2.16.840.1.101.3.4");
 
     /** 2.16.840.1.101.3.4.2 */
     static final ASN1ObjectIdentifier    hashAlgs                = nistAlgorithm.branch("2");

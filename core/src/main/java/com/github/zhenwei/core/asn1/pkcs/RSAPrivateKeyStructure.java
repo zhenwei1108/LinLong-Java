@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
  * @deprecated use RSAPrivateKey
@@ -27,23 +27,23 @@ public class RSAPrivateKeyStructure
     private BigInteger  coefficient;
     private ASN1Sequence otherPrimeInfos = null;
 
-    public static org.bouncycastle.asn1.pkcs.RSAPrivateKeyStructure getInstance(
+    public static pkcs.RSAPrivateKeyStructure getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.pkcs.RSAPrivateKeyStructure getInstance(
+    public static pkcs.RSAPrivateKeyStructure getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.RSAPrivateKeyStructure)
+        if (obj instanceof pkcs.RSAPrivateKeyStructure)
         {
-            return (org.bouncycastle.asn1.pkcs.RSAPrivateKeyStructure)obj;
+            return (pkcs.RSAPrivateKeyStructure)obj;
         }
         else if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.pkcs.RSAPrivateKeyStructure((ASN1Sequence)obj);
+            return new pkcs.RSAPrivateKeyStructure((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());

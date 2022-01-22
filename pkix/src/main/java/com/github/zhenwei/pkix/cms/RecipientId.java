@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.util.Selector;
+
 
 public abstract class RecipientId
     implements Selector

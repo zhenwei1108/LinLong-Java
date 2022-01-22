@@ -1,23 +1,22 @@
 package com.github.zhenwei.pkix.pkcs;
 
+
+
+
+
+import DERBitString;
+
+
+import X500Name;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.pkcs.Attribute;
-import org.bouncycastle.asn1.pkcs.CertificationRequest;
-import org.bouncycastle.asn1.pkcs.CertificationRequestInfo;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.pkcs.PKCS10CertificationRequest;
+import pkcs.Attribute;
+import pkcs.CertificationRequest;
+import pkcs.CertificationRequestInfo;
 
 /**
  * A class for creating PKCS#10 Certification requests.

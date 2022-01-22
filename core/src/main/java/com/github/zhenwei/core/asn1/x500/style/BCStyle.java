@@ -1,18 +1,17 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x500.RDN;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x500.X500NameStyle;
+import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.AbstractX500NameStyle;
-import org.bouncycastle.asn1.x500.style.IETFUtils;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
 
 public class BCStyle
     extends AbstractX500NameStyle
@@ -279,7 +278,7 @@ public class BCStyle
     /**
      * Singleton instance.
      */
-    public static final X500NameStyle INSTANCE = new org.bouncycastle.asn1.x500.style.BCStyle();
+    public static final X500NameStyle INSTANCE = new BCStyle();
 
     protected final Hashtable defaultLookUp;
     protected final Hashtable defaultSymbols;

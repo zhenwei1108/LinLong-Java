@@ -14,7 +14,7 @@ import org.bouncycastle.mime.MimeIOException;
 import org.bouncycastle.mime.MimeWriter;
 import org.bouncycastle.mime.encoding.Base64OutputStream;
 import org.bouncycastle.operator.OutputEncryptor;
-import org.bouncycastle.util.Strings;
+
 
 /**
  * Writer for SMIME Enveloped objects.

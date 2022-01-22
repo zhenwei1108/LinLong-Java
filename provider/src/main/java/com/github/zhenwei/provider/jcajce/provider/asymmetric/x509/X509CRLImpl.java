@@ -1,5 +1,25 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
+
+
+ 
+
+
+
+
+
+
+import CRLDistPoint;
+import CRLNumber;
+import CertificateList;
+import DERBitString;
+
+import Extensions;
+import GeneralNames;
+import IssuingDistributionPoint;
+import TBSCertList;
+import Time;
+import X500Name;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -26,33 +46,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.util.ASN1Dump;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.CRLNumber;
-import org.bouncycastle.asn1.x509.CertificateList;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuingDistributionPoint;
-import org.bouncycastle.asn1.x509.TBSCertList;
-import org.bouncycastle.asn1.x509.Time;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.io.OutputStreamFactory;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
 import org.bouncycastle.jce.X509Principal;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
+
 
 /**
  * The following extensions are listed in RFC 2459 as relevant to CRLs
@@ -673,7 +673,7 @@ abstract class X509CRLImpl
                     {
                         try
                         {
-                            issuer = org.bouncycastle.asn1.x509.Certificate.getInstance(cert.getEncoded()).getIssuer();
+                            issuer = Certificate.getInstance(cert.getEncoded()).getIssuer();
                         }
                         catch (CertificateEncodingException e)
                         {

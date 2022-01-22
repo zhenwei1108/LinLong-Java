@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
+
+
+ 
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
@@ -7,26 +10,21 @@ import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ua.DSTU4145NamedCurves;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.generators.DSTU4145KeyPairGenerator;
 import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
 import org.bouncycastle.crypto.params.DSTU4145Parameters;
-import org.bouncycastle.crypto.params.ECDomainParameters;
+ 
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
+
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import ua.DSTU4145NamedCurves;
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

@@ -1,5 +1,10 @@
 package com.github.zhenwei.pkix.eac.operator.jcajce;
 
+
+
+
+
+import  EACObjectIdentifiers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
@@ -10,11 +15,6 @@ import java.security.Provider;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.SignatureException;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.eac.EACObjectIdentifiers;
 import org.bouncycastle.eac.operator.EACSignatureVerifier;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.OperatorStreamException;

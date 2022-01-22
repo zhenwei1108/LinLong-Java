@@ -2,14 +2,14 @@ package com.github.zhenwei.core.crypto.signers;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.signers.ISOTrailers;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
+
+ 
 
 /**
  * X9.31-1998 - signing using a hash.

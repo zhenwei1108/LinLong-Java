@@ -1,10 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.CertificateList;
+
+
+
+import CertificateList;
+
 
 public class CRLAnnContent
     extends ASN1Object
@@ -16,16 +16,16 @@ public class CRLAnnContent
         content = seq;
     }
 
-    public static org.bouncycastle.asn1.cmp.CRLAnnContent getInstance(Object o)
+    public static cmp.CRLAnnContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CRLAnnContent)
+        if (o instanceof cmp.CRLAnnContent)
         {
-            return (org.bouncycastle.asn1.cmp.CRLAnnContent)o;
+            return (cmp.CRLAnnContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.CRLAnnContent(ASN1Sequence.getInstance(o));
+            return new cmp.CRLAnnContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

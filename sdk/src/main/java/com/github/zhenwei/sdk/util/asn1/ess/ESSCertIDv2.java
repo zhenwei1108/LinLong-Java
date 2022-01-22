@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.IssuerSerial;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
+
+
 
 public class ESSCertIDv2
     extends ASN1Object
@@ -20,16 +20,16 @@ public class ESSCertIDv2
     private IssuerSerial        issuerSerial;
     private static final AlgorithmIdentifier DEFAULT_ALG_ID = new AlgorithmIdentifier(NISTObjectIdentifiers.id_sha256);
 
-    public static org.bouncycastle.asn1.ess.ESSCertIDv2 getInstance(
+    public static ess.ESSCertIDv2 getInstance(
         Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.ess.ESSCertIDv2)
+        if (o instanceof ess.ESSCertIDv2)
         {
-            return (org.bouncycastle.asn1.ess.ESSCertIDv2) o;
+            return (ess.ESSCertIDv2) o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.ess.ESSCertIDv2(ASN1Sequence.getInstance(o));
+            return new ess.ESSCertIDv2(ASN1Sequence.getInstance(o));
         }
 
         return null;

@@ -1,8 +1,7 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
-import org.bouncycastle.asn1.cmp.CertConfirmContent;
-import org.bouncycastle.asn1.cmp.CertStatus;
-import org.bouncycastle.cert.cmp.CertificateStatus;
+import cmp.CertConfirmContent;
+import cmp.CertStatus;
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 

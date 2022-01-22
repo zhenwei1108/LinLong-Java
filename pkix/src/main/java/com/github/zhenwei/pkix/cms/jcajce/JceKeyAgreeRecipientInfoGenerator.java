@@ -1,5 +1,21 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
+
+
+
+
+
+
+
+
+import cms.KeyAgreeRecipientIdentifier;
+import cms.OriginatorPublicKey;
+import cms.RecipientEncryptedKey;
+import cms.RecipientKeyIdentifier;
+import cms.ecc.MQVuserKeyingMaterial;
+
+import Gost2814789EncryptedKey;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -17,33 +33,16 @@ import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import javax.crypto.SecretKey;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier;
-import org.bouncycastle.asn1.cms.OriginatorPublicKey;
-import org.bouncycastle.asn1.cms.RecipientEncryptedKey;
-import org.bouncycastle.asn1.cms.RecipientKeyIdentifier;
-import org.bouncycastle.asn1.cms.ecc.MQVuserKeyingMaterial;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.Gost2814789EncryptedKey;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.KeyAgreeRecipientInfoGenerator;
-import org.bouncycastle.cms.jcajce.EnvelopedDataHelper;
 import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
 import org.bouncycastle.jcajce.spec.MQVParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.SecretKeySizeProvider;
-import org.bouncycastle.util.Arrays;
+
+
 
 public class JceKeyAgreeRecipientInfoGenerator
     extends KeyAgreeRecipientInfoGenerator

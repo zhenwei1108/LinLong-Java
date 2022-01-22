@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+
 import java.lang.reflect.Constructor;
 import java.nio.ByteBuffer;
 import java.security.AlgorithmParameters;
@@ -21,13 +22,11 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.DataLengthException;
+
+
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.engines.DSTU7624Engine;
@@ -71,20 +70,15 @@ import org.bouncycastle.crypto.params.RC5Parameters;
 import org.bouncycastle.internal.asn1.cms.GCMParameters;
 import org.bouncycastle.jcajce.PBKDF1Key;
 import org.bouncycastle.jcajce.PBKDF1KeyWithParameters;
-import org.bouncycastle.jcajce.PKCS12Key;
+
 import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
-import org.bouncycastle.jcajce.provider.symmetric.util.GcmSpecUtil;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
 import org.bouncycastle.jcajce.spec.AEADParameterSpec;
 import org.bouncycastle.jcajce.spec.FPEParameterSpec;
-import org.bouncycastle.jcajce.spec.GOST28147ParameterSpec;
+
 import org.bouncycastle.jcajce.spec.RepeatedSecretKeySpec;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
+
 
 public class BaseBlockCipher
     extends BaseWrapCipher

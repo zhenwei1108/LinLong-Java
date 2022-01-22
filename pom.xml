@@ -19,27 +19,29 @@
 
 	<dependencies>
 		<!-- bc jar start -->
+<!--
 
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on &ndash;&gt;
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
 			<version>${bouncycastle.bcprov.verion}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on &ndash;&gt;
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcpkix-jdk15on</artifactId>
 			<version>${bouncycastle.bcpkix.verion}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 -->
+		&lt;!&ndash; https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 &ndash;&gt;
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk16</artifactId>
 			<version>${bouncycastle.bcprov.jdk16.verion}</version>
 		</dependency>
+-->
 
 		<!-- bc jar end -->
 

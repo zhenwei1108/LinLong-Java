@@ -1,5 +1,12 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+import ASN1GeneralizedTime;
+
+
+
+
+import Extensions;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,27 +24,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.ocsp.BasicOCSPResponse;
-import org.bouncycastle.asn1.ocsp.CertID;
-import org.bouncycastle.asn1.ocsp.OCSPObjectIdentifiers;
-import org.bouncycastle.asn1.ocsp.OCSPRequest;
-import org.bouncycastle.asn1.ocsp.OCSPResponse;
-import org.bouncycastle.asn1.ocsp.OCSPResponseStatus;
-import org.bouncycastle.asn1.ocsp.Request;
-import org.bouncycastle.asn1.ocsp.ResponseBytes;
-import org.bouncycastle.asn1.ocsp.ResponseData;
-import org.bouncycastle.asn1.ocsp.SingleResponse;
-import org.bouncycastle.asn1.ocsp.TBSRequest;
-import org.bouncycastle.asn1.x509.Extensions;
+import ocsp.BasicOCSPResponse;
+import ocsp.CertID;
+import ocsp.OCSPObjectIdentifiers;
+import ocsp.OCSPRequest;
+import ocsp.OCSPResponse;
+import ocsp.OCSPResponseStatus;
+import ocsp.Request;
+import ocsp.ResponseBytes;
+import ocsp.ResponseData;
+import ocsp.SingleResponse;
+import ocsp.TBSRequest;
 import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
-import org.bouncycastle.util.io.Streams;
+
+
 
 class OcspCache
 {
@@ -135,7 +135,7 @@ class OcspCache
                 nonce = value;
             }
 
-            requestExtensions.add(new org.bouncycastle.asn1.x509.Extension(
+            requestExtensions.add(new Extension(
                 new ASN1ObjectIdentifier(ext.getId()), ext.isCritical(), value));
         }
 
@@ -143,7 +143,7 @@ class OcspCache
         TBSRequest tbsReq = new TBSRequest(null, new DERSequence(requests),
             Extensions.getInstance(new DERSequence(requestExtensions)));
 
-        org.bouncycastle.asn1.ocsp.Signature signature = null;
+        ocsp.Signature signature = null;
 
         try
         {

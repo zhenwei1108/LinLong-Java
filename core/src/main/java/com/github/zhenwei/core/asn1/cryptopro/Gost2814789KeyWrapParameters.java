@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 public class Gost2814789KeyWrapParameters
     extends ASN1Object
@@ -34,17 +34,17 @@ public class Gost2814789KeyWrapParameters
         }
     }
 
-    public static org.bouncycastle.asn1.cryptopro.Gost2814789KeyWrapParameters getInstance(
+    public static Gost2814789KeyWrapParameters getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cryptopro.Gost2814789KeyWrapParameters)
+        if (obj instanceof Gost2814789KeyWrapParameters)
         {
-            return (org.bouncycastle.asn1.cryptopro.Gost2814789KeyWrapParameters)obj;
+            return  (Gost2814789KeyWrapParameters)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cryptopro.Gost2814789KeyWrapParameters(ASN1Sequence.getInstance(obj));
+            return new Gost2814789KeyWrapParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

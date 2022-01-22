@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.util.Arrays;
+
+
+import x9.X9ObjectIdentifiers;
 
 /**
  * Parameter spec for doing KTS based wrapping via the Cipher API.

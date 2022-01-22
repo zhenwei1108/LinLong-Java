@@ -1,22 +1,18 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1UniversalString;
+import com.github.zhenwei.core.asn1.x500.AttributeTypeAndValue;
+import com.github.zhenwei.core.asn1.x500.RDN;
+import com.github.zhenwei.core.asn1.x500.X500NameBuilder;
+import com.github.zhenwei.core.asn1.x500.X500NameStyle;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1UniversalString;
-import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500NameBuilder;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.X500NameTokenizer;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
 
 public class IETFUtils
 {
@@ -231,7 +227,7 @@ public class IETFUtils
 
     public static String[] findAttrNamesForOID(
         ASN1ObjectIdentifier oid,
-        Hashtable            lookup)
+        Hashtable lookup)
     {
         int count = 0;
         for (Enumeration en = lookup.elements(); en.hasMoreElements();)
@@ -317,14 +313,14 @@ public class IETFUtils
                     buf.append('+');
                 }
 
-                org.bouncycastle.asn1.x500.style.IETFUtils.appendTypeAndValue(buf, atv[j], oidSymbols);
+                 IETFUtils.appendTypeAndValue(buf, atv[j], oidSymbols);
             }
         }
         else
         {
             if (rdn.getFirst() != null)
             {
-                org.bouncycastle.asn1.x500.style.IETFUtils.appendTypeAndValue(buf, rdn.getFirst(), oidSymbols);
+                 IETFUtils.appendTypeAndValue(buf, rdn.getFirst(), oidSymbols);
             }
         }
     }

@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.TimeStampTokenEvidence;
-import org.bouncycastle.asn1.tsp.EvidenceRecord;
+
+
+
+
+
+
+import tsp.EvidenceRecord;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5544">RFC 5544</a>:
@@ -64,28 +63,28 @@ public class Evidence
      * <p>
      * Accepted inputs:
      * <ul>
-     * <li> {@link org.bouncycastle.asn1.cms.Evidence} object
+     * <li> {@link cms.Evidence} object
      * <li> {@link ASN1TaggedObject#getInstance(Object) ASN1TaggedObject} input formats with Evidence data inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.Evidence getInstance(Object obj)
+    public static cms.Evidence getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.cms.Evidence)
+        if (obj == null || obj instanceof cms.Evidence)
         {
-            return (org.bouncycastle.asn1.cms.Evidence)obj;
+            return (cms.Evidence)obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.cms.Evidence(ASN1TaggedObject.getInstance(obj));
+            return new cms.Evidence(ASN1TaggedObject.getInstance(obj));
         }
 
         throw new IllegalArgumentException("unknown object in getInstance");
     }
 
-    public static org.bouncycastle.asn1.cms.Evidence getInstance(
+    public static cms.Evidence getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

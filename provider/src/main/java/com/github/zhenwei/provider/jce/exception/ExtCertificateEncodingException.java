@@ -1,7 +1,6 @@
 package com.github.zhenwei.provider.jce.exception;
 
 import java.security.cert.CertificateEncodingException;
-import org.bouncycastle.jce.exception.ExtException;
 
 public class ExtCertificateEncodingException
     extends CertificateEncodingException

@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.math.ec;
 
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.PreCompInfo;
-
 /**
  * Class holding precomputation data for fixed-point multiplications.
  */

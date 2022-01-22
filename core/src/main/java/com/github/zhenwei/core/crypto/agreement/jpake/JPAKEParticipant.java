@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.agreement.jpake;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroup;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
@@ -12,7 +12,7 @@ import org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEUtil;
 import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A participant in a Password Authenticated Key Exchange by Juggling (J-PAKE) exchange.

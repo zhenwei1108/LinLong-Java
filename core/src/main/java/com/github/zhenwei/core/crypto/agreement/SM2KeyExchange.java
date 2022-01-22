@@ -1,20 +1,21 @@
 package com.github.zhenwei.core.crypto.agreement;
 
+
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SM3Digest;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ParametersWithID;
+import com.github.zhenwei.core.crypto.params.SM2KeyExchangePrivateParameters;
+import com.github.zhenwei.core.crypto.params.SM2KeyExchangePublicParameters;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Memoable;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.SM3Digest;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithID;
-import org.bouncycastle.crypto.params.SM2KeyExchangePrivateParameters;
-import org.bouncycastle.crypto.params.SM2KeyExchangePublicParameters;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Memoable;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * SM2 Key Exchange protocol - based on https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02

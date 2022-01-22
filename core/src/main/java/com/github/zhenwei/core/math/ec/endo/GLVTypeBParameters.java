@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.ec.endo;
 
+import endo.ScalarSplitParameters;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.endo.ScalarSplitParameters;
 
 public class GLVTypeBParameters
 {

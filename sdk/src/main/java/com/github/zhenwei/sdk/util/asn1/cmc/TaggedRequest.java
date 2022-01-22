@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
+
+
+
+
+import crmf.CertReqMsg;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmc.TaggedCertificationRequest;
-import org.bouncycastle.asn1.crmf.CertReqMsg;
 
 /**
  * <pre>
@@ -53,11 +52,11 @@ public class TaggedRequest
         this.value = orm;
     }
 
-    public static org.bouncycastle.asn1.cmc.TaggedRequest getInstance(Object obj)
+    public static cmc.TaggedRequest getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cmc.TaggedRequest)
+        if (obj instanceof cmc.TaggedRequest)
         {
-            return (org.bouncycastle.asn1.cmc.TaggedRequest)obj;
+            return (cmc.TaggedRequest)obj;
         }
 
         if (obj != null)
@@ -69,11 +68,11 @@ public class TaggedRequest
                 switch (asn1Prim.getTagNo())
                 {
                 case 0:
-                    return new org.bouncycastle.asn1.cmc.TaggedRequest(TaggedCertificationRequest.getInstance(asn1Prim, false));
+                    return new cmc.TaggedRequest(TaggedCertificationRequest.getInstance(asn1Prim, false));
                 case 1:
-                    return new org.bouncycastle.asn1.cmc.TaggedRequest(CertReqMsg.getInstance(asn1Prim, false));
+                    return new cmc.TaggedRequest(CertReqMsg.getInstance(asn1Prim, false));
                 case 2:
-                    return new org.bouncycastle.asn1.cmc.TaggedRequest(ASN1Sequence.getInstance(asn1Prim, false));
+                    return new cmc.TaggedRequest(ASN1Sequence.getInstance(asn1Prim, false));
                 default:
                     throw new IllegalArgumentException("unknown tag in getInstance(): " + asn1Prim.getTagNo());
                 }

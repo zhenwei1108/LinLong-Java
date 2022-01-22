@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
 
 /**
  * The base class for parameters to key generators.

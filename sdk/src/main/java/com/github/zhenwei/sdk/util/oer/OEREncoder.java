@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.util.oer;
 
+
 import java.io.ByteArrayOutputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
 
 public class OEREncoder
 {

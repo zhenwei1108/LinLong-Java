@@ -1,16 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.OriginatorPublicKey;
-import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -76,7 +74,7 @@ public class OriginatorIdentifierOrKey
      * @exception IllegalArgumentException if the object held by the
      *          tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey getInstance(
+    public static cms.OriginatorIdentifierOrKey getInstance(
         ASN1TaggedObject    o,
         boolean             explicit)
     {
@@ -95,7 +93,7 @@ public class OriginatorIdentifierOrKey
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey} object
+     * <li> {@link cms.OriginatorIdentifierOrKey} object
      * <li> {@link IssuerAndSerialNumber} object
      * <li> {@link ASN1TaggedObject#getInstance(Object) ASN1TaggedObject} input formats with IssuerAndSerialNumber structure inside
      * </ul>
@@ -103,17 +101,17 @@ public class OriginatorIdentifierOrKey
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey getInstance(
+    public static cms.OriginatorIdentifierOrKey getInstance(
         Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey)
+        if (o == null || o instanceof cms.OriginatorIdentifierOrKey)
         {
-            return (org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey)o;
+            return (cms.OriginatorIdentifierOrKey)o;
         }
 
         if (o instanceof IssuerAndSerialNumber || o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey(IssuerAndSerialNumber.getInstance(o));
+            return new cms.OriginatorIdentifierOrKey(IssuerAndSerialNumber.getInstance(o));
         }
 
         if (o instanceof ASN1TaggedObject)
@@ -122,11 +120,11 @@ public class OriginatorIdentifierOrKey
 
             if (tagged.getTagNo() == 0)
             {
-                return new org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey(SubjectKeyIdentifier.getInstance(tagged, false));
+                return new cms.OriginatorIdentifierOrKey(SubjectKeyIdentifier.getInstance(tagged, false));
             }
             else if (tagged.getTagNo() == 1)
             {
-                return new org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey(OriginatorPublicKey.getInstance(tagged, false));
+                return new cms.OriginatorIdentifierOrKey(OriginatorPublicKey.getInstance(tagged, false));
             }
         }
 

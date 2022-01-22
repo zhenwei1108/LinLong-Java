@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
 
 public class RC2CBCParameter
     extends ASN1Object
@@ -16,16 +16,16 @@ public class RC2CBCParameter
     ASN1Integer      version;
     ASN1OctetString iv;
 
-    public static org.bouncycastle.asn1.pkcs.RC2CBCParameter getInstance(
+    public static pkcs.RC2CBCParameter getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.pkcs.RC2CBCParameter)
+        if (o instanceof pkcs.RC2CBCParameter)
         {
-            return (org.bouncycastle.asn1.pkcs.RC2CBCParameter)o;
+            return (pkcs.RC2CBCParameter)o;
         }
         if (o != null)
         {
-            return new org.bouncycastle.asn1.pkcs.RC2CBCParameter(ASN1Sequence.getInstance(o));
+            return new pkcs.RC2CBCParameter(ASN1Sequence.getInstance(o));
         }
 
         return null;

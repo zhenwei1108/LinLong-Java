@@ -1,10 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 /**
  * <pre>
@@ -29,20 +29,20 @@ import org.bouncycastle.asn1.ASN1Primitive;
 public class CMCFailInfo
     extends ASN1Object
 {
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo badAlg = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(0));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo badMessageCheck = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(1));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo badRequest = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(2));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo badTime = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(3));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo badCertId = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(4));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo unsupportedExt = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(5));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo mustArchiveKeys = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(6));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo badIdentity = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(7));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo popRequired = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(8));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo popFailed = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(9));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo noKeyReuse = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(10));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo internalCAError = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(11));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo tryLater = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(12));
-    public static final org.bouncycastle.asn1.cmc.CMCFailInfo authDataFail = new org.bouncycastle.asn1.cmc.CMCFailInfo(new ASN1Integer(13));
+    public static final cmc.CMCFailInfo badAlg = new cmc.CMCFailInfo(new ASN1Integer(0));
+    public static final cmc.CMCFailInfo badMessageCheck = new cmc.CMCFailInfo(new ASN1Integer(1));
+    public static final cmc.CMCFailInfo badRequest = new cmc.CMCFailInfo(new ASN1Integer(2));
+    public static final cmc.CMCFailInfo badTime = new cmc.CMCFailInfo(new ASN1Integer(3));
+    public static final cmc.CMCFailInfo badCertId = new cmc.CMCFailInfo(new ASN1Integer(4));
+    public static final cmc.CMCFailInfo unsupportedExt = new cmc.CMCFailInfo(new ASN1Integer(5));
+    public static final cmc.CMCFailInfo mustArchiveKeys = new cmc.CMCFailInfo(new ASN1Integer(6));
+    public static final cmc.CMCFailInfo badIdentity = new cmc.CMCFailInfo(new ASN1Integer(7));
+    public static final cmc.CMCFailInfo popRequired = new cmc.CMCFailInfo(new ASN1Integer(8));
+    public static final cmc.CMCFailInfo popFailed = new cmc.CMCFailInfo(new ASN1Integer(9));
+    public static final cmc.CMCFailInfo noKeyReuse = new cmc.CMCFailInfo(new ASN1Integer(10));
+    public static final cmc.CMCFailInfo internalCAError = new cmc.CMCFailInfo(new ASN1Integer(11));
+    public static final cmc.CMCFailInfo tryLater = new cmc.CMCFailInfo(new ASN1Integer(12));
+    public static final cmc.CMCFailInfo authDataFail = new cmc.CMCFailInfo(new ASN1Integer(13));
 
     private static Map range = new HashMap();
 
@@ -74,16 +74,16 @@ public class CMCFailInfo
          this.value = value;
     }
 
-    public static org.bouncycastle.asn1.cmc.CMCFailInfo getInstance(Object o)
+    public static cmc.CMCFailInfo getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.CMCFailInfo)
+        if (o instanceof cmc.CMCFailInfo)
         {
-            return (org.bouncycastle.asn1.cmc.CMCFailInfo)o;
+            return (cmc.CMCFailInfo)o;
         }
 
         if (o != null)
         {
-            org.bouncycastle.asn1.cmc.CMCFailInfo status = (org.bouncycastle.asn1.cmc.CMCFailInfo)range.get(ASN1Integer.getInstance(o));
+            cmc.CMCFailInfo status = (cmc.CMCFailInfo)range.get(ASN1Integer.getInstance(o));
 
             if (status != null)
             {

@@ -1,19 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
-import org.bouncycastle.asn1.dvcs.DVCSCertInfo;
-import org.bouncycastle.asn1.dvcs.DVCSRequestInformation;
-import org.bouncycastle.asn1.dvcs.DVCSTime;
-import org.bouncycastle.asn1.dvcs.TargetEtcChain;
-import org.bouncycastle.asn1.x509.DigestInfo;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.PolicyInformation;
+
+
+
+
+
+
+
+import Extensions;
+import PolicyInformation;
+import cmp.PKIStatusInfo;
 
 /**
  * <pre>

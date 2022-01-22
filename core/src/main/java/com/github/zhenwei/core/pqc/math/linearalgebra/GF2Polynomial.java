@@ -7,7 +7,7 @@ import org.bouncycastle.pqc.math.linearalgebra.GF2nField;
 import org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialElement;
 import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
 import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
-import org.bouncycastle.util.Arrays;
+
 
 
 /**

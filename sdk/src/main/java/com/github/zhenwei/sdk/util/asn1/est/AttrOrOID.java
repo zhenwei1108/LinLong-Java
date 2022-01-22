@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.est;
 
+
+
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.pkcs.Attribute;
+import pkcs.Attribute;
 
 /**
  * <pre>
@@ -33,12 +33,12 @@ public class AttrOrOID
         this.attribute = attribute;
     }
 
-    public static org.bouncycastle.asn1.est.AttrOrOID getInstance(
+    public static est.AttrOrOID getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.est.AttrOrOID)
+        if (obj instanceof est.AttrOrOID)
         {
-            return (org.bouncycastle.asn1.est.AttrOrOID)obj;
+            return (est.AttrOrOID)obj;
         }
 
         if (obj != null)
@@ -49,11 +49,11 @@ public class AttrOrOID
 
                 if (asn1Prim instanceof ASN1ObjectIdentifier)
                 {
-                    return new org.bouncycastle.asn1.est.AttrOrOID(ASN1ObjectIdentifier.getInstance(asn1Prim));
+                    return new est.AttrOrOID(ASN1ObjectIdentifier.getInstance(asn1Prim));
                 }
                 if (asn1Prim instanceof ASN1Sequence)
                 {
-                    return new org.bouncycastle.asn1.est.AttrOrOID(Attribute.getInstance(asn1Prim));
+                    return new est.AttrOrOID(Attribute.getInstance(asn1Prim));
                 }
             }
             if (obj instanceof byte[])

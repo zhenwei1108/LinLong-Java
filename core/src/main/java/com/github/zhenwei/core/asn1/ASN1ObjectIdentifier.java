@@ -3,16 +3,9 @@ package com.github.zhenwei.core.asn1;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.OIDTokenizer;
-import org.bouncycastle.util.Arrays;
 
 /**
  * Class representing the ASN.1 OBJECT IDENTIFIER type.
@@ -21,7 +14,7 @@ public class ASN1ObjectIdentifier
     extends ASN1Primitive
 {
     static final ASN1UniversalType TYPE = new ASN1UniversalType(
-        org.bouncycastle.asn1.ASN1ObjectIdentifier.class, BERTags.OBJECT_IDENTIFIER)
+        ASN1ObjectIdentifier.class, BERTags.OBJECT_IDENTIFIER)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -36,21 +29,21 @@ public class ASN1ObjectIdentifier
      * @return an ASN1ObjectIdentifier instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.ASN1ObjectIdentifier getInstance(
+    public static ASN1ObjectIdentifier getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1ObjectIdentifier)
+        if (obj == null || obj instanceof ASN1ObjectIdentifier)
         {
-            return (org.bouncycastle.asn1.ASN1ObjectIdentifier)obj;
+            return (ASN1ObjectIdentifier)obj;
         }
 
         if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
 
-            if (primitive instanceof org.bouncycastle.asn1.ASN1ObjectIdentifier)
+            if (primitive instanceof ASN1ObjectIdentifier)
             {
-                return (org.bouncycastle.asn1.ASN1ObjectIdentifier)primitive;
+                return (ASN1ObjectIdentifier)primitive;
             }
         }
 
@@ -59,7 +52,7 @@ public class ASN1ObjectIdentifier
             byte[] enc = (byte[])obj;
             try
             {
-                return (org.bouncycastle.asn1.ASN1ObjectIdentifier)TYPE.fromByteArray(enc);
+                return (ASN1ObjectIdentifier)TYPE.fromByteArray(enc);
             }
             catch (IOException e)
             {
@@ -80,9 +73,9 @@ public class ASN1ObjectIdentifier
      * @throws IllegalArgumentException if the tagged object cannot
      * be converted.
      */
-    public static org.bouncycastle.asn1.ASN1ObjectIdentifier getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1ObjectIdentifier getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1ObjectIdentifier)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1ObjectIdentifier)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     private static final long LONG_LIMIT = (Long.MAX_VALUE >> 7) - 0x7f;
@@ -194,7 +187,7 @@ public class ASN1ObjectIdentifier
      * @param branchID node numbers for the new branch.
      * @return the OID for the new created branch.
      */
-    ASN1ObjectIdentifier(org.bouncycastle.asn1.ASN1ObjectIdentifier oid, String branchID)
+    ASN1ObjectIdentifier(ASN1ObjectIdentifier oid, String branchID)
     {
         if (!isValidBranchID(branchID, 0))
         {
@@ -220,9 +213,9 @@ public class ASN1ObjectIdentifier
      * @param branchID node numbers for the new branch.
      * @return the OID for the new created branch.
      */
-    public org.bouncycastle.asn1.ASN1ObjectIdentifier branch(String branchID)
+    public ASN1ObjectIdentifier branch(String branchID)
     {
-        return new org.bouncycastle.asn1.ASN1ObjectIdentifier(this, branchID);
+        return new ASN1ObjectIdentifier(this, branchID);
     }
 
     /**
@@ -231,7 +224,7 @@ public class ASN1ObjectIdentifier
      * @param stem the arc or branch that is a possible parent.
      * @return true if the branch is on the passed in stem, false otherwise.
      */
-    public boolean on(org.bouncycastle.asn1.ASN1ObjectIdentifier stem)
+    public boolean on(ASN1ObjectIdentifier stem)
     {
         String id = getId(), stemId = stem.getId();
         return id.length() > stemId.length() && id.charAt(stemId.length()) == '.' && id.startsWith(stemId);
@@ -346,12 +339,12 @@ public class ASN1ObjectIdentifier
             return true;
         }
 
-        if (!(o instanceof org.bouncycastle.asn1.ASN1ObjectIdentifier))
+        if (!(o instanceof ASN1ObjectIdentifier))
         {
             return false;
         }
 
-        return identifier.equals(((org.bouncycastle.asn1.ASN1ObjectIdentifier)o).identifier);
+        return identifier.equals(((ASN1ObjectIdentifier)o).identifier);
     }
 
     public String toString()
@@ -425,10 +418,10 @@ public class ASN1ObjectIdentifier
      *
      * @return a reference to the identifier in the pool.
      */
-    public org.bouncycastle.asn1.ASN1ObjectIdentifier intern()
+    public ASN1ObjectIdentifier intern()
     {
         final OidHandle hdl = new OidHandle(getBody());
-        org.bouncycastle.asn1.ASN1ObjectIdentifier oid = pool.get(hdl);
+        ASN1ObjectIdentifier oid = pool.get(hdl);
         if (oid == null)
         {
             oid = pool.putIfAbsent(hdl, this);
@@ -440,7 +433,7 @@ public class ASN1ObjectIdentifier
         return oid;
     }
 
-    private static final ConcurrentMap<OidHandle, org.bouncycastle.asn1.ASN1ObjectIdentifier> pool = new ConcurrentHashMap<OidHandle, org.bouncycastle.asn1.ASN1ObjectIdentifier>();
+    private static final ConcurrentMap<OidHandle, ASN1ObjectIdentifier> pool = new ConcurrentHashMap<OidHandle, ASN1ObjectIdentifier>();
 
     private static class OidHandle
     {
@@ -469,13 +462,13 @@ public class ASN1ObjectIdentifier
         }
     }
 
-    static org.bouncycastle.asn1.ASN1ObjectIdentifier createPrimitive(byte[] contents)
+    static ASN1ObjectIdentifier createPrimitive(byte[] contents)
     {
         final OidHandle hdl = new OidHandle(contents);
-        org.bouncycastle.asn1.ASN1ObjectIdentifier oid = pool.get(hdl);
+        ASN1ObjectIdentifier oid = pool.get(hdl);
         if (oid == null)
         {
-            return new org.bouncycastle.asn1.ASN1ObjectIdentifier(contents);
+            return new ASN1ObjectIdentifier(contents);
         }
         return oid;
     }

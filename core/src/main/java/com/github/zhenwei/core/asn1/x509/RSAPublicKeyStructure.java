@@ -1,17 +1,17 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
- * @deprecated use org.bouncycastle.asn1.pkcs.RSAPublicKey
+ * @deprecated use pkcs.RSAPublicKey
  */
 public class RSAPublicKeyStructure
     extends ASN1Object
@@ -19,24 +19,24 @@ public class RSAPublicKeyStructure
     private BigInteger  modulus;
     private BigInteger  publicExponent;
 
-    public static org.bouncycastle.asn1.x509.RSAPublicKeyStructure getInstance(
+    public static RSAPublicKeyStructure getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.RSAPublicKeyStructure getInstance(
+    public static RSAPublicKeyStructure getInstance(
         Object obj)
     {
-        if(obj == null || obj instanceof org.bouncycastle.asn1.x509.RSAPublicKeyStructure)
+        if(obj == null || obj instanceof RSAPublicKeyStructure)
         {
-            return (org.bouncycastle.asn1.x509.RSAPublicKeyStructure)obj;
+            return (RSAPublicKeyStructure)obj;
         }
         
         if(obj instanceof ASN1Sequence) 
         {
-            return new org.bouncycastle.asn1.x509.RSAPublicKeyStructure((ASN1Sequence)obj);
+            return new RSAPublicKeyStructure((ASN1Sequence)obj);
         }
         
         throw new IllegalArgumentException("Invalid RSAPublicKeyStructure: " + obj.getClass().getName());

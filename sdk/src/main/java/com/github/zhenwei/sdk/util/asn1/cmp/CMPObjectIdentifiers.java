@@ -1,6 +1,6 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 public interface CMPObjectIdentifiers
 {

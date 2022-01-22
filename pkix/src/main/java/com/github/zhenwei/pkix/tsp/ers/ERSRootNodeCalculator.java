@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
-import org.bouncycastle.asn1.tsp.PartialHashtree;
 import org.bouncycastle.operator.DigestCalculator;
+import tsp.PartialHashtree;
 
 /**
  * Base interface for an implementation that calculates the root hash

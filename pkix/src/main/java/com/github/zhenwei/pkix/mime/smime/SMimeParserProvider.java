@@ -6,7 +6,6 @@ import org.bouncycastle.mime.BasicMimeParser;
 import org.bouncycastle.mime.Headers;
 import org.bouncycastle.mime.MimeParser;
 import org.bouncycastle.mime.MimeParserProvider;
-import org.bouncycastle.mime.smime.SMimeParserContext;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 
 public class SMimeParserProvider

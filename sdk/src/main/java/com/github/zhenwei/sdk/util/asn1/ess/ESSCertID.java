@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.IssuerSerial;
+
+
+
+
+
+
+
+
 
 public class ESSCertID
     extends ASN1Object
@@ -16,15 +16,15 @@ public class ESSCertID
 
     private IssuerSerial issuerSerial;
 
-    public static org.bouncycastle.asn1.ess.ESSCertID getInstance(Object o)
+    public static ess.ESSCertID getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.ess.ESSCertID)
+        if (o instanceof ess.ESSCertID)
         {
-            return (org.bouncycastle.asn1.ess.ESSCertID)o;
+            return (ess.ESSCertID)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.ess.ESSCertID(ASN1Sequence.getInstance(o));
+            return new ess.ESSCertID(ASN1Sequence.getInstance(o));
         }
 
         return null;

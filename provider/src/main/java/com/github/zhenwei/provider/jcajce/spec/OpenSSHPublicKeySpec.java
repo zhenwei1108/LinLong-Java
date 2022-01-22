@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.EncodedKeySpec;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
  * Holds an OpenSSH encoded public key.

@@ -1,18 +1,18 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.PolicyQualifierInfo;
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class PolicyInformation
     extends ASN1Object
 {
-    private ASN1ObjectIdentifier   policyIdentifier;
-    private ASN1Sequence          policyQualifiers;
+    private ASN1ObjectIdentifier policyIdentifier;
+    private ASN1Sequence policyQualifiers;
 
     private PolicyInformation(
         ASN1Sequence seq)
@@ -45,15 +45,15 @@ public class PolicyInformation
         this.policyQualifiers = policyQualifiers;
     }
 
-    public static org.bouncycastle.asn1.x509.PolicyInformation getInstance(
+    public static PolicyInformation getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.PolicyInformation)
+        if (obj == null || obj instanceof PolicyInformation)
         {
-            return (org.bouncycastle.asn1.x509.PolicyInformation)obj;
+            return (PolicyInformation)obj;
         }
 
-        return new org.bouncycastle.asn1.x509.PolicyInformation(ASN1Sequence.getInstance(obj));
+        return new PolicyInformation(ASN1Sequence.getInstance(obj));
     }
 
     public ASN1ObjectIdentifier getPolicyIdentifier()

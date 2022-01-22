@@ -1,17 +1,15 @@
 package com.github.zhenwei.pkix.tsp;
 
+
+
+import Extensions;
+
 import java.io.IOException;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.util.Date;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.tsp.Accuracy;
-import org.bouncycastle.asn1.tsp.TSTInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.tsp.GenTimeAccuracy;
-import org.bouncycastle.tsp.TSPException;
+import tsp.Accuracy;
+import tsp.TSTInfo;
 
 public class TimeStampTokenInfo
 {

@@ -7,16 +7,16 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.params.ParametersWithID;
+ 
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.signers.SM2Signer;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.spec.SM2ParameterSpec;
-import org.bouncycastle.jcajce.util.BCJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+;
+
 
 public class GMSignatureSpi
     extends java.security.SignatureSpi

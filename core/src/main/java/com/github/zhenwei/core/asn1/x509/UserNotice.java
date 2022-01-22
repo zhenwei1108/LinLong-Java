@@ -1,14 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.DisplayText;
-import org.bouncycastle.asn1.x509.NoticeReference;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.asn1.x509.PolicyQualifierId;
+
+
+
+
+
 
 /**
  * <code>UserNotice</code> class, used in
@@ -98,17 +94,17 @@ public class UserNotice
        }
     }
 
-    public static org.bouncycastle.asn1.x509.UserNotice getInstance(
+    public static UserNotice getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.UserNotice)
+        if (obj instanceof UserNotice)
         {
-            return (org.bouncycastle.asn1.x509.UserNotice)obj;
+            return (x509.UserNotice)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.UserNotice(ASN1Sequence.getInstance(obj));
+            return new UserNotice(ASN1Sequence.getInstance(obj));
         }
 
         return null;

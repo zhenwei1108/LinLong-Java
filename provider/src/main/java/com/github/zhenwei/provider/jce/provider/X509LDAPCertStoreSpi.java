@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
+ 
+import CertificatePair;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -29,10 +31,7 @@ import javax.naming.directory.InitialDirContext;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.x509.CertificatePair;
 import org.bouncycastle.jce.X509LDAPCertStoreParameters;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 /**
  * 

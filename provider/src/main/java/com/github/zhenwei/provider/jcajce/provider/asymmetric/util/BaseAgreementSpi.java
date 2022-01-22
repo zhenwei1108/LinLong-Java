@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
+
+
+import gnu.GNUObjectIdentifiers;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -8,23 +11,20 @@ import javax.crypto.KeyAgreementSpi;
 import javax.crypto.SecretKey;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gnu.GNUObjectIdentifiers;
-import org.bouncycastle.asn1.kisa.KISAObjectIdentifiers;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.ntt.NTTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+import kisa.KISAObjectIdentifiers;
+import misc.MiscObjectIdentifiers;
+
+
+
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.agreement.kdf.DHKDFParameters;
 import org.bouncycastle.crypto.agreement.kdf.DHKEKGenerator;
 import org.bouncycastle.crypto.params.DESParameters;
-import org.bouncycastle.crypto.params.KDFParameters;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Integers;
-import org.bouncycastle.util.Strings;
+
+
+ 
+
+
 
 public abstract class BaseAgreementSpi
     extends KeyAgreementSpi

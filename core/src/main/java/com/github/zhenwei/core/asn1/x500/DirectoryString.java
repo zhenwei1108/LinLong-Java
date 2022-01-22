@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.asn1.x500;
 
-import org.bouncycastle.asn1.ASN1BMPString;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1T61String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.ASN1UniversalString;
-import org.bouncycastle.asn1.DERUTF8String;
+
+import com.github.zhenwei.core.asn1.ASN1BMPString;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1PrintableString;
+import com.github.zhenwei.core.asn1.ASN1T61String;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.ASN1UniversalString;
+import com.github.zhenwei.core.asn1.DERUTF8String;
 
 /**
  * The DirectoryString CHOICE object.
@@ -22,42 +21,42 @@ public class DirectoryString
 {
     private ASN1String string;
 
-    public static org.bouncycastle.asn1.x500.DirectoryString getInstance(Object o)
+    public static  DirectoryString getInstance(Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.x500.DirectoryString)
+        if (o == null || o instanceof  DirectoryString)
         {
-            return (org.bouncycastle.asn1.x500.DirectoryString)o;
+            return  (DirectoryString)o;
         }
 
         if (o instanceof ASN1T61String)
         {
-            return new org.bouncycastle.asn1.x500.DirectoryString((ASN1T61String)o);
+            return new  DirectoryString((ASN1T61String)o);
         }
 
         if (o instanceof ASN1PrintableString)
         {
-            return new org.bouncycastle.asn1.x500.DirectoryString((ASN1PrintableString)o);
+            return new  DirectoryString((ASN1PrintableString)o);
         }
 
         if (o instanceof ASN1UniversalString)
         {
-            return new org.bouncycastle.asn1.x500.DirectoryString((ASN1UniversalString)o);
+            return new  DirectoryString((ASN1UniversalString)o);
         }
 
         if (o instanceof ASN1UTF8String)
         {
-            return new org.bouncycastle.asn1.x500.DirectoryString((ASN1UTF8String)o);
+            return new  DirectoryString((ASN1UTF8String)o);
         }
 
         if (o instanceof ASN1BMPString)
         {
-            return new org.bouncycastle.asn1.x500.DirectoryString((ASN1BMPString)o);
+            return new  DirectoryString((ASN1BMPString)o);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: " + o.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.x500.DirectoryString getInstance(ASN1TaggedObject o, boolean explicit)
+    public static  DirectoryString getInstance(ASN1TaggedObject o, boolean explicit)
     {
         if (!explicit)
         {

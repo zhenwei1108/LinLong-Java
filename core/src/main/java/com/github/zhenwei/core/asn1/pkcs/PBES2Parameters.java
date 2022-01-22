@@ -1,16 +1,12 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.pkcs.EncryptionScheme;
-import org.bouncycastle.asn1.pkcs.KeyDerivationFunc;
-import org.bouncycastle.asn1.pkcs.PBKDF2Params;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 
 public class PBES2Parameters
     extends ASN1Object
@@ -19,16 +15,16 @@ public class PBES2Parameters
     private KeyDerivationFunc func;
     private EncryptionScheme scheme;
 
-    public static org.bouncycastle.asn1.pkcs.PBES2Parameters getInstance(
+    public static pkcs.PBES2Parameters getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.PBES2Parameters)
+        if (obj instanceof pkcs.PBES2Parameters)
         {
-            return (org.bouncycastle.asn1.pkcs.PBES2Parameters)obj;
+            return (pkcs.PBES2Parameters)obj;
         }
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.PBES2Parameters(ASN1Sequence.getInstance(obj));
+            return new pkcs.PBES2Parameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

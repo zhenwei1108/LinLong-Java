@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.mime.smime;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.cms.CMSEnvelopedDataParser;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSSignedData;
@@ -17,10 +17,9 @@ import org.bouncycastle.mime.MimeContext;
 import org.bouncycastle.mime.MimeIOException;
 import org.bouncycastle.mime.MimeParserContext;
 import org.bouncycastle.mime.MimeParserListener;
-import org.bouncycastle.mime.smime.SMimeMultipartContext;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.io.Streams;
+
 
 public abstract class SMimeParserListener
     implements MimeParserListener

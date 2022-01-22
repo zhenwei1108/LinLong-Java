@@ -1,15 +1,14 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1Util;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.ocsp.RevokedInfo;
+
+
+import ASN1Null;
+
+
+
+import ASN1Util;
+
+
 
 public class CertStatus
     extends ASN1Object
@@ -66,22 +65,22 @@ public class CertStatus
         this.tagNo = tagNo;
     }
 
-    public static org.bouncycastle.asn1.ocsp.CertStatus getInstance(
+    public static ocsp.CertStatus getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ocsp.CertStatus)
+        if (obj == null || obj instanceof ocsp.CertStatus)
         {
-            return (org.bouncycastle.asn1.ocsp.CertStatus)obj;
+            return (ocsp.CertStatus)obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.ocsp.CertStatus((ASN1TaggedObject)obj);
+            return new ocsp.CertStatus((ASN1TaggedObject)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.ocsp.CertStatus getInstance(
+    public static ocsp.CertStatus getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

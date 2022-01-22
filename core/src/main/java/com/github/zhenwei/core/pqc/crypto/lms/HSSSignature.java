@@ -8,7 +8,7 @@ import java.util.Arrays;
 import org.bouncycastle.pqc.crypto.lms.Composer;
 import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
 import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.io.Streams;
+
 
 public class HSSSignature
     implements Encodable

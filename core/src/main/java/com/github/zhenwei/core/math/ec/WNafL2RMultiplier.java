@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.AbstractECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.WNafPreCompInfo;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.util.Integers;
+ 
 
 /**
  * Class implementing the WNAF (Window Non-Adjacent Form) multiplication

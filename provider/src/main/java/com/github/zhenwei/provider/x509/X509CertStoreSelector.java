@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.security.cert.Certificate;
 import java.security.cert.X509CertSelector;
 import java.security.cert.X509Certificate;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * This class is a Selector implementation for X.509 certificates.
  * 
  * @see Selector
- * @see org.bouncycastle.x509.X509Store
+ * @see org.bouncycastle.X509Store
  * @see org.bouncycastle.jce.provider.X509StoreCertCollection
  * @deprecated use the classes under org.bouncycastle.cert.selector
  */
@@ -37,7 +37,7 @@ public class X509CertStoreSelector
 
     public Object clone()
     {
-        org.bouncycastle.x509.X509CertStoreSelector selector = (org.bouncycastle.x509.X509CertStoreSelector)super.clone();
+        org.bouncycastle.X509CertStoreSelector selector = (org.bouncycastle.X509CertStoreSelector)super.clone();
 
         return selector;
     }
@@ -49,13 +49,13 @@ public class X509CertStoreSelector
      * @return An instance of an <code>X509CertStoreSelector</code>.
      * @exception IllegalArgumentException if selector is null or creation fails.
      */
-    public static org.bouncycastle.x509.X509CertStoreSelector getInstance(X509CertSelector selector)
+    public static org.bouncycastle.X509CertStoreSelector getInstance(X509CertSelector selector)
     {
         if (selector == null)
         {
             throw new IllegalArgumentException("cannot create from null selector");
         }
-        org.bouncycastle.x509.X509CertStoreSelector cs = new org.bouncycastle.x509.X509CertStoreSelector();
+        org.bouncycastle.X509CertStoreSelector cs = new org.bouncycastle.X509CertStoreSelector();
         cs.setAuthorityKeyIdentifier(selector.getAuthorityKeyIdentifier());
         cs.setBasicConstraints(selector.getBasicConstraints());
         cs.setCertificate(selector.getCertificate());

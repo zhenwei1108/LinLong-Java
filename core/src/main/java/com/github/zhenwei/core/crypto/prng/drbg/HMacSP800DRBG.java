@@ -4,7 +4,7 @@ import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.prng.EntropySource;
 import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A SP800-90A HMAC DRBG.

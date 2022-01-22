@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.xmss;
 
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -10,12 +12,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
-import org.bouncycastle.pqc.jcajce.provider.xmss.BCXMSSPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.xmss.BCXMSSPublicKey;
+import pkcs.PrivateKeyInfo;
 
 public class XMSSKeyFactorySpi
     extends KeyFactorySpi

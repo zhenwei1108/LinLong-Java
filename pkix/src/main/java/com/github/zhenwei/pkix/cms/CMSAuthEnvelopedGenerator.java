@@ -1,12 +1,8 @@
 package com.github.zhenwei.pkix.cms;
 
+import cms.OriginatorInfo;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.cms.OriginatorInfo;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSEnvelopedGenerator;
-import org.bouncycastle.cms.OriginatorInformation;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 
 /**
  * General class for generating a CMS enveloped-data message.

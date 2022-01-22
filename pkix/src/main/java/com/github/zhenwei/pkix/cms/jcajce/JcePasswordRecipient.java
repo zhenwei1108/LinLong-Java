@@ -1,16 +1,15 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
+
 import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.security.Provider;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.PasswordRecipient;
-import org.bouncycastle.cms.jcajce.EnvelopedDataHelper;
 
 /**
  * the RecipientInfo class for a recipient who has been sent a message

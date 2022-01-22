@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.OtherKeyAttribute;
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -96,7 +95,7 @@ public class RecipientKeyIdentifier
      * @exception IllegalArgumentException if the object held by the
      *          tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.RecipientKeyIdentifier getInstance(ASN1TaggedObject ato, boolean isExplicit)
+    public static cms.RecipientKeyIdentifier getInstance(ASN1TaggedObject ato, boolean isExplicit)
     {
         return getInstance(ASN1Sequence.getInstance(ato, isExplicit));
     }
@@ -107,23 +106,23 @@ public class RecipientKeyIdentifier
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.RecipientKeyIdentifier} object
+     * <li> {@link cms.RecipientKeyIdentifier} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with RecipientKeyIdentifier structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.RecipientKeyIdentifier getInstance(Object obj)
+    public static cms.RecipientKeyIdentifier getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.RecipientKeyIdentifier)
+        if (obj instanceof cms.RecipientKeyIdentifier)
         {
-            return (org.bouncycastle.asn1.cms.RecipientKeyIdentifier)obj;
+            return (cms.RecipientKeyIdentifier)obj;
         }
         
         if(obj != null)
         {
-            return new org.bouncycastle.asn1.cms.RecipientKeyIdentifier(ASN1Sequence.getInstance(obj));
+            return new cms.RecipientKeyIdentifier(ASN1Sequence.getInstance(obj));
         }
         
         return null;

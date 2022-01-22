@@ -2,7 +2,6 @@ package com.github.zhenwei.provider.jcajce;
 
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.Certificate;
-import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
 
 public interface PKIXCertRevocationChecker
 {

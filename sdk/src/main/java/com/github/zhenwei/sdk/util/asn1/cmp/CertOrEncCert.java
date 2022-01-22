@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.CMPCertificate;
-import org.bouncycastle.asn1.crmf.EncryptedKey;
-import org.bouncycastle.asn1.crmf.EncryptedValue;
+
+
+
+
+
+import crmf.EncryptedKey;
+import crmf.EncryptedValue;
 
 public class CertOrEncCert
     extends ASN1Object
@@ -32,16 +31,16 @@ public class CertOrEncCert
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.CertOrEncCert getInstance(Object o)
+    public static cmp.CertOrEncCert getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CertOrEncCert)
+        if (o instanceof cmp.CertOrEncCert)
         {
-            return (org.bouncycastle.asn1.cmp.CertOrEncCert)o;
+            return (cmp.CertOrEncCert)o;
         }
 
         if (o instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.cmp.CertOrEncCert((ASN1TaggedObject)o);
+            return new cmp.CertOrEncCert((ASN1TaggedObject)o);
         }
 
         return null;

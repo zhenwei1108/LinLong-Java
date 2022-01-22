@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
 
 public class DHParameter
     extends ASN1Object
@@ -32,17 +32,17 @@ public class DHParameter
         }
     }
 
-    public static org.bouncycastle.asn1.pkcs.DHParameter getInstance(
+    public static pkcs.DHParameter getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.DHParameter)
+        if (obj instanceof pkcs.DHParameter)
         {
-            return (org.bouncycastle.asn1.pkcs.DHParameter)obj;
+            return (pkcs.DHParameter)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.DHParameter(ASN1Sequence.getInstance(obj));
+            return new pkcs.DHParameter(ASN1Sequence.getInstance(obj));
         }
 
         return null;

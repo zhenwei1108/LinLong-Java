@@ -3,8 +3,8 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.crypto.CipherParameters;
+import misc.MiscObjectIdentifiers;
+ 
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.crypto.generators.SCrypt;
 import org.bouncycastle.crypto.params.KeyParameter;

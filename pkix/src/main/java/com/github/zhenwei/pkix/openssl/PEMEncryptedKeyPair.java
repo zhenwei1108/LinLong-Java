@@ -1,10 +1,6 @@
 package com.github.zhenwei.pkix.openssl;
 
 import java.io.IOException;
-import org.bouncycastle.openssl.PEMDecryptor;
-import org.bouncycastle.openssl.PEMDecryptorProvider;
-import org.bouncycastle.openssl.PEMException;
-import org.bouncycastle.openssl.PEMKeyPair;
 import org.bouncycastle.operator.OperatorCreationException;
 
 public class PEMEncryptedKeyPair

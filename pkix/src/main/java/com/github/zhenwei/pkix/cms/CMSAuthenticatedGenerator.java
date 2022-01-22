@@ -1,12 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSEnvelopedGenerator;
-import org.bouncycastle.util.Arrays;
+
 
 public class CMSAuthenticatedGenerator
     extends CMSEnvelopedGenerator

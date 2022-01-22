@@ -1,25 +1,24 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
+
+ 
+import cms.AttributeTable;
+import cms.CMSObjectIdentifiers;
+import cms.ContentInfo;
+import cms.Evidence;
+import cms.TimeStampAndCRL;
+import cms.TimeStampTokenEvidence;
+import cms.TimeStampedData;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.Evidence;
-import org.bouncycastle.asn1.cms.TimeStampAndCRL;
-import org.bouncycastle.asn1.cms.TimeStampTokenEvidence;
-import org.bouncycastle.asn1.cms.TimeStampedData;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TimeStampToken;
-import org.bouncycastle.tsp.cms.ImprintDigestInvalidException;
 
 public class CMSTimeStampedData
 {

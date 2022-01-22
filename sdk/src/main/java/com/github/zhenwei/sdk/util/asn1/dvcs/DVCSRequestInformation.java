@@ -1,21 +1,19 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.GeneralNames;
+import com.github.zhenwei.core.asn1.x509.PolicyInformation;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.dvcs.DVCSTime;
-import org.bouncycastle.asn1.dvcs.ServiceType;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.PolicyInformation;
 
 /**
  * <pre>
@@ -116,21 +114,21 @@ public class DVCSRequestInformation
         }
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSRequestInformation getInstance(Object obj)
+    public static DVCSRequestInformation getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.DVCSRequestInformation)
+        if (obj instanceof DVCSRequestInformation)
         {
-            return (org.bouncycastle.asn1.dvcs.DVCSRequestInformation)obj;
+            return (DVCSRequestInformation)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.DVCSRequestInformation(ASN1Sequence.getInstance(obj));
+            return new DVCSRequestInformation(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSRequestInformation getInstance(
+    public static DVCSRequestInformation getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

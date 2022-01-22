@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+import cms.IssuerAndSerialNumber;
+
 
 /**
  * From RFC 2875 for Diffie-Hellman POP.
@@ -36,15 +36,15 @@ public class DhSigStatic
         this.hashValue = new DEROctetString(Arrays.clone(hashValue));
     }
 
-    public static org.bouncycastle.asn1.crmf.DhSigStatic getInstance(Object o)
+    public static crmf.DhSigStatic getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.DhSigStatic)
+        if (o instanceof crmf.DhSigStatic)
         {
-            return (org.bouncycastle.asn1.crmf.DhSigStatic)o;
+            return (crmf.DhSigStatic)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.DhSigStatic(ASN1Sequence.getInstance(o));
+            return new crmf.DhSigStatic(ASN1Sequence.getInstance(o));
         }
 
         return null;

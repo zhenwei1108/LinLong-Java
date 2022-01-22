@@ -1,17 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.DisplayText;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.asn1.x509.PolicyQualifierInfo;
 
 /**
  * <code>NoticeReference</code> class, used in
@@ -124,16 +121,16 @@ public class NoticeReference
        noticeNumbers = ASN1Sequence.getInstance(as.getObjectAt(1));
    }
 
-   public static org.bouncycastle.asn1.x509.NoticeReference getInstance(
+   public static NoticeReference getInstance(
        Object as) 
    {
-      if (as instanceof org.bouncycastle.asn1.x509.NoticeReference)
+      if (as instanceof NoticeReference)
       {
-          return (org.bouncycastle.asn1.x509.NoticeReference)as;
+          return (NoticeReference)as;
       }
       else if (as != null)
       {
-          return new org.bouncycastle.asn1.x509.NoticeReference(ASN1Sequence.getInstance(as));
+          return new NoticeReference(ASN1Sequence.getInstance(as));
       }
 
       return null;

@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * The CRLNumber object.
@@ -42,15 +42,15 @@ public class CRLNumber
         return new ASN1Integer(number);
     }
 
-    public static org.bouncycastle.asn1.x509.CRLNumber getInstance(Object o)
+    public static CRLNumber getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.x509.CRLNumber)
+        if (o instanceof CRLNumber)
         {
-            return (org.bouncycastle.asn1.x509.CRLNumber)o;
+            return (x509.CRLNumber)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.x509.CRLNumber(ASN1Integer.getInstance(o).getValue());
+            return new CRLNumber(ASN1Integer.getInstance(o).getValue());
         }
 
         return null;

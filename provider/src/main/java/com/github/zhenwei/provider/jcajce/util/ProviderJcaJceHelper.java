@@ -25,7 +25,6 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.Mac;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKeyFactory;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
 
 /**
  * {@link JcaJceHelper} that obtains all algorithms from a specific {@link Provider} instance.

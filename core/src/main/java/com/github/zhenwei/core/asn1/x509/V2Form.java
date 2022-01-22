@@ -1,15 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuerSerial;
-import org.bouncycastle.asn1.x509.ObjectDigestInfo;
+
+
+
+
+
+
+
 
 public class V2Form
     extends ASN1Object
@@ -18,23 +15,23 @@ public class V2Form
     IssuerSerial        baseCertificateID;
     ObjectDigestInfo    objectDigestInfo;
 
-    public static org.bouncycastle.asn1.x509.V2Form getInstance(
+    public static V2Form getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.V2Form getInstance(
+    public static V2Form getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.V2Form)
+        if (obj instanceof V2Form)
         {
-            return (org.bouncycastle.asn1.x509.V2Form)obj;
+            return (V2Form)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.V2Form(ASN1Sequence.getInstance(obj));
+            return new V2Form(ASN1Sequence.getInstance(obj));
         }
 
         return null;

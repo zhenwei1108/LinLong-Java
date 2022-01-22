@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
+
+
+
+
+
 
 /**
  * <pre>
@@ -17,23 +16,23 @@ public class BodyPartPath
 {
     private final BodyPartID[] bodyPartIDs;
 
-    public static org.bouncycastle.asn1.cmc.BodyPartPath getInstance(
+    public static cmc.BodyPartPath getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cmc.BodyPartPath)
+        if (obj instanceof cmc.BodyPartPath)
         {
-            return (org.bouncycastle.asn1.cmc.BodyPartPath)obj;
+            return (cmc.BodyPartPath)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cmc.BodyPartPath(ASN1Sequence.getInstance(obj));
+            return new cmc.BodyPartPath(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.cmc.BodyPartPath getInstance(
+    public static cmc.BodyPartPath getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

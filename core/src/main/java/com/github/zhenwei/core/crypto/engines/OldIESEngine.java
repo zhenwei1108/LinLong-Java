@@ -5,7 +5,7 @@ import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.DerivationFunction;
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.engines.IESEngine;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * Support class for constructing integrated encryption ciphers

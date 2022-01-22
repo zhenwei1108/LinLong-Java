@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import org.bouncycastle.asn1.dvcs.Data;
+import Data;
 
 /**
  * Data piece of DVCRequest object (DVCS Data structure).

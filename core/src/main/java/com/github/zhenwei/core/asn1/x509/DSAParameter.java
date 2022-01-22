@@ -1,38 +1,38 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
 
 public class DSAParameter
     extends ASN1Object
 {
     ASN1Integer      p, q, g;
 
-    public static org.bouncycastle.asn1.x509.DSAParameter getInstance(
+    public static DSAParameter getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.DSAParameter getInstance(
+    public static DSAParameter getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.DSAParameter)
+        if (obj instanceof DSAParameter)
         {
-            return (org.bouncycastle.asn1.x509.DSAParameter)obj;
+            return (x509.DSAParameter)obj;
         }
         
         if(obj != null)
         {
-            return new org.bouncycastle.asn1.x509.DSAParameter(ASN1Sequence.getInstance(obj));
+            return new DSAParameter(ASN1Sequence.getInstance(obj));
         }
         
         return null;

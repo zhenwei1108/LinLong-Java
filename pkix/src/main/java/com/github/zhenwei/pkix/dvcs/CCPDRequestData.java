@@ -1,9 +1,6 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import org.bouncycastle.asn1.dvcs.Data;
-import org.bouncycastle.dvcs.DVCSConstructionException;
-import org.bouncycastle.dvcs.DVCSRequestData;
-import org.bouncycastle.dvcs.MessageImprint;
+import Data;
 
 /**
  * Data piece of DVCRequest for CCPD service (Certify Claim of Possession of Data).

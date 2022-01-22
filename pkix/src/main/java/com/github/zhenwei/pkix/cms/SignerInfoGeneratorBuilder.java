@@ -1,15 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.SignerIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSSignatureEncryptionAlgorithmFinder;
-import org.bouncycastle.cms.DefaultCMSSignatureEncryptionAlgorithmFinder;
-import org.bouncycastle.cms.DefaultSignedAttributeTableGenerator;
-import org.bouncycastle.cms.SignerInfoGenerator;
+
+
+import cms.IssuerAndSerialNumber;
+import cms.SignerIdentifier;
+ 
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;

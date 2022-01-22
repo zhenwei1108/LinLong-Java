@@ -1,23 +1,22 @@
 package com.github.zhenwei.provider.jce.provider;
 
+ 
+
+
+
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.SignedData;
-import org.bouncycastle.jce.provider.PEMUtil;
-import org.bouncycastle.x509.X509AttributeCertificate;
-import org.bouncycastle.x509.X509StreamParserSpi;
-import org.bouncycastle.x509.X509V2AttributeCertificate;
-import org.bouncycastle.x509.util.StreamParsingException;
+import org.bouncycastle.X509AttributeCertificate;
+import org.bouncycastle.X509StreamParserSpi;
+import org.bouncycastle.X509V2AttributeCertificate;
+import org.bouncycastle.util.StreamParsingException;
+
+import pkcs.SignedData;
 
 public class X509AttrCertParser
     extends X509StreamParserSpi

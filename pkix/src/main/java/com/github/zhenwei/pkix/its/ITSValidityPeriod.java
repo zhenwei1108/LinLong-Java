@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.its;
 
+
 import java.util.Date;
-import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.oer.its.Duration;
 import org.bouncycastle.oer.its.ValidityPeriod;
 

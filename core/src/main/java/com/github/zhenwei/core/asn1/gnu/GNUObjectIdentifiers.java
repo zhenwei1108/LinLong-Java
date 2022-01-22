@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.gnu;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * GNU project OID collection<p>

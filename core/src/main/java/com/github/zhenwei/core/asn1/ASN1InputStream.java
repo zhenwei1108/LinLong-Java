@@ -1,33 +1,13 @@
 package com.github.zhenwei.core.asn1;
 
+import ASN1Exception;
+
 import java.io.ByteArrayInputStream;
 import java.io.EOFException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Enumerated;
-import org.bouncycastle.asn1.ASN1Exception;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1StreamParser;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTCTime;
-import org.bouncycastle.asn1.BEROctetString;
-import org.bouncycastle.asn1.BEROctetStringParser;
-import org.bouncycastle.asn1.BERSequenceParser;
-import org.bouncycastle.asn1.BERSetParser;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERExternalParser;
-import org.bouncycastle.asn1.DLExternal;
-import org.bouncycastle.util.io.Streams;
+
 
 /**
  * A general purpose ASN.1 decoder - note: this class differs from the
@@ -349,7 +329,7 @@ public class ASN1InputStream
             return new ASN1EncodableVector(0);
         }
 
-        return new org.bouncycastle.asn1.ASN1InputStream(defIn, remaining, lazyEvaluate, tmpBuffers).readVector();
+        return new ASN1InputStream(defIn, remaining, lazyEvaluate, tmpBuffers).readVector();
     }
 
     static int readTagNumber(InputStream s, int tag) 

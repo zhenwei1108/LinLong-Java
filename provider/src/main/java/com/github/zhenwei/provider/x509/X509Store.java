@@ -4,11 +4,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
 import java.util.Collection;
-import org.bouncycastle.util.Selector;
+
 import org.bouncycastle.util.Store;
-import org.bouncycastle.x509.NoSuchStoreException;
-import org.bouncycastle.x509.X509StoreParameters;
-import org.bouncycastle.x509.X509StoreSpi;
 
 /**
  * @deprecated use CollectionStore - this class will be removed.
@@ -16,7 +13,7 @@ import org.bouncycastle.x509.X509StoreSpi;
 public class X509Store
     implements Store
 {
-    public static org.bouncycastle.x509.X509Store getInstance(String type, X509StoreParameters parameters)
+    public static org.bouncycastle.X509Store getInstance(String type, X509StoreParameters parameters)
         throws NoSuchStoreException
     {
         try
@@ -31,7 +28,7 @@ public class X509Store
         }
     }
 
-    public static org.bouncycastle.x509.X509Store getInstance(String type, X509StoreParameters parameters, String provider)
+    public static org.bouncycastle.X509Store getInstance(String type, X509StoreParameters parameters, String provider)
         throws NoSuchStoreException, NoSuchProviderException
     {
         return getInstance(type, parameters, X509Util.getProvider(provider));

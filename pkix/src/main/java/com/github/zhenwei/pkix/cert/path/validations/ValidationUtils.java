@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 
 class ValidationUtils
 {

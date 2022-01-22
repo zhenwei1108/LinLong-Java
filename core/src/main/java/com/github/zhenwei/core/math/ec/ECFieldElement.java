@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec;
 
+
 import java.math.BigInteger;
 import java.util.Random;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Integers;
+
+ 
+ 
 
 public abstract class ECFieldElement
     implements ECConstants
@@ -13,19 +13,19 @@ public abstract class ECFieldElement
     public abstract BigInteger     toBigInteger();
     public abstract String         getFieldName();
     public abstract int            getFieldSize();
-    public abstract org.bouncycastle.math.ec.ECFieldElement add(
-        org.bouncycastle.math.ec.ECFieldElement b);
-    public abstract org.bouncycastle.math.ec.ECFieldElement addOne();
-    public abstract org.bouncycastle.math.ec.ECFieldElement subtract(
-        org.bouncycastle.math.ec.ECFieldElement b);
-    public abstract org.bouncycastle.math.ec.ECFieldElement multiply(
-        org.bouncycastle.math.ec.ECFieldElement b);
-    public abstract org.bouncycastle.math.ec.ECFieldElement divide(
-        org.bouncycastle.math.ec.ECFieldElement b);
-    public abstract org.bouncycastle.math.ec.ECFieldElement negate();
-    public abstract org.bouncycastle.math.ec.ECFieldElement square();
-    public abstract org.bouncycastle.math.ec.ECFieldElement invert();
-    public abstract org.bouncycastle.math.ec.ECFieldElement sqrt();
+    public abstract ECFieldElement add(
+        ECFieldElement b);
+    public abstract ECFieldElement addOne();
+    public abstract ECFieldElement subtract(
+        ECFieldElement b);
+    public abstract ECFieldElement multiply(
+        ECFieldElement b);
+    public abstract ECFieldElement divide(
+        ECFieldElement b);
+    public abstract ECFieldElement negate();
+    public abstract ECFieldElement square();
+    public abstract ECFieldElement invert();
+    public abstract ECFieldElement sqrt();
 
     public ECFieldElement()
     {
@@ -47,33 +47,33 @@ public abstract class ECFieldElement
         return 0 == toBigInteger().signum();
     }
 
-    public org.bouncycastle.math.ec.ECFieldElement multiplyMinusProduct(
-        org.bouncycastle.math.ec.ECFieldElement b, org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+    public ECFieldElement multiplyMinusProduct(
+        ECFieldElement b, ECFieldElement x, ECFieldElement y)
     {
         return multiply(b).subtract(x.multiply(y));
     }
 
-    public org.bouncycastle.math.ec.ECFieldElement multiplyPlusProduct(
-        org.bouncycastle.math.ec.ECFieldElement b, org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+    public ECFieldElement multiplyPlusProduct(
+        ECFieldElement b, ECFieldElement x, ECFieldElement y)
     {
         return multiply(b).add(x.multiply(y));
     }
 
-    public org.bouncycastle.math.ec.ECFieldElement squareMinusProduct(
-        org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+    public ECFieldElement squareMinusProduct(
+        ECFieldElement x, ECFieldElement y)
     {
         return square().subtract(x.multiply(y));
     }
 
-    public org.bouncycastle.math.ec.ECFieldElement squarePlusProduct(
-        org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+    public ECFieldElement squarePlusProduct(
+        ECFieldElement x, ECFieldElement y)
     {
         return square().add(x.multiply(y));
     }
 
-    public org.bouncycastle.math.ec.ECFieldElement squarePow(int pow)
+    public ECFieldElement squarePow(int pow)
     {
-        org.bouncycastle.math.ec.ECFieldElement r = this;
+        ECFieldElement r = this;
         for (int i = 0; i < pow; ++i)
         {
             r = r.square();
@@ -96,7 +96,7 @@ public abstract class ECFieldElement
         return BigIntegers.asUnsignedByteArray((getFieldSize() + 7) / 8, toBigInteger());
     }
 
-    public static abstract class AbstractFp extends org.bouncycastle.math.ec.ECFieldElement
+    public static abstract class AbstractFp extends ECFieldElement
     {
     }
 
@@ -155,12 +155,12 @@ public abstract class ECFieldElement
             return q;
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement add(org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement add(org.bouncycastle.math.ec.ECFieldElement b)
         {
             return new Fp(q, r, modAdd(x, b.toBigInteger()));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement addOne()
+        public ECFieldElement addOne()
         {
             BigInteger x2 = x.add(ECConstants.ONE);
             if (x2.compareTo(q) == 0)
@@ -170,20 +170,20 @@ public abstract class ECFieldElement
             return new Fp(q, r, x2);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement subtract(
-            org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement subtract(
+            ECFieldElement b)
         {
             return new Fp(q, r, modSubtract(x, b.toBigInteger()));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement multiply(
-            org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement multiply(
+            ECFieldElement b)
         {
             return new Fp(q, r, modMult(x, b.toBigInteger()));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement multiplyMinusProduct(
-            org.bouncycastle.math.ec.ECFieldElement b, org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement multiplyMinusProduct(
+            ECFieldElement b, ECFieldElement x, ECFieldElement y)
         {
             BigInteger ax = this.x, bx = b.toBigInteger(), xx = x.toBigInteger(), yx = y.toBigInteger();
             BigInteger ab = ax.multiply(bx);
@@ -191,8 +191,8 @@ public abstract class ECFieldElement
             return new Fp(q, r, modReduce(ab.subtract(xy)));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement multiplyPlusProduct(
-            org.bouncycastle.math.ec.ECFieldElement b, org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement multiplyPlusProduct(
+            ECFieldElement b, ECFieldElement x, ECFieldElement y)
         {
             BigInteger ax = this.x, bx = b.toBigInteger(), xx = x.toBigInteger(), yx = y.toBigInteger();
             BigInteger ab = ax.multiply(bx);
@@ -200,24 +200,24 @@ public abstract class ECFieldElement
             return new Fp(q, r, modReduce(ab.add(xy)));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement divide(
-            org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement divide(
+            ECFieldElement b)
         {
             return new Fp(q, r, modMult(x, modInverse(b.toBigInteger())));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement negate()
+        public ECFieldElement negate()
         {
             return x.signum() == 0 ? this : new Fp(q, r, q.subtract(x));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement square()
+        public ECFieldElement square()
         {
             return new Fp(q, r, modMult(x, x));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement squareMinusProduct(
-            org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement squareMinusProduct(
+            ECFieldElement x, ECFieldElement y)
         {
             BigInteger ax = this.x, xx = x.toBigInteger(), yx = y.toBigInteger();
             BigInteger aa = ax.multiply(ax);
@@ -225,8 +225,8 @@ public abstract class ECFieldElement
             return new Fp(q, r, modReduce(aa.subtract(xy)));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement squarePlusProduct(
-            org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement squarePlusProduct(
+            ECFieldElement x, ECFieldElement y)
         {
             BigInteger ax = this.x, xx = x.toBigInteger(), yx = y.toBigInteger();
             BigInteger aa = ax.multiply(ax);
@@ -234,7 +234,7 @@ public abstract class ECFieldElement
             return new Fp(q, r, modReduce(aa.add(xy)));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement invert()
+        public ECFieldElement invert()
         {
             // TODO Modular inversion can be faster for a (Generalized) Mersenne Prime.
             return new Fp(q, r, modInverse(x));
@@ -245,7 +245,7 @@ public abstract class ECFieldElement
          * return a sqrt root - the routine verifies that the calculation
          * returns the right value - if none exists it returns null.
          */
-        public org.bouncycastle.math.ec.ECFieldElement sqrt()
+        public ECFieldElement sqrt()
         {
             if (this.isZero() || this.isOne()) // earlier JDK compatibility
             {
@@ -324,8 +324,8 @@ public abstract class ECFieldElement
             return null;
         }
 
-        private org.bouncycastle.math.ec.ECFieldElement checkSqrt(
-            org.bouncycastle.math.ec.ECFieldElement z)
+        private ECFieldElement checkSqrt(
+            ECFieldElement z)
         {
             return z.square().equals(this) ? z : null;
         }
@@ -501,9 +501,9 @@ public abstract class ECFieldElement
         }
     }
 
-    public static abstract class AbstractF2m extends org.bouncycastle.math.ec.ECFieldElement
+    public static abstract class AbstractF2m extends ECFieldElement
     {
-        public org.bouncycastle.math.ec.ECFieldElement halfTrace()
+        public ECFieldElement halfTrace()
         {
             int m = this.getFieldSize();
             if ((m & 1) == 0)
@@ -521,7 +521,7 @@ public abstract class ECFieldElement
             int k = 31 - Integers.numberOfLeadingZeros(n);
             int nk = 1;
 
-            org.bouncycastle.math.ec.ECFieldElement ht = this;
+            ECFieldElement ht = this;
             while (k > 0)
             {
                 ht = ht.squarePow(nk << 1).add(ht);
@@ -553,7 +553,7 @@ public abstract class ECFieldElement
             int k = 31 - Integers.numberOfLeadingZeros(m);
             int mk = 1;
 
-            org.bouncycastle.math.ec.ECFieldElement tr = this;
+            ECFieldElement tr = this;
             while (k > 0)
             {
                 tr = tr.squarePow(mk).add(tr);
@@ -715,7 +715,7 @@ public abstract class ECFieldElement
             return m;
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement add(final org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement add(final ECFieldElement b)
         {
             // No check performed here for performance reasons. Instead the
             // elements involved are checked in ECPoint.F2m
@@ -726,18 +726,18 @@ public abstract class ECFieldElement
             return new F2m(m, ks, iarrClone);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement addOne()
+        public ECFieldElement addOne()
         {
             return new F2m(m, ks, x.addOne());
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement subtract(final org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement subtract(final ECFieldElement b)
         {
             // Addition and subtraction are the same in F2m
             return add(b);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement multiply(final org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement multiply(final ECFieldElement b)
         {
             // Right-to-left comb multiplication in the LongArray
             // Input: Binary polynomials a(z) and b(z) of degree at most m-1
@@ -749,14 +749,14 @@ public abstract class ECFieldElement
             return new F2m(m, ks, x.modMultiply(((F2m)b).x, m, ks));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement multiplyMinusProduct(
-            org.bouncycastle.math.ec.ECFieldElement b, org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement multiplyMinusProduct(
+            ECFieldElement b, ECFieldElement x, ECFieldElement y)
         {
             return multiplyPlusProduct(b, x, y);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement multiplyPlusProduct(
-            org.bouncycastle.math.ec.ECFieldElement b, org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement multiplyPlusProduct(
+            ECFieldElement b, ECFieldElement x, ECFieldElement y)
         {
             LongArray ax = this.x, bx = ((F2m)b).x, xx = ((F2m)x).x, yx = ((F2m)y).x;
 
@@ -774,32 +774,32 @@ public abstract class ECFieldElement
             return new F2m(m, ks, ab);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement divide(final org.bouncycastle.math.ec.ECFieldElement b)
+        public ECFieldElement divide(final ECFieldElement b)
         {
             // There may be more efficient implementations
-            org.bouncycastle.math.ec.ECFieldElement bInv = b.invert();
+            ECFieldElement bInv = b.invert();
             return multiply(bInv);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement negate()
+        public ECFieldElement negate()
         {
             // -x == x holds for all x in F2m
             return this;
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement square()
+        public ECFieldElement square()
         {
             return new F2m(m, ks, x.modSquare(m, ks));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement squareMinusProduct(
-            org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement squareMinusProduct(
+            ECFieldElement x, ECFieldElement y)
         {
             return squarePlusProduct(x, y);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement squarePlusProduct(
-            org.bouncycastle.math.ec.ECFieldElement x, org.bouncycastle.math.ec.ECFieldElement y)
+        public ECFieldElement squarePlusProduct(
+            ECFieldElement x, ECFieldElement y)
         {
             LongArray ax = this.x, xx = ((F2m)x).x, yx = ((F2m)y).x;
 
@@ -817,17 +817,17 @@ public abstract class ECFieldElement
             return new F2m(m, ks, aa);
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement squarePow(int pow)
+        public ECFieldElement squarePow(int pow)
         {
             return pow < 1 ? this : new F2m(m, ks, x.modSquareN(pow, m, ks));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement invert()
+        public ECFieldElement invert()
         {
             return new F2m(this.m, this.ks, this.x.modInverse(m, ks));
         }
 
-        public org.bouncycastle.math.ec.ECFieldElement sqrt()
+        public ECFieldElement sqrt()
         {
             return (x.isZero() || x.isOne()) ? this : squarePow(m - 1);
         }

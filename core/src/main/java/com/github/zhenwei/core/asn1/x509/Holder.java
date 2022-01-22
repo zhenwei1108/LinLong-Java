@@ -1,15 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuerSerial;
-import org.bouncycastle.asn1.x509.ObjectDigestInfo;
+
+
+
+
+
+
+
 
 /**
  * The Holder object.
@@ -54,19 +51,19 @@ public class Holder
 
     private int version = V2_CERTIFICATE_HOLDER;
 
-    public static org.bouncycastle.asn1.x509.Holder getInstance(Object obj)
+    public static Holder getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.Holder)
+        if (obj instanceof Holder)
         {
-            return (org.bouncycastle.asn1.x509.Holder)obj;
+            return (x509.Holder)obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.x509.Holder(ASN1TaggedObject.getInstance(obj));
+            return new Holder(ASN1TaggedObject.getInstance(obj));
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.Holder(ASN1Sequence.getInstance(obj));
+            return new Holder(ASN1Sequence.getInstance(obj));
         }
 
         return null;

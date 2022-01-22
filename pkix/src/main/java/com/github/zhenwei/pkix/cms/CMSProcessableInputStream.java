@@ -3,9 +3,7 @@ package com.github.zhenwei.pkix.cms;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessable;
-import org.bouncycastle.util.io.Streams;
+
 
 class CMSProcessableInputStream implements CMSProcessable, CMSReadable
 {

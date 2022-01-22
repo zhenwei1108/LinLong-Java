@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.tsp;
 
-import org.bouncycastle.tsp.TSPException;
-
 /**
  * Exception thrown if a TSP request or response fails to validate.
  * <p>

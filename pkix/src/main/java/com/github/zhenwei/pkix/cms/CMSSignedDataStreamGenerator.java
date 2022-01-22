@@ -1,5 +1,16 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+
+import BERSequenceGenerator;
+import BERTaggedObject;
+
+import cms.CMSObjectIdentifiers;
+import cms.SignerInfo;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -7,22 +18,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequenceGenerator;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.SignerInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSSignedGenerator;
-import org.bouncycastle.cms.CMSStreamException;
-import org.bouncycastle.cms.SignerInfoGenerator;
-import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 
 /**

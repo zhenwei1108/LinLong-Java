@@ -1,7 +1,5 @@
 package com.github.zhenwei.sdk.util.asn1.est;
 
-import org.bouncycastle.asn1.est.AttrOrOID;
-
 class Utils
 {
     static AttrOrOID[] clone(AttrOrOID[] ids)

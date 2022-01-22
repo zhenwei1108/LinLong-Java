@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
+
 import java.security.Key;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.operator.GenericKey;
 
 public class JceGenericKey

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.CipherParameters;
+
 
 /**
  * The basic interface that basic Diffie-Hellman implementations

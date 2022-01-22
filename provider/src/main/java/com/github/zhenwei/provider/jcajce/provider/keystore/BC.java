@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.keystore;
 
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
-import org.bouncycastle.util.Properties;
+
 
 public class BC
 {

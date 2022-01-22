@@ -1,14 +1,13 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.ocsp.CertID;
-import org.bouncycastle.asn1.x509.Extensions;
+
+
+
+
+
+
+
+import Extensions;
 
 public class Request
     extends ASN1Object
@@ -36,23 +35,23 @@ public class Request
         }
     }
 
-    public static org.bouncycastle.asn1.ocsp.Request getInstance(
+    public static ocsp.Request getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.ocsp.Request getInstance(
+    public static ocsp.Request getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ocsp.Request)
+        if (obj instanceof ocsp.Request)
         {
-            return (org.bouncycastle.asn1.ocsp.Request)obj;
+            return (ocsp.Request)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.ocsp.Request(ASN1Sequence.getInstance(obj));
+            return new ocsp.Request(ASN1Sequence.getInstance(obj));
         }
 
         return null;

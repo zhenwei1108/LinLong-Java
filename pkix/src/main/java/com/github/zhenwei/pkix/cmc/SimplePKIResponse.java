@@ -1,11 +1,10 @@
 package com.github.zhenwei.pkix.cmc;
 
+
+import cms.ContentInfo;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.cms.ContentInfo;
 import org.bouncycastle.cert.X509CRLHolder;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cmc.CMCException;
+ 
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.util.Encodable;

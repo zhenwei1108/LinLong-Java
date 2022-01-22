@@ -1,10 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.crmf.AttributeTypeAndValue;
+
+
+
+
 
 public class Controls
     extends ASN1Object
@@ -16,16 +15,16 @@ public class Controls
         content = seq;
     }
 
-    public static org.bouncycastle.asn1.crmf.Controls getInstance(Object o)
+    public static crmf.Controls getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.Controls)
+        if (o instanceof crmf.Controls)
         {
-            return (org.bouncycastle.asn1.crmf.Controls)o;
+            return (crmf.Controls)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.Controls(ASN1Sequence.getInstance(o));
+            return new crmf.Controls(ASN1Sequence.getInstance(o));
         }
 
         return null;

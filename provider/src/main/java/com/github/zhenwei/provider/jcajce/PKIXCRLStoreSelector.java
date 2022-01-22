@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce;
 
+
+
+
 import java.math.BigInteger;
 import java.security.cert.CRL;
 import java.security.cert.CRLSelector;
@@ -9,11 +12,8 @@ import java.security.cert.X509CRL;
 import java.security.cert.X509CRLSelector;
 import java.security.cert.X509Certificate;
 import java.util.Collection;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Selector;
+
+
 
 /**
  * This class is a Selector implementation for X.509 certificate revocation

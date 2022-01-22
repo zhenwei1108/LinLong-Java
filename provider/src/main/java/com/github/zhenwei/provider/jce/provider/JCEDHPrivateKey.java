@@ -1,5 +1,11 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+
+
+
+
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,20 +14,14 @@ import java.util.Enumeration;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPrivateKeySpec;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.pkcs.DHParameter;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.DHDomainParameters;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
-import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
+
+import pkcs.DHParameter;
+
+import pkcs.PrivateKeyInfo;
+import x9.DHDomainParameters;
+import x9.X9ObjectIdentifiers;
 
 public class JCEDHPrivateKey
     implements DHPrivateKey, PKCS12BagAttributeCarrier

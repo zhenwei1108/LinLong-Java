@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.signers;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.Integers;
+
+ 
 
 public class ISOTrailers
 {

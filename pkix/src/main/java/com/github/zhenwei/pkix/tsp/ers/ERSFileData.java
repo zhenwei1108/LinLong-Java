@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.tsp.ers.ERSCachingData;
 
 /**
  * Generic class for holding a File of data for RFC 4998 ERS.

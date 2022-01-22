@@ -1,15 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.CertifiedKeyPair;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
+
+
+
+
+
+
+
+
 
 public class CertResponse
     extends ASN1Object
@@ -46,16 +44,16 @@ public class CertResponse
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.CertResponse getInstance(Object o)
+    public static cmp.CertResponse getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CertResponse)
+        if (o instanceof cmp.CertResponse)
         {
-            return (org.bouncycastle.asn1.cmp.CertResponse)o;
+            return (cmp.CertResponse)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.CertResponse(ASN1Sequence.getInstance(o));
+            return new cmp.CertResponse(ASN1Sequence.getInstance(o));
         }
 
         return null;

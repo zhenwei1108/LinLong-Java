@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 import java.util.Vector;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.gmss.GMSSDigestProvider;
 import org.bouncycastle.pqc.crypto.gmss.GMSSKeyGenerationParameters;

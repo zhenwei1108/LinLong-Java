@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import org.bouncycastle.crypto.digests.LongDigest;
-import org.bouncycastle.util.Memoable;
-import org.bouncycastle.util.Pack;
+
+
 
 
 /**

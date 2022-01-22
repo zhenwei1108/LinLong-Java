@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+ 
+
 
 /**
  * the interface stream ciphers conform to.

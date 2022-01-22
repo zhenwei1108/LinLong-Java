@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.modes;
 
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Some methods for GOST 3412 cipher algorithm

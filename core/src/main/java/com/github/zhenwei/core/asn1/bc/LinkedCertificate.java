@@ -1,16 +1,17 @@
 package com.github.zhenwei.core.asn1.bc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.DigestInfo;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x509.DigestInfo;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.GeneralNames;
 
 /**
  * Extension to tie an alternate certificate to the containing certificate.
@@ -71,15 +72,15 @@ public class LinkedCertificate
         }
     }
 
-    public static org.bouncycastle.asn1.bc.LinkedCertificate getInstance(Object o)
+    public static LinkedCertificate getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.LinkedCertificate)
+        if (o instanceof LinkedCertificate)
         {
-            return (org.bouncycastle.asn1.bc.LinkedCertificate)o;
+            return (bc.LinkedCertificate)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.LinkedCertificate(ASN1Sequence.getInstance(o));
+            return new LinkedCertificate(ASN1Sequence.getInstance(o));
         }
 
         return null;

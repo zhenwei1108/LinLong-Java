@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
 
 public class Psid
     extends ASN1Integer

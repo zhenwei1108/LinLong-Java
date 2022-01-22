@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.util.Arrays;
+
+
 
 /**
  * parameters for using an integrated cipher in stream mode.

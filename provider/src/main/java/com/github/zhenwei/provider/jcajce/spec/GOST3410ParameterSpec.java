@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+
+
+import ECGOST3410NamedCurves;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
+import rosstandart.RosstandartObjectIdentifiers;
 
 /**
  * ParameterSpec for a GOST 3410-1994/2001/2012 algorithm parameters.

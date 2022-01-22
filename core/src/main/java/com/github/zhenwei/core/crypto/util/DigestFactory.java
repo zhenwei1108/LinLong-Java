@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.util;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.MD5Digest;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.digests.SHA224Digest;

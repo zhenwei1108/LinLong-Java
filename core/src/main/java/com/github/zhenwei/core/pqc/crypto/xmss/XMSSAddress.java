@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import org.bouncycastle.util.Pack;
+
 
 /**
  * XMSS address.

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.asn1.sec;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+
+import x9.X9ObjectIdentifiers;
 
 /**
  * Certicom object identifiers

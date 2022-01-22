@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.cryptlib;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 public class CryptlibObjectIdentifiers
 {

@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
 
 public class LDSVersionInfo
     extends ASN1Object
@@ -31,15 +31,15 @@ public class LDSVersionInfo
         this.unicodeVersion = ASN1PrintableString.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.icao.LDSVersionInfo getInstance(Object obj)
+    public static icao.LDSVersionInfo getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.icao.LDSVersionInfo)
+        if (obj instanceof icao.LDSVersionInfo)
         {
-            return (org.bouncycastle.asn1.icao.LDSVersionInfo)obj;
+            return (icao.LDSVersionInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.icao.LDSVersionInfo(ASN1Sequence.getInstance(obj));
+            return new icao.LDSVersionInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

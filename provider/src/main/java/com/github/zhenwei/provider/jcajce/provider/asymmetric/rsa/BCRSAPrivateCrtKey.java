@@ -1,21 +1,18 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.interfaces.RSAPrivateCrtKey;
 import java.security.spec.RSAPrivateCrtKeySpec;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.BCRSAPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.BCRSAPublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.RSAUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
-import org.bouncycastle.util.Strings;
+
+import pkcs.PrivateKeyInfo;
+import pkcs.RSAPrivateKey;
 
 /**
  * A provider representation for a RSA private key, with CRT factors included.

@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -48,16 +47,16 @@ public class DecryptedPOP
     }
 
 
-    public static org.bouncycastle.asn1.cmc.DecryptedPOP getInstance(Object o)
+    public static cmc.DecryptedPOP getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.DecryptedPOP)
+        if (o instanceof cmc.DecryptedPOP)
         {
-            return (org.bouncycastle.asn1.cmc.DecryptedPOP)o;
+            return (cmc.DecryptedPOP)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.DecryptedPOP(ASN1Sequence.getInstance(o));
+            return new cmc.DecryptedPOP(ASN1Sequence.getInstance(o));
         }
 
         return null;

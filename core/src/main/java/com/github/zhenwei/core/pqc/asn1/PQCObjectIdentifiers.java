@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.asn1;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
+
+import BCObjectIdentifiers;
 
 /**
  * PQC:

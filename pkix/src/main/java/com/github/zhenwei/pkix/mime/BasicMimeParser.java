@@ -2,13 +2,6 @@ package com.github.zhenwei.pkix.mime;
 
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.mime.BoundaryLimitedInputStream;
-import org.bouncycastle.mime.Headers;
-import org.bouncycastle.mime.MimeContext;
-import org.bouncycastle.mime.MimeMultipartContext;
-import org.bouncycastle.mime.MimeParser;
-import org.bouncycastle.mime.MimeParserContext;
-import org.bouncycastle.mime.MimeParserListener;
 import org.bouncycastle.mime.encoding.Base64InputStream;
 import org.bouncycastle.mime.encoding.QuotedPrintableInputStream;
 

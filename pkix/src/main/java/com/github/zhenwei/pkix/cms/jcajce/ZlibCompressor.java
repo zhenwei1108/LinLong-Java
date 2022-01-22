@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
+
 import java.io.OutputStream;
 import java.util.zip.DeflaterOutputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.operator.OutputCompressor;
 
 public class ZlibCompressor

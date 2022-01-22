@@ -1,15 +1,13 @@
 package com.github.zhenwei.core.asn1.bc;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.bc.PbkdMacIntegrityCheck;
-import org.bouncycastle.asn1.bc.SignatureCheck;
 
 /**
  * <pre>
@@ -57,17 +55,17 @@ public class ObjectStoreIntegrityCheck
         }
     }
 
-    public static org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck getInstance(Object o)
+    public static ObjectStoreIntegrityCheck getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck)
+        if (o instanceof ObjectStoreIntegrityCheck)
         {
-            return (org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck)o;
+            return (bc.ObjectStoreIntegrityCheck)o;
         }
         else if (o instanceof byte[])
         {
             try
             {
-                return new org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck(ASN1Primitive.fromByteArray((byte[])o));
+                return new ObjectStoreIntegrityCheck(ASN1Primitive.fromByteArray((byte[])o));
             }
             catch (IOException e)
             {
@@ -76,7 +74,7 @@ public class ObjectStoreIntegrityCheck
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck((ASN1Encodable)(o));
+            return new ObjectStoreIntegrityCheck((ASN1Encodable)(o));
         }
 
         return null;

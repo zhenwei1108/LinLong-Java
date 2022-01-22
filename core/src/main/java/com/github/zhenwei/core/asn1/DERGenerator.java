@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.asn1;
 
+import ASN1Generator;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Generator;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * Basic class for streaming DER encoding generators.

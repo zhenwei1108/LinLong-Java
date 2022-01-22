@@ -1,31 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent;
-import org.bouncycastle.asn1.cmp.CMPCertificate;
-import org.bouncycastle.asn1.cmp.CRLAnnContent;
-import org.bouncycastle.asn1.cmp.CertConfirmContent;
-import org.bouncycastle.asn1.cmp.CertRepMessage;
-import org.bouncycastle.asn1.cmp.ErrorMsgContent;
-import org.bouncycastle.asn1.cmp.GenMsgContent;
-import org.bouncycastle.asn1.cmp.GenRepContent;
-import org.bouncycastle.asn1.cmp.KeyRecRepContent;
-import org.bouncycastle.asn1.cmp.PKIConfirmContent;
-import org.bouncycastle.asn1.cmp.PKIMessages;
-import org.bouncycastle.asn1.cmp.POPODecKeyChallContent;
-import org.bouncycastle.asn1.cmp.POPODecKeyRespContent;
-import org.bouncycastle.asn1.cmp.PollRepContent;
-import org.bouncycastle.asn1.cmp.PollReqContent;
-import org.bouncycastle.asn1.cmp.RevAnnContent;
-import org.bouncycastle.asn1.cmp.RevRepContent;
-import org.bouncycastle.asn1.cmp.RevReqContent;
-import org.bouncycastle.asn1.crmf.CertReqMessages;
-import org.bouncycastle.asn1.pkcs.CertificationRequest;
+
+
+
+
+
+
+import crmf.CertReqMessages;
+import pkcs.CertificationRequest;
 
 public class PKIBody
     extends ASN1Object
@@ -62,16 +44,16 @@ public class PKIBody
     private int tagNo;
     private ASN1Encodable body;
 
-    public static org.bouncycastle.asn1.cmp.PKIBody getInstance(Object o)
+    public static cmp.PKIBody getInstance(Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.cmp.PKIBody)
+        if (o == null || o instanceof cmp.PKIBody)
         {
-            return (org.bouncycastle.asn1.cmp.PKIBody)o;
+            return (cmp.PKIBody)o;
         }
 
         if (o instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.cmp.PKIBody((ASN1TaggedObject)o);
+            return new cmp.PKIBody((ASN1TaggedObject)o);
         }
 
         throw new IllegalArgumentException("Invalid object: " + o.getClass().getName());

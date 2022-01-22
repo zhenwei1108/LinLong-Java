@@ -1,15 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
+import X500Name;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.cms.KeyTransRecipientId;
-import org.bouncycastle.cms.RecipientId;
-import org.bouncycastle.cms.RecipientInformation;
 
 public class RecipientInformationStore
     implements Iterable<RecipientInformation>

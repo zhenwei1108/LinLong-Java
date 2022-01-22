@@ -1,16 +1,14 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
+import ASN1BitString;
+ 
+
+
+
+
+import BCObjectIdentifiers;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.pqc.asn1.McElieceCCA2PrivateKey;
 import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
@@ -32,8 +30,10 @@ import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Pack;
+
+
+
+import pkcs.PrivateKeyInfo;
 
 /**
  * Factory for creating private key objects from PKCS8 PrivateKeyInfo objects.

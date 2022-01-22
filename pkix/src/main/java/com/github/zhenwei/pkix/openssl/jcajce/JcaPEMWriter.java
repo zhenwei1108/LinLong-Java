@@ -3,9 +3,8 @@ package com.github.zhenwei.pkix.openssl.jcajce;
 import java.io.IOException;
 import java.io.Writer;
 import org.bouncycastle.openssl.PEMEncryptor;
-import org.bouncycastle.openssl.jcajce.JcaMiscPEMGenerator;
-import org.bouncycastle.util.io.pem.PemGenerationException;
-import org.bouncycastle.util.io.pem.PemObjectGenerator;
+
+
 import org.bouncycastle.util.io.pem.PemWriter;
 
 /**

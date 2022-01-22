@@ -3,7 +3,7 @@ package com.github.zhenwei.core.crypto.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.util.Strings;
+
 
 class SSHBuilder
 {

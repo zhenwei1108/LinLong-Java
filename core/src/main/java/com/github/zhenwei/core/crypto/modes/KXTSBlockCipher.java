@@ -2,11 +2,11 @@ package com.github.zhenwei.core.crypto.modes;
 
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+ 
+
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * Implementation of DSTU7624 XTS mode

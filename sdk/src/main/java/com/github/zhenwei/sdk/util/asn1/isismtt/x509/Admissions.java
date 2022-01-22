@@ -1,17 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.isismtt.x509.NamingAuthority;
-import org.bouncycastle.asn1.isismtt.x509.ProfessionInfo;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 /**
  * An Admissions structure.
@@ -24,7 +22,7 @@ import org.bouncycastle.asn1.x509.GeneralName;
  *            }
  * </pre>
  *
- * @see org.bouncycastle.asn1.isismtt.x509.AdmissionSyntax
+ * @see AdmissionSyntax
  * @see ProfessionInfo
  * @see NamingAuthority
  */
@@ -38,16 +36,16 @@ public class Admissions
 
     private ASN1Sequence professionInfos;
 
-    public static org.bouncycastle.asn1.isismtt.x509.Admissions getInstance(Object obj)
+    public static Admissions getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.x509.Admissions)
+        if (obj == null || obj instanceof Admissions)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.Admissions)obj;
+            return  (Admissions)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.Admissions((ASN1Sequence)obj);
+            return new Admissions((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());

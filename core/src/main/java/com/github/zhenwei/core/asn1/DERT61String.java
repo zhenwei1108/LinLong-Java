@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER T61String (also the teletex string), try not to use this if you don't need to. The standard support the encoding for
  * this has been withdrawn.
@@ -20,22 +16,22 @@ public class DERT61String
      * 
      * @deprecated Use {@link ASN1T61String#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERT61String getInstance(
+    public static DERT61String getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERT61String)
+        if (obj == null || obj instanceof DERT61String)
         {
-            return (org.bouncycastle.asn1.DERT61String)obj;
+            return (DERT61String)obj;
         }
         if (obj instanceof ASN1T61String)
         {
-            return new org.bouncycastle.asn1.DERT61String(((ASN1T61String)obj).contents, false);
+            return new DERT61String(((ASN1T61String)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERT61String)fromByteArray((byte[])obj);
+                return (DERT61String)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -58,19 +54,19 @@ public class DERT61String
      * @deprecated Use {@link ASN1T61String#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERT61String getInstance(
+    public static DERT61String getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERT61String)
+        if (explicit || o instanceof DERT61String)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERT61String(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERT61String(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

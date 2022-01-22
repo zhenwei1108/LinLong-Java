@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER BMPString object encodes BMP (<i>Basic Multilingual Plane</i>) subset
  * (aka UCS-2) of UNICODE (ISO 10646) characters in codepoints 0 to 65535.
@@ -24,22 +20,22 @@ public class DERBMPString
      * 
      * @deprecated Use {@link ASN1BMPString#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERBMPString getInstance(
+    public static DERBMPString getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERBMPString)
+        if (obj == null || obj instanceof DERBMPString)
         {
-            return (org.bouncycastle.asn1.DERBMPString)obj;
+            return (DERBMPString)obj;
         }
         if (obj instanceof ASN1BMPString)
         {
-            return new org.bouncycastle.asn1.DERBMPString(((ASN1BMPString)obj).string);
+            return new DERBMPString(((ASN1BMPString)obj).string);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERBMPString)fromByteArray((byte[])obj);
+                return (DERBMPString)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -62,19 +58,19 @@ public class DERBMPString
      * @deprecated Use {@link ASN1BMPString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERBMPString getInstance(
+    public static DERBMPString getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERBMPString)
+        if (explicit || o instanceof DERBMPString)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERBMPString(ASN1OctetString.getInstance(o).getOctets());
+            return new DERBMPString(ASN1OctetString.getInstance(o).getOctets());
         }
     }
 

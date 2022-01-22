@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.asn1.x9;
 
+
+import anssi.ANSSINamedCurves;
+import cryptlib.CryptlibObjectIdentifiers;
+import ECGOST3410NamedCurves;
+import gm.GMNamedCurves;
 import java.util.Enumeration;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.anssi.ANSSINamedCurves;
-import org.bouncycastle.asn1.cryptlib.CryptlibObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.gm.GMNamedCurves;
-import org.bouncycastle.asn1.nist.NISTNamedCurves;
-import org.bouncycastle.asn1.sec.SECNamedCurves;
-import org.bouncycastle.asn1.teletrust.TeleTrusTNamedCurves;
-import org.bouncycastle.asn1.x9.X962NamedCurves;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+import nist.NISTNamedCurves;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
+import sec.SECNamedCurves;
+import teletrust.TeleTrusTNamedCurves;
 
 /**
  * A general class that reads all X9.62 style EC curve tables.

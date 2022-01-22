@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import CertificateList;
 import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
-import org.bouncycastle.asn1.x509.CertificateList;
 import org.bouncycastle.cert.X509CRLHolder;
 
 /**

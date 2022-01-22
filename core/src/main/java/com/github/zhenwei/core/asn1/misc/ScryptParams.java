@@ -1,15 +1,15 @@
 package com.github.zhenwei.core.asn1.misc;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * RFC 7914 scrypt parameters.
@@ -61,16 +61,16 @@ public class ScryptParams
         this.keyLength = keyLength;
     }
 
-    public static org.bouncycastle.asn1.misc.ScryptParams getInstance(
+    public static misc.ScryptParams getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.misc.ScryptParams)
+        if (o instanceof misc.ScryptParams)
         {
-            return (org.bouncycastle.asn1.misc.ScryptParams)o;
+            return (misc.ScryptParams)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.misc.ScryptParams(ASN1Sequence.getInstance(o));
+            return new misc.ScryptParams(ASN1Sequence.getInstance(o));
         }
 
         return null;

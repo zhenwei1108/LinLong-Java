@@ -1,8 +1,6 @@
 package com.github.zhenwei.pkix.est;
 
 import java.io.IOException;
-import org.bouncycastle.est.ESTRequest;
-import org.bouncycastle.est.Source;
 
 /**
  * ESTSourceConnectionListener is called when the source is

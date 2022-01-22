@@ -3,7 +3,7 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
 import java.util.ArrayList;
 import java.util.List;
 import org.bouncycastle.pqc.crypto.xmss.XMSSUtil;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * WOTS+.

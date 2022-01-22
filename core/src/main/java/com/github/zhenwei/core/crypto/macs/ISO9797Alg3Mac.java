@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.macs;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.engines.DESEngine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;

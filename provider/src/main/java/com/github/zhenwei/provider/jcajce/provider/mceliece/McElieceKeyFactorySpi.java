@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
+
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -10,11 +13,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import org.bouncycastle.pqc.asn1.McEliecePrivateKey;
@@ -22,8 +21,7 @@ import org.bouncycastle.pqc.asn1.McEliecePublicKey;
 import org.bouncycastle.pqc.asn1.PQCObjectIdentifiers;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePublicKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.BCMcEliecePrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.BCMcEliecePublicKey;
+import pkcs.PrivateKeyInfo;
 
 /**
  * This class is used to translate between McEliece keys and key specifications.

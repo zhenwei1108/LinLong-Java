@@ -2,9 +2,9 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.Fingerprint;
-import org.bouncycastle.util.Strings;
+
 
 class GOSTUtil
 {

@@ -4,14 +4,10 @@ import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.xmss.BDS;
-import org.bouncycastle.pqc.crypto.xmss.BDSStateMap;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSNode;
-import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
 
 /**
  * Key pair generator for XMSS^MT keys.

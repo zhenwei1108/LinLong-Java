@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
+
+
+import cms.Attributes;
+import cms.MetaData;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.cms.Attributes;
-import org.bouncycastle.asn1.cms.MetaData;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 

@@ -1,38 +1,39 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
 
 public class ECGOST3410ParamSetParameters
     extends ASN1Object
 {
-    ASN1Integer      p, q, a, b, x, y;
+    ASN1Integer p, q, a, b, x, y;
 
-    public static org.bouncycastle.asn1.cryptopro.ECGOST3410ParamSetParameters getInstance(
+    public static ECGOST3410ParamSetParameters getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.cryptopro.ECGOST3410ParamSetParameters getInstance(
+    public static ECGOST3410ParamSetParameters getInstance(
         Object obj)
     {
-        if(obj == null || obj instanceof org.bouncycastle.asn1.cryptopro.ECGOST3410ParamSetParameters)
+        if(obj == null || obj instanceof ECGOST3410ParamSetParameters)
         {
-            return (org.bouncycastle.asn1.cryptopro.ECGOST3410ParamSetParameters)obj;
+            return  (ECGOST3410ParamSetParameters)obj;
         }
 
         if(obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cryptopro.ECGOST3410ParamSetParameters((ASN1Sequence)obj);
+            return new ECGOST3410ParamSetParameters((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("Invalid GOST3410Parameter: " + obj.getClass().getName());
@@ -57,7 +58,7 @@ public class ECGOST3410ParamSetParameters
     public ECGOST3410ParamSetParameters(
         ASN1Sequence  seq)
     {
-        Enumeration     e = seq.getObjects();
+        Enumeration e = seq.getObjects();
 
         a = (ASN1Integer)e.nextElement();
         b = (ASN1Integer)e.nextElement();

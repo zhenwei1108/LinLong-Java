@@ -3,7 +3,6 @@ package com.github.zhenwei.pkix.mime;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.mime.Headers;
 import org.bouncycastle.mime.smime.SMimeParserContext;
 
 public class CanonicalOutputStream

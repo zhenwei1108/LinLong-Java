@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import org.bouncycastle.crypto.engines.Salsa20Engine;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * Implementation of Daniel J. Bernstein's XSalsa20 stream cipher - Salsa20 with an extended nonce.

@@ -1,17 +1,14 @@
 package com.github.zhenwei.core.asn1.anssi;
 
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParametersHolder;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.WNafUtil;
 import java.math.BigInteger;
 import java.util.Enumeration;
-import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.anssi.ANSSIObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECParametersHolder;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
 
 /**
  * ANSSI Elliptic curve table.

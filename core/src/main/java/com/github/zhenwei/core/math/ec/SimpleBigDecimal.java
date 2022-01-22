@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
+
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECConstants;
 
 /**
  * Class representing a simple version of a big decimal. A
@@ -32,9 +32,9 @@ class SimpleBigDecimal
      * created.
      * @return The such created <code>SimpleBigDecimal</code>.
      */
-    public static org.bouncycastle.math.ec.SimpleBigDecimal getInstance(BigInteger value, int scale)
+    public static SimpleBigDecimal getInstance(BigInteger value, int scale)
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(value.shiftLeft(scale), scale);
+        return new SimpleBigDecimal(value.shiftLeft(scale), scale);
     }
 
     /**
@@ -64,7 +64,7 @@ class SimpleBigDecimal
         }
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal adjustScale(int newScale)
+    public SimpleBigDecimal adjustScale(int newScale)
     {
         if (newScale < 0)
         {
@@ -76,66 +76,66 @@ class SimpleBigDecimal
             return this;
         }
 
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.shiftLeft(newScale - scale),
+        return new SimpleBigDecimal(bigInt.shiftLeft(newScale - scale),
                 newScale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal add(org.bouncycastle.math.ec.SimpleBigDecimal b)
+    public SimpleBigDecimal add(org.bouncycastle.math.ec.SimpleBigDecimal b)
     {
         checkScale(b);
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.add(b.bigInt), scale);
+        return new SimpleBigDecimal(bigInt.add(b.bigInt), scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal add(BigInteger b)
+    public SimpleBigDecimal add(BigInteger b)
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.add(b.shiftLeft(scale)), scale);
+        return new SimpleBigDecimal(bigInt.add(b.shiftLeft(scale)), scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal negate()
+    public SimpleBigDecimal negate()
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.negate(), scale);
+        return new SimpleBigDecimal(bigInt.negate(), scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal subtract(
-        org.bouncycastle.math.ec.SimpleBigDecimal b)
+    public SimpleBigDecimal subtract(
+        SimpleBigDecimal b)
     {
         return add(b.negate());
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal subtract(BigInteger b)
+    public SimpleBigDecimal subtract(BigInteger b)
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.subtract(b.shiftLeft(scale)),
+        return new SimpleBigDecimal(bigInt.subtract(b.shiftLeft(scale)),
                 scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal multiply(
-        org.bouncycastle.math.ec.SimpleBigDecimal b)
+    public SimpleBigDecimal multiply(
+        SimpleBigDecimal b)
     {
         checkScale(b);
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.multiply(b.bigInt), scale + scale);
+        return new SimpleBigDecimal(bigInt.multiply(b.bigInt), scale + scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal multiply(BigInteger b)
+    public SimpleBigDecimal multiply(BigInteger b)
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.multiply(b), scale);
+        return new SimpleBigDecimal(bigInt.multiply(b), scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal divide(
-        org.bouncycastle.math.ec.SimpleBigDecimal b)
+    public SimpleBigDecimal divide(
+        SimpleBigDecimal b)
     {
         checkScale(b);
         BigInteger dividend = bigInt.shiftLeft(scale);
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(dividend.divide(b.bigInt), scale);
+        return new SimpleBigDecimal(dividend.divide(b.bigInt), scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal divide(BigInteger b)
+    public SimpleBigDecimal divide(BigInteger b)
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.divide(b), scale);
+        return new SimpleBigDecimal(bigInt.divide(b), scale);
     }
 
-    public org.bouncycastle.math.ec.SimpleBigDecimal shiftLeft(int n)
+    public SimpleBigDecimal shiftLeft(int n)
     {
-        return new org.bouncycastle.math.ec.SimpleBigDecimal(bigInt.shiftLeft(n), scale);
+        return new SimpleBigDecimal(bigInt.shiftLeft(n), scale);
     }
 
     public int compareTo(org.bouncycastle.math.ec.SimpleBigDecimal val)
@@ -156,7 +156,7 @@ class SimpleBigDecimal
 
     public BigInteger round()
     {
-        org.bouncycastle.math.ec.SimpleBigDecimal oneHalf = new org.bouncycastle.math.ec.SimpleBigDecimal(ECConstants.ONE, 1);
+        SimpleBigDecimal oneHalf = new SimpleBigDecimal(ECConstants.ONE, 1);
         return add(oneHalf.adjustScale(scale)).floor();
     }
 
@@ -234,12 +234,12 @@ class SimpleBigDecimal
             return true;
         }
 
-        if (!(o instanceof org.bouncycastle.math.ec.SimpleBigDecimal))
+        if (!(o instanceof SimpleBigDecimal))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.SimpleBigDecimal other = (org.bouncycastle.math.ec.SimpleBigDecimal)o;
+        SimpleBigDecimal other = (org.bouncycastle.math.ec.SimpleBigDecimal)o;
         return ((bigInt.equals(other.bigInt)) && (scale == other.scale));
     }
 

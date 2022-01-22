@@ -1,18 +1,15 @@
 package com.github.zhenwei.pkix.operator.bc;
 
+
+
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.operator.bc.BcDefaultDigestProvider;
-import org.bouncycastle.operator.bc.BcDigestProvider;
-import org.bouncycastle.operator.bc.BcSignerOutputStream;
 
 public abstract class BcContentVerifierProviderBuilder
 {

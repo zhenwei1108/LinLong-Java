@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.util.DigestFactory;
+
 
 /**
  * Generator for PBE derived keys and ivs as defined by PKCS 5 V2.0 Scheme 2.

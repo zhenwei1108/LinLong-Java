@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
+
+
+
+
+import DSAParameter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -9,19 +14,13 @@ import java.security.interfaces.DSAPrivateKey;
 import java.security.spec.DSAParameterSpec;
 import java.security.spec.DSAPrivateKeySpec;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.DSAParameter;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
-import org.bouncycastle.jce.interfaces.PKCS12BagAttributeCarrier;
-import org.bouncycastle.util.Strings;
+
+
+import pkcs.PrivateKeyInfo;
+import x9.X9ObjectIdentifiers;
 
 public class BCDSAPrivateKey
     implements DSAPrivateKey, PKCS12BagAttributeCarrier

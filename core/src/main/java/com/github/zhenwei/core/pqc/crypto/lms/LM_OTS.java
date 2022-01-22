@@ -1,13 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSContext;
 import org.bouncycastle.pqc.crypto.lms.LMSException;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Pack;
+
+
 
 class LM_OTS
 {

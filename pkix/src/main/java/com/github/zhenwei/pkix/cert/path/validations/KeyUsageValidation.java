@@ -1,12 +1,12 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.KeyUsage;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.path.CertPathValidation;
-import org.bouncycastle.cert.path.CertPathValidationContext;
-import org.bouncycastle.cert.path.CertPathValidationException;
-import org.bouncycastle.util.Memoable;
+
+import KeyUsage;
+ 
+ 
+ 
+ 
+
 
 public class KeyUsageValidation
     implements CertPathValidation

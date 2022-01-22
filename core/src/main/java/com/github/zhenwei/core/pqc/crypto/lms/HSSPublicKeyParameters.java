@@ -6,11 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.pqc.crypto.lms.Composer;
 import org.bouncycastle.pqc.crypto.lms.HSSSignature;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
 import org.bouncycastle.pqc.crypto.lms.LMSContextBasedVerifier;
 import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
-import org.bouncycastle.util.io.Streams;
+
 
 public class HSSPublicKeyParameters
     extends LMSKeyParameters

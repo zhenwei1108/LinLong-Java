@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -45,16 +45,16 @@ public class PopLinkWitnessV2
         this.witness = Arrays.clone(ASN1OctetString.getInstance(seq.getObjectAt(2)).getOctets());
     }
 
-    public static org.bouncycastle.asn1.cmc.PopLinkWitnessV2 getInstance(Object o)
+    public static cmc.PopLinkWitnessV2 getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.PopLinkWitnessV2)
+        if (o instanceof cmc.PopLinkWitnessV2)
         {
-            return (org.bouncycastle.asn1.cmc.PopLinkWitnessV2)o;
+            return (cmc.PopLinkWitnessV2)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.PopLinkWitnessV2(ASN1Sequence.getInstance(o));
+            return new cmc.PopLinkWitnessV2(ASN1Sequence.getInstance(o));
         }
 
         return null;

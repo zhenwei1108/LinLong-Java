@@ -9,7 +9,6 @@ import java.security.PublicKey;
 import java.security.cert.X509Certificate;
 import org.bouncycastle.crypto.util.PBKDF2Config;
 import org.bouncycastle.crypto.util.PBKDFConfig;
-import org.bouncycastle.jcajce.BCLoadStoreParameter;
 
 /**
  * LoadStoreParameter to allow configuring of the PBKDF used to generate encryption keys for

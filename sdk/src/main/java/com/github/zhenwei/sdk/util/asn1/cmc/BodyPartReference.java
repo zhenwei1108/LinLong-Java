@@ -1,14 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
-import org.bouncycastle.asn1.cmc.BodyPartPath;
 
 /**
  * <pre>
@@ -37,12 +35,12 @@ public class BodyPartReference
         this.bodyPartPath = bodyPartPath;
     }
 
-    public static org.bouncycastle.asn1.cmc.BodyPartReference getInstance(
+    public static cmc.BodyPartReference getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cmc.BodyPartReference)
+        if (obj instanceof cmc.BodyPartReference)
         {
-            return (org.bouncycastle.asn1.cmc.BodyPartReference)obj;
+            return (cmc.BodyPartReference)obj;
         }
 
         if (obj != null)
@@ -53,11 +51,11 @@ public class BodyPartReference
 
                 if (asn1Prim instanceof ASN1Integer)
                 {
-                    return new org.bouncycastle.asn1.cmc.BodyPartReference(BodyPartID.getInstance(asn1Prim));
+                    return new cmc.BodyPartReference(BodyPartID.getInstance(asn1Prim));
                 }
                 if (asn1Prim instanceof ASN1Sequence)
                 {
-                    return new org.bouncycastle.asn1.cmc.BodyPartReference(BodyPartPath.getInstance(asn1Prim));
+                    return new cmc.BodyPartReference(BodyPartPath.getInstance(asn1Prim));
                 }
             }
             if (obj instanceof byte[])

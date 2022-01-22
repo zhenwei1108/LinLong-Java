@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
+
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -38,23 +38,23 @@ public class ResponseBytes
         response = (ASN1OctetString)seq.getObjectAt(1);
     }
 
-    public static org.bouncycastle.asn1.ocsp.ResponseBytes getInstance(
+    public static ocsp.ResponseBytes getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.ocsp.ResponseBytes getInstance(
+    public static ocsp.ResponseBytes getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ocsp.ResponseBytes)
+        if (obj instanceof ocsp.ResponseBytes)
         {
-            return (org.bouncycastle.asn1.ocsp.ResponseBytes)obj;
+            return (ocsp.ResponseBytes)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.ocsp.ResponseBytes(ASN1Sequence.getInstance(obj));
+            return new ocsp.ResponseBytes(ASN1Sequence.getInstance(obj));
         }
 
         return null;

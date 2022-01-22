@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.agreement;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.util.encoders.Hex;
+
 
 /**
  * Standard Diffie-Hellman groups from various IETF specifications.

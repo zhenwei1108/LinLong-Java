@@ -4,11 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.cert.dane.DANEEntry;
-import org.bouncycastle.cert.dane.DANEEntryFetcherFactory;
-import org.bouncycastle.cert.dane.DANEEntrySelector;
-import org.bouncycastle.cert.dane.DANEEntrySelectorFactory;
-import org.bouncycastle.cert.dane.DANEException;
 import org.bouncycastle.operator.DigestCalculator;
 
 /**

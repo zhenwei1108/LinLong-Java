@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+import com.github.zhenwei.core.math.raw.Interleave;
+import com.github.zhenwei.core.math.raw.Nat;
 import java.math.BigInteger;
-import org.bouncycastle.math.raw.Interleave;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat128;
+
 
 public class SecT113Field
 {

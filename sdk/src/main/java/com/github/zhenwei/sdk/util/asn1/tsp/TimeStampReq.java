@@ -1,17 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.tsp.MessageImprint;
-import org.bouncycastle.asn1.x509.Extensions;
+import ASN1Boolean;
+
+
+
+
+
+
+
+
+
+import Extensions;
 
 public class TimeStampReq
     extends ASN1Object
@@ -28,15 +27,15 @@ public class TimeStampReq
 
     Extensions extensions;
 
-    public static org.bouncycastle.asn1.tsp.TimeStampReq getInstance(Object o)
+    public static tsp.TimeStampReq getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.tsp.TimeStampReq)
+        if (o instanceof tsp.TimeStampReq)
         {
-            return (org.bouncycastle.asn1.tsp.TimeStampReq) o;
+            return (tsp.TimeStampReq) o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.tsp.TimeStampReq(ASN1Sequence.getInstance(o));
+            return new tsp.TimeStampReq(ASN1Sequence.getInstance(o));
         }
 
         return null;

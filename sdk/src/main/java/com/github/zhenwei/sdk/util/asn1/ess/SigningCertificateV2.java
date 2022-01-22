@@ -1,12 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.ess.ESSCertIDv2;
-import org.bouncycastle.asn1.x509.PolicyInformation;
+
+
+
+
+
+import PolicyInformation;
 
 public class SigningCertificateV2
     extends ASN1Object
@@ -14,16 +13,16 @@ public class SigningCertificateV2
     ASN1Sequence certs;
     ASN1Sequence policies;
 
-    public static org.bouncycastle.asn1.ess.SigningCertificateV2 getInstance(
+    public static ess.SigningCertificateV2 getInstance(
         Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.ess.SigningCertificateV2)
+        if (o == null || o instanceof ess.SigningCertificateV2)
         {
-            return (org.bouncycastle.asn1.ess.SigningCertificateV2) o;
+            return (ess.SigningCertificateV2) o;
         }
         else if (o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.ess.SigningCertificateV2((ASN1Sequence) o);
+            return new ess.SigningCertificateV2((ASN1Sequence) o);
         }
 
         return null;

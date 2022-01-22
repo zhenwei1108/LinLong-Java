@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Target;
 
 /**
  * Targets structure used in target information extension for attribute
@@ -28,7 +27,7 @@ import org.bouncycastle.asn1.x509.Target;
  * </pre>
  * 
  * @see Target
- * @see org.bouncycastle.asn1.x509.TargetInformation
+ * @see TargetInformation
  */
 public class Targets
     extends ASN1Object
@@ -45,15 +44,15 @@ public class Targets
      * @throws IllegalArgumentException if the given object cannot be
      *             interpreted as Target.
      */
-    public static org.bouncycastle.asn1.x509.Targets getInstance(Object obj)
+    public static Targets getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.Targets)
+        if (obj instanceof Targets)
         {
-            return (org.bouncycastle.asn1.x509.Targets)obj;
+            return (Targets)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.Targets(ASN1Sequence.getInstance(obj));
+            return new Targets(ASN1Sequence.getInstance(obj));
         }
 
         return null;

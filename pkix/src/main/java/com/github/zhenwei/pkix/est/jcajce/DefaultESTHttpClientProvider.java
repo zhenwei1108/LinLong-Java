@@ -5,9 +5,6 @@ import javax.net.ssl.SSLSocketFactory;
 import org.bouncycastle.est.ESTClient;
 import org.bouncycastle.est.ESTClientProvider;
 import org.bouncycastle.est.ESTException;
-import org.bouncycastle.est.jcajce.ChannelBindingProvider;
-import org.bouncycastle.est.jcajce.JsseHostnameAuthorizer;
-import org.bouncycastle.est.jcajce.SSLSocketFactoryCreator;
 
 class DefaultESTHttpClientProvider
     implements ESTClientProvider

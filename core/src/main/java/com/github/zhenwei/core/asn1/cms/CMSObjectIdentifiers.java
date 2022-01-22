@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 
 public interface CMSObjectIdentifiers
 {
     /** PKCS#7: 1.2.840.113549.1.7.1 */
-    static final ASN1ObjectIdentifier    data = PKCSObjectIdentifiers.data;
+    static final ASN1ObjectIdentifier data = PKCSObjectIdentifiers.data;
     /** PKCS#7: 1.2.840.113549.1.7.2 */
     static final ASN1ObjectIdentifier    signedData = PKCSObjectIdentifiers.signedData;
     /** PKCS#7: 1.2.840.113549.1.7.3 */

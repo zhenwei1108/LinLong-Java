@@ -2,8 +2,8 @@ package com.github.zhenwei.pkix.openssl.jcajce;
 
 import java.security.Provider;
 import java.security.SecureRandom;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.openssl.PEMEncryptor;

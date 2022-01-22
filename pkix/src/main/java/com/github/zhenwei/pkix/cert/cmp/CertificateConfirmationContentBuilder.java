@@ -1,16 +1,14 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
+
+
+
+import cmp.CertConfirmContent;
+import cmp.CertStatus;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.CertConfirmContent;
-import org.bouncycastle.asn1.cmp.CertStatus;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.cmp.CMPException;
-import org.bouncycastle.cert.cmp.CertificateConfirmationContent;
+ 
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;

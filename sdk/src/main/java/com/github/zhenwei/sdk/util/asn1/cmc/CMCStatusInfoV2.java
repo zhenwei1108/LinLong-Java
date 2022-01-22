@@ -1,15 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.cmc.BodyPartID;
-import org.bouncycastle.asn1.cmc.CMCStatus;
-import org.bouncycastle.asn1.cmc.OtherStatusInfo;
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -128,16 +125,16 @@ public class CMCStatusInfoV2
         return otherStatusInfo != null;
     }
 
-    public static org.bouncycastle.asn1.cmc.CMCStatusInfoV2 getInstance(Object o)
+    public static cmc.CMCStatusInfoV2 getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.CMCStatusInfoV2)
+        if (o instanceof cmc.CMCStatusInfoV2)
         {
-            return (org.bouncycastle.asn1.cmc.CMCStatusInfoV2)o;
+            return (cmc.CMCStatusInfoV2)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.CMCStatusInfoV2(ASN1Sequence.getInstance(o));
+            return new cmc.CMCStatusInfoV2(ASN1Sequence.getInstance(o));
         }
 
         return null;

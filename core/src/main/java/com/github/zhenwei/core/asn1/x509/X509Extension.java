@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
+import ASN1Boolean;
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 /**
  * an object for the elements in the X.509 V3 extension block.
@@ -215,12 +215,12 @@ public class X509Extension
     public boolean equals(
         Object  o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.x509.X509Extension))
+        if (!(o instanceof X509Extension))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.x509.X509Extension other = (org.bouncycastle.asn1.x509.X509Extension)o;
+        X509Extension other = (X509Extension)o;
 
         return other.getValue().equals(this.getValue())
             && (other.isCritical() == this.isCritical());
@@ -233,7 +233,7 @@ public class X509Extension
      * @exception IllegalArgumentException if conversion is not possible
      */
     public static ASN1Primitive convertValueToObject(
-        org.bouncycastle.asn1.x509.X509Extension ext)
+        X509Extension ext)
         throws IllegalArgumentException
     {
         try

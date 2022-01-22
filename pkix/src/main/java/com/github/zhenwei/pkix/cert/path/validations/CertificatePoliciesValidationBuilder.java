@@ -1,7 +1,6 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
 import org.bouncycastle.cert.path.CertPath;
-import org.bouncycastle.cert.path.validations.CertificatePoliciesValidation;
 
 public class CertificatePoliciesValidationBuilder
 {

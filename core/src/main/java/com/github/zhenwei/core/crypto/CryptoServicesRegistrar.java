@@ -8,13 +8,13 @@ import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.CryptoServicesPermission;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DHValidationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAValidationParameters;
-import org.bouncycastle.util.encoders.Hex;
+
+import x9.X9ECParameters;
 
 /**
  * Basic registrar class for providing defaults for cryptography services in this module.

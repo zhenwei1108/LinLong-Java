@@ -1,14 +1,15 @@
 package com.github.zhenwei.core.asn1.bc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Arrays;
 
 /**
  * <pre>
@@ -36,15 +37,15 @@ public class SecretKeyData
         this.keyBytes = ASN1OctetString.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.bc.SecretKeyData getInstance(Object o)
+    public static SecretKeyData getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.SecretKeyData)
+        if (o instanceof SecretKeyData)
         {
-            return (org.bouncycastle.asn1.bc.SecretKeyData)o;
+            return (bc.SecretKeyData)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.SecretKeyData(ASN1Sequence.getInstance(o));
+            return new SecretKeyData(ASN1Sequence.getInstance(o));
         }
 
         return null;

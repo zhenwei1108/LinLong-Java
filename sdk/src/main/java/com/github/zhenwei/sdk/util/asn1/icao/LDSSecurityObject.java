@@ -1,16 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.icao.DataGroupHash;
-import org.bouncycastle.asn1.icao.ICAOObjectIdentifiers;
-import org.bouncycastle.asn1.icao.LDSVersionInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * The LDSSecurityObject object (V1.8).
@@ -38,16 +35,16 @@ public class LDSSecurityObject
     private DataGroupHash[] datagroupHash;
     private LDSVersionInfo versionInfo;
 
-    public static org.bouncycastle.asn1.icao.LDSSecurityObject getInstance(
+    public static icao.LDSSecurityObject getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.icao.LDSSecurityObject)
+        if (obj instanceof icao.LDSSecurityObject)
         {
-            return (org.bouncycastle.asn1.icao.LDSSecurityObject)obj;
+            return (icao.LDSSecurityObject)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.icao.LDSSecurityObject(ASN1Sequence.getInstance(obj));
+            return new icao.LDSSecurityObject(ASN1Sequence.getInstance(obj));
         }
 
         return null;

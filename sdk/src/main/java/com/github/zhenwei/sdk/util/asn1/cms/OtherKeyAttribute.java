@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.7">RFC 5652</a>: OtherKeyAttribute object.
@@ -30,24 +30,24 @@ public class OtherKeyAttribute
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.OtherKeyAttribute} object
+     * <li> {@link cms.OtherKeyAttribute} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with OtherKeyAttribute structure inside
      * </ul>
      *
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.OtherKeyAttribute getInstance(
+    public static cms.OtherKeyAttribute getInstance(
         Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cms.OtherKeyAttribute)
+        if (o instanceof cms.OtherKeyAttribute)
         {
-            return (org.bouncycastle.asn1.cms.OtherKeyAttribute)o;
+            return (cms.OtherKeyAttribute)o;
         }
         
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cms.OtherKeyAttribute(ASN1Sequence.getInstance(o));
+            return new cms.OtherKeyAttribute(ASN1Sequence.getInstance(o));
         }
 
         return null;

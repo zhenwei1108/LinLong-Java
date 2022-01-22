@@ -23,9 +23,9 @@ package com.github.zhenwei.core.crypto.digests;
         ---------------+--------+-----------+------+------------+
  */
 
-import org.bouncycastle.crypto.ExtendedDigest;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Pack;
+import com.github.zhenwei.core.util.Arrays;
+
+
 
 /**
  * Implementation of the cryptographic hash function BLAKE2s.

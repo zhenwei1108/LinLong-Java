@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
+
+
+import ASN1Null;
+
+
+
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERTaggedObject;
 
 /**
  * <pre>

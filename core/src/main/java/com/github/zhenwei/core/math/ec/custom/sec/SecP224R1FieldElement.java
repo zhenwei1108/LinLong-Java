@@ -1,13 +1,15 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.raw.Mod;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat224;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecP224R1Field;
-import org.bouncycastle.math.raw.Mod;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat224;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 public class SecP224R1FieldElement extends ECFieldElement.AbstractFp
 {
@@ -69,52 +71,52 @@ public class SecP224R1FieldElement extends ECFieldElement.AbstractFp
     public ECFieldElement add(ECFieldElement b)
     {
         int[] z = Nat224.create();
-        SecP224R1Field.add(x, ((org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        SecP224R1Field.add(x, ((SecP224R1FieldElement)b).x, z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement addOne()
     {
         int[] z = Nat224.create();
         SecP224R1Field.addOne(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement subtract(ECFieldElement b)
     {
         int[] z = Nat224.create();
-        SecP224R1Field.subtract(x, ((org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        SecP224R1Field.subtract(x, ((SecP224R1FieldElement)b).x, z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement multiply(ECFieldElement b)
     {
         int[] z = Nat224.create();
-        SecP224R1Field.multiply(x, ((org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        SecP224R1Field.multiply(x, ((SecP224R1FieldElement)b).x, z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement divide(ECFieldElement b)
     {
 //        return multiply(b.invert());
         int[] z = Nat224.create();
-        SecP224R1Field.inv(((org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement)b).x, z);
+        SecP224R1Field.inv(((SecP224R1FieldElement)b).x, z);
         SecP224R1Field.multiply(z, x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement negate()
     {
         int[] z = Nat224.create();
         SecP224R1Field.negate(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement square()
     {
         int[] z = Nat224.create();
         SecP224R1Field.square(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        return new SecP224R1FieldElement(z);
     }
 
     public ECFieldElement invert()
@@ -122,7 +124,7 @@ public class SecP224R1FieldElement extends ECFieldElement.AbstractFp
 //        return new SecP224R1FieldElement(toBigInteger().modInverse(Q));
         int[] z = Nat224.create();
         SecP224R1Field.inv(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(z);
+        return new SecP224R1FieldElement(z);
     }
 
     /**
@@ -155,7 +157,7 @@ public class SecP224R1FieldElement extends ECFieldElement.AbstractFp
 
         SecP224R1Field.square(t, r);
 
-        return Nat224.eq(c, r) ? new org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement(t) : null;
+        return Nat224.eq(c, r) ? new SecP224R1FieldElement(t) : null;
     }
 
     public boolean equals(Object other)
@@ -165,12 +167,12 @@ public class SecP224R1FieldElement extends ECFieldElement.AbstractFp
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement))
+        if (!(other instanceof SecP224R1FieldElement))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement o = (org.bouncycastle.math.ec.custom.sec.SecP224R1FieldElement)other;
+        SecP224R1FieldElement o = (SecP224R1FieldElement)other;
         return Nat224.eq(x, o.x);
     }
 

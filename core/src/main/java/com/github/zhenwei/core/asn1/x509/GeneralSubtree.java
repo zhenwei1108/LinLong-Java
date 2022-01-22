@@ -1,15 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 /**
  * Class for containing a restriction object subtrees in NameConstraints. See
@@ -25,7 +24,7 @@ import org.bouncycastle.asn1.x509.GeneralName;
  *       }
  * </pre>
  * 
- * @see org.bouncycastle.asn1.x509.NameConstraints
+ * @see NameConstraints
  * 
  */
 public class GeneralSubtree 
@@ -133,14 +132,14 @@ public class GeneralSubtree
         this(base, null, null);
     }
 
-    public static org.bouncycastle.asn1.x509.GeneralSubtree getInstance(
+    public static GeneralSubtree getInstance(
         ASN1TaggedObject o,
         boolean explicit)
     {
-        return new org.bouncycastle.asn1.x509.GeneralSubtree(ASN1Sequence.getInstance(o, explicit));
+        return new GeneralSubtree(ASN1Sequence.getInstance(o, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.GeneralSubtree getInstance(
+    public static GeneralSubtree getInstance(
         Object obj)
     {
         if (obj == null)
@@ -148,12 +147,12 @@ public class GeneralSubtree
             return null;
         }
 
-        if (obj instanceof org.bouncycastle.asn1.x509.GeneralSubtree)
+        if (obj instanceof GeneralSubtree)
         {
-            return (org.bouncycastle.asn1.x509.GeneralSubtree) obj;
+            return (GeneralSubtree) obj;
         }
 
-        return new org.bouncycastle.asn1.x509.GeneralSubtree(ASN1Sequence.getInstance(obj));
+        return new GeneralSubtree(ASN1Sequence.getInstance(obj));
     }
 
     public GeneralName getBase()

@@ -1,15 +1,6 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERExternal;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.DLExternal;
+
 
 /**
  * Class representing the DER-type External
@@ -17,7 +8,7 @@ import org.bouncycastle.asn1.DLExternal;
 public abstract class ASN1External
     extends ASN1Primitive
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1External.class, BERTags.EXTERNAL)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1External.class, BERTags.EXTERNAL)
     {
         ASN1Primitive fromImplicitConstructed(ASN1Sequence sequence)
         {
@@ -26,25 +17,25 @@ public abstract class ASN1External
         }
     };
 
-    public static org.bouncycastle.asn1.ASN1External getInstance(Object obj)
+    public static ASN1External getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1External)
+        if (obj == null || obj instanceof ASN1External)
         {
-            return (org.bouncycastle.asn1.ASN1External)obj;
+            return (ASN1External)obj;
         }
         if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1External)
+            if (primitive instanceof ASN1External)
             {
-                return (org.bouncycastle.asn1.ASN1External)primitive;
+                return (ASN1External)primitive;
             }
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1External)TYPE.fromByteArray((byte[])obj);
+                return (ASN1External)TYPE.fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -55,9 +46,9 @@ public abstract class ASN1External
         throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.ASN1External getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1External getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1External)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1External)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     ASN1ObjectIdentifier directReference;
@@ -157,11 +148,11 @@ public abstract class ASN1External
     }
 
     /* (non-Javadoc)
-     * @see org.bouncycastle.asn1.ASN1Primitive#asn1Equals(org.bouncycastle.asn1.ASN1Primitive)
+     * @see ASN1Primitive#asn1Equals(ASN1Primitive)
      */
     boolean asn1Equals(ASN1Primitive o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1External))
+        if (!(o instanceof ASN1External))
         {
             return false;
         }
@@ -169,7 +160,7 @@ public abstract class ASN1External
         {
             return true;
         }
-        org.bouncycastle.asn1.ASN1External other = (org.bouncycastle.asn1.ASN1External)o;
+        ASN1External other = (ASN1External)o;
         if (directReference != null)
         {
             if (other.directReference == null || !other.directReference.equals(directReference))

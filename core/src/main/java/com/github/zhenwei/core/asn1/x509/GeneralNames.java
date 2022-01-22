@@ -1,14 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.util.Strings;
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class GeneralNames
     extends ASN1Object
@@ -22,30 +20,30 @@ public class GeneralNames
         return result;
     }
 
-    public static org.bouncycastle.asn1.x509.GeneralNames getInstance(
+    public static GeneralNames getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.GeneralNames)
+        if (obj instanceof GeneralNames)
         {
-            return (org.bouncycastle.asn1.x509.GeneralNames)obj;
+            return (GeneralNames)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.GeneralNames(ASN1Sequence.getInstance(obj));
+            return new GeneralNames(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.GeneralNames getInstance(
+    public static GeneralNames getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
-        return new org.bouncycastle.asn1.x509.GeneralNames(ASN1Sequence.getInstance(obj, explicit));
+        return new GeneralNames(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.GeneralNames fromExtensions(Extensions extensions, ASN1ObjectIdentifier extOID)
+    public static GeneralNames fromExtensions(Extensions extensions, ASN1ObjectIdentifier extOID)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, extOID));
     }

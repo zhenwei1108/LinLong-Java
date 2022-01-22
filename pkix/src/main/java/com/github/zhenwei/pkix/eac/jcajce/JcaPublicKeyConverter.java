@@ -1,5 +1,13 @@
 package com.github.zhenwei.pkix.eac.jcajce;
 
+
+ 
+
+ 
+import  EACObjectIdentifiers;
+import  ECDSAPublicKey;
+import  PublicKeyDataObject;
+import  RSAPublicKey;
 import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -15,19 +23,11 @@ import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.eac.EACObjectIdentifiers;
-import org.bouncycastle.asn1.eac.ECDSAPublicKey;
-import org.bouncycastle.asn1.eac.PublicKeyDataObject;
-import org.bouncycastle.asn1.eac.RSAPublicKey;
 import org.bouncycastle.eac.EACException;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
 import org.bouncycastle.math.field.PolynomialExtensionField;
-import org.bouncycastle.util.Arrays;
+
 
 public class JcaPublicKeyConverter
 {

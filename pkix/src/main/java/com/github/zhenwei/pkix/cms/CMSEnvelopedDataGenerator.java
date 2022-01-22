@@ -1,27 +1,22 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+import BERSet;
+
+import cms.AttributeTable;
+import cms.CMSObjectIdentifiers;
+import cms.ContentInfo;
+import cms.EncryptedContentInfo;
+import cms.EnvelopedData;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import java.util.Iterator;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.BEROctetString;
-import org.bouncycastle.asn1.BERSet;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.EncryptedContentInfo;
-import org.bouncycastle.asn1.cms.EnvelopedData;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSEnvelopedData;
-import org.bouncycastle.cms.CMSEnvelopedGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedData;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OutputAEADEncryptor;
 import org.bouncycastle.operator.OutputEncryptor;

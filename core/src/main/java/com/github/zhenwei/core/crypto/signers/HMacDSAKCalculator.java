@@ -2,12 +2,12 @@ package com.github.zhenwei.core.crypto.signers;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.signers.DSAKCalculator;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
+
+ 
 
 /**
  * A deterministic K calculator based on the algorithm in section 3.2 of RFC 6979.

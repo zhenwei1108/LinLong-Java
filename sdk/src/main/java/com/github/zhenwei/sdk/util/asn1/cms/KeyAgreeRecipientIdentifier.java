@@ -1,13 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.RecipientKeyIdentifier;
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -35,7 +33,7 @@ public class KeyAgreeRecipientIdentifier
      * @exception IllegalArgumentException if the object held by the
      *          tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier getInstance(
+    public static cms.KeyAgreeRecipientIdentifier getInstance(
         ASN1TaggedObject    obj,
         boolean             explicit)
     {
@@ -47,7 +45,7 @@ public class KeyAgreeRecipientIdentifier
      * <p>
      * Accepted inputs:
      * <ul>
-     * <li> {@link org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier} object
+     * <li> {@link cms.KeyAgreeRecipientIdentifier} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with IssuerAndSerialNumber structure inside
      * <li> {@link ASN1TaggedObject#getInstance(Object) ASN1TaggedObject} with tag value 0: a KeyAgreeRecipientIdentifier data structure
      * </ul>
@@ -57,22 +55,22 @@ public class KeyAgreeRecipientIdentifier
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier getInstance(
+    public static cms.KeyAgreeRecipientIdentifier getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier)
+        if (obj == null || obj instanceof cms.KeyAgreeRecipientIdentifier)
         {
-            return (org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier)obj;
+            return (cms.KeyAgreeRecipientIdentifier)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier(IssuerAndSerialNumber.getInstance(obj));
+            return new cms.KeyAgreeRecipientIdentifier(IssuerAndSerialNumber.getInstance(obj));
         }
 
         if (obj instanceof ASN1TaggedObject && ((ASN1TaggedObject)obj).getTagNo() == 0)
         {
-            return new org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier(RecipientKeyIdentifier.getInstance(
+            return new cms.KeyAgreeRecipientIdentifier(RecipientKeyIdentifier.getInstance(
                 (ASN1TaggedObject)obj, false));
         }
 

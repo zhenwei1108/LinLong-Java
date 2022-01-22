@@ -1,21 +1,6 @@
 package com.github.zhenwei.core.asn1;
 
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1External;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.BEROctetString;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERExternal;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DLSet;
 
 /**
  * Definite length SEQUENCE, encoding tells explicit number of bytes
@@ -26,9 +11,9 @@ import org.bouncycastle.asn1.DLSet;
 public class DERSequence
     extends ASN1Sequence
 {
-    public static org.bouncycastle.asn1.DERSequence convert(ASN1Sequence seq)
+    public static DERSequence convert(ASN1Sequence seq)
     {
-        return (org.bouncycastle.asn1.DERSequence)seq.toDERObject();
+        return (DERSequence)seq.toDERObject();
     }
 
     private int contentsLength = -1;

@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
+
 import org.bouncycastle.jcajce.provider.asymmetric.ecgost.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import rosstandart.RosstandartObjectIdentifiers;
 
 public class ECGOST
 {

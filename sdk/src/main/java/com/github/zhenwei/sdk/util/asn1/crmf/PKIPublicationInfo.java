@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.crmf.SinglePubInfo;
 
 /**
  * <pre>
@@ -39,16 +38,16 @@ public class PKIPublicationInfo
         }
     }
 
-    public static org.bouncycastle.asn1.crmf.PKIPublicationInfo getInstance(Object o)
+    public static crmf.PKIPublicationInfo getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.PKIPublicationInfo)
+        if (o instanceof crmf.PKIPublicationInfo)
         {
-            return (org.bouncycastle.asn1.crmf.PKIPublicationInfo)o;
+            return (crmf.PKIPublicationInfo)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.PKIPublicationInfo(ASN1Sequence.getInstance(o));
+            return new crmf.PKIPublicationInfo(ASN1Sequence.getInstance(o));
         }
 
         return null;

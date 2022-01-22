@@ -7,11 +7,11 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.asn1.nsri.NSRIObjectIdentifiers;
+import nsri.NSRIObjectIdentifiers;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.engines.ARIAEngine;
 import org.bouncycastle.crypto.engines.ARIAWrapEngine;
 import org.bouncycastle.crypto.engines.ARIAWrapPadEngine;

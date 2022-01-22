@@ -1,9 +1,6 @@
 package com.github.zhenwei.provider.jce.spec;
 
 import java.math.BigInteger;
-import org.bouncycastle.jce.spec.ElGamalKeySpec;
-import org.bouncycastle.jce.spec.ElGamalParameterSpec;
-import org.bouncycastle.jce.spec.ElGamalPrivateKeySpec;
 
 /**
  * This class specifies an ElGamal public key with its associated parameters.

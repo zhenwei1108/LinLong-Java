@@ -1,10 +1,6 @@
 package com.github.zhenwei.pkix.cert.path;
 
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.path.CertPathValidation;
-import org.bouncycastle.cert.path.CertPathValidationContext;
-import org.bouncycastle.cert.path.CertPathValidationException;
-import org.bouncycastle.cert.path.CertPathValidationResult;
+ 
 
 public class CertPath
 {

@@ -1,17 +1,15 @@
 package com.github.zhenwei.core.asn1.x500;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x500.style.BCStyle;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.BCStyle;
 
 /**
  * The X.500 Name object.
@@ -44,7 +42,7 @@ public class X500Name
     /**
      * @deprecated use the getInstance() method that takes a style.
      */
-    public X500Name(X500NameStyle style, org.bouncycastle.asn1.x500.X500Name name)
+    public X500Name(X500NameStyle style,  X500Name name)
     {
         this.style = style;
         this.rdns = name.rdns;
@@ -58,7 +56,7 @@ public class X500Name
      * @param explicit true if explicitly tagged false otherwise.
      * @return the X500Name
      */
-    public static org.bouncycastle.asn1.x500.X500Name getInstance(
+    public static  X500Name getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
@@ -66,32 +64,32 @@ public class X500Name
         return getInstance(ASN1Sequence.getInstance(obj, true));
     }
 
-    public static org.bouncycastle.asn1.x500.X500Name getInstance(
+    public static  X500Name getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x500.X500Name)
+        if (obj instanceof  X500Name)
         {
-            return (org.bouncycastle.asn1.x500.X500Name)obj;
+            return  (X500Name)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x500.X500Name(ASN1Sequence.getInstance(obj));
+            return new  X500Name(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x500.X500Name getInstance(
+    public static  X500Name getInstance(
         X500NameStyle style,
         Object        obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x500.X500Name)
+        if (obj instanceof  X500Name)
         {
-            return new org.bouncycastle.asn1.x500.X500Name(style, (org.bouncycastle.asn1.x500.X500Name)obj);
+            return new  X500Name(style, ( X500Name)obj);
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x500.X500Name(style, ASN1Sequence.getInstance(obj));
+            return new  X500Name(style, ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -259,7 +257,7 @@ public class X500Name
             return true;
         }
 
-        if (!(obj instanceof org.bouncycastle.asn1.x500.X500Name || obj instanceof ASN1Sequence))
+        if (!(obj instanceof  X500Name || obj instanceof ASN1Sequence))
         {
             return false;
         }
@@ -273,7 +271,7 @@ public class X500Name
 
         try
         {
-            return style.areEqual(this, new org.bouncycastle.asn1.x500.X500Name(ASN1Sequence.getInstance(((ASN1Encodable)obj).toASN1Primitive())));
+            return style.areEqual(this, new  X500Name(ASN1Sequence.getInstance(((ASN1Encodable)obj).toASN1Primitive())));
         }
         catch (Exception e)
         {

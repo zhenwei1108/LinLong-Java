@@ -1,14 +1,8 @@
 package com.github.zhenwei.core.asn1;
 
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DLSequence;
 
 /**
  * Definite Length TaggedObject - in ASN.1 notation this is any object preceded by
@@ -108,7 +102,7 @@ public class DLTaggedObject
 
     ASN1TaggedObject replaceTag(int tagClass, int tagNo)
     {
-        return new org.bouncycastle.asn1.DLTaggedObject(explicitness, tagClass, tagNo, obj);
+        return new DLTaggedObject(explicitness, tagClass, tagNo, obj);
     }
 
     ASN1Primitive toDLObject()

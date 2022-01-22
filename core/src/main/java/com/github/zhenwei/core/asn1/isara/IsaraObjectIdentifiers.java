@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.isara;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 public interface IsaraObjectIdentifiers
 {

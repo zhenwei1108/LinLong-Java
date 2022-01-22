@@ -27,7 +27,7 @@ import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
 import org.bouncycastle.jcajce.PKIXCRLStore;
 import org.bouncycastle.util.CollectionStore;
-import org.bouncycastle.util.Selector;
+
 import org.bouncycastle.util.Store;
 
 class CrlCache

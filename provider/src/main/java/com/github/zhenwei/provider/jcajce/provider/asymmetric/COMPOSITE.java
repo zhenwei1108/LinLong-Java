@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -7,16 +9,14 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import misc.MiscObjectIdentifiers;
 import org.bouncycastle.jcajce.CompositePrivateKey;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+import pkcs.PrivateKeyInfo;
 
 public class COMPOSITE
 {

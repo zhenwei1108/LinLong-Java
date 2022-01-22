@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.agreement;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DHPrivateKeyParameters;

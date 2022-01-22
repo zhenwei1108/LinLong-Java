@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
+import Certificate;
+
+import X500Name;
+import X509CertificateStructure;
+import X509Name;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.asn1.x509.X509CertificateStructure;
-import org.bouncycastle.asn1.x509.X509Name;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.4">RFC 5652</a>: IssuerAndSerialNumber object.
@@ -36,23 +36,23 @@ public class IssuerAndSerialNumber
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.IssuerAndSerialNumber} object
+     * <li> {@link cms.IssuerAndSerialNumber} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with IssuerAndSerialNumber structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.IssuerAndSerialNumber getInstance(
+    public static cms.IssuerAndSerialNumber getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.IssuerAndSerialNumber)
+        if (obj instanceof cms.IssuerAndSerialNumber)
         {
-            return (org.bouncycastle.asn1.cms.IssuerAndSerialNumber)obj;
+            return (cms.IssuerAndSerialNumber)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
+            return new cms.IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -1,25 +1,22 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+
+
+import DERBitString;
+
+import Extensions;
+
+import X500Name;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.ocsp.OCSPRequest;
-import org.bouncycastle.asn1.ocsp.Request;
-import org.bouncycastle.asn1.ocsp.Signature;
-import org.bouncycastle.asn1.ocsp.TBSRequest;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.ocsp.CertificateID;
-import org.bouncycastle.cert.ocsp.OCSPException;
-import org.bouncycastle.cert.ocsp.OCSPReq;
+import ocsp.OCSPRequest;
+import ocsp.Request;
+import ocsp.Signature;
+import ocsp.TBSRequest;
+ 
 import org.bouncycastle.operator.ContentSigner;
 
 public class OCSPReqBuilder

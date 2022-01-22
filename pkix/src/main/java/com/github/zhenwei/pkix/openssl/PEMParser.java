@@ -1,5 +1,15 @@
 package com.github.zhenwei.pkix.openssl;
 
+ 
+
+
+
+
+
+
+import DSAParameter;
+
+import cms.ContentInfo;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Collections;
@@ -9,36 +19,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.pkcs.RSAPublicKey;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.DSAParameter;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.cert.X509AttributeCertificateHolder;
 import org.bouncycastle.cert.X509CRLHolder;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.openssl.PEMEncryptedKeyPair;
-import org.bouncycastle.openssl.PEMException;
-import org.bouncycastle.openssl.PEMKeyPair;
-import org.bouncycastle.openssl.X509TrustedCertificateBlock;
+ 
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.io.pem.PemHeader;
-import org.bouncycastle.util.io.pem.PemObject;
+
+
+
 import org.bouncycastle.util.io.pem.PemObjectParser;
 import org.bouncycastle.util.io.pem.PemReader;
+import pkcs.EncryptedPrivateKeyInfo;
+
+import pkcs.PrivateKeyInfo;
+import pkcs.RSAPublicKey;
+import x9.X9ECParameters;
+import x9.X9ObjectIdentifiers;
 
 /**
  * Class for parsing OpenSSL PEM encoded streams containing
@@ -266,7 +262,7 @@ public class PEMParser
             {
                 ASN1Sequence seq = ASN1Sequence.getInstance(encoding);
 
-                org.bouncycastle.asn1.sec.ECPrivateKey pKey = org.bouncycastle.asn1.sec.ECPrivateKey.getInstance(seq);
+                sec.ECPrivateKey pKey = sec.ECPrivateKey.getInstance(seq);
                 AlgorithmIdentifier algId = new AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey,
                     pKey.getParametersObject());
                 PrivateKeyInfo privInfo = new PrivateKeyInfo(algId, pKey);
@@ -309,7 +305,7 @@ public class PEMParser
                     throw new PEMException("malformed sequence in RSA private key");
                 }
 
-                org.bouncycastle.asn1.pkcs.RSAPrivateKey keyStruct = org.bouncycastle.asn1.pkcs.RSAPrivateKey.getInstance(seq);
+                pkcs.RSAPrivateKey keyStruct = pkcs.RSAPrivateKey.getInstance(seq);
 
                 RSAPublicKey pubSpec = new RSAPublicKey(
                     keyStruct.getModulus(), keyStruct.getPublicExponent());

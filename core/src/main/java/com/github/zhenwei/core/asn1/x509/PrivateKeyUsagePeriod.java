@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
 
 /**
  * <pre>
@@ -20,16 +20,16 @@ import org.bouncycastle.asn1.DERTaggedObject;
 public class PrivateKeyUsagePeriod
     extends ASN1Object
 {
-    public static org.bouncycastle.asn1.x509.PrivateKeyUsagePeriod getInstance(Object obj)
+    public static PrivateKeyUsagePeriod getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.PrivateKeyUsagePeriod)
+        if (obj instanceof PrivateKeyUsagePeriod)
         {
-            return (org.bouncycastle.asn1.x509.PrivateKeyUsagePeriod)obj;
+            return (x509.PrivateKeyUsagePeriod)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.PrivateKeyUsagePeriod(ASN1Sequence.getInstance(obj));
+            return new PrivateKeyUsagePeriod(ASN1Sequence.getInstance(obj));
         }
 
         return null;

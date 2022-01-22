@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.crmf.POPOSigningKeyInput;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+import DERBitString;
+
+
 
 public class POPOSigningKey
     extends ASN1Object
@@ -37,22 +36,22 @@ public class POPOSigningKey
         signature = DERBitString.getInstance(seq.getObjectAt(index));
     }
 
-    public static org.bouncycastle.asn1.crmf.POPOSigningKey getInstance(Object o)
+    public static crmf.POPOSigningKey getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.POPOSigningKey)
+        if (o instanceof crmf.POPOSigningKey)
         {
-            return (org.bouncycastle.asn1.crmf.POPOSigningKey)o;
+            return (crmf.POPOSigningKey)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.POPOSigningKey(ASN1Sequence.getInstance(o));
+            return new crmf.POPOSigningKey(ASN1Sequence.getInstance(o));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.crmf.POPOSigningKey getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static crmf.POPOSigningKey getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }

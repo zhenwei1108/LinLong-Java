@@ -6,17 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.WeakHashMap;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
 import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
-import org.bouncycastle.pqc.crypto.lms.LMSContextBasedSigner;
 import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+
+
 
 public class LMSPrivateKeyParameters
     extends LMSKeyParameters

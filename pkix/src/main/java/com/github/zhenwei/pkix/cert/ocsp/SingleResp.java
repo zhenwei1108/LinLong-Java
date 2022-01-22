@@ -1,18 +1,14 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+
+import Extensions;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ocsp.CertStatus;
-import org.bouncycastle.asn1.ocsp.RevokedInfo;
-import org.bouncycastle.asn1.ocsp.SingleResponse;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.cert.ocsp.CertificateID;
-import org.bouncycastle.cert.ocsp.CertificateStatus;
-import org.bouncycastle.cert.ocsp.RevokedStatus;
-import org.bouncycastle.cert.ocsp.UnknownStatus;
+import ocsp.CertStatus;
+import ocsp.RevokedInfo;
+import ocsp.SingleResponse;
 
 public class SingleResp
 {

@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+
+
+
+
+
+import pkcs.PrivateKeyInfo;
 
 public class EncKeyWithID
     extends ASN1Object
@@ -16,15 +16,15 @@ public class EncKeyWithID
     private final PrivateKeyInfo privKeyInfo;
     private final ASN1Encodable identifier;
 
-    public static org.bouncycastle.asn1.crmf.EncKeyWithID getInstance(Object o)
+    public static crmf.EncKeyWithID getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.EncKeyWithID)
+        if (o instanceof crmf.EncKeyWithID)
         {
-            return (org.bouncycastle.asn1.crmf.EncKeyWithID)o;
+            return (crmf.EncKeyWithID)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.EncKeyWithID(ASN1Sequence.getInstance(o));
+            return new crmf.EncKeyWithID(ASN1Sequence.getInstance(o));
         }
 
         return null;

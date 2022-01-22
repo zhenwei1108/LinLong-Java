@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
+
+
+
 
 
 /**
@@ -32,15 +32,15 @@ public class CertPolicyId
         this.id = id;
     }
 
-    public static org.bouncycastle.asn1.x509.CertPolicyId getInstance(Object o)
+    public static CertPolicyId getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.x509.CertPolicyId)
+        if (o instanceof CertPolicyId)
         {
-            return (org.bouncycastle.asn1.x509.CertPolicyId)o;
+            return (x509.CertPolicyId)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.x509.CertPolicyId(ASN1ObjectIdentifier.getInstance(o));
+            return new CertPolicyId(ASN1ObjectIdentifier.getInstance(o));
         }
 
         return null;

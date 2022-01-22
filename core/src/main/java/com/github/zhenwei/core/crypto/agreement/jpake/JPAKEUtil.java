@@ -3,14 +3,14 @@ package com.github.zhenwei.core.crypto.agreement.jpake;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Strings;
+
+ 
+
 
 /**
  * Primitives needed for a J-PAKE exchange.

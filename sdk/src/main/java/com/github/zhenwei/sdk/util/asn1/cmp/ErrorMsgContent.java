@@ -1,15 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIFreeText;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
 
 public class ErrorMsgContent
     extends ASN1Object
@@ -39,16 +37,16 @@ public class ErrorMsgContent
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.ErrorMsgContent getInstance(Object o)
+    public static cmp.ErrorMsgContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.ErrorMsgContent)
+        if (o instanceof cmp.ErrorMsgContent)
         {
-            return (org.bouncycastle.asn1.cmp.ErrorMsgContent)o;
+            return (cmp.ErrorMsgContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.ErrorMsgContent(ASN1Sequence.getInstance(o));
+            return new cmp.ErrorMsgContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

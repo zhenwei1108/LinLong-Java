@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
+
 import java.math.BigInteger;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -9,19 +10,17 @@ import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.SignatureSpi;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.NullDigest;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.signers.DSAEncoding;
 import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
+
+
 
 public class DSASigner
     extends SignatureSpi

@@ -7,9 +7,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
-import org.bouncycastle.util.encoders.Base64;
-import org.bouncycastle.util.encoders.Hex;
+import pkcs.RSAPrivateKey;
+
+
 
 public class KeyBuilder {
 

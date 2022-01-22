@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.openssl;
 
-import org.bouncycastle.openssl.PEMException;
-
 /**
  * Base interface for decryption operations.
  */

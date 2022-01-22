@@ -3,10 +3,10 @@ package com.github.zhenwei.core.math.ec.rfc8032;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.math.ec.rfc7748.X448;
-import org.bouncycastle.math.ec.rfc7748.X448Field;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.util.Arrays;
+
+
+import rfc7748.X448;
+import rfc7748.X448Field;
 
 public abstract class Ed448
 {

@@ -6,7 +6,7 @@ import org.bouncycastle.pqc.crypto.gmss.GMSSLeaf;
 import org.bouncycastle.pqc.crypto.gmss.GMSSRootCalc;
 import org.bouncycastle.pqc.crypto.gmss.GMSSRootSig;
 import org.bouncycastle.pqc.crypto.gmss.Treehash;
-import org.bouncycastle.util.Arrays;
+
 
 class GMSSUtils
 {

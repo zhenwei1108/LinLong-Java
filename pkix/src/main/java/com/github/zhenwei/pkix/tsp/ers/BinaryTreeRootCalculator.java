@@ -2,9 +2,8 @@ package com.github.zhenwei.pkix.tsp.ers;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.tsp.PartialHashtree;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.tsp.ers.ERSRootNodeCalculator;
+import tsp.PartialHashtree;
 
 /**
  * Calculator based on the use of a left weighted binary Merkle tree created

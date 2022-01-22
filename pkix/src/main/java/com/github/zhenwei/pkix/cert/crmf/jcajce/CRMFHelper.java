@@ -1,5 +1,14 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
+
+import ASN1Null;
+
+
+
+
+
+
+import iana.IANAObjectIdentifiers;
 import java.io.IOException;
 import java.security.AlgorithmParameterGenerator;
 import java.security.AlgorithmParameters;
@@ -24,23 +33,14 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.iana.IANAObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+
+
 import org.bouncycastle.cert.crmf.CRMFException;
 import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
+
+import x9.X9ObjectIdentifiers;
 
 class CRMFHelper
 {

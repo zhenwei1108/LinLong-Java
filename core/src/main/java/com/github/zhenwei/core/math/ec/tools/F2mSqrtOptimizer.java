@@ -1,16 +1,16 @@
 package com.github.zhenwei.core.math.ec.tools;
 
+ 
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECFieldElement;
+import x9.ECNamedCurveTable;
+import x9.X9ECParameters;
 
 public class F2mSqrtOptimizer
 {

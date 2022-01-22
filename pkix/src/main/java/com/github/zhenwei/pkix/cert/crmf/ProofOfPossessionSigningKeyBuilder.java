@@ -1,13 +1,12 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.crmf.CertRequest;
-import org.bouncycastle.asn1.crmf.PKMACValue;
-import org.bouncycastle.asn1.crmf.POPOSigningKey;
-import org.bouncycastle.asn1.crmf.POPOSigningKeyInput;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.crmf.CRMFException;
+import DERBitString;
+
+
+import crmf.CertRequest;
+import crmf.PKMACValue;
+import crmf.POPOSigningKey;
+import crmf.POPOSigningKeyInput;
 import org.bouncycastle.operator.ContentSigner;
 
 public class ProofOfPossessionSigningKeyBuilder

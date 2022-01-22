@@ -6,16 +6,14 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.DHParameterSpec;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.generators.ElGamalKeyPairGenerator;
 import org.bouncycastle.crypto.generators.ElGamalParametersGenerator;
 import org.bouncycastle.crypto.params.ElGamalKeyGenerationParameters;
 import org.bouncycastle.crypto.params.ElGamalParameters;
 import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.elgamal.BCElGamalPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.elgamal.BCElGamalPublicKey;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
 
 public class KeyPairGeneratorSpi

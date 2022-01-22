@@ -1,14 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.dvcs.DVCSCertInfo;
-import org.bouncycastle.asn1.dvcs.DVCSErrorNotice;
 
 /**
  * <pre>
@@ -37,11 +35,11 @@ public class DVCSResponse
         this.dvErrorNote = dvErrorNote;
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSResponse getInstance(Object obj)
+    public static DVCSResponse getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.dvcs.DVCSResponse)
+        if (obj == null || obj instanceof DVCSResponse)
         {
-            return (org.bouncycastle.asn1.dvcs.DVCSResponse)obj;
+            return (DVCSResponse)obj;
         }
         else
         {
@@ -60,21 +58,21 @@ public class DVCSResponse
             {
                 DVCSCertInfo dvCertInfo = DVCSCertInfo.getInstance(obj);
 
-                return new org.bouncycastle.asn1.dvcs.DVCSResponse(dvCertInfo);
+                return new DVCSResponse(dvCertInfo);
             }
             if (obj instanceof ASN1TaggedObject)
             {
                 ASN1TaggedObject t = ASN1TaggedObject.getInstance(obj);
                 DVCSErrorNotice dvErrorNote = DVCSErrorNotice.getInstance(t, false);
 
-                return new org.bouncycastle.asn1.dvcs.DVCSResponse(dvErrorNote);
+                return new DVCSResponse(dvErrorNote);
             }
         }
 
         throw new IllegalArgumentException("Couldn't convert from object to DVCSResponse: " + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSResponse getInstance(
+    public static DVCSResponse getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

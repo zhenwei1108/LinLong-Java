@@ -1,22 +1,18 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+
+import cms.PasswordRecipientInfo;
+import cms.RecipientInfo;
 import java.security.SecureRandom;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.PasswordRecipientInfo;
-import org.bouncycastle.asn1.cms.RecipientInfo;
-import org.bouncycastle.asn1.pkcs.PBKDF2Params;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.PasswordRecipient;
-import org.bouncycastle.cms.PasswordRecipientInformation;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.operator.GenericKey;
-import org.bouncycastle.util.Arrays;
+
+
+
 
 public abstract class PasswordRecipientInfoGenerator
     implements RecipientInfoGenerator

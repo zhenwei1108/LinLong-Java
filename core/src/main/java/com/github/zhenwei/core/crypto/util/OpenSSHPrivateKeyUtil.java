@@ -1,34 +1,31 @@
 package com.github.zhenwei.core.crypto.util;
 
+
+
+
+
+
+
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.nist.NISTNamedCurves;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.pkcs.RSAPrivateKey;
-import org.bouncycastle.asn1.sec.ECPrivateKey;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+import nist.NISTNamedCurves;
+
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
+
 import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
-import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
-import org.bouncycastle.crypto.util.SSHNamedCurves;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Strings;
+
+ 
+
+import pkcs.PrivateKeyInfo;
+import pkcs.RSAPrivateKey;
+import sec.ECPrivateKey;
+import x9.ECNamedCurveTable;
+import x9.X9ECParameters;
 
 
 /**

@@ -1,9 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * An ASN.1 DER NULL object.
@@ -13,7 +11,7 @@ import org.bouncycastle.asn1.BERTags;
 public class DERNull
     extends ASN1Null
 {
-    public static final org.bouncycastle.asn1.DERNull INSTANCE = new org.bouncycastle.asn1.DERNull();
+    public static final DERNull INSTANCE = new DERNull();
 
     private static final byte[]  zeroBytes = new byte[0];
 

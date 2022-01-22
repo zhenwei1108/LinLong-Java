@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+
+
 
 /**
  * Target structure used in target information extension for attribute
@@ -43,15 +42,15 @@ public class Target
      * @throws IllegalArgumentException if the given object cannot be
      *             interpreted as Target.
      */
-    public static org.bouncycastle.asn1.x509.Target getInstance(Object obj)
+    public static Target getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.Target)
+        if (obj == null || obj instanceof Target)
         {
-            return (org.bouncycastle.asn1.x509.Target) obj;
+            return (x509.Target) obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.x509.Target((ASN1TaggedObject)obj);
+            return new Target((ASN1TaggedObject)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: "

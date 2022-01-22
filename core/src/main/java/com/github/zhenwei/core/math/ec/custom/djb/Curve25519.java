@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.math.ec.custom.djb;
 
+
+
+
+
+
+ 
+import custom.djb.Curve25519Field;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.AbstractECLookupTable;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.custom.djb.Curve25519Field;
-import org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement;
-import org.bouncycastle.math.ec.custom.djb.Curve25519Point;
-import org.bouncycastle.math.raw.Nat256;
-import org.bouncycastle.util.encoders.Hex;
+
+
 
 public class Curve25519 extends ECCurve.AbstractFp
 {
@@ -43,7 +41,7 @@ public class Curve25519 extends ECCurve.AbstractFp
 
     protected ECCurve cloneCurve()
     {
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519();
+        return new custom.djb.Curve25519();
     }
 
     public boolean supportsCoordinateSystem(int coord)

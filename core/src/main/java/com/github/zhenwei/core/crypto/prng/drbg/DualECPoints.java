@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
-import org.bouncycastle.math.ec.ECPoint;
+ 
 
 /**
  * General class for providing point pairs for use with DualEC DRBG. See NIST SP 800-90A for further details.

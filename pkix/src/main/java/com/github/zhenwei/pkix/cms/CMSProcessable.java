@@ -2,7 +2,6 @@ package com.github.zhenwei.pkix.cms;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.cms.CMSException;
 
 /**
  * Use CMSTypedData instead of this. See CMSProcessableFile/ByteArray for defaults.

@@ -1,37 +1,38 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 public class AlgorithmIdentifier
     extends ASN1Object
 {
     private ASN1ObjectIdentifier algorithm;
-    private ASN1Encodable       parameters;
+    private ASN1Encodable parameters;
 
-    public static org.bouncycastle.asn1.x509.AlgorithmIdentifier getInstance(
+    public static AlgorithmIdentifier getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
     
-    public static org.bouncycastle.asn1.x509.AlgorithmIdentifier getInstance(
+    public static AlgorithmIdentifier getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.AlgorithmIdentifier)
+        if (obj instanceof AlgorithmIdentifier)
         {
-            return (org.bouncycastle.asn1.x509.AlgorithmIdentifier)obj;
+            return (AlgorithmIdentifier)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.AlgorithmIdentifier(ASN1Sequence.getInstance(obj));
+            return new AlgorithmIdentifier(ASN1Sequence.getInstance(obj));
         }
 
         return null;

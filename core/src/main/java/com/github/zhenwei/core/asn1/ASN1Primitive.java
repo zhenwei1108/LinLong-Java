@@ -2,10 +2,6 @@ package com.github.zhenwei.core.asn1;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OutputStream;
 
 /**
  * Base class for ASN.1 primitive objects. These are the actual objects used to generate byte encodings.
@@ -34,14 +30,14 @@ public abstract class ASN1Primitive
      * @return the base ASN.1 object represented by the byte stream.
      * @exception IOException if there is a problem parsing the data, or parsing the stream did not exhaust the available data.
      */
-    public static org.bouncycastle.asn1.ASN1Primitive fromByteArray(byte[] data)
+    public static ASN1Primitive fromByteArray(byte[] data)
         throws IOException
     {
         ASN1InputStream aIn = new ASN1InputStream(data);
 
         try
         {
-            org.bouncycastle.asn1.ASN1Primitive o = aIn.readObject();
+            ASN1Primitive o = aIn.readObject();
 
             if (aIn.available() != 0)
             {
@@ -71,12 +67,12 @@ public abstract class ASN1Primitive
         return this == other || (null != other && asn1Equals(other.toASN1Primitive()));
     }
 
-    public final boolean equals(org.bouncycastle.asn1.ASN1Primitive other)
+    public final boolean equals(ASN1Primitive other)
     {
         return this == other || asn1Equals(other);
     }
 
-    public final org.bouncycastle.asn1.ASN1Primitive toASN1Primitive()
+    public final ASN1Primitive toASN1Primitive()
     {
         return this;
     }
@@ -86,7 +82,7 @@ public abstract class ASN1Primitive
      *
      * @return a DER version of this.
      */
-    org.bouncycastle.asn1.ASN1Primitive toDERObject()
+    ASN1Primitive toDERObject()
     {
         return this;
     }
@@ -96,7 +92,7 @@ public abstract class ASN1Primitive
      *
      * @return a DL version of this.
      */
-    org.bouncycastle.asn1.ASN1Primitive toDLObject()
+    ASN1Primitive toDLObject()
     {
         return this;
     }
@@ -116,5 +112,5 @@ public abstract class ASN1Primitive
     /**
      * Equality (similarity) comparison for two ASN1Primitive objects.
      */
-    abstract boolean asn1Equals(org.bouncycastle.asn1.ASN1Primitive o);
+    abstract boolean asn1Equals(ASN1Primitive o);
 }

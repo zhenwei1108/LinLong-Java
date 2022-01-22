@@ -5,7 +5,7 @@ import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
 import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
 import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
 import org.bouncycastle.pqc.math.linearalgebra.RandUtils;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class implements permutations of the set {0,1,...,n-1} for some given n

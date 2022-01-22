@@ -7,12 +7,10 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
 import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.io.Streams;
+
 
 class LMOtsPublicKey
     implements Encodable

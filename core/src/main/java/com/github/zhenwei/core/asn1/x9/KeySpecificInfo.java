@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.x9;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
  * ASN.1 def for Diffie-Hellman key exchange KeySpecificInfo structure. See
@@ -45,15 +45,15 @@ public class KeySpecificInfo
      * @param obj an object for conversion or a byte[].
      * @return a KeySpecificInfo
      */
-    public static org.bouncycastle.asn1.x9.KeySpecificInfo getInstance(Object obj)
+    public static x9.KeySpecificInfo getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x9.KeySpecificInfo)
+        if (obj instanceof x9.KeySpecificInfo)
         {
-            return (org.bouncycastle.asn1.x9.KeySpecificInfo)obj;
+            return (x9.KeySpecificInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x9.KeySpecificInfo(ASN1Sequence.getInstance(obj));
+            return new x9.KeySpecificInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

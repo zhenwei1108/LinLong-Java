@@ -1,5 +1,8 @@
-package com.github.zhenwei.provider.x509.util;
+package com.github.zhenwei.provider.util;
 
+ 
+import Certificate;
+import CertificatePair;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.Principal;
@@ -25,22 +28,19 @@ import javax.naming.directory.InitialDirContext;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.asn1.x509.CertificatePair;
+import org.bouncycastle.X509AttributeCertStoreSelector;
+import org.bouncycastle.X509AttributeCertificate;
+import org.bouncycastle.X509CRLStoreSelector;
+import org.bouncycastle.X509CertPairStoreSelector;
+import org.bouncycastle.X509CertStoreSelector;
+import org.bouncycastle.X509CertificatePair;
 import org.bouncycastle.jce.X509LDAPCertStoreParameters;
 import org.bouncycastle.jce.provider.X509AttrCertParser;
 import org.bouncycastle.jce.provider.X509CRLParser;
 import org.bouncycastle.jce.provider.X509CertPairParser;
 import org.bouncycastle.jce.provider.X509CertParser;
-import org.bouncycastle.util.StoreException;
-import org.bouncycastle.x509.X509AttributeCertStoreSelector;
-import org.bouncycastle.x509.X509AttributeCertificate;
-import org.bouncycastle.x509.X509CRLStoreSelector;
-import org.bouncycastle.x509.X509CertPairStoreSelector;
-import org.bouncycastle.x509.X509CertStoreSelector;
-import org.bouncycastle.x509.X509CertificatePair;
-import org.bouncycastle.x509.util.StreamParsingException;
+
+import org.bouncycastle.util.StreamParsingException;
 
 /**
  * This is a general purpose implementation to get X.509 certificates, CRLs,

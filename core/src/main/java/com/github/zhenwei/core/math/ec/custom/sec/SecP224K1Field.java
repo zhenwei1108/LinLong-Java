@@ -2,10 +2,10 @@ package com.github.zhenwei.core.math.ec.custom.sec;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.raw.Mod;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat224;
-import org.bouncycastle.util.Pack;
+
+
+
+
 
 public class SecP224K1Field
 {

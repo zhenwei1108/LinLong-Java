@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
+
+
+
+
+
+import cmp.PKIStatusInfo;
+import cms.ContentInfo;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
-import org.bouncycastle.asn1.cms.ContentInfo;
 
 
 public class TimeStampResp
@@ -17,15 +17,15 @@ public class TimeStampResp
 
     ContentInfo timeStampToken;
 
-    public static org.bouncycastle.asn1.tsp.TimeStampResp getInstance(Object o)
+    public static tsp.TimeStampResp getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.tsp.TimeStampResp)
+        if (o instanceof tsp.TimeStampResp)
         {
-            return (org.bouncycastle.asn1.tsp.TimeStampResp) o;
+            return (tsp.TimeStampResp) o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.tsp.TimeStampResp(ASN1Sequence.getInstance(o));
+            return new tsp.TimeStampResp(ASN1Sequence.getInstance(o));
         }
 
         return null;

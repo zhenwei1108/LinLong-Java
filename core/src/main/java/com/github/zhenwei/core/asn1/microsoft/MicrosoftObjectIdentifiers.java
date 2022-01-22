@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.microsoft;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * Microsoft

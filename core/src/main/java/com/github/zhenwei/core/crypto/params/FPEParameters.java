@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Arrays;
+
 
 public final class FPEParameters
     implements CipherParameters

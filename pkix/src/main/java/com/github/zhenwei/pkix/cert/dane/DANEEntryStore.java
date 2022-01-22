@@ -7,11 +7,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.bouncycastle.cert.dane.DANEEntry;
 import org.bouncycastle.util.CollectionStore;
-import org.bouncycastle.util.Selector;
+
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.StoreException;
+
 
 /**
  * Class storing DANEEntry objects.

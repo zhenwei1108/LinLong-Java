@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
+import sun.security.ec.ECDSAOperations.Seed;
+
 class Tree
 {
     static class leafaddr

@@ -1,5 +1,18 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
+
+
+
+
+
+
+
+import bsi.BSIObjectIdentifiers;
+import cms.CMSObjectIdentifiers;
+
+import  EACObjectIdentifiers;
+import edec.EdECObjectIdentifiers;
+import isara.IsaraObjectIdentifiers;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
@@ -21,35 +34,22 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.bsi.BSIObjectIdentifiers;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.eac.EACObjectIdentifiers;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-import org.bouncycastle.asn1.isara.IsaraObjectIdentifiers;
-import org.bouncycastle.asn1.kisa.KISAObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.ntt.NTTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.cert.X509CertificateHolder;
+import kisa.KISAObjectIdentifiers;
+
+
+
+ 
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.util.Integers;
+ 
+
+import pkcs.RSASSAPSSparams;
+import rosstandart.RosstandartObjectIdentifiers;
+import teletrust.TeleTrusTObjectIdentifiers;
+import x9.X9ObjectIdentifiers;
 
 class OperatorHelper
 {

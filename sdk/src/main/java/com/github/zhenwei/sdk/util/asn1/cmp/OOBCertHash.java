@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.crmf.CertId;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
+import DERBitString;
+
+
+import crmf.CertId;
 
 public class OOBCertHash
     extends ASN1Object
@@ -41,16 +41,16 @@ public class OOBCertHash
 
     }
 
-    public static org.bouncycastle.asn1.cmp.OOBCertHash getInstance(Object o)
+    public static cmp.OOBCertHash getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.OOBCertHash)
+        if (o instanceof cmp.OOBCertHash)
         {
-            return (org.bouncycastle.asn1.cmp.OOBCertHash)o;
+            return (cmp.OOBCertHash)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.OOBCertHash(ASN1Sequence.getInstance(o));
+            return new cmp.OOBCertHash(ASN1Sequence.getInstance(o));
         }
 
         return null;

@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.macs;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.engines.DSTU7624Engine;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Implementation of DSTU7624 MAC mode

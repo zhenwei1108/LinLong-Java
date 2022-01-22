@@ -1,44 +1,36 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+
+
+
+
+
+
+
+import cms.AttributeTable;
+import cms.CMSAlgorithmProtection;
+import cms.CMSAttributes;
+import cms.IssuerAndSerialNumber;
+import cms.SignerIdentifier;
+import cms.SignerInfo;
+import cms.Time;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.CMSAlgorithmProtection;
-import org.bouncycastle.asn1.cms.CMSAttributes;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.SignerIdentifier;
-import org.bouncycastle.asn1.cms.SignerInfo;
-import org.bouncycastle.asn1.cms.Time;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.DigestInfo;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessable;
-import org.bouncycastle.cms.CMSProcessableByteArray;
-import org.bouncycastle.cms.CMSSignerDigestMismatchException;
-import org.bouncycastle.cms.CMSVerifierCertificateNotValidException;
-import org.bouncycastle.cms.SignerId;
-import org.bouncycastle.cms.SignerInformationStore;
-import org.bouncycastle.cms.SignerInformationVerifier;
+ 
 import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.RawContentVerifier;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.io.TeeOutputStream;
 
 /**

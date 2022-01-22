@@ -1,29 +1,11 @@
 package com.github.zhenwei.core.asn1;
 
+
+import ASN1Exception;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ApplicationSpecific;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Exception;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObjectParser;
-import org.bouncycastle.asn1.BERApplicationSpecific;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.DLApplicationSpecific;
-import org.bouncycastle.asn1.DLTaggedObject;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ASN.1 TaggedObject - in ASN.1 notation this is any object preceded by
@@ -45,8 +27,8 @@ public abstract class ASN1TaggedObject
     final int           tagNo;
     final ASN1Encodable obj;
 
-    public static org.bouncycastle.asn1.ASN1TaggedObject getInstance(
-        org.bouncycastle.asn1.ASN1TaggedObject obj, boolean explicit)
+    public static ASN1TaggedObject getInstance(
+        ASN1TaggedObject obj, boolean explicit)
     {
         if (BERTags.CONTEXT_SPECIFIC != obj.getTagClass())
         {
@@ -61,26 +43,26 @@ public abstract class ASN1TaggedObject
         throw new IllegalArgumentException("this method not valid for implicitly tagged tagged objects");
     }
 
-    static public org.bouncycastle.asn1.ASN1TaggedObject getInstance(Object obj)
+    static public ASN1TaggedObject getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1TaggedObject)
+        if (obj == null || obj instanceof ASN1TaggedObject)
         {
-            return (org.bouncycastle.asn1.ASN1TaggedObject)obj;
+            return (ASN1TaggedObject)obj;
         }
 //      else if (obj instanceof ASN1TaggedObjectParser)
         else if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1TaggedObject)
+            if (primitive instanceof ASN1TaggedObject)
             {
-                return (org.bouncycastle.asn1.ASN1TaggedObject)primitive;
+                return (ASN1TaggedObject)primitive;
             }
         }
         else if (obj instanceof byte[])
         {
             try
             {
-                return org.bouncycastle.asn1.ASN1TaggedObject.getInstance(fromByteArray((byte[])obj));
+                return ASN1TaggedObject.getInstance(fromByteArray((byte[])obj));
             }
             catch (IOException e)
             {
@@ -135,12 +117,12 @@ public abstract class ASN1TaggedObject
             return other.equals(this);
         }
 
-        if (!(other instanceof org.bouncycastle.asn1.ASN1TaggedObject))
+        if (!(other instanceof ASN1TaggedObject))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1TaggedObject that = (org.bouncycastle.asn1.ASN1TaggedObject)other;
+        ASN1TaggedObject that = (ASN1TaggedObject)other;
 
         if (this.tagNo != that.tagNo ||
             this.tagClass != that.tagClass)
@@ -331,7 +313,7 @@ public abstract class ASN1TaggedObject
         return obj instanceof ASN1Object ? (ASN1Object)obj : obj.toASN1Primitive();
     }
 
-    public org.bouncycastle.asn1.ASN1TaggedObject getExplicitBaseTagged()
+    public ASN1TaggedObject getExplicitBaseTagged()
     {
         if (!isExplicit())
         {
@@ -341,7 +323,7 @@ public abstract class ASN1TaggedObject
         return checkedCast(obj.toASN1Primitive());
     }
 
-    public org.bouncycastle.asn1.ASN1TaggedObject getImplicitBaseTagged(int baseTagClass, int baseTagNo)
+    public ASN1TaggedObject getImplicitBaseTagged(int baseTagClass, int baseTagNo)
     {
         if (baseTagClass == BERTags.UNIVERSAL || (baseTagClass & BERTags.PRIVATE) != baseTagClass)
         {
@@ -355,7 +337,7 @@ public abstract class ASN1TaggedObject
 
         case DECLARED_IMPLICIT:
         {
-            org.bouncycastle.asn1.ASN1TaggedObject declared = checkedCast(obj.toASN1Primitive());
+            ASN1TaggedObject declared = checkedCast(obj.toASN1Primitive());
             if (!declared.hasTag(baseTagClass, baseTagNo))
             {
                 String expected = ASN1Util.getTagText(baseTagClass, baseTagNo);
@@ -471,7 +453,7 @@ public abstract class ASN1TaggedObject
 
     abstract ASN1Sequence rebuildConstructed(ASN1Primitive primitive);
 
-    abstract org.bouncycastle.asn1.ASN1TaggedObject replaceTag(int tagClass, int tagNo);
+    abstract ASN1TaggedObject replaceTag(int tagClass, int tagNo);
 
     ASN1Primitive toDERObject()
     {
@@ -495,7 +477,7 @@ public abstract class ASN1TaggedObject
 
         if (isIL)
         {
-            org.bouncycastle.asn1.ASN1TaggedObject taggedObject = maybeExplicit
+            ASN1TaggedObject taggedObject = maybeExplicit
                 ?   new BERTaggedObject(PARSED_EXPLICIT, tagClass, tagNo, contentsElements.get(0))
                 :   new BERTaggedObject(PARSED_IMPLICIT, tagClass, tagNo, BERFactory.createSequence(contentsElements));
 
@@ -509,7 +491,7 @@ public abstract class ASN1TaggedObject
         }
         else
         {
-            org.bouncycastle.asn1.ASN1TaggedObject taggedObject = maybeExplicit
+            ASN1TaggedObject taggedObject = maybeExplicit
                 ?   new DLTaggedObject(PARSED_EXPLICIT, tagClass, tagNo, contentsElements.get(0))
                 :   new DLTaggedObject(PARSED_IMPLICIT, tagClass, tagNo, DLFactory.createSequence(contentsElements));
 
@@ -526,7 +508,7 @@ public abstract class ASN1TaggedObject
     static ASN1Primitive createPrimitive(int tagClass, int tagNo, byte[] contentsOctets)
     {
         // Note: !CONSTRUCTED => IMPLICIT
-        org.bouncycastle.asn1.ASN1TaggedObject taggedObject = new DLTaggedObject(PARSED_IMPLICIT, tagClass, tagNo, new DEROctetString(contentsOctets));
+        ASN1TaggedObject taggedObject = new DLTaggedObject(PARSED_IMPLICIT, tagClass, tagNo, new DEROctetString(contentsOctets));
 
         switch (tagClass)
         {
@@ -537,11 +519,11 @@ public abstract class ASN1TaggedObject
         }
     }
 
-    private static org.bouncycastle.asn1.ASN1TaggedObject checkedCast(ASN1Primitive primitive)
+    private static ASN1TaggedObject checkedCast(ASN1Primitive primitive)
     {
-        if (primitive instanceof org.bouncycastle.asn1.ASN1TaggedObject)
+        if (primitive instanceof ASN1TaggedObject)
         {
-            return (org.bouncycastle.asn1.ASN1TaggedObject)primitive;
+            return (ASN1TaggedObject)primitive;
         }
 
         throw new IllegalStateException("unexpected object: " + primitive.getClass().getName());

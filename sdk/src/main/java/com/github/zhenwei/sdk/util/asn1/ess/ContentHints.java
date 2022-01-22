@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERUTF8String;
+
+
+
+
+
+
+
+
+
 
 public class ContentHints
     extends ASN1Object
@@ -16,15 +16,15 @@ public class ContentHints
     private ASN1UTF8String contentDescription;
     private ASN1ObjectIdentifier contentType;
 
-    public static org.bouncycastle.asn1.ess.ContentHints getInstance(Object o)
+    public static ess.ContentHints getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.ess.ContentHints)
+        if (o instanceof ess.ContentHints)
         {
-            return (org.bouncycastle.asn1.ess.ContentHints)o;
+            return (ess.ContentHints)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.ess.ContentHints(ASN1Sequence.getInstance(o));
+            return new ess.ContentHints(ASN1Sequence.getInstance(o));
         }
 
         return null;

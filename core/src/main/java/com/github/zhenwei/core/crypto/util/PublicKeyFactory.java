@@ -1,47 +1,30 @@
 package com.github.zhenwei.core.crypto.util;
 
+
+ 
+
+
+
+
+
+import DERBitString;
+
+import DSAParameter;
+
+ 
+
+
+
+import ECGOST3410NamedCurves;
+import GOST3410PublicKeyAlgParameters;
+import edec.EdECObjectIdentifiers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.ElGamalParameter;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.DHParameter;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSAPublicKey;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.ua.DSTU4145BinaryField;
-import org.bouncycastle.asn1.ua.DSTU4145ECBinary;
-import org.bouncycastle.asn1.ua.DSTU4145NamedCurves;
-import org.bouncycastle.asn1.ua.DSTU4145Params;
-import org.bouncycastle.asn1.ua.DSTU4145PointEncoder;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.DSAParameter;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-import org.bouncycastle.asn1.x9.DHPublicKey;
-import org.bouncycastle.asn1.x9.DomainParameters;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.ValidationParams;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9IntegerConverter;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+import oiw.ElGamalParameter;
+
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DHParameters;
@@ -49,7 +32,7 @@ import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.DHValidationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.crypto.params.ECDomainParameters;
+ 
 import org.bouncycastle.crypto.params.ECGOST3410Parameters;
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
@@ -60,9 +43,26 @@ import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.X448PublicKeyParameters;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.util.Arrays;
+
+import pkcs.DHParameter;
+
+import pkcs.RSAPublicKey;
+import rosstandart.RosstandartObjectIdentifiers;
+import ua.DSTU4145BinaryField;
+import ua.DSTU4145ECBinary;
+import ua.DSTU4145NamedCurves;
+import ua.DSTU4145Params;
+import ua.DSTU4145PointEncoder;
+import ua.UAObjectIdentifiers;
+import x9.DHPublicKey;
+import x9.DomainParameters;
+import x9.ECNamedCurveTable;
+import x9.ValidationParams;
+import x9.X962Parameters;
+import x9.X9ECParameters;
+import x9.X9ECPoint;
+import x9.X9IntegerConverter;
+import x9.X9ObjectIdentifiers;
 
 /**
  * Factory to create asymmetric public key parameters for asymmetric ciphers from range of

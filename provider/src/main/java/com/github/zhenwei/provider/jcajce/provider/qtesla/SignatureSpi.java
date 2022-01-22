@@ -7,14 +7,12 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.digests.NullDigest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASigner;
-import org.bouncycastle.pqc.jcajce.provider.qtesla.BCqTESLAPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.qtesla.BCqTESLAPublicKey;
 
 public class SignatureSpi
     extends Signature

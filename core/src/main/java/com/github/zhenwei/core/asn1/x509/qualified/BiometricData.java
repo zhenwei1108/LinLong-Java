@@ -1,16 +1,16 @@
 package com.github.zhenwei.core.asn1.x509.qualified;
 
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.qualified.TypeOfBiometricData;
+import qualified.TypeOfBiometricData;
 
 /**
  * The BiometricData object.
@@ -30,17 +30,17 @@ public class BiometricData
     private ASN1OctetString     biometricDataHash;
     private ASN1IA5String       sourceDataUri;
 
-    public static org.bouncycastle.asn1.x509.qualified.BiometricData getInstance(
+    public static qualified.BiometricData getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.qualified.BiometricData)
+        if (obj instanceof qualified.BiometricData)
         {
-            return (org.bouncycastle.asn1.x509.qualified.BiometricData)obj;
+            return (x509.qualified.BiometricData)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.qualified.BiometricData(ASN1Sequence.getInstance(obj));
+            return new qualified.BiometricData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

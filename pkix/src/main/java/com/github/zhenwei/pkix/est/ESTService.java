@@ -1,5 +1,10 @@
 package com.github.zhenwei.pkix.est;
 
+ 
+
+
+import cms.ContentInfo;
+import est.CsrAttrs;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,36 +17,17 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.est.CsrAttrs;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.cert.X509CRLHolder;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.cmc.CMCException;
 import org.bouncycastle.cmc.SimplePKIResponse;
-import org.bouncycastle.est.CACertsResponse;
-import org.bouncycastle.est.CSRAttributesResponse;
-import org.bouncycastle.est.CSRRequestResponse;
-import org.bouncycastle.est.ESTAuth;
-import org.bouncycastle.est.ESTClient;
-import org.bouncycastle.est.ESTClientProvider;
-import org.bouncycastle.est.ESTException;
-import org.bouncycastle.est.ESTRequest;
-import org.bouncycastle.est.ESTRequestBuilder;
-import org.bouncycastle.est.ESTResponse;
-import org.bouncycastle.est.ESTSourceConnectionListener;
-import org.bouncycastle.est.EnrollmentResponse;
-import org.bouncycastle.est.Source;
-import org.bouncycastle.est.TLSUniqueProvider;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
-import org.bouncycastle.util.Selector;
+
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.encoders.Base64;
+
+
 
 /**
  * ESTService provides unified access to an EST server which is defined as implementing

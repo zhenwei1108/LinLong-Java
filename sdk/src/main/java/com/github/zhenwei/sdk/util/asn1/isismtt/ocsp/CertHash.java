@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.ocsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
 
 /**
  * ISIS-MTT PROFILE: The responder may include this extension in a response to
@@ -34,16 +34,16 @@ public class CertHash
     private AlgorithmIdentifier hashAlgorithm;
     private byte[] certificateHash;
 
-    public static org.bouncycastle.asn1.isismtt.ocsp.CertHash getInstance(Object obj)
+    public static ocsp.CertHash getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.ocsp.CertHash)
+        if (obj == null || obj instanceof ocsp.CertHash)
         {
-            return (org.bouncycastle.asn1.isismtt.ocsp.CertHash)obj;
+            return  (ocsp.CertHash)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.ocsp.CertHash((ASN1Sequence)obj);
+            return new ocsp.CertHash((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "

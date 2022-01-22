@@ -3,10 +3,10 @@ package com.github.zhenwei.core.crypto.generators;
 import java.io.ByteArrayOutputStream;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.crypto.DataLengthException;
+
 import org.bouncycastle.crypto.generators.BCrypt;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
  * Password hashing scheme BCrypt,

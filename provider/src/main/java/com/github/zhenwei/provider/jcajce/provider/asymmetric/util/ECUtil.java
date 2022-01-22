@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
+
+
+ 
+import FixedPointCombMultiplier;
+
 import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.security.AccessController;
@@ -10,31 +15,25 @@ import java.security.PublicKey;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Enumeration;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.ECNamedCurveTable;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ECDomainParameters;
+ 
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
+
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.Fingerprint;
-import org.bouncycastle.util.Strings;
+
+import pkcs.PrivateKeyInfo;
+import x9.ECNamedCurveTable;
+import x9.X962Parameters;
+import x9.X9ECParameters;
 
 /**
  * utility class for converting jce/jca ECDSA, ECDH, and ECDHC

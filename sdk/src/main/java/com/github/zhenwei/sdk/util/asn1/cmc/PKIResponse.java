@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -40,22 +40,22 @@ public class PKIResponse
     }
 
 
-    public static org.bouncycastle.asn1.cmc.PKIResponse getInstance(Object o)
+    public static cmc.PKIResponse getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.PKIResponse)
+        if (o instanceof cmc.PKIResponse)
         {
-            return (org.bouncycastle.asn1.cmc.PKIResponse)o;
+            return (cmc.PKIResponse)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.PKIResponse(ASN1Sequence.getInstance(o));
+            return new cmc.PKIResponse(ASN1Sequence.getInstance(o));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.cmc.PKIResponse getInstance(
+    public static cmc.PKIResponse getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

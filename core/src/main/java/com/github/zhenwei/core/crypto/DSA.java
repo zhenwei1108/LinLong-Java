@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 
 /**
  * interface for classes implementing algorithms modeled similar to the Digital Signature Alorithm.

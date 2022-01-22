@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.crypto.util;
 
+
+
+
+
+import gm.GMObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.crypto.util.PBKDFConfig;
-import org.bouncycastle.util.Integers;
+
+ 
+
+import rosstandart.RosstandartObjectIdentifiers;
 
 /**
  * Configuration class for a PBKDF using PKCS#5 Scheme 2.

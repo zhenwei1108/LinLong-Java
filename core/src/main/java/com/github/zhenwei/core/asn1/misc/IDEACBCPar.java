@@ -1,29 +1,29 @@
 package com.github.zhenwei.core.asn1.misc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
 
 public class IDEACBCPar
     extends ASN1Object
 {
     ASN1OctetString  iv;
 
-    public static org.bouncycastle.asn1.misc.IDEACBCPar getInstance(
+    public static misc.IDEACBCPar getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.misc.IDEACBCPar)
+        if (o instanceof misc.IDEACBCPar)
         {
-            return (org.bouncycastle.asn1.misc.IDEACBCPar)o;
+            return (misc.IDEACBCPar)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.misc.IDEACBCPar(ASN1Sequence.getInstance(o));
+            return new misc.IDEACBCPar(ASN1Sequence.getInstance(o));
         }
 
         return null;

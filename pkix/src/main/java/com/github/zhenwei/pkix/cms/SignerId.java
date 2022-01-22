@@ -1,10 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
+import X500Name;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.cert.selector.X509CertificateHolderSelector;
-import org.bouncycastle.cms.SignerInformation;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * a basic index for a signer.

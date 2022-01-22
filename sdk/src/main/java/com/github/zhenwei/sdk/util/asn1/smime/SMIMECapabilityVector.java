@@ -1,10 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
 
 /**
  * Handler for creating a vector S/MIME Capabilities

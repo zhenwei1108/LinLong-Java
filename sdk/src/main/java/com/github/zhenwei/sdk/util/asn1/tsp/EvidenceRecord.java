@@ -1,22 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
+
+
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStamp;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStampChain;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence;
-import org.bouncycastle.asn1.tsp.CryptoInfos;
-import org.bouncycastle.asn1.tsp.EncryptionInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc4998">RFC 4998</a>:
@@ -57,27 +52,27 @@ public class EvidenceRecord
      * @return an EvidenceRecord instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.tsp.EvidenceRecord getInstance(final Object obj)
+    public static tsp.EvidenceRecord getInstance(final Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.tsp.EvidenceRecord)
+        if (obj instanceof tsp.EvidenceRecord)
         {
-            return (org.bouncycastle.asn1.tsp.EvidenceRecord)obj;
+            return (tsp.EvidenceRecord)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.tsp.EvidenceRecord(ASN1Sequence.getInstance(obj));
+            return new tsp.EvidenceRecord(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.tsp.EvidenceRecord getInstance(ASN1TaggedObject tagged, boolean explicit)
+    public static tsp.EvidenceRecord getInstance(ASN1TaggedObject tagged, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(tagged, explicit));
     }
 
     private EvidenceRecord(
-        org.bouncycastle.asn1.tsp.EvidenceRecord evidenceRecord,
+        tsp.EvidenceRecord evidenceRecord,
         ArchiveTimeStampSequence replacementSequence,
         ArchiveTimeStamp newChainTimeStamp)
     {
@@ -225,20 +220,20 @@ public class EvidenceRecord
      *                    renewal)
      * @return the new EvidenceRecord
      */
-    public org.bouncycastle.asn1.tsp.EvidenceRecord addArchiveTimeStamp(final ArchiveTimeStamp ats, final boolean newChain)
+    public tsp.EvidenceRecord addArchiveTimeStamp(final ArchiveTimeStamp ats, final boolean newChain)
     {
         if (newChain)
         {
             ArchiveTimeStampChain chain = new ArchiveTimeStampChain(ats);
             
-            return new org.bouncycastle.asn1.tsp.EvidenceRecord(this, archiveTimeStampSequence.append(chain), ats);
+            return new tsp.EvidenceRecord(this, archiveTimeStampSequence.append(chain), ats);
         }
         else
         {
             ArchiveTimeStampChain[] chains = archiveTimeStampSequence.getArchiveTimeStampChains();
 
             chains[chains.length - 1] = chains[chains.length - 1].append(ats);
-            return new org.bouncycastle.asn1.tsp.EvidenceRecord(this, new ArchiveTimeStampSequence(chains), null);
+            return new tsp.EvidenceRecord(this, new ArchiveTimeStampSequence(chains), null);
         }
     }
 

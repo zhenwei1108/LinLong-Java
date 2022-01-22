@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * pkcs-1 OBJECT IDENTIFIER ::=<p>
@@ -10,7 +11,7 @@ import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 public interface PKCSObjectIdentifiers
 {
     /** PKCS#1: 1.2.840.113549.1.1 */
-    ASN1ObjectIdentifier    pkcs_1                    = new ASN1ObjectIdentifier("1.2.840.113549.1.1");
+    ASN1ObjectIdentifier pkcs_1                    = new ASN1ObjectIdentifier("1.2.840.113549.1.1");
     /** PKCS#1: 1.2.840.113549.1.1.1 */
     ASN1ObjectIdentifier    rsaEncryption             = pkcs_1.branch("1");
     /** PKCS#1: 1.2.840.113549.1.1.2 */

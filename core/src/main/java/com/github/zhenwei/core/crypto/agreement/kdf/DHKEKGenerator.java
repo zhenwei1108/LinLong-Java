@@ -1,19 +1,18 @@
 package com.github.zhenwei.core.crypto.agreement.kdf;
 
+
+
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.crypto.DataLengthException;
+
 import org.bouncycastle.crypto.DerivationFunction;
-import org.bouncycastle.crypto.DerivationParameters;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.agreement.kdf.DHKDFParameters;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * RFC 2631 Diffie-hellman KEK derivation function.

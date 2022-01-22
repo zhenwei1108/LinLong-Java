@@ -1,34 +1,27 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+
+import ASN1GeneralizedTime;
+
+import CRLReason;
+import DERBitString;
+import DERGeneralizedTime;
+
+
+import Extensions;
+
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERGeneralizedTime;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.ocsp.BasicOCSPResponse;
-import org.bouncycastle.asn1.ocsp.CertStatus;
-import org.bouncycastle.asn1.ocsp.ResponseData;
-import org.bouncycastle.asn1.ocsp.RevokedInfo;
-import org.bouncycastle.asn1.ocsp.SingleResponse;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.CRLReason;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.ocsp.BasicOCSPResp;
-import org.bouncycastle.cert.ocsp.CertificateID;
-import org.bouncycastle.cert.ocsp.CertificateStatus;
-import org.bouncycastle.cert.ocsp.OCSPException;
-import org.bouncycastle.cert.ocsp.RespID;
-import org.bouncycastle.cert.ocsp.RevokedStatus;
-import org.bouncycastle.cert.ocsp.UnknownStatus;
+import ocsp.BasicOCSPResponse;
+import ocsp.CertStatus;
+import ocsp.ResponseData;
+import ocsp.RevokedInfo;
+import ocsp.SingleResponse;
+ 
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculator;
 

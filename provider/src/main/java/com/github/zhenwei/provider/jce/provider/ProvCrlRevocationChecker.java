@@ -6,8 +6,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import org.bouncycastle.jcajce.PKIXCertRevocationChecker;
 import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
-import org.bouncycastle.jce.provider.AnnotatedException;
+
 
 class ProvCrlRevocationChecker
     implements PKIXCertRevocationChecker

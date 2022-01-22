@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
 import org.bouncycastle.math.field.PolynomialExtensionField;
-import org.bouncycastle.util.Integers;
+ 
 
 class GenericPolynomialExtensionField implements PolynomialExtensionField
 {

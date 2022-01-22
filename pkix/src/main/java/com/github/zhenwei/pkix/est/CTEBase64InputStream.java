@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.est;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.bouncycastle.util.encoders.Base64;
+
 
 
 class CTEBase64InputStream

@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extension;
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -17,23 +17,23 @@ public class ExtensionReq
 {
     private final Extension[] extensions;
 
-    public static org.bouncycastle.asn1.cmc.ExtensionReq getInstance(
+    public static cmc.ExtensionReq getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cmc.ExtensionReq)
+        if (obj instanceof cmc.ExtensionReq)
         {
-            return (org.bouncycastle.asn1.cmc.ExtensionReq)obj;
+            return (cmc.ExtensionReq)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cmc.ExtensionReq(ASN1Sequence.getInstance(obj));
+            return new cmc.ExtensionReq(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.cmc.ExtensionReq getInstance(
+    public static cmc.ExtensionReq getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

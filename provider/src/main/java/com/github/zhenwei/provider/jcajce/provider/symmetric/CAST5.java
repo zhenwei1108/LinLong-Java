@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+ 
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -7,11 +8,10 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.misc.CAST5CBCParameters;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
+import misc.CAST5CBCParameters;
+import misc.MiscObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.engines.CAST5Engine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;

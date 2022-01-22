@@ -1,20 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
+
+import com.github.zhenwei.core.asn1.ASN1ApplicationSpecific;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERApplicationSpecific;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ApplicationSpecific;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERApplicationSpecific;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.eac.CertificateHolderAuthorization;
-import org.bouncycastle.asn1.eac.CertificateHolderReference;
-import org.bouncycastle.asn1.eac.CertificationAuthorityReference;
-import org.bouncycastle.asn1.eac.EACTags;
-import org.bouncycastle.asn1.eac.PackedDate;
-import org.bouncycastle.asn1.eac.PublicKeyDataObject;
 
 
 /**
@@ -319,16 +313,16 @@ public class CertificateBody
      * @return the Iso7816CertificateBody taken from Object obj.
      * @throws IOException if object is not valid.
      */
-    public static org.bouncycastle.asn1.eac.CertificateBody getInstance(Object obj)
+    public static  CertificateBody getInstance(Object obj)
         throws IOException
     {
-        if (obj instanceof org.bouncycastle.asn1.eac.CertificateBody)
+        if (obj instanceof  CertificateBody)
         {
-            return (org.bouncycastle.asn1.eac.CertificateBody)obj;
+            return (CertificateBody)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.eac.CertificateBody(ASN1ApplicationSpecific.getInstance(obj));
+            return new  CertificateBody(ASN1ApplicationSpecific.getInstance(obj));
         }
 
         return null;
@@ -339,8 +333,8 @@ public class CertificateBody
      */
     public PackedDate getCertificateEffectiveDate()
     {
-        if ((this.certificateType & org.bouncycastle.asn1.eac.CertificateBody.CEfD) ==
-            org.bouncycastle.asn1.eac.CertificateBody.CEfD)
+        if ((this.certificateType &  CertificateBody.CEfD) ==
+             CertificateBody.CEfD)
         {
             return new PackedDate(certificateEffectiveDate.getContents());
         }
@@ -373,8 +367,8 @@ public class CertificateBody
     public PackedDate getCertificateExpirationDate()
         throws IOException
     {
-        if ((this.certificateType & org.bouncycastle.asn1.eac.CertificateBody.CExD) ==
-            org.bouncycastle.asn1.eac.CertificateBody.CExD)
+        if ((this.certificateType &  CertificateBody.CExD) ==
+             CertificateBody.CExD)
         {
             return new PackedDate(certificateExpirationDate.getContents());
         }
@@ -412,8 +406,8 @@ public class CertificateBody
     public CertificateHolderAuthorization getCertificateHolderAuthorization()
         throws IOException
     {
-        if ((this.certificateType & org.bouncycastle.asn1.eac.CertificateBody.CHA) ==
-            org.bouncycastle.asn1.eac.CertificateBody.CHA)
+        if ((this.certificateType &  CertificateBody.CHA) ==
+             CertificateBody.CHA)
         {
             return certificateHolderAuthorization;
         }
@@ -461,8 +455,8 @@ public class CertificateBody
     public CertificationAuthorityReference getCertificationAuthorityReference()
         throws IOException
     {
-        if ((this.certificateType & org.bouncycastle.asn1.eac.CertificateBody.CAR) ==
-            org.bouncycastle.asn1.eac.CertificateBody.CAR)
+        if ((this.certificateType &  CertificateBody.CAR) ==
+             CertificateBody.CAR)
         {
             return new CertificationAuthorityReference(certificationAuthorityReference.getContents());
         }

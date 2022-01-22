@@ -10,9 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.bouncycastle.jcajce.PKIXCRLStoreSelector;
-import org.bouncycastle.jce.provider.AnnotatedException;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.StoreException;
+
 
 abstract class PKIXCRLUtil
 {

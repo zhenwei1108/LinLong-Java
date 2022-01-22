@@ -1,16 +1,15 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+import DERBitString;
+
 import java.io.IOException;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * The object that contains the public key stored in a certificate.
@@ -24,23 +23,23 @@ public class SubjectPublicKeyInfo
     private AlgorithmIdentifier     algId;
     private DERBitString            keyData;
 
-    public static org.bouncycastle.asn1.x509.SubjectPublicKeyInfo getInstance(
+    public static SubjectPublicKeyInfo getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.SubjectPublicKeyInfo getInstance(
+    public static SubjectPublicKeyInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.SubjectPublicKeyInfo)
+        if (obj instanceof SubjectPublicKeyInfo)
         {
-            return (org.bouncycastle.asn1.x509.SubjectPublicKeyInfo)obj;
+            return (SubjectPublicKeyInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.SubjectPublicKeyInfo(ASN1Sequence.getInstance(obj));
+            return new SubjectPublicKeyInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -1,12 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ApplicationSpecificParser;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1StreamParser;
-import org.bouncycastle.asn1.ASN1TaggedObjectParser;
-import org.bouncycastle.asn1.BERTaggedObjectParser;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * A parser for indefinite-length ASN.1 ApplicationSpecific objects.

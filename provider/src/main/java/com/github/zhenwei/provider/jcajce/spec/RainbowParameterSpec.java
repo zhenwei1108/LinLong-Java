@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class provides methods for setting and getting the Rainbow-parameters

@@ -1,15 +1,11 @@
 package com.github.zhenwei.core.math.ec;
 
+
+import PreCompInfo;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Hashtable;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.PreCompCallback;
-import org.bouncycastle.math.ec.PreCompInfo;
+
 
 /**
  * base class for points on elliptic curves.
@@ -86,7 +82,7 @@ public abstract class ECPoint
         return n == null || ECAlgorithms.referenceMultiply(this, n).isInfinity();
     }
 
-    public final org.bouncycastle.math.ec.ECPoint getDetachedPoint()
+    public final ECPoint getDetachedPoint()
     {
         return normalize().detach();
     }
@@ -96,7 +92,7 @@ public abstract class ECPoint
         return curve;
     }
 
-    protected abstract org.bouncycastle.math.ec.ECPoint detach();
+    protected abstract ECPoint detach();
 
     protected int getCurveCoordinateSystem()
     {
@@ -214,7 +210,7 @@ public abstract class ECPoint
      *
      * @return a new ECPoint instance representing the same point, but with normalized coordinates
      */
-    public org.bouncycastle.math.ec.ECPoint normalize()
+    public ECPoint normalize()
     {
         if (this.isInfinity())
         {
@@ -259,7 +255,7 @@ public abstract class ECPoint
         }
     }
 
-    org.bouncycastle.math.ec.ECPoint normalize(ECFieldElement zInv)
+    ECPoint normalize(ECFieldElement zInv)
     {
         switch (this.getCurveCoordinateSystem())
         {
@@ -282,7 +278,7 @@ public abstract class ECPoint
         }
     }
 
-    protected org.bouncycastle.math.ec.ECPoint createScaledPoint(ECFieldElement sx, ECFieldElement sy)
+    protected ECPoint createScaledPoint(ECFieldElement sx, ECFieldElement sy)
     {
         return this.getCurve().createRawPoint(getRawXCoord().multiply(sx), getRawYCoord().multiply(sy));
     }
@@ -348,28 +344,28 @@ public abstract class ECPoint
         return !validity.hasFailed();
     }
 
-    public org.bouncycastle.math.ec.ECPoint scaleX(ECFieldElement scale)
+    public ECPoint scaleX(ECFieldElement scale)
     {
         return isInfinity()
             ?   this
             :   getCurve().createRawPoint(getRawXCoord().multiply(scale), getRawYCoord(), getRawZCoords());
     }
 
-    public org.bouncycastle.math.ec.ECPoint scaleXNegateY(ECFieldElement scale)
+    public ECPoint scaleXNegateY(ECFieldElement scale)
     {
         return isInfinity()
             ?   this
             :   getCurve().createRawPoint(getRawXCoord().multiply(scale), getRawYCoord().negate(), getRawZCoords());
     }
 
-    public org.bouncycastle.math.ec.ECPoint scaleY(ECFieldElement scale)
+    public ECPoint scaleY(ECFieldElement scale)
     {
         return isInfinity()
             ?   this
             :   getCurve().createRawPoint(getRawXCoord(), getRawYCoord().multiply(scale), getRawZCoords());
     }
 
-    public org.bouncycastle.math.ec.ECPoint scaleYNegateX(ECFieldElement scale)
+    public ECPoint scaleYNegateX(ECFieldElement scale)
     {
         return isInfinity()
             ?   this
@@ -392,7 +388,7 @@ public abstract class ECPoint
             return (i1 && i2) && (n1 || n2 || c1.equals(c2));
         }
 
-        org.bouncycastle.math.ec.ECPoint p1 = this, p2 = other;
+        ECPoint p1 = this, p2 = other;
         if (n1 && n2)
         {
             // Points with null curve are in affine form, so already normalized
@@ -413,7 +409,7 @@ public abstract class ECPoint
         {
             // TODO Consider just requiring already normalized, to avoid silent performance degradation
 
-            org.bouncycastle.math.ec.ECPoint[] points = new org.bouncycastle.math.ec.ECPoint[]{ this, c1.importPoint(p2) };
+            ECPoint[] points = new ECPoint[]{ this, c1.importPoint(p2) };
 
             // TODO This is a little strong, really only requires coZNormalizeAll to get Zs equal
             c1.normalizeAll(points);
@@ -432,7 +428,7 @@ public abstract class ECPoint
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.ECPoint))
+        if (!(other instanceof ECPoint))
         {
             return false;
         }
@@ -449,7 +445,7 @@ public abstract class ECPoint
         {
             // TODO Consider just requiring already normalized, to avoid silent performance degradation
 
-            org.bouncycastle.math.ec.ECPoint p = normalize();
+            ECPoint p = normalize();
 
             hc ^= p.getXCoord().hashCode() * 17;
             hc ^= p.getYCoord().hashCode() * 257;
@@ -492,7 +488,7 @@ public abstract class ECPoint
             return new byte[1];
         }
 
-        org.bouncycastle.math.ec.ECPoint normed = normalize();
+        ECPoint normed = normalize();
 
         byte[] X = normed.getXCoord().getEncoded();
 
@@ -515,20 +511,20 @@ public abstract class ECPoint
 
     protected abstract boolean getCompressionYTilde();
 
-    public abstract org.bouncycastle.math.ec.ECPoint add(org.bouncycastle.math.ec.ECPoint b);
+    public abstract ECPoint add(org.bouncycastle.math.ec.ECPoint b);
 
-    public abstract org.bouncycastle.math.ec.ECPoint negate();
+    public abstract ECPoint negate();
 
-    public abstract org.bouncycastle.math.ec.ECPoint subtract(org.bouncycastle.math.ec.ECPoint b);
+    public abstract ECPoint subtract(org.bouncycastle.math.ec.ECPoint b);
 
-    public org.bouncycastle.math.ec.ECPoint timesPow2(int e)
+    public ECPoint timesPow2(int e)
     {
         if (e < 0)
         {
             throw new IllegalArgumentException("'e' cannot be negative");
         }
 
-        org.bouncycastle.math.ec.ECPoint p = this;
+        ECPoint p = this;
         while (--e >= 0)
         {
             p = p.twice();
@@ -536,14 +532,14 @@ public abstract class ECPoint
         return p;
     }
 
-    public abstract org.bouncycastle.math.ec.ECPoint twice();
+    public abstract ECPoint twice();
 
-    public org.bouncycastle.math.ec.ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
+    public ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
     {
         return twice().add(b);
     }
 
-    public org.bouncycastle.math.ec.ECPoint threeTimes()
+    public ECPoint threeTimes()
     {
         return twicePlus(this);
     }
@@ -553,12 +549,12 @@ public abstract class ECPoint
      * @param k The multiplicator.
      * @return <code>k * this</code>.
      */
-    public org.bouncycastle.math.ec.ECPoint multiply(BigInteger k)
+    public ECPoint multiply(BigInteger k)
     {
         return this.getCurve().getMultiplier().multiply(this, k);
     }
 
-    public static abstract class AbstractFp extends org.bouncycastle.math.ec.ECPoint
+    public static abstract class AbstractFp extends ECPoint
     {
         protected AbstractFp(ECCurve curve, ECFieldElement x, ECFieldElement y)
         {
@@ -617,7 +613,7 @@ public abstract class ECPoint
             return lhs.equals(rhs);
         }
 
-        public org.bouncycastle.math.ec.ECPoint subtract(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint subtract(org.bouncycastle.math.ec.ECPoint b)
         {
             if (b.isInfinity())
             {
@@ -644,7 +640,7 @@ public abstract class ECPoint
             super(curve, x, y, zs);
         }
 
-        protected org.bouncycastle.math.ec.ECPoint detach()
+        protected ECPoint detach()
         {
             return new Fp(null, this.getAffineXCoord(), this.getAffineYCoord());
         }
@@ -660,7 +656,7 @@ public abstract class ECPoint
         }
 
         // B.3 pg 62
-        public org.bouncycastle.math.ec.ECPoint add(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint add(org.bouncycastle.math.ec.ECPoint b)
         {
             if (this.isInfinity())
             {
@@ -879,7 +875,7 @@ public abstract class ECPoint
         }
 
         // B.3 pg 62
-        public org.bouncycastle.math.ec.ECPoint twice()
+        public ECPoint twice()
         {
             if (this.isInfinity())
             {
@@ -1011,7 +1007,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
         {
             if (this == b)
             {
@@ -1088,7 +1084,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint threeTimes()
+        public ECPoint threeTimes()
         {
             if (this.isInfinity())
             {
@@ -1142,7 +1138,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint timesPow2(int e)
+        public ECPoint timesPow2(int e)
         {
             if (e < 0)
             {
@@ -1268,7 +1264,7 @@ public abstract class ECPoint
             return a.add(b).square().subtract(aSquared).subtract(bSquared);
         }
 
-        public org.bouncycastle.math.ec.ECPoint negate()
+        public ECPoint negate()
         {
             if (this.isInfinity())
             {
@@ -1343,7 +1339,7 @@ public abstract class ECPoint
         }
     }
 
-    public static abstract class AbstractF2m extends org.bouncycastle.math.ec.ECPoint
+    public static abstract class AbstractF2m extends ECPoint
     {
         protected AbstractF2m(ECCurve curve, ECFieldElement x, ECFieldElement y)
         {
@@ -1434,7 +1430,7 @@ public abstract class ECPoint
                  *
                  * Note: Tr(A) == 1 for cofactor 2 curves.
                  */
-                org.bouncycastle.math.ec.ECPoint N = this.normalize();
+                ECPoint N = this.normalize();
                 ECFieldElement X = N.getAffineXCoord();
                 return 0 != ((ECFieldElement.AbstractF2m)X).trace();
             }
@@ -1445,7 +1441,7 @@ public abstract class ECPoint
                  *
                  * Note: Tr(A) == 0 for cofactor 4 curves.
                  */
-                org.bouncycastle.math.ec.ECPoint N = this.normalize();
+                ECPoint N = this.normalize();
                 ECFieldElement X = N.getAffineXCoord();
                 ECFieldElement L = ((ECCurve.AbstractF2m)curve).solveQuadraticEquation(X.add(curve.getA()));
                 if (null == L)
@@ -1474,7 +1470,7 @@ public abstract class ECPoint
             return super.satisfiesOrder();
         }
 
-        public org.bouncycastle.math.ec.ECPoint scaleX(ECFieldElement scale)
+        public ECPoint scaleX(ECFieldElement scale)
         {
             if (this.isInfinity())
             {
@@ -1514,12 +1510,12 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint scaleXNegateY(ECFieldElement scale)
+        public ECPoint scaleXNegateY(ECFieldElement scale)
         {
             return scaleX(scale);
         }
 
-        public org.bouncycastle.math.ec.ECPoint scaleY(ECFieldElement scale)
+        public ECPoint scaleY(ECFieldElement scale)
         {
             if (this.isInfinity())
             {
@@ -1547,12 +1543,12 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint scaleYNegateX(ECFieldElement scale)
+        public ECPoint scaleYNegateX(ECFieldElement scale)
         {
             return scaleY(scale);
         }
 
-        public org.bouncycastle.math.ec.ECPoint subtract(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint subtract(org.bouncycastle.math.ec.ECPoint b)
         {
             if (b.isInfinity())
             {
@@ -1651,7 +1647,7 @@ public abstract class ECPoint
 //            checkCurveEquation();
         }
 
-        protected org.bouncycastle.math.ec.ECPoint detach()
+        protected ECPoint detach()
         {
             return new F2m(null, this.getAffineXCoord(), this.getAffineYCoord()); // earlier JDK
         }
@@ -1716,7 +1712,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint add(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint add(org.bouncycastle.math.ec.ECPoint b)
         {
             if (this.isInfinity())
             {
@@ -1843,7 +1839,7 @@ public abstract class ECPoint
                 if (X2.isZero())
                 {
                     // TODO This can probably be optimized quite a bit
-                    org.bouncycastle.math.ec.ECPoint p = this.normalize();
+                    ECPoint p = this.normalize();
                     X1 = p.getXCoord();
                     ECFieldElement Y1 = p.getYCoord();
 
@@ -1897,7 +1893,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint twice()
+        public ECPoint twice()
         {
             if (this.isInfinity())
             {
@@ -2007,7 +2003,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
+        public ECPoint twicePlus(org.bouncycastle.math.ec.ECPoint b)
         {
             if (this.isInfinity())
             {
@@ -2082,7 +2078,7 @@ public abstract class ECPoint
             }
         }
 
-        public org.bouncycastle.math.ec.ECPoint negate()
+        public ECPoint negate()
         {
             if (this.isInfinity())
             {

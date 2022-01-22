@@ -4,8 +4,8 @@ import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.prng.EntropySource;
 import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
+
+
 
 /**
  * A SP800-90A CTR DRBG.

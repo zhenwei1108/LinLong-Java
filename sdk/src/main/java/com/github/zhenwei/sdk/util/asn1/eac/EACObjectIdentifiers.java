@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * German Federal Office for Information Security
@@ -26,7 +27,7 @@ public interface EACObjectIdentifiers
      * </pre>
      * OID: 0.4.0.127.0.7
      */
-    static final ASN1ObjectIdentifier    bsi_de      = new ASN1ObjectIdentifier("0.4.0.127.0.7");
+    static final ASN1ObjectIdentifier bsi_de      = new ASN1ObjectIdentifier("0.4.0.127.0.7");
 
     /**
      * <pre>

@@ -7,7 +7,7 @@ import java.security.cert.CertStoreException;
 import java.security.cert.Certificate;
 import java.security.cert.X509CertSelector;
 import java.util.Collection;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * This class is a Selector implementation for certificates.

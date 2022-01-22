@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 /**
  * <pre>
@@ -39,16 +39,16 @@ public class GetCert extends ASN1Object
         this.serialNumber = serialNumber;
     }
 
-    public static org.bouncycastle.asn1.cmc.GetCert getInstance(Object o)
+    public static cmc.GetCert getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.GetCert)
+        if (o instanceof cmc.GetCert)
         {
-            return (org.bouncycastle.asn1.cmc.GetCert)o;
+            return (cmc.GetCert)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.GetCert(ASN1Sequence.getInstance(o));
+            return new cmc.GetCert(ASN1Sequence.getInstance(o));
         }
 
         return null;

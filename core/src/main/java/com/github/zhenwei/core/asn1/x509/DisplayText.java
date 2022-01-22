@@ -1,21 +1,19 @@
 
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1BMPString;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.ASN1VisibleString;
-import org.bouncycastle.asn1.DERBMPString;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.DERVisibleString;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.asn1.x509.PolicyQualifierInfo;
+
+
+
+
+
+
+
+
+import ASN1VisibleString;
+
+
+
+import DERVisibleString;
 
 /**
  * <code>DisplayText</code> class, used in
@@ -153,21 +151,21 @@ public class DisplayText
       }
    }
 
-   public static org.bouncycastle.asn1.x509.DisplayText getInstance(Object obj)
+   public static DisplayText getInstance(Object obj)
    {
       if  (obj instanceof ASN1String)
       {
-          return new org.bouncycastle.asn1.x509.DisplayText((ASN1String)obj);
+          return new DisplayText((ASN1String)obj);
       }
-      else if (obj == null || obj instanceof org.bouncycastle.asn1.x509.DisplayText)
+      else if (obj == null || obj instanceof DisplayText)
       {
-          return (org.bouncycastle.asn1.x509.DisplayText)obj;
+          return (DisplayText)obj;
       }
 
       throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());
    }
 
-   public static org.bouncycastle.asn1.x509.DisplayText getInstance(
+   public static DisplayText getInstance(
        ASN1TaggedObject obj,
        boolean          explicit)
    {

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
  * super class for all Password Based Encryption (PBE) parameter generator classes.

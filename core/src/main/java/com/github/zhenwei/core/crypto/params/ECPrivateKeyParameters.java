@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECKeyParameters;
 
 public class ECPrivateKeyParameters
     extends ECKeyParameters

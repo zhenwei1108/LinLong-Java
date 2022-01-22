@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+import edec.EdECObjectIdentifiers;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
 
 /**
  * ParameterSpec for XDH key agreement algorithms.

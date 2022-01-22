@@ -1,5 +1,26 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+import AccessDescription;
+
+import AuthorityInformationAccess;
+import CRLReason;
+
+
+import Extensions;
+
+import KeyPurposeId;
+
+import X500Name;
+
+import isara.IsaraObjectIdentifiers;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URI;
@@ -19,53 +40,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.isara.IsaraObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.ocsp.BasicOCSPResponse;
-import org.bouncycastle.asn1.ocsp.CertID;
-import org.bouncycastle.asn1.ocsp.OCSPObjectIdentifiers;
-import org.bouncycastle.asn1.ocsp.OCSPResponse;
-import org.bouncycastle.asn1.ocsp.OCSPResponseStatus;
-import org.bouncycastle.asn1.ocsp.ResponderID;
-import org.bouncycastle.asn1.ocsp.ResponseBytes;
-import org.bouncycastle.asn1.ocsp.ResponseData;
-import org.bouncycastle.asn1.ocsp.RevokedInfo;
-import org.bouncycastle.asn1.ocsp.SingleResponse;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.style.BCStrictStyle;
-import org.bouncycastle.asn1.x509.AccessDescription;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.AuthorityInformationAccess;
-import org.bouncycastle.asn1.x509.CRLReason;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.KeyPurposeId;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+
+import ocsp.BasicOCSPResponse;
+import ocsp.CertID;
+import ocsp.OCSPObjectIdentifiers;
+import ocsp.OCSPResponse;
+import ocsp.OCSPResponseStatus;
+import ocsp.ResponderID;
+import ocsp.ResponseBytes;
+import ocsp.ResponseData;
+import ocsp.RevokedInfo;
+import ocsp.SingleResponse;
+
 import org.bouncycastle.internal.asn1.bsi.BSIObjectIdentifiers;
 import org.bouncycastle.internal.asn1.eac.EACObjectIdentifiers;
 import org.bouncycastle.jcajce.PKIXCertRevocationChecker;
 import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Properties;
+
+
+
+import pkcs.RSASSAPSSparams;
+import rosstandart.RosstandartObjectIdentifiers;
+import style.BCStrictStyle;
+import x9.X9ObjectIdentifiers;
 
 class ProvOcspRevocationChecker
     implements PKIXCertRevocationChecker
@@ -210,7 +210,7 @@ class ProvOcspRevocationChecker
                                     null, parameters.getCertPath(), parameters.getIndex());
             }
 
-            org.bouncycastle.asn1.x509.Certificate issuer = extractCert();
+            Certificate issuer = extractCert();
 
             // TODO: configure hash algorithm
             CertID id = createCertID(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1), issuer, new ASN1Integer(cert.getSerialNumber()));
@@ -280,7 +280,7 @@ class ProvOcspRevocationChecker
                                         }
                                         if (certID == null || !certID.getHashAlgorithm().equals(resp.getCertID().getHashAlgorithm()))
                                         {
-                                            org.bouncycastle.asn1.x509.Certificate issuer = extractCert();
+                                            Certificate issuer = extractCert();
 
                                             certID = createCertID(resp.getCertID(), issuer, serialNumber);
                                         }
@@ -341,7 +341,7 @@ class ProvOcspRevocationChecker
 
     static URI getOcspResponderURI(X509Certificate cert)
     {
-        byte[] extValue = cert.getExtensionValue(org.bouncycastle.asn1.x509.Extension.authorityInfoAccess.getId());
+        byte[] extValue = cert.getExtensionValue(x509.Extension.authorityInfoAccess.getId());
         if (extValue == null)
         {
             return null;
@@ -436,7 +436,7 @@ class ProvOcspRevocationChecker
                 {
                     Extensions exts = basicResp.getTbsResponseData().getResponseExtensions();
 
-                    org.bouncycastle.asn1.x509.Extension ext = exts.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
+                    Extension ext = exts.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
 
                     if (!Arrays.areEqual(nonce, ext.getExtnValue().getOctets()))
                     {
@@ -541,12 +541,12 @@ class ProvOcspRevocationChecker
         return digest.digest(info.getPublicKeyData().getBytes());
     }
 
-    private org.bouncycastle.asn1.x509.Certificate extractCert()
+    private Certificate extractCert()
         throws CertPathValidatorException
     {
         try
         {
-            return org.bouncycastle.asn1.x509.Certificate.getInstance(parameters.getSigningCert().getEncoded());
+            return Certificate.getInstance(parameters.getSigningCert().getEncoded());
         }
         catch (Exception e)
         {
@@ -554,13 +554,13 @@ class ProvOcspRevocationChecker
         }
     }
 
-    private CertID createCertID(CertID base, org.bouncycastle.asn1.x509.Certificate issuer, ASN1Integer serialNumber)
+    private CertID createCertID(CertID base, Certificate issuer, ASN1Integer serialNumber)
         throws CertPathValidatorException
     {
         return createCertID(base.getHashAlgorithm(), issuer, serialNumber);
     }
 
-    private CertID createCertID(AlgorithmIdentifier digestAlg, org.bouncycastle.asn1.x509.Certificate issuer, ASN1Integer serialNumber)
+    private CertID createCertID(AlgorithmIdentifier digestAlg, Certificate issuer, ASN1Integer serialNumber)
         throws CertPathValidatorException
     {
         try

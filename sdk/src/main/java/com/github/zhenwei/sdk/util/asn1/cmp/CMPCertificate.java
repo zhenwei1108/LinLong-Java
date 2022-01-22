@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+
+
+
+import AttributeCertificate;
+import Certificate;
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.AttributeCertificate;
-import org.bouncycastle.asn1.x509.Certificate;
 
 public class CMPCertificate
     extends ASN1Object
@@ -52,11 +52,11 @@ public class CMPCertificate
         this.x509v3PKCert = x509v3PKCert;
     }
 
-    public static org.bouncycastle.asn1.cmp.CMPCertificate getInstance(Object o)
+    public static cmp.CMPCertificate getInstance(Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.cmp.CMPCertificate)
+        if (o == null || o instanceof cmp.CMPCertificate)
         {
-            return (org.bouncycastle.asn1.cmp.CMPCertificate)o;
+            return (cmp.CMPCertificate)o;
         }
 
         if (o instanceof byte[])
@@ -73,14 +73,14 @@ public class CMPCertificate
 
         if (o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cmp.CMPCertificate(Certificate.getInstance(o));
+            return new cmp.CMPCertificate(Certificate.getInstance(o));
         }
 
         if (o instanceof ASN1TaggedObject)
         {
             ASN1TaggedObject taggedObject = (ASN1TaggedObject)o;
 
-            return new org.bouncycastle.asn1.cmp.CMPCertificate(taggedObject.getTagNo(), taggedObject.getObject());
+            return new cmp.CMPCertificate(taggedObject.getTagNo(), taggedObject.getObject());
         }
 
         throw new IllegalArgumentException("Invalid object: " + o.getClass().getName());

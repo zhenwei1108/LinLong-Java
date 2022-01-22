@@ -1,16 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.dvcs.TargetEtcChain;
-import org.bouncycastle.asn1.x509.DigestInfo;
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.DigestInfo;
 
 /**
  * <pre>
@@ -61,28 +60,28 @@ public class Data
         this.certs = certs;
     }
 
-    public static org.bouncycastle.asn1.dvcs.Data getInstance(Object obj)
+    public static Data getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.Data)
+        if (obj instanceof Data)
         {
-            return (org.bouncycastle.asn1.dvcs.Data)obj;
+            return (Data)obj;
         }
         else if (obj instanceof ASN1OctetString)
         {
-            return new org.bouncycastle.asn1.dvcs.Data((ASN1OctetString)obj);
+            return new Data((ASN1OctetString)obj);
         }
         else if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.dvcs.Data(DigestInfo.getInstance(obj));
+            return new Data(DigestInfo.getInstance(obj));
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.dvcs.Data(ASN1Sequence.getInstance((ASN1TaggedObject)obj, false));
+            return new Data(ASN1Sequence.getInstance((ASN1TaggedObject)obj, false));
         }
         throw new IllegalArgumentException("Unknown object submitted to getInstance: " + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.dvcs.Data getInstance(
+    public static Data getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

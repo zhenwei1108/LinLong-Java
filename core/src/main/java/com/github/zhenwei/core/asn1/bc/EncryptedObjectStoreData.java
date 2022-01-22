@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.asn1.bc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <pre>
@@ -35,15 +36,15 @@ public class EncryptedObjectStoreData
         this.encryptedContent = ASN1OctetString.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.bc.EncryptedObjectStoreData getInstance(Object o)
+    public static EncryptedObjectStoreData getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.EncryptedObjectStoreData)
+        if (o instanceof EncryptedObjectStoreData)
         {
-            return (org.bouncycastle.asn1.bc.EncryptedObjectStoreData)o;
+            return (EncryptedObjectStoreData)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.EncryptedObjectStoreData(ASN1Sequence.getInstance(o));
+            return new EncryptedObjectStoreData(ASN1Sequence.getInstance(o));
         }
 
         return null;

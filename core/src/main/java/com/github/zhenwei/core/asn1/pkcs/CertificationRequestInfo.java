@@ -1,20 +1,18 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+
+
+import X500Name;
+import X509Name;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.pkcs.Attribute;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.X509Name;
 
 /**
  * PKCS10 CertificationRequestInfo object.
@@ -42,16 +40,16 @@ public class CertificationRequestInfo
     SubjectPublicKeyInfo    subjectPKInfo;
     ASN1Set                 attributes = null;
 
-    public static org.bouncycastle.asn1.pkcs.CertificationRequestInfo getInstance(
+    public static pkcs.CertificationRequestInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.CertificationRequestInfo)
+        if (obj instanceof pkcs.CertificationRequestInfo)
         {
-            return (org.bouncycastle.asn1.pkcs.CertificationRequestInfo)obj;
+            return (pkcs.CertificationRequestInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.CertificationRequestInfo(ASN1Sequence.getInstance(obj));
+            return new pkcs.CertificationRequestInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -7,12 +7,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.SecureRandom;
 import java.util.Arrays;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.util.DigestFactory;
+
 
 /**
  * A set of parameters for NtruEncrypt. Several predefined parameter sets are available and new ones can be created as well.

@@ -2,8 +2,7 @@ package com.github.zhenwei.provider.jcajce;
 
 import javax.crypto.interfaces.PBEKey;
 import org.bouncycastle.crypto.CharToByteConverter;
-import org.bouncycastle.jcajce.PBKDF2Key;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A password based key for use with PBKDF2 as defined in PKCS#5 with full PBE parameters.

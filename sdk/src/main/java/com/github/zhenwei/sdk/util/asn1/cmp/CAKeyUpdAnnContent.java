@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.CMPCertificate;
+
+
+
+
+
 
 public class CAKeyUpdAnnContent
     extends ASN1Object
@@ -21,16 +20,16 @@ public class CAKeyUpdAnnContent
         newWithNew = CMPCertificate.getInstance(seq.getObjectAt(2));
     }
 
-    public static org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent getInstance(Object o)
+    public static cmp.CAKeyUpdAnnContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent)
+        if (o instanceof cmp.CAKeyUpdAnnContent)
         {
-            return (org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent)o;
+            return (cmp.CAKeyUpdAnnContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.CAKeyUpdAnnContent(ASN1Sequence.getInstance(o));
+            return new cmp.CAKeyUpdAnnContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

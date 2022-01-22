@@ -1,16 +1,13 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.TBSCertificate;
-import org.bouncycastle.asn1.x509.Time;
+
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 
 /**
  * an X509Certificate structure.
@@ -25,28 +22,28 @@ import org.bouncycastle.asn1.x509.Time;
 public class Certificate
     extends ASN1Object
 {
-    ASN1Sequence  seq;
+    ASN1Sequence seq;
     TBSCertificate tbsCert;
     AlgorithmIdentifier     sigAlgId;
-    DERBitString            sig;
+    DERBitString sig;
 
-    public static org.bouncycastle.asn1.x509.Certificate getInstance(
+    public static Certificate getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.Certificate getInstance(
+    public static Certificate getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.Certificate)
+        if (obj instanceof Certificate)
         {
-            return (org.bouncycastle.asn1.x509.Certificate)obj;
+            return (Certificate)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.Certificate(ASN1Sequence.getInstance(obj));
+            return new Certificate(ASN1Sequence.getInstance(obj));
         }
 
         return null;

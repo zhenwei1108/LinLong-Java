@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -10,16 +12,12 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import org.bouncycastle.pqc.asn1.RainbowPrivateKey;
 import org.bouncycastle.pqc.asn1.RainbowPublicKey;
-import org.bouncycastle.pqc.jcajce.provider.rainbow.BCRainbowPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.rainbow.BCRainbowPublicKey;
 import org.bouncycastle.pqc.jcajce.spec.RainbowPrivateKeySpec;
 import org.bouncycastle.pqc.jcajce.spec.RainbowPublicKeySpec;
+import pkcs.PrivateKeyInfo;
 
 
 /**

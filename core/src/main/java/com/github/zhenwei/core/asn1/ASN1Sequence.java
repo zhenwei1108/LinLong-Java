@@ -1,22 +1,11 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1External;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DLSequence;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ASN.1 <code>SEQUENCE</code> and <code>SEQUENCE OF</code> constructs.
@@ -71,9 +60,9 @@ public abstract class ASN1Sequence
     extends ASN1Primitive
     implements org.bouncycastle.util.Iterable<ASN1Encodable>
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1Sequence.class, BERTags.SEQUENCE)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1Sequence.class, BERTags.SEQUENCE)
     {
-        ASN1Primitive fromImplicitConstructed(org.bouncycastle.asn1.ASN1Sequence sequence)
+        ASN1Primitive fromImplicitConstructed(ASN1Sequence sequence)
         {
             return sequence;
         }
@@ -86,26 +75,26 @@ public abstract class ASN1Sequence
      * @exception IllegalArgumentException if the object cannot be converted.
      * @return an ASN1Sequence instance, or null.
      */
-    public static org.bouncycastle.asn1.ASN1Sequence getInstance(Object obj)
+    public static ASN1Sequence getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1Sequence)
+        if (obj == null || obj instanceof ASN1Sequence)
         {
-            return (org.bouncycastle.asn1.ASN1Sequence)obj;
+            return (ASN1Sequence)obj;
         }
 //      else if (obj instanceof ASN1SequenceParser)
         else if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1Sequence)
+            if (primitive instanceof ASN1Sequence)
             {
-                return (org.bouncycastle.asn1.ASN1Sequence)primitive;
+                return (ASN1Sequence)primitive;
             }
         }
         else if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1Sequence)TYPE.fromByteArray((byte[])obj);
+                return (ASN1Sequence)TYPE.fromByteArray((byte[])obj);
             }
             catch (IOException e)
             {
@@ -133,9 +122,9 @@ public abstract class ASN1Sequence
      *          be converted.
      * @return an ASN1Sequence instance.
      */
-    public static org.bouncycastle.asn1.ASN1Sequence getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1Sequence getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1Sequence)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1Sequence)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     // NOTE: Only non-final to support LazyEncodedSequence
@@ -245,9 +234,9 @@ public abstract class ASN1Sequence
                 }
 
                 ASN1Encodable obj = elements[pos++];
-                if (obj instanceof org.bouncycastle.asn1.ASN1Sequence)
+                if (obj instanceof ASN1Sequence)
                 {
-                    return ((org.bouncycastle.asn1.ASN1Sequence)obj).parser();
+                    return ((ASN1Sequence)obj).parser();
                 }
                 if (obj instanceof ASN1Set)
                 {
@@ -259,12 +248,12 @@ public abstract class ASN1Sequence
 
             public ASN1Primitive getLoadedObject()
             {
-                return org.bouncycastle.asn1.ASN1Sequence.this;
+                return ASN1Sequence.this;
             }
 
             public ASN1Primitive toASN1Primitive()
             {
-                return org.bouncycastle.asn1.ASN1Sequence.this;
+                return ASN1Sequence.this;
             }
         };
     }
@@ -307,12 +296,12 @@ public abstract class ASN1Sequence
 
     boolean asn1Equals(ASN1Primitive other)
     {
-        if (!(other instanceof org.bouncycastle.asn1.ASN1Sequence))
+        if (!(other instanceof ASN1Sequence))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1Sequence that = (org.bouncycastle.asn1.ASN1Sequence)other;
+        ASN1Sequence that = (ASN1Sequence)other;
 
         int count = this.size();
         if (that.size() != count)

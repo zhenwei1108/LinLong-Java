@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
+
+import ECMultiplier;
+ 
+import FixedPointCombMultiplier;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.nist.NISTNamedCurves;
-import org.bouncycastle.crypto.Digest;
+import nist.NISTNamedCurves;
+
 import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.drbg.DualECPoints;
 import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
+
+ 
 
 /**
  * A SP800-90A Dual EC DRBG.

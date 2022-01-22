@@ -1,29 +1,28 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralSubtree;
 
 public class NameConstraints
     extends ASN1Object
 {
     private GeneralSubtree[] permitted, excluded;
 
-    public static org.bouncycastle.asn1.x509.NameConstraints getInstance(Object obj)
+    public static NameConstraints getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.NameConstraints)
+        if (obj instanceof NameConstraints)
         {
-            return (org.bouncycastle.asn1.x509.NameConstraints)obj;
+            return (NameConstraints)obj;
         }
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.NameConstraints(ASN1Sequence.getInstance(obj));
+            return new NameConstraints(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -2,8 +2,8 @@ package com.github.zhenwei.core.crypto.digests;
 
 import org.bouncycastle.crypto.digests.EncodableDigest;
 import org.bouncycastle.crypto.digests.GeneralDigest;
-import org.bouncycastle.util.Memoable;
-import org.bouncycastle.util.Pack;
+
+
 
 /**
  * implementation of SHA-1 as outlined in "Handbook of Applied Cryptography", pages 346 - 349.

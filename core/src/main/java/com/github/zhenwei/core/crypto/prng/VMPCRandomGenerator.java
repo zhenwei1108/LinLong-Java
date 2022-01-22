@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.prng;
 
 import org.bouncycastle.crypto.prng.RandomGenerator;
-import org.bouncycastle.util.Pack;
+
 
 public class VMPCRandomGenerator implements RandomGenerator
 {

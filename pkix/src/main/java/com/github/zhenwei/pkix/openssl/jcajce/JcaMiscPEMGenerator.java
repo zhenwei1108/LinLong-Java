@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.openssl.jcajce;
 
+
 import java.io.IOException;
 import java.security.Key;
 import java.security.KeyPair;
@@ -11,12 +12,11 @@ import java.security.cert.CRLException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509CRL;
 import java.security.cert.X509Certificate;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cert.jcajce.JcaX509CRLHolder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.openssl.MiscPEMGenerator;
 import org.bouncycastle.openssl.PEMEncryptor;
+import pkcs.PrivateKeyInfo;
 
 /**
  * PEM generator for the original set of PEM objects used in Open SSL.

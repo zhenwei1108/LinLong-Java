@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
+import ASN1Enumerated;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Enumerated;
 
 /**
  * CertificateType ::= ENUMERATED {

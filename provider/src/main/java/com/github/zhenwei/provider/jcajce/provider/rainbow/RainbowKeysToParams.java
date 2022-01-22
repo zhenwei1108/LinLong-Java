@@ -6,8 +6,6 @@ import java.security.PublicKey;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.rainbow.RainbowPublicKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.rainbow.BCRainbowPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.rainbow.BCRainbowPublicKey;
 
 
 /**

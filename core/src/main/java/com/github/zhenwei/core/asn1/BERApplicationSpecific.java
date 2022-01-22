@@ -1,12 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ApplicationSpecific;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * An indefinite-length encoding version of an ASN.1 ApplicationSpecific object.

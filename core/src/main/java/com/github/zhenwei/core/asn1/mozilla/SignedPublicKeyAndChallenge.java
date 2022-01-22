@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.asn1.mozilla;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.mozilla.PublicKeyAndChallenge;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+import DERBitString;
 
 /**
  * <pre>
@@ -23,15 +22,15 @@ public class SignedPublicKeyAndChallenge
     private final PublicKeyAndChallenge pubKeyAndChal;
     private final ASN1Sequence pkacSeq;
 
-    public static org.bouncycastle.asn1.mozilla.SignedPublicKeyAndChallenge getInstance(Object obj)
+    public static mozilla.SignedPublicKeyAndChallenge getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.mozilla.SignedPublicKeyAndChallenge)
+        if (obj instanceof mozilla.SignedPublicKeyAndChallenge)
         {
-            return (org.bouncycastle.asn1.mozilla.SignedPublicKeyAndChallenge)obj;
+            return (mozilla.SignedPublicKeyAndChallenge)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.mozilla.SignedPublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
+            return new mozilla.SignedPublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
         }
 
         return null;

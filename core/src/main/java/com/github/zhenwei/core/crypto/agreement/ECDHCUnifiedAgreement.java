@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.agreement.ECDHCBasicAgreement;
+
 import org.bouncycastle.crypto.params.ECDHUPrivateParameters;
 import org.bouncycastle.crypto.params.ECDHUPublicParameters;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * EC Unified static/ephemeral agreement as described in NIST SP 800-56A using EC co-factor Diffie-Hellman.

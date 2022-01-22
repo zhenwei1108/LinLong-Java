@@ -1,14 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AccessDescription;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+
+
 
 /**
  * The AuthorityInformationAccess object.
@@ -38,23 +34,23 @@ public class AuthorityInformationAccess
         return result;
     }
 
-    public static org.bouncycastle.asn1.x509.AuthorityInformationAccess getInstance(
+    public static AuthorityInformationAccess getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.AuthorityInformationAccess)
+        if (obj instanceof AuthorityInformationAccess)
         {
-            return (org.bouncycastle.asn1.x509.AuthorityInformationAccess)obj;
+            return (AuthorityInformationAccess)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.AuthorityInformationAccess(ASN1Sequence.getInstance(obj));
+            return new AuthorityInformationAccess(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.AuthorityInformationAccess fromExtensions(Extensions extensions)
+    public static AuthorityInformationAccess fromExtensions(Extensions extensions)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.authorityInfoAccess));
     }

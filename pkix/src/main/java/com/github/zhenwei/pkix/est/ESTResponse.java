@@ -4,11 +4,8 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Set;
-import org.bouncycastle.est.ESTRequest;
-import org.bouncycastle.est.LimitedSource;
-import org.bouncycastle.est.Source;
-import org.bouncycastle.util.Properties;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
  * A basic http response.

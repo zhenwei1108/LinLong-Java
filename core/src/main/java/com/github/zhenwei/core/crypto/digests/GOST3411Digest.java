@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.ExtendedDigest;
+
 import org.bouncycastle.crypto.engines.GOST28147Engine;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithSBox;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Memoable;
-import org.bouncycastle.util.Pack;
+
+
+
 
 /**
  * implementation of GOST R 34.11-94

@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.x500;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERSet;
 
 /**
  * Holding class for a single Relative Distinguished Name (RDN).
@@ -23,15 +23,15 @@ public class RDN
         this.values = values;
     }
 
-    public static org.bouncycastle.asn1.x500.RDN getInstance(Object obj)
+    public static  RDN getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x500.RDN)
+        if (obj instanceof  RDN)
         {
-            return (org.bouncycastle.asn1.x500.RDN)obj;
+            return (RDN)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x500.RDN(ASN1Set.getInstance(obj));
+            return new  RDN(ASN1Set.getInstance(obj));
         }
 
         return null;

@@ -1,11 +1,13 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.raw.Nat160;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecP160R2Field;
-import org.bouncycastle.math.raw.Nat160;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 public class SecP160R2FieldElement extends ECFieldElement.AbstractFp
 {
@@ -67,52 +69,52 @@ public class SecP160R2FieldElement extends ECFieldElement.AbstractFp
     public ECFieldElement add(ECFieldElement b)
     {
         int[] z = Nat160.create();
-        SecP160R2Field.add(x, ((org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        SecP160R2Field.add(x, ((SecP160R2FieldElement)b).x, z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement addOne()
     {
         int[] z = Nat160.create();
         SecP160R2Field.addOne(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement subtract(ECFieldElement b)
     {
         int[] z = Nat160.create();
-        SecP160R2Field.subtract(x, ((org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        SecP160R2Field.subtract(x, ((SecP160R2FieldElement)b).x, z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement multiply(ECFieldElement b)
     {
         int[] z = Nat160.create();
-        SecP160R2Field.multiply(x, ((org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        SecP160R2Field.multiply(x, ((SecP160R2FieldElement)b).x, z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement divide(ECFieldElement b)
     {
 //        return multiply(b.invert());
         int[] z = Nat160.create();
-        SecP160R2Field.inv(((org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement)b).x, z);
+        SecP160R2Field.inv(((SecP160R2FieldElement)b).x, z);
         SecP160R2Field.multiply(z, x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement negate()
     {
         int[] z = Nat160.create();
         SecP160R2Field.negate(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement square()
     {
         int[] z = Nat160.create();
         SecP160R2Field.square(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        return new SecP160R2FieldElement(z);
     }
 
     public ECFieldElement invert()
@@ -120,7 +122,7 @@ public class SecP160R2FieldElement extends ECFieldElement.AbstractFp
 //        return new SecP160R2FieldElement(toBigInteger().modInverse(Q));
         int[] z = Nat160.create();
         SecP160R2Field.inv(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(z);
+        return new SecP160R2FieldElement(z);
     }
 
     // D.1.4 91
@@ -192,7 +194,7 @@ public class SecP160R2FieldElement extends ECFieldElement.AbstractFp
         int[] t2 = x2;
         SecP160R2Field.square(t1, t2);
 
-        return Nat160.eq(x1, t2) ? new org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement(t1) : null;
+        return Nat160.eq(x1, t2) ? new SecP160R2FieldElement(t1) : null;
     }
 
     public boolean equals(Object other)
@@ -202,12 +204,12 @@ public class SecP160R2FieldElement extends ECFieldElement.AbstractFp
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement))
+        if (!(other instanceof SecP160R2FieldElement))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement o = (org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement)other;
+        SecP160R2FieldElement o = (SecP160R2FieldElement)other;
         return Nat160.eq(x, o.x);
     }
 

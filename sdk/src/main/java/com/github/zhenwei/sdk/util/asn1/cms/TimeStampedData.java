@@ -1,17 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.cms.Evidence;
-import org.bouncycastle.asn1.cms.MetaData;
-import org.bouncycastle.asn1.cms.RecipientKeyIdentifier;
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5544">RFC 5544</a>:
@@ -78,13 +75,13 @@ public class TimeStampedData
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.TimeStampedData getInstance(Object obj)
+    public static cms.TimeStampedData getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.cms.TimeStampedData)
+        if (obj == null || obj instanceof cms.TimeStampedData)
         {
-            return (org.bouncycastle.asn1.cms.TimeStampedData)obj;
+            return (cms.TimeStampedData)obj;
         }
-        return new org.bouncycastle.asn1.cms.TimeStampedData(ASN1Sequence.getInstance(obj));
+        return new cms.TimeStampedData(ASN1Sequence.getInstance(obj));
     }
 
     /**

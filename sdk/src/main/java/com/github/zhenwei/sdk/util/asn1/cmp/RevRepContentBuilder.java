@@ -1,12 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
-import org.bouncycastle.asn1.cmp.RevRepContent;
-import org.bouncycastle.asn1.crmf.CertId;
-import org.bouncycastle.asn1.x509.CertificateList;
+
+import CertificateList;
+
+
+import crmf.CertId;
 
 public class RevRepContentBuilder
 {
@@ -14,14 +12,14 @@ public class RevRepContentBuilder
     private ASN1EncodableVector revCerts = new ASN1EncodableVector();
     private ASN1EncodableVector crls = new ASN1EncodableVector();
 
-    public org.bouncycastle.asn1.cmp.RevRepContentBuilder add(PKIStatusInfo status)
+    public cmp.RevRepContentBuilder add(PKIStatusInfo status)
     {
         this.status.add(status);
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.RevRepContentBuilder add(PKIStatusInfo status, CertId certId)
+    public cmp.RevRepContentBuilder add(PKIStatusInfo status, CertId certId)
     {
         if (this.status.size() != this.revCerts.size())
         {
@@ -33,7 +31,7 @@ public class RevRepContentBuilder
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.RevRepContentBuilder addCrl(CertificateList crl)
+    public cmp.RevRepContentBuilder addCrl(CertificateList crl)
     {
         this.crls.add(crl);
 

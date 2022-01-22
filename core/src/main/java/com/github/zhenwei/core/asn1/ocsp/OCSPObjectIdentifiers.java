@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * OIDs for <a href="https://tools.ietf.org/html/rfc2560">RFC 2560</a> and <a href="https://tools.ietf.org/html/rfc6960">RFC 6960</a>

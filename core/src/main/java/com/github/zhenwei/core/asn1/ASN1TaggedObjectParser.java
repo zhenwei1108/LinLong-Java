@@ -1,9 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.InMemoryRepresentable;
 
 /**
  * Interface for the parsing of a generic tagged ASN.1 object.
@@ -41,11 +39,11 @@ public interface ASN1TaggedObjectParser
      * @deprecated This parser now includes the {@link #getTagClass() tag class}.
      *             This method will raise an exception if it is not
      *             {@link BERTags#CONTEXT_SPECIFIC}. Use
-     *             {@link ASN1Util#parseContextBaseUniversal(org.bouncycastle.asn1.ASN1TaggedObjectParser, int, int, boolean, int)}
+     *             {@link ASN1Util#parseContextBaseUniversal(ASN1TaggedObjectParser, int, int, boolean, int)}
      *             as a direct replacement, or use
      *             {@link #parseBaseUniversal(boolean, int)} only after confirming
      *             the expected tag class (e.g.
-     *             {@link ASN1Util#tryParseContextBaseUniversal(org.bouncycastle.asn1.ASN1TaggedObjectParser, int, boolean, int)}.
+     *             {@link ASN1Util#tryParseContextBaseUniversal(ASN1TaggedObjectParser, int, boolean, int)}.
      */
     ASN1Encodable getObjectParser(int tag, boolean isExplicit)
         throws IOException;

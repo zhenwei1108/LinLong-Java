@@ -1,12 +1,10 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Target;
-import org.bouncycastle.asn1.x509.Targets;
 
 /**
  * Target information extension for attributes certificates according to RFC
@@ -32,15 +30,15 @@ public class TargetInformation
      * @throws IllegalArgumentException if the given object cannot be
      *             interpreted as TargetInformation.
      */
-    public static org.bouncycastle.asn1.x509.TargetInformation getInstance(Object obj)
+    public static TargetInformation getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.TargetInformation)
+        if (obj instanceof TargetInformation)
         {
-            return (org.bouncycastle.asn1.x509.TargetInformation)obj;
+            return (x509.TargetInformation)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.TargetInformation(ASN1Sequence.getInstance(obj));
+            return new TargetInformation(ASN1Sequence.getInstance(obj));
         }
 
         return null;

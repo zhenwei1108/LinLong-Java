@@ -2,9 +2,6 @@ package com.github.zhenwei.pkix.mime;
 
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.mime.Headers;
-import org.bouncycastle.mime.MimeContext;
-import org.bouncycastle.mime.MimeMultipartContext;
 
 public class ConstantMimeContext
     implements MimeContext, MimeMultipartContext

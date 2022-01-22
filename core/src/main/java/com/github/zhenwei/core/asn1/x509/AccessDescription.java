@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+
+
+
 
 /**
  * The AccessDescription object.
@@ -26,16 +25,16 @@ public class AccessDescription
     ASN1ObjectIdentifier accessMethod = null;
     GeneralName accessLocation = null;
 
-    public static org.bouncycastle.asn1.x509.AccessDescription getInstance(
+    public static AccessDescription getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.AccessDescription)
+        if (obj instanceof AccessDescription)
         {
-            return (org.bouncycastle.asn1.x509.AccessDescription)obj;
+            return (AccessDescription)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.AccessDescription(ASN1Sequence.getInstance(obj));
+            return new AccessDescription(ASN1Sequence.getInstance(obj));
         }
 
         return null;

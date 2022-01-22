@@ -7,16 +7,14 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLAPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLAPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
-import org.bouncycastle.pqc.jcajce.provider.qtesla.BCqTESLAPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.qtesla.BCqTESLAPublicKey;
 import org.bouncycastle.pqc.jcajce.spec.QTESLAParameterSpec;
-import org.bouncycastle.util.Integers;
+ 
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

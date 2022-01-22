@@ -1,16 +1,17 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+import com.github.zhenwei.core.asn1.ASN1Boolean;
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
  * an object for the elements in the X.509 V3 extension block.
@@ -180,7 +181,7 @@ public class Extension
 
     private ASN1ObjectIdentifier extnId;
     private boolean             critical;
-    private ASN1OctetString      value;
+    private ASN1OctetString value;
 
     /**
      * Constructor using an ASN1Boolean and an OCTET STRING for the value.
@@ -238,13 +239,13 @@ public class Extension
      * @return a new Extension with the encoding of value in the bytes of the extension's OCTET STRING.
      * @throws IOException if the value cannot be encoded into bytes.
      */
-    public static org.bouncycastle.asn1.x509.Extension create(
+    public static Extension create(
         ASN1ObjectIdentifier extnId,
         boolean critical,
         ASN1Encodable value)
         throws IOException
     {
-        return new org.bouncycastle.asn1.x509.Extension(extnId, critical, value.toASN1Primitive().getEncoded());
+        return new Extension(extnId, critical, value.toASN1Primitive().getEncoded());
     }
 
     private Extension(ASN1Sequence seq)
@@ -267,15 +268,15 @@ public class Extension
         }
     }
 
-    public static org.bouncycastle.asn1.x509.Extension getInstance(Object obj)
+    public static Extension getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.Extension)
+        if (obj instanceof Extension)
         {
-            return (org.bouncycastle.asn1.x509.Extension)obj;
+            return (Extension)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.Extension(ASN1Sequence.getInstance(obj));
+            return new Extension(ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -314,12 +315,12 @@ public class Extension
     public boolean equals(
         Object  o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.x509.Extension))
+        if (!(o instanceof Extension))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.x509.Extension other = (org.bouncycastle.asn1.x509.Extension)o;
+        Extension other = (Extension)o;
 
         return other.getExtnId().equals(this.getExtnId())
             && other.getExtnValue().equals(this.getExtnValue())
@@ -349,7 +350,7 @@ public class Extension
      * @exception IllegalArgumentException if conversion is not possible
      */
     private static ASN1Primitive convertValueToObject(
-        org.bouncycastle.asn1.x509.Extension ext)
+        Extension ext)
         throws IllegalArgumentException
     {
         try

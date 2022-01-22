@@ -1,20 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.eac.EACObjectIdentifiers;
-import org.bouncycastle.asn1.eac.ECDSAPublicKey;
-import org.bouncycastle.asn1.eac.RSAPublicKey;
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
 
 public abstract class PublicKeyDataObject
     extends ASN1Object
 {
-    public static org.bouncycastle.asn1.eac.PublicKeyDataObject getInstance(Object obj)
+    public static  PublicKeyDataObject getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.eac.PublicKeyDataObject)
+        if (obj instanceof  PublicKeyDataObject)
         {
-            return (org.bouncycastle.asn1.eac.PublicKeyDataObject)obj;
+            return (PublicKeyDataObject)obj;
         }
         if (obj != null)
         {

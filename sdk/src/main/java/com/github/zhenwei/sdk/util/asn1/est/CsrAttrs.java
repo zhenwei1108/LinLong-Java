@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.est;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.est.AttrOrOID;
+
+
+
+
+
 
 /**
  * <pre>
@@ -17,23 +16,23 @@ public class CsrAttrs
 {
     private final AttrOrOID[] attrOrOIDs;
 
-    public static org.bouncycastle.asn1.est.CsrAttrs getInstance(
+    public static est.CsrAttrs getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.est.CsrAttrs)
+        if (obj instanceof est.CsrAttrs)
         {
-            return (org.bouncycastle.asn1.est.CsrAttrs)obj;
+            return (est.CsrAttrs)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.est.CsrAttrs(ASN1Sequence.getInstance(obj));
+            return new est.CsrAttrs(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.est.CsrAttrs getInstance(
+    public static est.CsrAttrs getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

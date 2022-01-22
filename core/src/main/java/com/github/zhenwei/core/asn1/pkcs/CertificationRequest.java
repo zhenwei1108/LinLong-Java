@@ -1,13 +1,12 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.pkcs.CertificationRequestInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+import DERBitString;
+
 
 /**
  * PKCS10 Certification request object.
@@ -26,16 +25,16 @@ public class CertificationRequest
     protected AlgorithmIdentifier sigAlgId = null;
     protected DERBitString sigBits = null;
 
-    public static org.bouncycastle.asn1.pkcs.CertificationRequest getInstance(Object o)
+    public static pkcs.CertificationRequest getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.pkcs.CertificationRequest)
+        if (o instanceof pkcs.CertificationRequest)
         {
-            return (org.bouncycastle.asn1.pkcs.CertificationRequest)o;
+            return (pkcs.CertificationRequest)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.pkcs.CertificationRequest(ASN1Sequence.getInstance(o));
+            return new pkcs.CertificationRequest(ASN1Sequence.getInstance(o));
         }
 
         return null;

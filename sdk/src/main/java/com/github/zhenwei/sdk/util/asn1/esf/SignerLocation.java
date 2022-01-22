@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.x500.DirectoryString;
 
 /**
  * Signer-Location attribute (RFC3126).
@@ -99,15 +99,15 @@ public class SignerLocation
         this(DirectoryString.getInstance(countryName), DirectoryString.getInstance(localityName), postalAddress);
     }
 
-    public static org.bouncycastle.asn1.esf.SignerLocation getInstance(
+    public static esf.SignerLocation getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.esf.SignerLocation)
+        if (obj == null || obj instanceof esf.SignerLocation)
         {
-            return (org.bouncycastle.asn1.esf.SignerLocation)obj;
+            return (esf.SignerLocation)obj;
         }
 
-        return new org.bouncycastle.asn1.esf.SignerLocation(ASN1Sequence.getInstance(obj));
+        return new esf.SignerLocation(ASN1Sequence.getInstance(obj));
     }
 
     /**

@@ -1,27 +1,25 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
+
+
+import ASN1GeneralizedTime;
+
+import DERBitString;
+
+
+import cmp.CMPCertificate;
+import cmp.InfoTypeAndValue;
+import cmp.PKIBody;
+import cmp.PKIFreeText;
+import cmp.PKIHeader;
+import cmp.PKIHeaderBuilder;
+import cmp.PKIMessage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.CMPCertificate;
-import org.bouncycastle.asn1.cmp.InfoTypeAndValue;
-import org.bouncycastle.asn1.cmp.PKIBody;
-import org.bouncycastle.asn1.cmp.PKIFreeText;
-import org.bouncycastle.asn1.cmp.PKIHeader;
-import org.bouncycastle.asn1.cmp.PKIHeaderBuilder;
-import org.bouncycastle.asn1.cmp.PKIMessage;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.cmp.CMPException;
-import org.bouncycastle.cert.cmp.ProtectedPKIMessage;
+ 
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.MacCalculator;
 

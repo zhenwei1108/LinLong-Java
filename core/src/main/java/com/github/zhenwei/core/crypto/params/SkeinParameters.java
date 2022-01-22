@@ -9,11 +9,11 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.digests.SkeinDigest;
 import org.bouncycastle.crypto.digests.SkeinEngine;
 import org.bouncycastle.crypto.macs.SkeinMac;
-import org.bouncycastle.util.Integers;
+ 
 
 /**
  * Parameters for the Skein hash function - a series of byte[] strings identified by integer tags.

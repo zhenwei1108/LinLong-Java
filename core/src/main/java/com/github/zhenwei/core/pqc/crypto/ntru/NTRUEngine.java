@@ -2,10 +2,10 @@ package com.github.zhenwei.core.pqc.crypto.ntru;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.Digest;
+
+
+
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
@@ -14,7 +14,7 @@ import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
 import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
 import org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
 import org.bouncycastle.pqc.math.ntru.polynomial.TernaryPolynomial;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Encrypts, decrypts data and generates key pairs.<br>

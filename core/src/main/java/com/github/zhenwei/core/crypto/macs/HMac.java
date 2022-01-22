@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.crypto.macs;
 
 import java.util.Hashtable;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.ExtendedDigest;
+
+
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Integers;
-import org.bouncycastle.util.Memoable;
+ 
+
 
 /**
  * HMAC implementation based on RFC2104

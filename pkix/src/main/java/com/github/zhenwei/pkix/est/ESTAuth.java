@@ -1,8 +1,6 @@
 package com.github.zhenwei.pkix.est;
 
 
-import org.bouncycastle.est.ESTRequestBuilder;
-
 /**
  * Base interface for an object with adds HTTP Auth attributes to an ESTRequest
  */

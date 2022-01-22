@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
+
+
+
+
+
+
+
 
 /**
  * TaggedAttribute from RFC5272
@@ -26,16 +25,16 @@ public class TaggedAttribute
     private final ASN1ObjectIdentifier attrType;
     private final ASN1Set attrValues;
 
-    public static org.bouncycastle.asn1.cmc.TaggedAttribute getInstance(Object o)
+    public static cmc.TaggedAttribute getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.TaggedAttribute)
+        if (o instanceof cmc.TaggedAttribute)
         {
-            return (org.bouncycastle.asn1.cmc.TaggedAttribute)o;
+            return (cmc.TaggedAttribute)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.TaggedAttribute(ASN1Sequence.getInstance(o));
+            return new cmc.TaggedAttribute(ASN1Sequence.getInstance(o));
         }
 
         return null;

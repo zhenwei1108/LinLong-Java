@@ -1,14 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.PasswordRecipientInfo;
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.5">RFC 5652</a>:
@@ -49,7 +48,7 @@ public class OtherRecipientInfo
      * @exception IllegalArgumentException if the object held by the
      *          tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.OtherRecipientInfo getInstance(
+    public static cms.OtherRecipientInfo getInstance(
         ASN1TaggedObject    obj,
         boolean             explicit)
     {
@@ -69,17 +68,17 @@ public class OtherRecipientInfo
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.OtherRecipientInfo getInstance(
+    public static cms.OtherRecipientInfo getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.OtherRecipientInfo)
+        if (obj instanceof cms.OtherRecipientInfo)
         {
-            return (org.bouncycastle.asn1.cms.OtherRecipientInfo)obj;
+            return (cms.OtherRecipientInfo)obj;
         }
         
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.OtherRecipientInfo(ASN1Sequence.getInstance(obj));
+            return new cms.OtherRecipientInfo(ASN1Sequence.getInstance(obj));
         }
         
         return null;

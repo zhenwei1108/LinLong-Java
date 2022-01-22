@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.pqc.math.ntru.euclid.BigIntEuclidean;
 import org.bouncycastle.pqc.math.ntru.polynomial.BigDecimalPolynomial;

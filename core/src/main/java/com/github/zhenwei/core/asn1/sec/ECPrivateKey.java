@@ -1,21 +1,21 @@
 package com.github.zhenwei.core.asn1.sec;
 
+
+
+
+
+
+
+
+
+
+import DERBitString;
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * the elliptic curve private key object from SEC 1
@@ -31,17 +31,17 @@ public class ECPrivateKey
         this.seq = seq;
     }
 
-    public static org.bouncycastle.asn1.sec.ECPrivateKey getInstance(
+    public static sec.ECPrivateKey getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.sec.ECPrivateKey)
+        if (obj instanceof sec.ECPrivateKey)
         {
-            return (org.bouncycastle.asn1.sec.ECPrivateKey)obj;
+            return (sec.ECPrivateKey)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.sec.ECPrivateKey(ASN1Sequence.getInstance(obj));
+            return new sec.ECPrivateKey(ASN1Sequence.getInstance(obj));
         }
 
         return null;

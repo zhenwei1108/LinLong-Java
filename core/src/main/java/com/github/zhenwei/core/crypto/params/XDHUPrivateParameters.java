@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
-import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.X448PrivateKeyParameters;
-import org.bouncycastle.crypto.params.X448PublicKeyParameters;
 
 /**
  * Parameters holder for private unified static/ephemeral agreement using Edwards Curves.

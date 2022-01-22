@@ -1,9 +1,8 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cmp.Challenge;
+
+
+
 
 public class POPODecKeyChallContent
     extends ASN1Object
@@ -15,16 +14,16 @@ public class POPODecKeyChallContent
         content = seq;
     }
 
-    public static org.bouncycastle.asn1.cmp.POPODecKeyChallContent getInstance(Object o)
+    public static cmp.POPODecKeyChallContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.POPODecKeyChallContent)
+        if (o instanceof cmp.POPODecKeyChallContent)
         {
-            return (org.bouncycastle.asn1.cmp.POPODecKeyChallContent)o;
+            return (cmp.POPODecKeyChallContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.POPODecKeyChallContent(ASN1Sequence.getInstance(o));
+            return new cmp.POPODecKeyChallContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

@@ -1,7 +1,6 @@
 package com.github.zhenwei.provider.jcajce.interfaces;
 
 import java.security.PrivateKey;
-import org.bouncycastle.pqc.jcajce.interfaces.LMSKey;
 
 /**
  * Base interface for an LMS private key

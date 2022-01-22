@@ -1,16 +1,13 @@
 package com.github.zhenwei.pkix.cms;
 
+import ASN1OctetStringParser;
+import ASN1SequenceParser;
+
+import cms.CompressedDataParser;
+import cms.ContentInfoParser;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1OctetStringParser;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.cms.CompressedDataParser;
-import org.bouncycastle.asn1.cms.ContentInfoParser;
-import org.bouncycastle.cms.CMSContentInfoParser;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedStream;
 import org.bouncycastle.operator.InputExpander;
 import org.bouncycastle.operator.InputExpanderProvider;
 

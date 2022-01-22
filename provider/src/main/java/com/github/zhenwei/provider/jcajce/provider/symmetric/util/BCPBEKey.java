@@ -1,16 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.security.auth.Destroyable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
-import org.bouncycastle.util.Arrays;
+
 
 public class BCPBEKey
     implements PBEKey, Destroyable

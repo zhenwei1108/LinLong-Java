@@ -1,19 +1,18 @@
 package com.github.zhenwei.core.asn1.bc;
 
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1UTF8String;
+import com.github.zhenwei.core.asn1.DERGeneralizedTime;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERUTF8String;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.math.BigInteger;
-import java.util.Date;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERGeneralizedTime;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.bc.ObjectDataSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <pre>
@@ -58,15 +57,15 @@ public class ObjectStoreData
         this.comment = (seq.size() == 6) ? ASN1UTF8String.getInstance(seq.getObjectAt(5)).getString() : null;
     }
 
-    public static org.bouncycastle.asn1.bc.ObjectStoreData getInstance(Object o)
+    public static ObjectStoreData getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.ObjectStoreData)
+        if (o instanceof ObjectStoreData)
         {
-            return (org.bouncycastle.asn1.bc.ObjectStoreData)o;
+            return (bc.ObjectStoreData)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.ObjectStoreData(ASN1Sequence.getInstance(o));
+            return new ObjectStoreData(ASN1Sequence.getInstance(o));
         }
 
         return null;

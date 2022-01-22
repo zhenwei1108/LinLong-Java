@@ -6,10 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
 import java.util.Collection;
-import org.bouncycastle.x509.NoSuchParserException;
-import org.bouncycastle.x509.X509StreamParserSpi;
-import org.bouncycastle.x509.util.StreamParser;
-import org.bouncycastle.x509.util.StreamParsingException;
+import org.bouncycastle.util.StreamParser;
+import org.bouncycastle.util.StreamParsingException;
 
 /**
  *
@@ -44,7 +42,7 @@ public class X509StreamParser
      *                provider package or any of the other provider packages
      *                that were searched.
      */
-    public static org.bouncycastle.x509.X509StreamParser getInstance(String type)
+    public static org.bouncycastle.X509StreamParser getInstance(String type)
         throws NoSuchParserException
     {
         try
@@ -78,7 +76,7 @@ public class X509StreamParser
      *
      * @see Provider
      */
-    public static org.bouncycastle.x509.X509StreamParser getInstance(String type, String provider)
+    public static org.bouncycastle.X509StreamParser getInstance(String type, String provider)
         throws NoSuchParserException, NoSuchProviderException
     {
         return getInstance(type, X509Util.getProvider(provider));
@@ -100,7 +98,7 @@ public class X509StreamParser
      *
      * @see Provider
      */
-    public static org.bouncycastle.x509.X509StreamParser getInstance(String type, Provider provider)
+    public static org.bouncycastle.X509StreamParser getInstance(String type, Provider provider)
         throws NoSuchParserException
     {
         try
@@ -115,11 +113,11 @@ public class X509StreamParser
         }
     }
 
-    private static org.bouncycastle.x509.X509StreamParser createParser(X509Util.Implementation impl)
+    private static org.bouncycastle.X509StreamParser createParser(X509Util.Implementation impl)
     {
         X509StreamParserSpi spi = (X509StreamParserSpi)impl.getEngine();
 
-        return new org.bouncycastle.x509.X509StreamParser(impl.getProvider(), spi);
+        return new org.bouncycastle.X509StreamParser(impl.getProvider(), spi);
     }
 
     private Provider            _provider;

@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
-
 public class LMSParameters
 {
     private final LMSigParameters lmSigParam;

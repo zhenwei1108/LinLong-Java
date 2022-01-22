@@ -1,22 +1,22 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.ess.ESSCertID;
-import org.bouncycastle.asn1.ocsp.CertID;
-import org.bouncycastle.asn1.ocsp.CertStatus;
-import org.bouncycastle.asn1.ocsp.OCSPResponse;
-import org.bouncycastle.asn1.smime.SMIMECapabilities;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.asn1.x509.CertificateList;
-import org.bouncycastle.asn1.x509.Extension;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.CertificateList;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.Extension;
+import com.github.zhenwei.core.asn1.ocsp.CertID;
+import com.github.zhenwei.sdk.util.asn1.cmp.CertStatus;
+import com.github.zhenwei.sdk.util.asn1.cmp.PKIStatusInfo;
+import com.github.zhenwei.sdk.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.sdk.util.asn1.ess.ESSCertID;
+import com.github.zhenwei.sdk.util.asn1.smime.SMIMECapabilities;
+import com.github.zhenwei.sdk.util.oer.its.Certificate;
+import sun.security.provider.certpath.OCSPResponse;
 
 /**
  * <pre>
@@ -107,19 +107,19 @@ public class CertEtcToken
         }
     }
 
-    public static org.bouncycastle.asn1.dvcs.CertEtcToken getInstance(Object obj)
+    public static CertEtcToken getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.CertEtcToken)
+        if (obj instanceof CertEtcToken)
         {
-            return (org.bouncycastle.asn1.dvcs.CertEtcToken)obj;
+            return (CertEtcToken)obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.dvcs.CertEtcToken((ASN1TaggedObject)obj);
+            return new CertEtcToken((ASN1TaggedObject)obj);
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.CertEtcToken(Extension.getInstance(obj));
+            return new CertEtcToken(Extension.getInstance(obj));
         }
 
         return null;
@@ -157,13 +157,13 @@ public class CertEtcToken
         return "CertEtcToken {\n" + value + "}\n";
     }
 
-    public static org.bouncycastle.asn1.dvcs.CertEtcToken[] arrayFromSequence(ASN1Sequence seq)
+    public static CertEtcToken[] arrayFromSequence(ASN1Sequence seq)
     {
-        org.bouncycastle.asn1.dvcs.CertEtcToken[] tmp = new org.bouncycastle.asn1.dvcs.CertEtcToken[seq.size()];
+        CertEtcToken[] tmp = new CertEtcToken[seq.size()];
 
         for (int i = 0; i != tmp.length; i++)
         {
-            tmp[i] = org.bouncycastle.asn1.dvcs.CertEtcToken.getInstance(seq.getObjectAt(i));
+            tmp[i] = CertEtcToken.getInstance(seq.getObjectAt(i));
         }
 
         return tmp;

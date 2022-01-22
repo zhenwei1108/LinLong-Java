@@ -1,22 +1,22 @@
 package com.github.zhenwei.pkix.its.bc;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.nist.NISTNamedCurves;
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTNamedCurves;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+
+
+
+ 
+import nist.NISTNamedCurves;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.its.ITSPublicVerificationKey;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.oer.its.EccCurvePoint;
 import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
 import org.bouncycastle.oer.its.PublicVerificationKey;
+import sec.SECObjectIdentifiers;
+import teletrust.TeleTrusTNamedCurves;
+import teletrust.TeleTrusTObjectIdentifiers;
+import x9.X9ECParameters;
 
 public class BcITSPublicVerificationKey
     extends ITSPublicVerificationKey

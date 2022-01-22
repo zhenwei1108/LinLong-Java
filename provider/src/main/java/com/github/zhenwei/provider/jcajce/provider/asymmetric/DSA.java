@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;

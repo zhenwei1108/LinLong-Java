@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.ec;
 
+
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 class ECUtil
 {

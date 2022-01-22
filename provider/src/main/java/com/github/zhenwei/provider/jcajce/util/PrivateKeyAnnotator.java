@@ -4,7 +4,6 @@ import java.security.PrivateKey;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.jcajce.util.AnnotatedPrivateKey;
 
 /**
  * Class for instancing AnnotatedPrivateKeys.

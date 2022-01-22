@@ -1,11 +1,10 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.crmf.CRMFObjectIdentifiers;
-import org.bouncycastle.cert.crmf.Control;
+
+
+
+
+import crmf.CRMFObjectIdentifiers;
 
 /**
  * Carrier for an authenticator control.

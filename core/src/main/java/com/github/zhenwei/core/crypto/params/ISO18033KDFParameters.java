@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.DerivationParameters;
+
 
 /**
  * parameters for Key derivation functions for ISO-18033

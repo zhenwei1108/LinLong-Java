@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * A simple collection backed store.

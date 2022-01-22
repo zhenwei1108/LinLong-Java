@@ -7,7 +7,7 @@ import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
 import org.bouncycastle.pqc.math.linearalgebra.Matrix;
 import org.bouncycastle.pqc.math.linearalgebra.Permutation;
 import org.bouncycastle.pqc.math.linearalgebra.Vector;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class describes some operations with matrices over finite field GF(2)

@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jce.provider;
 
-import org.bouncycastle.asn1.x509.ReasonFlags;
+import ReasonFlags;
 
 /**
  * This class helps to handle CRL revocation reasons mask. Each CRL handles a

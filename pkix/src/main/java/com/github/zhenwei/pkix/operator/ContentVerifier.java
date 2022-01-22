@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.operator;
 
+
 import java.io.OutputStream;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * General interface for an operator that is able to verify a signature based

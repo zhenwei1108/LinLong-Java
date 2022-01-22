@@ -1,5 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
+
+
+
+
+
+
+
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
@@ -7,19 +14,12 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSAESOAEPparams;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
 import org.bouncycastle.jcajce.provider.util.DigestFactory;
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
+
+import pkcs.RSAESOAEPparams;
+import pkcs.RSASSAPSSparams;
 
 public abstract class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi

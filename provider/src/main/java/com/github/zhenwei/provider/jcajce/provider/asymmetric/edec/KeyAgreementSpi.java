@@ -11,15 +11,13 @@ import org.bouncycastle.crypto.agreement.X25519Agreement;
 import org.bouncycastle.crypto.agreement.X448Agreement;
 import org.bouncycastle.crypto.agreement.XDHUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
-import org.bouncycastle.crypto.generators.KDF2BytesGenerator;
+
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.X448PrivateKeyParameters;
 import org.bouncycastle.crypto.params.XDHUPrivateParameters;
 import org.bouncycastle.crypto.params.XDHUPublicParameters;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.BCXDHPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.BCXDHPublicKey;
+
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;

@@ -1,5 +1,28 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+
+
+
+
+
+
+
+ 
+import CRLDistPoint;
+import CRLReason;
+
+import DistributionPoint;
+import DistributionPointName;
+
+
+import GeneralNames;
+import GeneralSubtree;
+import IssuingDistributionPoint;
+import NameConstraints;
+import PolicyInformation;
+import RDN;
+import X500Name;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.GeneralSecurityException;
@@ -27,30 +50,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.style.BCStyle;
-import org.bouncycastle.asn1.x509.BasicConstraints;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.CRLReason;
-import org.bouncycastle.asn1.x509.DistributionPoint;
-import org.bouncycastle.asn1.x509.DistributionPointName;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.GeneralSubtree;
-import org.bouncycastle.asn1.x509.IssuingDistributionPoint;
-import org.bouncycastle.asn1.x509.NameConstraints;
-import org.bouncycastle.asn1.x509.PolicyInformation;
 import org.bouncycastle.jcajce.PKIXCRLStore;
 import org.bouncycastle.jcajce.PKIXCertRevocationChecker;
 import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
@@ -58,15 +57,10 @@ import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
 import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
-import org.bouncycastle.jce.provider.AnnotatedException;
-import org.bouncycastle.jce.provider.PKIXCertPathBuilderSpi;
-import org.bouncycastle.jce.provider.PKIXCertPathBuilderSpi_8;
-import org.bouncycastle.jce.provider.PKIXNameConstraintValidator;
-import org.bouncycastle.jce.provider.PKIXNameConstraintValidatorException;
-import org.bouncycastle.jce.provider.PKIXPolicyNode;
-import org.bouncycastle.util.Arrays;
+
+import style.BCStyle;
 
 class RFC3280CertPathUtilities
 {
@@ -254,7 +248,7 @@ class RFC3280CertPathUtilities
             if (cert instanceof X509Certificate)
             {
                 // (b) (2) (ii)
-                if (idp.onlyContainsUserCerts() && (bc != null && bc.isCA()))
+                if (idp.onlyContainsUserCerts() && (bc != null && isCA()))
                 {
                     throw new AnnotatedException("CA Cert CRL only contains user certificates.");
                 }
@@ -2105,7 +2099,7 @@ class RFC3280CertPathUtilities
         }
         if (bc != null)
         {
-            BigInteger _pathLengthConstraint = bc.getPathLenConstraint();
+            BigInteger _pathLengthConstraint = getPathLenConstraint();
 
             if (_pathLengthConstraint != null)
             {

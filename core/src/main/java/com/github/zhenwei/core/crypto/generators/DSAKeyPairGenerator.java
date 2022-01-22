@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import WNafUtil;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
@@ -9,8 +10,7 @@ import org.bouncycastle.crypto.params.DSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * a DSA key pair generator.

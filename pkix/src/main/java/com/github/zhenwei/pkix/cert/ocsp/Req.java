@@ -1,8 +1,7 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
-import org.bouncycastle.asn1.ocsp.Request;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.cert.ocsp.CertificateID;
+import Extensions;
+import ocsp.Request;
 
 public class Req
 {

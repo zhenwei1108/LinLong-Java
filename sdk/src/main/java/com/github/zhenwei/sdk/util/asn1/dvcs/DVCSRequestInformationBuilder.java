@@ -1,19 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.GeneralNames;
+import com.github.zhenwei.core.asn1.x509.PolicyInformation;
+import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.dvcs.DVCSRequestInformation;
-import org.bouncycastle.asn1.dvcs.DVCSTime;
-import org.bouncycastle.asn1.dvcs.ServiceType;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.util.BigIntegers;
 
 /**
  * <pre>

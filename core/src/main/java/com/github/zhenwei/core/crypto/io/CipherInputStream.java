@@ -10,7 +10,7 @@ import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.io.CipherIOException;
 import org.bouncycastle.crypto.io.InvalidCipherTextIOException;
 import org.bouncycastle.crypto.modes.AEADBlockCipher;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A CipherInputStream is composed of an InputStream and a cipher so that read() methods return data

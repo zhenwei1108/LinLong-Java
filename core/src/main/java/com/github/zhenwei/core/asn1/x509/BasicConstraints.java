@@ -1,17 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
+import ASN1Boolean;
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.X509Extension;
 
 public class BasicConstraints
     extends ASN1Object
@@ -19,19 +16,19 @@ public class BasicConstraints
     ASN1Boolean  cA = ASN1Boolean.getInstance(false);
     ASN1Integer  pathLenConstraint = null;
 
-    public static org.bouncycastle.asn1.x509.BasicConstraints getInstance(
+    public static BasicConstraints getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.BasicConstraints getInstance(
+    public static BasicConstraints getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.BasicConstraints)
+        if (obj instanceof BasicConstraints)
         {
-            return (org.bouncycastle.asn1.x509.BasicConstraints)obj;
+            return (x509.BasicConstraints)obj;
         }
         if (obj instanceof X509Extension)
         {
@@ -39,13 +36,13 @@ public class BasicConstraints
         }
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.BasicConstraints(ASN1Sequence.getInstance(obj));
+            return new BasicConstraints(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.BasicConstraints fromExtensions(Extensions extensions)
+    public static BasicConstraints fromExtensions(Extensions extensions)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.basicConstraints));
     }

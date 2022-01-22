@@ -13,7 +13,7 @@ import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.AEADParameters;
@@ -21,11 +21,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.RC2Parameters;
 import org.bouncycastle.crypto.params.SkeinParameters;
-import org.bouncycastle.jcajce.PKCS12Key;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
-import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
-import org.bouncycastle.jcajce.provider.symmetric.util.GcmSpecUtil;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
+
 import org.bouncycastle.jcajce.spec.AEADParameterSpec;
 import org.bouncycastle.jcajce.spec.SkeinParameterSpec;
 

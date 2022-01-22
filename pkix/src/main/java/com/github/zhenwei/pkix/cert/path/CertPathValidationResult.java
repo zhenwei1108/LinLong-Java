@@ -2,9 +2,7 @@ package com.github.zhenwei.pkix.cert.path;
 
 import java.util.Collections;
 import java.util.Set;
-import org.bouncycastle.cert.path.CertPathValidationContext;
-import org.bouncycastle.cert.path.CertPathValidationException;
-import org.bouncycastle.util.Arrays;
+
 
 public class CertPathValidationResult
 {

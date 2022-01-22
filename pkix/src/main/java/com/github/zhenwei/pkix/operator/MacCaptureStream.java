@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.operator;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A generic class for capturing the mac data at the end of a encrypted data stream.

@@ -1,17 +1,15 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.pkcs.ContentInfo;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 
 /**
  * a PKCS#7 signed data object.
@@ -27,16 +25,16 @@ public class SignedData
     private ASN1Set                 crls;
     private ASN1Set                 signerInfos;
 
-    public static org.bouncycastle.asn1.pkcs.SignedData getInstance(
+    public static pkcs.SignedData getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.pkcs.SignedData)
+        if (o instanceof pkcs.SignedData)
         {
-            return (org.bouncycastle.asn1.pkcs.SignedData)o;
+            return (pkcs.SignedData)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.pkcs.SignedData(ASN1Sequence.getInstance(o));
+            return new pkcs.SignedData(ASN1Sequence.getInstance(o));
         }
 
         return null;

@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
 
 /**
  * Example InfoTypeAndValue contents include, but are not limited
@@ -67,16 +67,16 @@ public class InfoTypeAndValue
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.InfoTypeAndValue getInstance(Object o)
+    public static cmp.InfoTypeAndValue getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.InfoTypeAndValue)
+        if (o instanceof cmp.InfoTypeAndValue)
         {
-            return (org.bouncycastle.asn1.cmp.InfoTypeAndValue)o;
+            return (cmp.InfoTypeAndValue)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.InfoTypeAndValue(ASN1Sequence.getInstance(o));
+            return new cmp.InfoTypeAndValue(ASN1Sequence.getInstance(o));
         }
 
         return null;

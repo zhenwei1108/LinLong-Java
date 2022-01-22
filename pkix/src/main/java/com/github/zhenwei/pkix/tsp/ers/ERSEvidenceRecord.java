@@ -2,18 +2,15 @@ package com.github.zhenwei.pkix.tsp.ers;
 
 import java.io.IOException;
 import java.util.Date;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStamp;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStampChain;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence;
-import org.bouncycastle.asn1.tsp.EvidenceRecord;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.ers.ERSArchiveTimeStamp;
-import org.bouncycastle.tsp.ers.ERSData;
-import org.bouncycastle.tsp.ers.ERSException;
+import tsp.ArchiveTimeStamp;
+import tsp.ArchiveTimeStampChain;
+import tsp.ArchiveTimeStampSequence;
+import tsp.EvidenceRecord;
 
 /**
  * RFC 4998 Evidence Record.

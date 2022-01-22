@@ -1,12 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStamp;
 
 /**
  * Implementation of ArchiveTimeStampChain type, as defined in RFC4998 and RFC6283.
@@ -28,15 +27,15 @@ public class ArchiveTimeStampChain
      * @return an ArchiveTimeStampChain instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.tsp.ArchiveTimeStampChain getInstance(final Object obj)
+    public static tsp.ArchiveTimeStampChain getInstance(final Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.tsp.ArchiveTimeStampChain)
+        if (obj instanceof tsp.ArchiveTimeStampChain)
         {
-            return (org.bouncycastle.asn1.tsp.ArchiveTimeStampChain)obj;
+            return (tsp.ArchiveTimeStampChain)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.tsp.ArchiveTimeStampChain(ASN1Sequence.getInstance(obj));
+            return new tsp.ArchiveTimeStampChain(ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -83,7 +82,7 @@ public class ArchiveTimeStampChain
      * @param archiveTimeStamp the {@link ArchiveTimeStamp} to add.
      * @return returns the modified chain.
      */
-    public org.bouncycastle.asn1.tsp.ArchiveTimeStampChain append(final ArchiveTimeStamp archiveTimeStamp)
+    public tsp.ArchiveTimeStampChain append(final ArchiveTimeStamp archiveTimeStamp)
     {
         ASN1EncodableVector v = new ASN1EncodableVector(archiveTimestamps.size() + 1);
 
@@ -94,7 +93,7 @@ public class ArchiveTimeStampChain
 
         v.add(archiveTimeStamp);
 
-        return new org.bouncycastle.asn1.tsp.ArchiveTimeStampChain(new DERSequence(v));
+        return new tsp.ArchiveTimeStampChain(new DERSequence(v));
     }
 
     public ASN1Primitive toASN1Primitive()

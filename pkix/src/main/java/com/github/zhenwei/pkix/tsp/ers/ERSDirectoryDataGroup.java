@@ -4,9 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.tsp.ers.ERSData;
-import org.bouncycastle.tsp.ers.ERSDataGroup;
-import org.bouncycastle.tsp.ers.ERSFileData;
 
 /**
  * Representation of a data group based on a directory. Sub-directories will be

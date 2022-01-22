@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.asn1.nist;
 
+
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.sec.SECNamedCurves;
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.util.Strings;
+
+import sec.SECNamedCurves;
+import sec.SECObjectIdentifiers;
+import x9.X9ECParameters;
 
 /**
  * Utility class for fetching curves using their NIST names as published in FIPS-PUB 186-3

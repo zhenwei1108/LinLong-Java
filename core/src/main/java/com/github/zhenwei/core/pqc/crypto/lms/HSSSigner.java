@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 import java.io.IOException;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.pqc.crypto.MessageSigner;
 import org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters;

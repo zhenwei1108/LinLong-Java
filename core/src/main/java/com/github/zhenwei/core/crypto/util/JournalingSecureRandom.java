@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.util.Arrays;
+
+
 
 /**
 * A SecureRandom that maintains a journal of its output.

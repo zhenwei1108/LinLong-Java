@@ -1,14 +1,10 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Properties;
+
+
 
 /**
  * Class representing the ASN.1 INTEGER type.
@@ -16,7 +12,7 @@ import org.bouncycastle.util.Properties;
 public class ASN1Integer
     extends ASN1Primitive
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1Integer.class, BERTags.INTEGER)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1Integer.class, BERTags.INTEGER)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -37,19 +33,19 @@ public class ASN1Integer
      * @return an ASN1Integer instance.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.ASN1Integer getInstance(
+    public static ASN1Integer getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1Integer)
+        if (obj == null || obj instanceof ASN1Integer)
         {
-            return (org.bouncycastle.asn1.ASN1Integer)obj;
+            return (ASN1Integer)obj;
         }
 
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1Integer)TYPE.fromByteArray((byte[])obj);
+                return (ASN1Integer)TYPE.fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -70,9 +66,9 @@ public class ASN1Integer
      * @throws IllegalArgumentException if the tagged object cannot
      * be converted.
      */
-    public static org.bouncycastle.asn1.ASN1Integer getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1Integer getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1Integer)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1Integer)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     /**
@@ -111,7 +107,7 @@ public class ASN1Integer
      * Section 8.3.2.
      * </p>
      * <p>
-     * Users can set the 'org.bouncycastle.asn1.allow_unsafe_integer' to 'true'
+     * Users can set the 'allow_unsafe_integer' to 'true'
      * and a looser validation will be applied. Users must recognise that this is
      * not ideal and may pave the way for an exploit based around a faulty encoding
      * in the future.
@@ -226,12 +222,12 @@ public class ASN1Integer
 
     boolean asn1Equals(ASN1Primitive o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1Integer))
+        if (!(o instanceof ASN1Integer))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1Integer other = (org.bouncycastle.asn1.ASN1Integer)o;
+        ASN1Integer other = (ASN1Integer)o;
 
         return Arrays.areEqual(this.bytes, other.bytes);
     }
@@ -241,9 +237,9 @@ public class ASN1Integer
         return getValue().toString();
     }
 
-    static org.bouncycastle.asn1.ASN1Integer createPrimitive(byte[] contents)
+    static ASN1Integer createPrimitive(byte[] contents)
     {
-        return new org.bouncycastle.asn1.ASN1Integer(contents, false);
+        return new ASN1Integer(contents, false);
     }
 
     static int intValue(byte[] bytes, int start, int signExt)
@@ -289,7 +285,7 @@ public class ASN1Integer
         default:
             return bytes[0] == (bytes[1] >> 7)
                 // Apply loose validation, see note in public constructor ASN1Integer(byte[])
-                && !Properties.isOverrideSet("org.bouncycastle.asn1.allow_unsafe_integer");
+                && !Properties.isOverrideSet("allow_unsafe_integer");
         }
     }
 

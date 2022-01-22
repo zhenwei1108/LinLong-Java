@@ -1,9 +1,6 @@
 package com.github.zhenwei.core.math.ec;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
 
 public abstract class AbstractECMultiplier implements ECMultiplier
 {

@@ -1,10 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.BodyPartReference;
+
+
+
+
 
 /**
  * <pre>
@@ -42,15 +41,15 @@ public class ControlsProcessed
     }
 
 
-    public static org.bouncycastle.asn1.cmc.ControlsProcessed getInstance(Object src)
+    public static cmc.ControlsProcessed getInstance(Object src)
     {
-        if (src instanceof org.bouncycastle.asn1.cmc.ControlsProcessed)
+        if (src instanceof cmc.ControlsProcessed)
         {
-            return (org.bouncycastle.asn1.cmc.ControlsProcessed)src;
+            return (cmc.ControlsProcessed)src;
         }
         else if (src != null)
         {
-            return new org.bouncycastle.asn1.cmc.ControlsProcessed(ASN1Sequence.getInstance(src));
+            return new cmc.ControlsProcessed(ASN1Sequence.getInstance(src));
         }
 
         return null;

@@ -13,11 +13,6 @@ import javax.net.ssl.X509TrustManager;
 import org.bouncycastle.est.ESTClientProvider;
 import org.bouncycastle.est.ESTService;
 import org.bouncycastle.est.ESTServiceBuilder;
-import org.bouncycastle.est.jcajce.ChannelBindingProvider;
-import org.bouncycastle.est.jcajce.JcaJceUtils;
-import org.bouncycastle.est.jcajce.JsseDefaultHostnameAuthorizer;
-import org.bouncycastle.est.jcajce.JsseHostnameAuthorizer;
-import org.bouncycastle.est.jcajce.SSLSocketFactoryCreator;
 
 
 /**

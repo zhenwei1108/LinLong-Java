@@ -1,9 +1,6 @@
 package com.github.zhenwei.core.math.raw;
 
 
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat256;
-
 public abstract class Nat512
 {
     public static void mul(int[] x, int[] y, int[] zz)

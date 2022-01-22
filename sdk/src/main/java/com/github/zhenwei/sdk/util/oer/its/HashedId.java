@@ -1,10 +1,10 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
 
 public class HashedId
     extends ASN1Object

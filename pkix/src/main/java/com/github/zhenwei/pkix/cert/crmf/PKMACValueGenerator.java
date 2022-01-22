@@ -1,13 +1,11 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
+
+import DERBitString;
+
+import crmf.PKMACValue;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.crmf.PKMACValue;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.cert.crmf.PKMACBuilder;
 import org.bouncycastle.operator.MacCalculator;
 
 class PKMACValueGenerator

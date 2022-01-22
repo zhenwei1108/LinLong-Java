@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+
+
+
+
+
+
+
+
+
 
 public class SMIMECapability
     extends ASN1Object
@@ -52,17 +52,17 @@ public class SMIMECapability
         this.parameters = parameters;
     }
     
-    public static org.bouncycastle.asn1.smime.SMIMECapability getInstance(
+    public static SMIMECapability getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.smime.SMIMECapability)
+        if (obj == null || obj instanceof SMIMECapability)
         {
-            return (org.bouncycastle.asn1.smime.SMIMECapability)obj;
+            return   (SMIMECapability)obj;
         }
         
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.smime.SMIMECapability((ASN1Sequence)obj);
+            return new SMIMECapability((ASN1Sequence)obj);
         }
         
         throw new IllegalArgumentException("Invalid SMIMECapability");

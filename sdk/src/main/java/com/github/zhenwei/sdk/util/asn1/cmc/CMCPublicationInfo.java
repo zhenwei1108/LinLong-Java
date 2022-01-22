@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.crmf.PKIPublicationInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+import crmf.PKIPublicationInfo;
+
 
 /**
  *<pre>
@@ -53,16 +53,16 @@ public class CMCPublicationInfo
         this.pubInfo = PKIPublicationInfo.getInstance(seq.getObjectAt(2));
     }
 
-    public static org.bouncycastle.asn1.cmc.CMCPublicationInfo getInstance(Object o)
+    public static cmc.CMCPublicationInfo getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.CMCPublicationInfo)
+        if (o instanceof cmc.CMCPublicationInfo)
         {
-            return (org.bouncycastle.asn1.cmc.CMCPublicationInfo)o;
+            return (cmc.CMCPublicationInfo)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.CMCPublicationInfo(ASN1Sequence.getInstance(o));
+            return new cmc.CMCPublicationInfo(ASN1Sequence.getInstance(o));
         }
 
         return null;

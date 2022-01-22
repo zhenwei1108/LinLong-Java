@@ -1,12 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStampChain;
 
 /**
  * Implementation of ArchiveTimeStampSequence type, as defined in RFC4998.
@@ -28,15 +27,15 @@ public class ArchiveTimeStampSequence
      * @return an ArchiveTimeStampSequence instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence getInstance(final Object obj)
+    public static tsp.ArchiveTimeStampSequence getInstance(final Object obj)
     {
         if (obj instanceof ArchiveTimeStampChain)
         {
-            return (org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence)obj;
+            return (tsp.ArchiveTimeStampSequence)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence(ASN1Sequence.getInstance(obj));
+            return new tsp.ArchiveTimeStampSequence(ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -94,7 +93,7 @@ public class ArchiveTimeStampSequence
      * @param chain the {@link ArchiveTimeStampChain} to add
      * @return returns the modified sequence.
      */
-    public org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence append(ArchiveTimeStampChain chain)
+    public tsp.ArchiveTimeStampSequence append(ArchiveTimeStampChain chain)
     {
         ASN1EncodableVector v = new ASN1EncodableVector(archiveTimeStampChains.size() + 1);
 
@@ -105,7 +104,7 @@ public class ArchiveTimeStampSequence
 
         v.add(chain);
 
-        return new org.bouncycastle.asn1.tsp.ArchiveTimeStampSequence(new DERSequence(v));
+        return new tsp.ArchiveTimeStampSequence(new DERSequence(v));
     }
 
     public ASN1Primitive toASN1Primitive()

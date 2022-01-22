@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
 
 /**
  * Public facade of ASN.1 Boolean data.
@@ -14,14 +10,14 @@ import org.bouncycastle.asn1.DEROctetString;
  * <ul>
  * <li> ASN1Boolean.TRUE literal</li>
  * <li> ASN1Boolean.FALSE literal</li>
- * <li> {@link org.bouncycastle.asn1.ASN1Boolean#getInstance(boolean) ASN1Boolean.getInstance(boolean)}</li>
- * <li> {@link org.bouncycastle.asn1.ASN1Boolean#getInstance(int) ASN1Boolean.getInstance(int)}</li>
+ * <li> {@link ASN1Boolean#getInstance(boolean) ASN1Boolean.getInstance(boolean)}</li>
+ * <li> {@link ASN1Boolean#getInstance(int) ASN1Boolean.getInstance(int)}</li>
  * </ul>
  */
 public class ASN1Boolean
     extends ASN1Primitive
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1Boolean.class, BERTags.BOOLEAN)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1Boolean.class, BERTags.BOOLEAN)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -32,8 +28,8 @@ public class ASN1Boolean
     private static final byte FALSE_VALUE = 0x00;
     private static final byte TRUE_VALUE = (byte)0xFF;
 
-    public static final org.bouncycastle.asn1.ASN1Boolean FALSE = new org.bouncycastle.asn1.ASN1Boolean(FALSE_VALUE);
-    public static final org.bouncycastle.asn1.ASN1Boolean TRUE  = new org.bouncycastle.asn1.ASN1Boolean(TRUE_VALUE);
+    public static final ASN1Boolean FALSE = new ASN1Boolean(FALSE_VALUE);
+    public static final ASN1Boolean TRUE  = new ASN1Boolean(TRUE_VALUE);
 
     private final byte value;
 
@@ -44,12 +40,12 @@ public class ASN1Boolean
      * @exception IllegalArgumentException if the object cannot be converted.
      * @return an ASN1Boolean instance.
      */
-    public static org.bouncycastle.asn1.ASN1Boolean getInstance(
+    public static ASN1Boolean getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1Boolean)
+        if (obj == null || obj instanceof ASN1Boolean)
         {
-            return (org.bouncycastle.asn1.ASN1Boolean)obj;
+            return (ASN1Boolean)obj;
         }
 
         if (obj instanceof byte[])
@@ -57,7 +53,7 @@ public class ASN1Boolean
             byte[] enc = (byte[])obj;
             try
             {
-                return (org.bouncycastle.asn1.ASN1Boolean)TYPE.fromByteArray(enc);
+                return (ASN1Boolean)TYPE.fromByteArray(enc);
             }
             catch (IOException e)
             {
@@ -73,7 +69,7 @@ public class ASN1Boolean
      * @param value true or false depending on the ASN1Boolean wanted.
      * @return an ASN1Boolean instance.
      */
-    public static org.bouncycastle.asn1.ASN1Boolean getInstance(boolean value)
+    public static ASN1Boolean getInstance(boolean value)
     {
         return value ? TRUE : FALSE;
     }
@@ -83,7 +79,7 @@ public class ASN1Boolean
      * @param value non-zero (true) or zero (false) depending on the ASN1Boolean wanted.
      * @return an ASN1Boolean instance.
      */
-    public static org.bouncycastle.asn1.ASN1Boolean getInstance(int value)
+    public static ASN1Boolean getInstance(int value)
     {
         return value != 0 ? TRUE : FALSE;
     }
@@ -98,9 +94,9 @@ public class ASN1Boolean
      *               be converted.
      * @return an ASN1Boolean instance.
      */
-    public static org.bouncycastle.asn1.ASN1Boolean getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1Boolean getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1Boolean)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1Boolean)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     private ASN1Boolean(byte value)
@@ -130,12 +126,12 @@ public class ASN1Boolean
 
     boolean asn1Equals(ASN1Primitive other)
     {
-        if (!(other instanceof org.bouncycastle.asn1.ASN1Boolean))
+        if (!(other instanceof ASN1Boolean))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1Boolean that = (org.bouncycastle.asn1.ASN1Boolean)other;
+        ASN1Boolean that = (ASN1Boolean)other;
 
         return this.isTrue() == that.isTrue();
     }
@@ -155,7 +151,7 @@ public class ASN1Boolean
       return isTrue() ? "TRUE" : "FALSE";
     }
 
-    static org.bouncycastle.asn1.ASN1Boolean createPrimitive(byte[] contents)
+    static ASN1Boolean createPrimitive(byte[] contents)
     {
         if (contents.length != 1)
         {
@@ -167,7 +163,7 @@ public class ASN1Boolean
         {
         case FALSE_VALUE:   return FALSE;
         case TRUE_VALUE:    return TRUE;
-        default:            return new org.bouncycastle.asn1.ASN1Boolean(b);
+        default:            return new ASN1Boolean(b);
         }
     }
 }

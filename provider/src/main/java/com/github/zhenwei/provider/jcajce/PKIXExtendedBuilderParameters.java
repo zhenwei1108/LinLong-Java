@@ -7,7 +7,6 @@ import java.security.cert.X509Certificate;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
 
 /**
  * This class contains extended parameters for PKIX certification path builders.

@@ -1,11 +1,9 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
+ 
+import FixedPointCombMultiplier;
+ 
+
 
 /**
  * Parameters holder for private unified static/ephemeral agreement as described in NIST SP 800-56A.

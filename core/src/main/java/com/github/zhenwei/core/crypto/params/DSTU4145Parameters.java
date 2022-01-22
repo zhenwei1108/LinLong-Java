@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.util.Arrays;
+
 
 public class DSTU4145Parameters
     extends ECDomainParameters

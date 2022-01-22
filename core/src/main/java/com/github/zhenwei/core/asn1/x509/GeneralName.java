@@ -1,22 +1,20 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 import java.io.IOException;
 import java.util.StringTokenizer;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.X509Name;
-import org.bouncycastle.util.IPAddress;
 
 /**
  * The GeneralName object.
@@ -172,12 +170,12 @@ public class GeneralName
         }
     }
     
-    public static org.bouncycastle.asn1.x509.GeneralName getInstance(
+    public static GeneralName getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.GeneralName)
+        if (obj == null || obj instanceof GeneralName)
         {
-            return (org.bouncycastle.asn1.x509.GeneralName)obj;
+            return (x509.GeneralName)obj;
         }
 
         if (obj instanceof ASN1TaggedObject)
@@ -190,19 +188,19 @@ public class GeneralName
             case ediPartyName:
             case otherName:
             case x400Address:
-                return new org.bouncycastle.asn1.x509.GeneralName(tag, ASN1Sequence.getInstance(tagObj, false));
+                return new GeneralName(tag, ASN1Sequence.getInstance(tagObj, false));
 
             case dNSName:
             case rfc822Name:
             case uniformResourceIdentifier:
-                return new org.bouncycastle.asn1.x509.GeneralName(tag, ASN1IA5String.getInstance(tagObj, false));
+                return new GeneralName(tag, ASN1IA5String.getInstance(tagObj, false));
 
             case directoryName:
-                return new org.bouncycastle.asn1.x509.GeneralName(tag, X500Name.getInstance(tagObj, true));
+                return new GeneralName(tag, X500Name.getInstance(tagObj, true));
             case iPAddress:
-                return new org.bouncycastle.asn1.x509.GeneralName(tag, ASN1OctetString.getInstance(tagObj, false));
+                return new GeneralName(tag, ASN1OctetString.getInstance(tagObj, false));
             case registeredID:
-                return new org.bouncycastle.asn1.x509.GeneralName(tag, ASN1ObjectIdentifier.getInstance(tagObj, false));
+                return new GeneralName(tag, ASN1ObjectIdentifier.getInstance(tagObj, false));
 
             default:
                 throw new IllegalArgumentException("unknown tag: " + tag);
@@ -224,11 +222,11 @@ public class GeneralName
         throw new IllegalArgumentException("unknown object in getInstance: " + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.x509.GeneralName getInstance(
+    public static GeneralName getInstance(
         ASN1TaggedObject tagObj,
         boolean          explicit)
     {
-        return org.bouncycastle.asn1.x509.GeneralName.getInstance(ASN1TaggedObject.getInstance(tagObj, true));
+        return GeneralName.getInstance(ASN1TaggedObject.getInstance(tagObj, true));
     }
 
     public int getTagNo()

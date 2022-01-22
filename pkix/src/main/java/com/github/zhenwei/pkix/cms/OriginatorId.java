@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
+import X500Name;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Selector;
+
+
 
 /**
  * a basic index for an originator.

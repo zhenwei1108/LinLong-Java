@@ -1,5 +1,18 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+
+
+
+
+import DERBitString;
+
+
+
+
+
+import ECGOST3410NamedCurves;
+import GOST3410PublicKeyAlgParameters;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -9,41 +22,27 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.ECGOST3410NamedCurves;
-import org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9IntegerConverter;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.crypto.params.ECDomainParameters;
+ 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.util.Strings;
+
+import x9.X962Parameters;
+import x9.X9ECParameters;
+import x9.X9ECPoint;
+import x9.X9IntegerConverter;
+import x9.X9ObjectIdentifiers;
 
 public class JCEECPublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
 {
     private String                  algorithm = "EC";
-    private org.bouncycastle.math.ec.ECPoint q;
+    private ECPoint q;
     private ECParameterSpec         ecSpec;
     private boolean                 withCompression;
     private GOST3410PublicKeyAlgParameters       gostParams;
@@ -423,7 +422,7 @@ public class JCEECPublicKey
         return EC5Util.convertPoint(q);
     }
 
-    public org.bouncycastle.math.ec.ECPoint getQ()
+    public ECPoint getQ()
     {
         if (ecSpec == null)
         {
@@ -433,7 +432,7 @@ public class JCEECPublicKey
         return q;
     }
 
-    public org.bouncycastle.math.ec.ECPoint engineGetQ()
+    public ECPoint engineGetQ()
     {
         return q;
     }

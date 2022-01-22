@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.util.test;
 
-import org.bouncycastle.util.encoders.Hex;
+
 import org.bouncycastle.util.test.FixedSecureRandom;
 
 /**

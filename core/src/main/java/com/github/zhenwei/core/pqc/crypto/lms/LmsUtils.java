@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.pqc.crypto.lms.LMSParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
 
 class LmsUtils
 {

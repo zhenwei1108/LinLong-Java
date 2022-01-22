@@ -1,18 +1,16 @@
 package com.github.zhenwei.pkix.eac;
 
+
+ 
+import  CVCertificate;
+import  CertificateBody;
+import  CertificateHolderAuthorization;
+import  CertificateHolderReference;
+import  CertificationAuthorityReference;
+import  EACTags;
+import  PackedDate;
+import  PublicKeyDataObject;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.DERApplicationSpecific;
-import org.bouncycastle.asn1.eac.CVCertificate;
-import org.bouncycastle.asn1.eac.CertificateBody;
-import org.bouncycastle.asn1.eac.CertificateHolderAuthorization;
-import org.bouncycastle.asn1.eac.CertificateHolderReference;
-import org.bouncycastle.asn1.eac.CertificationAuthorityReference;
-import org.bouncycastle.asn1.eac.EACTags;
-import org.bouncycastle.asn1.eac.PackedDate;
-import org.bouncycastle.asn1.eac.PublicKeyDataObject;
-import org.bouncycastle.eac.EACCertificateHolder;
-import org.bouncycastle.eac.EACException;
 import org.bouncycastle.eac.operator.EACSigner;
 
 public class EACCertificateBuilder

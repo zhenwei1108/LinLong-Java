@@ -1,10 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 /**
  * <pre>
@@ -23,13 +23,13 @@ import org.bouncycastle.asn1.ASN1Primitive;
 public class CMCStatus
     extends ASN1Object
 {
-    public static final org.bouncycastle.asn1.cmc.CMCStatus success = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(0));
-    public static final org.bouncycastle.asn1.cmc.CMCStatus failed = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(2));
-    public static final org.bouncycastle.asn1.cmc.CMCStatus pending = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(3));
-    public static final org.bouncycastle.asn1.cmc.CMCStatus noSupport = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(4));
-    public static final org.bouncycastle.asn1.cmc.CMCStatus confirmRequired = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(5));
-    public static final org.bouncycastle.asn1.cmc.CMCStatus popRequired = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(6));
-    public static final org.bouncycastle.asn1.cmc.CMCStatus partial = new org.bouncycastle.asn1.cmc.CMCStatus(new ASN1Integer(7));
+    public static final cmc.CMCStatus success = new cmc.CMCStatus(new ASN1Integer(0));
+    public static final cmc.CMCStatus failed = new cmc.CMCStatus(new ASN1Integer(2));
+    public static final cmc.CMCStatus pending = new cmc.CMCStatus(new ASN1Integer(3));
+    public static final cmc.CMCStatus noSupport = new cmc.CMCStatus(new ASN1Integer(4));
+    public static final cmc.CMCStatus confirmRequired = new cmc.CMCStatus(new ASN1Integer(5));
+    public static final cmc.CMCStatus popRequired = new cmc.CMCStatus(new ASN1Integer(6));
+    public static final cmc.CMCStatus partial = new cmc.CMCStatus(new ASN1Integer(7));
 
     private static Map range = new HashMap();
 
@@ -51,16 +51,16 @@ public class CMCStatus
          this.value = value;
     }
 
-    public static org.bouncycastle.asn1.cmc.CMCStatus getInstance(Object o)
+    public static cmc.CMCStatus getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.CMCStatus)
+        if (o instanceof cmc.CMCStatus)
         {
-            return (org.bouncycastle.asn1.cmc.CMCStatus)o;
+            return (cmc.CMCStatus)o;
         }
 
         if (o != null)
         {
-            org.bouncycastle.asn1.cmc.CMCStatus status = (org.bouncycastle.asn1.cmc.CMCStatus)range.get(ASN1Integer.getInstance(o));
+            cmc.CMCStatus status = (cmc.CMCStatus)range.get(ASN1Integer.getInstance(o));
 
             if (status != null)
             {

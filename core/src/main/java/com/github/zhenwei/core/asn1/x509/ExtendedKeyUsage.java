@@ -1,19 +1,16 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.KeyPurposeId;
 
 /**
  * The extendedKeyUsage object.
@@ -34,7 +31,7 @@ public class ExtendedKeyUsage
      * @param explicit true if the tagged object should be interpreted as explicitly tagged, false if implicit.
      * @return the ExtendedKeyUsage contained.
      */
-    public static org.bouncycastle.asn1.x509.ExtendedKeyUsage getInstance(
+    public static ExtendedKeyUsage getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
@@ -47,16 +44,16 @@ public class ExtendedKeyUsage
      * @param obj an ExtendedKeyUsage, some form or encoding of one, or null.
      * @return  an ExtendedKeyUsage object, or null if null is passed in.
      */
-    public static org.bouncycastle.asn1.x509.ExtendedKeyUsage getInstance(
+    public static ExtendedKeyUsage getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.ExtendedKeyUsage)
+        if (obj instanceof ExtendedKeyUsage)
         {
-            return (org.bouncycastle.asn1.x509.ExtendedKeyUsage)obj;
+            return (x509.ExtendedKeyUsage)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.ExtendedKeyUsage(ASN1Sequence.getInstance(obj));
+            return new ExtendedKeyUsage(ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -68,7 +65,7 @@ public class ExtendedKeyUsage
      * @param extensions the extensions object to be examined.
      * @return  the ExtendedKeyUsage, null if the extension is not present.
      */
-    public static org.bouncycastle.asn1.x509.ExtendedKeyUsage fromExtensions(Extensions extensions)
+    public static ExtendedKeyUsage fromExtensions(Extensions extensions)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.extendedKeyUsage));
     }

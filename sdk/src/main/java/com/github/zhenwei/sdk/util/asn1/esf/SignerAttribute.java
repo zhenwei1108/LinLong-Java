@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+import Attribute;
+import AttributeCertificate;
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.Attribute;
-import org.bouncycastle.asn1.x509.AttributeCertificate;
 
 
 public class SignerAttribute
@@ -17,16 +17,16 @@ public class SignerAttribute
 {
     private Object[] values;
 
-    public static org.bouncycastle.asn1.esf.SignerAttribute getInstance(
+    public static esf.SignerAttribute getInstance(
         Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.esf.SignerAttribute)
+        if (o instanceof esf.SignerAttribute)
         {
-            return (org.bouncycastle.asn1.esf.SignerAttribute) o;
+            return (esf.SignerAttribute) o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.esf.SignerAttribute(ASN1Sequence.getInstance(o));
+            return new esf.SignerAttribute(ASN1Sequence.getInstance(o));
         }
 
         return null;

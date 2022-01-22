@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ParameterSpec for AEAD modes which allows associated data to be added via an algorithm parameter spec.In normal

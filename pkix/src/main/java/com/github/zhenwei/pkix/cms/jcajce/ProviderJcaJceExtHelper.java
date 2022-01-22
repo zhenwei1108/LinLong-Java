@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
 import java.security.PrivateKey;
 import java.security.Provider;
 import javax.crypto.SecretKey;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.SymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;

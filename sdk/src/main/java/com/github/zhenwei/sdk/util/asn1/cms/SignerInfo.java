@@ -1,23 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.Attributes;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.SignedData;
-import org.bouncycastle.asn1.cms.SignerIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-5.3">RFC 5652</a>:
@@ -93,24 +88,24 @@ public class SignerInfo
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.SignerInfo} object
+     * <li> {@link cms.SignerInfo} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with SignerInfo structure inside
      * </ul>
      *
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.SignerInfo getInstance(
+    public static cms.SignerInfo getInstance(
         Object  o)
         throws IllegalArgumentException
     {
-        if (o instanceof org.bouncycastle.asn1.cms.SignerInfo)
+        if (o instanceof cms.SignerInfo)
         {
-            return (org.bouncycastle.asn1.cms.SignerInfo)o;
+            return (cms.SignerInfo)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.cms.SignerInfo(ASN1Sequence.getInstance(o));
+            return new cms.SignerInfo(ASN1Sequence.getInstance(o));
         }
 
         return null;

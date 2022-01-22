@@ -1,16 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+import ASN1OctetStringParser;
+
+import ASN1SequenceParser;
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1OctetStringParser;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.cms.Evidence;
-import org.bouncycastle.asn1.cms.MetaData;
-import org.bouncycastle.asn1.cms.TimeStampedData;
 
 /**
  * Parser for <a href="https://tools.ietf.org/html/rfc5544">RFC 5544</a>:
@@ -59,16 +56,16 @@ public class TimeStampedDataParser
         }
     }
 
-    public static org.bouncycastle.asn1.cms.TimeStampedDataParser getInstance(Object obj)
+    public static cms.TimeStampedDataParser getInstance(Object obj)
         throws IOException
     {
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cms.TimeStampedDataParser(((ASN1Sequence)obj).parser());
+            return new cms.TimeStampedDataParser(((ASN1Sequence)obj).parser());
         }
         if (obj instanceof ASN1SequenceParser)
         {
-            return new org.bouncycastle.asn1.cms.TimeStampedDataParser((ASN1SequenceParser)obj);
+            return new cms.TimeStampedDataParser((ASN1SequenceParser)obj);
         }
 
         return null;

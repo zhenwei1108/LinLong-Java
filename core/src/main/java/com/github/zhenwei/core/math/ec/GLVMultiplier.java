@@ -1,12 +1,8 @@
 package com.github.zhenwei.core.math.ec;
 
+import endo.EndoUtil;
+import endo.GLVEndomorphism;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.AbstractECMultiplier;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.endo.EndoUtil;
-import org.bouncycastle.math.ec.endo.GLVEndomorphism;
 
 public class GLVMultiplier extends AbstractECMultiplier
 {

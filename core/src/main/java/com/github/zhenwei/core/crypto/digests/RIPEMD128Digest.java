@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 
 import org.bouncycastle.crypto.digests.GeneralDigest;
-import org.bouncycastle.util.Memoable;
+
 
 /**
  * implementation of RIPEMD128

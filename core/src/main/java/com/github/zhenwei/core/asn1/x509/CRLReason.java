@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
+import ASN1Enumerated;
+
+
 import java.math.BigInteger;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1Enumerated;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.util.Integers;
+ 
 
 /**
  * The CRLReason enumeration.
@@ -91,11 +91,11 @@ public class CRLReason
 
     private ASN1Enumerated value;
 
-    public static org.bouncycastle.asn1.x509.CRLReason getInstance(Object o)
+    public static CRLReason getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.x509.CRLReason)
+        if (o instanceof CRLReason)
         {
-            return (org.bouncycastle.asn1.x509.CRLReason)o;
+            return (CRLReason)o;
         }
         else if (o != null)
         {
@@ -140,15 +140,15 @@ public class CRLReason
         return value;
     }
 
-    public static org.bouncycastle.asn1.x509.CRLReason lookup(int value)
+    public static CRLReason lookup(int value)
     {
         Integer idx = Integers.valueOf(value);
 
         if (!table.containsKey(idx))
         {
-            table.put(idx, new org.bouncycastle.asn1.x509.CRLReason(value));
+            table.put(idx, new CRLReason(value));
         }
 
-        return (org.bouncycastle.asn1.x509.CRLReason)table.get(idx);
+        return (CRLReason)table.get(idx);
     }
 }

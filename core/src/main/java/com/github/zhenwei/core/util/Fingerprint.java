@@ -2,7 +2,7 @@ package com.github.zhenwei.core.util;
 
 import org.bouncycastle.crypto.digests.SHA512tDigest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Basic 20 byte finger print class.

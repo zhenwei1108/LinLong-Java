@@ -1,21 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.sphincs;
 
+
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
+
+
+
 import org.bouncycastle.crypto.digests.SHA3Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.digests.SHA512tDigest;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCS256Signer;
-import org.bouncycastle.pqc.jcajce.provider.sphincs.BCSphincs256PrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.sphincs.BCSphincs256PublicKey;
 
 public class SignatureSpi
     extends java.security.SignatureSpi

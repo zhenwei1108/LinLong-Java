@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.esf.SignaturePolicyId;
+import ASN1Null;
+
+
+
+
 
 public class SignaturePolicyIdentifier
     extends ASN1Object
@@ -13,20 +12,20 @@ public class SignaturePolicyIdentifier
     private SignaturePolicyId   signaturePolicyId;
     private boolean             isSignaturePolicyImplied;
 
-    public static org.bouncycastle.asn1.esf.SignaturePolicyIdentifier getInstance(
+    public static esf.SignaturePolicyIdentifier getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.SignaturePolicyIdentifier)
+        if (obj instanceof esf.SignaturePolicyIdentifier)
         {
-            return (org.bouncycastle.asn1.esf.SignaturePolicyIdentifier)obj;
+            return (esf.SignaturePolicyIdentifier)obj;
         }
         else if (obj instanceof ASN1Null || hasEncodedTagValue(obj, BERTags.NULL))
         {
-            return new org.bouncycastle.asn1.esf.SignaturePolicyIdentifier();
+            return new esf.SignaturePolicyIdentifier();
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.SignaturePolicyIdentifier(SignaturePolicyId.getInstance(obj));
+            return new esf.SignaturePolicyIdentifier(SignaturePolicyId.getInstance(obj));
         }
 
         return null;

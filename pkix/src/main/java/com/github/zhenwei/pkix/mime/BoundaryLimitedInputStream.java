@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.mime;
 
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.util.Strings;
+
 
 public class BoundaryLimitedInputStream
     extends InputStream

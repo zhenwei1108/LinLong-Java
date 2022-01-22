@@ -1,20 +1,17 @@
 package com.github.zhenwei.pkix.tsp;
 
+import ASN1Boolean;
+
+
+
+
+import Extensions;
+import ExtensionsGenerator;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.tsp.MessageImprint;
-import org.bouncycastle.asn1.tsp.TimeStampReq;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.ExtensionsGenerator;
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
-import org.bouncycastle.tsp.TSPIOException;
-import org.bouncycastle.tsp.TSPUtil;
-import org.bouncycastle.tsp.TimeStampRequest;
+import tsp.MessageImprint;
+import tsp.TimeStampReq;
 
 /**
  * Generator for RFC 3161 Time Stamp Request objects.

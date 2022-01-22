@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
-import org.bouncycastle.asn1.cms.ContentInfo;
+
+
+
+
+
+
+import cms.ContentInfo;
 
 /**
  * <pre>
@@ -39,22 +38,22 @@ public class TaggedContentInfo
         this.contentInfo = ContentInfo.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.cmc.TaggedContentInfo getInstance(Object o)
+    public static cmc.TaggedContentInfo getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.TaggedContentInfo)
+        if (o instanceof cmc.TaggedContentInfo)
         {
-            return (org.bouncycastle.asn1.cmc.TaggedContentInfo)o;
+            return (cmc.TaggedContentInfo)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.TaggedContentInfo(ASN1Sequence.getInstance(o));
+            return new cmc.TaggedContentInfo(ASN1Sequence.getInstance(o));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.cmc.TaggedContentInfo getInstance(
+    public static cmc.TaggedContentInfo getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

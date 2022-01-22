@@ -1,17 +1,14 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+import cms.CMSObjectIdentifiers;
+import cms.CompressedData;
+import cms.ContentInfo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.BEROctetString;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.CompressedData;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSCompressedData;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedData;
 import org.bouncycastle.operator.OutputCompressor;
 
 /**

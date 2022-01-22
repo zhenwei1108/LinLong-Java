@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
+
+
+
+
+
+
+
+import Time;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.Time;
 
 public class OptionalValidity
     extends ASN1Object
@@ -34,16 +34,16 @@ public class OptionalValidity
         }
     }
 
-    public static org.bouncycastle.asn1.crmf.OptionalValidity getInstance(Object o)
+    public static crmf.OptionalValidity getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.OptionalValidity)
+        if (o instanceof crmf.OptionalValidity)
         {
-            return (org.bouncycastle.asn1.crmf.OptionalValidity)o;
+            return (crmf.OptionalValidity)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.OptionalValidity(ASN1Sequence.getInstance(o));
+            return new crmf.OptionalValidity(ASN1Sequence.getInstance(o));
         }
 
         return null;

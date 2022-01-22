@@ -1,14 +1,12 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cryptopro.Gost2814789EncryptedKey;
-import org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters;
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -37,17 +35,17 @@ public class GostR3410KeyTransport
         this.transportParameters = transportParameters;
     }
 
-    public static org.bouncycastle.asn1.cryptopro.GostR3410KeyTransport getInstance(
+    public static GostR3410KeyTransport getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cryptopro.GostR3410KeyTransport)
+        if (obj instanceof GostR3410KeyTransport)
         {
-            return (org.bouncycastle.asn1.cryptopro.GostR3410KeyTransport)obj;
+            return  (GostR3410KeyTransport)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cryptopro.GostR3410KeyTransport(ASN1Sequence.getInstance(obj));
+            return new GostR3410KeyTransport(ASN1Sequence.getInstance(obj));
         }
 
         return null;

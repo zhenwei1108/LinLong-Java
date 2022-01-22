@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.math.ec.rfc7748;
 
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.rfc7748.X25519Field;
-import org.bouncycastle.math.ec.rfc8032.Ed25519;
-import org.bouncycastle.util.Arrays;
+
+import rfc7748.X25519Field;
+import rfc8032.Ed25519;
 
 public abstract class X25519
 {

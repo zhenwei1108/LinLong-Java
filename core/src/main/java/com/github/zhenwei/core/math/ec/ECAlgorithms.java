@@ -1,23 +1,13 @@
 package com.github.zhenwei.core.math.ec;
 
+
+import endo.ECEndomorphism;
+import endo.EndoUtil;
+import endo.GLVEndomorphism;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.ECPointMap;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
-import org.bouncycastle.math.ec.FixedPointPreCompInfo;
-import org.bouncycastle.math.ec.FixedPointUtil;
-import org.bouncycastle.math.ec.WNafPreCompInfo;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.math.ec.endo.ECEndomorphism;
-import org.bouncycastle.math.ec.endo.EndoUtil;
-import org.bouncycastle.math.ec.endo.GLVEndomorphism;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.PolynomialExtensionField;
-import org.bouncycastle.math.raw.Nat;
+
 
 public class ECAlgorithms
 {

@@ -1,29 +1,27 @@
 package com.github.zhenwei.pkix.tsp;
 
+
+
+
+
+
+import X500Name;
+
+import cms.AttributeTable;
+import cms.ContentInfo;
+import cms.IssuerAndSerialNumber;
+import ess.ESSCertID;
+import ess.ESSCertIDv2;
+import ess.SigningCertificate;
+import ess.SigningCertificateV2;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collection;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.ess.ESSCertID;
-import org.bouncycastle.asn1.ess.ESSCertIDv2;
-import org.bouncycastle.asn1.ess.SigningCertificate;
-import org.bouncycastle.asn1.ess.SigningCertificateV2;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.tsp.TSTInfo;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.IssuerSerial;
+
 import org.bouncycastle.cert.X509AttributeCertificateHolder;
 import org.bouncycastle.cert.X509CRLHolder;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSSignedData;
@@ -32,12 +30,10 @@ import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.OperatorCreationException;
-import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.TSPUtil;
-import org.bouncycastle.tsp.TSPValidationException;
-import org.bouncycastle.tsp.TimeStampTokenInfo;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.Store;
+
+import tsp.TSTInfo;
 
 /**
  * Carrier class for a TimeStampToken.

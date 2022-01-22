@@ -1,9 +1,9 @@
 package com.github.zhenwei.provider.jce.spec;
 
+
+
 import java.math.BigInteger;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
 
 /**
  * basic domain parameters for an Elliptic Curve public or private key.

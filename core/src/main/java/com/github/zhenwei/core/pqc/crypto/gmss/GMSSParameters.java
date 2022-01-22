@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class provides a specification for the GMSS parameters that are used by

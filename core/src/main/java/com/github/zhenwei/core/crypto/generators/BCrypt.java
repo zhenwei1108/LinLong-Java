@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Pack;
-import org.bouncycastle.util.Strings;
+
+
+
+
 
 /**
  * Core of password hashing scheme Bcrypt,

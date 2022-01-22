@@ -1,13 +1,13 @@
-package com.github.zhenwei.core.asn1.x509.qualified;
+package com.github.zhenwei.core.asn1.qualified;
+
+
+
+
+
+
+
 
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 /**
  * The SemanticsInformation object.
@@ -29,16 +29,16 @@ public class SemanticsInformation
     private ASN1ObjectIdentifier semanticsIdentifier;
     private GeneralName[] nameRegistrationAuthorities;
     
-    public static org.bouncycastle.asn1.x509.qualified.SemanticsInformation getInstance(Object obj)
+    public static qualified.SemanticsInformation getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.qualified.SemanticsInformation)
+        if (obj instanceof qualified.SemanticsInformation)
         {
-            return (org.bouncycastle.asn1.x509.qualified.SemanticsInformation)obj;
+            return (qualified.SemanticsInformation)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.qualified.SemanticsInformation(ASN1Sequence.getInstance(obj));
+            return new qualified.SemanticsInformation(ASN1Sequence.getInstance(obj));
         }
         
         return null;

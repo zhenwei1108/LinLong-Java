@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
 
 /**
  * Commitment type qualifiers, used in the Commitment-Type-Indication attribute (RFC3126).
@@ -65,15 +65,15 @@ public class CommitmentTypeQualifier
         }
     }
 
-    public static org.bouncycastle.asn1.esf.CommitmentTypeQualifier getInstance(Object as)
+    public static esf.CommitmentTypeQualifier getInstance(Object as)
     {
-        if (as instanceof org.bouncycastle.asn1.esf.CommitmentTypeQualifier)
+        if (as instanceof esf.CommitmentTypeQualifier)
         {
-            return (org.bouncycastle.asn1.esf.CommitmentTypeQualifier)as;
+            return (esf.CommitmentTypeQualifier)as;
         }
         else if (as != null)
         {
-            return new org.bouncycastle.asn1.esf.CommitmentTypeQualifier(ASN1Sequence.getInstance(as));
+            return new esf.CommitmentTypeQualifier(ASN1Sequence.getInstance(as));
         }
 
         return null;

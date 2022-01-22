@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * <pre>
@@ -53,16 +53,16 @@ public class PublishTrustAnchors
         this.anchorHashes = ASN1Sequence.getInstance(seq.getObjectAt(2));
     }
 
-    public static org.bouncycastle.asn1.cmc.PublishTrustAnchors getInstance(Object o)
+    public static cmc.PublishTrustAnchors getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.PublishTrustAnchors)
+        if (o instanceof cmc.PublishTrustAnchors)
         {
-            return (org.bouncycastle.asn1.cmc.PublishTrustAnchors)o;
+            return (cmc.PublishTrustAnchors)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.PublishTrustAnchors(ASN1Sequence.getInstance(o));
+            return new cmc.PublishTrustAnchors(ASN1Sequence.getInstance(o));
         }
 
         return null;

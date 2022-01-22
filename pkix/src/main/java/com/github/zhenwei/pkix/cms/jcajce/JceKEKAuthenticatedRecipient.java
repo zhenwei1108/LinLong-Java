@@ -1,13 +1,12 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
 import java.io.OutputStream;
 import java.security.Key;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.RecipientOperator;
-import org.bouncycastle.cms.jcajce.JceKEKRecipient;
 import org.bouncycastle.jcajce.io.MacOutputStream;
 import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.MacCalculator;

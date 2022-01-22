@@ -1,14 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.V2Form;
+
+
+
+
+
+
+
 
 public class AttCertIssuer
     extends ASN1Object
@@ -17,34 +15,34 @@ public class AttCertIssuer
     ASN1Encodable   obj;
     ASN1Primitive choiceObj;
     
-    public static org.bouncycastle.asn1.x509.AttCertIssuer getInstance(
+    public static AttCertIssuer getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.AttCertIssuer)
+        if (obj == null || obj instanceof AttCertIssuer)
         {
-            return (org.bouncycastle.asn1.x509.AttCertIssuer)obj;
+            return (x509.AttCertIssuer)obj;
         }
         else if (obj instanceof V2Form)
         {
-            return new org.bouncycastle.asn1.x509.AttCertIssuer(V2Form.getInstance(obj));
+            return new AttCertIssuer(V2Form.getInstance(obj));
         }
         else if (obj instanceof GeneralNames)
         {
-            return new org.bouncycastle.asn1.x509.AttCertIssuer((GeneralNames)obj);
+            return new AttCertIssuer((GeneralNames)obj);
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.x509.AttCertIssuer(V2Form.getInstance((ASN1TaggedObject)obj, false));
+            return new AttCertIssuer(V2Form.getInstance((ASN1TaggedObject)obj, false));
         }
         else if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.x509.AttCertIssuer(GeneralNames.getInstance(obj));
+            return new AttCertIssuer(GeneralNames.getInstance(obj));
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());
     }
     
-    public static org.bouncycastle.asn1.x509.AttCertIssuer getInstance(
+    public static AttCertIssuer getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

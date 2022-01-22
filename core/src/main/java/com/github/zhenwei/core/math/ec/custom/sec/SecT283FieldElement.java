@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+import com.github.zhenwei.core.math.ec.ECFieldElement.F2m;
+import SecT283Field;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecT283Field;
-import org.bouncycastle.math.raw.Nat;
+
 import org.bouncycastle.math.raw.Nat320;
-import org.bouncycastle.util.Arrays;
+
 
 public class SecT283FieldElement extends ECFieldElement.AbstractF2m
 {
@@ -69,15 +70,15 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
     public ECFieldElement add(ECFieldElement b)
     {
         long[] z = Nat320.create64();
-        SecT283Field.add(x, ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        SecT283Field.add(x, ((SecT283FieldElement)b).x, z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement addOne()
     {
         long[] z = Nat320.create64();
         SecT283Field.addOne(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement subtract(ECFieldElement b)
@@ -89,8 +90,8 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
     public ECFieldElement multiply(ECFieldElement b)
     {
         long[] z = Nat320.create64();
-        SecT283Field.multiply(x, ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        SecT283Field.multiply(x, ((SecT283FieldElement)b).x, z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement multiplyMinusProduct(ECFieldElement b, ECFieldElement x, ECFieldElement y)
@@ -100,8 +101,8 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
 
     public ECFieldElement multiplyPlusProduct(ECFieldElement b, ECFieldElement x, ECFieldElement y)
     {
-        long[] ax = this.x, bx = ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)b).x;
-        long[] xx = ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)x).x, yx = ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)y).x;
+        long[] ax = this.x, bx = ((SecT283FieldElement)b).x;
+        long[] xx = ((SecT283FieldElement)x).x, yx = ((SecT283FieldElement)y).x;
 
         long[] tt = Nat.create64(9);
         SecT283Field.multiplyAddToExt(ax, bx, tt);
@@ -109,7 +110,7 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
 
         long[] z = Nat320.create64();
         SecT283Field.reduce(tt, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement divide(ECFieldElement b)
@@ -126,7 +127,7 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
     {
         long[] z = Nat320.create64();
         SecT283Field.square(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement squareMinusProduct(ECFieldElement x, ECFieldElement y)
@@ -137,7 +138,7 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
     public ECFieldElement squarePlusProduct(ECFieldElement x, ECFieldElement y)
     {
         long[] ax = this.x;
-        long[] xx = ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)x).x, yx = ((org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)y).x;
+        long[] xx = ((SecT283FieldElement)x).x, yx = ((SecT283FieldElement)y).x;
 
         long[] tt = Nat.create64(9);
         SecT283Field.squareAddToExt(ax, tt);
@@ -145,7 +146,7 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
 
         long[] z = Nat320.create64();
         SecT283Field.reduce(tt, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement squarePow(int pow)
@@ -157,14 +158,14 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
 
         long[] z = Nat320.create64();
         SecT283Field.squareN(x, pow, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement halfTrace()
     {
         long[] z = Nat320.create64();
         SecT283Field.halfTrace(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public boolean hasFastTrace()
@@ -181,14 +182,14 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
     {
         long[] z = Nat320.create64();
         SecT283Field.invert(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public ECFieldElement sqrt()
     {
         long[] z = Nat320.create64();
         SecT283Field.sqrt(x, z);
-        return new org.bouncycastle.math.ec.custom.sec.SecT283FieldElement(z);
+        return new SecT283FieldElement(z);
     }
 
     public int getRepresentation()
@@ -223,12 +224,12 @@ public class SecT283FieldElement extends ECFieldElement.AbstractF2m
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.custom.sec.SecT283FieldElement))
+        if (!(other instanceof SecT283FieldElement))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.custom.sec.SecT283FieldElement o = (org.bouncycastle.math.ec.custom.sec.SecT283FieldElement)other;
+        SecT283FieldElement o = (SecT283FieldElement)other;
         return Nat320.eq64(x, o.x);
     }
 

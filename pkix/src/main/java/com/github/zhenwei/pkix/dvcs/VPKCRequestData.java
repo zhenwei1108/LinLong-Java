@@ -1,13 +1,10 @@
 package com.github.zhenwei.pkix.dvcs;
 
+import Data;
+import TargetEtcChain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.bouncycastle.asn1.dvcs.Data;
-import org.bouncycastle.asn1.dvcs.TargetEtcChain;
-import org.bouncycastle.dvcs.DVCSConstructionException;
-import org.bouncycastle.dvcs.DVCSRequestData;
-import org.bouncycastle.dvcs.TargetChain;
 
 /**
  * Data piece of DVCS request to VPKC service (Verify Public Key Certificates).

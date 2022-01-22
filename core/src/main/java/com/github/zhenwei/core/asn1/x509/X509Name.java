@@ -1,30 +1,27 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+import X500Name;
+import X509NameTokenizer;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UniversalString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.X509DefaultEntryConverter;
-import org.bouncycastle.asn1.x509.X509NameEntryConverter;
-import org.bouncycastle.asn1.x509.X509NameTokenizer;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 /**
  * <pre>
@@ -36,7 +33,7 @@ import org.bouncycastle.util.encoders.Hex;
  *                                   type  OBJECT IDENTIFIER,
  *                                   value ANY }
  * </pre>
- * @deprecated use org.bouncycastle.asn1.x500.X500Name.
+ * @deprecated use  X500Name.
  */
 public class X509Name
     extends ASN1Object
@@ -367,27 +364,27 @@ public class X509Name
      * @param explicit true if explicitly tagged false otherwise.
      * @return the X509Name
      */
-    public static org.bouncycastle.asn1.x509.X509Name getInstance(
+    public static X509Name getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.X509Name getInstance(
+    public static X509Name getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.X509Name)
+        if (obj instanceof X509Name)
         {
-            return (org.bouncycastle.asn1.x509.X509Name)obj;
+            return (x509.X509Name)obj;
         }
         else if (obj instanceof X500Name)
         {
-            return new org.bouncycastle.asn1.x509.X509Name(ASN1Sequence.getInstance(((X500Name)obj).toASN1Primitive()));
+            return new X509Name(ASN1Sequence.getInstance(((X500Name)obj).toASN1Primitive()));
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.X509Name(ASN1Sequence.getInstance(obj));
+            return new X509Name(ASN1Sequence.getInstance(obj));
         }
 
         return null;
@@ -978,7 +975,7 @@ public class X509Name
             return true;
         }
 
-        if (!(obj instanceof org.bouncycastle.asn1.x509.X509Name || obj instanceof ASN1Sequence))
+        if (!(obj instanceof X509Name || obj instanceof ASN1Sequence))
         {
             return false;
         }
@@ -990,11 +987,11 @@ public class X509Name
             return true;
         }
 
-        org.bouncycastle.asn1.x509.X509Name other;
+        X509Name other;
 
         try
         {
-            other = org.bouncycastle.asn1.x509.X509Name.getInstance(obj);
+            other = X509Name.getInstance(obj);
         }
         catch (IllegalArgumentException e)
         {
@@ -1066,7 +1063,7 @@ public class X509Name
             return true;
         }
 
-        if (!(obj instanceof org.bouncycastle.asn1.x509.X509Name || obj instanceof ASN1Sequence))
+        if (!(obj instanceof X509Name || obj instanceof ASN1Sequence))
         {
             return false;
         }
@@ -1078,11 +1075,11 @@ public class X509Name
             return true;
         }
 
-        org.bouncycastle.asn1.x509.X509Name other;
+        X509Name other;
 
         try
         {
-            other = org.bouncycastle.asn1.x509.X509Name.getInstance(obj);
+            other = X509Name.getInstance(obj);
         }
         catch (IllegalArgumentException e)
         { 

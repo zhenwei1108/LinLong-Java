@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.ContentInfo;
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5940">RFC 5940</a>:
@@ -31,23 +30,23 @@ public class SCVPReqRes
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.SCVPReqRes} object
+     * <li> {@link cms.SCVPReqRes} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with SCVPReqRes structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.SCVPReqRes getInstance(
+    public static cms.SCVPReqRes getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.SCVPReqRes)
+        if (obj instanceof cms.SCVPReqRes)
         {
-            return (org.bouncycastle.asn1.cms.SCVPReqRes)obj;
+            return (cms.SCVPReqRes)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.SCVPReqRes(ASN1Sequence.getInstance(obj));
+            return new cms.SCVPReqRes(ASN1Sequence.getInstance(obj));
         }
 
         return null;

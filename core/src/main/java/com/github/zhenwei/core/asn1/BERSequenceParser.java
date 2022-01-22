@@ -1,11 +1,6 @@
 package com.github.zhenwei.core.asn1;
 
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.ASN1StreamParser;
-import org.bouncycastle.asn1.BERSequence;
 
 /**
  * Parser for indefinite-length SEQUENCEs.

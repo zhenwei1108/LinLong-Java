@@ -1,32 +1,30 @@
 package com.github.zhenwei.pkix.openssl;
 
+
+
+
+
+import DSAParameter;
+
+import cms.ContentInfo;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.DSAParameter;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+
 import org.bouncycastle.cert.X509AttributeCertificateHolder;
 import org.bouncycastle.cert.X509CRLHolder;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.openssl.PEMEncryptor;
-import org.bouncycastle.openssl.X509TrustedCertificateBlock;
+ 
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.io.pem.PemGenerationException;
-import org.bouncycastle.util.io.pem.PemHeader;
-import org.bouncycastle.util.io.pem.PemObject;
-import org.bouncycastle.util.io.pem.PemObjectGenerator;
+
+
+
+
+
+
+import pkcs.PrivateKeyInfo;
+import x9.X9ObjectIdentifiers;
 
 /**
  * PEM generator for the original set of PEM objects used in Open SSL.

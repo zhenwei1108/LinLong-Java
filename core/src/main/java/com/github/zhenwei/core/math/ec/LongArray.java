@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.math.ec;
 
+
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.util.Arrays;
+
 
 class LongArray implements Cloneable
 {
@@ -616,17 +616,17 @@ class LongArray implements Cloneable
         return prev;
     }
 
-    public org.bouncycastle.math.ec.LongArray addOne()
+    public LongArray addOne()
     {
         if (m_ints.length == 0)
         {
-            return new org.bouncycastle.math.ec.LongArray(new long[]{ 1L });
+            return new LongArray(new long[]{ 1L });
         }
 
         int resultLen = Math.max(1, getUsedLength());
         long[] ints = resizedInts(resultLen);
         ints[0] ^= 1L;
-        return new org.bouncycastle.math.ec.LongArray(ints);
+        return new LongArray(ints);
     }
 
 //    private void addShiftedByBits(LongArray other, int bits)
@@ -860,7 +860,7 @@ class LongArray implements Cloneable
         }
     }
 
-    public org.bouncycastle.math.ec.LongArray modMultiplyLD(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray modMultiplyLD(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -879,7 +879,7 @@ class LongArray implements Cloneable
         /*
          * Swap if necessary so that A is the smaller argument
          */
-        org.bouncycastle.math.ec.LongArray A = this, B = other;
+        LongArray A = this, B = other;
         if (aDeg > bDeg)
         {
             A = other; B = this;
@@ -992,7 +992,7 @@ class LongArray implements Cloneable
         return reduceResult(c, 0, cLen, m, ks);
     }
 
-    public org.bouncycastle.math.ec.LongArray modMultiply(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray modMultiply(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -1011,7 +1011,7 @@ class LongArray implements Cloneable
         /*
          * Swap if necessary so that A is the smaller argument
          */
-        org.bouncycastle.math.ec.LongArray A = this, B = other;
+        LongArray A = this, B = other;
         if (aDeg > bDeg)
         {
             A = other; B = this;
@@ -1124,8 +1124,8 @@ class LongArray implements Cloneable
         return reduceResult(c, 0, cLen, m, ks);
     }
 
-    public org.bouncycastle.math.ec.LongArray modMultiplyAlt(
-        org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray modMultiplyAlt(
+        LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -1144,7 +1144,7 @@ class LongArray implements Cloneable
         /*
          * Swap if necessary so that A is the smaller argument
          */
-        org.bouncycastle.math.ec.LongArray A = this, B = other;
+        LongArray A = this, B = other;
         if (aDeg > bDeg)
         {
             A = other; B = this;
@@ -1342,14 +1342,14 @@ class LongArray implements Cloneable
         return reduceResult(c, ci[1], cLen, m, ks);
     }
 
-    public org.bouncycastle.math.ec.LongArray modReduce(int m, int[] ks)
+    public LongArray modReduce(int m, int[] ks)
     {
         long[] buf = Arrays.clone(m_ints);
         int rLen = reduceInPlace(buf, 0, buf.length, m, ks);
-        return new org.bouncycastle.math.ec.LongArray(buf, 0, rLen);
+        return new LongArray(buf, 0, rLen);
     }
 
-    public org.bouncycastle.math.ec.LongArray multiply(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
+    public LongArray multiply(org.bouncycastle.math.ec.LongArray other, int m, int[] ks)
     {
         /*
          * Find out the degree of each argument and handle the zero cases
@@ -1368,7 +1368,7 @@ class LongArray implements Cloneable
         /*
          * Swap if necessary so that A is the smaller argument
          */
-        org.bouncycastle.math.ec.LongArray A = this, B = other;
+        LongArray A = this, B = other;
         if (aDeg > bDeg)
         {
             A = other; B = this;
@@ -1400,7 +1400,7 @@ class LongArray implements Cloneable
              * Reduce the raw answer against the reduction coefficients
              */
 //            return reduceResult(c0, 0, cLen, m, ks);
-            return new org.bouncycastle.math.ec.LongArray(c0, 0, cLen);
+            return new LongArray(c0, 0, cLen);
         }
 
         /*
@@ -1480,7 +1480,7 @@ class LongArray implements Cloneable
          * Finally the raw answer is collected, reduce it against the reduction coefficients
          */
 //        return reduceResult(c, 0, cLen, m, ks);
-        return new org.bouncycastle.math.ec.LongArray(c, 0, cLen);
+        return new LongArray(c, 0, cLen);
     }
 
     public void reduce(int m, int[] ks)
@@ -1494,10 +1494,10 @@ class LongArray implements Cloneable
         }
     }
 
-    private static org.bouncycastle.math.ec.LongArray reduceResult(long[] buf, int off, int len, int m, int[] ks)
+    private static LongArray reduceResult(long[] buf, int off, int len, int m, int[] ks)
     {
         int rLen = reduceInPlace(buf, off, len, m, ks);
-        return new org.bouncycastle.math.ec.LongArray(buf, off, rLen);
+        return new LongArray(buf, off, rLen);
     }
 
 //    private static void deInterleave(long[] x, int xOff, long[] z, int zOff, int count, int rounds)
@@ -1662,7 +1662,7 @@ class LongArray implements Cloneable
         }
     }
 
-    public org.bouncycastle.math.ec.LongArray modSquare(int m, int[] ks)
+    public LongArray modSquare(int m, int[] ks)
     {
         int len = getUsedLength();
         if (len == 0)
@@ -1681,10 +1681,10 @@ class LongArray implements Cloneable
             r[pos++] = interleave2_32to64((int)(mi >>> 32));
         }
 
-        return new org.bouncycastle.math.ec.LongArray(r, 0, reduceInPlace(r, 0, r.length, m, ks));
+        return new LongArray(r, 0, reduceInPlace(r, 0, r.length, m, ks));
     }
 
-    public org.bouncycastle.math.ec.LongArray modSquareN(int n, int m, int[] ks)
+    public LongArray modSquareN(int n, int m, int[] ks)
     {
         int len = getUsedLength();
         if (len == 0)
@@ -1702,10 +1702,10 @@ class LongArray implements Cloneable
             len = reduceInPlace(r, 0, r.length, m, ks);
         }
 
-        return new org.bouncycastle.math.ec.LongArray(r, 0, len);
+        return new LongArray(r, 0, len);
     }
 
-    public org.bouncycastle.math.ec.LongArray square(int m, int[] ks)
+    public LongArray square(int m, int[] ks)
     {
         int len = getUsedLength();
         if (len == 0)
@@ -1724,7 +1724,7 @@ class LongArray implements Cloneable
             r[pos++] = interleave2_32to64((int)(mi >>> 32));
         }
 
-        return new org.bouncycastle.math.ec.LongArray(r, 0, r.length);
+        return new LongArray(r, 0, r.length);
     }
 
     private static void squareInPlace(long[] x, int xLen, int m, int[] ks)
@@ -2020,7 +2020,7 @@ class LongArray implements Cloneable
 //        return t4.modMultiply(t1, m, ks);
 //    }
 
-    public org.bouncycastle.math.ec.LongArray modInverse(int m, int[] ks)
+    public LongArray modInverse(int m, int[] ks)
     {
         /*
          * Fermat's Little Theorem
@@ -2070,24 +2070,24 @@ class LongArray implements Cloneable
         }
 
         // u(z) := a(z)
-        org.bouncycastle.math.ec.LongArray uz = (org.bouncycastle.math.ec.LongArray)clone();
+        LongArray uz = (org.bouncycastle.math.ec.LongArray)clone();
 
         int t = (m + 63) >>> 6;
 
         // v(z) := f(z)
-        org.bouncycastle.math.ec.LongArray vz = new org.bouncycastle.math.ec.LongArray(t);
+        LongArray vz = new LongArray(t);
         reduceBit(vz.m_ints, 0, m, m, ks);
 
         // g1(z) := 1, g2(z) := 0
-        org.bouncycastle.math.ec.LongArray g1z = new org.bouncycastle.math.ec.LongArray(t);
+        LongArray g1z = new LongArray(t);
         g1z.m_ints[0] = 1L;
-        org.bouncycastle.math.ec.LongArray g2z = new org.bouncycastle.math.ec.LongArray(t);
+        LongArray g2z = new LongArray(t);
 
         int[] uvDeg = new int[]{ uzDegree, m + 1 };
-        org.bouncycastle.math.ec.LongArray[] uv = new org.bouncycastle.math.ec.LongArray[]{ uz, vz };
+        LongArray[] uv = new LongArray[]{ uz, vz };
 
         int[] ggDeg = new int[]{ 1, 0 };
-        org.bouncycastle.math.ec.LongArray[] gg = new org.bouncycastle.math.ec.LongArray[]{ g1z, g2z };
+        LongArray[] gg = new LongArray[]{ g1z, g2z };
 
         int b = 1;
         int duv1 = uvDeg[b];
@@ -2136,11 +2136,11 @@ class LongArray implements Cloneable
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.math.ec.LongArray))
+        if (!(o instanceof LongArray))
         {
             return false;
         }
-        org.bouncycastle.math.ec.LongArray other = (org.bouncycastle.math.ec.LongArray) o;
+        LongArray other = (org.bouncycastle.math.ec.LongArray) o;
         int usedLen = getUsedLength();
         if (other.getUsedLength() != usedLen)
         {
@@ -2173,7 +2173,7 @@ class LongArray implements Cloneable
 
     public Object clone()
     {
-        return new org.bouncycastle.math.ec.LongArray(Arrays.clone(m_ints));
+        return new LongArray(Arrays.clone(m_ints));
     }
 
     public String toString()

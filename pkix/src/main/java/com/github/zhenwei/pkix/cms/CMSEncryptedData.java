@@ -1,12 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
+import cms.ContentInfo;
+import cms.EncryptedContentInfo;
+import cms.EncryptedData;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.EncryptedContentInfo;
-import org.bouncycastle.asn1.cms.EncryptedData;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedStream;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
 

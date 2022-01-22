@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.esf.OcspResponsesID;
 
 /**
  * <pre>
@@ -19,15 +18,15 @@ public class OcspListID
 {
     private ASN1Sequence ocspResponses;
 
-    public static org.bouncycastle.asn1.esf.OcspListID getInstance(Object obj)
+    public static esf.OcspListID getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.OcspListID)
+        if (obj instanceof esf.OcspListID)
         {
-            return (org.bouncycastle.asn1.esf.OcspListID)obj;
+            return (esf.OcspListID)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.OcspListID(ASN1Sequence.getInstance(obj));
+            return new esf.OcspListID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

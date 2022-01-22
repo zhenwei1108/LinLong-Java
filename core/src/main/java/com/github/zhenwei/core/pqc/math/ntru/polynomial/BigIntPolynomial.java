@@ -5,8 +5,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.util.Arrays;
+
+
+import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * A polynomial with {@link BigInteger} coefficients.<br>

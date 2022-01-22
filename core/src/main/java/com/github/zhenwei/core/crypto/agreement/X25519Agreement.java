@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.agreement;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.RawAgreement;
 import org.bouncycastle.crypto.params.X25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.X25519PublicKeyParameters;

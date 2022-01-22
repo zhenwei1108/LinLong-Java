@@ -1,18 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
+
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1External;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.DLSequence;
-import org.bouncycastle.asn1.DLTaggedObject;
 
 /**
  * Class representing the Definite-Length-type External
@@ -32,7 +23,7 @@ public class DLExternal
      *
      * @throws IllegalArgumentException if input size is wrong, or input is not an acceptable format
      *
-     * @deprecated Use {@link org.bouncycastle.asn1.DLExternal#DLExternal(DLSequence)} instead.
+     * @deprecated Use {@link DLExternal#DLExternal(DLSequence)} instead.
      */
     public DLExternal(ASN1EncodableVector vector)
     {

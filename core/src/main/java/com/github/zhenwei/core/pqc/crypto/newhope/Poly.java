@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
 import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.util.Pack;
+
 
 class Poly
 {

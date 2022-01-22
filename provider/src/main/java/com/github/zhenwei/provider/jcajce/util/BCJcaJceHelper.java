@@ -2,8 +2,7 @@ package com.github.zhenwei.provider.jcajce.util;
 
 import java.security.Provider;
 import java.security.Security;
-import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 
 /**
  * A JCA/JCE helper that refers to the BC provider for all it's needs.

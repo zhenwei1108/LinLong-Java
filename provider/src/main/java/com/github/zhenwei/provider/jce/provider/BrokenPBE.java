@@ -2,8 +2,8 @@ package com.github.zhenwei.provider.jce.provider;
 
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
+ 
+
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.digests.MD5Digest;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;

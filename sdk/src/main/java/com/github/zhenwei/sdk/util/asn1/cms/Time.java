@@ -1,18 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+import ASN1GeneralizedTime;
+
+
+
+import ASN1UTCTime;
+import DERGeneralizedTime;
+import DERUTCTime;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTCTime;
-import org.bouncycastle.asn1.DERGeneralizedTime;
-import org.bouncycastle.asn1.DERUTCTime;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-11.3">RFC 5652</a>:
@@ -36,7 +36,7 @@ public class Time
 {
     ASN1Primitive time;
 
-    public static org.bouncycastle.asn1.cms.Time getInstance(
+    public static cms.Time getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
@@ -120,7 +120,7 @@ public class Time
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.Time} object
+     * <li> {@link cms.Time} object
      * <li> {@link DERUTCTime DERUTCTime} object
      * <li> {@link DERGeneralizedTime DERGeneralizedTime} object
      * </ul>
@@ -128,20 +128,20 @@ public class Time
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.Time getInstance(
+    public static cms.Time getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.cms.Time)
+        if (obj == null || obj instanceof cms.Time)
         {
-            return (org.bouncycastle.asn1.cms.Time)obj;
+            return (cms.Time)obj;
         }
         else if (obj instanceof ASN1UTCTime)
         {
-            return new org.bouncycastle.asn1.cms.Time((ASN1UTCTime)obj);
+            return new cms.Time((ASN1UTCTime)obj);
         }
         else if (obj instanceof ASN1GeneralizedTime)
         {
-            return new org.bouncycastle.asn1.cms.Time((ASN1GeneralizedTime)obj);
+            return new cms.Time((ASN1GeneralizedTime)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());

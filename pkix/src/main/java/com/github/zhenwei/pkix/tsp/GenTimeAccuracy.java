@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.tsp;
 
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.tsp.Accuracy;
+
+import tsp.Accuracy;
 
 public class GenTimeAccuracy
 {

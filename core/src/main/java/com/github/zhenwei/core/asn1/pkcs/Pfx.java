@@ -1,14 +1,11 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.pkcs.ContentInfo;
-import org.bouncycastle.asn1.pkcs.MacData;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+
+
+
+
+
+
 
 /**
  * the infamous Pfx from PKCS12
@@ -37,17 +34,17 @@ public class Pfx
         }
     }
 
-    public static org.bouncycastle.asn1.pkcs.Pfx getInstance(
+    public static pkcs.Pfx getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.Pfx)
+        if (obj instanceof pkcs.Pfx)
         {
-            return (org.bouncycastle.asn1.pkcs.Pfx)obj;
+            return (pkcs.Pfx)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.Pfx(ASN1Sequence.getInstance(obj));
+            return new pkcs.Pfx(ASN1Sequence.getInstance(obj));
         }
 
         return null;

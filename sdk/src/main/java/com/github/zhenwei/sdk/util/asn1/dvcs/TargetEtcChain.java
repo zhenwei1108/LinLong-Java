@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.dvcs.CertEtcToken;
-import org.bouncycastle.asn1.dvcs.PathProcInput;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 
 /**
  * <pre>
@@ -94,21 +93,21 @@ public class TargetEtcChain
         }
     }
 
-    public static org.bouncycastle.asn1.dvcs.TargetEtcChain getInstance(Object obj)
+    public static TargetEtcChain getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.TargetEtcChain)
+        if (obj instanceof TargetEtcChain)
         {
-            return (org.bouncycastle.asn1.dvcs.TargetEtcChain)obj;
+            return (TargetEtcChain)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.TargetEtcChain(ASN1Sequence.getInstance(obj));
+            return new TargetEtcChain(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.TargetEtcChain getInstance(
+    public static TargetEtcChain getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
@@ -169,13 +168,13 @@ public class TargetEtcChain
         return pathProcInput;
     }
 
-    public static org.bouncycastle.asn1.dvcs.TargetEtcChain[] arrayFromSequence(ASN1Sequence seq)
+    public static TargetEtcChain[] arrayFromSequence(ASN1Sequence seq)
     {
-        org.bouncycastle.asn1.dvcs.TargetEtcChain[] tmp = new org.bouncycastle.asn1.dvcs.TargetEtcChain[seq.size()];
+        TargetEtcChain[] tmp = new TargetEtcChain[seq.size()];
 
         for (int i = 0; i != tmp.length; i++)
         {
-            tmp[i] = org.bouncycastle.asn1.dvcs.TargetEtcChain.getInstance(seq.getObjectAt(i));
+            tmp[i] = TargetEtcChain.getInstance(seq.getObjectAt(i));
         }
 
         return tmp;

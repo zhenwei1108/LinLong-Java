@@ -1,15 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+import ASN1SequenceParser;
+
+import ASN1SetParser;
+import ASN1TaggedObjectParser;
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1SetParser;
-import org.bouncycastle.asn1.ASN1TaggedObjectParser;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.cms.ContentInfoParser;
-import org.bouncycastle.asn1.cms.SignedData;
 
 /**
  * Parser for <a href="https://tools.ietf.org/html/rfc5652#section-5.1">RFC 5652</a>: {@link SignedData} object.
@@ -33,17 +31,17 @@ public class SignedDataParser
     private boolean            _certsCalled;
     private boolean            _crlsCalled;
 
-    public static org.bouncycastle.asn1.cms.SignedDataParser getInstance(
+    public static cms.SignedDataParser getInstance(
         Object o)
         throws IOException
     {
         if (o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cms.SignedDataParser(((ASN1Sequence)o).parser());
+            return new cms.SignedDataParser(((ASN1Sequence)o).parser());
         }
         if (o instanceof ASN1SequenceParser)
         {
-            return new org.bouncycastle.asn1.cms.SignedDataParser((ASN1SequenceParser)o);
+            return new cms.SignedDataParser((ASN1SequenceParser)o);
         }
 
         throw new IOException("unknown object encountered: " + o.getClass().getName());

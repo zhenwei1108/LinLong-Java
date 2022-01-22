@@ -1,22 +1,20 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 /**
  * Stream that produces output based on the default encoding for the passed in objects.
  */
 public class ASN1OutputStream
 {
-    public static org.bouncycastle.asn1.ASN1OutputStream create(OutputStream out)
+    public static ASN1OutputStream create(OutputStream out)
     {
-        return new org.bouncycastle.asn1.ASN1OutputStream(out);
+        return new ASN1OutputStream(out);
     }
 
-    public static org.bouncycastle.asn1.ASN1OutputStream create(OutputStream out, String encoding)
+    public static ASN1OutputStream create(OutputStream out, String encoding)
     {
         if (encoding.equals(ASN1Encoding.DER))
         {
@@ -28,7 +26,7 @@ public class ASN1OutputStream
         }
         else
         {
-            return new org.bouncycastle.asn1.ASN1OutputStream(out);
+            return new ASN1OutputStream(out);
         }
     }
 

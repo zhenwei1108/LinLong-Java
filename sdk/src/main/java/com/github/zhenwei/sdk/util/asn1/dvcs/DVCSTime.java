@@ -1,12 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import java.util.Date;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.cms.ContentInfo;
+
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
 
 /**
  * <pre>
@@ -42,25 +41,25 @@ public class DVCSTime
         this.timeStampToken = timeStampToken;
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSTime getInstance(Object obj)
+    public static DVCSTime getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.DVCSTime)
+        if (obj instanceof DVCSTime)
         {
-            return (org.bouncycastle.asn1.dvcs.DVCSTime)obj;
+            return (DVCSTime)obj;
         }
         else if (obj instanceof ASN1GeneralizedTime)
         {
-            return new org.bouncycastle.asn1.dvcs.DVCSTime(ASN1GeneralizedTime.getInstance(obj));
+            return new DVCSTime(ASN1GeneralizedTime.getInstance(obj));
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.DVCSTime(ContentInfo.getInstance(obj));
+            return new DVCSTime(ContentInfo.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSTime getInstance(
+    public static DVCSTime getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

@@ -1,8 +1,5 @@
 package com.github.zhenwei.core.math.ec;
 
-import org.bouncycastle.math.ec.AbstractECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-
 public class SimpleLookupTable
     extends AbstractECLookupTable
 {

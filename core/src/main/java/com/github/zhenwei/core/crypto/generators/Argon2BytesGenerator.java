@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.Blake2bDigest;
 import org.bouncycastle.crypto.params.Argon2Parameters;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Longs;
-import org.bouncycastle.util.Pack;
+
+
+
 
 /**
  * Argon2 PBKDF - Based on the results of https://password-hashing.net/ and https://www.ietf.org/archive/id/draft-irtf-cfrg-argon2-03.txt

@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.DERBitString;
+import DERBitString;
 
 /**
  * The ReasonFlags object.

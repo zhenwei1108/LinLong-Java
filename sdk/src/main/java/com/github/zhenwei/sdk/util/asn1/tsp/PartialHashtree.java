@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Implementation of PartialHashtree, as defined in RFC 4998.
@@ -32,15 +32,15 @@ public class PartialHashtree
      * @return a PartialHashtree instance, or null.
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.tsp.PartialHashtree getInstance(final Object obj)
+    public static tsp.PartialHashtree getInstance(final Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.tsp.PartialHashtree)
+        if (obj instanceof tsp.PartialHashtree)
         {
-            return (org.bouncycastle.asn1.tsp.PartialHashtree)obj;
+            return (tsp.PartialHashtree)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.tsp.PartialHashtree(ASN1Sequence.getInstance(obj));
+            return new tsp.PartialHashtree(ASN1Sequence.getInstance(obj));
         }
 
         return null;

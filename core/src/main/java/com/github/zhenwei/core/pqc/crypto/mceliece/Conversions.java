@@ -102,7 +102,7 @@ final class Conversions
         int tt = t;
         for (int i = 0; i < n; i++)
         {
-            bc = bc.multiply(BigInteger.valueOf(nn - tt)).divide(
+            bc = multiply(BigInteger.valueOf(nn - tt)).divide(
                 BigInteger.valueOf(nn));
             nn--;
 
@@ -118,7 +118,7 @@ final class Conversions
                 }
                 else
                 {
-                    bc = bc.multiply(BigInteger.valueOf(tt + 1)).divide(
+                    bc = multiply(BigInteger.valueOf(tt + 1)).divide(
                         BigInteger.valueOf(nn - tt));
                 }
 
@@ -148,7 +148,7 @@ final class Conversions
 
         BigInteger bc = IntegerFunctions.binomial(n, t);
         // finds s = floor[log(binomial(n,t))]
-        int s = bc.bitLength() - 1;
+        int s = bitLength() - 1;
         // s = sq*8 + sr;
         int sq = s >> 3;
         int sr = s & 7;

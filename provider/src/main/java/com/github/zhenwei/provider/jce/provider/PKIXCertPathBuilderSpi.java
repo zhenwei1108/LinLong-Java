@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
 import java.security.InvalidAlgorithmParameterException;
 import java.security.cert.CertPath;
 import java.security.cert.CertPathBuilderException;
@@ -16,13 +17,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.jcajce.PKIXCertStore;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory;
-import org.bouncycastle.jce.provider.AnnotatedException;
-import org.bouncycastle.jce.provider.PKIXCertPathValidatorSpi;
 import org.bouncycastle.x509.ExtendedPKIXBuilderParameters;
 import org.bouncycastle.x509.ExtendedPKIXParameters;
 

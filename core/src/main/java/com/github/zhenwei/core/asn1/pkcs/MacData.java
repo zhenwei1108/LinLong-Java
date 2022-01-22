@@ -1,16 +1,16 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.DigestInfo;
-import org.bouncycastle.util.Arrays;
+
 
 public class MacData
     extends ASN1Object
@@ -21,16 +21,16 @@ public class MacData
     byte[]                      salt;
     BigInteger                  iterationCount;
 
-    public static org.bouncycastle.asn1.pkcs.MacData getInstance(
+    public static pkcs.MacData getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.MacData)
+        if (obj instanceof pkcs.MacData)
         {
-            return (org.bouncycastle.asn1.pkcs.MacData)obj;
+            return (pkcs.MacData)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.MacData(ASN1Sequence.getInstance(obj));
+            return new pkcs.MacData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

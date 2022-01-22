@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.bc;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Arrays;
 import java.util.Iterator;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.bc.ObjectData;
-import org.bouncycastle.util.Arrays;
 
 /**
  * <pre>
@@ -37,16 +37,16 @@ public class ObjectDataSequence
         }
     }
 
-    public static org.bouncycastle.asn1.bc.ObjectDataSequence getInstance(
+    public static ObjectDataSequence getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.bc.ObjectDataSequence)
+        if (obj instanceof ObjectDataSequence)
         {
-            return (org.bouncycastle.asn1.bc.ObjectDataSequence)obj;
+            return (bc.ObjectDataSequence)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.bc.ObjectDataSequence(ASN1Sequence.getInstance(obj));
+            return new ObjectDataSequence(ASN1Sequence.getInstance(obj));
         }
 
         return null;

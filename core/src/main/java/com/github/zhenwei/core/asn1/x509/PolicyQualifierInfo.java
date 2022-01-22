@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.PolicyQualifierId;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * Policy qualifiers, used in the X509V3 CertificatePolicies
@@ -26,7 +26,7 @@ public class PolicyQualifierInfo
     extends ASN1Object
 {
    private ASN1ObjectIdentifier policyQualifierId;
-   private ASN1Encodable        qualifier;
+   private ASN1Encodable qualifier;
 
    /**
     * Creates a new <code>PolicyQualifierInfo</code> instance.
@@ -53,7 +53,7 @@ public class PolicyQualifierInfo
        String cps) 
    {
       policyQualifierId = PolicyQualifierId.id_qt_cps;
-      qualifier = new DERIA5String (cps);
+      qualifier = new DERIA5String(cps);
    }
 
    /**
@@ -76,16 +76,16 @@ public class PolicyQualifierInfo
         qualifier = as.getObjectAt(1);
    }
 
-   public static org.bouncycastle.asn1.x509.PolicyQualifierInfo getInstance(
+   public static PolicyQualifierInfo getInstance(
        Object obj)
    {
-        if (obj instanceof org.bouncycastle.asn1.x509.PolicyQualifierInfo)
+        if (obj instanceof PolicyQualifierInfo)
         {
-            return (org.bouncycastle.asn1.x509.PolicyQualifierInfo)obj;
+            return (PolicyQualifierInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.PolicyQualifierInfo(ASN1Sequence.getInstance(obj));
+            return new PolicyQualifierInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

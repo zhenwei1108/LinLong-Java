@@ -1,5 +1,16 @@
 package com.github.zhenwei.provider.x509;
 
+
+
+
+
+
+
+
+import GeneralNames;
+import Holder;
+
+import ObjectDigestInfo;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,21 +23,10 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.Holder;
-import org.bouncycastle.asn1.x509.IssuerSerial;
-import org.bouncycastle.asn1.x509.ObjectDigestInfo;
 import org.bouncycastle.jce.PrincipalUtil;
 import org.bouncycastle.jce.X509Principal;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Selector;
+
+
 
 /**
  * The Holder object.
@@ -318,7 +318,7 @@ public class AttributeCertificateHolder
 
     public Object clone()
     {
-        return new org.bouncycastle.x509.AttributeCertificateHolder((ASN1Sequence)holder
+        return new org.bouncycastle.AttributeCertificateHolder((ASN1Sequence)holder
             .toASN1Primitive());
     }
 
@@ -390,12 +390,12 @@ public class AttributeCertificateHolder
             return true;
         }
 
-        if (!(obj instanceof org.bouncycastle.x509.AttributeCertificateHolder))
+        if (!(obj instanceof org.bouncycastle.AttributeCertificateHolder))
         {
             return false;
         }
 
-        org.bouncycastle.x509.AttributeCertificateHolder other = (org.bouncycastle.x509.AttributeCertificateHolder)obj;
+        org.bouncycastle.AttributeCertificateHolder other = (org.bouncycastle.AttributeCertificateHolder)obj;
 
         return this.holder.equals(other.holder);
     }

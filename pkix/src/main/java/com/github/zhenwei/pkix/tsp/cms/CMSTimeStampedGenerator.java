@@ -1,13 +1,13 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
+import ASN1Boolean;
+
+
+
+
+import cms.Attributes;
+import cms.MetaData;
 import java.net.URI;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.cms.Attributes;
-import org.bouncycastle.asn1.cms.MetaData;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.DigestCalculator;
 

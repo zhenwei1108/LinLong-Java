@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.util;
 
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.crypto.util.PBKDFConfig;
+import misc.MiscObjectIdentifiers;
 
 /**
  * Configuration class for a PBKDF based around scrypt.

@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.math.raw;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.util.Pack;
+
 
 public abstract class Nat256
 {

@@ -1,23 +1,21 @@
 package com.github.zhenwei.pkix.pkcs;
 
+
+
+
+
+
+
+import X500Name;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.pkcs.Attribute;
-import org.bouncycastle.asn1.pkcs.CertificationRequest;
-import org.bouncycastle.asn1.pkcs.CertificationRequestInfo;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.ContentVerifierProvider;
-import org.bouncycastle.pkcs.PKCSException;
-import org.bouncycastle.pkcs.PKCSIOException;
+import pkcs.Attribute;
+import pkcs.CertificationRequest;
+import pkcs.CertificationRequestInfo;
 
 /**
  * Holding class for a PKCS#10 certification request.

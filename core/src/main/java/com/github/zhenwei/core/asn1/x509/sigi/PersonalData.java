@@ -1,20 +1,20 @@
-package com.github.zhenwei.core.asn1.x509.sigi;
+package com.github.zhenwei.core.asn1.sigi;
+
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
+
+
 
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x500.DirectoryString;
-import org.bouncycastle.asn1.x509.sigi.NameOrPseudonym;
+import sigi.NameOrPseudonym;
 
 /**
  * Contains personal data for the otherName field in the subjectAltNames
@@ -32,7 +32,7 @@ import org.bouncycastle.asn1.x509.sigi.NameOrPseudonym;
  * </pre>
  *
  * @see NameOrPseudonym
- * @see org.bouncycastle.asn1.x509.sigi.SigIObjectIdentifiers
+ * @see sigi.SigIObjectIdentifiers
  */
 public class PersonalData
     extends ASN1Object
@@ -44,16 +44,16 @@ public class PersonalData
     private String gender;
     private DirectoryString postalAddress;
 
-    public static org.bouncycastle.asn1.x509.sigi.PersonalData getInstance(Object obj)
+    public static sigi.PersonalData getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.sigi.PersonalData)
+        if (obj == null || obj instanceof sigi.PersonalData)
         {
-            return (org.bouncycastle.asn1.x509.sigi.PersonalData)obj;
+            return (sigi.PersonalData)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.x509.sigi.PersonalData((ASN1Sequence)obj);
+            return new sigi.PersonalData((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: " + obj.getClass().getName());

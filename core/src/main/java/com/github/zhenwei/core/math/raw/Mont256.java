@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.math.raw;
 
-import org.bouncycastle.math.raw.Nat256;
-
 public abstract class Mont256
 {
     private static final long M = 0xFFFFFFFFL;

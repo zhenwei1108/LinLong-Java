@@ -10,9 +10,9 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectStreamClass;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 /**
  * Utils for XMSS implementation.

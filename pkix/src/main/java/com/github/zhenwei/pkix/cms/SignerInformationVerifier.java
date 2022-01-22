@@ -1,8 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cms.CMSSignatureAlgorithmNameGenerator;
+
+ 
 import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.DigestCalculator;

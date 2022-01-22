@@ -1,16 +1,18 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Arrays;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ASN.1 algorithm identifier parameters for GOST-28147
@@ -21,24 +23,24 @@ public class GOST28147Parameters
     private ASN1OctetString iv;
     private ASN1ObjectIdentifier paramSet;
 
-    public static org.bouncycastle.asn1.cryptopro.GOST28147Parameters getInstance(
+    public static GOST28147Parameters getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.cryptopro.GOST28147Parameters getInstance(
+    public static GOST28147Parameters getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cryptopro.GOST28147Parameters)
+        if (obj instanceof GOST28147Parameters)
         {
-            return (org.bouncycastle.asn1.cryptopro.GOST28147Parameters)obj;
+            return  (GOST28147Parameters)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cryptopro.GOST28147Parameters(ASN1Sequence.getInstance(obj));
+            return new GOST28147Parameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

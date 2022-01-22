@@ -1,14 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.CMPCertificate;
-import org.bouncycastle.asn1.cmp.CertResponse;
+
+
+
+
+
+
+
 
 public class CertRepMessage
     extends ASN1Object
@@ -28,16 +26,16 @@ public class CertRepMessage
         response = ASN1Sequence.getInstance(seq.getObjectAt(index));
     }
 
-    public static org.bouncycastle.asn1.cmp.CertRepMessage getInstance(Object o)
+    public static cmp.CertRepMessage getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CertRepMessage)
+        if (o instanceof cmp.CertRepMessage)
         {
-            return (org.bouncycastle.asn1.cmp.CertRepMessage)o;
+            return (cmp.CertRepMessage)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.CertRepMessage(ASN1Sequence.getInstance(o));
+            return new cmp.CertRepMessage(ASN1Sequence.getInstance(o));
         }
 
         return null;

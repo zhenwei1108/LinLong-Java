@@ -1,5 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
+
+
+
+import DERBitString;
+
+
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,26 +15,19 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9IntegerConverter;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.crypto.params.ECDomainParameters;
+ 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.util.Properties;
+
+
+import x9.X962Parameters;
+import x9.X9ECPoint;
+import x9.X9IntegerConverter;
+import x9.X9ObjectIdentifiers;
 
 public class BCECPublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
@@ -266,9 +266,9 @@ public class BCECPublicKey
         return EC5Util.convertPoint(ecPublicKey.getQ());
     }
 
-    public org.bouncycastle.math.ec.ECPoint getQ()
+    public ECPoint getQ()
     {
-        org.bouncycastle.math.ec.ECPoint q = ecPublicKey.getQ();
+        ECPoint q = ecPublicKey.getQ();
 
         if (ecSpec == null)
         {

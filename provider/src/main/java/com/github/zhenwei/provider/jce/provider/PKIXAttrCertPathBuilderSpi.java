@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.Principal;
@@ -23,16 +24,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
 import org.bouncycastle.jce.exception.ExtCertPathBuilderException;
-import org.bouncycastle.jce.provider.AnnotatedException;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.util.Selector;
+
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.StoreException;
+
 import org.bouncycastle.x509.ExtendedPKIXBuilderParameters;
 import org.bouncycastle.x509.ExtendedPKIXParameters;
 import org.bouncycastle.x509.X509AttributeCertStoreSelector;

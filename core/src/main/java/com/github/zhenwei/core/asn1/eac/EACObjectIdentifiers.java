@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.eac;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * German Federal Office for Information Security

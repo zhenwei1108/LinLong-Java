@@ -1,11 +1,7 @@
 package com.github.zhenwei.pkix.est;
 
 import java.net.URL;
-import org.bouncycastle.est.ESTClient;
-import org.bouncycastle.est.ESTHijacker;
-import org.bouncycastle.est.ESTRequest;
-import org.bouncycastle.est.ESTSourceConnectionListener;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Builder for basic EST requests

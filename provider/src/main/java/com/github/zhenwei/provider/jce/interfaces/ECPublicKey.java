@@ -1,8 +1,7 @@
 package com.github.zhenwei.provider.jce.interfaces;
 
+ 
 import java.security.PublicKey;
-import org.bouncycastle.jce.interfaces.ECKey;
-import org.bouncycastle.math.ec.ECPoint;
 
 /**
  * interface for elliptic curve public keys.

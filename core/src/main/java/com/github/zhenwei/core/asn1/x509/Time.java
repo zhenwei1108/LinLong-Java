@@ -1,18 +1,18 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+import ASN1GeneralizedTime;
+
+
+
+import ASN1UTCTime;
+import DERGeneralizedTime;
+import DERUTCTime;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTCTime;
-import org.bouncycastle.asn1.DERGeneralizedTime;
-import org.bouncycastle.asn1.DERUTCTime;
 
 public class Time
     extends ASN1Object
@@ -20,7 +20,7 @@ public class Time
 {
     ASN1Primitive time;
 
-    public static org.bouncycastle.asn1.x509.Time getInstance(
+    public static Time getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
@@ -98,20 +98,20 @@ public class Time
         }
     }
 
-    public static org.bouncycastle.asn1.x509.Time getInstance(
+    public static Time getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.Time)
+        if (obj == null || obj instanceof Time)
         {
-            return (org.bouncycastle.asn1.x509.Time)obj;
+            return (Time)obj;
         }
         else if (obj instanceof ASN1UTCTime)
         {
-            return new org.bouncycastle.asn1.x509.Time((ASN1UTCTime)obj);
+            return new Time((ASN1UTCTime)obj);
         }
         else if (obj instanceof ASN1GeneralizedTime)
         {
-            return new org.bouncycastle.asn1.x509.Time((ASN1GeneralizedTime)obj);
+            return new Time((ASN1GeneralizedTime)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());

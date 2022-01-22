@@ -1,14 +1,13 @@
 package com.github.zhenwei.pkix.dvcs;
 
+import DVCSRequestInformation;
+import DVCSTime;
+import GeneralNames;
+import PolicyInformation;
 import java.math.BigInteger;
 import java.util.Date;
-import org.bouncycastle.asn1.dvcs.DVCSRequestInformation;
-import org.bouncycastle.asn1.dvcs.DVCSTime;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.dvcs.DVCSParsingException;
 import org.bouncycastle.tsp.TimeStampToken;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Information piece of DVCS requests.
@@ -74,7 +73,7 @@ public class DVCSRequestInfo
 
     /**
      * Get nonce if it is set.
-     * Note: this field can be set (if not present) or extended (if present) by DVCS.
+     * Note: this field can be set (if not present) or extended (if present) by 
      *
      * @return nonce value, or null if it is not set.
      */
@@ -144,7 +143,7 @@ public class DVCSRequestInfo
 
     /**
      * Get names of DVCS servers.
-     * Note: this field can be set by DVCS.
+     * Note: this field can be set by 
      *
      * @return the DVCS names object, or null if not set.
      */
@@ -156,7 +155,7 @@ public class DVCSRequestInfo
     /**
      * Get data locations, where the copy of request Data can be obtained.
      * Note: the exact meaning of field is up to applications.
-     * Note: this field can be set by DVCS.
+     * Note: this field can be set by 
      *
      * @return the DVCS dataLocations object, or null if not set.
      */

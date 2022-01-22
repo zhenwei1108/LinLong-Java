@@ -21,7 +21,7 @@ import org.bouncycastle.crypto.agreement.DHUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.MQVBasicAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
 import org.bouncycastle.crypto.agreement.kdf.DHKEKGenerator;
-import org.bouncycastle.crypto.generators.KDF2BytesGenerator;
+
 import org.bouncycastle.crypto.params.DHMQVPrivateParameters;
 import org.bouncycastle.crypto.params.DHMQVPublicParameters;
 import org.bouncycastle.crypto.params.DHParameters;
@@ -29,9 +29,7 @@ import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
 import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.DHUPrivateParameters;
 import org.bouncycastle.crypto.params.DHUPublicParameters;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.BCDHPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.BCDHPublicKey;
+
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;

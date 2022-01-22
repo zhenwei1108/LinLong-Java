@@ -1,17 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.DistributionPointName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.ReasonFlags;
-import org.bouncycastle.util.Strings;
+
+
+
+
+
+import DERBitString;
+
+
+
 
 /**
  * The DistributionPoint object.
@@ -30,24 +27,24 @@ public class DistributionPoint
     ReasonFlags                 reasons;
     GeneralNames                cRLIssuer;
 
-    public static org.bouncycastle.asn1.x509.DistributionPoint getInstance(
+    public static DistributionPoint getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.DistributionPoint getInstance(
+    public static DistributionPoint getInstance(
         Object obj)
     {
-        if(obj == null || obj instanceof org.bouncycastle.asn1.x509.DistributionPoint)
+        if(obj == null || obj instanceof DistributionPoint)
         {
-            return (org.bouncycastle.asn1.x509.DistributionPoint)obj;
+            return (x509.DistributionPoint)obj;
         }
 
         if(obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.x509.DistributionPoint((ASN1Sequence)obj);
+            return new DistributionPoint((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("Invalid DistributionPoint: " + obj.getClass().getName());

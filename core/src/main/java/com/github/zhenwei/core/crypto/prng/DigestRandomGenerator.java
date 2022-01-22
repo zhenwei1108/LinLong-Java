@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.prng;
 
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.prng.RandomGenerator;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Random generation based on the digest with counter. Calling addSeedMaterial will

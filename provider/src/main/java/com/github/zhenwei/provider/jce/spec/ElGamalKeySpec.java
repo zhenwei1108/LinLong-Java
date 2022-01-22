@@ -1,7 +1,6 @@
 package com.github.zhenwei.provider.jce.spec;
 
 import java.security.spec.KeySpec;
-import org.bouncycastle.jce.spec.ElGamalParameterSpec;
 
 public class ElGamalKeySpec
     implements KeySpec

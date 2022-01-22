@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.misc;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 public interface MiscObjectIdentifiers
 {

@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.Map;
-import org.bouncycastle.est.ESTClient;
-import org.bouncycastle.est.ESTHijacker;
-import org.bouncycastle.est.ESTSourceConnectionListener;
 
 /**
  * Implements a basic http request.

@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.ExtendedDigest;
-import org.bouncycastle.util.Memoable;
-import org.bouncycastle.util.Pack;
+
+
+
 
 /**
  * base implementation of MD4 family style digest as outlined in

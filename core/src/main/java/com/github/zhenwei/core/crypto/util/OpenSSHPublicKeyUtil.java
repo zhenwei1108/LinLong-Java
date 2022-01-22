@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.util;
 
+
+
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
@@ -11,8 +11,7 @@ import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.util.SSHNamedCurves;
-import org.bouncycastle.math.ec.ECCurve;
+import x9.X9ECParameters;
 
 
 /**

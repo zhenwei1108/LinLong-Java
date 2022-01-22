@@ -2,9 +2,6 @@ package com.github.zhenwei.pkix.mime;
 
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.mime.Headers;
-import org.bouncycastle.mime.MimeContext;
-import org.bouncycastle.mime.MimeParserContext;
 
 /**
  * Base interface for a MIME parser listener.

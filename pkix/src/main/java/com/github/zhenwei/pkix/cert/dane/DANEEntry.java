@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.dane;
 
 import java.io.IOException;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.util.Arrays;
+ 
+
 
 /**
  * Carrier class for a DANE entry.

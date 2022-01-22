@@ -1,8 +1,7 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cmc.BodyPartID;
-import org.bouncycastle.asn1.x509.Extension;
+
+
 
 class Utils
 {

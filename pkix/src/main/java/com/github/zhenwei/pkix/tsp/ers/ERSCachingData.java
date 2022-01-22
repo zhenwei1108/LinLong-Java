@@ -1,10 +1,9 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
+
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.tsp.ers.ERSData;
 
 /**
  * An ERSData object that caches hash calculations.

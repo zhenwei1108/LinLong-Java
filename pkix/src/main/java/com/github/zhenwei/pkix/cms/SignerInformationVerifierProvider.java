@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.cms.SignerId;
-import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.operator.OperatorCreationException;
 
 public interface SignerInformationVerifierProvider

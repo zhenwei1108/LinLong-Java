@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
+import sun.security.util.math.intpoly.IntegerPolynomial;
+
 public interface Polynomial
 {
 

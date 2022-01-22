@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
+
+
+
+
+
+
+
+
+
 
 /**
  * The OtherName object.
@@ -35,17 +35,17 @@ public class OtherName
      * to the factory is not an instance of <code>OtherName</code> or something that
      * can be converted into an appropriate <code>ASN1Sequence</code>.
      */
-    public static org.bouncycastle.asn1.x509.OtherName getInstance(
+    public static OtherName getInstance(
         Object obj)
     {
 
-        if (obj instanceof org.bouncycastle.asn1.x509.OtherName)
+        if (obj instanceof OtherName)
         {
-            return (org.bouncycastle.asn1.x509.OtherName)obj;
+            return (OtherName)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.OtherName(ASN1Sequence.getInstance(obj));
+            return new OtherName(ASN1Sequence.getInstance(obj));
         }
 
         return null;

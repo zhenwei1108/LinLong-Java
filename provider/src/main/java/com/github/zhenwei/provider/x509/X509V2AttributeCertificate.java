@@ -1,5 +1,14 @@
 package com.github.zhenwei.provider.x509;
 
+
+
+ 
+
+
+import AttributeCertificate;
+import DERBitString;
+
+import Extensions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,20 +29,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.x509.AttributeCertificate;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.x509.AttributeCertificateHolder;
-import org.bouncycastle.x509.AttributeCertificateIssuer;
-import org.bouncycastle.x509.X509Attribute;
-import org.bouncycastle.x509.X509AttributeCertificate;
+
 
 /**
  * An implementation of a version 2 X.509 Attribute Certificate.

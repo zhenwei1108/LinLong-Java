@@ -1,5 +1,10 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
+
+
+
+import cms.GCMParameters;
 import java.io.OutputStream;
 import java.security.AccessController;
 import java.security.AlgorithmParameters;
@@ -10,16 +15,9 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.cms.GCMParameters;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
 import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.jcajce.EnvelopedDataHelper;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.jcajce.io.CipherOutputStream;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.GenericKey;
@@ -28,6 +26,7 @@ import org.bouncycastle.operator.OutputAEADEncryptor;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.SecretKeySizeProvider;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
+
 
 /**
  * Builder for the content encryptor in EnvelopedData - used to encrypt the actual transmitted content.

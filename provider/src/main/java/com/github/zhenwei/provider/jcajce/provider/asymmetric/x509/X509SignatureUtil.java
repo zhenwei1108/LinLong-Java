@@ -1,5 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
+
+import ASN1Null;
+
+
+
+
+import edec.EdECObjectIdentifiers;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -12,21 +19,14 @@ import java.security.SignatureException;
 import java.security.spec.PSSParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+import misc.MiscObjectIdentifiers;
+
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
+import pkcs.RSASSAPSSparams;
+import x9.X9ObjectIdentifiers;
 
 class X509SignatureUtil
 {

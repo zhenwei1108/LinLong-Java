@@ -1,7 +1,6 @@
 package com.github.zhenwei.provider.jce.exception;
 
 import java.io.IOException;
-import org.bouncycastle.jce.exception.ExtException;
 
 public class ExtIOException
     extends IOException

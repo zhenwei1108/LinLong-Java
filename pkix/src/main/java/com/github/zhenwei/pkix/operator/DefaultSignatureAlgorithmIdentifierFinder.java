@@ -1,31 +1,30 @@
 package com.github.zhenwei.pkix.operator;
 
+
+
+
+
+import BCObjectIdentifiers;
+
+import bsi.BSIObjectIdentifiers;
+import cms.CMSObjectIdentifiers;
+
+import  EACObjectIdentifiers;
+import edec.EdECObjectIdentifiers;
+import gm.GMObjectIdentifiers;
+import isara.IsaraObjectIdentifiers;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
-import org.bouncycastle.asn1.bsi.BSIObjectIdentifiers;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.eac.EACObjectIdentifiers;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-import org.bouncycastle.asn1.isara.IsaraObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.operator.SignatureAlgorithmIdentifierFinder;
-import org.bouncycastle.util.Strings;
+
+
+
+
+import pkcs.RSASSAPSSparams;
+import rosstandart.RosstandartObjectIdentifiers;
+import teletrust.TeleTrusTObjectIdentifiers;
+import x9.X9ObjectIdentifiers;
 
 public class DefaultSignatureAlgorithmIdentifierFinder
     implements SignatureAlgorithmIdentifierFinder

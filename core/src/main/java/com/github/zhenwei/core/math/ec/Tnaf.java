@@ -1,10 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
+
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
 
 /**
  * Class holding methods for point multiplication based on the window
@@ -835,7 +832,7 @@ class Tnaf
      */
     public static ECPoint.AbstractF2m[] getPreComp(ECPoint.AbstractF2m p, byte a)
     {
-        byte[][] alphaTnaf = (a == 0) ? org.bouncycastle.math.ec.Tnaf.alpha0Tnaf : org.bouncycastle.math.ec.Tnaf.alpha1Tnaf;
+        byte[][] alphaTnaf = (a == 0) ? Tnaf.alpha0Tnaf : Tnaf.alpha1Tnaf;
 
         ECPoint.AbstractF2m[] pu = new ECPoint.AbstractF2m[(alphaTnaf.length + 1) >>> 1];
         pu[0] = p;
@@ -843,7 +840,7 @@ class Tnaf
         int precompLen = alphaTnaf.length;
         for (int i = 3; i < precompLen; i += 2)
         {
-            pu[i >>> 1] = org.bouncycastle.math.ec.Tnaf.multiplyFromTnaf(p, alphaTnaf[i]);
+            pu[i >>> 1] = Tnaf.multiplyFromTnaf(p, alphaTnaf[i]);
         }
 
         p.getCurve().normalizeAll(pu);

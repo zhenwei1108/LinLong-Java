@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
+
+
+
+
+
+
+
+
 
 
 public class Accuracy
@@ -101,16 +101,16 @@ public class Accuracy
         }
     }
 
-    public static org.bouncycastle.asn1.tsp.Accuracy getInstance(Object o)
+    public static tsp.Accuracy getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.tsp.Accuracy)
+        if (o instanceof tsp.Accuracy)
         {
-            return (org.bouncycastle.asn1.tsp.Accuracy) o;
+            return (tsp.Accuracy) o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.tsp.Accuracy(ASN1Sequence.getInstance(o));
+            return new tsp.Accuracy(ASN1Sequence.getInstance(o));
         }
 
         return null;

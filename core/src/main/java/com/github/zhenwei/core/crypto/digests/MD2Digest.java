@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.ExtendedDigest;
-import org.bouncycastle.util.Memoable;
+
+
 
 /**
  * implementation of MD2

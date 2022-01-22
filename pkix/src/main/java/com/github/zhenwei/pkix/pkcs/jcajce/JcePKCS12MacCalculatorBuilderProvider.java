@@ -1,18 +1,17 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
+
+
+
 import java.io.OutputStream;
 import java.security.Provider;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.pkcs.PKCS12PBEParams;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.jcajce.PKCS12Key;
+
 import org.bouncycastle.jcajce.io.MacOutputStream;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.GenericKey;
@@ -20,6 +19,7 @@ import org.bouncycastle.operator.MacCalculator;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.pkcs.PKCS12MacCalculatorBuilder;
 import org.bouncycastle.pkcs.PKCS12MacCalculatorBuilderProvider;
+
 
 public class JcePKCS12MacCalculatorBuilderProvider
     implements PKCS12MacCalculatorBuilderProvider

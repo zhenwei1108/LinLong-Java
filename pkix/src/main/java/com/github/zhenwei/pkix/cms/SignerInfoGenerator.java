@@ -1,28 +1,25 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+
+import cms.AttributeTable;
+import cms.SignerIdentifier;
+import cms.SignerInfo;
+import edec.EdECObjectIdentifiers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.SignerIdentifier;
-import org.bouncycastle.asn1.cms.SignerInfo;
-import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSSignatureEncryptionAlgorithmFinder;
+
+ 
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.io.TeeOutputStream;
 
 public class SignerInfoGenerator

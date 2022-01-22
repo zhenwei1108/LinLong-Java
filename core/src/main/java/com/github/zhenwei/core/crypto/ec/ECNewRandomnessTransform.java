@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.crypto.ec;
 
+ 
+import ECMultiplier;
+ 
+import FixedPointCombMultiplier;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.ec.ECPair;
-import org.bouncycastle.crypto.ec.ECPairFactorTransform;
-import org.bouncycastle.crypto.params.ECDomainParameters;
+
+
+ 
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
 
 /**
  * this transforms the original randomness used for an ElGamal encryption.

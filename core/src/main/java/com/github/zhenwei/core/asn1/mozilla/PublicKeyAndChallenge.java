@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.mozilla;
 
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+
+
+
+
+
+
 
 /**
  * This is designed to parse
@@ -26,15 +26,15 @@ public class PublicKeyAndChallenge
     private SubjectPublicKeyInfo spki;
     private ASN1IA5String         challenge;
 
-    public static org.bouncycastle.asn1.mozilla.PublicKeyAndChallenge getInstance(Object obj)
+    public static mozilla.PublicKeyAndChallenge getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.mozilla.PublicKeyAndChallenge)
+        if (obj instanceof mozilla.PublicKeyAndChallenge)
         {
-            return (org.bouncycastle.asn1.mozilla.PublicKeyAndChallenge)obj;
+            return (mozilla.PublicKeyAndChallenge)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.mozilla.PublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
+            return new mozilla.PublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
         }
 
         return null;

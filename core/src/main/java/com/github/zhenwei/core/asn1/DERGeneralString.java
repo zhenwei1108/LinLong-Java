@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * ASN.1 GENERAL-STRING data type.
  * <p>
@@ -23,22 +19,22 @@ public class DERGeneralString
      * 
      * @deprecated Use {@link ASN1GeneralString#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERGeneralString getInstance(
+    public static DERGeneralString getInstance(
         Object obj) 
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERGeneralString)
+        if (obj == null || obj instanceof DERGeneralString)
         {
-            return (org.bouncycastle.asn1.DERGeneralString) obj;
+            return (DERGeneralString) obj;
         }
         if (obj instanceof ASN1GeneralString)
         {
-            return new org.bouncycastle.asn1.DERGeneralString(((ASN1GeneralString)obj).contents, false);
+            return new DERGeneralString(((ASN1GeneralString)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERGeneralString)fromByteArray((byte[])obj);
+                return (DERGeneralString)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -63,19 +59,19 @@ public class DERGeneralString
      *             {@link ASN1GeneralString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERGeneralString getInstance(
+    public static DERGeneralString getInstance(
         ASN1TaggedObject obj, 
         boolean explicit) 
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERGeneralString)
+        if (explicit || o instanceof DERGeneralString)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERGeneralString(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERGeneralString(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

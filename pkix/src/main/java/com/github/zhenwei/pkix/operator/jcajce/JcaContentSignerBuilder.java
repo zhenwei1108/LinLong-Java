@@ -1,5 +1,13 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
+
+
+
+
+
+import DERBitString;
+
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
@@ -12,21 +20,11 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RSASSAPSSparams;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import misc.MiscObjectIdentifiers;
 import org.bouncycastle.jcajce.CompositePrivateKey;
 import org.bouncycastle.jcajce.io.OutputStreamFactory;
 import org.bouncycastle.jcajce.spec.CompositeAlgorithmSpec;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.ContentSigner;
@@ -37,6 +35,8 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.RuntimeOperatorException;
 import org.bouncycastle.operator.SignatureAlgorithmIdentifierFinder;
 import org.bouncycastle.util.io.TeeOutputStream;
+
+import pkcs.RSASSAPSSparams;
 
 public class JcaContentSignerBuilder
 {

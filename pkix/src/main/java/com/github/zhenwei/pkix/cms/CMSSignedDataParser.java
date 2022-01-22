@@ -1,5 +1,25 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+import ASN1Generator;
+
+import ASN1OctetStringParser;
+import ASN1SequenceParser;
+
+import ASN1SetParser;
+import ASN1StreamParser;
+
+import BERSequenceGenerator;
+import BERSetParser;
+import BERTaggedObject;
+
+
+
+import cms.CMSObjectIdentifiers;
+import cms.ContentInfoParser;
+import cms.SignedDataParser;
+import cms.SignerInfo;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,38 +32,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Generator;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetStringParser;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1SetParser;
-import org.bouncycastle.asn1.ASN1StreamParser;
-import org.bouncycastle.asn1.BERSequenceGenerator;
-import org.bouncycastle.asn1.BERSetParser;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.ContentInfoParser;
-import org.bouncycastle.asn1.cms.SignedDataParser;
-import org.bouncycastle.asn1.cms.SignerInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSContentInfoParser;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedStream;
-import org.bouncycastle.cms.PKCS7TypedStream;
-import org.bouncycastle.cms.SignerInformation;
-import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.io.Streams;
+
 
 /**
  * Parsing class for an CMS Signed Data object from an input stream.

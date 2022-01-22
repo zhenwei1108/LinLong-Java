@@ -1,11 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.esf.CrlValidatedID;
 
 /**
  * <pre>
@@ -19,15 +18,15 @@ public class CrlListID
 
     private ASN1Sequence crls;
 
-    public static org.bouncycastle.asn1.esf.CrlListID getInstance(Object obj)
+    public static esf.CrlListID getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.CrlListID)
+        if (obj instanceof esf.CrlListID)
         {
-            return (org.bouncycastle.asn1.esf.CrlListID)obj;
+            return (esf.CrlListID)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.CrlListID(ASN1Sequence.getInstance(obj));
+            return new esf.CrlListID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

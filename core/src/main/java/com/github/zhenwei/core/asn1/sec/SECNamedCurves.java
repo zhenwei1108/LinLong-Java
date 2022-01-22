@@ -1,21 +1,20 @@
 package com.github.zhenwei.core.asn1.sec;
 
+
+
+
+import WNafUtil;
+import endo.GLVTypeBEndomorphism;
+import endo.GLVTypeBParameters;
+import endo.ScalarSplitParameters;
 import java.math.BigInteger;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECParametersHolder;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.math.ec.endo.GLVTypeBEndomorphism;
-import org.bouncycastle.math.ec.endo.GLVTypeBParameters;
-import org.bouncycastle.math.ec.endo.ScalarSplitParameters;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+
+import x9.X9ECParameters;
+import x9.X9ECParametersHolder;
+import x9.X9ECPoint;
 
 public class SECNamedCurves
 {

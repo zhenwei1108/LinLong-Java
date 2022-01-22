@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.params;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.params.DHKeyParameters;
 import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.util.Integers;
+
+ 
 
 public class DHPublicKeyParameters
     extends DHKeyParameters

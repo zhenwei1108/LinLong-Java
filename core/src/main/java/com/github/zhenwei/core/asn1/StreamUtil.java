@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.FileChannel;
-import org.bouncycastle.asn1.ASN1InputStream;
 
 class StreamUtil
 {

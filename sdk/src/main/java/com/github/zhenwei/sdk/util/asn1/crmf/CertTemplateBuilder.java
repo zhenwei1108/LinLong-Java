@@ -1,18 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.crmf.CertTemplate;
-import org.bouncycastle.asn1.crmf.OptionalValidity;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.X509Extensions;
+
+
+
+
+import DERBitString;
+
+
+import Extensions;
+
+import X500Name;
+import X509Extensions;
 
 public class CertTemplateBuilder
 {
@@ -28,49 +26,49 @@ public class CertTemplateBuilder
     private Extensions extensions;
 
     /** Sets the X.509 version. Note: for X509v3, use 2 here. */
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setVersion(int ver)
+    public crmf.CertTemplateBuilder setVersion(int ver)
     {
         version = new ASN1Integer(ver);
 
         return this;
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setSerialNumber(ASN1Integer ser)
+    public crmf.CertTemplateBuilder setSerialNumber(ASN1Integer ser)
     {
         serialNumber = ser;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setSigningAlg(AlgorithmIdentifier aid)
+    public crmf.CertTemplateBuilder setSigningAlg(AlgorithmIdentifier aid)
     {
         signingAlg = aid;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setIssuer(X500Name name)
+    public crmf.CertTemplateBuilder setIssuer(X500Name name)
     {
         issuer = name;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setValidity(OptionalValidity v)
+    public crmf.CertTemplateBuilder setValidity(OptionalValidity v)
     {
         validity = v;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setSubject(X500Name name)
+    public crmf.CertTemplateBuilder setSubject(X500Name name)
     {
         subject = name;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setPublicKey(SubjectPublicKeyInfo spki)
+    public crmf.CertTemplateBuilder setPublicKey(SubjectPublicKeyInfo spki)
     {
         publicKey = spki;
 
@@ -78,7 +76,7 @@ public class CertTemplateBuilder
     }
 
     /** Sets the issuer unique ID (deprecated in X.509v3) */
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setIssuerUID(DERBitString uid)
+    public crmf.CertTemplateBuilder setIssuerUID(DERBitString uid)
     {
         issuerUID = uid;
 
@@ -86,7 +84,7 @@ public class CertTemplateBuilder
     }
 
     /** Sets the subject unique ID (deprecated in X.509v3) */
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setSubjectUID(DERBitString uid)
+    public crmf.CertTemplateBuilder setSubjectUID(DERBitString uid)
     {
         subjectUID = uid;
 
@@ -96,12 +94,12 @@ public class CertTemplateBuilder
     /**
      * @deprecated use method taking Extensions
      */
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setExtensions(X509Extensions extens)
+    public crmf.CertTemplateBuilder setExtensions(X509Extensions extens)
     {
         return setExtensions(Extensions.getInstance(extens));
     }
 
-    public org.bouncycastle.asn1.crmf.CertTemplateBuilder setExtensions(Extensions extens)
+    public crmf.CertTemplateBuilder setExtensions(Extensions extens)
     {
         extensions = extens;
 

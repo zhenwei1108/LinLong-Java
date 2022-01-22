@@ -1,20 +1,20 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
+
+
+
+
+
+
+import DERBitString;
+
+
+import X500Name;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * <pre>
@@ -64,16 +64,16 @@ public class CertificationRequest
         this.signature = DERBitString.getInstance(seq.getObjectAt(2));
     }
 
-    public static org.bouncycastle.asn1.cmc.CertificationRequest getInstance(Object o)
+    public static cmc.CertificationRequest getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.CertificationRequest)
+        if (o instanceof cmc.CertificationRequest)
         {
-            return (org.bouncycastle.asn1.cmc.CertificationRequest)o;
+            return (cmc.CertificationRequest)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.CertificationRequest(ASN1Sequence.getInstance(o));
+            return new cmc.CertificationRequest(ASN1Sequence.getInstance(o));
         }
 
         return null;

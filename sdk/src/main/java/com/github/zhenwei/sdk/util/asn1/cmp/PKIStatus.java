@@ -1,9 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 public class PKIStatus
     extends ASN1Object
@@ -16,13 +16,13 @@ public class PKIStatus
     public static final int REVOCATION_NOTIFICATION = 5;
     public static final int KEY_UPDATE_WARNING      = 6;
 
-    public static final org.bouncycastle.asn1.cmp.PKIStatus granted = new org.bouncycastle.asn1.cmp.PKIStatus(GRANTED);
-    public static final org.bouncycastle.asn1.cmp.PKIStatus grantedWithMods = new org.bouncycastle.asn1.cmp.PKIStatus(GRANTED_WITH_MODS);
-    public static final org.bouncycastle.asn1.cmp.PKIStatus rejection = new org.bouncycastle.asn1.cmp.PKIStatus(REJECTION);
-    public static final org.bouncycastle.asn1.cmp.PKIStatus waiting = new org.bouncycastle.asn1.cmp.PKIStatus(WAITING);
-    public static final org.bouncycastle.asn1.cmp.PKIStatus revocationWarning = new org.bouncycastle.asn1.cmp.PKIStatus(REVOCATION_WARNING);
-    public static final org.bouncycastle.asn1.cmp.PKIStatus revocationNotification = new org.bouncycastle.asn1.cmp.PKIStatus(REVOCATION_NOTIFICATION);
-    public static final org.bouncycastle.asn1.cmp.PKIStatus keyUpdateWaiting = new org.bouncycastle.asn1.cmp.PKIStatus(KEY_UPDATE_WARNING);
+    public static final cmp.PKIStatus granted = new cmp.PKIStatus(GRANTED);
+    public static final cmp.PKIStatus grantedWithMods = new cmp.PKIStatus(GRANTED_WITH_MODS);
+    public static final cmp.PKIStatus rejection = new cmp.PKIStatus(REJECTION);
+    public static final cmp.PKIStatus waiting = new cmp.PKIStatus(WAITING);
+    public static final cmp.PKIStatus revocationWarning = new cmp.PKIStatus(REVOCATION_WARNING);
+    public static final cmp.PKIStatus revocationNotification = new cmp.PKIStatus(REVOCATION_NOTIFICATION);
+    public static final cmp.PKIStatus keyUpdateWaiting = new cmp.PKIStatus(KEY_UPDATE_WARNING);
 
     private ASN1Integer value;
 
@@ -36,16 +36,16 @@ public class PKIStatus
         this.value = value;
     }
 
-    public static org.bouncycastle.asn1.cmp.PKIStatus getInstance(Object o)
+    public static cmp.PKIStatus getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.PKIStatus)
+        if (o instanceof cmp.PKIStatus)
         {
-            return (org.bouncycastle.asn1.cmp.PKIStatus)o;
+            return (cmp.PKIStatus)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.PKIStatus(ASN1Integer.getInstance(o));
+            return new cmp.PKIStatus(ASN1Integer.getInstance(o));
         }
 
         return null;

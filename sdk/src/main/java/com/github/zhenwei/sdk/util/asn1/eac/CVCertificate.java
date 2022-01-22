@@ -1,24 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
 
+ 
+import com.github.zhenwei.core.asn1.ASN1ApplicationSpecific;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERApplicationSpecific;
+import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ApplicationSpecific;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1ParsingException;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERApplicationSpecific;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.eac.CertificateBody;
-import org.bouncycastle.asn1.eac.CertificateHolderAuthorization;
-import org.bouncycastle.asn1.eac.CertificateHolderReference;
-import org.bouncycastle.asn1.eac.CertificationAuthorityReference;
-import org.bouncycastle.asn1.eac.EACTags;
-import org.bouncycastle.asn1.eac.Flags;
-import org.bouncycastle.asn1.eac.PackedDate;
-import org.bouncycastle.util.Arrays;
+import java.util.Arrays;
 
 
 /**
@@ -156,17 +149,17 @@ public class CVCertificate
      * @param obj the Object to extract the certificate from.
      * @return the Iso7816CertificateStructure represented by the byte stream.
      */
-    public static org.bouncycastle.asn1.eac.CVCertificate getInstance(Object obj)
+    public static  CVCertificate getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.eac.CVCertificate)
+        if (obj instanceof  CVCertificate)
         {
-            return (org.bouncycastle.asn1.eac.CVCertificate)obj;
+            return (CVCertificate)obj;
         }
         else if (obj != null)
         {
             try
             {
-                return new org.bouncycastle.asn1.eac.CVCertificate(ASN1ApplicationSpecific.getInstance(obj));
+                return new  CVCertificate(ASN1ApplicationSpecific.getInstance(obj));
             }
             catch (IOException e)
             {

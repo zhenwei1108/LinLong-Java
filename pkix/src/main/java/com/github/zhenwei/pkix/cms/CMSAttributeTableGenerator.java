@@ -1,8 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
+import cms.AttributeTable;
 import java.util.Map;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.cms.CMSAttributeTableGenerationException;
 
 /**
  * Note: The SIGNATURE parameter is only available when generating unsigned attributes.

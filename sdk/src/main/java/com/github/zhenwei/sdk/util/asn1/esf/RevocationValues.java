@@ -1,16 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+import CertificateList;
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.esf.OtherRevVals;
-import org.bouncycastle.asn1.ocsp.BasicOCSPResponse;
-import org.bouncycastle.asn1.x509.CertificateList;
+import ocsp.BasicOCSPResponse;
 
 /**
  * <pre>
@@ -28,15 +27,15 @@ public class RevocationValues
     private ASN1Sequence ocspVals;
     private OtherRevVals otherRevVals;
 
-    public static org.bouncycastle.asn1.esf.RevocationValues getInstance(Object obj)
+    public static esf.RevocationValues getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.RevocationValues)
+        if (obj instanceof esf.RevocationValues)
         {
-            return (org.bouncycastle.asn1.esf.RevocationValues)obj;
+            return (esf.RevocationValues)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.RevocationValues(ASN1Sequence.getInstance(obj));
+            return new esf.RevocationValues(ASN1Sequence.getInstance(obj));
         }
 
         return null;

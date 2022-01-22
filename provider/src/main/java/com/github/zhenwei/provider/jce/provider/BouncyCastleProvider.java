@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+
+import isara.IsaraObjectIdentifiers;
 import java.io.IOException;
 import java.security.AccessController;
 import java.security.PrivateKey;
@@ -9,11 +12,6 @@ import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.isara.IsaraObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
@@ -30,11 +28,13 @@ import org.bouncycastle.pqc.jcajce.provider.sphincs.Sphincs256KeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.xmss.XMSSKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
 
+import pkcs.PrivateKeyInfo;
+
 /**
  * To add the provider at runtime use:
  * <pre>
  * import java.security.Security;
- * import org.bouncycastle.jce.provider.BouncyCastleProvider;
+ * 
  *
  * Security.addProvider(new BouncyCastleProvider());
  * </pre>

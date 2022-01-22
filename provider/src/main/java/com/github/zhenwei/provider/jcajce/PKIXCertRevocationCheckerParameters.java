@@ -4,7 +4,6 @@ import java.security.PublicKey;
 import java.security.cert.CertPath;
 import java.security.cert.X509Certificate;
 import java.util.Date;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
 
 public class PKIXCertRevocationCheckerParameters
 {

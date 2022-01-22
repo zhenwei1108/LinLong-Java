@@ -1,5 +1,20 @@
 package com.github.zhenwei.provider.jce.provider;
 
+
+
+ 
+
+
+
+import CRLDistPoint;
+import CRLNumber;
+import CertificateList;
+
+import Extensions;
+import GeneralNames;
+import IssuingDistributionPoint;
+import TBSCertList;
+import X500Name;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
@@ -23,27 +38,10 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.util.ASN1Dump;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.CRLNumber;
-import org.bouncycastle.asn1.x509.CertificateList;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuingDistributionPoint;
-import org.bouncycastle.asn1.x509.TBSCertList;
 import org.bouncycastle.jce.X509Principal;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.jce.provider.X509CRLEntryObject;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 /**
  * The following extensions are listed in RFC 2459 as relevant to CRLs
@@ -595,7 +593,7 @@ public class X509CRLObject
                     {
                         try
                         {
-                            issuer = org.bouncycastle.asn1.x509.Certificate.getInstance(cert.getEncoded()).getIssuer();
+                            issuer = Certificate.getInstance(cert.getEncoded()).getIssuer();
                         }
                         catch (CertificateEncodingException e)
                         {

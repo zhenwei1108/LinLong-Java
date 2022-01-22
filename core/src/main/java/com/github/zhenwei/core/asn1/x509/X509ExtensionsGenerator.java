@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.x509.X509Extension;
-import org.bouncycastle.asn1.x509.X509Extensions;
 
 /**
  * Generator for X.509 extensions
- * @deprecated use org.bouncycastle.asn1.x509.ExtensionsGenerator
+ * @deprecated use ExtensionsGenerator
  */
 public class X509ExtensionsGenerator
 {

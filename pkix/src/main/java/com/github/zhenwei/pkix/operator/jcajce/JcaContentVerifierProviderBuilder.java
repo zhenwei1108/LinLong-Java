@@ -1,5 +1,9 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
+
+
+import DERBitString;
+
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.security.Provider;
@@ -10,16 +14,12 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.X509CertificateHolder;
+import misc.MiscObjectIdentifiers;
+ 
 import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.io.OutputStreamFactory;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.ContentVerifier;

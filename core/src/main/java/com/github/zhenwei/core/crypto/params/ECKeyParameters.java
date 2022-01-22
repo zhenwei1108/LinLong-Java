@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ECDomainParameters;
 
 public class ECKeyParameters
     extends AsymmetricKeyParameter

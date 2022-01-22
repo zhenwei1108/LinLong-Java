@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+import X500Name;
+import X509Name;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.X509Name;
 
 public class IssuerAndSerialNumber
     extends ASN1Object
@@ -16,16 +16,16 @@ public class IssuerAndSerialNumber
     X500Name name;
     ASN1Integer  certSerialNumber;
 
-    public static org.bouncycastle.asn1.pkcs.IssuerAndSerialNumber getInstance(
+    public static pkcs.IssuerAndSerialNumber getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.IssuerAndSerialNumber)
+        if (obj instanceof pkcs.IssuerAndSerialNumber)
         {
-            return (org.bouncycastle.asn1.pkcs.IssuerAndSerialNumber)obj;
+            return (pkcs.IssuerAndSerialNumber)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
+            return new pkcs.IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
         }
 
         return null;

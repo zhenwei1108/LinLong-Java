@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.BERSet;
-
 class BERFactory
 {
     static final BERSequence EMPTY_SEQUENCE = new BERSequence();

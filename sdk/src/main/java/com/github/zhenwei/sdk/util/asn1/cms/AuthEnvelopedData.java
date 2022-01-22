@@ -1,18 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.EncryptedContentInfo;
-import org.bouncycastle.asn1.cms.OriginatorInfo;
+
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5083">RFC 5083</a>:
@@ -163,7 +160,7 @@ public class AuthEnvelopedData
      * @throws IllegalArgumentException if the object held by the
      *                                  tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.AuthEnvelopedData getInstance(
+    public static cms.AuthEnvelopedData getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
@@ -176,25 +173,25 @@ public class AuthEnvelopedData
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.AuthEnvelopedData} object
-     * <li> {@link ASN1Sequence org.bouncycastle.asn1.ASN1Sequence} input formats with AuthEnvelopedData structure inside
+     * <li> {@link cms.AuthEnvelopedData} object
+     * <li> {@link ASN1Sequence ASN1Sequence} input formats with AuthEnvelopedData structure inside
      * </ul>
      *
      * @param obj The object we want converted.
      * @return a reference that can be assigned to AuthEnvelopedData (may be null)
      * @throws IllegalArgumentException if the object cannot be converted, or was null.
      */
-    public static org.bouncycastle.asn1.cms.AuthEnvelopedData getInstance(
+    public static cms.AuthEnvelopedData getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.AuthEnvelopedData)
+        if (obj instanceof cms.AuthEnvelopedData)
         {
-            return (org.bouncycastle.asn1.cms.AuthEnvelopedData)obj;
+            return (cms.AuthEnvelopedData)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.AuthEnvelopedData(ASN1Sequence.getInstance(obj));
+            return new cms.AuthEnvelopedData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -1,20 +1,19 @@
 package com.github.zhenwei.pkix.pkcs;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.pkcs.Attribute;
-import org.bouncycastle.asn1.pkcs.CRLBag;
-import org.bouncycastle.asn1.pkcs.CertBag;
-import org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.pkcs.SafeBag;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.asn1.x509.CertificateList;
+
+
+
+import Certificate;
+import CertificateList;
 import org.bouncycastle.cert.X509CRLHolder;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
+ 
+import pkcs.Attribute;
+import pkcs.CRLBag;
+
+import pkcs.EncryptedPrivateKeyInfo;
+
+import pkcs.PrivateKeyInfo;
+
 
 public class PKCS12SafeBag
 {

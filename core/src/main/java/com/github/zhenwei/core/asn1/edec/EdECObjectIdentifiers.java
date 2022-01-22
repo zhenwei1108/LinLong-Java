@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.edec;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * Edwards Elliptic Curve Object Identifiers (RFC 8410)

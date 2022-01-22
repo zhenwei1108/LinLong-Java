@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
+import ASN1Enumerated;
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Enumerated;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 
 /**
@@ -62,16 +62,16 @@ public class OCSPResponseStatus
         this.value = value;
     }
 
-    public static org.bouncycastle.asn1.ocsp.OCSPResponseStatus getInstance(
+    public static ocsp.OCSPResponseStatus getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ocsp.OCSPResponseStatus)
+        if (obj instanceof ocsp.OCSPResponseStatus)
         {
-            return (org.bouncycastle.asn1.ocsp.OCSPResponseStatus)obj;
+            return (ocsp.OCSPResponseStatus)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.ocsp.OCSPResponseStatus(ASN1Enumerated.getInstance(obj));
+            return new ocsp.OCSPResponseStatus(ASN1Enumerated.getInstance(obj));
         }
 
         return null;

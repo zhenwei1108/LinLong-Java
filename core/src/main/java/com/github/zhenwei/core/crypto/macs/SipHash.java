@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.macs;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+
+
 import org.bouncycastle.crypto.Mac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * Implementation of SipHash as specified in "SipHash: a fast short-input PRF", by Jean-Philippe

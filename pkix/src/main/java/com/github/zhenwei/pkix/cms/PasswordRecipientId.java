@@ -1,8 +1,5 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.cms.PasswordRecipientInformation;
-import org.bouncycastle.cms.RecipientId;
-
 public class PasswordRecipientId
     extends RecipientId
 {

@@ -1,11 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
+
 import org.bouncycastle.pqc.crypto.lms.LMSContext;
 import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
 
 class LMS
 {

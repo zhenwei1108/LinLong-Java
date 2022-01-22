@@ -4,9 +4,9 @@ import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.NullDigest;
 import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
@@ -17,7 +17,7 @@ import org.bouncycastle.crypto.signers.ECNRSigner;
 import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
 import org.bouncycastle.crypto.signers.PlainDSAEncoding;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;
-import org.bouncycastle.crypto.util.DigestFactory;
+
 import org.bouncycastle.jcajce.provider.asymmetric.util.DSABase;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 

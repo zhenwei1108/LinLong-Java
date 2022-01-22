@@ -1,17 +1,17 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  *  <pre>
@@ -57,27 +57,27 @@ public class GostR3410TransportParameters
         }
     }
 
-    public static org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters getInstance(
+    public static GostR3410TransportParameters getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters)
+        if (obj instanceof GostR3410TransportParameters)
         {
-            return (org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters)obj;
+            return  (GostR3410TransportParameters)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters(ASN1Sequence.getInstance(obj));
+            return new GostR3410TransportParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters getInstance(
+    public static GostR3410TransportParameters getInstance(
         ASN1TaggedObject    obj,
         boolean             explicit)
     {
-        return new org.bouncycastle.asn1.cryptopro.GostR3410TransportParameters(ASN1Sequence.getInstance(obj, explicit));
+        return new GostR3410TransportParameters(ASN1Sequence.getInstance(obj, explicit));
     }
 
     public ASN1ObjectIdentifier getEncryptionParamSet()

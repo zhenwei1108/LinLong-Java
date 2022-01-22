@@ -12,9 +12,6 @@ import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Extension;
 import java.util.Date;
-import org.bouncycastle.x509.AttributeCertificateHolder;
-import org.bouncycastle.x509.AttributeCertificateIssuer;
-import org.bouncycastle.x509.X509Attribute;
 
 /**
  * Interface for an X.509 Attribute Certificate.

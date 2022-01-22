@@ -1,9 +1,9 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+
+
 import javax.crypto.spec.PBEKeySpec;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
 
 /**
  * Extension of PBEKeySpec which takes into account the PRF algorithm setting available in PKCS#5 PBKDF2.

@@ -1,17 +1,18 @@
 package com.github.zhenwei.core.asn1.bc;
 
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.util.Arrays;
+
+import com.github.zhenwei.core.asn1.ASN1BitString;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import java.util.Arrays;
 
 /**
  * <pre>
@@ -60,15 +61,15 @@ public class SignatureCheck
         this.signatureValue = DERBitString.getInstance(seq.getObjectAt(index));
     }
 
-    public static org.bouncycastle.asn1.bc.SignatureCheck getInstance(Object o)
+    public static SignatureCheck getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.SignatureCheck)
+        if (o instanceof SignatureCheck)
         {
-            return (org.bouncycastle.asn1.bc.SignatureCheck)o;
+            return (bc.SignatureCheck)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.SignatureCheck(ASN1Sequence.getInstance(o));
+            return new SignatureCheck(ASN1Sequence.getInstance(o));
         }
 
         return null;

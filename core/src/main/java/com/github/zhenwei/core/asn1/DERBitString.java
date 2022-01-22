@@ -1,14 +1,8 @@
 package com.github.zhenwei.core.asn1;
 
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * A BIT STRING with DER encoding - the first byte contains the count of padding bits included in the byte array's last byte.
@@ -16,9 +10,9 @@ import org.bouncycastle.asn1.BERTags;
 public class DERBitString
     extends ASN1BitString
 {
-    public static org.bouncycastle.asn1.DERBitString convert(ASN1BitString bitString)
+    public static DERBitString convert(ASN1BitString bitString)
     {
-        return (org.bouncycastle.asn1.DERBitString)bitString.toDERObject();
+        return (DERBitString)bitString.toDERObject();
     }
 
     /**
@@ -31,12 +25,12 @@ public class DERBitString
      * @deprecated Use {@link ASN1BitString#getInstance(Object)} and
      *             {@link #convert(ASN1BitString)} instead.
      */
-    public static org.bouncycastle.asn1.DERBitString getInstance(
+    public static DERBitString getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERBitString)
+        if (obj == null || obj instanceof DERBitString)
         {
-            return (org.bouncycastle.asn1.DERBitString)obj;
+            return (DERBitString)obj;
         }
         if (obj instanceof ASN1BitString)
         {
@@ -69,13 +63,13 @@ public class DERBitString
      * @deprecated Use {@link ASN1BitString#getInstance(ASN1TaggedObject, boolean)}
      *             and {@link #convert(ASN1BitString)} instead.
      */
-    public static org.bouncycastle.asn1.DERBitString getInstance(
+    public static DERBitString getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERBitString)
+        if (explicit || o instanceof DERBitString)
         {
             return getInstance(o);
         }
@@ -154,8 +148,8 @@ public class DERBitString
         return this;
     }
 
-    static org.bouncycastle.asn1.DERBitString fromOctetString(ASN1OctetString octetString)
+    static DERBitString fromOctetString(ASN1OctetString octetString)
     {
-        return new org.bouncycastle.asn1.DERBitString(octetString.getOctets(), true);
+        return new DERBitString(octetString.getOctets(), true);
     }
 }

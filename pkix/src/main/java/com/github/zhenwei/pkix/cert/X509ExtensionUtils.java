@@ -1,17 +1,15 @@
 package com.github.zhenwei.pkix.cert;
 
+
+
+
+
+import GeneralNames;
+
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.x509.AuthorityKeyIdentifier;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.CertRuntimeException;
-import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.operator.DigestCalculator;
 
 /**

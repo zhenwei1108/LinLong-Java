@@ -1,14 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * Class representing the ASN.1 ENUMERATED type.
@@ -17,7 +12,7 @@ public class ASN1Enumerated
     extends ASN1Primitive
 {
     static final ASN1UniversalType TYPE = new ASN1UniversalType(
-        org.bouncycastle.asn1.ASN1Enumerated.class, BERTags.ENUMERATED)
+        ASN1Enumerated.class, BERTags.ENUMERATED)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -32,19 +27,19 @@ public class ASN1Enumerated
      * @exception IllegalArgumentException if the object cannot be converted.
      * @return an ASN1Enumerated instance, or null.
      */
-    public static org.bouncycastle.asn1.ASN1Enumerated getInstance(
+    public static ASN1Enumerated getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1Enumerated)
+        if (obj == null || obj instanceof ASN1Enumerated)
         {
-            return (org.bouncycastle.asn1.ASN1Enumerated)obj;
+            return (ASN1Enumerated)obj;
         }
 
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1Enumerated)TYPE.fromByteArray((byte[])obj);
+                return (ASN1Enumerated)TYPE.fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -65,9 +60,9 @@ public class ASN1Enumerated
      *               be converted.
      * @return an ASN1Enumerated instance, or null.
      */
-    public static org.bouncycastle.asn1.ASN1Enumerated getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1Enumerated getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1Enumerated)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1Enumerated)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     private final byte[] contents;
@@ -178,12 +173,12 @@ public class ASN1Enumerated
     boolean asn1Equals(
         ASN1Primitive  o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1Enumerated))
+        if (!(o instanceof ASN1Enumerated))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1Enumerated other = (org.bouncycastle.asn1.ASN1Enumerated)o;
+        ASN1Enumerated other = (ASN1Enumerated)o;
 
         return Arrays.areEqual(this.contents, other.contents);
     }
@@ -193,13 +188,13 @@ public class ASN1Enumerated
         return Arrays.hashCode(contents);
     }
 
-    private static final org.bouncycastle.asn1.ASN1Enumerated[] cache = new org.bouncycastle.asn1.ASN1Enumerated[12];
+    private static final ASN1Enumerated[] cache = new ASN1Enumerated[12];
 
-    static org.bouncycastle.asn1.ASN1Enumerated createPrimitive(byte[] contents, boolean clone)
+    static ASN1Enumerated createPrimitive(byte[] contents, boolean clone)
     {
         if (contents.length > 1)
         {
-            return new org.bouncycastle.asn1.ASN1Enumerated(contents, clone);
+            return new ASN1Enumerated(contents, clone);
         }
 
         if (contents.length == 0)
@@ -210,14 +205,14 @@ public class ASN1Enumerated
 
         if (value >= cache.length)
         {
-            return new org.bouncycastle.asn1.ASN1Enumerated(contents, clone);
+            return new ASN1Enumerated(contents, clone);
         }
 
-        org.bouncycastle.asn1.ASN1Enumerated possibleMatch = cache[value];
+        ASN1Enumerated possibleMatch = cache[value];
 
         if (possibleMatch == null)
         {
-            possibleMatch = cache[value] = new org.bouncycastle.asn1.ASN1Enumerated(contents, clone);
+            possibleMatch = cache[value] = new ASN1Enumerated(contents, clone);
         }
 
         return possibleMatch;

@@ -2,7 +2,6 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
 
 /**
  * XMSS key-pair generation parameters.

@@ -1,21 +1,18 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+import ASN1UTCTime;
+
+
+import X500Name;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1UTCTime;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.Time;
 
 /**
  * PKIX RFC-2459 - TBSCertList object.
@@ -147,23 +144,23 @@ public class TBSCertList
     ASN1Sequence            revokedCertificates;
     Extensions              crlExtensions;
 
-    public static org.bouncycastle.asn1.x509.TBSCertList getInstance(
+    public static TBSCertList getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.TBSCertList getInstance(
+    public static TBSCertList getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.TBSCertList)
+        if (obj instanceof TBSCertList)
         {
-            return (org.bouncycastle.asn1.x509.TBSCertList)obj;
+            return (TBSCertList)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.TBSCertList(ASN1Sequence.getInstance(obj));
+            return new TBSCertList(ASN1Sequence.getInstance(obj));
         }
 
         return null;

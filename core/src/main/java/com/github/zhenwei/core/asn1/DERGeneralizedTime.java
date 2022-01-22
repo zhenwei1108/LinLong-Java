@@ -1,12 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.util.Date;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.util.Strings;
+
 
 /**
  * DER Generalized time object.

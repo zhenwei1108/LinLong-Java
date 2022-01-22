@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.cert.dane;
 
-import org.bouncycastle.cert.dane.DANEEntryFetcher;
-
 /**
  * Factories for DANEEntryFetcher objects should implement this.
  * <p>

@@ -1,7 +1,6 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.pqc.jcajce.spec.LMSKeyGenParameterSpec;
 
 /**
  * ParameterSpec for keys using the LMS Hierarchical Signature System (HSS).

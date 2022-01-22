@@ -2,11 +2,11 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.dh.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+
+import x9.X9ObjectIdentifiers;
 
 public class DH
 {

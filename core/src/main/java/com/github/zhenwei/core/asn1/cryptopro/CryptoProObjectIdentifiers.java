@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  * <pre>
@@ -11,7 +12,7 @@ import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 public interface CryptoProObjectIdentifiers
 {
     /** Base OID: 1.2.643.2.2 */
-    static final ASN1ObjectIdentifier    GOST_id            = new ASN1ObjectIdentifier("1.2.643.2.2");
+    static final ASN1ObjectIdentifier GOST_id            = new ASN1ObjectIdentifier("1.2.643.2.2");
 
     /** Gost R3411 OID: 1.2.643.2.2.9 */
     static final ASN1ObjectIdentifier    gostR3411          = GOST_id.branch("9");

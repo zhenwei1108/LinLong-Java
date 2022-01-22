@@ -1,16 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.esf.CrlListID;
-import org.bouncycastle.asn1.esf.OcspListID;
-import org.bouncycastle.asn1.esf.OtherRevRefs;
 
 /**
  * <pre>
@@ -29,15 +26,15 @@ public class CrlOcspRef
     private OcspListID ocspids;
     private OtherRevRefs otherRev;
 
-    public static org.bouncycastle.asn1.esf.CrlOcspRef getInstance(Object obj)
+    public static esf.CrlOcspRef getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.CrlOcspRef)
+        if (obj instanceof esf.CrlOcspRef)
         {
-            return (org.bouncycastle.asn1.esf.CrlOcspRef)obj;
+            return (esf.CrlOcspRef)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.CrlOcspRef(ASN1Sequence.getInstance(obj));
+            return new esf.CrlOcspRef(ASN1Sequence.getInstance(obj));
         }
 
         return null;

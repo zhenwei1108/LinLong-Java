@@ -11,7 +11,6 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-import org.bouncycastle.est.jcajce.SSLSocketFactoryCreator;
 
 /**
  * A basic builder to allow configuration of an SSLContext used to create an SSLSocketFactory.

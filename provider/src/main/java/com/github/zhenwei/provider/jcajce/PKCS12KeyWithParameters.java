@@ -1,8 +1,7 @@
 package com.github.zhenwei.provider.jcajce;
 
 import javax.crypto.interfaces.PBEKey;
-import org.bouncycastle.jcajce.PKCS12Key;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A password based key for use with PKCS#12 with full PBE parameters.

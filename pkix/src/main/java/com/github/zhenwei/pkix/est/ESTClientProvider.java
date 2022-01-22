@@ -1,9 +1,6 @@
 package com.github.zhenwei.pkix.est;
 
 
-import org.bouncycastle.est.ESTClient;
-import org.bouncycastle.est.ESTException;
-
 /**
  * A client provider is responsible for creating an ESTClient instance.
  */

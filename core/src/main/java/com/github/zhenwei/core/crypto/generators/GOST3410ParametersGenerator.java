@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.params.GOST3410Parameters;
 import org.bouncycastle.crypto.params.GOST3410ValidationParameters;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * generate suitable parameters for GOST3410.

@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -9,18 +11,14 @@ import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.jce.spec.ECPublicKeySpec;
+import pkcs.PrivateKeyInfo;
+import ua.UAObjectIdentifiers;
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

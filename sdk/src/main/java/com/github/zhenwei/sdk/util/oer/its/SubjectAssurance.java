@@ -1,8 +1,8 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.DEROctetString;
 
 public class SubjectAssurance
     extends DEROctetString

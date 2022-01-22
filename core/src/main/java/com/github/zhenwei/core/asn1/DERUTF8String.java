@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER UTF8String object.
  */
@@ -20,21 +16,21 @@ public class DERUTF8String
      * 
      * @deprecated Use {@link ASN1UTF8String#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERUTF8String getInstance(Object obj)
+    public static DERUTF8String getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERUTF8String)
+        if (obj == null || obj instanceof DERUTF8String)
         {
-            return (org.bouncycastle.asn1.DERUTF8String)obj;
+            return (DERUTF8String)obj;
         }
         if (obj instanceof ASN1UTF8String)
         {
-            return new org.bouncycastle.asn1.DERUTF8String(((ASN1UTF8String)obj).contents, false);
+            return new DERUTF8String(((ASN1UTF8String)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERUTF8String)fromByteArray((byte[])obj);
+                return (DERUTF8String)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -58,19 +54,19 @@ public class DERUTF8String
      * @deprecated Use {@link ASN1UTF8String#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERUTF8String getInstance(
+    public static DERUTF8String getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERUTF8String)
+        if (explicit || o instanceof DERUTF8String)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERUTF8String(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERUTF8String(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

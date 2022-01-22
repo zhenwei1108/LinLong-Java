@@ -1,12 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
+import PreCompInfo;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.AbstractECMultiplier;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.PreCompCallback;
-import org.bouncycastle.math.ec.PreCompInfo;
-import org.bouncycastle.math.ec.WTauNafPreCompInfo;
 
 /**
  * Class implementing the WTNAF (Window

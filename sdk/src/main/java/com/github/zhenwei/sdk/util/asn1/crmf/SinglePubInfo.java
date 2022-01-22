@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -40,16 +40,16 @@ public class SinglePubInfo
         }
     }
 
-    public static org.bouncycastle.asn1.crmf.SinglePubInfo getInstance(Object o)
+    public static crmf.SinglePubInfo getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.SinglePubInfo)
+        if (o instanceof crmf.SinglePubInfo)
         {
-            return (org.bouncycastle.asn1.crmf.SinglePubInfo)o;
+            return (crmf.SinglePubInfo)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.SinglePubInfo(ASN1Sequence.getInstance(o));
+            return new crmf.SinglePubInfo(ASN1Sequence.getInstance(o));
         }
 
         return null;

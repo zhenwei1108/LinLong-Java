@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cert.bc;
 
+import X500Name;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Date;
-import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.cert.X509v1CertificateBuilder;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;

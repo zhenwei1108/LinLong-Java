@@ -1,17 +1,15 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+import DERBitString;
+
+import X500Name;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
 
 public class IssuerSerial
     extends ASN1Object
@@ -20,23 +18,23 @@ public class IssuerSerial
     ASN1Integer              serial;
     DERBitString            issuerUID;
 
-    public static org.bouncycastle.asn1.x509.IssuerSerial getInstance(
+    public static IssuerSerial getInstance(
             Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.IssuerSerial)
+        if (obj instanceof IssuerSerial)
         {
-            return (org.bouncycastle.asn1.x509.IssuerSerial)obj;
+            return (x509.IssuerSerial)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.IssuerSerial(ASN1Sequence.getInstance(obj));
+            return new IssuerSerial(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.IssuerSerial getInstance(
+    public static IssuerSerial getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

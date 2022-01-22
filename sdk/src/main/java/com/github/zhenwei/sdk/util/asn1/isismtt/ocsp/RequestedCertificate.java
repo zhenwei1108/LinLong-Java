@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.ocsp;
 
+
+
+
+
+
+
+import Certificate;
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ISIS-MTT-Optional: The certificate requested by the client by inserting the
@@ -56,27 +56,27 @@ public class RequestedCertificate
     private byte[] publicKeyCert;
     private byte[] attributeCert;
 
-    public static org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate getInstance(Object obj)
+    public static ocsp.RequestedCertificate getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate)
+        if (obj == null || obj instanceof ocsp.RequestedCertificate)
         {
-            return (org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate)obj;
+            return  (ocsp.RequestedCertificate)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate(Certificate.getInstance(obj));
+            return new ocsp.RequestedCertificate(Certificate.getInstance(obj));
         }
         if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate((ASN1TaggedObject)obj);
+            return new ocsp.RequestedCertificate((ASN1TaggedObject)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "
             + obj.getClass().getName());
     }
 
-    public static org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static ocsp.RequestedCertificate getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         if (!explicit)
         {

@@ -1,20 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
+ 
+
+
+ 
+
+
+
+ 
+
 import java.io.IOException;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1ApplicationSpecific;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ParsingException;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERApplicationSpecific;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.eac.CertificateBody;
-import org.bouncycastle.asn1.eac.EACTags;
-import org.bouncycastle.asn1.eac.PublicKeyDataObject;
-import org.bouncycastle.util.Arrays;
+
 
 public class CVCertificateRequest
     extends ASN1Object
@@ -83,17 +80,17 @@ public class CVCertificateRequest
         }
     }
 
-    public static org.bouncycastle.asn1.eac.CVCertificateRequest getInstance(Object obj)
+    public static  CVCertificateRequest getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.eac.CVCertificateRequest)
+        if (obj instanceof  CVCertificateRequest)
         {
-            return (org.bouncycastle.asn1.eac.CVCertificateRequest)obj;
+            return (CVCertificateRequest)obj;
         }
         else if (obj != null)
         {
             try
             {
-                return new org.bouncycastle.asn1.eac.CVCertificateRequest(ASN1ApplicationSpecific.getInstance(obj));
+                return new  CVCertificateRequest(ASN1ApplicationSpecific.getInstance(obj));
             }
             catch (IOException e)
             {

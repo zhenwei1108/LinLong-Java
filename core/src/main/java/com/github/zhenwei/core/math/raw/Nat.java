@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.math.raw;
 
+
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister.Pack;
 import java.math.BigInteger;
-import org.bouncycastle.util.Pack;
 
 public abstract class Nat
 {

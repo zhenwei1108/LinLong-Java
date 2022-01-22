@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 public class DERVideotexString
     extends ASN1VideotexString
 {
@@ -16,22 +12,22 @@ public class DERVideotexString
      * 
      * @deprecated Use {@link ASN1VideotexString#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERVideotexString getInstance(
+    public static DERVideotexString getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERVideotexString)
+        if (obj == null || obj instanceof DERVideotexString)
         {
-            return (org.bouncycastle.asn1.DERVideotexString)obj;
+            return (DERVideotexString)obj;
         }
         if (obj instanceof ASN1VideotexString)
         {
-            return new org.bouncycastle.asn1.DERVideotexString(((ASN1VideotexString)obj).contents, false);
+            return new DERVideotexString(((ASN1VideotexString)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERVideotexString)fromByteArray((byte[])obj);
+                return (DERVideotexString)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -55,19 +51,19 @@ public class DERVideotexString
      *             {@link ASN1VideotexString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERVideotexString getInstance(
+    public static DERVideotexString getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERVideotexString)
+        if (explicit || o instanceof DERVideotexString)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERVideotexString(ASN1OctetString.getInstance(o).getOctets());
+            return new DERVideotexString(ASN1OctetString.getInstance(o).getOctets());
         }
     }
 

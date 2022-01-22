@@ -2,7 +2,6 @@ package com.github.zhenwei.provider.x509;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import org.bouncycastle.x509.X509StoreParameters;
 
 /**
  * This class contains a collection for collection based <code>X509Store</code>s.

@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
+
 
 public class Attribute
     extends ASN1Object
@@ -21,17 +21,17 @@ public class Attribute
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.pkcs.Attribute getInstance(
+    public static pkcs.Attribute getInstance(
         Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.pkcs.Attribute)
+        if (o == null || o instanceof pkcs.Attribute)
         {
-            return (org.bouncycastle.asn1.pkcs.Attribute)o;
+            return (pkcs.Attribute)o;
         }
         
         if (o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.pkcs.Attribute((ASN1Sequence)o);
+            return new pkcs.Attribute((ASN1Sequence)o);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + o.getClass().getName());

@@ -1,19 +1,17 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+
+
+import ECCurve.AbstractF2m;
+
+
+import ECMultiplier;
+ 
+import WTauNafMultiplier;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.AbstractECLookupTable;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECCurve.AbstractF2m;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECMultiplier;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.WTauNafMultiplier;
-import org.bouncycastle.math.ec.custom.sec.SecT163FieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecT163K1Point;
 import org.bouncycastle.math.raw.Nat192;
-import org.bouncycastle.util.encoders.Hex;
+
 
 public class SecT163K1Curve extends AbstractF2m
 {
@@ -38,7 +36,7 @@ public class SecT163K1Curve extends AbstractF2m
 
     protected ECCurve cloneCurve()
     {
-        return new org.bouncycastle.math.ec.custom.sec.SecT163K1Curve();
+        return new SecT163K1Curve();
     }
 
     public boolean supportsCoordinateSystem(int coord)

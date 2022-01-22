@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
 
 public class PollReqContent
     extends ASN1Object
@@ -17,16 +17,16 @@ public class PollReqContent
         content = seq;
     }
 
-    public static org.bouncycastle.asn1.cmp.PollReqContent getInstance(Object o)
+    public static cmp.PollReqContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.PollReqContent)
+        if (o instanceof cmp.PollReqContent)
         {
-            return (org.bouncycastle.asn1.cmp.PollReqContent)o;
+            return (cmp.PollReqContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.PollReqContent(ASN1Sequence.getInstance(o));
+            return new cmp.PollReqContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

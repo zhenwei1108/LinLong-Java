@@ -1,5 +1,20 @@
 package com.github.zhenwei.pkix.pkix.jcajce;
 
+
+
+
+
+ 
+import CRLDistPoint;
+import CRLReason;
+
+import DistributionPoint;
+import DistributionPointName;
+
+
+import GeneralNames;
+import IssuingDistributionPoint;
+import X500Name;
 import java.io.IOException;
 import java.security.PublicKey;
 import java.security.cert.CertPathBuilder;
@@ -18,28 +33,12 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.BasicConstraints;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.CRLReason;
-import org.bouncycastle.asn1.x509.DistributionPoint;
-import org.bouncycastle.asn1.x509.DistributionPointName;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuingDistributionPoint;
 import org.bouncycastle.jcajce.PKIXCRLStoreSelector;
 import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
-import org.bouncycastle.pkix.jcajce.AnnotatedException;
-import org.bouncycastle.util.Arrays;
+
+
 
 class RFC3280CertPathUtilities
 {
@@ -224,7 +223,7 @@ class RFC3280CertPathUtilities
             if (cert instanceof X509Certificate)
             {
                 // (b) (2) (ii)
-                if (idp.onlyContainsUserCerts() && (bc != null && bc.isCA()))
+                if (idp.onlyContainsUserCerts() && (bc != null && isCA()))
                 {
                     throw new AnnotatedException("CA Cert CRL only contains user certificates.");
                 }

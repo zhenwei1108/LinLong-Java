@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.digest;
 
 import java.security.DigestException;
 import java.security.MessageDigest;
-import org.bouncycastle.crypto.Digest;
+
 
 public class BCMessageDigest
     extends MessageDigest

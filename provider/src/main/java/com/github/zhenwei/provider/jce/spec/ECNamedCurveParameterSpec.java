@@ -1,10 +1,8 @@
 package com.github.zhenwei.provider.jce.spec;
 
+
+ 
 import java.math.BigInteger;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
 
 /**
  * specification signifying that the curve parameters can also be

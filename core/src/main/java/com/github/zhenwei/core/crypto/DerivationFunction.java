@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.DerivationParameters;
+
+
 
 /**
  * base interface for general purpose byte derivation functions.

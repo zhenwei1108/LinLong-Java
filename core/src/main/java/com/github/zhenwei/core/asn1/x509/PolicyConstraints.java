@@ -1,16 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
 
 /**
  * PKIX RFC 5280
@@ -57,23 +55,23 @@ public class PolicyConstraints
         }
     }
 
-    public static org.bouncycastle.asn1.x509.PolicyConstraints getInstance(
+    public static PolicyConstraints getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.PolicyConstraints)
+        if (obj instanceof PolicyConstraints)
         {
-            return (org.bouncycastle.asn1.x509.PolicyConstraints)obj;
+            return (PolicyConstraints)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.PolicyConstraints(ASN1Sequence.getInstance(obj));
+            return new PolicyConstraints(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.PolicyConstraints fromExtensions(Extensions extensions)
+    public static PolicyConstraints fromExtensions(Extensions extensions)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.policyConstraints));
     }

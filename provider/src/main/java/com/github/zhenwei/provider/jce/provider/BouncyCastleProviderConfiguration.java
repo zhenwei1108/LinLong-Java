@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
@@ -16,7 +16,6 @@ import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission;
 import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 
 class BouncyCastleProviderConfiguration

@@ -1,39 +1,34 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
+
+
+
+import ASN1Null;
+
+
+
+
+import ExtensionsGenerator;
+
+
+import Time;
+import X500Name;
+import crmf.AttributeTypeAndValue;
+import crmf.CertReqMsg;
+import crmf.CertRequest;
+import crmf.CertTemplate;
+import crmf.CertTemplateBuilder;
+import crmf.OptionalValidity;
+import crmf.PKMACValue;
+import crmf.POPOPrivKey;
+import crmf.ProofOfPossession;
+import crmf.SubsequentMessage;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.crmf.AttributeTypeAndValue;
-import org.bouncycastle.asn1.crmf.CertReqMsg;
-import org.bouncycastle.asn1.crmf.CertRequest;
-import org.bouncycastle.asn1.crmf.CertTemplate;
-import org.bouncycastle.asn1.crmf.CertTemplateBuilder;
-import org.bouncycastle.asn1.crmf.OptionalValidity;
-import org.bouncycastle.asn1.crmf.PKMACValue;
-import org.bouncycastle.asn1.crmf.POPOPrivKey;
-import org.bouncycastle.asn1.crmf.ProofOfPossession;
-import org.bouncycastle.asn1.crmf.SubsequentMessage;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.ExtensionsGenerator;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.Time;
 import org.bouncycastle.cert.CertIOException;
-import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.cert.crmf.CertificateRequestMessage;
-import org.bouncycastle.cert.crmf.Control;
-import org.bouncycastle.cert.crmf.PKMACBuilder;
-import org.bouncycastle.cert.crmf.ProofOfPossessionSigningKeyBuilder;
 import org.bouncycastle.operator.ContentSigner;
 
 public class CertificateRequestMessageBuilder

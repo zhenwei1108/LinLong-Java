@@ -1,14 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
+
+import cms.CMSObjectIdentifiers;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedData;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * a holding class for a byte array of data to be processed.

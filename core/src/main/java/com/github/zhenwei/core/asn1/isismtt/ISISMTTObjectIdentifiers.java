@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.isismtt;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
+import com.github.zhenwei.core.asn1.x509.SubjectDirectoryAttributes;
 
 /**
  * ISISMT -- Industrial Signature Interoperability Specification
@@ -104,7 +105,7 @@ public interface ISISMTTObjectIdentifiers
      * <p>
      * OID: 1.3.36.8.3.8
      * 
-     * @see org.bouncycastle.asn1.isismtt.x509.Restriction
+     * @see x509.Restriction
      */
     static final ASN1ObjectIdentifier id_isismtt_at_restriction = id_isismtt_at.branch("8");
 
@@ -130,7 +131,7 @@ public interface ISISMTTObjectIdentifiers
      * <p>
      * OID: 1.3.36.8.3.10
      * 
-     * @see org.bouncycastle.asn1.isismtt.ocsp.RequestedCertificate
+     * @see ocsp.RequestedCertificate
      */
     static final ASN1ObjectIdentifier id_isismtt_at_requestedCertificate = id_isismtt_at.branch("10");
 
@@ -160,7 +161,7 @@ public interface ISISMTTObjectIdentifiers
      * <p>
      * OID: 1.3.36.8.3.13
      * 
-     * @see org.bouncycastle.asn1.isismtt.ocsp.CertHash
+     * @see ocsp.CertHash
      */
     static final ASN1ObjectIdentifier id_isismtt_at_certHash = id_isismtt_at.branch("13");
 
@@ -170,7 +171,7 @@ public interface ISISMTTObjectIdentifiers
      * </pre>
      * 
      * Used in
-     * {@link org.bouncycastle.asn1.x509.SubjectDirectoryAttributes SubjectDirectoryAttributes}
+     * {@link SubjectDirectoryAttributes SubjectDirectoryAttributes}
      * <p>
      * OID: 1.3.36.8.3.14
      */
@@ -187,7 +188,7 @@ public interface ISISMTTObjectIdentifiers
      * <p>
      * OID: 1.3.36.8.3.15
      * 
-     * @see org.bouncycastle.asn1.isismtt.x509.AdditionalInformationSyntax
+     * @see x509.AdditionalInformationSyntax
      */
     static final ASN1ObjectIdentifier id_isismtt_at_additionalInformation = id_isismtt_at.branch("15");
 

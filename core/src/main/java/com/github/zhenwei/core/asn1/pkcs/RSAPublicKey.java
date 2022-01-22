@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
 
 public class RSAPublicKey
     extends ASN1Object
@@ -16,24 +16,24 @@ public class RSAPublicKey
     private BigInteger modulus;
     private BigInteger publicExponent;
 
-    public static org.bouncycastle.asn1.pkcs.RSAPublicKey getInstance(
+    public static pkcs.RSAPublicKey getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.pkcs.RSAPublicKey getInstance(
+    public static pkcs.RSAPublicKey getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.RSAPublicKey)
+        if (obj instanceof pkcs.RSAPublicKey)
         {
-            return (org.bouncycastle.asn1.pkcs.RSAPublicKey)obj;
+            return (pkcs.RSAPublicKey)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.RSAPublicKey(ASN1Sequence.getInstance(obj));
+            return new pkcs.RSAPublicKey(ASN1Sequence.getInstance(obj));
         }
         
         return null;

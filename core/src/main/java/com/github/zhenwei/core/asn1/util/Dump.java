@@ -1,13 +1,12 @@
 package com.github.zhenwei.core.asn1.util;
 
+ 
 import java.io.FileInputStream;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.util.ASN1Dump;
 
 /**
  * Command line ASN.1 Dump utility.
  * <p>
- *     Usage: org.bouncycastle.asn1.util.Dump ber_encoded_file
+ *     Usage: util.Dump ber_encoded_file
  * </p>
  */
 public class Dump

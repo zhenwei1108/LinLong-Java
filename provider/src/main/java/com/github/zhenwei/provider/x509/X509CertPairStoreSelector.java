@@ -1,8 +1,6 @@
 package com.github.zhenwei.provider.x509;
 
-import org.bouncycastle.util.Selector;
-import org.bouncycastle.x509.X509CertStoreSelector;
-import org.bouncycastle.x509.X509CertificatePair;
+
 
 /**
  * This class is an <code>Selector</code> like implementation to select
@@ -11,8 +9,8 @@ import org.bouncycastle.x509.X509CertificatePair;
  * {@link X509CertStoreSelector}s which must be both
  * matched.
  * 
- * @see org.bouncycastle.x509.X509AttributeCertificate
- * @see org.bouncycastle.x509.X509Store
+ * @see org.bouncycastle.X509AttributeCertificate
+ * @see org.bouncycastle.X509Store
  */
 public class X509CertPairStoreSelector implements Selector
 {
@@ -73,7 +71,7 @@ public class X509CertPairStoreSelector implements Selector
      */
     public Object clone()
     {
-        org.bouncycastle.x509.X509CertPairStoreSelector cln = new org.bouncycastle.x509.X509CertPairStoreSelector();
+        org.bouncycastle.X509CertPairStoreSelector cln = new org.bouncycastle.X509CertPairStoreSelector();
 
         cln.certPair = certPair;
         

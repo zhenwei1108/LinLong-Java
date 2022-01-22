@@ -1,5 +1,25 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
+
+
+
+ 
+
+
+
+
+
+
+ 
+import DERBitString;
+
+
+
+import Extensions;
+
+import KeyUsage;
+import TBSCertificate;
+import X500Name;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -29,55 +49,35 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.misc.NetscapeCertType;
-import org.bouncycastle.asn1.misc.NetscapeRevocationURL;
-import org.bouncycastle.asn1.misc.VerisignCzagExtension;
-import org.bouncycastle.asn1.util.ASN1Dump;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.style.RFC4519Style;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.BasicConstraints;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.KeyUsage;
-import org.bouncycastle.asn1.x509.TBSCertificate;
+import misc.MiscObjectIdentifiers;
+import misc.NetscapeCertType;
+import misc.NetscapeRevocationURL;
+import misc.VerisignCzagExtension;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
 import org.bouncycastle.jcajce.io.OutputStreamFactory;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
 import org.bouncycastle.jce.X509Principal;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Integers;
-import org.bouncycastle.util.Properties;
-import org.bouncycastle.util.Strings;
+
+
+ 
+
+
+import style.RFC4519Style;
+
 
 abstract class X509CertificateImpl
     extends X509Certificate
     implements BCX509Certificate
 {
     protected JcaJceHelper bcHelper;
-    protected org.bouncycastle.asn1.x509.Certificate c;
+    protected Certificate c;
     protected BasicConstraints basicConstraints;
     protected boolean[] keyUsage;
     protected String sigAlgName;
     protected byte[] sigAlgParams;
 
-    X509CertificateImpl(JcaJceHelper bcHelper, org.bouncycastle.asn1.x509.Certificate c,
+    X509CertificateImpl(JcaJceHelper bcHelper, Certificate c,
         BasicConstraints basicConstraints, boolean[] keyUsage, String sigAlgName, byte[] sigAlgParams)
     {
         this.bcHelper = bcHelper;
@@ -833,7 +833,7 @@ abstract class X509CertificateImpl
         return true;
     }
 
-    private static Collection getAlternativeNames(org.bouncycastle.asn1.x509.Certificate c, String oid)
+    private static Collection getAlternativeNames(x509.Certificate c, String oid)
         throws CertificateParsingException
     {
         byte[] extOctets = getExtensionOctets(c, oid);
@@ -899,7 +899,7 @@ abstract class X509CertificateImpl
         }
     }
 
-    protected static byte[] getExtensionOctets(org.bouncycastle.asn1.x509.Certificate c, String oid)
+    protected static byte[] getExtensionOctets(x509.Certificate c, String oid)
     {
         ASN1OctetString extValue = getExtensionValue(c, oid);
         if (null != extValue)
@@ -909,7 +909,7 @@ abstract class X509CertificateImpl
         return null;
     }
 
-    protected static ASN1OctetString getExtensionValue(org.bouncycastle.asn1.x509.Certificate c, String oid)
+    protected static ASN1OctetString getExtensionValue(x509.Certificate c, String oid)
     {
         Extensions exts = c.getTBSCertificate().getExtensions();
         if (null != exts)

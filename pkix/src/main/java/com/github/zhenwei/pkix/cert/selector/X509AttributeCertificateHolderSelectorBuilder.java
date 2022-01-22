@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.cert.selector;
 
+
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Collection;
@@ -8,11 +9,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.cert.AttributeCertificateHolder;
 import org.bouncycastle.cert.AttributeCertificateIssuer;
 import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.cert.selector.X509AttributeCertificateHolderSelector;
 
 /**
  * This class builds selectors according to the set criteria.

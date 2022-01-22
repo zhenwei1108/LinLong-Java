@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.util.Arrays;
+
 
 public class XofUtils
 {

@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
+
+
+
+
+
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -10,18 +15,11 @@ import java.security.SignatureSpi;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.DigestInfo;
+
+
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.digests.MD2Digest;
 import org.bouncycastle.crypto.digests.MD4Digest;
 import org.bouncycastle.crypto.digests.NullDigest;
@@ -30,9 +28,10 @@ import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 import org.bouncycastle.crypto.digests.RIPEMD256Digest;
 import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.RSABlindedEngine;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.RSAUtil;
-import org.bouncycastle.util.Arrays;
+
+
+
+import teletrust.TeleTrusTObjectIdentifiers;
 
 public class DigestSignatureSpi
     extends SignatureSpi

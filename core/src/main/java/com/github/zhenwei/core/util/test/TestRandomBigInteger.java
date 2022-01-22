@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.util.test;
 
-import org.bouncycastle.util.BigIntegers;
+import java.math.BigInteger;
+ 
 import org.bouncycastle.util.test.FixedSecureRandom;
 
 /**

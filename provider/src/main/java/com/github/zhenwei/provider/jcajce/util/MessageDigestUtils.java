@@ -1,16 +1,16 @@
 package com.github.zhenwei.provider.jcajce.util;
 
+
+
+import gm.GMObjectIdentifiers;
+import gnu.GNUObjectIdentifiers;
+import iso.ISOIECObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-import org.bouncycastle.asn1.gnu.GNUObjectIdentifiers;
-import org.bouncycastle.asn1.iso.ISOIECObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
+
+
+
+import teletrust.TeleTrusTObjectIdentifiers;
 
 public class MessageDigestUtils
 {

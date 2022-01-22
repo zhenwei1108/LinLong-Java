@@ -6,8 +6,8 @@ import org.bouncycastle.its.ITSCertificate;
 import org.bouncycastle.its.ITSExplicitCertificateBuilder;
 import org.bouncycastle.its.ITSPublicEncryptionKey;
 import org.bouncycastle.its.operator.ITSContentSigner;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.oer.its.CertificateId;

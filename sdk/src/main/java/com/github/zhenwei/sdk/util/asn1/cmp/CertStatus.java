@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
 
 public class CertStatus
     extends ASN1Object
@@ -42,16 +41,16 @@ public class CertStatus
         this.statusInfo = statusInfo;
     }
 
-    public static org.bouncycastle.asn1.cmp.CertStatus getInstance(Object o)
+    public static cmp.CertStatus getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.CertStatus)
+        if (o instanceof cmp.CertStatus)
         {
-            return (org.bouncycastle.asn1.cmp.CertStatus)o;
+            return (cmp.CertStatus)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.CertStatus(ASN1Sequence.getInstance(o));
+            return new cmp.CertStatus(ASN1Sequence.getInstance(o));
         }
 
         return null;

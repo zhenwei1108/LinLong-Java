@@ -1,15 +1,12 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.ocsp.OCSPObjectIdentifiers;
-import org.bouncycastle.asn1.ocsp.OCSPResponse;
-import org.bouncycastle.asn1.ocsp.OCSPResponseStatus;
-import org.bouncycastle.asn1.ocsp.ResponseBytes;
-import org.bouncycastle.cert.ocsp.BasicOCSPResp;
-import org.bouncycastle.cert.ocsp.OCSPException;
-import org.bouncycastle.cert.ocsp.OCSPResp;
+import ocsp.OCSPObjectIdentifiers;
+import ocsp.OCSPResponse;
+import ocsp.OCSPResponseStatus;
+import ocsp.ResponseBytes;
 
 /**
  * base generator for an OCSP response - at the moment this only supports the

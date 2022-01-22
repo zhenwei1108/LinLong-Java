@@ -1,5 +1,11 @@
 package com.github.zhenwei.provider.jce.provider;
 
+ 
+
+
+
+
+import CertificateList;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,18 +14,10 @@ import java.security.cert.CRLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.SignedData;
-import org.bouncycastle.asn1.x509.CertificateList;
-import org.bouncycastle.jce.provider.PEMUtil;
-import org.bouncycastle.jce.provider.X509CRLObject;
-import org.bouncycastle.x509.X509StreamParserSpi;
-import org.bouncycastle.x509.util.StreamParsingException;
+import org.bouncycastle.X509StreamParserSpi;
+import org.bouncycastle.util.StreamParsingException;
+
+import pkcs.SignedData;
 
 public class X509CRLParser
     extends X509StreamParserSpi

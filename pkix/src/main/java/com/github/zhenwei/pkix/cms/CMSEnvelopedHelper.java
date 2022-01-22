@@ -1,25 +1,19 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+import cms.KEKRecipientInfo;
+import cms.KeyAgreeRecipientInfo;
+import cms.KeyTransRecipientInfo;
+import cms.PasswordRecipientInfo;
+import cms.RecipientInfo;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.cms.KEKRecipientInfo;
-import org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo;
-import org.bouncycastle.asn1.cms.KeyTransRecipientInfo;
-import org.bouncycastle.asn1.cms.PasswordRecipientInfo;
-import org.bouncycastle.asn1.cms.RecipientInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KEKRecipientInformation;
-import org.bouncycastle.cms.KeyAgreeRecipientInformation;
-import org.bouncycastle.cms.KeyTransRecipientInformation;
-import org.bouncycastle.cms.PasswordRecipientInformation;
-import org.bouncycastle.cms.RecipientInformationStore;
 import org.bouncycastle.operator.DigestCalculator;
 
 class CMSEnvelopedHelper

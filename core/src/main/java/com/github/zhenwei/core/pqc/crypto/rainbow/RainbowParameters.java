@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
-import org.bouncycastle.crypto.CipherParameters;
+ 
 
 public class RainbowParameters
     implements CipherParameters

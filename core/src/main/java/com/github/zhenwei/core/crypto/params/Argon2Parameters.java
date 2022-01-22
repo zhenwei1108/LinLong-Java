@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.params;
 
 import org.bouncycastle.crypto.CharToByteConverter;
 import org.bouncycastle.crypto.PasswordConverter;
-import org.bouncycastle.util.Arrays;
+
 
 public class Argon2Parameters
 {

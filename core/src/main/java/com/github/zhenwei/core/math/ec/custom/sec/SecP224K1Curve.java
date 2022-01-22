@@ -1,25 +1,25 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
+import com.github.zhenwei.core.math.ec.ECConstants;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.raw.Nat224;
+import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.AbstractECLookupTable;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.custom.sec.SecP224K1Field;
-import org.bouncycastle.math.ec.custom.sec.SecP224K1FieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecP224K1Point;
-import org.bouncycastle.math.raw.Nat224;
-import org.bouncycastle.util.encoders.Hex;
+
+
 
 public class SecP224K1Curve extends ECCurve.AbstractFp
 {
     public static final BigInteger q = SecP224K1FieldElement.Q;
 
     private static final int SECP224K1_DEFAULT_COORDS = COORD_JACOBIAN;
-    private static final ECFieldElement[] SECP224K1_AFFINE_ZS = new ECFieldElement[] { new SecP224K1FieldElement(ECConstants.ONE) }; 
+    private static final ECFieldElement[] SECP224K1_AFFINE_ZS = new ECFieldElement[] { new SecP224K1FieldElement(
+        ECConstants.ONE) }; 
 
     protected SecP224K1Point infinity;
 
@@ -38,7 +38,7 @@ public class SecP224K1Curve extends ECCurve.AbstractFp
 
     protected ECCurve cloneCurve()
     {
-        return new org.bouncycastle.math.ec.custom.sec.SecP224K1Curve();
+        return new SecP224K1Curve();
     }
 
     public boolean supportsCoordinateSystem(int coord)

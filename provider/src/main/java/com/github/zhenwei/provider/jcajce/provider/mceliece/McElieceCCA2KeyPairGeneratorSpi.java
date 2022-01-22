@@ -6,14 +6,12 @@ import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2KeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2KeyPairGenerator;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2Parameters;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.BCMcElieceCCA2PrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.BCMcElieceCCA2PublicKey;
 import org.bouncycastle.pqc.jcajce.spec.McElieceCCA2KeyGenParameterSpec;
 
 public class McElieceCCA2KeyPairGeneratorSpi

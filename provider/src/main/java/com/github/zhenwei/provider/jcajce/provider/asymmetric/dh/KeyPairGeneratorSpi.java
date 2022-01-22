@@ -7,19 +7,17 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.util.Hashtable;
 import javax.crypto.spec.DHParameterSpec;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.generators.DHBasicKeyPairGenerator;
 import org.bouncycastle.crypto.generators.DHParametersGenerator;
 import org.bouncycastle.crypto.params.DHKeyGenerationParameters;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
 import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.BCDHPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.BCDHPublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
 import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.bouncycastle.util.Integers;
+
+ 
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

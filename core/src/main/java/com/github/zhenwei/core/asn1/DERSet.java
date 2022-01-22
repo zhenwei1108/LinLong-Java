@@ -1,14 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.BERSet;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DLSet;
 
 /**
  * A DER encoded SET object
@@ -23,9 +16,9 @@ import org.bouncycastle.asn1.DLSet;
 public class DERSet
     extends ASN1Set
 {
-    public static org.bouncycastle.asn1.DERSet convert(ASN1Set set)
+    public static DERSet convert(ASN1Set set)
     {
-        return (org.bouncycastle.asn1.DERSet)set.toDERObject();
+        return (DERSet)set.toDERObject();
     }
 
     private int contentsLength = -1;

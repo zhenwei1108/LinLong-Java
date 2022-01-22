@@ -1,15 +1,14 @@
 package com.github.zhenwei.provider.jce;
 
+
+import TBSCertList;
+import TBSCertificateStructure;
+import X509Name;
 import java.io.IOException;
 import java.security.cert.CRLException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509CRL;
 import java.security.cert.X509Certificate;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.x509.TBSCertList;
-import org.bouncycastle.asn1.x509.TBSCertificateStructure;
-import org.bouncycastle.asn1.x509.X509Name;
-import org.bouncycastle.jce.X509Principal;
 
 /**
  * a utility class that will extract X509Principal objects from X.509 certificates.

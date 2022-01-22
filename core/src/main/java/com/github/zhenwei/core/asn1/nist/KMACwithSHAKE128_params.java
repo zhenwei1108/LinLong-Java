@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.nist;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -39,15 +39,15 @@ public class KMACwithSHAKE128_params
         this.customizationString = Arrays.clone(customizationString);
     }
 
-    public static org.bouncycastle.asn1.nist.KMACwithSHAKE128_params getInstance(Object o)
+    public static nist.KMACwithSHAKE128_params getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.nist.KMACwithSHAKE128_params)
+        if (o instanceof nist.KMACwithSHAKE128_params)
         {
-            return (org.bouncycastle.asn1.nist.KMACwithSHAKE128_params)o;
+            return (nist.KMACwithSHAKE128_params)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.nist.KMACwithSHAKE128_params(ASN1Sequence.getInstance(o));
+            return new nist.KMACwithSHAKE128_params(ASN1Sequence.getInstance(o));
         }
 
         return null;

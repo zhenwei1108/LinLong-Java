@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
  * The DataGroupHash object.
@@ -42,16 +42,16 @@ public class DataGroupHash
     ASN1Integer dataGroupNumber;    
     ASN1OctetString    dataGroupHashValue;
     
-    public static org.bouncycastle.asn1.icao.DataGroupHash getInstance(
+    public static icao.DataGroupHash getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.icao.DataGroupHash)
+        if (obj instanceof icao.DataGroupHash)
         {
-            return (org.bouncycastle.asn1.icao.DataGroupHash)obj;
+            return (icao.DataGroupHash)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.icao.DataGroupHash(ASN1Sequence.getInstance(obj));
+            return new icao.DataGroupHash(ASN1Sequence.getInstance(obj));
         }
 
         return null;

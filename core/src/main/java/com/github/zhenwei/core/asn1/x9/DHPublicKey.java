@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.asn1.x9;
 
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
 
 /**
  * X9.42 definition of a DHPublicKey
@@ -24,7 +24,7 @@ public class DHPublicKey
      * @param explicit true if the contents of the object is explictly tagged, false otherwise.
      * @return a DHPublicKey
      */
-    public static org.bouncycastle.asn1.x9.DHPublicKey getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static x9.DHPublicKey getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Integer.getInstance(obj, explicit));
     }
@@ -35,16 +35,16 @@ public class DHPublicKey
      * @param obj an object for conversion or a byte[].
      * @return a DHPublicKey
      */
-    public static org.bouncycastle.asn1.x9.DHPublicKey getInstance(Object obj)
+    public static x9.DHPublicKey getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x9.DHPublicKey)
+        if (obj == null || obj instanceof x9.DHPublicKey)
         {
-            return (org.bouncycastle.asn1.x9.DHPublicKey)obj;
+            return (x9.DHPublicKey)obj;
         }
 
         if (obj instanceof ASN1Integer)
         {
-            return new org.bouncycastle.asn1.x9.DHPublicKey((ASN1Integer)obj);
+            return new x9.DHPublicKey((ASN1Integer)obj);
         }
 
         throw new IllegalArgumentException("Invalid DHPublicKey: " + obj.getClass().getName());

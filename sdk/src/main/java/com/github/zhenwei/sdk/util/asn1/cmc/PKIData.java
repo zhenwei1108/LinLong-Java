@@ -1,14 +1,10 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmc.OtherMsg;
-import org.bouncycastle.asn1.cmc.TaggedAttribute;
-import org.bouncycastle.asn1.cmc.TaggedContentInfo;
-import org.bouncycastle.asn1.cmc.TaggedRequest;
+
+
+
+
+
 
 /**
  * <pre>
@@ -77,15 +73,15 @@ public class PKIData
         }
     }
 
-    public static org.bouncycastle.asn1.cmc.PKIData getInstance(Object src)
+    public static cmc.PKIData getInstance(Object src)
     {
-        if (src instanceof org.bouncycastle.asn1.cmc.PKIData)
+        if (src instanceof cmc.PKIData)
         {
-            return (org.bouncycastle.asn1.cmc.PKIData)src;
+            return (cmc.PKIData)src;
         }
         if (src != null)
         {
-            return new org.bouncycastle.asn1.cmc.PKIData(ASN1Sequence.getInstance(src));
+            return new cmc.PKIData(ASN1Sequence.getInstance(src));
         }
         return null;
     }

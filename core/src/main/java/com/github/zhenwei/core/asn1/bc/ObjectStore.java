@@ -1,14 +1,12 @@
 package com.github.zhenwei.core.asn1.bc;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.bc.EncryptedObjectStoreData;
-import org.bouncycastle.asn1.bc.ObjectStoreData;
-import org.bouncycastle.asn1.bc.ObjectStoreIntegrityCheck;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * <pre>
@@ -73,15 +71,15 @@ public class ObjectStore
         this.integrityCheck = ObjectStoreIntegrityCheck.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.bc.ObjectStore getInstance(Object o)
+    public static ObjectStore getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.ObjectStore)
+        if (o instanceof ObjectStore)
         {
-            return (org.bouncycastle.asn1.bc.ObjectStore)o;
+            return (bc.ObjectStore)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.ObjectStore(ASN1Sequence.getInstance(o));
+            return new ObjectStore(ASN1Sequence.getInstance(o));
         }
 
         return null;

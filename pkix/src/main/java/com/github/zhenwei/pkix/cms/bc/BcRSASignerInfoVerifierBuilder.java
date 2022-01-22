@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms.bc;
 
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.cms.CMSSignatureAlgorithmNameGenerator;
 import org.bouncycastle.cms.SignerInformationVerifier;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;

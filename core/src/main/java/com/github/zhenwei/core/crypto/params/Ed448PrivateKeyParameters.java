@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
-import org.bouncycastle.math.ec.rfc8032.Ed448;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+
+
+import rfc8032.Ed448;
 
 public final class Ed448PrivateKeyParameters
     extends AsymmetricKeyParameter

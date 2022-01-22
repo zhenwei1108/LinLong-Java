@@ -1,17 +1,17 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.Digest;
+
+
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.Wrapper;
 import org.bouncycastle.crypto.engines.RC2Engine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.util.Arrays;
+
+
 
 /**
  * Wrap keys according to RFC 3217 - RC2 mechanism

@@ -1,14 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.Attributes;
+
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#page-14">RFC 5652</a>:
@@ -43,24 +44,24 @@ public class Attribute
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.Attribute} object
+     * <li> {@link cms.Attribute} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with Attribute structure inside
      * </ul>
      *
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.Attribute getInstance(
+    public static cms.Attribute getInstance(
         Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cms.Attribute)
+        if (o instanceof cms.Attribute)
         {
-            return (org.bouncycastle.asn1.cms.Attribute)o;
+            return (cms.Attribute)o;
         }
         
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cms.Attribute(ASN1Sequence.getInstance(o));
+            return new cms.Attribute(ASN1Sequence.getInstance(o));
         }
 
         return null;

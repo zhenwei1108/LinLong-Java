@@ -1,19 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.AttCertIssuer;
-import org.bouncycastle.asn1.x509.AttCertValidityPeriod;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.Holder;
+
+
+
+
+
+
+
+import DERBitString;
+
 
 public class AttributeCertificateInfo
     extends ASN1Object
@@ -28,23 +23,23 @@ public class AttributeCertificateInfo
     private DERBitString            issuerUniqueID;
     private Extensions              extensions;
 
-    public static org.bouncycastle.asn1.x509.AttributeCertificateInfo getInstance(
+    public static AttributeCertificateInfo getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.x509.AttributeCertificateInfo getInstance(
+    public static AttributeCertificateInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.AttributeCertificateInfo)
+        if (obj instanceof AttributeCertificateInfo)
         {
-            return (org.bouncycastle.asn1.x509.AttributeCertificateInfo)obj;
+            return (AttributeCertificateInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.AttributeCertificateInfo(ASN1Sequence.getInstance(obj));
+            return new AttributeCertificateInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

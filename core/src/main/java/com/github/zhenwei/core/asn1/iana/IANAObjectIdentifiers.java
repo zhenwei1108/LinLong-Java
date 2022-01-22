@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.iana;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * IANA:

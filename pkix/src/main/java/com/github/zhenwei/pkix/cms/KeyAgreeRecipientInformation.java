@@ -1,26 +1,19 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+import cms.IssuerAndSerialNumber;
+import cms.KeyAgreeRecipientIdentifier;
+import cms.KeyAgreeRecipientInfo;
+import cms.OriginatorIdentifierOrKey;
+import cms.OriginatorPublicKey;
+import cms.RecipientEncryptedKey;
+import cms.RecipientKeyIdentifier;
 import java.io.IOException;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.KeyAgreeRecipientIdentifier;
-import org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo;
-import org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey;
-import org.bouncycastle.asn1.cms.OriginatorPublicKey;
-import org.bouncycastle.asn1.cms.RecipientEncryptedKey;
-import org.bouncycastle.asn1.cms.RecipientKeyIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyAgreeRecipient;
-import org.bouncycastle.cms.KeyAgreeRecipientId;
-import org.bouncycastle.cms.Recipient;
-import org.bouncycastle.cms.RecipientId;
-import org.bouncycastle.cms.RecipientInformation;
-import org.bouncycastle.cms.RecipientOperator;
 
 /**
  * the RecipientInfo class for a recipient who has been sent a message

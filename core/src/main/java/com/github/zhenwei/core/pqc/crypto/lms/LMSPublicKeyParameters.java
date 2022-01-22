@@ -5,14 +5,10 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
 import org.bouncycastle.pqc.crypto.lms.LMSContextBasedVerifier;
 import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+
+
 
 public class LMSPublicKeyParameters
     extends LMSKeyParameters

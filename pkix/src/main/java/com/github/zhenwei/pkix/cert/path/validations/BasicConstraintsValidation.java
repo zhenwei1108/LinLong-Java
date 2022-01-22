@@ -1,15 +1,13 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
+
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.cert.path.CertPathValidation;
+import com.github.zhenwei.pkix.cert.path.CertPathValidationContext;
+import com.github.zhenwei.pkix.cert.path.CertPathValidationException;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.x509.BasicConstraints;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.path.CertPathValidation;
-import org.bouncycastle.cert.path.CertPathValidationContext;
-import org.bouncycastle.cert.path.CertPathValidationException;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Integers;
-import org.bouncycastle.util.Memoable;
+ 
+
 
 
 public class BasicConstraintsValidation
@@ -45,7 +43,7 @@ public class BasicConstraintsValidation
         // RFC 5280 § 6.1.4 (k)
         // If this certificate is a CA, remember that for processing in the next step
         BasicConstraints bc = BasicConstraints.fromExtensions(certificate.getExtensions());
-        this.previousCertWasCA = (bc != null && bc.isCA()) || (bc == null && !this.isMandatory);
+        this.previousCertWasCA = (bc != null && isCA()) || (bc == null && !this.isMandatory);
 
         // if the certificate is not self-issued (see § 4.2.1.9 and § 6.1.4 (l) of RFC 5280),
         // it "uses up" one path length unit.
@@ -63,7 +61,7 @@ public class BasicConstraintsValidation
         // Update maxPathLength if appropriate
         if (bc != null)
         {
-            BigInteger bigPathLen = bc.getPathLenConstraint();
+            BigInteger bigPathLen = getPathLenConstraint();
             if (bigPathLen != null)
             {
                 // use intValueExact to prevent issues with weird certificates that include ridiculous path lengths

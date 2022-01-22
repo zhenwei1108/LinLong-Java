@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
-import org.bouncycastle.math.ec.rfc7748.X25519;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.io.Streams;
+
+
+import rfc7748.X25519;
 
 public final class X25519PrivateKeyParameters
     extends AsymmetricKeyParameter

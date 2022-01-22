@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 public class CMSConfig
 {

@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.pkix;
 
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectKeyIdentifier;
-import org.bouncycastle.cert.X509CertificateHolder;
+
+ 
 import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.RecipientId;
+import pkcs.PrivateKeyInfo;
 
 /**
  * Holder class for public/private key based identity information.

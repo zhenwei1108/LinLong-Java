@@ -1,6 +1,6 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
-import org.bouncycastle.asn1.ASN1OctetString;
+
 
 /**
  * PreSharedKeyRecipientInfo ::= HashedId8

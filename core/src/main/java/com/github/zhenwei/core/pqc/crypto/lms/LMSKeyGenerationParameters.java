@@ -2,7 +2,6 @@ package com.github.zhenwei.core.pqc.crypto.lms;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSParameters;
 
 public class LMSKeyGenerationParameters
     extends KeyGenerationParameters

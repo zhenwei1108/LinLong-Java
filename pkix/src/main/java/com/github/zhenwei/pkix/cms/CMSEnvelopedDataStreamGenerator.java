@@ -1,25 +1,22 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
+
+import BERSequenceGenerator;
+import BERSet;
+
+
+import DLSet;
+import cms.AttributeTable;
+import cms.CMSObjectIdentifiers;
+import cms.EnvelopedData;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import java.util.Iterator;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.BERSequenceGenerator;
-import org.bouncycastle.asn1.BERSet;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.DLSet;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.EnvelopedData;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSEnvelopedGenerator;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OutputAEADEncryptor;
 import org.bouncycastle.operator.OutputEncryptor;

@@ -1,15 +1,13 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
+
+
+
+
+import RDN;
+import X500Name;
+import X500NameStyle;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.AbstractX500NameStyle;
-import org.bouncycastle.asn1.x500.style.IETFUtils;
 
 public class RFC4519Style
     extends AbstractX500NameStyle
@@ -165,7 +163,7 @@ public class RFC4519Style
     /**
      * Singleton instance.
      */
-    public static final X500NameStyle INSTANCE = new org.bouncycastle.asn1.x500.style.RFC4519Style();
+    public static final X500NameStyle INSTANCE = new  style.RFC4519Style();
 
     protected final Hashtable defaultLookUp;
     protected final Hashtable defaultSymbols;

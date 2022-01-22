@@ -1,17 +1,17 @@
 package com.github.zhenwei.pkix.cert.selector;
 
+
+
+import Target;
+import TargetInformation;
+import Targets;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.Target;
-import org.bouncycastle.asn1.x509.TargetInformation;
-import org.bouncycastle.asn1.x509.Targets;
 import org.bouncycastle.cert.AttributeCertificateHolder;
 import org.bouncycastle.cert.AttributeCertificateIssuer;
 import org.bouncycastle.cert.X509AttributeCertificateHolder;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * This class is an <code>Selector</code> like implementation to select

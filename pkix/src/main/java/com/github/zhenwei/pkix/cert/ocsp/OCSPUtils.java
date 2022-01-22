@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+import ASN1GeneralizedTime;
+import Extensions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -7,9 +9,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 
 class OCSPUtils
 {

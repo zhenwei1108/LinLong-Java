@@ -1,15 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+
+
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.pkcs.PKCS12PBEParams;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
 
 public class PBEPKCS12
 {

@@ -1,14 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.crmf.POPOPrivKey;
-import org.bouncycastle.asn1.crmf.POPOSigningKey;
+
+
+
+
+
+
+
 
 public class ProofOfPossession
     extends ASN1Object
@@ -42,16 +40,16 @@ public class ProofOfPossession
         }
     }
 
-    public static org.bouncycastle.asn1.crmf.ProofOfPossession getInstance(Object o)
+    public static crmf.ProofOfPossession getInstance(Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.crmf.ProofOfPossession)
+        if (o == null || o instanceof crmf.ProofOfPossession)
         {
-            return (org.bouncycastle.asn1.crmf.ProofOfPossession)o;
+            return (crmf.ProofOfPossession)o;
         }
 
         if (o instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.crmf.ProofOfPossession((ASN1TaggedObject)o);
+            return new crmf.ProofOfPossession((ASN1TaggedObject)o);
         }
 
         throw new IllegalArgumentException("Invalid object: " + o.getClass().getName());

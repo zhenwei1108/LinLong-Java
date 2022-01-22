@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 
 /**
  * Cipher parameters with a fixed salt value associated with them.

@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-
 /**
  * Mutable class for building ASN.1 constructed objects such as SETs or SEQUENCEs.
  */
@@ -50,7 +48,7 @@ public class ASN1EncodableVector
         this.elementCount = minCapacity;
     }
 
-    public void addAll(org.bouncycastle.asn1.ASN1EncodableVector other)
+    public void addAll(ASN1EncodableVector other)
     {
         if (null == other)
         {

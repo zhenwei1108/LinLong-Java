@@ -1,12 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
 
 /**
  * ASN.1 OctetStrings, with indefinite length rules, and <i>constructed form</i> support.

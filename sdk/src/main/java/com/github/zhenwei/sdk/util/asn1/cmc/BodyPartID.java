@@ -1,9 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 /**
  * <pre>
@@ -43,16 +43,16 @@ public class BodyPartID
         this(convert(id.getValue()));
     }
 
-    public static org.bouncycastle.asn1.cmc.BodyPartID getInstance(Object o)
+    public static cmc.BodyPartID getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmc.BodyPartID)
+        if (o instanceof cmc.BodyPartID)
         {
-            return (org.bouncycastle.asn1.cmc.BodyPartID)o;
+            return (cmc.BodyPartID)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmc.BodyPartID(ASN1Integer.getInstance(o));
+            return new cmc.BodyPartID(ASN1Integer.getInstance(o));
         }
 
         return null;

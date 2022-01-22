@@ -1,13 +1,8 @@
 package com.github.zhenwei.core.asn1;
 
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1BitString;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.BERTags;
 
 /**
  * A Definite length BIT STRING
@@ -81,8 +76,8 @@ public class DLBitString
         out.writeEncodingDL(withTag, BERTags.BIT_STRING, pad, buf, off, len);
     }
 
-    static org.bouncycastle.asn1.DLBitString fromOctetString(ASN1OctetString octetString)
+    static DLBitString fromOctetString(ASN1OctetString octetString)
     {
-        return new org.bouncycastle.asn1.DLBitString(octetString.getOctets(), true);
+        return new DLBitString(octetString.getOctets(), true);
     }
 }

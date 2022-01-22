@@ -1,23 +1,22 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
+
+
+
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.PublicKey;
 import java.security.spec.ECGenParameterSpec;
 import java.security.spec.ECParameterSpec;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.ec.ECCurve;
+import x9.X962Parameters;
+import x9.X9ECParameters;
+import x9.X9ECPoint;
 
 class ECUtils
 {

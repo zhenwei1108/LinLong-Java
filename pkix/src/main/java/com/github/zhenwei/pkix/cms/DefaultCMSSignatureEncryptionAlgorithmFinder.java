@@ -1,17 +1,16 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.rosstandart.RosstandartObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSSignatureEncryptionAlgorithmFinder;
+
+
+import rosstandart.RosstandartObjectIdentifiers;
+import teletrust.TeleTrusTObjectIdentifiers;
 
 public class DefaultCMSSignatureEncryptionAlgorithmFinder
     implements CMSSignatureEncryptionAlgorithmFinder

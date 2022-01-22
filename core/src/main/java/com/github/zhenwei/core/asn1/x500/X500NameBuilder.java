@@ -1,13 +1,10 @@
 package com.github.zhenwei.core.asn1.x500;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x500.style.BCStyle;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.BCStyle;
 
 /**
  * A builder class for making X.500 Name objects.
@@ -42,7 +39,7 @@ public class X500NameBuilder
      * @param value the string representation of the value the OID refers to.
      * @return the current builder instance.
      */
-    public org.bouncycastle.asn1.x500.X500NameBuilder addRDN(ASN1ObjectIdentifier oid, String value)
+    public  X500NameBuilder addRDN(ASN1ObjectIdentifier oid, String value)
     {
         this.addRDN(oid, template.stringToValue(oid, value));
 
@@ -56,7 +53,7 @@ public class X500NameBuilder
      * @param value the ASN.1 value the OID refers to.
      * @return the current builder instance.
      */
-    public org.bouncycastle.asn1.x500.X500NameBuilder addRDN(ASN1ObjectIdentifier oid, ASN1Encodable value)
+    public  X500NameBuilder addRDN(ASN1ObjectIdentifier oid, ASN1Encodable value)
     {
         rdns.addElement(new RDN(oid, value));
 
@@ -69,7 +66,7 @@ public class X500NameBuilder
      * @param attrTAndV the AttributeTypeAndValue to build the RDN from.
      * @return the current builder instance.
      */
-    public org.bouncycastle.asn1.x500.X500NameBuilder addRDN(AttributeTypeAndValue attrTAndV)
+    public  X500NameBuilder addRDN(AttributeTypeAndValue attrTAndV)
     {
         rdns.addElement(new RDN(attrTAndV));
 
@@ -83,7 +80,7 @@ public class X500NameBuilder
      * @param values the string representation of the values the OIDs refer to.
      * @return the current builder instance.
      */
-    public org.bouncycastle.asn1.x500.X500NameBuilder addMultiValuedRDN(ASN1ObjectIdentifier[] oids, String[] values)
+    public  X500NameBuilder addMultiValuedRDN(ASN1ObjectIdentifier[] oids, String[] values)
     {
         ASN1Encodable[] vals = new ASN1Encodable[values.length];
 
@@ -102,7 +99,7 @@ public class X500NameBuilder
      * @param values the ASN.1 values the OIDs refer to.
      * @return the current builder instance.
      */
-    public org.bouncycastle.asn1.x500.X500NameBuilder addMultiValuedRDN(ASN1ObjectIdentifier[] oids, ASN1Encodable[] values)
+    public  X500NameBuilder addMultiValuedRDN(ASN1ObjectIdentifier[] oids, ASN1Encodable[] values)
     {
         AttributeTypeAndValue[] avs = new AttributeTypeAndValue[oids.length];
 
@@ -120,7 +117,7 @@ public class X500NameBuilder
      * @param attrTAndVs the AttributeTypeAndValues to build the RDN from.
      * @return the current builder instance.
      */
-    public org.bouncycastle.asn1.x500.X500NameBuilder addMultiValuedRDN(AttributeTypeAndValue[] attrTAndVs)
+    public  X500NameBuilder addMultiValuedRDN(AttributeTypeAndValue[] attrTAndVs)
     {
         rdns.addElement(new RDN(attrTAndVs));
 

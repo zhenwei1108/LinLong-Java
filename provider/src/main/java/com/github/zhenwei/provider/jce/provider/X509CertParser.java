@@ -1,5 +1,10 @@
 package com.github.zhenwei.provider.jce.provider;
 
+ 
+
+
+
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,17 +13,10 @@ import java.security.cert.CertificateParsingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.SignedData;
-import org.bouncycastle.jce.provider.PEMUtil;
-import org.bouncycastle.jce.provider.X509CertificateObject;
-import org.bouncycastle.x509.X509StreamParserSpi;
-import org.bouncycastle.x509.util.StreamParsingException;
+import org.bouncycastle.X509StreamParserSpi;
+import org.bouncycastle.util.StreamParsingException;
+
+import pkcs.SignedData;
 
 /**
  * @deprecated use CertificateFactory or the PEMParser in the openssl package (pkix jar).
@@ -52,7 +50,7 @@ public class X509CertParser
         }
 
         return new X509CertificateObject(
-                            org.bouncycastle.asn1.x509.Certificate.getInstance(seq));
+                            Certificate.getInstance(seq));
     }
 
     private Certificate getCertificate()
@@ -67,7 +65,7 @@ public class X509CertParser
                 if (obj instanceof ASN1Sequence)
                 {
                    return new X509CertificateObject(
-                                    org.bouncycastle.asn1.x509.Certificate.getInstance(obj));
+                                    Certificate.getInstance(obj));
                 }
             }
         }
@@ -84,7 +82,7 @@ public class X509CertParser
         if (seq != null)
         {
             return new X509CertificateObject(
-                            org.bouncycastle.asn1.x509.Certificate.getInstance(seq));
+                            Certificate.getInstance(seq));
         }
 
         return null;

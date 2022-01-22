@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
 import java.util.Hashtable;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.util.Integers;
+ 
 
 class Utils
 {

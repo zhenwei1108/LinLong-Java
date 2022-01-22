@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.openssl.jcajce;
 
 import java.security.PrivateKey;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.openssl.PKCS8Generator;
 import org.bouncycastle.operator.OutputEncryptor;
-import org.bouncycastle.util.io.pem.PemGenerationException;
+
+import pkcs.PrivateKeyInfo;
 
 public class JcaPKCS8Generator
     extends PKCS8Generator

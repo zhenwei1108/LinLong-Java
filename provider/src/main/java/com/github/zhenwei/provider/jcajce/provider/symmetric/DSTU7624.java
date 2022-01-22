@@ -5,11 +5,10 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.asn1.ua.UAObjectIdentifiers;
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
 import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.engines.DSTU7624Engine;
 import org.bouncycastle.crypto.engines.DSTU7624WrapEngine;
 import org.bouncycastle.crypto.macs.KGMac;
@@ -27,6 +26,7 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
 import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import ua.UAObjectIdentifiers;
 
 public class DSTU7624
 {

@@ -1,6 +1,6 @@
-package com.github.zhenwei.core.asn1.x509.sigi;
+package com.github.zhenwei.core.asn1.sigi;
 
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+
 
 /**
  * Object Identifiers of SigI specifciation (German Signature Law

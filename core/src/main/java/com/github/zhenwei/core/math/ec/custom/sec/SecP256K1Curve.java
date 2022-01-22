@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
+
+
+
+
+
+ 
+import SecP256K1Field;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.ec.AbstractECLookupTable;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.custom.sec.SecP256K1Field;
-import org.bouncycastle.math.ec.custom.sec.SecP256K1FieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecP256K1Point;
-import org.bouncycastle.math.raw.Nat256;
-import org.bouncycastle.util.encoders.Hex;
+
+
 
 public class SecP256K1Curve extends ECCurve.AbstractFp
 {
@@ -38,7 +36,7 @@ public class SecP256K1Curve extends ECCurve.AbstractFp
 
     protected ECCurve cloneCurve()
     {
-        return new org.bouncycastle.math.ec.custom.sec.SecP256K1Curve();
+        return new SecP256K1Curve();
     }
 
     public boolean supportsCoordinateSystem(int coord)

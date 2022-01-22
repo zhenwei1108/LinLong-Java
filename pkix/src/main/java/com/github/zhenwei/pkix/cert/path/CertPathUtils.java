@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.path;
 
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 
 class CertPathUtils
 {

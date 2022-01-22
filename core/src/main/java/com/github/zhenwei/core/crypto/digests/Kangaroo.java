@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.ExtendedDigest;
+
+
 import org.bouncycastle.crypto.Xof;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.Bytes;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * Kangaroo.

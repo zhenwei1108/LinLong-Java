@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
 
 public class EncryptionScheme
     extends ASN1Object
@@ -31,15 +31,15 @@ public class EncryptionScheme
         this.algId = AlgorithmIdentifier.getInstance(seq);
     }
 
-    public static org.bouncycastle.asn1.pkcs.EncryptionScheme getInstance(Object obj)
+    public static pkcs.EncryptionScheme getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.EncryptionScheme)
+        if (obj instanceof pkcs.EncryptionScheme)
         {
-            return (org.bouncycastle.asn1.pkcs.EncryptionScheme)obj;
+            return (pkcs.EncryptionScheme)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.EncryptionScheme(ASN1Sequence.getInstance(obj));
+            return new pkcs.EncryptionScheme(ASN1Sequence.getInstance(obj));
         }
 
         return null;

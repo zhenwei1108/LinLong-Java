@@ -1,23 +1,23 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERIA5String;
+
+
+
 
 public class SPuri
 {
     private ASN1IA5String uri;
 
-    public static org.bouncycastle.asn1.esf.SPuri getInstance(
+    public static esf.SPuri getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.SPuri)
+        if (obj instanceof esf.SPuri)
         {
-            return (org.bouncycastle.asn1.esf.SPuri) obj;
+            return (esf.SPuri) obj;
         }
         else if (obj instanceof ASN1IA5String)
         {
-            return new org.bouncycastle.asn1.esf.SPuri(ASN1IA5String.getInstance(obj));
+            return new esf.SPuri(ASN1IA5String.getInstance(obj));
         }
 
         return null;

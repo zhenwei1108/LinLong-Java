@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.misc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 public class CAST5CBCParameters
     extends ASN1Object
@@ -16,16 +16,16 @@ public class CAST5CBCParameters
     ASN1Integer      keyLength;
     ASN1OctetString iv;
 
-    public static org.bouncycastle.asn1.misc.CAST5CBCParameters getInstance(
+    public static misc.CAST5CBCParameters getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.misc.CAST5CBCParameters)
+        if (o instanceof misc.CAST5CBCParameters)
         {
-            return (org.bouncycastle.asn1.misc.CAST5CBCParameters)o;
+            return (misc.CAST5CBCParameters)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.misc.CAST5CBCParameters(ASN1Sequence.getInstance(o));
+            return new misc.CAST5CBCParameters(ASN1Sequence.getInstance(o));
         }
 
         return null;

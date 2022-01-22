@@ -1,19 +1,20 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1PrintableString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x500.DirectoryString;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.IssuerSerial;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x500.DirectoryString;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.IssuerSerial;
 
 /**
  * Attribute to indicate that the certificate holder may sign in the name of a
@@ -57,16 +58,16 @@ public class ProcurationSyntax
     private GeneralName thirdPerson;
     private IssuerSerial certRef;
 
-    public static org.bouncycastle.asn1.isismtt.x509.ProcurationSyntax getInstance(Object obj)
+    public static ProcurationSyntax getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.x509.ProcurationSyntax)
+        if (obj == null || obj instanceof ProcurationSyntax)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.ProcurationSyntax)obj;
+            return  (ProcurationSyntax)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.ProcurationSyntax((ASN1Sequence)obj);
+            return new ProcurationSyntax((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "

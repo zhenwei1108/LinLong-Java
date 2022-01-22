@@ -1,26 +1,25 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.esf.SigPolicyQualifierInfo;
+
+
+
+
 
 public class SigPolicyQualifiers
     extends ASN1Object
 {
     ASN1Sequence qualifiers;
 
-    public static org.bouncycastle.asn1.esf.SigPolicyQualifiers getInstance(
+    public static esf.SigPolicyQualifiers getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.SigPolicyQualifiers)
+        if (obj instanceof esf.SigPolicyQualifiers)
         {
-            return (org.bouncycastle.asn1.esf.SigPolicyQualifiers) obj;
+            return (esf.SigPolicyQualifiers) obj;
         }
         else if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.esf.SigPolicyQualifiers(ASN1Sequence.getInstance(obj));
+            return new esf.SigPolicyQualifiers(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -1,15 +1,14 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.digests.SHA384Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.macs.OldHMac;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.digest.BCMessageDigest;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+
 
 public class SHA384
 {

@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5084">RFC 5084</a>: GCMParameters object.
@@ -31,23 +31,23 @@ public class GCMParameters
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.GCMParameters} object
+     * <li> {@link cms.GCMParameters} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with GCMParameters structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.GCMParameters getInstance(
+    public static cms.GCMParameters getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.GCMParameters)
+        if (obj instanceof cms.GCMParameters)
         {
-            return (org.bouncycastle.asn1.cms.GCMParameters)obj;
+            return (cms.GCMParameters)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.GCMParameters(ASN1Sequence.getInstance(obj));
+            return new cms.GCMParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

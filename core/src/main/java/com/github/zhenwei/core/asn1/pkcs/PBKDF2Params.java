@@ -1,19 +1,18 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * <pre>
@@ -43,17 +42,17 @@ public class PBKDF2Params
      * @param obj either PBKDF2Params or an ASN1Sequence.
      * @return a PBKDF2Params instance.
      */
-    public static org.bouncycastle.asn1.pkcs.PBKDF2Params getInstance(
+    public static pkcs.PBKDF2Params getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.PBKDF2Params)
+        if (obj instanceof pkcs.PBKDF2Params)
         {
-            return (org.bouncycastle.asn1.pkcs.PBKDF2Params)obj;
+            return (pkcs.PBKDF2Params)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.PBKDF2Params(ASN1Sequence.getInstance(obj));
+            return new pkcs.PBKDF2Params(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -1,6 +1,6 @@
 package com.github.zhenwei.crypto.kmip.wire;
 
-import org.bouncycastle.util.Integers;
+ 
 
 public class KMIPInteger
     implements KMIPItem

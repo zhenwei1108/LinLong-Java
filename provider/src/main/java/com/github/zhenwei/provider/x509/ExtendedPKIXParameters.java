@@ -12,12 +12,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.util.Selector;
+
 import org.bouncycastle.util.Store;
-import org.bouncycastle.x509.PKIXAttrCertChecker;
-import org.bouncycastle.x509.X509AttributeCertStoreSelector;
-import org.bouncycastle.x509.X509CertStoreSelector;
-import org.bouncycastle.x509.X509Store;
 
 /**
  * This class extends the PKIXParameters with a validity model parameter.

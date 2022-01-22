@@ -1,16 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
+
+
+
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cmc.CMCFailInfo;
-import org.bouncycastle.asn1.cmc.ExtendedFailInfo;
-import org.bouncycastle.asn1.cmc.PendInfo;
 
 /**
  * Other info implements the choice component of CMCStatusInfoV2.
@@ -29,11 +26,11 @@ public class OtherStatusInfo
     private final PendInfo pendInfo;
     private final ExtendedFailInfo extendedFailInfo;
 
-    public static org.bouncycastle.asn1.cmc.OtherStatusInfo getInstance(Object obj)
+    public static cmc.OtherStatusInfo getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cmc.OtherStatusInfo)
+        if (obj instanceof cmc.OtherStatusInfo)
         {
-            return (org.bouncycastle.asn1.cmc.OtherStatusInfo)obj;
+            return (cmc.OtherStatusInfo)obj;
         }
 
         if (obj instanceof ASN1Encodable)
@@ -42,15 +39,15 @@ public class OtherStatusInfo
 
             if (asn1Value instanceof ASN1Integer) // CMCFail info is an asn1 integer.
             {
-                return new org.bouncycastle.asn1.cmc.OtherStatusInfo(CMCFailInfo.getInstance(asn1Value));
+                return new cmc.OtherStatusInfo(CMCFailInfo.getInstance(asn1Value));
             }
             else if (asn1Value instanceof ASN1Sequence) // PendInfo is a sequence.
             {
                 if (((ASN1Sequence)asn1Value).getObjectAt(0) instanceof ASN1ObjectIdentifier)
                 {
-                    return new org.bouncycastle.asn1.cmc.OtherStatusInfo(ExtendedFailInfo.getInstance(asn1Value));
+                    return new cmc.OtherStatusInfo(ExtendedFailInfo.getInstance(asn1Value));
                 }
-                return new org.bouncycastle.asn1.cmc.OtherStatusInfo(PendInfo.getInstance(asn1Value));
+                return new cmc.OtherStatusInfo(PendInfo.getInstance(asn1Value));
             }
         }
         else if (obj instanceof byte[])

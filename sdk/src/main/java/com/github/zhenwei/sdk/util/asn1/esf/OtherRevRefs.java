@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+
+
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
 
 /**
  * <pre>
@@ -27,15 +27,15 @@ public class OtherRevRefs
     private ASN1ObjectIdentifier otherRevRefType;
     private ASN1Encodable otherRevRefs;
 
-    public static org.bouncycastle.asn1.esf.OtherRevRefs getInstance(Object obj)
+    public static esf.OtherRevRefs getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.OtherRevRefs)
+        if (obj instanceof esf.OtherRevRefs)
         {
-            return (org.bouncycastle.asn1.esf.OtherRevRefs)obj;
+            return (esf.OtherRevRefs)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.OtherRevRefs(ASN1Sequence.getInstance(obj));
+            return new esf.OtherRevRefs(ASN1Sequence.getInstance(obj));
         }
 
         return null;

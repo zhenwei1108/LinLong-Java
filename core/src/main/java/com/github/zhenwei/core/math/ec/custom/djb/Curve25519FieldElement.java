@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.math.ec.custom.djb;
 
+
+import custom.djb.Curve25519Field;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.custom.djb.Curve25519Field;
-import org.bouncycastle.math.raw.Nat256;
-import org.bouncycastle.util.Arrays;
+
+
 
 public class Curve25519FieldElement extends ECFieldElement.AbstractFp
 {
@@ -70,28 +70,28 @@ public class Curve25519FieldElement extends ECFieldElement.AbstractFp
     {
         int[] z = Nat256.create();
         Curve25519Field.add(x, ((org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement addOne()
     {
         int[] z = Nat256.create();
         Curve25519Field.addOne(x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement subtract(ECFieldElement b)
     {
         int[] z = Nat256.create();
         Curve25519Field.subtract(x, ((org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement multiply(ECFieldElement b)
     {
         int[] z = Nat256.create();
         Curve25519Field.multiply(x, ((org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement divide(ECFieldElement b)
@@ -100,21 +100,21 @@ public class Curve25519FieldElement extends ECFieldElement.AbstractFp
         int[] z = Nat256.create();
         Curve25519Field.inv(((org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement)b).x, z);
         Curve25519Field.multiply(z, x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement negate()
     {
         int[] z = Nat256.create();
         Curve25519Field.negate(x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement square()
     {
         int[] z = Nat256.create();
         Curve25519Field.square(x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     public ECFieldElement invert()
@@ -122,7 +122,7 @@ public class Curve25519FieldElement extends ECFieldElement.AbstractFp
 //        return new Curve25519FieldElement(toBigInteger().modInverse(Q));
         int[] z = Nat256.create();
         Curve25519Field.inv(x, z);
-        return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(z);
+        return new custom.djb.Curve25519FieldElement(z);
     }
 
     /**
@@ -191,7 +191,7 @@ public class Curve25519FieldElement extends ECFieldElement.AbstractFp
 
         if (Nat256.eq(x1, t2))
         {
-            return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(t1);
+            return new custom.djb.Curve25519FieldElement(t1);
         }
 
         /*
@@ -204,7 +204,7 @@ public class Curve25519FieldElement extends ECFieldElement.AbstractFp
 
         if (Nat256.eq(x1, t2))
         {
-            return new org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement(t1);
+            return new custom.djb.Curve25519FieldElement(t1);
         }
 
         return null;
@@ -217,12 +217,12 @@ public class Curve25519FieldElement extends ECFieldElement.AbstractFp
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement))
+        if (!(other instanceof custom.djb.Curve25519FieldElement))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement o = (org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement)other;
+        custom.djb.Curve25519FieldElement o = (org.bouncycastle.math.ec.custom.djb.Curve25519FieldElement)other;
         return Nat256.eq(x, o.x);
     }
 

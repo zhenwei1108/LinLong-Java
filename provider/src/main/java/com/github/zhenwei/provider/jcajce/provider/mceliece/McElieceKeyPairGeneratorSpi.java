@@ -11,8 +11,6 @@ import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePublicKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.BCMcEliecePrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.BCMcEliecePublicKey;
 import org.bouncycastle.pqc.jcajce.spec.McElieceKeyGenParameterSpec;
 
 public class McElieceKeyPairGeneratorSpi

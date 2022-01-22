@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.x500;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * Holding class for the AttributeTypeAndValue structures that make up an RDN.
@@ -15,7 +16,7 @@ public class AttributeTypeAndValue
     extends ASN1Object
 {
     private ASN1ObjectIdentifier type;
-    private ASN1Encodable       value;
+    private ASN1Encodable value;
 
     private AttributeTypeAndValue(ASN1Sequence seq)
     {
@@ -23,15 +24,15 @@ public class AttributeTypeAndValue
         value = (ASN1Encodable)seq.getObjectAt(1);
     }
 
-    public static org.bouncycastle.asn1.x500.AttributeTypeAndValue getInstance(Object o)
+    public static  AttributeTypeAndValue getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.x500.AttributeTypeAndValue)
+        if (o instanceof  AttributeTypeAndValue)
         {
-            return (org.bouncycastle.asn1.x500.AttributeTypeAndValue)o;
+            return (AttributeTypeAndValue)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.x500.AttributeTypeAndValue(ASN1Sequence.getInstance(o));
+            return new  AttributeTypeAndValue(ASN1Sequence.getInstance(o));
         }
 
         throw new IllegalArgumentException("null value in getInstance()");

@@ -1,9 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERNull;
+import ASN1Null;
+
+
+
 
 public class PKIConfirmContent
     extends ASN1Object
@@ -15,16 +15,16 @@ public class PKIConfirmContent
         this.val = val;
     }
 
-    public static org.bouncycastle.asn1.cmp.PKIConfirmContent getInstance(Object o)
+    public static cmp.PKIConfirmContent getInstance(Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.cmp.PKIConfirmContent)
+        if (o == null || o instanceof cmp.PKIConfirmContent)
         {
-            return (org.bouncycastle.asn1.cmp.PKIConfirmContent)o;
+            return (cmp.PKIConfirmContent)o;
         }
 
         if (o instanceof ASN1Null)
         {
-            return new org.bouncycastle.asn1.cmp.PKIConfirmContent((ASN1Null)o);
+            return new cmp.PKIConfirmContent((ASN1Null)o);
         }
 
         throw new IllegalArgumentException("Invalid object: " + o.getClass().getName());

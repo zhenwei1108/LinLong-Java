@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+
 
 /**
  * Public parameters for an SM2 key exchange. In this case the ephemeralPublicKey provides the random point used in the algorithm.

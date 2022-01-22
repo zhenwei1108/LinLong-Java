@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER NumericString object - this is an ascii string of characters {0,1,2,3,4,5,6,7,8,9, }.
  * ASN.1 NUMERIC-STRING object.
@@ -26,22 +22,22 @@ public class DERNumericString
      * 
      * @deprecated Use {@link ASN1NumericString#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERNumericString getInstance(
+    public static DERNumericString getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERNumericString)
+        if (obj == null || obj instanceof DERNumericString)
         {
-            return (org.bouncycastle.asn1.DERNumericString)obj;
+            return (DERNumericString)obj;
         }
         if (obj instanceof ASN1NumericString)
         {
-            return new org.bouncycastle.asn1.DERNumericString(((ASN1NumericString)obj).contents, false);
+            return new DERNumericString(((ASN1NumericString)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERNumericString)fromByteArray((byte[])obj);
+                return (DERNumericString)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -65,19 +61,19 @@ public class DERNumericString
      *             {@link ASN1NumericString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERNumericString getInstance(
+    public static DERNumericString getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERNumericString)
+        if (explicit || o instanceof DERNumericString)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERNumericString(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERNumericString(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

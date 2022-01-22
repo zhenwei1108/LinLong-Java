@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import org.bouncycastle.crypto.Digest;
+
 
 class SeedDerive
 {

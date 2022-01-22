@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Enumerated;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
 
+import com.github.zhenwei.core.asn1.ASN1Enumerated;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import java.math.BigInteger;
 
 /**
  * ServiceType ::= ENUMERATED { cpd(1), vsd(2), cpkc(3), ccpd(4) }
@@ -17,22 +17,22 @@ public class ServiceType
     /**
      * Identifier of CPD service (Certify Possession of Data).
      */
-    public static final org.bouncycastle.asn1.dvcs.ServiceType CPD = new org.bouncycastle.asn1.dvcs.ServiceType(1);
+    public static final ServiceType CPD = new ServiceType(1);
 
     /**
      * Identifier of VSD service (Verify Signed Document).
      */
-    public static final org.bouncycastle.asn1.dvcs.ServiceType VSD = new org.bouncycastle.asn1.dvcs.ServiceType(2);
+    public static final ServiceType VSD = new ServiceType(2);
 
     /**
      * Identifier of VPKC service (Verify Public Key Certificates (also referred to as CPKC)).
      */
-    public static final org.bouncycastle.asn1.dvcs.ServiceType VPKC = new org.bouncycastle.asn1.dvcs.ServiceType(3);
+    public static final ServiceType VPKC = new ServiceType(3);
 
     /**
      * Identifier of CCPD service (Certify Claim of Possession of Data).
      */
-    public static final org.bouncycastle.asn1.dvcs.ServiceType CCPD = new org.bouncycastle.asn1.dvcs.ServiceType(4);
+    public static final ServiceType CCPD = new ServiceType(4);
 
     private ASN1Enumerated value;
 
@@ -46,21 +46,21 @@ public class ServiceType
         this.value = value;
     }
 
-    public static org.bouncycastle.asn1.dvcs.ServiceType getInstance(Object obj)
+    public static ServiceType getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.ServiceType)
+        if (obj instanceof ServiceType)
         {
-            return (org.bouncycastle.asn1.dvcs.ServiceType)obj;
+            return (ServiceType)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.ServiceType(ASN1Enumerated.getInstance(obj));
+            return new ServiceType(ASN1Enumerated.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.ServiceType getInstance(
+    public static ServiceType getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

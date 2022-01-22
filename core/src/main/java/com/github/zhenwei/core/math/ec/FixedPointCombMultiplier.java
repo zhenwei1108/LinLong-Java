@@ -1,13 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.AbstractECMultiplier;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECLookupTable;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointPreCompInfo;
-import org.bouncycastle.math.ec.FixedPointUtil;
-import org.bouncycastle.math.raw.Nat;
+
 
 public class FixedPointCombMultiplier extends AbstractECMultiplier
 {

@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto;
 
-import org.bouncycastle.crypto.Digest;
+
 
 public interface ExtendedDigest
     extends Digest

@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.CMPObjectIdentifiers;
-import org.bouncycastle.asn1.cmp.PBMParameter;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+import DERBitString;
+
+import cmp.CMPObjectIdentifiers;
+import cmp.PBMParameter;
 
 /**
  * Password-based MAC value for use with POPOSigningKeyInput.
@@ -26,22 +26,22 @@ public class PKMACValue
         value = DERBitString.getInstance(seq.getObjectAt(1));
     }
 
-    public static org.bouncycastle.asn1.crmf.PKMACValue getInstance(Object o)
+    public static crmf.PKMACValue getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.PKMACValue)
+        if (o instanceof crmf.PKMACValue)
         {
-            return (org.bouncycastle.asn1.crmf.PKMACValue)o;
+            return (crmf.PKMACValue)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.PKMACValue(ASN1Sequence.getInstance(o));
+            return new crmf.PKMACValue(ASN1Sequence.getInstance(o));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.crmf.PKMACValue getInstance(ASN1TaggedObject obj, boolean isExplicit)
+    public static crmf.PKMACValue getInstance(ASN1TaggedObject obj, boolean isExplicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, isExplicit));
     }

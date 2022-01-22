@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.cms.CMSAttributeTableGenerator;
-
 /**
  * General class for generating a CMS encrypted-data message.
  */

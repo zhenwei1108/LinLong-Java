@@ -2,15 +2,15 @@ package com.github.zhenwei.core.crypto.generators;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.params.DSAParameterGenerationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAValidationParameters;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.encoders.Hex;
+
+
+ 
+
 
 /**
  * Generate suitable parameters for DSA, in line with FIPS 186-2, or FIPS 186-3.

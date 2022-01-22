@@ -1,14 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.crmf.EncryptedKey;
+import ASN1Boolean;
+
+
+
+
+
+
+
 
 public class PKIArchiveOptions
     extends ASN1Object
@@ -20,15 +19,15 @@ public class PKIArchiveOptions
 
     private ASN1Encodable value;
 
-    public static org.bouncycastle.asn1.crmf.PKIArchiveOptions getInstance(Object o)
+    public static crmf.PKIArchiveOptions getInstance(Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.crmf.PKIArchiveOptions)
+        if (o == null || o instanceof crmf.PKIArchiveOptions)
         {
-            return (org.bouncycastle.asn1.crmf.PKIArchiveOptions)o;
+            return (crmf.PKIArchiveOptions)o;
         }
         else if (o instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.crmf.PKIArchiveOptions((ASN1TaggedObject)o);
+            return new crmf.PKIArchiveOptions((ASN1TaggedObject)o);
         }
 
         throw new IllegalArgumentException("unknown object: " + o);

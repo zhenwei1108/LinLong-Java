@@ -1,16 +1,10 @@
 package com.github.zhenwei.pkix.cms;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.KeyTransRecipientInfo;
-import org.bouncycastle.asn1.cms.RecipientIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KeyTransRecipient;
-import org.bouncycastle.cms.KeyTransRecipientId;
-import org.bouncycastle.cms.Recipient;
-import org.bouncycastle.cms.RecipientInformation;
-import org.bouncycastle.cms.RecipientOperator;
+
+
+import cms.IssuerAndSerialNumber;
+import cms.KeyTransRecipientInfo;
+import cms.RecipientIdentifier;
 
 /**
  * the KeyTransRecipientInformation class for a recipient who has been sent a secret

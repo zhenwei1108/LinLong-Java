@@ -1,14 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
+
 
 public class PBESecretKeyFactory
     extends BaseSecretKeyFactory

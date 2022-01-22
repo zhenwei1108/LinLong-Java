@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cmc;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
 
 /**
  * ExtendedFailInfo ::= SEQUENCE {
@@ -37,11 +37,11 @@ public class ExtendedFailInfo
         failInfoValue = s.getObjectAt(1);
     }
 
-    public static org.bouncycastle.asn1.cmc.ExtendedFailInfo getInstance(Object obj)
+    public static cmc.ExtendedFailInfo getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cmc.ExtendedFailInfo)
+        if (obj instanceof cmc.ExtendedFailInfo)
         {
-            return (org.bouncycastle.asn1.cmc.ExtendedFailInfo)obj;
+            return (cmc.ExtendedFailInfo)obj;
         }
 
         if (obj instanceof ASN1Encodable)
@@ -49,7 +49,7 @@ public class ExtendedFailInfo
             ASN1Encodable asn1Value = ((ASN1Encodable)obj).toASN1Primitive();
             if (asn1Value instanceof ASN1Sequence)
             {
-                return new org.bouncycastle.asn1.cmc.ExtendedFailInfo(
+                return new cmc.ExtendedFailInfo(
                     (ASN1Sequence)asn1Value
                 );
             }

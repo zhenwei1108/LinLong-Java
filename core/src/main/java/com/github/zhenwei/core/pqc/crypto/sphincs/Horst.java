@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
+import sun.security.ec.ECDSAOperations.Seed;
+
 class Horst
 {
     static final int HORST_LOGT = 16;

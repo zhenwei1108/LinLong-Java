@@ -1,12 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.cms.RecipientKeyIdentifier;
-import org.bouncycastle.asn1.smime.SMIMEAttributes;
+
+
+
+
+import cms.IssuerAndSerialNumber;
+import cms.RecipientKeyIdentifier;
 
 /**
  * The SMIMEEncryptionKeyPreference object.

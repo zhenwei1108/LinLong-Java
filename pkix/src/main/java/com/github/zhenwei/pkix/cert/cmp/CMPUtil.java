@@ -1,10 +1,9 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
+
+
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.cert.cmp.CMPRuntimeException;
 
 class CMPUtil
 {

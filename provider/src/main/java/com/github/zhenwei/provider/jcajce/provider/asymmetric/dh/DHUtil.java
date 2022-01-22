@@ -2,9 +2,9 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
 import java.math.BigInteger;
 import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.util.Arrays;
+
 import org.bouncycastle.util.Fingerprint;
-import org.bouncycastle.util.Strings;
+
 
 class DHUtil
 {

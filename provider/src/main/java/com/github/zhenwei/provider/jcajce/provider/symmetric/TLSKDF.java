@@ -10,13 +10,13 @@ import org.bouncycastle.crypto.digests.SHA384Digest;
 import org.bouncycastle.crypto.digests.SHA512Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.util.DigestFactory;
+
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
 import org.bouncycastle.jcajce.spec.TLSKeyMaterialSpec;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
 
 public class TLSKDF
 {

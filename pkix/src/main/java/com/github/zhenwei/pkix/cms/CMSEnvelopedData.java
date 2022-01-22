@@ -1,18 +1,14 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+import cms.AttributeTable;
+import cms.ContentInfo;
+import cms.EncryptedContentInfo;
+import cms.EnvelopedData;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.cms.AttributeTable;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.EncryptedContentInfo;
-import org.bouncycastle.asn1.cms.EnvelopedData;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSProcessableByteArray;
-import org.bouncycastle.cms.OriginatorInformation;
-import org.bouncycastle.cms.RecipientInformationStore;
 import org.bouncycastle.util.Encodable;
 
 /**

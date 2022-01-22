@@ -1,24 +1,24 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DEROctetString;
+
+
+
+
 
 public class ContentIdentifier
     extends ASN1Object
 {
      ASN1OctetString value;
 
-    public static org.bouncycastle.asn1.ess.ContentIdentifier getInstance(Object o)
+    public static ess.ContentIdentifier getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.ess.ContentIdentifier)
+        if (o instanceof ess.ContentIdentifier)
         {
-            return (org.bouncycastle.asn1.ess.ContentIdentifier) o;
+            return (ess.ContentIdentifier) o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.ess.ContentIdentifier(ASN1OctetString.getInstance(o));
+            return new ess.ContentIdentifier(ASN1OctetString.getInstance(o));
         }
 
         return null;

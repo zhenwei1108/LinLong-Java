@@ -1,22 +1,20 @@
 package com.github.zhenwei.core.crypto.util;
 
+import ASN1Null;
+
+
+
+
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.kisa.KISAObjectIdentifiers;
-import org.bouncycastle.asn1.misc.CAST5CBCParameters;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.ntt.NTTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.RC2CBCParameter;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import kisa.KISAObjectIdentifiers;
+import misc.CAST5CBCParameters;
+import misc.MiscObjectIdentifiers;
+
+
+
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.StreamCipher;
 import org.bouncycastle.crypto.engines.AESEngine;
 import org.bouncycastle.crypto.engines.CAST5Engine;
@@ -35,9 +33,10 @@ import org.bouncycastle.crypto.params.AEADParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.params.RC2Parameters;
-import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
 import org.bouncycastle.internal.asn1.cms.CCMParameters;
 import org.bouncycastle.internal.asn1.cms.GCMParameters;
+
+import pkcs.RC2CBCParameter;
 
 /**
  * Factory methods for creating Cipher objects and CipherOutputStreams.

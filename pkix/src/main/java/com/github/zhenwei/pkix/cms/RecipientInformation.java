@@ -1,17 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.CMSTypedStream;
-import org.bouncycastle.cms.Recipient;
-import org.bouncycastle.cms.RecipientId;
-import org.bouncycastle.cms.RecipientOperator;
-import org.bouncycastle.util.io.Streams;
+
 
 public abstract class RecipientInformation
 {

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * EAC encoding date object
@@ -94,12 +94,12 @@ public class PackedDate
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.eac.PackedDate))
+        if (!(o instanceof  PackedDate))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.eac.PackedDate other = (org.bouncycastle.asn1.eac.PackedDate)o;
+         PackedDate other = (PackedDate)o;
 
         return Arrays.areEqual(time, other.time);
     }

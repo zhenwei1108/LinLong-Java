@@ -1,11 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
+
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.pkcs.DHParameter;
+import pkcs.DHParameter;
 
 public class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi

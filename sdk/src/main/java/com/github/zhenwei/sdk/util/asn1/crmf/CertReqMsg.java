@@ -1,16 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.crmf.AttributeTypeAndValue;
-import org.bouncycastle.asn1.crmf.CertRequest;
-import org.bouncycastle.asn1.crmf.ProofOfPossession;
 
 public class CertReqMsg
     extends ASN1Object
@@ -39,21 +36,21 @@ public class CertReqMsg
         }
     }
 
-    public static org.bouncycastle.asn1.crmf.CertReqMsg getInstance(Object o)
+    public static crmf.CertReqMsg getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.CertReqMsg)
+        if (o instanceof crmf.CertReqMsg)
         {
-            return (org.bouncycastle.asn1.crmf.CertReqMsg)o;
+            return (crmf.CertReqMsg)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.CertReqMsg(ASN1Sequence.getInstance(o));
+            return new crmf.CertReqMsg(ASN1Sequence.getInstance(o));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.crmf.CertReqMsg getInstance(
+    public static crmf.CertReqMsg getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

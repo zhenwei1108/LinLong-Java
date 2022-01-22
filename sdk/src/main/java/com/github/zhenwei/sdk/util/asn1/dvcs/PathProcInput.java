@@ -1,15 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
+
+import com.github.zhenwei.core.asn1.ASN1Boolean;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x509.PolicyInformation;
 import java.util.Arrays;
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.PolicyInformation;
 
 /**
  * <pre>
@@ -55,17 +56,17 @@ public class PathProcInput
         return tmp;
     }
 
-    public static org.bouncycastle.asn1.dvcs.PathProcInput getInstance(Object obj)
+    public static PathProcInput getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.PathProcInput)
+        if (obj instanceof PathProcInput)
         {
-            return (org.bouncycastle.asn1.dvcs.PathProcInput)obj;
+            return (PathProcInput)obj;
         }
         else if (obj != null)
         {
             ASN1Sequence seq = ASN1Sequence.getInstance(obj);
             ASN1Sequence policies = ASN1Sequence.getInstance(seq.getObjectAt(0));
-            org.bouncycastle.asn1.dvcs.PathProcInput result = new org.bouncycastle.asn1.dvcs.PathProcInput(fromSequence(policies));
+            PathProcInput result = new PathProcInput(fromSequence(policies));
 
             for (int i = 1; i < seq.size(); i++)
             {
@@ -101,7 +102,7 @@ public class PathProcInput
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.PathProcInput getInstance(
+    public static PathProcInput getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

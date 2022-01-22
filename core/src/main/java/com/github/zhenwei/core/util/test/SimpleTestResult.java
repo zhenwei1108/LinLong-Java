@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.util.test;
 
-import org.bouncycastle.util.Strings;
+
 import org.bouncycastle.util.test.Test;
 import org.bouncycastle.util.test.TestResult;
 

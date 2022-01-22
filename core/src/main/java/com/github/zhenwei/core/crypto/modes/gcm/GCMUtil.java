@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.modes.gcm;
 
-import org.bouncycastle.math.raw.Interleave;
-import org.bouncycastle.util.Longs;
-import org.bouncycastle.util.Pack;
+import com.github.zhenwei.core.util.Longs;
+
+
+
 
 public abstract class GCMUtil
 {

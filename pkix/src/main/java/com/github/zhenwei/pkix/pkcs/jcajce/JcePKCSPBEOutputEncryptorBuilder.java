@@ -1,5 +1,9 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
+
+
+
+import BCObjectIdentifiers;
 import java.io.OutputStream;
 import java.security.AlgorithmParameters;
 import java.security.Provider;
@@ -9,26 +13,16 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.asn1.misc.ScryptParams;
-import org.bouncycastle.asn1.pkcs.EncryptionScheme;
-import org.bouncycastle.asn1.pkcs.KeyDerivationFunc;
-import org.bouncycastle.asn1.pkcs.PBES2Parameters;
-import org.bouncycastle.asn1.pkcs.PBKDF2Params;
-import org.bouncycastle.asn1.pkcs.PKCS12PBEParams;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import misc.MiscObjectIdentifiers;
+import misc.ScryptParams;
 import org.bouncycastle.crypto.util.PBKDF2Config;
 import org.bouncycastle.crypto.util.PBKDFConfig;
 import org.bouncycastle.crypto.util.ScryptConfig;
 import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
 import org.bouncycastle.jcajce.io.CipherOutputStream;
 import org.bouncycastle.jcajce.spec.ScryptKeySpec;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.operator.AlgorithmNameFinder;
@@ -38,6 +32,12 @@ import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.SecretKeySizeProvider;
+import pkcs.EncryptionScheme;
+import pkcs.KeyDerivationFunc;
+
+
+
+
 
 public class JcePKCSPBEOutputEncryptorBuilder
 {

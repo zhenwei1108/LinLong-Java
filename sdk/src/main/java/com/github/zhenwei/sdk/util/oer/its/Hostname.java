@@ -1,9 +1,9 @@
 package com.github.zhenwei.sdk.util.oer.its;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.DERUTF8String;
+
+
+
+
 
 public class Hostname
     extends ASN1Object

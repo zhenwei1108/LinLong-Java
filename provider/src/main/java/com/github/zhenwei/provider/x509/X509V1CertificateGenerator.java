@@ -1,5 +1,17 @@
 package com.github.zhenwei.provider.x509;
 
+
+
+
+
+
+import DERBitString;
+
+
+import TBSCertificate;
+import Time;
+import V1TBSCertificateGenerator;
+import X509Name;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -16,21 +28,9 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.Iterator;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.TBSCertificate;
-import org.bouncycastle.asn1.x509.Time;
-import org.bouncycastle.asn1.x509.V1TBSCertificateGenerator;
-import org.bouncycastle.asn1.x509.X509Name;
-import org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory;
-import org.bouncycastle.jcajce.util.BCJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+import org.bouncycastle.jcajce.provider.asymmetric.CertificateFactory;
+;
+
 import org.bouncycastle.jce.X509Principal;
 
 /**

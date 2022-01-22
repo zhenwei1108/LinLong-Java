@@ -1,6 +1,6 @@
 package com.github.zhenwei.crypto.kmip.wire;
 
-import org.bouncycastle.util.Strings;
+
 
 public class KMIPTextString
     implements KMIPItem

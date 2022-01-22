@@ -1,26 +1,10 @@
 package com.github.zhenwei.core.asn1;
 
+import ASN1Exception;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Exception;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERApplicationSpecificParser;
-import org.bouncycastle.asn1.BEROctetStringParser;
-import org.bouncycastle.asn1.BERSequenceParser;
-import org.bouncycastle.asn1.BERSetParser;
-import org.bouncycastle.asn1.BERTaggedObjectParser;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERExternalParser;
-import org.bouncycastle.asn1.DEROctetStringParser;
-import org.bouncycastle.asn1.DLApplicationSpecific;
-import org.bouncycastle.asn1.DLSequenceParser;
-import org.bouncycastle.asn1.DLSetParser;
-import org.bouncycastle.asn1.InMemoryRepresentable;
 
 /**
  * A parser for ASN.1 streams which also returns, where possible, parsers for the objects it encounters.
@@ -167,7 +151,7 @@ public class ASN1StreamParser
             }
 
             IndefiniteLengthInputStream indIn = new IndefiniteLengthInputStream(_in, _limit);
-            org.bouncycastle.asn1.ASN1StreamParser sp = new org.bouncycastle.asn1.ASN1StreamParser(indIn, _limit, tmpBuffers);
+            ASN1StreamParser sp = new ASN1StreamParser(indIn, _limit, tmpBuffers);
 
             int tagClass = tag & BERTags.PRIVATE;
             if (0 != tagClass)
@@ -189,7 +173,7 @@ public class ASN1StreamParser
             int tagClass = tag & BERTags.PRIVATE;
             if (0 != tagClass)
             {
-                org.bouncycastle.asn1.ASN1StreamParser sp = new org.bouncycastle.asn1.ASN1StreamParser(defIn, defIn.getLimit(), tmpBuffers);
+                ASN1StreamParser sp = new ASN1StreamParser(defIn, defIn.getLimit(), tmpBuffers);
 
                 // TODO Special handling can be removed once ASN1ApplicationSpecific types removed.
                 if (BERTags.APPLICATION == tagClass)
@@ -222,7 +206,7 @@ public class ASN1StreamParser
                 }
             }
 
-            org.bouncycastle.asn1.ASN1StreamParser sp = new org.bouncycastle.asn1.ASN1StreamParser(defIn, defIn.getLimit(), tmpBuffers);
+            ASN1StreamParser sp = new ASN1StreamParser(defIn, defIn.getLimit(), tmpBuffers);
 
             switch (tagNo)
             {

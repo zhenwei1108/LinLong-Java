@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.Xof;
 import org.bouncycastle.crypto.digests.CSHAKEDigest;
 import org.bouncycastle.crypto.digests.XofUtils;
-import org.bouncycastle.util.Strings;
+
 
 /**
  * TupleHash - a hash designed  to  simply  hash  a  tuple  of  input  strings,  any  or  all  of  which  may  be  empty  strings,

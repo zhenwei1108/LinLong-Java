@@ -1,16 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.OriginatorIdentifierOrKey;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:
@@ -80,7 +79,7 @@ public class KeyAgreeRecipientInfo
      * @exception IllegalArgumentException if the object held by the
      *          tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo getInstance(
+    public static cms.KeyAgreeRecipientInfo getInstance(
         ASN1TaggedObject    obj,
         boolean             explicit)
     {
@@ -93,24 +92,24 @@ public class KeyAgreeRecipientInfo
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo} object
+     * <li> {@link cms.KeyAgreeRecipientInfo} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with KeyAgreeRecipientInfo structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo getInstance(
+    public static cms.KeyAgreeRecipientInfo getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo)
+        if (obj instanceof cms.KeyAgreeRecipientInfo)
         {
-            return (org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo)obj;
+            return (cms.KeyAgreeRecipientInfo)obj;
         }
         
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.KeyAgreeRecipientInfo(ASN1Sequence.getInstance(obj));
+            return new cms.KeyAgreeRecipientInfo(ASN1Sequence.getInstance(obj));
         }
         
         return null;

@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+import ASN1UTCTime;
+
+import X500Name;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1UTCTime;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x500.X500Name;
 
 /**
  * <pre>
@@ -27,15 +27,15 @@ public class CrlIdentifier
     private ASN1UTCTime crlIssuedTime;
     private ASN1Integer crlNumber;
 
-    public static org.bouncycastle.asn1.esf.CrlIdentifier getInstance(Object obj)
+    public static esf.CrlIdentifier getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.CrlIdentifier)
+        if (obj instanceof esf.CrlIdentifier)
         {
-            return (org.bouncycastle.asn1.esf.CrlIdentifier)obj;
+            return (esf.CrlIdentifier)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.CrlIdentifier(ASN1Sequence.getInstance(obj));
+            return new esf.CrlIdentifier(ASN1Sequence.getInstance(obj));
         }
 
         return null;

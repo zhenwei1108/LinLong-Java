@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.esf.OtherHashAlgAndValue;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
+
 
 /**
  * <pre>
@@ -25,17 +24,17 @@ public class OtherHash
     private ASN1OctetString sha1Hash;
     private OtherHashAlgAndValue otherHash;
 
-    public static org.bouncycastle.asn1.esf.OtherHash getInstance(Object obj)
+    public static esf.OtherHash getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.OtherHash)
+        if (obj instanceof esf.OtherHash)
         {
-            return (org.bouncycastle.asn1.esf.OtherHash)obj;
+            return (esf.OtherHash)obj;
         }
         if (obj instanceof ASN1OctetString)
         {
-            return new org.bouncycastle.asn1.esf.OtherHash((ASN1OctetString)obj);
+            return new esf.OtherHash((ASN1OctetString)obj);
         }
-        return new org.bouncycastle.asn1.esf.OtherHash(OtherHashAlgAndValue.getInstance(obj));
+        return new esf.OtherHash(OtherHashAlgAndValue.getInstance(obj));
     }
 
     private OtherHash(ASN1OctetString sha1Hash)

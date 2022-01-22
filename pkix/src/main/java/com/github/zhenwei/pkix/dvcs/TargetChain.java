@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import org.bouncycastle.asn1.dvcs.TargetEtcChain;
+import TargetEtcChain;
 
 public class TargetChain
 {

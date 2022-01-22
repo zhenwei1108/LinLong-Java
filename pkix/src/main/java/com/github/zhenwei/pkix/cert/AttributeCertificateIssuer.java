@@ -1,15 +1,14 @@
 package com.github.zhenwei.pkix.cert;
 
+
+import AttCertIssuer;
+
+import GeneralNames;
+import V2Form;
+import X500Name;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AttCertIssuer;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.V2Form;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * Carrying class for an attribute certificate issuer.

@@ -1,14 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.icao;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.x509.Certificate;
+
+
+
+
+
+
+import Certificate;
+
+
 
 /**
  * The CscaMasterList object. This object can be wrapped in a
@@ -29,16 +29,16 @@ public class CscaMasterList
     private ASN1Integer version = new ASN1Integer(0);
     private Certificate[] certList;
 
-    public static org.bouncycastle.asn1.icao.CscaMasterList getInstance(
+    public static icao.CscaMasterList getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.icao.CscaMasterList)
+        if (obj instanceof icao.CscaMasterList)
         {
-            return (org.bouncycastle.asn1.icao.CscaMasterList)obj;
+            return (icao.CscaMasterList)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.icao.CscaMasterList(ASN1Sequence.getInstance(obj));
+            return new icao.CscaMasterList(ASN1Sequence.getInstance(obj));
         }
 
         return null;

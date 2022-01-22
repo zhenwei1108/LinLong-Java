@@ -3,7 +3,7 @@ package com.github.zhenwei.core.pqc.crypto.sphincs;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCS256KeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;

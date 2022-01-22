@@ -1,5 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+
+
+
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBE.Util;
+
+import gm.GMObjectIdentifiers;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidKeySpecException;
@@ -10,15 +16,8 @@ import java.util.Map;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PBKDF2Params;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.crypto.CipherParameters;
+
+ 
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.jcajce.PBKDF2Key;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
@@ -27,8 +26,10 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
 import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
-import org.bouncycastle.jcajce.spec.PBKDF2KeySpec;
-import org.bouncycastle.util.Integers;
+
+ 
+
+
 
 public class PBEPBKDF2
 {

@@ -1,5 +1,11 @@
 package com.github.zhenwei.provider.x509;
 
+
+import AttCertIssuer;
+
+
+import GeneralNames;
+import V2Form;
 import java.io.IOException;
 import java.security.Principal;
 import java.security.cert.CertSelector;
@@ -8,14 +14,8 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AttCertIssuer;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.V2Form;
 import org.bouncycastle.jce.X509Principal;
-import org.bouncycastle.util.Selector;
+
 
 /**
  * Carrying class for an attribute certificate issuer.
@@ -133,7 +133,7 @@ public class AttributeCertificateIssuer
 
     public Object clone()
     {
-        return new org.bouncycastle.x509.AttributeCertificateIssuer(AttCertIssuer.getInstance(form));
+        return new org.bouncycastle.AttributeCertificateIssuer(AttCertIssuer.getInstance(form));
     }
 
     public boolean match(Certificate cert)
@@ -179,12 +179,12 @@ public class AttributeCertificateIssuer
             return true;
         }
 
-        if (!(obj instanceof org.bouncycastle.x509.AttributeCertificateIssuer))
+        if (!(obj instanceof org.bouncycastle.AttributeCertificateIssuer))
         {
             return false;
         }
 
-        org.bouncycastle.x509.AttributeCertificateIssuer other = (org.bouncycastle.x509.AttributeCertificateIssuer)obj;
+        org.bouncycastle.AttributeCertificateIssuer other = (org.bouncycastle.AttributeCertificateIssuer)obj;
 
         return this.form.equals(other.form);
     }

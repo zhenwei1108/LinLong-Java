@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 import java.math.BigInteger;
-import org.bouncycastle.crypto.CipherParameters;
+ 
 import org.bouncycastle.crypto.agreement.DHBasicAgreement;
 import org.bouncycastle.crypto.params.DHUPrivateParameters;
 import org.bouncycastle.crypto.params.DHUPublicParameters;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * FFC Unified static/ephemeral agreement as described in NIST SP 800-56A.

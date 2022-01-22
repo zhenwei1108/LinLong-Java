@@ -1,12 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.ocsp.ResponderID;
+
+import ASN1GeneralizedTime;
+
+
+
+
+import ocsp.ResponderID;
 
 /**
  * <pre>
@@ -22,15 +22,15 @@ public class OcspIdentifier
     private ResponderID ocspResponderID;
     private ASN1GeneralizedTime producedAt;
 
-    public static org.bouncycastle.asn1.esf.OcspIdentifier getInstance(Object obj)
+    public static esf.OcspIdentifier getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.OcspIdentifier)
+        if (obj instanceof esf.OcspIdentifier)
         {
-            return (org.bouncycastle.asn1.esf.OcspIdentifier)obj;
+            return (esf.OcspIdentifier)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.OcspIdentifier(ASN1Sequence.getInstance(obj));
+            return new esf.OcspIdentifier(ASN1Sequence.getInstance(obj));
         }
 
         return null;

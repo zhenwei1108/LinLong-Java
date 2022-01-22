@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.digests;
 
-import org.bouncycastle.crypto.ExtendedDigest;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Memoable;
-import org.bouncycastle.util.Pack;
+
+
+
+
 
 /**
  * Reference implementation of national ukrainian standard of hashing transformation DSTU7564.

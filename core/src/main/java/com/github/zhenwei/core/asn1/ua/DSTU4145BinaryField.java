@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.ua;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
 
 public class DSTU4145BinaryField
     extends ASN1Object
@@ -34,16 +34,16 @@ public class DSTU4145BinaryField
         }
     }
 
-    public static org.bouncycastle.asn1.ua.DSTU4145BinaryField getInstance(Object obj)
+    public static ua.DSTU4145BinaryField getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ua.DSTU4145BinaryField)
+        if (obj instanceof ua.DSTU4145BinaryField)
         {
-            return (org.bouncycastle.asn1.ua.DSTU4145BinaryField)obj;
+            return (ua.DSTU4145BinaryField)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.ua.DSTU4145BinaryField(ASN1Sequence.getInstance(obj));
+            return new ua.DSTU4145BinaryField(ASN1Sequence.getInstance(obj));
         }
 
         return null;

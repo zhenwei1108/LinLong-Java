@@ -1,10 +1,9 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.crmf.CertReqMsg;
+
+
+
+
 
 public class CertReqMessages
     extends ASN1Object
@@ -16,16 +15,16 @@ public class CertReqMessages
         content = seq;
     }
 
-    public static org.bouncycastle.asn1.crmf.CertReqMessages getInstance(Object o)
+    public static crmf.CertReqMessages getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.CertReqMessages)
+        if (o instanceof crmf.CertReqMessages)
         {
-            return (org.bouncycastle.asn1.crmf.CertReqMessages)o;
+            return (crmf.CertReqMessages)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.crmf.CertReqMessages(ASN1Sequence.getInstance(o));
+            return new crmf.CertReqMessages(ASN1Sequence.getInstance(o));
         }
 
         return null;

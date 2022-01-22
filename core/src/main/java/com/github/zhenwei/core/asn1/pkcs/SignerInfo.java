@@ -1,19 +1,18 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.pkcs.IssuerAndSerialNumber;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * a PKCS#7 signer info object.
@@ -29,16 +28,16 @@ public class SignerInfo
     private ASN1OctetString         encryptedDigest;
     private ASN1Set                 unauthenticatedAttributes;
 
-    public static org.bouncycastle.asn1.pkcs.SignerInfo getInstance(
+    public static pkcs.SignerInfo getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.pkcs.SignerInfo)
+        if (o instanceof pkcs.SignerInfo)
         {
-            return (org.bouncycastle.asn1.pkcs.SignerInfo)o;
+            return (pkcs.SignerInfo)o;
         }
         else if (o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.pkcs.SignerInfo((ASN1Sequence)o);
+            return new pkcs.SignerInfo((ASN1Sequence)o);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + o.getClass().getName());

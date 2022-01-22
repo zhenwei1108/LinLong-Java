@@ -1,5 +1,31 @@
 package com.github.zhenwei.provider.x509;
 
+
+import ASN1Enumerated;
+
+ 
+
+
+
+
+
+
+import AccessDescription;
+
+import AuthorityInformationAccess;
+
+ 
+import CRLDistPoint;
+
+import DistributionPoint;
+import DistributionPointName;
+
+
+import GeneralNames;
+import GeneralSubtree;
+import IssuingDistributionPoint;
+import NameConstraints;
+import PolicyInformation;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -34,35 +60,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Enumerated;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.x509.AccessDescription;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.AuthorityInformationAccess;
-import org.bouncycastle.asn1.x509.AuthorityKeyIdentifier;
-import org.bouncycastle.asn1.x509.BasicConstraints;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.DistributionPoint;
-import org.bouncycastle.asn1.x509.DistributionPointName;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.GeneralSubtree;
-import org.bouncycastle.asn1.x509.IssuingDistributionPoint;
-import org.bouncycastle.asn1.x509.NameConstraints;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode;
-import org.bouncycastle.asn1.x509.qualified.MonetaryValue;
-import org.bouncycastle.asn1.x509.qualified.QCStatement;
 import org.bouncycastle.i18n.ErrorBundle;
 import org.bouncycastle.i18n.LocaleString;
 import org.bouncycastle.i18n.filter.TrustedInput;
@@ -72,10 +69,11 @@ import org.bouncycastle.jce.provider.AnnotatedException;
 import org.bouncycastle.jce.provider.PKIXNameConstraintValidator;
 import org.bouncycastle.jce.provider.PKIXNameConstraintValidatorException;
 import org.bouncycastle.jce.provider.PKIXPolicyNode;
-import org.bouncycastle.util.Integers;
+ 
 import org.bouncycastle.util.Objects;
-import org.bouncycastle.x509.CertPathReviewerException;
-import org.bouncycastle.x509.X509CRLStoreSelector;
+import qualified.Iso4217CurrencyCode;
+import qualified.MonetaryValue;
+import qualified.QCStatement;
 
 /**
  * PKIXCertPathReviewer<br>
@@ -88,7 +86,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities
     private static final String CRL_DIST_POINTS = Extension.cRLDistributionPoints.getId();
     private static final String AUTH_INFO_ACCESS = Extension.authorityInfoAccess.getId();
 
-    private static final String RESOURCE_NAME = "org.bouncycastle.x509.CertPathReviewerMessages";
+    private static final String RESOURCE_NAME = "org.bouncycastle.CertPathReviewerMessages";
 
     // input parameters
 
@@ -120,7 +118,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities
      * @param certPath the {@link CertPath} to validate
      * @param params the {@link PKIXParameters} to use
      * @throws CertPathReviewerException if the certPath is empty
-     * @throws IllegalStateException if the {@link org.bouncycastle.x509.PKIXCertPathReviewer} is already initialized
+     * @throws IllegalStateException if the {@link org.bouncycastle.PKIXCertPathReviewer} is already initialized
      */
     public void init(CertPath certPath, PKIXParameters params)
             throws CertPathReviewerException
@@ -216,7 +214,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities
      * The global error List is at index 0. The error lists for each certificate at index 1 to n.
      * The error messages are of type.
      * @return the Array of Lists which contain the error messages
-     * @throws IllegalStateException if the {@link org.bouncycastle.x509.PKIXCertPathReviewer} was not initialized
+     * @throws IllegalStateException if the {@link org.bouncycastle.PKIXCertPathReviewer} was not initialized
      */
     public List[] getErrors()
     {
@@ -665,7 +663,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities
 
             if (bc != null)
             {
-                BigInteger _pathLengthConstraint = bc.getPathLenConstraint();
+                BigInteger _pathLengthConstraint = getPathLenConstraint();
 
                 if (_pathLengthConstraint != null)
                 {
@@ -2355,7 +2353,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities
                     throw new CertPathReviewerException(msg,ae);
                 }
                 
-                if (p.onlyContainsUserCerts() && (bc != null && bc.isCA()))
+                if (p.onlyContainsUserCerts() && (bc != null && isCA()))
                 {
                     ErrorBundle msg = new ErrorBundle(RESOURCE_NAME,"CertPathReviewer.crlOnlyUserCert");
                     throw new CertPathReviewerException(msg);

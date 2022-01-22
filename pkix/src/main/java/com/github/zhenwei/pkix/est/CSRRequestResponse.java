@@ -1,8 +1,5 @@
 package com.github.zhenwei.pkix.est;
 
-import org.bouncycastle.est.CSRAttributesResponse;
-import org.bouncycastle.est.Source;
-
 /**
  * Holder class for a response containing the details making up /csrattrs response.
  */

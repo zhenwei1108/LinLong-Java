@@ -1,10 +1,8 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
+
+
+import DERBitString;
 
 /**
  * The KeyUsage object.
@@ -38,21 +36,21 @@ public class KeyUsage
 
     private DERBitString bitString;
 
-    public static org.bouncycastle.asn1.x509.KeyUsage getInstance(Object obj)   // needs to be DERBitString for other VMs
+    public static KeyUsage getInstance(Object obj)   // needs to be DERBitString for other VMs
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.KeyUsage)
+        if (obj instanceof KeyUsage)
         {
-            return (org.bouncycastle.asn1.x509.KeyUsage)obj;
+            return (KeyUsage)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.KeyUsage(DERBitString.getInstance(obj));
+            return new KeyUsage(DERBitString.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.x509.KeyUsage fromExtensions(Extensions extensions)
+    public static KeyUsage fromExtensions(Extensions extensions)
     {
         return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.keyUsage));
     }

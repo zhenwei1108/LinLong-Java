@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.math.ec;
 
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECPoint;
 
 /**
  * Interface for classes encapsulating a point multiplication algorithm

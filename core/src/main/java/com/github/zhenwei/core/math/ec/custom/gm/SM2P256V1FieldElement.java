@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.gm;
 
+
+import custom.gm.SM2P256V1Field;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.custom.gm.SM2P256V1Field;
-import org.bouncycastle.math.raw.Nat256;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp
 {
@@ -68,28 +68,28 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp
     {
         int[] z = Nat256.create();
         SM2P256V1Field.add(x, ((org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement addOne()
     {
         int[] z = Nat256.create();
         SM2P256V1Field.addOne(x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement subtract(ECFieldElement b)
     {
         int[] z = Nat256.create();
         SM2P256V1Field.subtract(x, ((org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement multiply(ECFieldElement b)
     {
         int[] z = Nat256.create();
         SM2P256V1Field.multiply(x, ((org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement)b).x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement divide(ECFieldElement b)
@@ -98,21 +98,21 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp
         int[] z = Nat256.create();
         SM2P256V1Field.inv(((org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement)b).x, z);
         SM2P256V1Field.multiply(z, x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement negate()
     {
         int[] z = Nat256.create();
         SM2P256V1Field.negate(x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement square()
     {
         int[] z = Nat256.create();
         SM2P256V1Field.square(x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     public ECFieldElement invert()
@@ -120,7 +120,7 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp
 //        return new SM2P256V1FieldElement(toBigInteger().modInverse(Q));
         int[] z = Nat256.create();
         SM2P256V1Field.inv(x, z);
-        return new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(z);
+        return new custom.gm.SM2P256V1FieldElement(z);
     }
 
     /**
@@ -185,7 +185,7 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp
         int[] t2 = x4;
         SM2P256V1Field.square(t1, t2);
 
-        return Nat256.eq(x1, t2) ? new org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement(t1) : null;
+        return Nat256.eq(x1, t2) ? new custom.gm.SM2P256V1FieldElement(t1) : null;
     }
 
     public boolean equals(Object other)
@@ -195,12 +195,12 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp
             return true;
         }
 
-        if (!(other instanceof org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement))
+        if (!(other instanceof custom.gm.SM2P256V1FieldElement))
         {
             return false;
         }
 
-        org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement o = (org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement)other;
+        custom.gm.SM2P256V1FieldElement o = (org.bouncycastle.math.ec.custom.gm.SM2P256V1FieldElement)other;
         return Nat256.eq(x, o.x);
     }
 

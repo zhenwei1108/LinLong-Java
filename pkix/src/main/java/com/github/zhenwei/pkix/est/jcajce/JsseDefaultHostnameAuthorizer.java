@@ -1,5 +1,8 @@
 package com.github.zhenwei.pkix.est.jcajce;
 
+import AttributeTypeAndValue;
+import RDN;
+import X500Name;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -12,14 +15,10 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLSession;
-import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.style.BCStyle;
 import org.bouncycastle.est.ESTException;
-import org.bouncycastle.est.jcajce.JsseHostnameAuthorizer;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+
+import style.BCStyle;
 
 
 /**

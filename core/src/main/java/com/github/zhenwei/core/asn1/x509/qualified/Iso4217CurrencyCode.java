@@ -1,12 +1,12 @@
-package com.github.zhenwei.core.asn1.x509.qualified;
+package com.github.zhenwei.core.asn1.qualified;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.DERPrintableString;
+
+
+
+
+
+
+
 
 /**
  * The Iso4217CurrencyCode object.
@@ -29,25 +29,25 @@ public class Iso4217CurrencyCode
     ASN1Encodable obj;
     int          numeric;
     
-    public static org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode getInstance(
+    public static qualified.Iso4217CurrencyCode getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode)
+        if (obj == null || obj instanceof qualified.Iso4217CurrencyCode)
         {
-            return (org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode)obj;
+            return (qualified.Iso4217CurrencyCode)obj;
         }
 
         if (obj instanceof ASN1Integer)
         {
             ASN1Integer numericobj = ASN1Integer.getInstance(obj);
             int numeric = numericobj.intValueExact();  
-            return new org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode(numeric);
+            return new qualified.Iso4217CurrencyCode(numeric);
         }
         else
         if (obj instanceof ASN1PrintableString)
         {
             ASN1PrintableString alphabetic = ASN1PrintableString.getInstance(obj);
-            return new org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode(alphabetic.getString());
+            return new qualified.Iso4217CurrencyCode(alphabetic.getString());
         }
         throw new IllegalArgumentException("unknown object in getInstance");
     }

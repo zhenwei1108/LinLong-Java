@@ -1,21 +1,18 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
+
+
+
+
+import BERSet;
+import BERTaggedObject;
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.BERSet;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.CMSObjectIdentifiers;
-import org.bouncycastle.asn1.cms.ContentInfo;
-import org.bouncycastle.asn1.cms.SignerInfo;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-5.1">RFC 5652</a>:
@@ -80,7 +77,7 @@ public class SignedData
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.SignedData} object
+     * <li> {@link cms.SignedData} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with SignedData structure inside
      * </ul>
      *
@@ -88,16 +85,16 @@ public class SignedData
      * @return a reference that can be assigned to SignedData (may be null)
      * @throws IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.SignedData getInstance(
+    public static cms.SignedData getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.cms.SignedData)
+        if (o instanceof cms.SignedData)
         {
-            return (org.bouncycastle.asn1.cms.SignedData)o;
+            return (cms.SignedData)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.cms.SignedData(ASN1Sequence.getInstance(o));
+            return new cms.SignedData(ASN1Sequence.getInstance(o));
         }
 
         return null;

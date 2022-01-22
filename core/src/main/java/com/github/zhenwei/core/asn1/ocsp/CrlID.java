@@ -1,17 +1,17 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
 
 public class CrlID
     extends ASN1Object
@@ -47,16 +47,16 @@ public class CrlID
         }
     }
 
-    public static org.bouncycastle.asn1.ocsp.CrlID getInstance(
+    public static ocsp.CrlID getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ocsp.CrlID)
+        if (obj instanceof ocsp.CrlID)
         {
-            return (org.bouncycastle.asn1.ocsp.CrlID)obj;
+            return (ocsp.CrlID)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.ocsp.CrlID(ASN1Sequence.getInstance(obj));
+            return new ocsp.CrlID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

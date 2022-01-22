@@ -1,18 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+
+
+
+
+import DERBitString;
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.CMPCertificate;
-import org.bouncycastle.asn1.cmp.PKIBody;
-import org.bouncycastle.asn1.cmp.PKIHeader;
 
 public class PKIMessage
     extends ASN1Object
@@ -44,15 +41,15 @@ public class PKIMessage
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.PKIMessage getInstance(Object o)
+    public static cmp.PKIMessage getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.PKIMessage)
+        if (o instanceof cmp.PKIMessage)
         {
-            return (org.bouncycastle.asn1.cmp.PKIMessage)o;
+            return (cmp.PKIMessage)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.PKIMessage(ASN1Sequence.getInstance(o));
+            return new cmp.PKIMessage(ASN1Sequence.getInstance(o));
         }
 
         return null;

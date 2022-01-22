@@ -1,14 +1,13 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+
+
+
+import X500Name;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.ocsp.ResponderID;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.cert.ocsp.OCSPException;
+import ocsp.ResponderID;
+
 import org.bouncycastle.operator.DigestCalculator;
 
 /**

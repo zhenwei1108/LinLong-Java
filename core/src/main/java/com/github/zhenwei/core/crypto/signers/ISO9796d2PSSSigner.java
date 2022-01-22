@@ -2,17 +2,17 @@ package com.github.zhenwei.core.crypto.signers;
 
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
-import org.bouncycastle.crypto.Digest;
+
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.SignerWithRecovery;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.ParametersWithSalt;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.signers.ISOTrailers;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ISO9796-2 - mechanism using a hash function with recovery (scheme 2 and 3).

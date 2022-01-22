@@ -1,14 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.dvcs.DVCSRequestInformation;
-import org.bouncycastle.asn1.dvcs.Data;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.GeneralName;
 
 /**
  * <pre>
@@ -50,21 +49,21 @@ public class DVCSRequest
         }
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSRequest getInstance(Object obj)
+    public static DVCSRequest getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.DVCSRequest)
+        if (obj instanceof DVCSRequest)
         {
-            return (org.bouncycastle.asn1.dvcs.DVCSRequest)obj;
+            return (DVCSRequest)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.DVCSRequest(ASN1Sequence.getInstance(obj));
+            return new DVCSRequest(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSRequest getInstance(
+    public static DVCSRequest getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

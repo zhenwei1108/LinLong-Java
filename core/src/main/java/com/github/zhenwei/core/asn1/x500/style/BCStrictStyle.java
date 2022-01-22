@@ -1,9 +1,8 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.BCStyle;
+import RDN;
+import X500Name;
+import X500NameStyle;
 
 /**
  * Variation of BCStyle that insists on strict ordering for equality
@@ -12,7 +11,7 @@ import org.bouncycastle.asn1.x500.style.BCStyle;
 public class BCStrictStyle
     extends BCStyle
 {
-    public static final X500NameStyle INSTANCE = new org.bouncycastle.asn1.x500.style.BCStrictStyle();
+    public static final X500NameStyle INSTANCE = new  style.BCStrictStyle();
 
     public boolean areEqual(X500Name name1, X500Name name2)
     {

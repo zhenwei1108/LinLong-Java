@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER PrintableString object.
  * <p>
@@ -42,22 +38,22 @@ public class DERPrintableString
      * 
      * @deprecated Use {@link ASN1PrintableString#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERPrintableString getInstance(
+    public static DERPrintableString getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERPrintableString)
+        if (obj == null || obj instanceof DERPrintableString)
         {
-            return (org.bouncycastle.asn1.DERPrintableString)obj;
+            return (DERPrintableString)obj;
         }
         if (obj instanceof ASN1PrintableString)
         {
-            return new org.bouncycastle.asn1.DERPrintableString(((ASN1PrintableString)obj).contents, false);
+            return new DERPrintableString(((ASN1PrintableString)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERPrintableString)fromByteArray((byte[])obj);
+                return (DERPrintableString)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -81,19 +77,19 @@ public class DERPrintableString
      *             {@link ASN1PrintableString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERPrintableString getInstance(
+    public static DERPrintableString getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERPrintableString)
+        if (explicit || o instanceof DERPrintableString)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERPrintableString(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERPrintableString(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

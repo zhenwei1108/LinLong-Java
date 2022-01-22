@@ -1,22 +1,20 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
+
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
+
+
+
+import X500Name;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.InfoTypeAndValue;
-import org.bouncycastle.asn1.cmp.PKIFreeText;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 public class PKIHeader
     extends ASN1Object
@@ -89,16 +87,16 @@ public class PKIHeader
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.PKIHeader getInstance(Object o)
+    public static cmp.PKIHeader getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.PKIHeader)
+        if (o instanceof cmp.PKIHeader)
         {
-            return (org.bouncycastle.asn1.cmp.PKIHeader)o;
+            return (cmp.PKIHeader)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.PKIHeader(ASN1Sequence.getInstance(o));
+            return new cmp.PKIHeader(ASN1Sequence.getInstance(o));
         }
 
         return null;

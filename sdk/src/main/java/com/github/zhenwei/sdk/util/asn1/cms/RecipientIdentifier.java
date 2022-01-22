@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.1">RFC 5652</a>:
@@ -51,7 +50,7 @@ public class RecipientIdentifier
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.RecipientIdentifier} object
+     * <li> {@link cms.RecipientIdentifier} object
      * <li> {@link IssuerAndSerialNumber} object
      * <li> {@link ASN1OctetString#getInstance(Object) ASN1OctetString} input formats (OctetString, byte[]) with value of KeyIdentifier in DER form
      * <li> {@link ASN1Primitive ASN1Primitive} for RecipientIdentifier constructor
@@ -60,27 +59,27 @@ public class RecipientIdentifier
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.RecipientIdentifier getInstance(
+    public static cms.RecipientIdentifier getInstance(
         Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.cms.RecipientIdentifier)
+        if (o == null || o instanceof cms.RecipientIdentifier)
         {
-            return (org.bouncycastle.asn1.cms.RecipientIdentifier)o;
+            return (cms.RecipientIdentifier)o;
         }
         
         if (o instanceof IssuerAndSerialNumber)
         {
-            return new org.bouncycastle.asn1.cms.RecipientIdentifier((IssuerAndSerialNumber)o);
+            return new cms.RecipientIdentifier((IssuerAndSerialNumber)o);
         }
         
         if (o instanceof ASN1OctetString)
         {
-            return new org.bouncycastle.asn1.cms.RecipientIdentifier((ASN1OctetString)o);
+            return new cms.RecipientIdentifier((ASN1OctetString)o);
         }
         
         if (o instanceof ASN1Primitive)
         {
-            return new org.bouncycastle.asn1.cms.RecipientIdentifier((ASN1Primitive)o);
+            return new cms.RecipientIdentifier((ASN1Primitive)o);
         }
         
         throw new IllegalArgumentException(

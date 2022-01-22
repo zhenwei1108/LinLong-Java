@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
+
+
+
+
+
+
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.isismtt.x509.Admissions;
-import org.bouncycastle.asn1.x509.GeneralName;
 
 /**
  * Attribute to indicate admissions to certain professions.
@@ -111,8 +110,8 @@ import org.bouncycastle.asn1.x509.GeneralName;
  * number).
  *
  * @see Admissions
- * @see org.bouncycastle.asn1.isismtt.x509.ProfessionInfo
- * @see org.bouncycastle.asn1.isismtt.x509.NamingAuthority
+ * @see ProfessionInfo
+ * @see NamingAuthority
  */
 public class AdmissionSyntax
     extends ASN1Object
@@ -122,16 +121,16 @@ public class AdmissionSyntax
 
     private ASN1Sequence contentsOfAdmissions;
 
-    public static org.bouncycastle.asn1.isismtt.x509.AdmissionSyntax getInstance(Object obj)
+    public static AdmissionSyntax getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.x509.AdmissionSyntax)
+        if (obj == null || obj instanceof AdmissionSyntax)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.AdmissionSyntax)obj;
+            return  (AdmissionSyntax)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.AdmissionSyntax((ASN1Sequence)obj);
+            return new AdmissionSyntax((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "

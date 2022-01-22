@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import java.io.ByteArrayOutputStream;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.Arrays;
+
+
 
 
 public class NullDigest

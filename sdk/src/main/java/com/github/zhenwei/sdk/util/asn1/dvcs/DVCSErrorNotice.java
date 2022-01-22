@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.dvcs;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIStatusInfo;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+
+
+
+
+
+import cmp.PKIStatusInfo;
 
 /**
  * <pre>
@@ -43,21 +43,21 @@ public class DVCSErrorNotice
         }
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSErrorNotice getInstance(Object obj)
+    public static DVCSErrorNotice getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.dvcs.DVCSErrorNotice)
+        if (obj instanceof DVCSErrorNotice)
         {
-            return (org.bouncycastle.asn1.dvcs.DVCSErrorNotice)obj;
+            return (DVCSErrorNotice)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.dvcs.DVCSErrorNotice(ASN1Sequence.getInstance(obj));
+            return new DVCSErrorNotice(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.dvcs.DVCSErrorNotice getInstance(
+    public static DVCSErrorNotice getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

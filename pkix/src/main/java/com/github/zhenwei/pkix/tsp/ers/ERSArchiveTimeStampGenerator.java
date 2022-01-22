@@ -7,21 +7,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.tsp.ArchiveTimeStamp;
-import org.bouncycastle.asn1.tsp.PartialHashtree;
-import org.bouncycastle.asn1.tsp.TSTInfo;
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.tsp.TSPException;
 import org.bouncycastle.tsp.TimeStampRequest;
 import org.bouncycastle.tsp.TimeStampRequestGenerator;
 import org.bouncycastle.tsp.TimeStampResponse;
-import org.bouncycastle.tsp.ers.BinaryTreeRootCalculator;
-import org.bouncycastle.tsp.ers.ERSArchiveTimeStamp;
-import org.bouncycastle.tsp.ers.ERSData;
-import org.bouncycastle.tsp.ers.ERSDataGroup;
-import org.bouncycastle.tsp.ers.ERSException;
-import org.bouncycastle.tsp.ers.ERSRootNodeCalculator;
-import org.bouncycastle.util.Arrays;
+
+import tsp.ArchiveTimeStamp;
+import tsp.PartialHashtree;
+import tsp.TSTInfo;
 
 /**
  * Generator for RFC 4998 Archive Time Stamps.

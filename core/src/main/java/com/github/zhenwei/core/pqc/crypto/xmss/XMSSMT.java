@@ -5,12 +5,10 @@ import java.text.ParseException;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTKeyGenerationParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
 import org.bouncycastle.pqc.crypto.xmss.XMSSMTSigner;
-import org.bouncycastle.pqc.crypto.xmss.XMSSParameters;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * XMSS^MT.

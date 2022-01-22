@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto;
 
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
 import org.bouncycastle.pqc.crypto.DigestingMessageSigner;
 import org.bouncycastle.pqc.crypto.StateAwareMessageSigner;

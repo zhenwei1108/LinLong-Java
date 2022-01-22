@@ -1,12 +1,12 @@
 package com.github.zhenwei.pkix.voms;
 
+
+
+
+import Attribute;
+import IetfAttrSyntax;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.x509.Attribute;
-import org.bouncycastle.asn1.x509.IetfAttrSyntax;
 import org.bouncycastle.cert.X509AttributeCertificateHolder;
 
 /**

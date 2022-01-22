@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 import org.bouncycastle.jcajce.PKIXCRLStoreSelector;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.StoreException;
+
 
 abstract class PKIXCRLUtil
 {

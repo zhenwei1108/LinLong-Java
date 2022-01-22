@@ -1,15 +1,14 @@
 package com.github.zhenwei.core.asn1.ua;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.ua.DSTU4145ECBinary;
-import org.bouncycastle.util.Arrays;
+
+
+
+
+
+
+
+
+
 
 public class DSTU4145Params
     extends ASN1Object
@@ -70,31 +69,31 @@ public class DSTU4145Params
         return namedCurve;
     }
 
-    public static org.bouncycastle.asn1.ua.DSTU4145Params getInstance(Object obj)
+    public static ua.DSTU4145Params getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ua.DSTU4145Params)
+        if (obj instanceof ua.DSTU4145Params)
         {
-            return (org.bouncycastle.asn1.ua.DSTU4145Params)obj;
+            return (ua.DSTU4145Params)obj;
         }
 
         if (obj != null)
         {
             ASN1Sequence seq = ASN1Sequence.getInstance(obj);
-            org.bouncycastle.asn1.ua.DSTU4145Params params;
+            ua.DSTU4145Params params;
 
             if (seq.getObjectAt(0) instanceof ASN1ObjectIdentifier)
             {
-                params = new org.bouncycastle.asn1.ua.DSTU4145Params(ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0)));
+                params = new ua.DSTU4145Params(ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0)));
             }
             else
             {
-                params = new org.bouncycastle.asn1.ua.DSTU4145Params(DSTU4145ECBinary.getInstance(seq.getObjectAt(0)));
+                params = new ua.DSTU4145Params(DSTU4145ECBinary.getInstance(seq.getObjectAt(0)));
             }
 
             if (seq.size() == 2)
             {
                 params.dke = ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets();
-                if (params.dke.length != org.bouncycastle.asn1.ua.DSTU4145Params.DEFAULT_DKE.length)
+                if (params.dke.length != ua.DSTU4145Params.DEFAULT_DKE.length)
                 {
                     throw new IllegalArgumentException("object parse error");
                 }

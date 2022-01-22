@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+
 
 public class LMSigParameters
 {

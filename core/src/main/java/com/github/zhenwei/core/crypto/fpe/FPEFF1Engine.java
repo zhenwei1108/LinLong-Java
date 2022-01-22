@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.fpe;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.engines.AESEngine;
 import org.bouncycastle.crypto.fpe.FPEEngine;
 import org.bouncycastle.crypto.params.FPEParameters;
-import org.bouncycastle.util.Properties;
+
 
 /**
  * NIST SP 800-38G, FF1 format preserving encryption.

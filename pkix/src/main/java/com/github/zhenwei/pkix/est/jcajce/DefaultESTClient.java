@@ -15,7 +15,7 @@ import org.bouncycastle.est.ESTRequest;
 import org.bouncycastle.est.ESTRequestBuilder;
 import org.bouncycastle.est.ESTResponse;
 import org.bouncycastle.est.Source;
-import org.bouncycastle.util.Properties;
+
 
 class DefaultESTClient
     implements ESTClient

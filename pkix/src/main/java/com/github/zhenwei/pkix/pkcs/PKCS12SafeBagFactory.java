@@ -1,15 +1,13 @@
 package com.github.zhenwei.pkix.pkcs;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.pkcs.ContentInfo;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.SafeBag;
+
+
 import org.bouncycastle.cms.CMSEncryptedData;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.operator.InputDecryptorProvider;
-import org.bouncycastle.pkcs.PKCS12SafeBag;
-import org.bouncycastle.pkcs.PKCSException;
+
+
+
 
 public class PKCS12SafeBagFactory
 {
@@ -30,7 +28,7 @@ public class PKCS12SafeBagFactory
     {
         if (info.getContentType().equals(PKCSObjectIdentifiers.encryptedData))
         {
-            CMSEncryptedData encData = new CMSEncryptedData(org.bouncycastle.asn1.cms.ContentInfo.getInstance(info));
+            CMSEncryptedData encData = new CMSEncryptedData(cms.ContentInfo.getInstance(info));
 
             try
             {

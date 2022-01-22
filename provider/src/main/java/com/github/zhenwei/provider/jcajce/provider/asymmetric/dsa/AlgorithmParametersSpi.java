@@ -1,12 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
+
+
+import DSAParameter;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.DSAParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.x509.DSAParameter;
 
 public class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi

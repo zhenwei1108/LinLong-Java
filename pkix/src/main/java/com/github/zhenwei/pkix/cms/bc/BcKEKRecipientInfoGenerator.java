@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms.bc;
 
-import org.bouncycastle.asn1.cms.KEKIdentifier;
+import cms.KEKIdentifier;
 import org.bouncycastle.cms.KEKRecipientInfoGenerator;
 import org.bouncycastle.operator.bc.BcSymmetricKeyWrapper;
 

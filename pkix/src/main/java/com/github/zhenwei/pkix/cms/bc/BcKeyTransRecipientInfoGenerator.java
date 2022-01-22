@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms.bc;
 
-import org.bouncycastle.asn1.cms.IssuerAndSerialNumber;
-import org.bouncycastle.cert.X509CertificateHolder;
+import cms.IssuerAndSerialNumber;
+ 
 import org.bouncycastle.cms.KeyTransRecipientInfoGenerator;
 import org.bouncycastle.operator.bc.BcAsymmetricKeyWrapper;
 

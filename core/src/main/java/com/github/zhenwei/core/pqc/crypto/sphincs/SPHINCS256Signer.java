@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
+ 
+
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.pqc.crypto.MessageSigner;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSPublicKeyParameters;
-import org.bouncycastle.util.Pack;
+
+import sun.security.ec.ECDSAOperations.Seed;
 
 /**
  * SPHINCS-256 signer.

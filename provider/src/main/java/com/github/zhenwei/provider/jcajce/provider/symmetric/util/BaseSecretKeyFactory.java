@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+
 import java.lang.reflect.Constructor;
 import java.security.InvalidKeyException;
 import java.security.spec.InvalidKeySpecException;
@@ -7,8 +8,6 @@ import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactorySpi;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
 
 public class BaseSecretKeyFactory
     extends SecretKeyFactorySpi

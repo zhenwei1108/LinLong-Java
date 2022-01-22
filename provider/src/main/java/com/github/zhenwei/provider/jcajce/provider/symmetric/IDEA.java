@@ -7,10 +7,10 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.asn1.misc.IDEACBCPar;
-import org.bouncycastle.asn1.misc.MiscObjectIdentifiers;
+import misc.IDEACBCPar;
+import misc.MiscObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.CryptoServicesRegistrar;
+
 import org.bouncycastle.crypto.engines.IDEAEngine;
 import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
 import org.bouncycastle.crypto.macs.CFBBlockCipherMac;

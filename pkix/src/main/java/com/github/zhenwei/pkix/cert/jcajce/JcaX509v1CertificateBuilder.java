@@ -1,11 +1,11 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+
+import X500Name;
 import java.math.BigInteger;
 import java.security.PublicKey;
 import java.util.Date;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cert.X509v1CertificateBuilder;
 
 /**

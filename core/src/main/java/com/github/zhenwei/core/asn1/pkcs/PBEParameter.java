@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
 
 public class PBEParameter
     extends ASN1Object
@@ -35,16 +35,16 @@ public class PBEParameter
         iterations = (ASN1Integer)seq.getObjectAt(1);
     }
 
-    public static org.bouncycastle.asn1.pkcs.PBEParameter getInstance(
+    public static pkcs.PBEParameter getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.PBEParameter)
+        if (obj instanceof pkcs.PBEParameter)
         {
-            return (org.bouncycastle.asn1.pkcs.PBEParameter)obj;
+            return (pkcs.PBEParameter)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.PBEParameter(ASN1Sequence.getInstance(obj));
+            return new pkcs.PBEParameter(ASN1Sequence.getInstance(obj));
         }
 
         return null;

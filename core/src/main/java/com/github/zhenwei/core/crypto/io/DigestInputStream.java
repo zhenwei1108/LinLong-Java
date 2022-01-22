@@ -3,7 +3,7 @@ package com.github.zhenwei.core.crypto.io;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.crypto.Digest;
+
 
 public class DigestInputStream
     extends FilterInputStream

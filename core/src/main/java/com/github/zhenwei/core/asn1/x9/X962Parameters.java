@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.asn1.x9;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Null;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+
+import ASN1Null;
+
+
+
+
 
 /**
  * The Parameters ASN.1 CHOICE from X9.62.
@@ -17,24 +16,24 @@ public class X962Parameters
 {
     private ASN1Primitive           params = null;
 
-    public static org.bouncycastle.asn1.x9.X962Parameters getInstance(
+    public static x9.X962Parameters getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x9.X962Parameters)
+        if (obj == null || obj instanceof x9.X962Parameters)
         {
-            return (org.bouncycastle.asn1.x9.X962Parameters)obj;
+            return (x9.X962Parameters)obj;
         }
         
         if (obj instanceof ASN1Primitive) 
         {
-            return new org.bouncycastle.asn1.x9.X962Parameters((ASN1Primitive)obj);
+            return new x9.X962Parameters((ASN1Primitive)obj);
         }
 
         if (obj instanceof byte[])
         {
             try
             {
-                return new org.bouncycastle.asn1.x9.X962Parameters(ASN1Primitive.fromByteArray((byte[])obj));
+                return new x9.X962Parameters(ASN1Primitive.fromByteArray((byte[])obj));
             }
             catch (Exception e)
             {
@@ -45,7 +44,7 @@ public class X962Parameters
         throw new IllegalArgumentException("unknown object in getInstance()");
     }
     
-    public static org.bouncycastle.asn1.x9.X962Parameters getInstance(
+    public static x9.X962Parameters getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

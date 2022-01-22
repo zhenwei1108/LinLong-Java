@@ -1,13 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.AttributeCertificateInfo;
+
+
+
+
+import DERBitString;
+
 
 public class AttributeCertificate
     extends ASN1Object
@@ -20,15 +18,15 @@ public class AttributeCertificate
      * @param obj
      * @return an AttributeCertificate object
      */
-    public static org.bouncycastle.asn1.x509.AttributeCertificate getInstance(Object obj)
+    public static AttributeCertificate getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.AttributeCertificate)
+        if (obj instanceof AttributeCertificate)
         {
-            return (org.bouncycastle.asn1.x509.AttributeCertificate)obj;
+            return (AttributeCertificate)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.AttributeCertificate(ASN1Sequence.getInstance(obj));
+            return new AttributeCertificate(ASN1Sequence.getInstance(obj));
         }
 
         return null;

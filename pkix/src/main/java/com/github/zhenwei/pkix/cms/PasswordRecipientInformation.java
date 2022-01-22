@@ -1,19 +1,12 @@
 package com.github.zhenwei.pkix.cms;
 
+
+
+import cms.PasswordRecipientInfo;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.cms.PasswordRecipientInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSAlgorithm;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.PasswordRecipient;
-import org.bouncycastle.cms.PasswordRecipientId;
-import org.bouncycastle.cms.Recipient;
-import org.bouncycastle.cms.RecipientInformation;
-import org.bouncycastle.cms.RecipientOperator;
-import org.bouncycastle.util.Integers;
+ 
 
 /**
  * the RecipientInfo class for a recipient who has been sent a message

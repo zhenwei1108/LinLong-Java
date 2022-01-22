@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.signers;
 
 import java.io.ByteArrayOutputStream;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.math.ec.rfc8032.Ed25519;
-import org.bouncycastle.util.Arrays;
+
+import rfc8032.Ed25519;
 
 public class Ed25519ctxSigner
     implements Signer

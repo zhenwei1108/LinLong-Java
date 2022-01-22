@@ -1,31 +1,31 @@
 package com.github.zhenwei.pkix.its.jcajce;
 
+
+
+
+ 
+
 import java.security.KeyFactory;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPublicKeySpec;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.nist.NISTNamedCurves;
-import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-import org.bouncycastle.asn1.teletrust.TeleTrusTNamedCurves;
-import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X9ECParameters;
+import nist.NISTNamedCurves;
 import org.bouncycastle.its.ITSPublicVerificationKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.util.DefaultJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
+
 import org.bouncycastle.jcajce.util.NamedJcaJceHelper;
 import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.oer.its.EccCurvePoint;
 import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
 import org.bouncycastle.oer.its.PublicVerificationKey;
+import sec.SECObjectIdentifiers;
+import teletrust.TeleTrusTNamedCurves;
+import teletrust.TeleTrusTObjectIdentifiers;
+import x9.X9ECParameters;
 
 public class JcaITSPublicVerificationKey
     extends ITSPublicVerificationKey

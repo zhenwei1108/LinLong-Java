@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.math.ec.rfc7748;
 
-import org.bouncycastle.math.raw.Mod;
+
 
 public abstract class X25519Field
 {

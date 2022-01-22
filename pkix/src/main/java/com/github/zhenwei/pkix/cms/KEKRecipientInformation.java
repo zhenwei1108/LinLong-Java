@@ -1,15 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
+
+import cms.KEKIdentifier;
+import cms.KEKRecipientInfo;
 import java.io.IOException;
-import org.bouncycastle.asn1.cms.KEKIdentifier;
-import org.bouncycastle.asn1.cms.KEKRecipientInfo;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cms.CMSException;
-import org.bouncycastle.cms.KEKRecipient;
-import org.bouncycastle.cms.KEKRecipientId;
-import org.bouncycastle.cms.Recipient;
-import org.bouncycastle.cms.RecipientInformation;
-import org.bouncycastle.cms.RecipientOperator;
 
 /**
  * the RecipientInfo class for a recipient who has been sent a message

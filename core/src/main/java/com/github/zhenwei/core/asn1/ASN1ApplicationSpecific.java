@@ -1,15 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1ApplicationSpecificParser;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Exception;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERApplicationSpecific;
-import org.bouncycastle.asn1.DLApplicationSpecific;
 
 /**
  * Base class for an ASN.1 ApplicationSpecific object
@@ -45,11 +37,11 @@ public abstract class ASN1ApplicationSpecific
      * @param obj the object to be converted.
      * @return obj's representation as an ASN1ApplicationSpecific object.
      */
-    public static org.bouncycastle.asn1.ASN1ApplicationSpecific getInstance(Object obj)
+    public static ASN1ApplicationSpecific getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1ApplicationSpecific)
+        if (obj == null || obj instanceof ASN1ApplicationSpecific)
         {
-            return (org.bouncycastle.asn1.ASN1ApplicationSpecific)obj;
+            return (ASN1ApplicationSpecific)obj;
         }
         else if (obj instanceof byte[])
         {
@@ -205,9 +197,9 @@ public abstract class ASN1ApplicationSpecific
     boolean asn1Equals(ASN1Primitive o)
     {
         ASN1TaggedObject that;
-        if (o instanceof org.bouncycastle.asn1.ASN1ApplicationSpecific)
+        if (o instanceof ASN1ApplicationSpecific)
         {
-            that = ((org.bouncycastle.asn1.ASN1ApplicationSpecific)o).taggedObject;
+            that = ((ASN1ApplicationSpecific)o).taggedObject;
         }
         else if (o instanceof ASN1TaggedObject)
         {

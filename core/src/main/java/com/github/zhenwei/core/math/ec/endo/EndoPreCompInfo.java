@@ -1,8 +1,7 @@
 package com.github.zhenwei.core.math.ec.endo;
 
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.PreCompInfo;
-import org.bouncycastle.math.ec.endo.ECEndomorphism;
+
+import PreCompInfo;
 
 public class EndoPreCompInfo implements PreCompInfo
 {

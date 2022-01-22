@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.util.io.pem;
 
 import java.io.IOException;
-import org.bouncycastle.util.io.pem.PemObject;
+
 
 /**
  * Base interface for parsers to convert PEM objects into specific objects.

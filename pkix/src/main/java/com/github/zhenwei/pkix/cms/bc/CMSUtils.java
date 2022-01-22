@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms.bc;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.operator.GenericKey;
 

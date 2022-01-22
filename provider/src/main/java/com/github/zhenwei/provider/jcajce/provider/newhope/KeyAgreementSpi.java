@@ -12,9 +12,7 @@ import org.bouncycastle.pqc.crypto.ExchangePair;
 import org.bouncycastle.pqc.crypto.newhope.NHAgreement;
 import org.bouncycastle.pqc.crypto.newhope.NHExchangePairGenerator;
 import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.newhope.BCNHPrivateKey;
-import org.bouncycastle.pqc.jcajce.provider.newhope.BCNHPublicKey;
-import org.bouncycastle.util.Arrays;
+
 
 public class KeyAgreementSpi
     extends BaseAgreementSpi

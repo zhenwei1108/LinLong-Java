@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.interfaces;
 
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.TBSCertificate;
+import TBSCertificate;
+import X500Name;
 
 /**
  * Interface exposing some additional methods on a BC native certificate object.

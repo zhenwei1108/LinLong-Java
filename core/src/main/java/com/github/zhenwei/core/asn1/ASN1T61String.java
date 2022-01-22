@@ -1,16 +1,8 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERT61String;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+import java.util.Arrays;
 
 /**
  * ASN.1 T61String (also the teletex string), try not to use this if you don't need to. The standard support the encoding for

@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.asn1.bc;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
-import org.bouncycastle.asn1.x509.Certificate;
+
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.pkcs.EncryptedPrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.Certificate;
 
 /**
  * <pre>
@@ -40,15 +41,15 @@ public class EncryptedPrivateKeyData
         }
     }
 
-    public static org.bouncycastle.asn1.bc.EncryptedPrivateKeyData getInstance(Object o)
+    public static EncryptedPrivateKeyData getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.bc.EncryptedPrivateKeyData)
+        if (o instanceof EncryptedPrivateKeyData)
         {
-            return (org.bouncycastle.asn1.bc.EncryptedPrivateKeyData)o;
+            return (bc.EncryptedPrivateKeyData)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.bc.EncryptedPrivateKeyData(ASN1Sequence.getInstance(o));
+            return new EncryptedPrivateKeyData(ASN1Sequence.getInstance(o));
         }
 
         return null;

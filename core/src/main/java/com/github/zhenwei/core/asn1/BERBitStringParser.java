@@ -1,11 +1,9 @@
 package com.github.zhenwei.core.asn1;
 
+ 
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1ParsingException;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1StreamParser;
-import org.bouncycastle.util.io.Streams;
+
 
 /**
  * A parser for indefinite-length BIT STRINGs.

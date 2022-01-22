@@ -19,7 +19,7 @@ import javax.crypto.ShortBufferException;
 import javax.crypto.interfaces.DHKey;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.KeyEncoder;
 import org.bouncycastle.crypto.agreement.DHBasicAgreement;
@@ -28,7 +28,7 @@ import org.bouncycastle.crypto.engines.DESedeEngine;
 import org.bouncycastle.crypto.engines.IESEngine;
 import org.bouncycastle.crypto.generators.DHKeyPairGenerator;
 import org.bouncycastle.crypto.generators.EphemeralKeyPairGenerator;
-import org.bouncycastle.crypto.generators.KDF2BytesGenerator;
+
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
 import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
@@ -40,16 +40,15 @@ import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.crypto.params.IESWithCipherParameters;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.crypto.parsers.DHIESPublicKeyParser;
-import org.bouncycastle.crypto.util.DigestFactory;
-import org.bouncycastle.jcajce.provider.asymmetric.util.DHUtil;
+
 import org.bouncycastle.jcajce.provider.asymmetric.util.IESUtil;
 import org.bouncycastle.jcajce.provider.util.BadBlockException;
-import org.bouncycastle.jcajce.util.BCJcaJceHelper;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+;
+
 import org.bouncycastle.jce.interfaces.IESKey;
 import org.bouncycastle.jce.spec.IESParameterSpec;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.Strings;
+ 
+
 
 
 public class IESCipher

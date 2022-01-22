@@ -1,9 +1,5 @@
 package com.github.zhenwei.pkix.cert.dane;
 
-import org.bouncycastle.cert.dane.DANEEntryFetcherFactory;
-import org.bouncycastle.cert.dane.DANEEntryStore;
-import org.bouncycastle.cert.dane.DANEException;
-
 /**
  * Builder for the DANECertificateStore.
  */

@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.custom.sec.SecP160R2Field;
-import org.bouncycastle.math.ec.custom.sec.SecP160R2FieldElement;
-import org.bouncycastle.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat160;
+
+
+ 
+import SecP160R2Field;
+
+
 
 public class SecP160K1Point extends ECPoint.AbstractFp
 {
@@ -22,7 +21,7 @@ public class SecP160K1Point extends ECPoint.AbstractFp
 
     protected ECPoint detach()
     {
-        return new org.bouncycastle.math.ec.custom.sec.SecP160K1Point(null, getAffineXCoord(), getAffineYCoord());
+        return new SecP160K1Point(null, getAffineXCoord(), getAffineYCoord());
     }
 
     // B.3 pg 62
@@ -148,7 +147,7 @@ public class SecP160K1Point extends ECPoint.AbstractFp
 
         ECFieldElement[] zs = new ECFieldElement[] { Z3 };
 
-        return new org.bouncycastle.math.ec.custom.sec.SecP160K1Point(curve, X3, Y3, zs);
+        return new SecP160K1Point(curve, X3, Y3, zs);
     }
 
     // B.3 pg 62
@@ -208,7 +207,7 @@ public class SecP160K1Point extends ECPoint.AbstractFp
             SecP160R2Field.multiply(Z3.x, Z1.x, Z3.x);
         }
 
-        return new org.bouncycastle.math.ec.custom.sec.SecP160K1Point(curve, X3, Y3, new ECFieldElement[] { Z3 });
+        return new SecP160K1Point(curve, X3, Y3, new ECFieldElement[] { Z3 });
     }
 
     public ECPoint twicePlus(ECPoint b)
@@ -253,6 +252,6 @@ public class SecP160K1Point extends ECPoint.AbstractFp
             return this;
         }
 
-        return new org.bouncycastle.math.ec.custom.sec.SecP160K1Point(curve, this.x, this.y.negate(), this.zs);
+        return new SecP160K1Point(curve, this.x, this.y.negate(), this.zs);
     }
 }

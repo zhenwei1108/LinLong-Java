@@ -1,24 +1,22 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+import ASN1Exception;
+ 
+
+
+import Certificate;
+
+import Extensions;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Exception;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ocsp.OCSPRequest;
-import org.bouncycastle.asn1.ocsp.Request;
-import org.bouncycastle.asn1.x509.Certificate;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
+import ocsp.OCSPRequest;
+import ocsp.Request;
 import org.bouncycastle.cert.CertIOException;
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.ocsp.OCSPException;
-import org.bouncycastle.cert.ocsp.Req;
+ 
 import org.bouncycastle.operator.ContentVerifier;
 import org.bouncycastle.operator.ContentVerifierProvider;
 

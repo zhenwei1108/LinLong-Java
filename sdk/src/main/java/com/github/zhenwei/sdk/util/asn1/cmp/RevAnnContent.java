@@ -1,14 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIStatus;
-import org.bouncycastle.asn1.crmf.CertId;
-import org.bouncycastle.asn1.x509.Extensions;
+
+import ASN1GeneralizedTime;
+
+
+
+
+import Extensions;
+import crmf.CertId;
 
 public class RevAnnContent
     extends ASN1Object
@@ -32,16 +31,16 @@ public class RevAnnContent
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.RevAnnContent getInstance(Object o)
+    public static cmp.RevAnnContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.RevAnnContent)
+        if (o instanceof cmp.RevAnnContent)
         {
-            return (org.bouncycastle.asn1.cmp.RevAnnContent)o;
+            return (cmp.RevAnnContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.RevAnnContent(ASN1Sequence.getInstance(o));
+            return new cmp.RevAnnContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

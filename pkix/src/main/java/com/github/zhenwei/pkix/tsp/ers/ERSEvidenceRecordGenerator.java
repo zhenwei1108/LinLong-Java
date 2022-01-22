@@ -1,11 +1,8 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
-import org.bouncycastle.asn1.tsp.EvidenceRecord;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.ers.ERSArchiveTimeStamp;
-import org.bouncycastle.tsp.ers.ERSEvidenceRecord;
-import org.bouncycastle.tsp.ers.ERSException;
+import tsp.EvidenceRecord;
 
 public class ERSEvidenceRecordGenerator
 {

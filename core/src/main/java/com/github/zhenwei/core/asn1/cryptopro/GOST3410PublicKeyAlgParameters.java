@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
+
 
 public class GOST3410PublicKeyAlgParameters
     extends ASN1Object
@@ -15,24 +15,24 @@ public class GOST3410PublicKeyAlgParameters
     private ASN1ObjectIdentifier  digestParamSet;
     private ASN1ObjectIdentifier  encryptionParamSet;
     
-    public static org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters getInstance(
+    public static GOST3410PublicKeyAlgParameters getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters getInstance(
+    public static GOST3410PublicKeyAlgParameters getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters)
+        if (obj instanceof GOST3410PublicKeyAlgParameters)
         {
-            return (org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters)obj;
+            return  (GOST3410PublicKeyAlgParameters)obj;
         }
 
         if(obj != null)
         {
-            return new org.bouncycastle.asn1.cryptopro.GOST3410PublicKeyAlgParameters(ASN1Sequence.getInstance(obj));
+            return new GOST3410PublicKeyAlgParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

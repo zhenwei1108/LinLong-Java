@@ -1,14 +1,7 @@
 package com.github.zhenwei.core.math.ec;
 
+import PreCompInfo;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.ECPointMap;
-import org.bouncycastle.math.ec.PreCompCallback;
-import org.bouncycastle.math.ec.PreCompInfo;
-import org.bouncycastle.math.ec.WNafPreCompInfo;
 
 public abstract class WNafUtil
 {

@@ -1,14 +1,12 @@
 package com.github.zhenwei.core.math.ec.endo;
 
+
+
+ 
+import PreCompCallback;
+import PreCompInfo;
+import endo.ScalarSplitParameters;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.PreCompCallback;
-import org.bouncycastle.math.ec.PreCompInfo;
-import org.bouncycastle.math.ec.endo.ECEndomorphism;
-import org.bouncycastle.math.ec.endo.EndoPreCompInfo;
-import org.bouncycastle.math.ec.endo.ScalarSplitParameters;
 
 public abstract class EndoUtil
 {

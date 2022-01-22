@@ -1,12 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.eac;
 
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERTaggedObject;
 
 public class UnsignedInteger
     extends ASN1Object
@@ -26,15 +27,15 @@ public class UnsignedInteger
         this.value = new BigInteger(1, ASN1OctetString.getInstance(obj, false).getOctets());
     }
 
-    public static org.bouncycastle.asn1.eac.UnsignedInteger getInstance(Object obj)
+    public static  UnsignedInteger getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.eac.UnsignedInteger)
+        if (obj instanceof  UnsignedInteger)
         {
-            return (org.bouncycastle.asn1.eac.UnsignedInteger)obj;
+            return (UnsignedInteger)obj;
         }
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.eac.UnsignedInteger(ASN1TaggedObject.getInstance(obj));
+            return new  UnsignedInteger(ASN1TaggedObject.getInstance(obj));
         }
 
         return null;

@@ -1,17 +1,16 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+
+
+import Time;
+import X500Name;
 import java.math.BigInteger;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x509.Time;
 import org.bouncycastle.cert.X509v3CertificateBuilder;
-import org.bouncycastle.cert.jcajce.JcaX509CertificateHolder;
 
 /**
  * JCA helper class to allow JCA objects to be used in the construction of a Version 3 certificate.

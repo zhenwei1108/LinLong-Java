@@ -1,5 +1,8 @@
 package com.github.zhenwei.pkix.est.jcajce;
 
+import ExtendedKeyUsage;
+import KeyPurposeId;
+import KeyUsage;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -21,10 +24,7 @@ import java.util.Iterator;
 import java.util.Set;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.X509TrustManager;
-import org.bouncycastle.asn1.x509.ExtendedKeyUsage;
-import org.bouncycastle.asn1.x509.KeyPurposeId;
-import org.bouncycastle.asn1.x509.KeyUsage;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 
 
 /**

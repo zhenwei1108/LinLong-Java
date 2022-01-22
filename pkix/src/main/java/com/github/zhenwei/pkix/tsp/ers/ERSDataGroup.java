@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.tsp.ers.ERSCachingData;
-import org.bouncycastle.tsp.ers.ERSData;
 
 /**
  * Representation of data groups with more than 1 members according to the description provided in RFC4998.

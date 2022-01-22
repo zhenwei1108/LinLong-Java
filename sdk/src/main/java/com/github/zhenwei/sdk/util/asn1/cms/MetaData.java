@@ -1,16 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1UTF8String;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.cms.Attributes;
+import ASN1Boolean;
+
+
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5544">RFC 5544</a>:
@@ -71,22 +70,22 @@ public class MetaData
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.MetaData} object
+     * <li> {@link cms.MetaData} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with MetaData structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.MetaData getInstance(Object obj)
+    public static cms.MetaData getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.cms.MetaData)
+        if (obj instanceof cms.MetaData)
         {
-            return (org.bouncycastle.asn1.cms.MetaData)obj;
+            return (cms.MetaData)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.cms.MetaData(ASN1Sequence.getInstance(obj));
+            return new cms.MetaData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

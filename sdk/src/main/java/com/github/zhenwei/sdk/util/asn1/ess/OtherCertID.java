@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.ess;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.DigestInfo;
-import org.bouncycastle.asn1.x509.IssuerSerial;
+
+
+
+
+
+
+
+
+
+
+
 
 public class OtherCertID
     extends ASN1Object
@@ -18,15 +18,15 @@ public class OtherCertID
     private ASN1Encodable otherCertHash;
     private IssuerSerial issuerSerial;
 
-    public static org.bouncycastle.asn1.ess.OtherCertID getInstance(Object o)
+    public static ess.OtherCertID getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.ess.OtherCertID)
+        if (o instanceof ess.OtherCertID)
         {
-            return (org.bouncycastle.asn1.ess.OtherCertID) o;
+            return (ess.OtherCertID) o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.ess.OtherCertID(ASN1Sequence.getInstance(o));
+            return new ess.OtherCertID(ASN1Sequence.getInstance(o));
         }
 
         return null;

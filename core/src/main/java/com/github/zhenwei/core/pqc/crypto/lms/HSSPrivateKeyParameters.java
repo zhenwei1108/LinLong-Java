@@ -11,14 +11,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
-import org.bouncycastle.pqc.crypto.lms.LMSContextBasedSigner;
 import org.bouncycastle.pqc.crypto.lms.LMSKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSParameters;
 import org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
-import org.bouncycastle.util.io.Streams;
+
 
 public class HSSPrivateKeyParameters
     extends LMSKeyParameters

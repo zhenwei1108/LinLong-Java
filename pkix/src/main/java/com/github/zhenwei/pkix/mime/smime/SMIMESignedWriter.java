@@ -1,5 +1,6 @@
 package com.github.zhenwei.pkix.mime.smime;
 
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -13,8 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.cert.X509CertificateHolder;
+ 
 import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSSignedDataStreamGenerator;
@@ -23,7 +23,7 @@ import org.bouncycastle.mime.Headers;
 import org.bouncycastle.mime.MimeWriter;
 import org.bouncycastle.mime.encoding.Base64OutputStream;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.Strings;
+
 
 /**
  * Writer for SMIME Signed objects.

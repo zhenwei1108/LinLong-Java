@@ -1,14 +1,13 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
+
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.CertPolicyId;
 
 /**
  * PolicyMappings V3 extension, described in RFC3280.
@@ -25,15 +24,15 @@ public class PolicyMappings
 {
     ASN1Sequence seq = null;
 
-    public static org.bouncycastle.asn1.x509.PolicyMappings getInstance(Object obj)
+    public static PolicyMappings getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.PolicyMappings)
+        if (obj instanceof PolicyMappings)
         {
-            return (org.bouncycastle.asn1.x509.PolicyMappings)obj;
+            return (PolicyMappings)obj;
         }
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.PolicyMappings(ASN1Sequence.getInstance(obj));
+            return new PolicyMappings(ASN1Sequence.getInstance(obj));
         }
 
         return null;

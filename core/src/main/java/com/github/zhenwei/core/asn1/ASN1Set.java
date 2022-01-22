@@ -1,20 +1,12 @@
 package com.github.zhenwei.core.asn1;
 
+
+
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Encoding;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1SetParser;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.DLSet;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ASN.1 <code>SET</code> and <code>SET OF</code> constructs.
@@ -107,7 +99,7 @@ public abstract class ASN1Set
     extends ASN1Primitive
     implements org.bouncycastle.util.Iterable<ASN1Encodable>
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1Set.class, BERTags.SET)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1Set.class, BERTags.SET)
     {
         ASN1Primitive fromImplicitConstructed(ASN1Sequence sequence)
         {
@@ -122,26 +114,26 @@ public abstract class ASN1Set
      * @exception IllegalArgumentException if the object cannot be converted.
      * @return an ASN1Set instance, or null.
      */
-    public static org.bouncycastle.asn1.ASN1Set getInstance(Object obj)
+    public static ASN1Set getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1Set)
+        if (obj == null || obj instanceof ASN1Set)
         {
-            return (org.bouncycastle.asn1.ASN1Set)obj;
+            return (ASN1Set)obj;
         }
 //      else if (obj instanceof ASN1SetParser)
         else if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1Set)
+            if (primitive instanceof ASN1Set)
             {
-                return (org.bouncycastle.asn1.ASN1Set)primitive;
+                return (ASN1Set)primitive;
             }
         }
         else if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1Set)TYPE.fromByteArray((byte[])obj);
+                return (ASN1Set)TYPE.fromByteArray((byte[])obj);
             }
             catch (IOException e)
             {
@@ -169,9 +161,9 @@ public abstract class ASN1Set
      *          be converted.
      * @return an ASN1Set instance.
      */
-    public static org.bouncycastle.asn1.ASN1Set getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1Set getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1Set)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1Set)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     protected final ASN1Encodable[] elements;
@@ -321,9 +313,9 @@ public abstract class ASN1Set
                 {
                     return ((ASN1Sequence)obj).parser();
                 }
-                if (obj instanceof org.bouncycastle.asn1.ASN1Set)
+                if (obj instanceof ASN1Set)
                 {
-                    return ((org.bouncycastle.asn1.ASN1Set)obj).parser();
+                    return ((ASN1Set)obj).parser();
                 }
 
                 return obj;
@@ -331,12 +323,12 @@ public abstract class ASN1Set
 
             public ASN1Primitive getLoadedObject()
             {
-                return org.bouncycastle.asn1.ASN1Set.this;
+                return ASN1Set.this;
             }
 
             public ASN1Primitive toASN1Primitive()
             {
-                return org.bouncycastle.asn1.ASN1Set.this;
+                return ASN1Set.this;
             }
         };
     }
@@ -387,12 +379,12 @@ public abstract class ASN1Set
 
     boolean asn1Equals(ASN1Primitive other)
     {
-        if (!(other instanceof org.bouncycastle.asn1.ASN1Set))
+        if (!(other instanceof ASN1Set))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1Set that = (org.bouncycastle.asn1.ASN1Set)other;
+        ASN1Set that = (ASN1Set)other;
 
         int count = this.size();
         if (that.size() != count)

@@ -2,9 +2,6 @@ package com.github.zhenwei.pkix.est;
 
 
 import java.io.IOException;
-import org.bouncycastle.est.ESTRequest;
-import org.bouncycastle.est.ESTResponse;
-import org.bouncycastle.est.Source;
 
 /**
  * ESTHijacker can take control of the source after the initial http request

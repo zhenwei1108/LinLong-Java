@@ -1,12 +1,9 @@
 package com.github.zhenwei.core.math.ec.endo;
 
+
+import ECPointMap;
+import ScaleXPointMap;
 import java.math.BigInteger;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPointMap;
-import org.bouncycastle.math.ec.ScaleXPointMap;
-import org.bouncycastle.math.ec.endo.EndoUtil;
-import org.bouncycastle.math.ec.endo.GLVEndomorphism;
-import org.bouncycastle.math.ec.endo.GLVTypeBParameters;
 
 public class GLVTypeBEndomorphism implements GLVEndomorphism
 {

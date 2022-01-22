@@ -1,5 +1,15 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import CRLDistPoint;
+import CRLReason;
+import DistributionPoint;
+import DistributionPointName;
+
+
+import GeneralNames;
+import TargetInformation;
+import X500Name;
+import X509Extensions;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
@@ -26,25 +36,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.CRLReason;
-import org.bouncycastle.asn1.x509.DistributionPoint;
-import org.bouncycastle.asn1.x509.DistributionPointName;
-import org.bouncycastle.asn1.x509.Extension;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.TargetInformation;
-import org.bouncycastle.asn1.x509.X509Extensions;
 import org.bouncycastle.jcajce.PKIXCRLStore;
 import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
 import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
-import org.bouncycastle.jcajce.util.JcaJceHelper;
+
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
-import org.bouncycastle.jce.provider.AnnotatedException;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.x509.PKIXAttrCertChecker;
 import org.bouncycastle.x509.X509AttributeCertificate;
 import org.bouncycastle.x509.X509CertStoreSelector;

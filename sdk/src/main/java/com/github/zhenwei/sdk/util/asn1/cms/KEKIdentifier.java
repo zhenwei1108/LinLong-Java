@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cms.OtherKeyAttribute;
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.3">RFC 5652</a>:
@@ -77,7 +76,7 @@ public class KEKIdentifier
      * @exception IllegalArgumentException if the object held by the
      *          tagged object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.KEKIdentifier getInstance(
+    public static cms.KEKIdentifier getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {
@@ -90,24 +89,24 @@ public class KEKIdentifier
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.KEKIdentifier} object
+     * <li> {@link cms.KEKIdentifier} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with KEKIdentifier structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.KEKIdentifier getInstance(
+    public static cms.KEKIdentifier getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.cms.KEKIdentifier)
+        if (obj == null || obj instanceof cms.KEKIdentifier)
         {
-            return (org.bouncycastle.asn1.cms.KEKIdentifier)obj;
+            return (cms.KEKIdentifier)obj;
         }
         
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.cms.KEKIdentifier((ASN1Sequence)obj);
+            return new cms.KEKIdentifier((ASN1Sequence)obj);
         }
         
         throw new IllegalArgumentException("Invalid KEKIdentifier: " + obj.getClass().getName());

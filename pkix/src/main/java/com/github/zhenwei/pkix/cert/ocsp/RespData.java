@@ -1,12 +1,10 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
+
+import Extensions;
 import java.util.Date;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ocsp.ResponseData;
-import org.bouncycastle.asn1.ocsp.SingleResponse;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.cert.ocsp.RespID;
-import org.bouncycastle.cert.ocsp.SingleResp;
+import ocsp.ResponseData;
+import ocsp.SingleResponse;
 
 /**
  * OCSP RFC 2560, RFC 6960

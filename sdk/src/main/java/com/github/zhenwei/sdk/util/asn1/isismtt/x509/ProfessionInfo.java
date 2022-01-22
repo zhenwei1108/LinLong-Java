@@ -1,21 +1,21 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1PrintableString;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x500.DirectoryString;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1PrintableString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.isismtt.x509.NamingAuthority;
-import org.bouncycastle.asn1.x500.DirectoryString;
 
 /**
  * Professions, specializations, disciplines, fields of activity, etc.
@@ -31,7 +31,7 @@ import org.bouncycastle.asn1.x500.DirectoryString;
  *               }
  * </pre>
  * 
- * @see org.bouncycastle.asn1.isismtt.x509.AdmissionSyntax
+ * @see AdmissionSyntax
  */
 public class ProfessionInfo 
     extends ASN1Object
@@ -161,16 +161,16 @@ public class ProfessionInfo
 
     private ASN1OctetString addProfessionInfo;
 
-    public static org.bouncycastle.asn1.isismtt.x509.ProfessionInfo getInstance(Object obj)
+    public static ProfessionInfo getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.x509.ProfessionInfo)
+        if (obj == null || obj instanceof ProfessionInfo)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.ProfessionInfo)obj;
+            return  (ProfessionInfo)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.ProfessionInfo((ASN1Sequence)obj);
+            return new ProfessionInfo((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "

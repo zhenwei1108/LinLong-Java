@@ -1,12 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.cmp.PKIFreeText;
+
+
+
+
+
+
 
 public class PollRepContent
     extends ASN1Object
@@ -35,16 +34,16 @@ public class PollRepContent
         }
     }
 
-    public static org.bouncycastle.asn1.cmp.PollRepContent getInstance(Object o)
+    public static cmp.PollRepContent getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cmp.PollRepContent)
+        if (o instanceof cmp.PollRepContent)
         {
-            return (org.bouncycastle.asn1.cmp.PollRepContent)o;
+            return (cmp.PollRepContent)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cmp.PollRepContent(ASN1Sequence.getInstance(o));
+            return new cmp.PollRepContent(ASN1Sequence.getInstance(o));
         }
 
         return null;

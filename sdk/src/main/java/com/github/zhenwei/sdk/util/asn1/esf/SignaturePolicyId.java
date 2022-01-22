@@ -1,13 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.esf.OtherHashAlgAndValue;
-import org.bouncycastle.asn1.esf.SigPolicyQualifiers;
+
+
+
+
+
+
 
 public class SignaturePolicyId
     extends ASN1Object
@@ -17,16 +15,16 @@ public class SignaturePolicyId
     private SigPolicyQualifiers  sigPolicyQualifiers;
 
 
-    public static org.bouncycastle.asn1.esf.SignaturePolicyId getInstance(
+    public static esf.SignaturePolicyId getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.SignaturePolicyId)
+        if (obj instanceof esf.SignaturePolicyId)
         {
-            return (org.bouncycastle.asn1.esf.SignaturePolicyId)obj;
+            return (esf.SignaturePolicyId)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.SignaturePolicyId(ASN1Sequence.getInstance(obj));
+            return new esf.SignaturePolicyId(ASN1Sequence.getInstance(obj));
         }
 
         return null;

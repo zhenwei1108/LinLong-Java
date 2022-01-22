@@ -1,16 +1,16 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.Extensions;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.X509Extensions;
+
+
+
+
+
+
+
+
+import Extensions;
+
+import X509Extensions;
 
 public class TBSRequest
     extends ASN1Object
@@ -90,23 +90,23 @@ public class TBSRequest
         }
     }
 
-    public static org.bouncycastle.asn1.ocsp.TBSRequest getInstance(
+    public static ocsp.TBSRequest getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static org.bouncycastle.asn1.ocsp.TBSRequest getInstance(
+    public static ocsp.TBSRequest getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.ocsp.TBSRequest)
+        if (obj instanceof ocsp.TBSRequest)
         {
-            return (org.bouncycastle.asn1.ocsp.TBSRequest)obj;
+            return (ocsp.TBSRequest)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.ocsp.TBSRequest(ASN1Sequence.getInstance(obj));
+            return new ocsp.TBSRequest(ASN1Sequence.getInstance(obj));
         }
 
         return null;

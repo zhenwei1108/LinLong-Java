@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.Arrays;
+
+
 
 /**
  * An implementation of the Index Generation Function in IEEE P1363.1.

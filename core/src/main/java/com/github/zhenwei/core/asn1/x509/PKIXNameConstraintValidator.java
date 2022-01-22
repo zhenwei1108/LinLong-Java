@@ -1,5 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+import NameConstraintValidatorException;
+import RDN;
+import X500Name;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,22 +14,12 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1IA5String;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.style.IETFUtils;
-import org.bouncycastle.asn1.x500.style.RFC4519Style;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralSubtree;
-import org.bouncycastle.asn1.x509.NameConstraintValidator;
-import org.bouncycastle.asn1.x509.NameConstraintValidatorException;
-import org.bouncycastle.asn1.x509.OtherName;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Integers;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+ 
+
+
+import style.IETFUtils;
+import style.RFC4519Style;
 
 public class PKIXNameConstraintValidator
     implements NameConstraintValidator
@@ -275,11 +271,11 @@ public class PKIXNameConstraintValidator
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.x509.PKIXNameConstraintValidator))
+        if (!(o instanceof PKIXNameConstraintValidator))
         {
             return false;
         }
-        org.bouncycastle.asn1.x509.PKIXNameConstraintValidator constraintValidator = (org.bouncycastle.asn1.x509.PKIXNameConstraintValidator)o;
+        PKIXNameConstraintValidator constraintValidator = (x509.PKIXNameConstraintValidator)o;
         return collectionsAreEqual(constraintValidator.excludedSubtreesDN, excludedSubtreesDN)
             && collectionsAreEqual(constraintValidator.excludedSubtreesDNS, excludedSubtreesDNS)
             && collectionsAreEqual(constraintValidator.excludedSubtreesEmail, excludedSubtreesEmail)

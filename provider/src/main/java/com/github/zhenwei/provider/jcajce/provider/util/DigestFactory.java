@@ -1,15 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.util;
 
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.Strings;
+
+
+
+
+
 
 public class DigestFactory
 {

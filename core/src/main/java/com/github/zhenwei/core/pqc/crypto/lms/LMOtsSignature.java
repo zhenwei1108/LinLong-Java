@@ -6,9 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import org.bouncycastle.pqc.crypto.lms.Composer;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
 import org.bouncycastle.util.Encodable;
-import org.bouncycastle.util.io.Streams;
+
 
 class LMOtsSignature
     implements Encodable

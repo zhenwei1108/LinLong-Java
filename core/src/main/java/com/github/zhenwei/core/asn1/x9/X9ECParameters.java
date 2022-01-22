@@ -1,22 +1,18 @@
 package com.github.zhenwei.core.asn1.x9;
 
+
+
+
+
+
+
+
+ 
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x9.X9Curve;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9FieldID;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
-import org.bouncycastle.math.ec.ECAlgorithms;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.math.field.PolynomialExtensionField;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * ASN.1 def for Elliptic-Curve ECParameters structure. See
@@ -70,16 +66,16 @@ public class X9ECParameters
         this.seed = x9c.getSeed();
     }
 
-    public static org.bouncycastle.asn1.x9.X9ECParameters getInstance(Object obj)
+    public static x9.X9ECParameters getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x9.X9ECParameters)
+        if (obj instanceof x9.X9ECParameters)
         {
-            return (org.bouncycastle.asn1.x9.X9ECParameters)obj;
+            return (x9.X9ECParameters)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x9.X9ECParameters(ASN1Sequence.getInstance(obj));
+            return new x9.X9ECParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

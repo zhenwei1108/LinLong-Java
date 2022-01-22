@@ -1,6 +1,5 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 import org.bouncycastle.crypto.CipherKeyGenerator;
 import org.bouncycastle.crypto.engines.RC4Engine;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
@@ -8,6 +7,7 @@ import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
 import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
 import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
 import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
 
 public final class ARC4
 {

@@ -1,15 +1,14 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.BERTaggedObject;
-import org.bouncycastle.asn1.cms.EncryptedContentInfo;
+
+
+
+
+
+
+
+
+import BERTaggedObject;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-8">RFC 5652</a> EncryptedData object.
@@ -34,23 +33,23 @@ public class EncryptedData
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.cms.EncryptedData} object
+     * <li> {@link cms.EncryptedData} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats
      * </ul>
      *
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.cms.EncryptedData getInstance(Object o)
+    public static cms.EncryptedData getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.cms.EncryptedData)
+        if (o instanceof cms.EncryptedData)
         {
-            return (org.bouncycastle.asn1.cms.EncryptedData)o;
+            return (cms.EncryptedData)o;
         }
 
         if (o != null)
         {
-            return new org.bouncycastle.asn1.cms.EncryptedData(ASN1Sequence.getInstance(o));
+            return new cms.EncryptedData(ASN1Sequence.getInstance(o));
         }
 
         return null;

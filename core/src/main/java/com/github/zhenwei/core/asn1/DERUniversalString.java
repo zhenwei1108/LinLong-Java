@@ -1,9 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-
 /**
  * DER UniversalString object - encodes UNICODE (ISO 10646) characters using 32-bit format. In Java we
  * have no way of representing this directly so we rely on byte arrays to carry these.
@@ -20,22 +16,22 @@ public class DERUniversalString
      * 
      * @deprecated Use {@link ASN1UniversalString#getInstance(Object)} instead.
      */
-    public static org.bouncycastle.asn1.DERUniversalString getInstance(
+    public static DERUniversalString getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.DERUniversalString)
+        if (obj == null || obj instanceof DERUniversalString)
         {
-            return (org.bouncycastle.asn1.DERUniversalString)obj;
+            return (DERUniversalString)obj;
         }
         if (obj instanceof ASN1UniversalString)
         {
-            return new org.bouncycastle.asn1.DERUniversalString(((ASN1UniversalString)obj).contents, false);
+            return new DERUniversalString(((ASN1UniversalString)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.DERUniversalString)fromByteArray((byte[])obj);
+                return (DERUniversalString)fromByteArray((byte[])obj);
             }
             catch (Exception e)
             {
@@ -59,19 +55,19 @@ public class DERUniversalString
      * @deprecated Use {@link ASN1UniversalString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
-    public static org.bouncycastle.asn1.DERUniversalString getInstance(
+    public static DERUniversalString getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         ASN1Primitive o = obj.getObject();
 
-        if (explicit || o instanceof org.bouncycastle.asn1.DERUniversalString)
+        if (explicit || o instanceof DERUniversalString)
         {
             return getInstance(o);
         }
         else
         {
-            return new org.bouncycastle.asn1.DERUniversalString(ASN1OctetString.getInstance(o).getOctets(), true);
+            return new DERUniversalString(ASN1OctetString.getInstance(o).getOctets(), true);
         }
     }
 

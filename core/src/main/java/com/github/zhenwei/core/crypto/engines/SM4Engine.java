@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+ 
+
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Pack;
+
 
 /**
  * SM4 Block Cipher - SM4 is a 128 bit block cipher with a 128 bit key.

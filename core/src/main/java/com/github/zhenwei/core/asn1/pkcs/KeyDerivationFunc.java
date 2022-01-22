@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
+
+
+
+
+
 
 public class KeyDerivationFunc
     extends ASN1Object
@@ -25,15 +25,15 @@ public class KeyDerivationFunc
         this.algId = AlgorithmIdentifier.getInstance(seq);
     }
 
-    public static org.bouncycastle.asn1.pkcs.KeyDerivationFunc getInstance(Object obj)
+    public static pkcs.KeyDerivationFunc getInstance(Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.KeyDerivationFunc)
+        if (obj instanceof pkcs.KeyDerivationFunc)
         {
-            return (org.bouncycastle.asn1.pkcs.KeyDerivationFunc)obj;
+            return (pkcs.KeyDerivationFunc)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.KeyDerivationFunc(ASN1Sequence.getInstance(obj));
+            return new pkcs.KeyDerivationFunc(ASN1Sequence.getInstance(obj));
         }
 
         return null;

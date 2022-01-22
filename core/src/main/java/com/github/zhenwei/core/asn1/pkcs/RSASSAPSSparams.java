@@ -1,18 +1,17 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
+
+
+
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+
 
 public class RSASSAPSSparams
     extends ASN1Object
@@ -27,16 +26,16 @@ public class RSASSAPSSparams
     public final static ASN1Integer          DEFAULT_SALT_LENGTH = new ASN1Integer(20);
     public final static ASN1Integer          DEFAULT_TRAILER_FIELD = new ASN1Integer(1);
     
-    public static org.bouncycastle.asn1.pkcs.RSASSAPSSparams getInstance(
+    public static pkcs.RSASSAPSSparams getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.pkcs.RSASSAPSSparams)
+        if (obj instanceof pkcs.RSASSAPSSparams)
         {
-            return (org.bouncycastle.asn1.pkcs.RSASSAPSSparams)obj;
+            return (pkcs.RSASSAPSSparams)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.pkcs.RSASSAPSSparams(ASN1Sequence.getInstance(obj));
+            return new pkcs.RSASSAPSSparams(ASN1Sequence.getInstance(obj));
         }
 
         return null;

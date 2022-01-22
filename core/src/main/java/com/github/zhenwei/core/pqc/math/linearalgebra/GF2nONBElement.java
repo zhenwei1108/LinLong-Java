@@ -7,7 +7,7 @@ import org.bouncycastle.pqc.math.linearalgebra.GF2nElement;
 import org.bouncycastle.pqc.math.linearalgebra.GF2nField;
 import org.bouncycastle.pqc.math.linearalgebra.GF2nONBField;
 import org.bouncycastle.pqc.math.linearalgebra.GFElement;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class implements an element of the finite field <i>GF(2<sup>n </sup>)</i>.

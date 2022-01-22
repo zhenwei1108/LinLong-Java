@@ -1,14 +1,12 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.ECPoint.AbstractF2m;
-import org.bouncycastle.math.ec.custom.sec.SecT571Field;
-import org.bouncycastle.math.ec.custom.sec.SecT571FieldElement;
-import org.bouncycastle.math.ec.custom.sec.SecT571R1Curve;
-import org.bouncycastle.math.raw.Nat;
+
+
+
+ 
+import ECPoint.AbstractF2m;
+import SecT571Field;
+
 import org.bouncycastle.math.raw.Nat576;
 
 public class SecT571R1Point extends AbstractF2m
@@ -25,7 +23,7 @@ public class SecT571R1Point extends AbstractF2m
 
     protected ECPoint detach()
     {
-        return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(null, getAffineXCoord(), getAffineYCoord());
+        return new SecT571R1Point(null, getAffineXCoord(), getAffineYCoord());
     }
 
     public ECFieldElement getYCoord()
@@ -153,7 +151,7 @@ public class SecT571R1Point extends AbstractF2m
             X3 = (SecT571FieldElement)L.square().add(L).add(X1).addOne();
             if (X3.isZero())
             {
-                return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, X3, SecT571R1Curve.SecT571R1_B_SQRT);
+                return new SecT571R1Point(curve, X3, SecT571R1Curve.SecT571R1_B_SQRT);
             }
 
             ECFieldElement Y3 = L.multiply(X1.add(X3)).add(X3).add(Y1);
@@ -177,7 +175,7 @@ public class SecT571R1Point extends AbstractF2m
 
             if (X3.isZero())
             {
-                return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, X3, SecT571R1Curve.SecT571R1_B_SQRT);
+                return new SecT571R1Point(curve, X3, SecT571R1Curve.SecT571R1_B_SQRT);
             }
 
             Z3 = new SecT571FieldElement(t3);
@@ -205,7 +203,7 @@ public class SecT571R1Point extends AbstractF2m
             }
         }
 
-        return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, X3, L3, new ECFieldElement[]{ Z3 });
+        return new SecT571R1Point(curve, X3, L3, new ECFieldElement[]{ Z3 });
     }
 
     public ECPoint twice()
@@ -248,7 +246,7 @@ public class SecT571R1Point extends AbstractF2m
 
         if (Nat576.isZero64(T))
         {
-            return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, new SecT571FieldElement(T), SecT571R1Curve.SecT571R1_B_SQRT);
+            return new SecT571R1Point(curve, new SecT571FieldElement(T), SecT571R1Curve.SecT571R1_B_SQRT);
         }
 
         long[] tt = Nat576.createExt64();
@@ -278,7 +276,7 @@ public class SecT571R1Point extends AbstractF2m
         SecT571Field.addBothTo(X3.x, Z3.x, t2);
         SecT571FieldElement L3 = new SecT571FieldElement(t2);
 
-        return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, X3, L3, new ECFieldElement[]{ Z3 });
+        return new SecT571R1Point(curve, X3, L3, new ECFieldElement[]{ Z3 });
     }
 
     public ECPoint twicePlus(ECPoint b)
@@ -360,7 +358,7 @@ public class SecT571R1Point extends AbstractF2m
 
         if (Nat576.isZero64(A))
         {
-            return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, new SecT571FieldElement(A), SecT571R1Curve.SecT571R1_B_SQRT);
+            return new SecT571R1Point(curve, new SecT571FieldElement(A), SecT571R1Curve.SecT571R1_B_SQRT);
         }
 
         SecT571FieldElement X3 = new SecT571FieldElement();
@@ -381,7 +379,7 @@ public class SecT571R1Point extends AbstractF2m
         SecT571Field.multiplyAddToExt(t4, Z3.x, tt);
         SecT571Field.reduce(tt, L3.x);
 
-        return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, X3, L3, new ECFieldElement[]{ Z3 });
+        return new SecT571R1Point(curve, X3, L3, new ECFieldElement[]{ Z3 });
     }
 
     public ECPoint negate()
@@ -399,6 +397,6 @@ public class SecT571R1Point extends AbstractF2m
 
         // L is actually Lambda (X + Y/X) here
         ECFieldElement L = this.y, Z = this.zs[0];
-        return new org.bouncycastle.math.ec.custom.sec.SecT571R1Point(curve, X, L.add(Z), new ECFieldElement[]{ Z });
+        return new SecT571R1Point(curve, X, L.add(Z), new ECFieldElement[]{ Z });
     }
 }

@@ -1,16 +1,14 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
+
+
+
+
+
+
+
+
+
 
 /**
  * Implementation of the RoleSyntax object as specified by the RFC3281.
@@ -39,17 +37,17 @@ public class RoleSyntax
      * to the factory is not an instance of <code>RoleSyntax</code> or
      * <code>ASN1Sequence</code>.
      */
-    public static org.bouncycastle.asn1.x509.RoleSyntax getInstance(
+    public static RoleSyntax getInstance(
         Object obj)
     {
 
-        if (obj instanceof org.bouncycastle.asn1.x509.RoleSyntax)
+        if (obj instanceof RoleSyntax)
         {
-            return (org.bouncycastle.asn1.x509.RoleSyntax)obj;
+            return (x509.RoleSyntax)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.RoleSyntax(ASN1Sequence.getInstance(obj));
+            return new RoleSyntax(ASN1Sequence.getInstance(obj));
         }
 
         return null;

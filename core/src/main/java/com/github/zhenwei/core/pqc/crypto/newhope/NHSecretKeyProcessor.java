@@ -10,7 +10,7 @@ import org.bouncycastle.pqc.crypto.newhope.NHAgreement;
 import org.bouncycastle.pqc.crypto.newhope.NHExchangePairGenerator;
 import org.bouncycastle.pqc.crypto.newhope.NHKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * A processor with associated builders for doing secret key transformation using

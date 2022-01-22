@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralSubtree;
-import org.bouncycastle.asn1.x509.NameConstraintValidatorException;
+import NameConstraintValidatorException;
 
 public interface NameConstraintValidator
 {

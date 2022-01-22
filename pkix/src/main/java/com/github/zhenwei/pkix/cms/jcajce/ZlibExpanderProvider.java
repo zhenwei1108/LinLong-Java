@@ -1,13 +1,13 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.InflaterInputStream;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.operator.InputExpander;
 import org.bouncycastle.operator.InputExpanderProvider;
-import org.bouncycastle.util.io.StreamOverflowException;
+
 
 public class ZlibExpanderProvider
     implements InputExpanderProvider

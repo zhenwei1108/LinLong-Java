@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.cms;
 
+
+
+
+
+
+
+
 import java.math.BigInteger;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 
 /**
  * RFC 5990 RSA KEM parameters class.
@@ -37,16 +37,16 @@ public class RsaKemParameters
         this.keyLength = ASN1Integer.getInstance(sequence.getObjectAt(1)).getValue();
     }
 
-    public static org.bouncycastle.asn1.cms.RsaKemParameters getInstance(
+    public static cms.RsaKemParameters getInstance(
         Object  o)
     {
-        if (o instanceof org.bouncycastle.asn1.cms.RsaKemParameters)
+        if (o instanceof cms.RsaKemParameters)
         {
-            return (org.bouncycastle.asn1.cms.RsaKemParameters)o;
+            return (cms.RsaKemParameters)o;
         }
         else if (o != null)
         {
-            return new org.bouncycastle.asn1.cms.RsaKemParameters(ASN1Sequence.getInstance(o));
+            return new cms.RsaKemParameters(ASN1Sequence.getInstance(o));
         }
 
         return null;

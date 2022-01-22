@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.util;
 
 import java.math.BigInteger;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
+
+
 
 /**
  * A Buffer for dealing with SSH key products.

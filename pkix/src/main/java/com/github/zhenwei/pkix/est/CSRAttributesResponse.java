@@ -1,13 +1,12 @@
 package com.github.zhenwei.pkix.est;
 
+
+
+import est.AttrOrOID;
+import est.CsrAttrs;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.est.AttrOrOID;
-import org.bouncycastle.asn1.est.CsrAttrs;
-import org.bouncycastle.est.ESTException;
 import org.bouncycastle.util.Encodable;
 
 /**

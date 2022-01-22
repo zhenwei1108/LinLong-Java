@@ -1,13 +1,12 @@
 package com.github.zhenwei.sdk.util.asn1.crmf;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cms.EnvelopedData;
-import org.bouncycastle.asn1.crmf.EncryptedValue;
+
+
+
+
+
+
+import cms.EnvelopedData;
 
 public class EncryptedKey
     extends ASN1Object
@@ -16,23 +15,23 @@ public class EncryptedKey
     private EnvelopedData envelopedData;
     private EncryptedValue encryptedValue;
 
-    public static org.bouncycastle.asn1.crmf.EncryptedKey getInstance(Object o)
+    public static crmf.EncryptedKey getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.crmf.EncryptedKey)
+        if (o instanceof crmf.EncryptedKey)
         {
-            return (org.bouncycastle.asn1.crmf.EncryptedKey)o;
+            return (crmf.EncryptedKey)o;
         }
         else if (o instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.crmf.EncryptedKey(EnvelopedData.getInstance((ASN1TaggedObject)o, false));
+            return new crmf.EncryptedKey(EnvelopedData.getInstance((ASN1TaggedObject)o, false));
         }
         else if (o instanceof EncryptedValue)
         {
-            return new org.bouncycastle.asn1.crmf.EncryptedKey((EncryptedValue)o);
+            return new crmf.EncryptedKey((EncryptedValue)o);
         }
         else
         {
-            return new org.bouncycastle.asn1.crmf.EncryptedKey(EncryptedValue.getInstance(o));
+            return new crmf.EncryptedKey(EncryptedValue.getInstance(o));
         }
     }
 

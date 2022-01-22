@@ -1,18 +1,12 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OctetStringParser;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+
+
+
 
 /**
  * Abstract base for the ASN.1 OCTET STRING data type
@@ -107,7 +101,7 @@ public abstract class ASN1OctetString
     implements ASN1OctetStringParser
 {
     static final ASN1UniversalType TYPE = new ASN1UniversalType(
-        org.bouncycastle.asn1.ASN1OctetString.class, BERTags.OCTET_STRING)
+        ASN1OctetString.class, BERTags.OCTET_STRING)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -129,9 +123,9 @@ public abstract class ASN1OctetString
      * @exception IllegalArgumentException if the tagged object cannot
      *              be converted.
      */
-    public static org.bouncycastle.asn1.ASN1OctetString getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1OctetString getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1OctetString)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1OctetString)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     /**
@@ -140,26 +134,26 @@ public abstract class ASN1OctetString
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.ASN1OctetString getInstance(Object obj)
+    public static ASN1OctetString getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.ASN1OctetString)
+        if (obj == null || obj instanceof ASN1OctetString)
         {
-            return (org.bouncycastle.asn1.ASN1OctetString)obj;
+            return (ASN1OctetString)obj;
         }
 //      else if (obj instanceof ASN1OctetStringParser)
         else if (obj instanceof ASN1Encodable)
         {
             ASN1Primitive primitive = ((ASN1Encodable)obj).toASN1Primitive();
-            if (primitive instanceof org.bouncycastle.asn1.ASN1OctetString)
+            if (primitive instanceof ASN1OctetString)
             {
-                return (org.bouncycastle.asn1.ASN1OctetString)primitive;
+                return (ASN1OctetString)primitive;
             }
         }
         else if (obj instanceof byte[])
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1OctetString)TYPE.fromByteArray((byte[])obj);
+                return (ASN1OctetString)TYPE.fromByteArray((byte[])obj);
             }
             catch (IOException e)
             {
@@ -227,12 +221,12 @@ public abstract class ASN1OctetString
     boolean asn1Equals(
         ASN1Primitive o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1OctetString))
+        if (!(o instanceof ASN1OctetString))
         {
             return false;
         }
 
-        org.bouncycastle.asn1.ASN1OctetString other = (org.bouncycastle.asn1.ASN1OctetString)o;
+        ASN1OctetString other = (ASN1OctetString)o;
 
         return Arrays.areEqual(string, other.string);
     }
@@ -257,7 +251,7 @@ public abstract class ASN1OctetString
       return "#" + Strings.fromByteArray(Hex.encode(string));
     }
 
-    static org.bouncycastle.asn1.ASN1OctetString createPrimitive(byte[] contents)
+    static ASN1OctetString createPrimitive(byte[] contents)
     {
         return new DEROctetString(contents);
     }

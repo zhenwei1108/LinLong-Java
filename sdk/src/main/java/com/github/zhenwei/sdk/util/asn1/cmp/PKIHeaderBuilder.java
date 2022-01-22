@@ -1,19 +1,16 @@
 package com.github.zhenwei.sdk.util.asn1.cmp;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.cmp.InfoTypeAndValue;
-import org.bouncycastle.asn1.cmp.PKIFreeText;
-import org.bouncycastle.asn1.cmp.PKIHeader;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.GeneralName;
+
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
+
 
 public class PKIHeaderBuilder
 {
@@ -48,98 +45,98 @@ public class PKIHeaderBuilder
         this.recipient = recipient;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setMessageTime(ASN1GeneralizedTime time)
+    public cmp.PKIHeaderBuilder setMessageTime(ASN1GeneralizedTime time)
     {
         messageTime = time;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setProtectionAlg(AlgorithmIdentifier aid)
+    public cmp.PKIHeaderBuilder setProtectionAlg(AlgorithmIdentifier aid)
     {
         protectionAlg = aid;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setSenderKID(byte[] kid)
+    public cmp.PKIHeaderBuilder setSenderKID(byte[] kid)
     {
         return setSenderKID(kid == null ? null : new DEROctetString(kid));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setSenderKID(ASN1OctetString kid)
+    public cmp.PKIHeaderBuilder setSenderKID(ASN1OctetString kid)
     {
         senderKID = kid;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setRecipKID(byte[] kid)
+    public cmp.PKIHeaderBuilder setRecipKID(byte[] kid)
     {
         return setRecipKID(kid == null ? null : new DEROctetString(kid));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setRecipKID(ASN1OctetString kid)
+    public cmp.PKIHeaderBuilder setRecipKID(ASN1OctetString kid)
     {
         recipKID = kid;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setTransactionID(byte[] tid)
+    public cmp.PKIHeaderBuilder setTransactionID(byte[] tid)
     {
         return setTransactionID(tid == null ? null : new DEROctetString(tid));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setTransactionID(ASN1OctetString tid)
+    public cmp.PKIHeaderBuilder setTransactionID(ASN1OctetString tid)
     {
         transactionID = tid;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setSenderNonce(byte[] nonce)
+    public cmp.PKIHeaderBuilder setSenderNonce(byte[] nonce)
     {
         return setSenderNonce(nonce == null ? null : new DEROctetString(nonce));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setSenderNonce(ASN1OctetString nonce)
+    public cmp.PKIHeaderBuilder setSenderNonce(ASN1OctetString nonce)
     {
         senderNonce = nonce;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setRecipNonce(byte[] nonce)
+    public cmp.PKIHeaderBuilder setRecipNonce(byte[] nonce)
     {
         return setRecipNonce(nonce == null ? null : new DEROctetString(nonce));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setRecipNonce(ASN1OctetString nonce)
+    public cmp.PKIHeaderBuilder setRecipNonce(ASN1OctetString nonce)
     {
         recipNonce = nonce;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setFreeText(PKIFreeText text)
+    public cmp.PKIHeaderBuilder setFreeText(PKIFreeText text)
     {
         freeText = text;
 
         return this;
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setGeneralInfo(InfoTypeAndValue genInfo)
+    public cmp.PKIHeaderBuilder setGeneralInfo(InfoTypeAndValue genInfo)
     {
         return setGeneralInfo(makeGeneralInfoSeq(genInfo));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setGeneralInfo(InfoTypeAndValue[] genInfos)
+    public cmp.PKIHeaderBuilder setGeneralInfo(InfoTypeAndValue[] genInfos)
     {
         return setGeneralInfo(makeGeneralInfoSeq(genInfos));
     }
 
-    public org.bouncycastle.asn1.cmp.PKIHeaderBuilder setGeneralInfo(ASN1Sequence seqOfInfoTypeAndValue)
+    public cmp.PKIHeaderBuilder setGeneralInfo(ASN1Sequence seqOfInfoTypeAndValue)
     {
         generalInfo = seqOfInfoTypeAndValue;
 

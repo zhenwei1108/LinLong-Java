@@ -1,13 +1,13 @@
 package com.github.zhenwei.sdk.util.asn1.tsp;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DLSequence;
+
+
+
+
+
+
+
+import DLSequence;
 
 /**
  * Implementation of the EncryptionInfo element defined in RFC 4998:
@@ -46,21 +46,21 @@ public class EncryptionInfo
      */
     private ASN1Encodable encryptionInfoValue;
 
-    public static org.bouncycastle.asn1.tsp.EncryptionInfo getInstance(final ASN1Object obj)
+    public static tsp.EncryptionInfo getInstance(final ASN1Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.tsp.EncryptionInfo)
+        if (obj instanceof tsp.EncryptionInfo)
         {
-            return (org.bouncycastle.asn1.tsp.EncryptionInfo)obj;
+            return (tsp.EncryptionInfo)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.tsp.EncryptionInfo(ASN1Sequence.getInstance(obj));
+            return new tsp.EncryptionInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;
     }
 
-    public static org.bouncycastle.asn1.tsp.EncryptionInfo getInstance(
+    public static tsp.EncryptionInfo getInstance(
         ASN1TaggedObject obj,
         boolean explicit)
     {

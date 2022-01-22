@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+
+
 import org.bouncycastle.crypto.OutputLengthException;
 import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.Integers;
-import org.bouncycastle.util.Pack;
+ 
+
 
 /**
  * A Noekeon engine, using direct-key mode.

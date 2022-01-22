@@ -8,7 +8,7 @@ import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
 import org.bouncycastle.pqc.math.linearalgebra.Permutation;
 import org.bouncycastle.pqc.math.linearalgebra.RandUtils;
 import org.bouncycastle.pqc.math.linearalgebra.Vector;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * This class implements the abstract class <tt>Vector</tt> for the case of

@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
 import java.security.PrivateKey;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfoBuilder;
+import pkcs.PrivateKeyInfo;
 
 public class JcaPKCS8EncryptedPrivateKeyInfoBuilder
     extends PKCS8EncryptedPrivateKeyInfoBuilder

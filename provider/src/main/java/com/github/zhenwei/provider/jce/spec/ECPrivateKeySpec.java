@@ -1,8 +1,6 @@
 package com.github.zhenwei.provider.jce.spec;
 
 import java.math.BigInteger;
-import org.bouncycastle.jce.spec.ECKeySpec;
-import org.bouncycastle.jce.spec.ECParameterSpec;
 
 /**
  * Elliptic Curve private key specification.

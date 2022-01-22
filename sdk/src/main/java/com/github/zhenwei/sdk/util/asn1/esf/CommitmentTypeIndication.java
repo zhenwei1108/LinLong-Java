@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
+
+
+
+
+
+
 
 public class CommitmentTypeIndication
     extends ASN1Object
@@ -38,15 +38,15 @@ public class CommitmentTypeIndication
         this.commitmentTypeQualifier = commitmentTypeQualifier;
     }
 
-    public static org.bouncycastle.asn1.esf.CommitmentTypeIndication getInstance(
+    public static esf.CommitmentTypeIndication getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.esf.CommitmentTypeIndication)
+        if (obj == null || obj instanceof esf.CommitmentTypeIndication)
         {
-            return (org.bouncycastle.asn1.esf.CommitmentTypeIndication)obj;
+            return (esf.CommitmentTypeIndication)obj;
         }
 
-        return new org.bouncycastle.asn1.esf.CommitmentTypeIndication(ASN1Sequence.getInstance(obj));
+        return new esf.CommitmentTypeIndication(ASN1Sequence.getInstance(obj));
     }
 
     public ASN1ObjectIdentifier getCommitmentTypeId()

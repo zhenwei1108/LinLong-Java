@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import WNafUtil;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
@@ -8,8 +9,7 @@ import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.math.Primes;
-import org.bouncycastle.math.ec.WNafUtil;
-import org.bouncycastle.util.BigIntegers;
+ 
 
 /**
  * an RSA key pair generator.

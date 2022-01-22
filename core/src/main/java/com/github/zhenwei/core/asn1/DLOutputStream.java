@@ -2,9 +2,6 @@ package com.github.zhenwei.core.asn1;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.ASN1Primitive;
 
 /**
  * Stream that outputs encoding based on definite length.
@@ -17,7 +14,7 @@ class DLOutputStream
         super(os);
     }
 
-    org.bouncycastle.asn1.DLOutputStream getDLSubStream()
+    DLOutputStream getDLSubStream()
     {
         return this;
     }

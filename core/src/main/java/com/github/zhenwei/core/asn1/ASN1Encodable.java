@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.asn1;
 
-import org.bouncycastle.asn1.ASN1Primitive;
-
 /**
  * Basic interface to produce serialisers for ASN.1 encodings.
  */

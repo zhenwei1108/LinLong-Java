@@ -1,5 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
+
+
+
 import java.math.BigInteger;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -7,21 +10,16 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.ua.DSTU4145Params;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.Digest;
+
 import org.bouncycastle.crypto.digests.GOST3411Digest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.signers.DSTU4145Signer;
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jce.interfaces.ECKey;
+
+import ua.DSTU4145Params;
 
 public class SignatureSpi
     extends java.security.SignatureSpi

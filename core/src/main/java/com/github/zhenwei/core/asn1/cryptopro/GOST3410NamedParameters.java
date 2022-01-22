@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
+
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.math.BigInteger;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.asn1.cryptopro.GOST3410ParamSetParameters;
 
 /**
  * table of the available named parameters for GOST 3410-94.
@@ -83,7 +82,7 @@ public class GOST3410NamedParameters
      * @param oid an object identifier representing a named parameters, if present.
      */
     public static GOST3410ParamSetParameters getByOID(
-        ASN1ObjectIdentifier  oid)
+        ASN1ObjectIdentifier oid)
     {
         return (GOST3410ParamSetParameters)params.get(oid);
     }

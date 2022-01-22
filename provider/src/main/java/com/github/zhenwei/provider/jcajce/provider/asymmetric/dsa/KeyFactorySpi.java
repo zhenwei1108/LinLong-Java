@@ -1,5 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
+
+
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -11,21 +13,16 @@ import java.security.spec.DSAPrivateKeySpec;
 import java.security.spec.DSAPublicKeySpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
 import org.bouncycastle.crypto.util.OpenSSHPrivateKeyUtil;
 import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.BCDSAPrivateKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.BCDSAPublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
 import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
+import pkcs.PrivateKeyInfo;
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

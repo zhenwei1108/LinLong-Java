@@ -1,11 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
+
 import java.io.IOException;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERTags;
-import org.bouncycastle.asn1.DERNull;
-import org.bouncycastle.asn1.DEROctetString;
 
 /**
  * A NULL object - use DERNull.INSTANCE for populating structures.
@@ -13,7 +9,7 @@ import org.bouncycastle.asn1.DEROctetString;
 public abstract class ASN1Null
     extends ASN1Primitive
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(org.bouncycastle.asn1.ASN1Null.class, BERTags.NULL)
+    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1Null.class, BERTags.NULL)
     {
         ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
         {
@@ -27,7 +23,7 @@ public abstract class ASN1Null
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.asn1.ASN1Null} object
+     * <li> {@link ASN1Null} object
      * <li> a byte[] containing ASN.1 NULL object
      * </ul>
      * </p>
@@ -36,18 +32,18 @@ public abstract class ASN1Null
      * @return an instance of ASN1Null, or null.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.ASN1Null getInstance(Object o)
+    public static ASN1Null getInstance(Object o)
     {
-        if (o instanceof org.bouncycastle.asn1.ASN1Null)
+        if (o instanceof ASN1Null)
         {
-            return (org.bouncycastle.asn1.ASN1Null)o;
+            return (ASN1Null)o;
         }
 
         if (o != null)
         {
             try
             {
-                return (org.bouncycastle.asn1.ASN1Null)TYPE.fromByteArray((byte[])o);
+                return (ASN1Null)TYPE.fromByteArray((byte[])o);
             }
             catch (IOException e)
             {
@@ -62,9 +58,9 @@ public abstract class ASN1Null
         return null;
     }
 
-    public static org.bouncycastle.asn1.ASN1Null getInstance(ASN1TaggedObject taggedObject, boolean explicit)
+    public static ASN1Null getInstance(ASN1TaggedObject taggedObject, boolean explicit)
     {
-        return (org.bouncycastle.asn1.ASN1Null)TYPE.getContextInstance(taggedObject, explicit);
+        return (ASN1Null)TYPE.getContextInstance(taggedObject, explicit);
     }
 
     ASN1Null()
@@ -79,7 +75,7 @@ public abstract class ASN1Null
     boolean asn1Equals(
         ASN1Primitive o)
     {
-        if (!(o instanceof org.bouncycastle.asn1.ASN1Null))
+        if (!(o instanceof ASN1Null))
         {
             return false;
         }
@@ -92,7 +88,7 @@ public abstract class ASN1Null
          return "NULL";
     }
 
-    static org.bouncycastle.asn1.ASN1Null createPrimitive(byte[] contents)
+    static ASN1Null createPrimitive(byte[] contents)
     {
         if (0 != contents.length)
         {

@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
+
+
+ 
+import AttributeTypeAndValue;
+
+import RDN;
+import X500Name;
+import X500NameStyle;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1ParsingException;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.x500.AttributeTypeAndValue;
-import org.bouncycastle.asn1.x500.RDN;
-import org.bouncycastle.asn1.x500.X500Name;
-import org.bouncycastle.asn1.x500.X500NameStyle;
-import org.bouncycastle.asn1.x500.style.IETFUtils;
 
 /**
  * This class provides some default behavior and common implementation for a
@@ -82,10 +81,10 @@ public abstract class AbstractX500NameStyle
      * already valid ASN.1 objects encoded in hex.
      * <p>
      * All other string values are send to
-     * {@link org.bouncycastle.asn1.x500.style.AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}.
+     * {@link  style.AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}.
      * </p>
      * Subclasses should overwrite
-     * {@link org.bouncycastle.asn1.x500.style.AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}
+     * {@link  style.AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}
      * to change the encoding of specific types.
      *
      * @param oid the DN name of the value.

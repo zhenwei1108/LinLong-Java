@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
 import java.nio.ByteBuffer;
-import org.bouncycastle.crypto.Digest;
+
 
 /**
  * An implementation of the deterministic pseudo-random generator in EESS section 3.7.3.1

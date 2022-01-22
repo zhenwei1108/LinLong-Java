@@ -1,15 +1,15 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
+
+
+
+
+
+
+
+import DisplayText;
+import NoticeReference;
 import java.util.Enumeration;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.DisplayText;
-import org.bouncycastle.asn1.x509.NoticeReference;
 
 public class SPUserNotice
     extends ASN1Object
@@ -17,16 +17,16 @@ public class SPUserNotice
     private NoticeReference noticeRef;
     private DisplayText     explicitText;
 
-    public static org.bouncycastle.asn1.esf.SPUserNotice getInstance(
+    public static esf.SPUserNotice getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.esf.SPUserNotice)
+        if (obj instanceof esf.SPUserNotice)
         {
-            return (org.bouncycastle.asn1.esf.SPUserNotice)obj;
+            return (esf.SPUserNotice)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.asn1.esf.SPUserNotice(ASN1Sequence.getInstance(obj));
+            return new esf.SPUserNotice(ASN1Sequence.getInstance(obj));
         }
 
         return null;

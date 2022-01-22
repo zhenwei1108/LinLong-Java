@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.field;
 
 import org.bouncycastle.math.field.Polynomial;
-import org.bouncycastle.util.Arrays;
+
 
 class GF2Polynomial implements Polynomial
 {

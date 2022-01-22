@@ -1,11 +1,11 @@
-package com.github.zhenwei.core.asn1.x509.qualified;
+package com.github.zhenwei.core.asn1.qualified;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
+
+
+
+
+
+
 
 /**
  * The TypeOfBiometricData object.
@@ -28,11 +28,11 @@ public class TypeOfBiometricData
 
     ASN1Encodable      obj;
 
-    public static org.bouncycastle.asn1.x509.qualified.TypeOfBiometricData getInstance(Object obj)
+    public static qualified.TypeOfBiometricData getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.x509.qualified.TypeOfBiometricData)
+        if (obj == null || obj instanceof qualified.TypeOfBiometricData)
         {
-            return (org.bouncycastle.asn1.x509.qualified.TypeOfBiometricData)obj;
+            return (qualified.TypeOfBiometricData)obj;
         }
 
         if (obj instanceof ASN1Integer)
@@ -40,12 +40,12 @@ public class TypeOfBiometricData
             ASN1Integer predefinedBiometricTypeObj = ASN1Integer.getInstance(obj);
             int predefinedBiometricType = predefinedBiometricTypeObj.intValueExact();
 
-            return new org.bouncycastle.asn1.x509.qualified.TypeOfBiometricData(predefinedBiometricType);
+            return new qualified.TypeOfBiometricData(predefinedBiometricType);
         }
         else if (obj instanceof ASN1ObjectIdentifier)
         {
             ASN1ObjectIdentifier BiometricDataID = ASN1ObjectIdentifier.getInstance(obj);
-            return new org.bouncycastle.asn1.x509.qualified.TypeOfBiometricData(BiometricDataID);
+            return new qualified.TypeOfBiometricData(BiometricDataID);
         }
 
         throw new IllegalArgumentException("unknown object in getInstance");

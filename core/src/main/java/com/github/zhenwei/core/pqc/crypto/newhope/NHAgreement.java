@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
-import org.bouncycastle.crypto.CipherParameters;
+
 import org.bouncycastle.pqc.crypto.newhope.NHPrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.newhope.NHPublicKeyParameters;
 

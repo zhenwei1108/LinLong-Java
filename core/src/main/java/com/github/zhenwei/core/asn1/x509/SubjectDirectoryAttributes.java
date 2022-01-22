@@ -1,13 +1,12 @@
 package com.github.zhenwei.core.asn1.x509;
 
+
+
+
+
+
 import java.util.Enumeration;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.Attribute;
 
 /**
  * This extension may contain further X.500 attributes of the subject. See also
@@ -26,24 +25,24 @@ import org.bouncycastle.asn1.x509.Attribute;
  *     AttributeValue ::= ANY DEFINED BY AttributeType
  * </pre>
  * 
- * @see org.bouncycastle.asn1.x500.style.BCStyle for AttributeType ObjectIdentifiers.
+ * @see  style.BCStyle for AttributeType ObjectIdentifiers.
  */
 public class SubjectDirectoryAttributes 
     extends ASN1Object
 {
     private Vector attributes = new Vector();
 
-    public static org.bouncycastle.asn1.x509.SubjectDirectoryAttributes getInstance(
+    public static SubjectDirectoryAttributes getInstance(
         Object obj)
     {
-        if (obj instanceof org.bouncycastle.asn1.x509.SubjectDirectoryAttributes)
+        if (obj instanceof SubjectDirectoryAttributes)
         {
-            return (org.bouncycastle.asn1.x509.SubjectDirectoryAttributes)obj;
+            return (x509.SubjectDirectoryAttributes)obj;
         }
 
         if (obj != null)
         {
-            return new org.bouncycastle.asn1.x509.SubjectDirectoryAttributes(ASN1Sequence.getInstance(obj));
+            return new SubjectDirectoryAttributes(ASN1Sequence.getInstance(obj));
         }
 
         return null;

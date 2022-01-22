@@ -3,7 +3,7 @@ package com.github.zhenwei.sdk.util.oer;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;
-import org.bouncycastle.util.Arrays;
+
 
 public class BitBuilder
 {

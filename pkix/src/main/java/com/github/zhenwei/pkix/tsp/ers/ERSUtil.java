@@ -6,11 +6,9 @@ import java.io.OutputStream;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.asn1.tsp.PartialHashtree;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.tsp.ers.ERSData;
-import org.bouncycastle.tsp.ers.SortedHashList;
-import org.bouncycastle.util.io.Streams;
+
+import tsp.PartialHashtree;
 
 class ERSUtil
 {

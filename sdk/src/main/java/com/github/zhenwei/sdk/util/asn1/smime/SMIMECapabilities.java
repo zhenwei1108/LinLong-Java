@@ -1,15 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.smime;
 
+
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.sdk.util.asn1.cms.Attribute;
 import java.util.Enumeration;
 import java.util.Vector;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.cms.Attribute;
-import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.asn1.smime.SMIMECapability;
+
+
 
 /**
  * Handler class for dealing with S/MIME Capabilities
@@ -36,7 +38,7 @@ public class SMIMECapabilities
     public static final ASN1ObjectIdentifier dES_EDE3_CBC = PKCSObjectIdentifiers.des_EDE3_CBC;
     public static final ASN1ObjectIdentifier rC2_CBC = PKCSObjectIdentifiers.RC2_CBC;
     
-    private ASN1Sequence         capabilities;
+    private ASN1Sequence capabilities;
 
     /**
      * return an Attribute object from the given object.
@@ -44,22 +46,22 @@ public class SMIMECapabilities
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.asn1.smime.SMIMECapabilities getInstance(
+    public static SMIMECapabilities getInstance(
         Object o)
     {
-        if (o == null || o instanceof org.bouncycastle.asn1.smime.SMIMECapabilities)
+        if (o == null || o instanceof SMIMECapabilities)
         {
-            return (org.bouncycastle.asn1.smime.SMIMECapabilities)o;
+            return   (SMIMECapabilities)o;
         }
         
         if (o instanceof ASN1Sequence)
         {
-            return new org.bouncycastle.asn1.smime.SMIMECapabilities((ASN1Sequence)o);
+            return new SMIMECapabilities((ASN1Sequence)o);
         }
 
         if (o instanceof Attribute)
         {
-            return new org.bouncycastle.asn1.smime.SMIMECapabilities(
+            return new SMIMECapabilities(
                 (ASN1Sequence)(((Attribute)o).getAttrValues().getObjectAt(0)));
         }
 

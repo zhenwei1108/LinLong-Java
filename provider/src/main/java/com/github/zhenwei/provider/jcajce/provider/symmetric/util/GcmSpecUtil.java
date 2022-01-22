@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.security.AccessController;
@@ -8,12 +9,10 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import org.bouncycastle.asn1.ASN1Primitive;
 import org.bouncycastle.crypto.params.AEADParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.internal.asn1.cms.GCMParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
-import org.bouncycastle.util.Integers;
+ 
 
 public class GcmSpecUtil
 {

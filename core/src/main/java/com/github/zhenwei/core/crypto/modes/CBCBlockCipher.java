@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.modes;
 
 import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+
+
 import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.Arrays;
+
 
 /**
  * implements Cipher-Block-Chaining (CBC) mode on top of a simple cipher.

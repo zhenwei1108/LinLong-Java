@@ -2,9 +2,9 @@ package com.github.zhenwei.core.math;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.BigIntegers;
+
+
+ 
 
 /**
  * Utility methods for generating primes and testing for primality.

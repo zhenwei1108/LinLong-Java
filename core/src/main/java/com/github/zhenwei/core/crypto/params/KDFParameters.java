@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.params;
 
-import org.bouncycastle.crypto.DerivationParameters;
+
 
 /**
  * parameters for Key derivation functions for IEEE P1363a

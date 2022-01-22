@@ -1,17 +1,17 @@
 package com.github.zhenwei.sdk.util.asn1.isismtt.x509;
 
-import org.bouncycastle.asn1.ASN1Boolean;
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1GeneralizedTime;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1Object;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
+import ASN1Boolean;
+
+
+import ASN1GeneralizedTime;
+
+
+
+
+
+
+
+
 
 /**
  * A declaration of majority.
@@ -74,16 +74,16 @@ public class DeclarationOfMajority
         declaration = new DERTaggedObject(false, 2, dateOfBirth);
     }
 
-    public static org.bouncycastle.asn1.isismtt.x509.DeclarationOfMajority getInstance(Object obj)
+    public static DeclarationOfMajority getInstance(Object obj)
     {
-        if (obj == null || obj instanceof org.bouncycastle.asn1.isismtt.x509.DeclarationOfMajority)
+        if (obj == null || obj instanceof DeclarationOfMajority)
         {
-            return (org.bouncycastle.asn1.isismtt.x509.DeclarationOfMajority)obj;
+            return  (DeclarationOfMajority)obj;
         }
 
         if (obj instanceof ASN1TaggedObject)
         {
-            return new org.bouncycastle.asn1.isismtt.x509.DeclarationOfMajority((ASN1TaggedObject)obj);
+            return new DeclarationOfMajority((ASN1TaggedObject)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "
