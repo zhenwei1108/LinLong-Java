@@ -14,9 +14,9 @@ import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.params.ECKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import ECKeyParameters;
+import ECPublicKeyParameters;
+ 
 
  
 

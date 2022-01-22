@@ -7,15 +7,15 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA384Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+   (
+import  SHA256Digest;
+import  SHA384Digest;
+import  SHA512Digest;
+ 
+
+ 
+ 
+ 
 import org.bouncycastle.jcajce.spec.TLSKeyMaterialSpec;
 
 
@@ -189,7 +189,7 @@ public class TLSKDF
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.TLSKDF.class.getName();
+        private static final String PREFIX = TLSKDF.class.getName();
 
         public Mappings()
         {

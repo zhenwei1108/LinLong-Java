@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.util.Memoable;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ 
 import org.bouncycastle.pqc.crypto.StateAwareMessageSigner;
 
 

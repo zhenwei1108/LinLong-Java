@@ -34,8 +34,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.util.io.pem.PemWriter;
-import pkcs.SignedData;
+import  io.pem.PemWriter;
+import SignedData;
 
 ;
 

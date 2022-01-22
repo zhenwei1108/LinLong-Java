@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
+ 
+   (
+ 
 
 public class Poly1305
 {
@@ -17,7 +17,7 @@ public class Poly1305
     {
         public Mac()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305());
+            super(new  Poly1305());
         }
     }
 
@@ -33,7 +33,7 @@ public class Poly1305
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Poly1305.class.getName();
+        private static final String PREFIX = Poly1305.class.getName();
 
         public Mappings()
         {

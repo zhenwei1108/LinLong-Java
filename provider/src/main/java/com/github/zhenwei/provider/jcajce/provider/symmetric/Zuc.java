@@ -1,15 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
 import org.bouncycastle.crypto.engines.Zuc128Engine;
 import org.bouncycastle.crypto.engines.Zuc256Engine;
-import org.bouncycastle.crypto.macs.Zuc128Mac;
-import org.bouncycastle.crypto.macs.Zuc256Mac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import  Zuc128Mac;
+import  Zuc256Mac;
+ 
+ 
+   (
+ 
+   (
 
 public class Zuc
 {
@@ -101,7 +101,7 @@ public class Zuc
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Zuc.class.getName();
+        private static final String PREFIX = Zuc.class.getName();
 
         public Mappings()
         {

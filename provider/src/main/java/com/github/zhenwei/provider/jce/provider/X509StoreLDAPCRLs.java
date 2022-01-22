@@ -9,7 +9,7 @@ import org.bouncycastle.X509CRLStoreSelector;
 import org.bouncycastle.X509StoreParameters;
 import org.bouncycastle.X509StoreSpi;
 import org.bouncycastle.jce.X509LDAPCertStoreParameters;
-import org.bouncycastle.util.LDAPStoreHelper;
+import  LDAPStoreHelper;
 
 
 

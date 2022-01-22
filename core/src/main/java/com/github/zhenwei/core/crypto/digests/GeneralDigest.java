@@ -31,7 +31,7 @@ public abstract class GeneralDigest
      * of the Object.clone() interface as this interface is not
      * supported by J2ME.
      */
-    protected GeneralDigest(org.bouncycastle.crypto.digests.GeneralDigest t)
+    protected GeneralDigest( GeneralDigest t)
     {
         copyIn(t);
     }
@@ -43,7 +43,7 @@ public abstract class GeneralDigest
         byteCount = Pack.bigEndianToLong(encodedState, 8);
     }
 
-    protected void copyIn(org.bouncycastle.crypto.digests.GeneralDigest t)
+    protected void copyIn( GeneralDigest t)
     {
         System.arraycopy(t.xBuf, 0, xBuf, 0, t.xBuf.length);
 

@@ -44,17 +44,17 @@ public class PBKDF2Params
      * @param obj either PBKDF2Params or an ASN1Sequence.
      * @return a PBKDF2Params instance.
      */
-    public static pkcs.PBKDF2Params getInstance(
+    public static PBKDF2Params getInstance(
         Object obj)
     {
-        if (obj instanceof pkcs.PBKDF2Params)
+        if (obj instanceof PBKDF2Params)
         {
-            return (pkcs.PBKDF2Params)obj;
+            return  (PBKDF2Params)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.PBKDF2Params(ASN1Sequence.getInstance(obj));
+            return new PBKDF2Params(ASN1Sequence.getInstance(obj));
         }
 
         return null;

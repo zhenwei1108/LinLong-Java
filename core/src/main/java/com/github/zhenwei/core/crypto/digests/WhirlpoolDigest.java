@@ -134,7 +134,7 @@ public final class WhirlpoolDigest
      * Copy constructor. This will copy the state of the provided message
      * digest.
      */
-    public WhirlpoolDigest(org.bouncycastle.crypto.digests.WhirlpoolDigest originalDigest)
+    public WhirlpoolDigest( WhirlpoolDigest originalDigest)
     {
         reset(originalDigest);
     }
@@ -384,12 +384,12 @@ public final class WhirlpoolDigest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.WhirlpoolDigest(this);
+        return new  WhirlpoolDigest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.WhirlpoolDigest originalDigest = (org.bouncycastle.crypto.digests.WhirlpoolDigest)other;
+         WhirlpoolDigest originalDigest = ( WhirlpoolDigest)other;
 
         System.arraycopy(originalDigest._rc, 0, _rc, 0, _rc.length);
 

@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.operator;
 
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.io.OutputStream;
-import org.bouncycastle.util.io.BufferingOutputStream;
+import  io.BufferingOutputStream;
 
 /**
  * A class that explicitly buffers the data to be signed, sending it in one

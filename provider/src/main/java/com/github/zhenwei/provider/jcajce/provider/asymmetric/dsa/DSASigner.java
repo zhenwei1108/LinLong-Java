@@ -15,9 +15,9 @@ import java.security.SignatureException;
 import java.security.SignatureSpi;
 import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.digests.NullDigest;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import  NullDigest;
+import  RIPEMD160Digest;
+ 
 import org.bouncycastle.crypto.signers.DSAEncoding;
 import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;

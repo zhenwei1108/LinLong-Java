@@ -570,7 +570,7 @@ public class TigerDigest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public TigerDigest(org.bouncycastle.crypto.digests.TigerDigest t)
+    public TigerDigest( TigerDigest t)
     {
         this.reset(t);
     }
@@ -858,12 +858,12 @@ public class TigerDigest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.TigerDigest(this);
+        return new  TigerDigest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.TigerDigest t = (org.bouncycastle.crypto.digests.TigerDigest)other;
+         TigerDigest t = ( TigerDigest)other;
 
         a = t.a;
         b = t.b;

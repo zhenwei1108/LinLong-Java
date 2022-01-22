@@ -23,13 +23,13 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+ 
+ 
 import org.bouncycastle.crypto.encodings.ISO9796d1Encoding;
 import org.bouncycastle.crypto.encodings.OAEPEncoding;
 import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.ElGamalEngine;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseCipherSpi;
 import org.bouncycastle.jcajce.provider.util.BadBlockException;
 import org.bouncycastle.jcajce.provider.util.DigestFactory;

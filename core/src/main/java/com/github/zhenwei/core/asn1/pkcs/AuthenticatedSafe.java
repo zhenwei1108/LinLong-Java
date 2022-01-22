@@ -26,17 +26,17 @@ public class AuthenticatedSafe
         isBer = seq instanceof BERSequence;
     }
 
-    public static pkcs.AuthenticatedSafe getInstance(
+    public static AuthenticatedSafe getInstance(
         Object o)
     {
-        if (o instanceof pkcs.AuthenticatedSafe)
+        if (o instanceof AuthenticatedSafe)
         {
-            return (pkcs.AuthenticatedSafe)o;
+            return  (AuthenticatedSafe)o;
         }
 
         if (o != null)
         {
-            return new pkcs.AuthenticatedSafe(ASN1Sequence.getInstance(o));
+            return new AuthenticatedSafe(ASN1Sequence.getInstance(o));
         }
 
         return null;

@@ -5,6 +5,7 @@ import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.generators.DHBasicKeyPairGenerator;
 import com.github.zhenwei.core.crypto.generators.DHParametersGenerator;
 import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import com.github.zhenwei.core.util.Integers;

@@ -8,7 +8,7 @@ import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.StagedAgreement;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+import ECPublicKeyParameters;
 
 public class ECDHCStagedAgreement
     implements StagedAgreement

@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.bouncycastle.X509StreamParserSpi;
-import org.bouncycastle.util.StreamParsingException;
-import pkcs.SignedData;
+import  StreamParsingException;
+import SignedData;
 
 public class X509CRLParser
     extends X509StreamParserSpi

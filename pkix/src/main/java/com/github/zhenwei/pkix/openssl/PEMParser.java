@@ -32,10 +32,10 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-import org.bouncycastle.util.io.pem.PemObjectParser;
-import org.bouncycastle.util.io.pem.PemReader;
-import pkcs.EncryptedPrivateKeyInfo;
-import pkcs.RSAPublicKey;
+import  io.pem.PemObjectParser;
+import  io.pem.PemReader;
+import EncryptedPrivateKeyInfo;
+import RSAPublicKey;
 
 
 
@@ -309,7 +309,7 @@ public class PEMParser
                     throw new PEMException("malformed sequence in RSA private key");
                 }
 
-                pkcs.RSAPrivateKey keyStruct = pkcs.RSAPrivateKey.getInstance(seq);
+                RSAPrivateKey keyStruct = RSAPrivateKey.getInstance(seq);
 
                 RSAPublicKey pubSpec = new RSAPublicKey(
                     keyStruct.getModulus(), keyStruct.getPublicExponent());

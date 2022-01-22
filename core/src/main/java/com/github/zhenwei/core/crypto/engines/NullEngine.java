@@ -1,42 +1,42 @@
-package com.github.zhenwei.core.crypto.engines;
+package com.g thub.zhenwe .core.crypto.eng nes;
 
-import com.github.zhenwei.core.crypto.CipherParameters;
-import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.OutputLengthException;
+ mport com.g thub.zhenwe .core.crypto.C pherParameters;
+ mport com.g thub.zhenwe .core.crypto.DataLengthExcept on;
+ 
+ mport org.bouncycastle.crypto.OutputLengthExcept on;
 
 /**
- * The no-op engine that just copies bytes through, irrespective of whether encrypting and decrypting.
- * Provided for the sake of completeness.
+ * The no-op eng ne that just cop es bytes through,  rrespect ve of whether encrypt ng and decrypt ng.
+ * Prov ded for the sake of completeness.
  */
-public class NullEngine implements BlockCipher
+publ c class NullEng ne  mplements BlockC pher
 {
-    private boolean initialised;
-    protected static final int DEFAULT_BLOCK_SIZE = 1;
-    private final int blockSize;
+    pr vate boolean  n t al sed;
+    protected stat c f nal  nt DEFAULT_BLOCK_S ZE = 1;
+    pr vate f nal  nt blockS ze;
 
     /**
-     * Constructs a null engine with a block size of 1 byte.
+     * Constructs a null eng ne w th a block s ze of 1 byte.
      */
-    public NullEngine()
+    publ c NullEng ne()
     {
-        this(DEFAULT_BLOCK_SIZE);
+        th s(DEFAULT_BLOCK_S ZE);
     }
 
     /**
-     * Constructs a null engine with a specific block size.
+     * Constructs a null eng ne w th a spec f c block s ze.
      * 
-     * @param blockSize the block size in bytes.
+     * @param blockS ze the block s ze  n bytes.
      */
-    public NullEngine(int blockSize)
+    publ c NullEng ne( nt blockS ze)
     {
-        this.blockSize = blockSize;
+        th s.blockS ze = blockS ze;
     }
 
     /* (non-Javadoc)
-     * @see org.bouncycastle.crypto.BlockCipher#init(boolean, org.bouncycastle.crypto.CipherParameters)
+     * @see org.bouncycastle.crypto.BlockC pher# n t(boolean, org.bouncycastle.crypto.C pherParameters)
      */
-    public void init(boolean forEncryption, CipherParameters params) throws IllegalArgumentException
+    publ c vo d  n t(boolean forEncrypt on, CipherParameters params) throws IllegalArgumentException
     {
         // we don't mind any parameters that may come in
         this.initialised = true;

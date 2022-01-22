@@ -12,11 +12,11 @@ import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.DerivationFunction;
+ 
 import org.bouncycastle.crypto.KeyEncapsulation;
-import org.bouncycastle.crypto.params.ECKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
+import ECKeyParameters;
+import ECPublicKeyParameters;
+ 
 
  
 

@@ -12,7 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
-import org.bouncycastle.crypto.params.GOST3410PublicKeyParameters;
+import GOST3410PublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import org.bouncycastle.jce.interfaces.GOST3410Params;

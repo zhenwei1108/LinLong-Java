@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.params;
 
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.CharToByteConverter;
+ 
 import org.bouncycastle.crypto.PasswordConverter;
 
 
@@ -105,9 +105,9 @@ public class Argon2Parameters
             return this;
         }
 
-        public org.bouncycastle.crypto.params.Argon2Parameters build()
+        public Argon2Parameters build()
         {
-            return new org.bouncycastle.crypto.params.Argon2Parameters(type, salt, secret, additional, iterations, memory, lanes, version, converter);
+            return new Argon2Parameters(type, salt, secret, additional, iterations, memory, lanes, version, converter);
         }
 
         public void clear()

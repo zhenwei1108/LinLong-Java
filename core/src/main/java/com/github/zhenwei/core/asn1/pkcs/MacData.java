@@ -23,16 +23,16 @@ public class MacData
     byte[]                      salt;
     BigInteger                  iterationCount;
 
-    public static pkcs.MacData getInstance(
+    public static MacData getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.MacData)
+        if (obj instanceof MacData)
         {
-            return (pkcs.MacData)obj;
+            return  (MacData)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.MacData(ASN1Sequence.getInstance(obj));
+            return new MacData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

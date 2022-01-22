@@ -5,8 +5,8 @@ import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
+ 
  
  
  

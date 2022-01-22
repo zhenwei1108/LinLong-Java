@@ -8,8 +8,25 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.cryptopro.GOST28147Parameters;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.engines.CryptoProWrapEngine;
+import com.github.zhenwei.core.crypto.engines.GOST28147Engine;
+import com.github.zhenwei.core.crypto.engines.GOST28147WrapEngine;
+import com.github.zhenwei.core.crypto.macs.GOST28147Mac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCFBBlockCipher;
 import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
+import com.github.zhenwei.provider.jcajce.spec.GOST28147ParameterSpec;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -19,23 +36,6 @@ import java.security.spec.InvalidParameterSpecException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.CryptoProWrapEngine;
-import org.bouncycastle.crypto.engines.GOST28147Engine;
-import org.bouncycastle.crypto.engines.GOST28147WrapEngine;
-import org.bouncycastle.crypto.macs.GOST28147Mac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.GCFBBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
-
 
 
 
@@ -403,7 +403,7 @@ public final class GOST28147
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.GOST28147.class.getName();
+        private static final String PREFIX = GOST28147.class.getName();
 
         public Mappings()
         {

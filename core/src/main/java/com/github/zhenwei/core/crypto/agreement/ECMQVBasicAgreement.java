@@ -10,9 +10,9 @@ import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.util.Properties;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.MQVPrivateParameters;
-import org.bouncycastle.crypto.params.MQVPublicParameters;
+import ECPublicKeyParameters;
+import MQVPrivateParameters;
+import MQVPublicParameters;
 
 
 public class ECMQVBasicAgreement

@@ -30,12 +30,12 @@ public class ElGamalPublicKeyParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.ElGamalPublicKeyParameters))
+        if (!(obj instanceof ElGamalPublicKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.ElGamalPublicKeyParameters other = (org.bouncycastle.crypto.params.ElGamalPublicKeyParameters)obj;
+        ElGamalPublicKeyParameters other =  (ElGamalPublicKeyParameters)obj;
 
         return other.getY().equals(y) && super.equals(obj);
     }

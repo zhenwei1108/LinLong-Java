@@ -58,14 +58,14 @@ public class SM3Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public SM3Digest(org.bouncycastle.crypto.digests.SM3Digest t)
+    public SM3Digest( SM3Digest t)
     {
         super(t);
 
         copyIn(t);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.SM3Digest t)
+    private void copyIn( SM3Digest t)
     {
         System.arraycopy(t.V, 0, this.V, 0, this.V.length);
         System.arraycopy(t.inwords, 0, this.inwords, 0, this.inwords.length);
@@ -85,12 +85,12 @@ public class SM3Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SM3Digest(this);
+        return new  SM3Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SM3Digest d = (org.bouncycastle.crypto.digests.SM3Digest)other;
+         SM3Digest d = ( SM3Digest)other;
 
         super.copyIn(d);
         copyIn(d);

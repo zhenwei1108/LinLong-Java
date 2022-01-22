@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+
 
 /**
  * Implements OpenPGP's rather strange version of Cipher-FeedBack (CFB) mode

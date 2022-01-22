@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.generators;
 
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
+ 
 import org.bouncycastle.crypto.EphemeralKeyPair;
 import org.bouncycastle.crypto.KeyEncoder;
 

@@ -43,11 +43,11 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
+  
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.AsymmetricKeyWrapper;
 import org.bouncycastle.operator.OperatorException;
-import pkcs.RSAESOAEPparams;
+import RSAESOAEPparams;
 
 
 public class JceAsymmetricKeyWrapper

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.util;
 
-import org.bouncycastle.crypto.digests.SHA512tDigest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
+import  SHA512tDigest;
+import  SHAKEDigest;
 
 
 /**
@@ -85,9 +85,9 @@ public class Fingerprint
         {
             return true;
         }
-        if (o instanceof org.bouncycastle.util.Fingerprint)
+        if (o instanceof  Fingerprint)
         {
-            return Arrays.areEqual(((org.bouncycastle.util.Fingerprint)o).fingerprint, fingerprint);
+            return Arrays.areEqual((( Fingerprint)o).fingerprint, fingerprint);
         }
 
         return false;

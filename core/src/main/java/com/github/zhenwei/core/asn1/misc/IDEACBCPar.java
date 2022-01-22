@@ -15,16 +15,16 @@ public class IDEACBCPar
 {
     ASN1OctetString iv;
 
-    public static misc.IDEACBCPar getInstance(
+    public static  IDEACBCPar getInstance(
         Object  o)
     {
-        if (o instanceof misc.IDEACBCPar)
+        if (o instanceof  IDEACBCPar)
         {
-            return (misc.IDEACBCPar)o;
+            return   (IDEACBCPar)o;
         }
         else if (o != null)
         {
-            return new misc.IDEACBCPar(ASN1Sequence.getInstance(o));
+            return new  IDEACBCPar(ASN1Sequence.getInstance(o));
         }
 
         return null;

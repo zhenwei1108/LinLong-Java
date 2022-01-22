@@ -3,6 +3,24 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.engines.DESedeEngine;
+import com.github.zhenwei.core.crypto.engines.DESedeWrapEngine;
+import com.github.zhenwei.core.crypto.engines.RFC3211WrapEngine;
+import com.github.zhenwei.core.crypto.generators.DESedeKeyGenerator;
+import com.github.zhenwei.core.crypto.macs.CBCBlockCipherMac;
+import com.github.zhenwei.core.crypto.macs.CFBBlockCipherMac;
+import com.github.zhenwei.core.crypto.macs.CMac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.ISO7816d4Padding;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
@@ -13,24 +31,10 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.engines.DESedeEngine;
-import org.bouncycastle.crypto.engines.DESedeWrapEngine;
-import org.bouncycastle.crypto.engines.RFC3211WrapEngine;
-import org.bouncycastle.crypto.generators.DESedeKeyGenerator;
-import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-import org.bouncycastle.crypto.macs.CFBBlockCipherMac;
-import org.bouncycastle.crypto.macs.CMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.paddings.ISO7816d4Padding;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
+  
+ 
+ 
 
 
 public final class DESede
@@ -351,7 +355,7 @@ public final class DESede
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.DESede.class.getName();
+        private static final String PREFIX = DESede.class.getName();
         private static final String PACKAGE = "org.bouncycastle.jcajce.provider.symmetric"; // JDK 1.2
                 
         public Mappings()

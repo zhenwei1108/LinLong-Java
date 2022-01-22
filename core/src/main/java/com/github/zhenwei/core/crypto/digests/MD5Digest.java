@@ -45,14 +45,14 @@ public class MD5Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public MD5Digest(org.bouncycastle.crypto.digests.MD5Digest t)
+    public MD5Digest( MD5Digest t)
     {
         super(t);
 
         copyIn(t);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.MD5Digest t)
+    private void copyIn( MD5Digest t)
     {
         super.copyIn(t);
 
@@ -328,12 +328,12 @@ public class MD5Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.MD5Digest(this);
+        return new  MD5Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.MD5Digest d = (org.bouncycastle.crypto.digests.MD5Digest)other;
+         MD5Digest d = ( MD5Digest)other;
 
         copyIn(d);
     }

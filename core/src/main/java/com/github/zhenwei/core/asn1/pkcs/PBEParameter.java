@@ -36,16 +36,16 @@ public class PBEParameter
         iterations = (ASN1Integer)seq.getObjectAt(1);
     }
 
-    public static pkcs.PBEParameter getInstance(
+    public static PBEParameter getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.PBEParameter)
+        if (obj instanceof PBEParameter)
         {
-            return (pkcs.PBEParameter)obj;
+            return  (PBEParameter)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.PBEParameter(ASN1Sequence.getInstance(obj));
+            return new PBEParameter(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -22,17 +22,17 @@ public class Attribute
      * @param o the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static pkcs.Attribute getInstance(
+    public static Attribute getInstance(
         Object o)
     {
-        if (o == null || o instanceof pkcs.Attribute)
+        if (o == null || o instanceof Attribute)
         {
-            return (pkcs.Attribute)o;
+            return  (Attribute)o;
         }
         
         if (o instanceof ASN1Sequence)
         {
-            return new pkcs.Attribute((ASN1Sequence)o);
+            return new Attribute((ASN1Sequence)o);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + o.getClass().getName());

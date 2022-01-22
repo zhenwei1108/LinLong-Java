@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Memoable;
-import org.bouncycastle.crypto.engines.ThreefishEngine;
-import org.bouncycastle.crypto.params.SkeinParameters;
+ 
+ 
 
 
 /**
@@ -52,20 +52,20 @@ public class SkeinDigest
         init(null);
     }
 
-    public SkeinDigest(org.bouncycastle.crypto.digests.SkeinDigest digest)
+    public SkeinDigest( SkeinDigest digest)
     {
         this.engine = new SkeinEngine(digest.engine);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SkeinDigest d = (org.bouncycastle.crypto.digests.SkeinDigest)other;
+         SkeinDigest d = ( SkeinDigest)other;
         engine.reset(d.engine);
     }
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SkeinDigest(this);
+        return new  SkeinDigest(this);
     }
 
     public String getAlgorithmName()

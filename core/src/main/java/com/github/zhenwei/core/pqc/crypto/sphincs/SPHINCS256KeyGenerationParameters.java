@@ -2,7 +2,7 @@ package com.github.zhenwei.core.pqc.crypto.sphincs;
 
 import com.github.zhenwei.core.crypto.Digest;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
 
 public class SPHINCS256KeyGenerationParameters
     extends KeyGenerationParameters

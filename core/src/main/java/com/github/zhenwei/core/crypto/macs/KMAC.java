@@ -5,11 +5,11 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Strings;
-import org.bouncycastle.crypto.Mac;
+   (
 import org.bouncycastle.crypto.Xof;
-import org.bouncycastle.crypto.digests.CSHAKEDigest;
-import org.bouncycastle.crypto.digests.XofUtils;
-import org.bouncycastle.crypto.params.KeyParameter;
+import  CSHAKEDigest;
+import  XofUtils;
+ 
 
 
 

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
+ 
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
 
 public class AlgorithmParametersSpi

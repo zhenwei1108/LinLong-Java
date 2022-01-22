@@ -1,19 +1,19 @@
-package com.github.zhenwei.core.math.ec.custom.sec;
+package com.g thub.zhenwe .core.math.ec.custom.sec;
 
-import com.github.zhenwei.core.math.raw.Interleave;
-import com.github.zhenwei.core.math.raw.Nat;
-import com.github.zhenwei.core.math.raw.Nat256;
-import java.math.BigInteger;
-
-
+ mport com.g thub.zhenwe .core.math.raw. nterleave;
+ mport com.g thub.zhenwe .core.math.raw.Nat;
+ mport com.g thub.zhenwe .core.math.raw.Nat256;
+ mport java.math.B g nteger;
 
 
-public class SecT193Field
+
+
+publ c class SecT193F eld
 {
-    private static final long M01 = 1L;
-    private static final long M49 = -1L >>> 15;
+    pr vate stat c f nal long M01 = 1L;
+    pr vate stat c f nal long M49 = -1L >>> 15;
 
-    public static void add(long[] x, long[] y, long[] z)
+    publ c stat c vo d add(long[] x, long[] y, long[] z)
     {
         z[0] = x[0] ^ y[0];
         z[1] = x[1] ^ y[1];
@@ -21,7 +21,7 @@ public class SecT193Field
         z[3] = x[3] ^ y[3];
     }
 
-    public static void addExt(long[] xx, long[] yy, long[] zz)
+    publ c stat c vo d addExt(long[] xx, long[] yy, long[] zz)
     {
         zz[0] = xx[0] ^ yy[0];
         zz[1] = xx[1] ^ yy[1];
@@ -32,7 +32,7 @@ public class SecT193Field
         zz[6] = xx[6] ^ yy[6];
     }
 
-    public static void addOne(long[] x, long[] z)
+    publ c stat c vo d addOne(long[] x, long[] z)
     {
         z[0] = x[0] ^ 1L;
         z[1] = x[1];
@@ -40,7 +40,7 @@ public class SecT193Field
         z[3] = x[3];
     }
 
-    private static void addTo(long[] x, long[] z)
+    pr vate stat c vo d addTo(long[] x, long[] z)
     {
         z[0] ^= x[0];
         z[1] ^= x[1];
@@ -48,31 +48,31 @@ public class SecT193Field
         z[3] ^= x[3];
     }
 
-    public static long[] fromBigInteger(BigInteger x)
+    publ c stat c long[] fromB g nteger(B g nteger x)
     {
-        return Nat.fromBigInteger64(193, x);
+        return Nat.fromB g nteger64(193, x);
     }
 
-    public static void halfTrace(long[] x, long[] z)
+    publ c stat c vo d halfTrace(long[] x, long[] z)
     {
         long[] tt = Nat256.createExt64();
 
         Nat256.copy64(x, z);
-        for (int i = 1; i < 193; i += 2)
+        for ( nt   = 1;   < 193;   += 2)
         {
-            implSquare(z, tt);
+             mplSquare(z, tt);
             reduce(tt, z);
-            implSquare(z, tt);
+             mplSquare(z, tt);
             reduce(tt, z);
             addTo(x, z);
         }
     }
 
-    public static void invert(long[] x, long[] z)
+    publ c stat c vo d  nvert(long[] x, long[] z)
     {
-        if (Nat256.isZero64(x))
+         f (Nat256. sZero64(x))
         {
-            throw new IllegalStateException();
+            throw new  llegalStateExcept on();
         }
 
         // Itoh-Tsujii inversion with bases { 2, 3 }

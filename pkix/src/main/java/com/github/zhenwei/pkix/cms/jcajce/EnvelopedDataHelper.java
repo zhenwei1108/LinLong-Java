@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-import ASN1Null;
+ 
 import CMSAlgorithm;
 import CMSEnvelopedDataGenerator;
 import PasswordRecipient;
@@ -51,7 +51,7 @@ import org.bouncycastle.operator.SecretKeySizeProvider;
 import org.bouncycastle.operator.SymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;
 import org.bouncycastle.operator.jcajce.JceKTSKeyUnwrapper;
-import pkcs.RC2CBCParameter;
+ 
 
 public class EnvelopedDataHelper
 {

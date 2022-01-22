@@ -12,9 +12,9 @@ import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.asn1.x509.CertificateList;
 import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
-import pkcs.Attribute;
-import pkcs.CRLBag;
-import pkcs.EncryptedPrivateKeyInfo;
+import Attribute;
+import CRLBag;
+import EncryptedPrivateKeyInfo;
 
  
 

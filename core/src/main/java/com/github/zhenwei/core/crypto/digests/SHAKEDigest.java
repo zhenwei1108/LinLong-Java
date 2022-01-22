@@ -34,7 +34,7 @@ public class SHAKEDigest
         super(checkBitLength(bitLength));
     }
 
-    public SHAKEDigest(org.bouncycastle.crypto.digests.SHAKEDigest source)
+    public SHAKEDigest( SHAKEDigest source)
     {
         super(source);
     }

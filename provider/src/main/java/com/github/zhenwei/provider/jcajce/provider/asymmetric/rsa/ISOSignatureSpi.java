@@ -10,9 +10,9 @@ import java.security.SignatureSpi;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.digests.WhirlpoolDigest;
+ 
+import  RIPEMD160Digest;
+import  WhirlpoolDigest;
 import org.bouncycastle.crypto.engines.RSABlindedEngine;
 import org.bouncycastle.crypto.signers.ISO9796d2Signer;
 

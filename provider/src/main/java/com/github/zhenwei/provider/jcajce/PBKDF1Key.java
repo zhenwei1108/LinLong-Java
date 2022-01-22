@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce;
 
-import org.bouncycastle.crypto.CharToByteConverter;
+
+import com.github.zhenwei.core.crypto.CharToByteConverter;
 
 /**
  * A password based key for use with PBKDF1 as defined in PKCS#5.

@@ -4,12 +4,12 @@ import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.CramerShoupKeyGenerationParameters;
-import org.bouncycastle.crypto.params.CramerShoupParameters;
-import org.bouncycastle.crypto.params.CramerShoupPrivateKeyParameters;
-import org.bouncycastle.crypto.params.CramerShoupPublicKeyParameters;
+ 
+ 
+import CramerShoupKeyGenerationParameters;
+import CramerShoupParameters;
+import CramerShoupPrivateKeyParameters;
+import CramerShoupPublicKeyParameters;
  
 
 /**

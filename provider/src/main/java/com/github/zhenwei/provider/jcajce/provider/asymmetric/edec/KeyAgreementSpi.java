@@ -10,14 +10,14 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.DerivationFunction;
+ 
 import org.bouncycastle.crypto.RawAgreement;
 import org.bouncycastle.crypto.agreement.X25519Agreement;
 import org.bouncycastle.crypto.agreement.X448Agreement;
 import org.bouncycastle.crypto.agreement.XDHUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
-import org.bouncycastle.crypto.params.XDHUPrivateParameters;
-import org.bouncycastle.crypto.params.XDHUPublicParameters;
+import XDHUPrivateParameters;
+import XDHUPublicParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;

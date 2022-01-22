@@ -15,7 +15,7 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.util.Enumeration;
-import org.bouncycastle.crypto.digests.SHA1Digest;
+import  SHA1Digest;
 
 
 /**

@@ -30,13 +30,13 @@ public class Blake3Parameters
      * @param pContext the context
      * @return the parameter
      */
-    public static org.bouncycastle.crypto.params.Blake3Parameters context(final byte[] pContext)
+    public static Blake3Parameters context(final byte[] pContext)
     {
         if (pContext == null)
         {
             throw new IllegalArgumentException("Invalid context");
         }
-        final org.bouncycastle.crypto.params.Blake3Parameters myParams = new org.bouncycastle.crypto.params.Blake3Parameters();
+        final Blake3Parameters myParams = new Blake3Parameters();
         myParams.theContext = Arrays.clone(pContext);
         return myParams;
     }
@@ -46,13 +46,13 @@ public class Blake3Parameters
      * @param pKey the key
      * @return the parameter
      */
-    public static org.bouncycastle.crypto.params.Blake3Parameters key(final byte[] pKey)
+    public static Blake3Parameters key(final byte[] pKey)
     {
         if (pKey == null || pKey.length != KEYLEN)
         {
             throw new IllegalArgumentException("Invalid keyLength");
         }
-        final org.bouncycastle.crypto.params.Blake3Parameters myParams = new org.bouncycastle.crypto.params.Blake3Parameters();
+        final Blake3Parameters myParams = new Blake3Parameters();
         myParams.theKey = Arrays.clone(pKey);
         return myParams;
     }

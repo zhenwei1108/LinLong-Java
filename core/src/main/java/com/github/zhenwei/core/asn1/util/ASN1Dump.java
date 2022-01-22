@@ -6,7 +6,7 @@ import ASN1Enumerated;
 import ASN1External;
 import ASN1GeneralizedTime;
 import ASN1GraphicString;
-import ASN1Null;
+ 
 import ASN1NumericString;
 import ASN1ObjectDescriptor;
 import ASN1UTCTime;

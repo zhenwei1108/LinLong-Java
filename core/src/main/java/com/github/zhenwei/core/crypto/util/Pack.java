@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.util;
 
 /**
- * @deprecated use org.bouncycastle.util.pack
+ * @deprecated use  pack
  */
 public abstract class Pack
 {

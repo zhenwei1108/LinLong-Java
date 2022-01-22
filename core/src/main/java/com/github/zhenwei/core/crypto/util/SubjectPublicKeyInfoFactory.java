@@ -26,14 +26,14 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.X448PublicKeyParameters;
-import pkcs.RSAPublicKey;
+import DSAPublicKeyParameters;
+import ECPublicKeyParameters;
+import Ed25519PublicKeyParameters;
+import Ed448PublicKeyParameters;
+ 
+import X25519PublicKeyParameters;
+import X448PublicKeyParameters;
+import RSAPublicKey;
 
 ;
 

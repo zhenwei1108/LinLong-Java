@@ -21,17 +21,17 @@ public class ContentInfo
     private ASN1Encodable content;
     private boolean       isBer = true;
 
-    public static pkcs.ContentInfo getInstance(
+    public static ContentInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.ContentInfo)
+        if (obj instanceof ContentInfo)
         {
-            return (pkcs.ContentInfo)obj;
+            return  (ContentInfo)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.ContentInfo(ASN1Sequence.getInstance(obj));
+            return new ContentInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -25,24 +25,24 @@ public class RSAPrivateKey
     private BigInteger coefficient;
     private ASN1Sequence otherPrimeInfos = null;
 
-    public static pkcs.RSAPrivateKey getInstance(
+    public static RSAPrivateKey getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static pkcs.RSAPrivateKey getInstance(
+    public static RSAPrivateKey getInstance(
         Object obj)
     {
-        if (obj instanceof pkcs.RSAPrivateKey)
+        if (obj instanceof RSAPrivateKey)
         {
-            return (pkcs.RSAPrivateKey)obj;
+            return  (RSAPrivateKey)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.RSAPrivateKey(ASN1Sequence.getInstance(obj));
+            return new RSAPrivateKey(ASN1Sequence.getInstance(obj));
         }
 
         return null;

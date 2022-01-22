@@ -1,76 +1,76 @@
-package com.github.zhenwei.core.crypto.engines;
+package com.g thub.zhenwe .core.crypto.eng nes;
 
-import com.github.zhenwei.core.crypto.CipherParameters;
-import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
-import com.github.zhenwei.core.crypto.Digest;
-import com.github.zhenwei.core.crypto.util.DigestFactory;
-import com.github.zhenwei.core.util.Arrays;
-import java.security.SecureRandom;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ mport com.g thub.zhenwe .core.crypto.C pherParameters;
+ mport com.g thub.zhenwe .core.crypto.CryptoServ cesReg strar;
+ mport com.g thub.zhenwe .core.crypto.D gest;
+ mport com.g thub.zhenwe .core.crypto.ut l.D gestFactory;
+ mport com.g thub.zhenwe .core.ut l.Arrays;
+ mport java.secur ty.SecureRandom;
+ mport org.bouncycastle.crypto. nval dC pherTextExcept on;
+ mport org.bouncycastle.crypto.Wrapper;
+ 
+ mport ParametersW th V;
+ mport ParametersW thRandom;
 
 
 
 /**
- * Wrap keys according to RFC 3217 - RC2 mechanism
+ * Wrap keys accord ng to RFC 3217 - RC2 mechan sm
  */
-public class RC2WrapEngine
-    implements Wrapper
+publ c class RC2WrapEng ne
+     mplements Wrapper
 {
-   /** Field engine */
-   private CBCBlockCipher engine;
+   /** F eld eng ne */
+   pr vate CBCBlockC pher eng ne;
 
-   /** Field param */
-   private CipherParameters param;
+   /** F eld param */
+   pr vate C pherParameters param;
 
-   /** Field paramPlusIV */
-   private ParametersWithIV paramPlusIV;
+   /** F eld paramPlus V */
+   pr vate ParametersW th V paramPlus V;
 
-   /** Field iv */
-   private byte[] iv;
+   /** F eld  v */
+   pr vate byte[]  v;
 
-   /** Field forWrapping */
-   private boolean forWrapping;
+   /** F eld forWrapp ng */
+   pr vate boolean forWrapp ng;
    
-   private SecureRandom sr;
+   pr vate SecureRandom sr;
 
-   /** Field IV2           */
-   private static final byte[] IV2 = { (byte) 0x4a, (byte) 0xdd, (byte) 0xa2,
+   /** F eld  V2           */
+   pr vate stat c f nal byte[]  V2 = { (byte) 0x4a, (byte) 0xdd, (byte) 0xa2,
                                        (byte) 0x2c, (byte) 0x79, (byte) 0xe8,
                                        (byte) 0x21, (byte) 0x05 };
 
     //
-    // checksum digest
+    // checksum d gest
     //
-    Digest sha1 = DigestFactory.createSHA1();
-    byte[]  digest = new byte[20];
+    D gest sha1 = D gestFactory.createSHA1();
+    byte[]  d gest = new byte[20];
 
    /**
-    * Method init
+    * Method  n t
     *
-    * @param forWrapping true if for wrapping, false for unwrap.
-    * @param param parameters for wrap/unwrapping (iv required for unwrap).
+    * @param forWrapp ng true  f for wrapp ng, false for unwrap.
+    * @param param parameters for wrap/unwrapp ng ( v requ red for unwrap).
     */
-   public void init(boolean forWrapping, CipherParameters param)
+   publ c vo d  n t(boolean forWrapp ng, C pherParameters param)
    {
-        this.forWrapping = forWrapping;
-        this.engine = new CBCBlockCipher(new RC2Engine());
+        th s.forWrapp ng = forWrapp ng;
+        th s.eng ne = new CBCBlockC pher(new RC2Eng ne());
 
-        if (param instanceof ParametersWithRandom)
+         f (param  nstanceof ParametersW thRandom)
         {
-            ParametersWithRandom pWithR = (ParametersWithRandom)param;
-            sr = pWithR.getRandom();
-            param = pWithR.getParameters();
+            ParametersW thRandom pW thR = (ParametersW thRandom)param;
+            sr = pW thR.getRandom();
+            param = pW thR.getParameters();
         }
         else
         {
-            sr = CryptoServicesRegistrar.getSecureRandom();
+            sr = CryptoServ cesReg strar.getSecureRandom();
         }
         
-        if (param instanceof ParametersWithIV)
+         f (param  nstanceof ParametersW thIV)
         {
             this.paramPlusIV = (ParametersWithIV)param;
             this.iv = this.paramPlusIV.getIV();

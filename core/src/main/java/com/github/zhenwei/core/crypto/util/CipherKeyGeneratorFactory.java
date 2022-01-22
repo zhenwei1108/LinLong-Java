@@ -7,11 +7,11 @@ import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import java.security.SecureRandom;
-import kisa.KISAObjectIdentifiers;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.generators.DESKeyGenerator;
-import org.bouncycastle.crypto.generators.DESedeKeyGenerator;
+ 
+ 
+ 
+import DESKeyGenerator;
+import DESedeKeyGenerator;
 
 
 /**

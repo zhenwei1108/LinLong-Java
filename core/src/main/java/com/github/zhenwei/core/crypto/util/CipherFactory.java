@@ -1,42 +1,45 @@
 package com.github.zhenwei.core.crypto.util;
 
-import ASN1Null;
+
+import com.github.zhenwei.core.asn1.ASN1Null;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.cms.CCMParameters;
+import com.github.zhenwei.core.asn1.cms.GCMParameters;
+import com.github.zhenwei.core.asn1.kisa.KISAObjectIdentifiers;
+import com.github.zhenwei.core.asn1.misc.CAST5CBCParameters;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RC2CBCParameter;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.StreamCipher;
+import com.github.zhenwei.core.crypto.engines.AESEngine;
+import com.github.zhenwei.core.crypto.engines.CAST5Engine;
+import com.github.zhenwei.core.crypto.engines.DESEngine;
+import com.github.zhenwei.core.crypto.engines.DESedeEngine;
+import com.github.zhenwei.core.crypto.engines.RC2Engine;
+import com.github.zhenwei.core.crypto.engines.RC4Engine;
+import com.github.zhenwei.core.crypto.modes.AEADBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCMBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.PKCS7Padding;
+import com.github.zhenwei.core.crypto.paddings.PaddedBufferedBlockCipher;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.RC2Parameters;
 import java.io.OutputStream;
-import kisa.KISAObjectIdentifiers;
-import misc.CAST5CBCParameters;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.engines.CAST5Engine;
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.engines.DESedeEngine;
-import org.bouncycastle.crypto.engines.RC2Engine;
-import org.bouncycastle.crypto.engines.RC4Engine;
-import org.bouncycastle.crypto.io.CipherOutputStream;
-import org.bouncycastle.crypto.modes.AEADBlockCipher;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CCMBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.crypto.paddings.PKCS7Padding;
-import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.RC2Parameters;
-import org.bouncycastle.internal.asn1.cms.CCMParameters;
-import org.bouncycastle.internal.asn1.cms.GCMParameters;
-import pkcs.RC2CBCParameter;
+
+;
+;
 
 /**
  * Factory methods for creating Cipher objects and CipherOutputStreams.
@@ -232,19 +235,19 @@ public class CipherFactory
      * @param cipher the cipher to use.
      * @return a BC CipherOutputStream using the cipher and writing to dOut.
      */
-    public static CipherOutputStream createOutputStream(OutputStream dOut, Object cipher)
+    public static com.g.C createOutputStream(OutputStream dOut, Object cipher)
     {
         if (cipher instanceof BufferedBlockCipher)
         {
-            return new CipherOutputStream(dOut, (BufferedBlockCipher)cipher);
+            return new com.g.C(dOut, (BufferedBlockCipher)cipher);
         }
         if (cipher instanceof StreamCipher)
         {
-            return new CipherOutputStream(dOut, (StreamCipher)cipher);
+            return new com.g.C(dOut, (StreamCipher)cipher);
         }
         if (cipher instanceof AEADBlockCipher)
         {
-            return new CipherOutputStream(dOut, (AEADBlockCipher)cipher);
+            return new com.g.C(dOut, (AEADBlockCipher)cipher);
         }
         throw new IllegalArgumentException("unknown cipher object: " + cipher);
     }

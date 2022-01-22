@@ -48,7 +48,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
-import kisa.KISAObjectIdentifiers;
+ 
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
 import org.bouncycastle.jcajce.util.MessageDigestUtils;
 

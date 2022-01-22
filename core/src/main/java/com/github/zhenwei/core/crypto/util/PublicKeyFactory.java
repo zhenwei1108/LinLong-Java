@@ -46,21 +46,21 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.X25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.X448PublicKeyParameters;
-import pkcs.RSAPublicKey;
+import DSAPublicKeyParameters;
+import ECPublicKeyParameters;
+import Ed25519PublicKeyParameters;
+import Ed448PublicKeyParameters;
+import ElGamalPublicKeyParameters;
+ 
+import X25519PublicKeyParameters;
+import X448PublicKeyParameters;
+import RSAPublicKey;
 import ua.DSTU4145BinaryField;
 import ua.DSTU4145ECBinary;
 import ua.DSTU4145NamedCurves;
 import ua.DSTU4145Params;
 import ua.DSTU4145PointEncoder;
-import ua.UAObjectIdentifiers;
+ 
 
 ;
 

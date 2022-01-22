@@ -6,19 +6,19 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
 import org.bouncycastle.crypto.engines.RC532Engine;
 import org.bouncycastle.crypto.engines.RC564Engine;
-import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-import org.bouncycastle.crypto.macs.CFBBlockCipherMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+   (
+   (
+ 
+ 
+ 
+ 
+ 
+   (
+   (
+ 
 
 public final class RC5
 {
@@ -148,7 +148,7 @@ public final class RC5
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.RC5.class.getName();
+        private static final String PREFIX = RC5.class.getName();
 
         public Mappings()
         {

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.paddings;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+ 
 
 /**
  * A padder that adds the padding according to the scheme referenced in

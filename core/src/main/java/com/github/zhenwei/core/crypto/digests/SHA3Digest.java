@@ -33,7 +33,7 @@ public class SHA3Digest
         super(checkBitLength(bitLength));
     }
 
-    public SHA3Digest(org.bouncycastle.crypto.digests.SHA3Digest source)
+    public SHA3Digest( SHA3Digest source)
     {
         super(source);
     }

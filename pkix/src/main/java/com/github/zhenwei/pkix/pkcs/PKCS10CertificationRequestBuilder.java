@@ -14,9 +14,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import pkcs.Attribute;
-import pkcs.CertificationRequest;
-import pkcs.CertificationRequestInfo;
+import Attribute;
+import CertificationRequest;
+import CertificationRequestInfo;
 
 /**
  * A class for creating PKCS#10 Certification requests.

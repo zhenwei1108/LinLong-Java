@@ -2,8 +2,6 @@ package com.github.zhenwei.core.crypto;
 
 
 
-
-
 /**
  * Block cipher engines are expected to conform to this interface.
  */

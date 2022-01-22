@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-import ASN1Null;
+ 
 import ExtensionsGenerator;
 import Time;
 import X500Name;

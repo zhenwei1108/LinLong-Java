@@ -51,15 +51,15 @@ public class XofUtils
 
     static byte[] encode(byte X)
     {
-        return Arrays.concatenate(org.bouncycastle.crypto.digests.XofUtils.leftEncode(8), new byte[] { X });
+        return Arrays.concatenate( XofUtils.leftEncode(8), new byte[] { X });
     }
 
     static byte[] encode(byte[] in, int inOff, int len)
     {
         if (in.length == len)
         {
-            return Arrays.concatenate(org.bouncycastle.crypto.digests.XofUtils.leftEncode(len * 8), in);
+            return Arrays.concatenate( XofUtils.leftEncode(len * 8), in);
         }
-        return Arrays.concatenate(org.bouncycastle.crypto.digests.XofUtils.leftEncode(len * 8), Arrays.copyOfRange(in, inOff, inOff + len));
+        return Arrays.concatenate( XofUtils.leftEncode(len * 8), Arrays.copyOfRange(in, inOff, inOff + len));
     }
 }

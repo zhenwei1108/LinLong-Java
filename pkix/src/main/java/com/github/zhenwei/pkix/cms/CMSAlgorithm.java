@@ -12,7 +12,7 @@ import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
 import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
-import kisa.KISAObjectIdentifiers;
+ 
 
 
 

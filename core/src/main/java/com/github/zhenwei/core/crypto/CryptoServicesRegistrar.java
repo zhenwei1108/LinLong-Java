@@ -11,7 +11,7 @@ import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.params.DSAValidationParameters;
+import DSAValidationParameters;
 
 
 

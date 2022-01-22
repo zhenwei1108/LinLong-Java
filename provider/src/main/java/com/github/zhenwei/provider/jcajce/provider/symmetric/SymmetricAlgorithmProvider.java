@@ -1,7 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 
 abstract class SymmetricAlgorithmProvider
     extends AlgorithmProvider

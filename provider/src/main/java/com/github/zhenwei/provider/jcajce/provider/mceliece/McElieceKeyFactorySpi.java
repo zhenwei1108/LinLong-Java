@@ -16,8 +16,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+import  SHA256Digest;
+ 
 import org.bouncycastle.pqc.asn1.McEliecePrivateKey;
 import org.bouncycastle.pqc.asn1.McEliecePublicKey;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePrivateKeyParameters;

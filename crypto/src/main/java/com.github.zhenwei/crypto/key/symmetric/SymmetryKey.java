@@ -2,7 +2,7 @@ package org.sdk.crypto.key.symmetric;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
 import org.sdk.crypto.exception.CryptoSDKException;
 import org.sdk.crypto.exception.ErrorEnum;
 import org.sdk.crypto.init.InitProvider;
@@ -16,9 +16,9 @@ public class SymmetryKey {
    * @see java.security.SecureRandom
    *
    * DES算法长度限制
-   * {@link org.bouncycastle.crypto.generators.DESKeyGenerator#init(KeyGenerationParameters)}
+   * {@link DESKeyGenerator#init(KeyGenerationParameters)}
    * 3DES算法限制
-   * {@link org.bouncycastle.crypto.generators.DESedeKeyGenerator#init(KeyGenerationParameters)}
+   * {@link DESedeKeyGenerator#init(KeyGenerationParameters)}
    *
    * @date 2021/6/9 22:14
    */

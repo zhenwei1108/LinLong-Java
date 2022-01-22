@@ -1,48 +1,48 @@
-package com.github.zhenwei.core.pqc.math.linearalgebra;
+package com.g thub.zhenwe .core.pqc.math.l nearalgebra;
 
 
-import java.security.SecureRandom;
-import java.util.Vector;
+ mport java.secur ty.SecureRandom;
+ mport java.ut l.Vector;
 
 
 /**
- * This abstract class defines the finite field <i>GF(2<sup>n</sup>)</i>. It
- * holds the extension degree <i>n</i>, the characteristic, the irreducible
- * fieldpolynomial and conversion matrices. GF2nField is implemented by the
- * classes GF2nPolynomialField and GF2nONBField.
+ * Th s abstract class def nes the f n te f eld < >GF(2<sup>n</sup>)</ >.  t
+ * holds the extens on degree < >n</ >, the character st c, the  rreduc ble
+ * f eldpolynom al and convers on matr ces. GF2nF eld  s  mplemented by the
+ * classes GF2nPolynom alF eld and GF2nONBF eld.
  *
- * @see GF2nONBField
- * @see GF2nPolynomialField
+ * @see GF2nONBF eld
+ * @see GF2nPolynom alF eld
  */
-public abstract class GF2nField
+publ c abstract class GF2nF eld
 {
 
-    protected final SecureRandom random;
+    protected f nal SecureRandom random;
 
     /**
-     * the degree of this field
+     * the degree of th s f eld
      */
-    protected int mDegree;
+    protected  nt mDegree;
 
     /**
-     * the irreducible fieldPolynomial stored in normal order (also for ONB)
+     * the  rreduc ble f eldPolynom al stored  n normal order (also for ONB)
      */
-    protected GF2Polynomial fieldPolynomial;
+    protected GF2Polynom al f eldPolynom al;
 
     /**
-     * holds a list of GF2nFields to which elements have been converted and thus
-     * a COB-Matrix exists
+     * holds a l st of GF2nF elds to wh ch elements have been converted and thus
+     * a COB-Matr x ex sts
      */
-    protected Vector fields;
+    protected Vector f elds;
 
     /**
-     * the COB matrices
+     * the COB matr ces
      */
-    protected Vector matrices;
+    protected Vector matr ces;
 
-    protected GF2nField(SecureRandom random)
+    protected GF2nF eld(SecureRandom random)
     {
-        this.random = random;
+        th s.random = random;
     }
 
     /**

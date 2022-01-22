@@ -37,14 +37,14 @@ public class SHA224Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public SHA224Digest(org.bouncycastle.crypto.digests.SHA224Digest t)
+    public SHA224Digest( SHA224Digest t)
     {
         super(t);
 
         doCopy(t);
     }
 
-    private void doCopy(org.bouncycastle.crypto.digests.SHA224Digest t)
+    private void doCopy( SHA224Digest t)
     {
         super.copyIn(t);
 
@@ -322,12 +322,12 @@ public class SHA224Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SHA224Digest(this);
+        return new  SHA224Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SHA224Digest d = (org.bouncycastle.crypto.digests.SHA224Digest)other;
+         SHA224Digest d = ( SHA224Digest)other;
 
         doCopy(d);
     }

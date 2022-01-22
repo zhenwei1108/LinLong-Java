@@ -17,7 +17,7 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
+ 
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
  
  

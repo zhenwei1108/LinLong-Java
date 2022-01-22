@@ -7,10 +7,10 @@ import com.github.zhenwei.core.math.ec.WNafUtil;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.DSAKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
+ 
+ 
+import DSAKeyGenerationParameters;
+import DSAPublicKeyParameters;
  
 
 /**

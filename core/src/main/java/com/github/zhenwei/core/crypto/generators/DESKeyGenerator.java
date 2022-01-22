@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.DESParameters;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+ 
 
 public class DESKeyGenerator
     extends CipherKeyGenerator

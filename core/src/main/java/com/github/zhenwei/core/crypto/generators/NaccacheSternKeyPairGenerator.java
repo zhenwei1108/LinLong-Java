@@ -5,11 +5,11 @@ import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Vector;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
-import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
+ 
+ 
+import NaccacheSternKeyGenerationParameters;
+import NaccacheSternKeyParameters;
+import NaccacheSternPrivateKeyParameters;
  
 
 /**

@@ -4,14 +4,14 @@ package com.github.zhenwei.core.crypto.modes;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.OutputLengthException;
+ 
+   (
+ 
 import org.bouncycastle.crypto.engines.ChaCha7539Engine;
-import org.bouncycastle.crypto.macs.Poly1305;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import  Poly1305;
+ 
+ 
+ 
 
 
 

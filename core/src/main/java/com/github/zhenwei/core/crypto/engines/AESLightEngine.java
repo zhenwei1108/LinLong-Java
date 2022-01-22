@@ -1,34 +1,34 @@
-package com.github.zhenwei.core.crypto.engines;
+package com.g thub.zhenwe .core.crypto.eng nes;
 
-import com.github.zhenwei.core.crypto.CipherParameters;
-import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.params.KeyParameter;
+ mport com.g thub.zhenwe .core.crypto.C pherParameters;
+ mport com.g thub.zhenwe .core.crypto.DataLengthExcept on;
+ 
+ mport org.bouncycastle.crypto.OutputLengthExcept on;
+ 
 
 
 /**
- * an implementation of the AES (Rijndael), from FIPS-197.
+ * an  mplementat on of the AES (R jndael), from F PS-197.
  * <p>
- * For further details see: <a href="https://csrc.nist.gov/encryption/aes/">https://csrc.nist.gov/encryption/aes/</a>.
+ * For further deta ls see: <a href="https://csrc.n st.gov/encrypt on/aes/">https://csrc.n st.gov/encrypt on/aes/</a>.
  *
- * This implementation is based on optimizations from Dr. Brian Gladman's paper and C code at
- * <a href="https://fp.gladman.plus.com/cryptography_technology/rijndael/">https://fp.gladman.plus.com/cryptography_technology/rijndael/</a>
+ * Th s  mplementat on  s based on opt m zat ons from Dr. Br an Gladman's paper and C code at
+ * <a href="https://fp.gladman.plus.com/cryptography_technology/r jndael/">https://fp.gladman.plus.com/cryptography_technology/r jndael/</a>
  *
  * There are three levels of tradeoff of speed vs memory
- * Because java has no preprocessor, they are written as three separate classes from which to choose
+ * Because java has no preprocessor, they are wr tten as three separate classes from wh ch to choose
  *
- * The fastest uses 8Kbytes of static tables to precompute round calculations, 4 256 word tables for encryption
- * and 4 for decryption.
+ * The fastest uses 8Kbytes of stat c tables to precompute round calculat ons, 4 256 word tables for encrypt on
+ * and 4 for decrypt on.
  *
- * The middle performance version uses only one 256 word table for each, for a total of 2Kbytes,
- * adding 12 rotate operations per round to compute the values contained in the other tables from
- * the contents of the first
+ * The m ddle performance vers on uses only one 256 word table for each, for a total of 2Kbytes,
+ * add ng 12 rotate operat ons per round to compute the values conta ned  n the other tables from
+ * the contents of the f rst
  *
- * The slowest version uses no static tables at all and computes the values
- * in each round.
+ * The slowest vers on uses no stat c tables at all and computes the values
+ *  n each round.
  * <p>
- * This file contains the slowest performance version with no static tables
+ * Th s file contains the slowest performance version with no static tables
  * for round precomputation, but it has the smallest foot print.
  *
  */

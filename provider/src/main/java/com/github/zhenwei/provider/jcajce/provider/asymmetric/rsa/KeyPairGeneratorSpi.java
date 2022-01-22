@@ -14,9 +14,9 @@ import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.RSAKeyGenParameterSpec;
-import org.bouncycastle.crypto.generators.RSAKeyPairGenerator;
-import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+import RSAKeyPairGenerator;
+import RSAKeyGenerationParameters;
+ 
  
  
 

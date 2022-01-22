@@ -2,8 +2,9 @@ package com.github.zhenwei.provider.jcajce.provider.config;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import java.util.Map;
-import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+ 
 
 /**
  * Implemented by the BC provider. This allows setting of hidden parameters,

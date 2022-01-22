@@ -14,12 +14,12 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.DSAParameterSpec;
 import java.util.Hashtable;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.generators.DSAKeyPairGenerator;
-import org.bouncycastle.crypto.generators.DSAParametersGenerator;
-import org.bouncycastle.crypto.params.DSAKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DSAParameterGenerationParameters;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
+import  SHA256Digest;
+import DSAKeyPairGenerator;
+import DSAParametersGenerator;
+import DSAKeyGenerationParameters;
+import DSAParameterGenerationParameters;
+import DSAPublicKeyParameters;
  
 
  

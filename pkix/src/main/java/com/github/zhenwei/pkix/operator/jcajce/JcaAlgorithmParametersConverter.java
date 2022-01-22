@@ -16,7 +16,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.MGF1ParameterSpec;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import pkcs.RSAESOAEPparams;
+import RSAESOAEPparams;
 
 public class JcaAlgorithmParametersConverter
 {

@@ -34,16 +34,16 @@ public class EncryptedPrivateKeyInfo
         this.data = new DEROctetString(encoding);
     }
 
-    public static pkcs.EncryptedPrivateKeyInfo getInstance(
+    public static EncryptedPrivateKeyInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.EncryptedPrivateKeyInfo)
+        if (obj instanceof EncryptedPrivateKeyInfo)
         {
-            return (pkcs.EncryptedPrivateKeyInfo)obj;
+            return  (EncryptedPrivateKeyInfo)obj;
         }
         else if (obj != null)
         { 
-            return new pkcs.EncryptedPrivateKeyInfo(ASN1Sequence.getInstance(obj));
+            return new EncryptedPrivateKeyInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

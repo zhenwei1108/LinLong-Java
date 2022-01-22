@@ -7,9 +7,9 @@ import com.github.zhenwei.core.crypto.Digest;
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.crypto.Xof;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
+import  SHA256Digest;
+import  SHA512Digest;
+import  SHAKEDigest;
 
 /**
  * LMS digest utils provides oid mapping to provider digest name.

@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.RC2Parameters;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+ 
+ 
 
 /**
  * an implementation of RC2 as described in RFC 2268

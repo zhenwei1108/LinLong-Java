@@ -4,10 +4,10 @@ package com.github.zhenwei.core.crypto.generators;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
-import org.bouncycastle.crypto.DerivationFunction;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.crypto.params.HKDFParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
+ 
+ 
+import HKDFParameters;
+
 
 /**
  * HMAC-based Extract-and-Expand Key Derivation Function (HKDF) implemented

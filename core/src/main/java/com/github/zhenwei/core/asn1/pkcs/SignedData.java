@@ -26,16 +26,16 @@ public class SignedData
     private ASN1Set                 crls;
     private ASN1Set                 signerInfos;
 
-    public static pkcs.SignedData getInstance(
+    public static SignedData getInstance(
         Object  o)
     {
-        if (o instanceof pkcs.SignedData)
+        if (o instanceof SignedData)
         {
-            return (pkcs.SignedData)o;
+            return  (SignedData)o;
         }
         else if (o != null)
         {
-            return new pkcs.SignedData(ASN1Sequence.getInstance(o));
+            return new SignedData(ASN1Sequence.getInstance(o));
         }
 
         return null;

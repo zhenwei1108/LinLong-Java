@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.StreamBlockCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
+import com.github.zhenwei.core.crypto.StreamBlockCipher;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.ParametersWithSBox;
+
 
 /**
  * An implementation of the GOST CFB mode with CryptoPro key meshing as described in RFC 4357.

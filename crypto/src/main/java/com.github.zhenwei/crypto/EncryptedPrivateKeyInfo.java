@@ -30,7 +30,7 @@ import ASN1OutputStream;
  */
 public class EncryptedPrivateKeyInfo
 {
-    private pkcs.EncryptedPrivateKeyInfo infoObj;
+    private EncryptedPrivateKeyInfo infoObj;
     private AlgorithmParameters algP;
 
     /*
@@ -53,7 +53,7 @@ public class EncryptedPrivateKeyInfo
         ByteArrayInputStream    bIn = new ByteArrayInputStream(encoded);
         ASN1InputStream         dIn = new ASN1InputStream(bIn);
 
-        infoObj = pkcs.EncryptedPrivateKeyInfo.getInstance((ASN1Sequence)dIn.readObject());
+        infoObj = EncryptedPrivateKeyInfo.getInstance((ASN1Sequence)dIn.readObject());
 
         try
         {
@@ -92,7 +92,7 @@ public class EncryptedPrivateKeyInfo
 
         AlgorithmIdentifier      kAlgId = new AlgorithmIdentifier(new ASN1ObjectIdentifier(algName), null);
 
-        infoObj = new pkcs.EncryptedPrivateKeyInfo(kAlgId, (byte[])encryptedData.clone());
+        infoObj = new EncryptedPrivateKeyInfo(kAlgId, (byte[])encryptedData.clone());
         algP = this.getParameters();
     }
 
@@ -137,7 +137,7 @@ public class EncryptedPrivateKeyInfo
             throw new IllegalArgumentException("error in encoding: " + e.toString());
         }
 
-        infoObj = new pkcs.EncryptedPrivateKeyInfo(kAlgId, (byte[])encryptedData.clone());
+        infoObj = new EncryptedPrivateKeyInfo(kAlgId, (byte[])encryptedData.clone());
         algP = this.getParameters();
     }
 

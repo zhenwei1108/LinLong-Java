@@ -28,14 +28,14 @@ public class SimpleTestResult implements TestResult
         Test test,
         String message)
     {
-        return new org.bouncycastle.util.test.SimpleTestResult(true, test.getName() + ": " + message);
+        return new  test.SimpleTestResult(true, test.getName() + ": " + message);
     }
 
     public static TestResult failed(
         Test test, 
         String message)
     {
-        return new org.bouncycastle.util.test.SimpleTestResult(false, test.getName() + ": " + message);
+        return new  test.SimpleTestResult(false, test.getName() + ": " + message);
     }
     
     public static TestResult failed(
@@ -43,7 +43,7 @@ public class SimpleTestResult implements TestResult
         String message, 
         Throwable t)
     {
-        return new org.bouncycastle.util.test.SimpleTestResult(false, test.getName() + ": " + message, t);
+        return new  test.SimpleTestResult(false, test.getName() + ": " + message, t);
     }
     
     public static TestResult failed(

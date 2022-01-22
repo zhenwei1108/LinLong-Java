@@ -4,8 +4,8 @@ package com.github.zhenwei.core.crypto.generators;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+ 
+ 
 
 /**
  * Generator for PBE derived keys and ivs as defined by PKCS 5 V2.0 Scheme 1.

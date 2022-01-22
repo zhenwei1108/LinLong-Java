@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.mime.encoding;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.util.encoders.Base64Encoder;
+import  encoders.Base64Encoder;
 
 public class Base64OutputStream
     extends FilterOutputStream

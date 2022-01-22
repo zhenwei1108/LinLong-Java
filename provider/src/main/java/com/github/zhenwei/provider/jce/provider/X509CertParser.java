@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.bouncycastle.X509StreamParserSpi;
-import org.bouncycastle.util.StreamParsingException;
-import pkcs.SignedData;
+import  StreamParsingException;
+import SignedData;
 
 /**
  * @deprecated use CertificateFactory or the PEMParser in the openssl package (pkix jar).

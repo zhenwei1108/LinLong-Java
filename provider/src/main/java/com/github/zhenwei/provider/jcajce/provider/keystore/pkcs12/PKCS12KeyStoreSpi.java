@@ -897,7 +897,7 @@ public class PKCS12KeyStoreSpi
                         SafeBag b = SafeBag.getInstance(seq.getObjectAt(j));
                         if (b.getBagId().equals(pkcs8ShroudedKeyBag))
                         {
-                            pkcs.EncryptedPrivateKeyInfo eIn = pkcs.EncryptedPrivateKeyInfo.getInstance(b.getBagValue());
+                            EncryptedPrivateKeyInfo eIn = EncryptedPrivateKeyInfo.getInstance(b.getBagValue());
                             PrivateKey privKey = unwrapKey(eIn.getEncryptionAlgorithm(), eIn.getEncryptedData(), password, wrongPKCS12Zero);
 
                             //
@@ -999,7 +999,7 @@ public class PKCS12KeyStoreSpi
                         }
                         else if (b.getBagId().equals(pkcs8ShroudedKeyBag))
                         {
-                            pkcs.EncryptedPrivateKeyInfo eIn = pkcs.EncryptedPrivateKeyInfo.getInstance(b.getBagValue());
+                            EncryptedPrivateKeyInfo eIn = EncryptedPrivateKeyInfo.getInstance(b.getBagValue());
                             PrivateKey privKey = unwrapKey(eIn.getEncryptionAlgorithm(), eIn.getEncryptedData(), password, wrongPKCS12Zero);
 
                             //
@@ -1061,7 +1061,7 @@ public class PKCS12KeyStoreSpi
                         }
                         else if (b.getBagId().equals(keyBag))
                         {
-                            pkcs.PrivateKeyInfo kInfo = pkcs.PrivateKeyInfo.getInstance(b.getBagValue());
+                            PrivateKeyInfo kInfo = PrivateKeyInfo.getInstance(b.getBagValue());
                             PrivateKey privKey = BouncyCastleProvider.getPrivateKey(kInfo);
 
                             //
@@ -1403,7 +1403,7 @@ public class PKCS12KeyStoreSpi
             PKCS12PBEParams kParams = new PKCS12PBEParams(kSalt, MIN_ITERATIONS);
             byte[] kBytes = wrapKey(keyAlgorithm.getId(), privKey, kParams, password);
             AlgorithmIdentifier kAlgId = new AlgorithmIdentifier(keyAlgorithm, kParams.toASN1Primitive());
-            pkcs.EncryptedPrivateKeyInfo kInfo = new pkcs.EncryptedPrivateKeyInfo(kAlgId, kBytes);
+            EncryptedPrivateKeyInfo kInfo = new EncryptedPrivateKeyInfo(kAlgId, kBytes);
             boolean attrSet = false;
             ASN1EncodableVector kName = new ASN1EncodableVector();
 

@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
-import org.bouncycastle.crypto.BlockCipher;
+
+import com.github.zhenwei.core.crypto.BlockCipher;
 
 public interface BlockCipherProvider
 {

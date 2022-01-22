@@ -17,7 +17,7 @@ import java.security.interfaces.DSAParams;
 import java.security.interfaces.DSAPublicKey;
 import java.security.spec.DSAParameterSpec;
 import java.security.spec.DSAPublicKeySpec;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
+import DSAPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 
 

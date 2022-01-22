@@ -1,6 +1,6 @@
 package com.github.zhenwei.sdk.util.asn1.esf;
 
-import ASN1Null;
+ 
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.BERTags;

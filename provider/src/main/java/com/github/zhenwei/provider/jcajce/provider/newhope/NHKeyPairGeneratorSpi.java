@@ -8,7 +8,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
 import org.bouncycastle.pqc.crypto.newhope.NHKeyPairGenerator;
  
  

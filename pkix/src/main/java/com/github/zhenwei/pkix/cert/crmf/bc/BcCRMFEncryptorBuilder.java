@@ -8,8 +8,8 @@ import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.OutputStream;
 import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
+ 
+ 
 import org.bouncycastle.crypto.util.CipherFactory;
 import org.bouncycastle.operator.OutputEncryptor;
 

@@ -11,25 +11,21 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Locale;
-import org.bouncycastle.crypto.digests.SkeinDigest;
-import org.bouncycastle.crypto.digests.SkeinEngine;
-import org.bouncycastle.crypto.macs.SkeinMac;
- 
 
 /**
  * Parameters for the Skein hash function - a series of byte[] strings identified by integer tags.
  * <p>
  * Parameterised Skein can be used for:
  * <ul>
- * <li>MAC generation, by providing a {@link org.bouncycastle.crypto.params.SkeinParameters.Builder#setKey(byte[]) key}.</li>
- * <li>Randomised hashing, by providing a {@link org.bouncycastle.crypto.params.SkeinParameters.Builder#setNonce(byte[]) nonce}.</li>
+ * <li>MAC generation, by providing a {@link SkeinParameters.Builder#setKey(byte[]) key}.</li>
+ * <li>Randomised hashing, by providing a {@link SkeinParameters.Builder#setNonce(byte[]) nonce}.</li>
  * <li>A hash function for digital signatures, associating a
- * {@link org.bouncycastle.crypto.params.SkeinParameters.Builder#setPublicKey(byte[]) public key} with the message digest.</li>
+ * {@link SkeinParameters.Builder#setPublicKey(byte[]) public key} with the message digest.</li>
  * <li>A key derivation function, by providing a
- * {@link org.bouncycastle.crypto.params.SkeinParameters.Builder#setKeyIdentifier(byte[]) key identifier}.</li>
+ * {@link SkeinParameters.Builder#setKeyIdentifier(byte[]) key identifier}.</li>
  * <li>Personalised hashing, by providing a
- * {@link org.bouncycastle.crypto.params.SkeinParameters.Builder#setPersonalisation(Date, String, String) recommended format} or
- * {@link org.bouncycastle.crypto.params.SkeinParameters.Builder#setPersonalisation(byte[]) arbitrary} personalisation string.</li>
+ * {@link SkeinParameters.Builder#setPersonalisation(Date, String, String) recommended format} or
+ * {@link SkeinParameters.Builder#setPersonalisation(byte[]) arbitrary} personalisation string.</li>
  * </ul>
  *
  * @see SkeinEngine
@@ -146,7 +142,7 @@ public class SkeinParameters
     }
 
     /**
-     * A builder for {@link org.bouncycastle.crypto.params.SkeinParameters}.
+     * A builder for {@link SkeinParameters}.
      */
     public static class Builder
     {
@@ -166,7 +162,7 @@ public class SkeinParameters
             }
         }
 
-        public Builder(org.bouncycastle.crypto.params.SkeinParameters params)
+        public Builder (SkeinParameters params)
         {
             Enumeration keys = params.parameters.keys();
             while (keys.hasMoreElements())
@@ -294,7 +290,7 @@ public class SkeinParameters
          }
 
         /**
-         * Sets the {@link org.bouncycastle.crypto.params.SkeinParameters#PARAM_TYPE_KEY_IDENTIFIER} parameter.
+         * Sets the {@link SkeinParameters#PARAM_TYPE_KEY_IDENTIFIER} parameter.
          */
         public Builder setPublicKey(byte[] publicKey)
         {
@@ -302,7 +298,7 @@ public class SkeinParameters
         }
 
         /**
-         * Sets the {@link org.bouncycastle.crypto.params.SkeinParameters#PARAM_TYPE_KEY_IDENTIFIER} parameter.
+         * Sets the {@link SkeinParameters#PARAM_TYPE_KEY_IDENTIFIER} parameter.
          */
         public Builder setKeyIdentifier(byte[] keyIdentifier)
         {
@@ -310,7 +306,7 @@ public class SkeinParameters
         }
 
         /**
-         * Sets the {@link org.bouncycastle.crypto.params.SkeinParameters#PARAM_TYPE_NONCE} parameter.
+         * Sets the {@link SkeinParameters#PARAM_TYPE_NONCE} parameter.
          */
         public Builder setNonce(byte[] nonce)
         {
@@ -318,12 +314,12 @@ public class SkeinParameters
         }
 
         /**
-         * Constructs a new {@link org.bouncycastle.crypto.params.SkeinParameters} instance with the parameters provided to this
+         * Constructs a new {@link SkeinParameters} instance with the parameters provided to this
          * builder.
          */
-        public org.bouncycastle.crypto.params.SkeinParameters build()
+        public SkeinParameters build()
         {
-            return new org.bouncycastle.crypto.params.SkeinParameters(parameters);
+            return new SkeinParameters(parameters);
         }
     }
 }

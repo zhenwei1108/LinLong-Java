@@ -16,16 +16,16 @@ public class PBES2Parameters
     private KeyDerivationFunc func;
     private EncryptionScheme scheme;
 
-    public static pkcs.PBES2Parameters getInstance(
+    public static PBES2Parameters getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.PBES2Parameters)
+        if (obj instanceof PBES2Parameters)
         {
-            return (pkcs.PBES2Parameters)obj;
+            return  (PBES2Parameters)obj;
         }
         if (obj != null)
         {
-            return new pkcs.PBES2Parameters(ASN1Sequence.getInstance(obj));
+            return new PBES2Parameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

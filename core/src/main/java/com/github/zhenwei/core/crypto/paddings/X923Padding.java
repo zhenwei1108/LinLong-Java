@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.paddings;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+ 
 
 /**
  * A padder that adds 23 padding to a block - if a SecureRandom is

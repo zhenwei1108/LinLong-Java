@@ -53,7 +53,7 @@ public final class KDFFeedbackParameters
         this.useCounter = useCounter;
     }
 
-    public static org.bouncycastle.crypto.params.KDFFeedbackParameters createWithCounter(
+    public static KDFFeedbackParameters createWithCounter(
         byte[] ki, final byte[] iv, byte[] fixedInputData, int r)
     {
         if (r != 8 && r != 16 && r != 24 && r != 32)
@@ -61,13 +61,13 @@ public final class KDFFeedbackParameters
             throw new IllegalArgumentException("Length of counter should be 8, 16, 24 or 32");
         }
 
-        return new org.bouncycastle.crypto.params.KDFFeedbackParameters(ki, iv, fixedInputData, r, true);
+        return new KDFFeedbackParameters(ki, iv, fixedInputData, r, true);
     }
 
-    public static org.bouncycastle.crypto.params.KDFFeedbackParameters createWithoutCounter(
+    public static KDFFeedbackParameters createWithoutCounter(
         byte[] ki, final byte[] iv, byte[] fixedInputData)
     {
-        return new org.bouncycastle.crypto.params.KDFFeedbackParameters(ki, iv, fixedInputData, UNUSED_R, false);
+        return new KDFFeedbackParameters(ki, iv, fixedInputData, UNUSED_R, false);
     }
 
     public byte[] getKI()

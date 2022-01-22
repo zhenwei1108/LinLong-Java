@@ -3,13 +3,13 @@ package com.github.zhenwei.provider.jcajce.provider.digest;
 
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+ 
+import  SHA256Digest;
+ 
+ 
+ 
+   (
+ 
 
 
 public class SHA256

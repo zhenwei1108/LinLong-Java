@@ -3,10 +3,10 @@ package com.github.zhenwei.core.crypto.generators;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.Mac;
+   (
 import org.bouncycastle.crypto.MacDerivationFunction;
-import org.bouncycastle.crypto.params.KDFCounterParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
+import KDFCounterParameters;
+ 
 
 /**
  * This KDF has been defined by the publicly available NIST SP 800-108 specification.

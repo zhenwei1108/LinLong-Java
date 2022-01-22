@@ -1,8 +1,17 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.Wrapper;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.ParametersWithSBox;
+import com.github.zhenwei.core.crypto.params.ParametersWithUKM;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.spec.GOST28147WrapParameterSpec;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
@@ -32,20 +41,7 @@ import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
-import org.bouncycastle.crypto.params.ParametersWithUKM;
-import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
 
-;
-
-
-
- 
 
 public abstract class BaseWrapCipher
     extends CipherSpi
@@ -70,7 +66,7 @@ public abstract class BaseWrapCipher
 
     protected AlgorithmParameters     engineParams = null;
 
-    protected Wrapper                 wrapEngine = null;
+    protected Wrapper wrapEngine = null;
 
     private int                       ivSize;
     private byte[]                    iv;

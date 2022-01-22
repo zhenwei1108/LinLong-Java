@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.cert.X509ExtensionUtils;
-import org.bouncycastle.crypto.digests.SHA1Digest;
+import  SHA1Digest;
 import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;
 import org.bouncycastle.operator.DigestCalculator;
 

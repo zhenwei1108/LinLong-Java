@@ -32,23 +32,23 @@ public class CCMParameters
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.internal.asn1.cms.CCMParameters} object
+     * <li> {@link  CCMParameters} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with CCMParameters structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.internal.asn1.cms.CCMParameters getInstance(
+    public static  CCMParameters getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.internal.asn1.cms.CCMParameters)
+        if (obj instanceof  CCMParameters)
         {
-            return (org.bouncycastle.internal.asn1.cms.CCMParameters)obj;
+            return    (CCMParameters)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.internal.asn1.cms.CCMParameters(ASN1Sequence.getInstance(obj));
+            return new  CCMParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

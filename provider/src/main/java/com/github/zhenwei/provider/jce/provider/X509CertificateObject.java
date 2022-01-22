@@ -56,9 +56,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import misc.NetscapeCertType;
-import misc.NetscapeRevocationURL;
-import misc.VerisignCzagExtension;
+import  NetscapeCertType;
+import  NetscapeRevocationURL;
+import  VerisignCzagExtension;
 import org.bouncycastle.jce.X509Principal;
 import style.RFC4519Style;
 

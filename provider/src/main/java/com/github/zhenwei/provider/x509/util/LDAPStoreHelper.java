@@ -41,7 +41,7 @@ import org.bouncycastle.jce.provider.X509AttrCertParser;
 import org.bouncycastle.jce.provider.X509CRLParser;
 import org.bouncycastle.jce.provider.X509CertPairParser;
 import org.bouncycastle.jce.provider.X509CertParser;
-import org.bouncycastle.util.StreamParsingException;
+import  StreamParsingException;
 
 /**
  * This is a general purpose implementation to get X.509 certificates, CRLs,

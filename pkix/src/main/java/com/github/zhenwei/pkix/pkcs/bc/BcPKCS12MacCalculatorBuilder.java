@@ -8,7 +8,7 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.digests.SHA1Digest;
+import  SHA1Digest;
 import org.bouncycastle.pkcs.PKCS12MacCalculatorBuilder;
 
 

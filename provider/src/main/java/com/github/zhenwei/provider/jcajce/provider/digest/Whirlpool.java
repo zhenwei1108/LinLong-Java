@@ -2,12 +2,12 @@ package com.github.zhenwei.provider.jcajce.provider.digest;
 
 
 import com.github.zhenwei.core.asn1.iso.ISOIECObjectIdentifiers;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.digests.WhirlpoolDigest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+ 
+import  WhirlpoolDigest;
+ 
+ 
+ 
+   (
 
 public class Whirlpool
 {

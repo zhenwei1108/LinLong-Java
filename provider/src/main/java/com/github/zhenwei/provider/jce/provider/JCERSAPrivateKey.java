@@ -15,7 +15,7 @@ import java.math.BigInteger;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.RSAPrivateKeySpec;
 import java.util.Enumeration;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
  
 
@@ -80,7 +80,7 @@ public class JCERSAPrivateKey
 
     public byte[] getEncoded()
     {
-        return KeyUtil.getEncodedPrivateKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE), new pkcs.RSAPrivateKey(getModulus(), ZERO, getPrivateExponent(), ZERO, ZERO, ZERO, ZERO, ZERO));
+        return KeyUtil.getEncodedPrivateKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE), new RSAPrivateKey(getModulus(), ZERO, getPrivateExponent(), ZERO, ZERO, ZERO, ZERO, ZERO));
     }
 
     public boolean equals(Object o)

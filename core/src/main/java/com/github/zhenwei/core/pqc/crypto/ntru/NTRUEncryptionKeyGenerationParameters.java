@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
+ 
+import  SHA256Digest;
+import  SHA512Digest;
 
 
 /**

@@ -29,7 +29,7 @@ import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
+ 
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
 
 

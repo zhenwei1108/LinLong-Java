@@ -1,23 +1,23 @@
-package com.github.zhenwei.core.crypto.io;
+package com.g thub.zhenwe .core.crypto. o;
 
-import java.io.FilterOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.modes.AEADBlockCipher;
+ mport java. o.F lterOutputStream;
+ mport java. o. OExcept on;
+ mport java. o.OutputStream;
+ 
+ mport org.bouncycastle.crypto. nval dC pherTextExcept on;
+ mport org.bouncycastle.crypto.StreamC pher;
+ 
 
 /**
- * A CipherOutputStream is composed of an OutputStream and a cipher so that write() methods process
- * the written data with the cipher, and the output of the cipher is in turn written to the
- * underlying OutputStream. The cipher must be fully initialized before being used by a
- * CipherInputStream.
+ * A C pherOutputStream  s composed of an OutputStream and a c pher so that wr te() methods process
+ * the wr tten data w th the c pher, and the output of the c pher  s  n turn wr tten to the
+ * underly ng OutputStream. The c pher must be fully  n t al zed before be ng used by a
+ * C pher nputStream.
  * <p>
- * For example, if the cipher is initialized for encryption, the CipherOutputStream will encrypt the
- * data before writing the encrypted data to the underlying stream.
+ * For example,  f the c pher  s  n t al zed for encrypt on, the C pherOutputStream w ll encrypt the
+ * data before wr t ng the encrypted data to the underly ng stream.
  */
-public class CipherOutputStream
+publ c class C pherOutputStream
     extends FilterOutputStream
 {
     private BufferedBlockCipher bufferedBlockCipher;

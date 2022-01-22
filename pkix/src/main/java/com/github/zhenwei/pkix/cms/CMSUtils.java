@@ -42,7 +42,7 @@ import java.util.Set;
 import ocsp.OCSPResponse;
 import ocsp.OCSPResponseStatus;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.io.TeeInputStream;
+import  io.TeeInputStream;
 
 
 

@@ -5,7 +5,7 @@ import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.jcajce.provider.asymmetric.dh.KeyFactorySpi;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
 

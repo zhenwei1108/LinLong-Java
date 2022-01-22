@@ -30,12 +30,12 @@ public class DHPrivateKeyParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.DHPrivateKeyParameters))
+        if (!(obj instanceof DHPrivateKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DHPrivateKeyParameters other = (org.bouncycastle.crypto.params.DHPrivateKeyParameters)obj;
+        DHPrivateKeyParameters other =  (DHPrivateKeyParameters)obj;
 
         return other.getX().equals(this.x) && super.equals(obj);
     }

@@ -29,16 +29,16 @@ public class RSASSAPSSparams
     public final static ASN1Integer          DEFAULT_SALT_LENGTH = new ASN1Integer(20);
     public final static ASN1Integer          DEFAULT_TRAILER_FIELD = new ASN1Integer(1);
     
-    public static pkcs.RSASSAPSSparams getInstance(
+    public static RSASSAPSSparams getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.RSASSAPSSparams)
+        if (obj instanceof RSASSAPSSparams)
         {
-            return (pkcs.RSASSAPSSparams)obj;
+            return  (RSASSAPSSparams)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.RSASSAPSSparams(ASN1Sequence.getInstance(obj));
+            return new RSASSAPSSparams(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce;
 
 import com.github.zhenwei.core.util.Arrays;
 import javax.crypto.interfaces.PBEKey;
-import org.bouncycastle.crypto.CharToByteConverter;
+ 
 
 
 /**

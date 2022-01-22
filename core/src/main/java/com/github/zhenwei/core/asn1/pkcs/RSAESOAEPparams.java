@@ -25,16 +25,16 @@ public class RSAESOAEPparams
     public final static AlgorithmIdentifier DEFAULT_MASK_GEN_FUNCTION = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_mgf1, DEFAULT_HASH_ALGORITHM);
     public final static AlgorithmIdentifier DEFAULT_P_SOURCE_ALGORITHM = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_pSpecified, new DEROctetString(new byte[0]));
     
-    public static pkcs.RSAESOAEPparams getInstance(
+    public static RSAESOAEPparams getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.RSAESOAEPparams)
+        if (obj instanceof RSAESOAEPparams)
         {
-            return (pkcs.RSAESOAEPparams)obj;
+            return  (RSAESOAEPparams)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.RSAESOAEPparams(ASN1Sequence.getInstance(obj));
+            return new RSAESOAEPparams(ASN1Sequence.getInstance(obj));
         }
 
         return null;

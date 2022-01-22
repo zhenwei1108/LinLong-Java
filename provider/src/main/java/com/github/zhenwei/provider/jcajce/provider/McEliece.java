@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider;
 
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
  
 

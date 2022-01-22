@@ -63,16 +63,16 @@ public class ScryptParams
         this.keyLength = keyLength;
     }
 
-    public static misc.ScryptParams getInstance(
+    public static  ScryptParams getInstance(
         Object  o)
     {
-        if (o instanceof misc.ScryptParams)
+        if (o instanceof  ScryptParams)
         {
-            return (misc.ScryptParams)o;
+            return   (ScryptParams)o;
         }
         else if (o != null)
         {
-            return new misc.ScryptParams(ASN1Sequence.getInstance(o));
+            return new  ScryptParams(ASN1Sequence.getInstance(o));
         }
 
         return null;

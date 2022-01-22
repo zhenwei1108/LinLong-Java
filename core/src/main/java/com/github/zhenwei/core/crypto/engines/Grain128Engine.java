@@ -3,10 +3,13 @@ package com.github.zhenwei.core.crypto.engines;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.StreamCipher;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+
+
+ 
 
 /**
  * Implementation of Martin Hell's, Thomas Johansson's and Willi Meier's stream

@@ -1,12 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
 import org.bouncycastle.crypto.engines.XTEAEngine;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
+ 
+   (
+ 
 
 public final class XTEA
 {
@@ -44,7 +44,7 @@ public final class XTEA
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.XTEA.class.getName();
+        private static final String PREFIX = XTEA.class.getName();
 
         public Mappings()
         {

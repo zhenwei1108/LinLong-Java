@@ -12,10 +12,10 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.DerivationFunction;
+ 
 import org.bouncycastle.crypto.agreement.ECVKOAgreement;
-import org.bouncycastle.crypto.digests.GOST3411Digest;
-import org.bouncycastle.crypto.params.ParametersWithUKM;
+import  GOST3411Digest;
+  
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;

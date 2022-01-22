@@ -61,12 +61,12 @@ public class GOST3410Parameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.GOST3410Parameters))
+        if (!(obj instanceof GOST3410Parameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.GOST3410Parameters pm = (org.bouncycastle.crypto.params.GOST3410Parameters)obj;
+        GOST3410Parameters pm =  (GOST3410Parameters)obj;
 
         return (pm.getP().equals(p) && pm.getQ().equals(q) && pm.getA().equals(a));
     }

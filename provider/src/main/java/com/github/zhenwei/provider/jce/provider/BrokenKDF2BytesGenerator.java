@@ -4,8 +4,8 @@ package com.github.zhenwei.provider.jce.provider;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.params.KDFParameters;
-import org.bouncycastle.crypto.DerivationFunction;
-import org.bouncycastle.crypto.OutputLengthException;
+ 
+ 
 
 
 /**

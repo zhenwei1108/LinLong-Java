@@ -20,7 +20,7 @@ public interface DigestCalculator
 
     /**
      * Returns a stream that will accept data for the purpose of calculating
-     * a digest. Use org.bouncycastle.util.io.TeeOutputStream if you want to accumulate
+     * a digest. Use  io.TeeOutputStream if you want to accumulate
      * the data on the fly as well.
      *
      * @return an OutputStream

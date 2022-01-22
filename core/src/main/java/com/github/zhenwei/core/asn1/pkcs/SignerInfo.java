@@ -29,16 +29,16 @@ public class SignerInfo
     private ASN1OctetString encryptedDigest;
     private ASN1Set                 unauthenticatedAttributes;
 
-    public static pkcs.SignerInfo getInstance(
+    public static SignerInfo getInstance(
         Object  o)
     {
-        if (o instanceof pkcs.SignerInfo)
+        if (o instanceof SignerInfo)
         {
-            return (pkcs.SignerInfo)o;
+            return  (SignerInfo)o;
         }
         else if (o instanceof ASN1Sequence)
         {
-            return new pkcs.SignerInfo((ASN1Sequence)o);
+            return new SignerInfo((ASN1Sequence)o);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + o.getClass().getName());

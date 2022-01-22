@@ -38,12 +38,12 @@ public abstract class LongDigest
      * of the Object.clone() interface as this interface is not
      * supported by J2ME.
      */
-    protected LongDigest(org.bouncycastle.crypto.digests.LongDigest t)
+    protected LongDigest( LongDigest t)
     {
         copyIn(t);
     }
 
-    protected void copyIn(org.bouncycastle.crypto.digests.LongDigest t)
+    protected void copyIn( LongDigest t)
     {
         System.arraycopy(t.xBuf, 0, xBuf, 0, t.xBuf.length);
 

@@ -17,16 +17,16 @@ public class IssuerAndSerialNumber
     X500Name name;
     ASN1Integer certSerialNumber;
 
-    public static pkcs.IssuerAndSerialNumber getInstance(
+    public static IssuerAndSerialNumber getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.IssuerAndSerialNumber)
+        if (obj instanceof IssuerAndSerialNumber)
         {
-            return (pkcs.IssuerAndSerialNumber)obj;
+            return  (IssuerAndSerialNumber)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
+            return new IssuerAndSerialNumber(ASN1Sequence.getInstance(obj));
         }
 
         return null;

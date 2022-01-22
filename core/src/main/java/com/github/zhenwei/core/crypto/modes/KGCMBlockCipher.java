@@ -1,22 +1,22 @@
 package com.github.zhenwei.core.crypto.modes;
 
+
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.modes.kgcm.KGCMMultiplier;
+import com.github.zhenwei.core.crypto.modes.kgcm.Tables16kKGCMMultiplier_512;
+import com.github.zhenwei.core.crypto.modes.kgcm.Tables4kKGCMMultiplier_128;
+import com.github.zhenwei.core.crypto.modes.kgcm.Tables8kKGCMMultiplier_256;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Pack;
 import java.io.ByteArrayOutputStream;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.modes.kgcm.KGCMMultiplier;
-import org.bouncycastle.crypto.modes.kgcm.Tables16kKGCMMultiplier_512;
-import org.bouncycastle.crypto.modes.kgcm.Tables4kKGCMMultiplier_128;
-import org.bouncycastle.crypto.modes.kgcm.Tables8kKGCMMultiplier_256;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-
-
 
 /**
  * Implementation of DSTU7624 GCM mode
@@ -30,10 +30,10 @@ public class KGCMBlockCipher
     {
         switch (blockSize)
         {
-        case 16:    return new Tables4kKGCMMultiplier_128();
-        case 32:    return new Tables8kKGCMMultiplier_256();
-        case 64:    return new Tables16kKGCMMultiplier_512();
-        default:    throw new IllegalArgumentException("Only 128, 256, and 512 -bit block sizes supported");
+            case 16:    return new Tables4kKGCMMultiplier_128();
+            case 32:    return new Tables8kKGCMMultiplier_256();
+            case 64:    return new Tables16kKGCMMultiplier_512();
+            default:    throw new IllegalArgumentException("Only 128, 256, and 512 -bit block sizes supported");
         }
     }
 
@@ -221,7 +221,7 @@ public class KGCMBlockCipher
         {
             processAAD(associatedText.getBuffer(), 0, lenAAD);
         }
-        
+
         //use alternative cipher to produce output
         int resultLen;
         if (forEncryption)
@@ -238,7 +238,7 @@ public class KGCMBlockCipher
         }
         else
         {
-            int ctLen = len - macSize; 
+            int ctLen = len - macSize;
             if (out.length - outOff < ctLen)
             {
                 throw new OutputLengthException("Output buffer too short");

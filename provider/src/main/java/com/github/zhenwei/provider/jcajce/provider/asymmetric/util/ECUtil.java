@@ -27,13 +27,13 @@ import java.security.PublicKey;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Enumeration;
 import java.util.Map;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
+import ECPublicKeyParameters;
+ 
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.util.Fingerprint;
+import  Fingerprint;
 
  
  

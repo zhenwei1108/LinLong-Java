@@ -33,9 +33,9 @@ import java.util.Map;
  * {@link org.bouncycastle.jcajce.spec.SkeinParameterSpec.Builder#setPersonalisation(byte[]) arbitrary} personalisation string.</li>
  * </ul>
  *
- * @see org.bouncycastle.crypto.digests.SkeinEngine
- * @see org.bouncycastle.crypto.digests.SkeinDigest
- * @see org.bouncycastle.crypto.macs.SkeinMac
+ * @see  SkeinEngine
+ * @see  SkeinDigest
+ * @see  SkeinMac
  */
 public class SkeinParameterSpec
     implements AlgorithmParameterSpec

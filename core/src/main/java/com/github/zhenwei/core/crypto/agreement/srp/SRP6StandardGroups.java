@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.agreement.srp;
 
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.SRP6GroupParameters;
+import SRP6GroupParameters;
 
 
 public class SRP6StandardGroups

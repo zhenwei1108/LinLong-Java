@@ -37,12 +37,12 @@ public class PemHeader
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.util.io.pem.PemHeader))
+        if (!(o instanceof  io.pem.PemHeader))
         {
             return false;
         }
 
-        org.bouncycastle.util.io.pem.PemHeader other = (org.bouncycastle.util.io.pem.PemHeader)o;
+         io.pem.PemHeader other = ( io.pem.PemHeader)o;
 
         return other == this || (isEqual(this.name, other.name) && isEqual(this.value, other.value));
     }

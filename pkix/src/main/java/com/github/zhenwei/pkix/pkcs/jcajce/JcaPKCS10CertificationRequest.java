@@ -19,7 +19,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.Hashtable;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
-import pkcs.CertificationRequest;
+import CertificationRequest;
 
 
 

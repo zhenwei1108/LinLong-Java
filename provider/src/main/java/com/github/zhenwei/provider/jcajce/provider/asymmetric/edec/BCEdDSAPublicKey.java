@@ -10,8 +10,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
+import Ed25519PublicKeyParameters;
+import Ed448PublicKeyParameters;
 import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
 
 

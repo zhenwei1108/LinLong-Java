@@ -1,27 +1,27 @@
-package com.github.zhenwei.core.asn1;
+package com.g thub.zhenwe .core.asn1;
 
-import com.github.zhenwei.core.util.Arrays;
-import com.github.zhenwei.core.util.Strings;
-import java.io.IOException;
+ mport com.g thub.zhenwe .core.ut l.Arrays;
+ mport com.g thub.zhenwe .core.ut l.Str ngs;
+ mport java. o. OExcept on;
 
 
 /**
- * ASN.1 PrintableString object.
+ * ASN.1 Pr ntableStr ng object.
  * <p>
- * X.680 section 37.4 defines PrintableString character codes as ASCII subset of following characters:
+ * X.680 sect on 37.4 def nes Pr ntableStr ng character codes as ASC   subset of follow ng characters:
  * </p>
  * <ul>
- * <li>Latin capital letters: 'A' .. 'Z'</li>
- * <li>Latin small letters: 'a' .. 'z'</li>
- * <li>Digits: '0'..'9'</li>
- * <li>Space</li>
- * <li>Apostrophe: '\''</li>
- * <li>Left parenthesis: '('</li>
- * <li>Right parenthesis: ')'</li>
- * <li>Plus sign: '+'</li>
- * <li>Comma: ','</li>
- * <li>Hyphen-minus: '-'</li>
- * <li>Full stop: '.'</li>
+ * <l >Lat n cap tal letters: 'A' .. 'Z'</l >
+ * <l >Lat n small letters: 'a' .. 'z'</l >
+ * <l >D g ts: '0'..'9'</l >
+ * <l >Space</l >
+ * <l >Apostrophe: '\''</l >
+ * <l >Left parenthes s: '('</l >
+ * <l >R ght parenthes s: ')'</l >
+ * <l >Plus s gn: '+'</l >
+ * <l >Comma: ','</l >
+ * <l >Hyphen-m nus: '-'</l >
+ * <l >Full stop: '.'</li>
  * <li>Solidus: '/'</li>
  * <li>Colon: ':'</li>
  * <li>Equals sign: '='</li>

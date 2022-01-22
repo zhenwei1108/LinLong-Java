@@ -1,12 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
 import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.digests.RIPEMD128Digest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+ 
+import  RIPEMD128Digest;
+ 
+ 
+ 
+   (
 
 
 public class RIPEMD128

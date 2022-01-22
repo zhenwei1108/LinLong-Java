@@ -7,7 +7,7 @@ import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+import ECPublicKeyParameters;
 
 /**
  * P1363 7.2.2 ECSVDP-DHC

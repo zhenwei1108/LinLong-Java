@@ -6,8 +6,8 @@ import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.generators.GOST3410ParametersGenerator;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
+import GOST3410ParametersGenerator;
+import GOST3410Parameters;
 import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
 import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
 

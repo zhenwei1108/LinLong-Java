@@ -1,29 +1,29 @@
-package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
+package com.g thub.zhenwe .prov der.jcajce.prov der.asymmetr c.dstu;
 
 
-import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
-import com.github.zhenwei.core.crypto.CipherParameters;
-import java.math.BigInteger;
-import java.security.AlgorithmParameters;
-import java.security.InvalidKeyException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SignatureException;
-import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.digests.GOST3411Digest;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.signers.DSTU4145Signer;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jce.interfaces.ECKey;
-import ua.DSTU4145Params;
+ mport com.g thub.zhenwe .core.asn1.ASN1OctetStr ng;
+ mport com.g thub.zhenwe .core.asn1.DEROctetStr ng;
+ mport com.g thub.zhenwe .core.asn1.pkcs.PKCSObject dent f ers;
+ mport com.g thub.zhenwe .core.asn1.x509.X509Object dent f ers;
+ mport com.g thub.zhenwe .core.crypto.C pherParameters;
+ mport java.math.B g nteger;
+ mport java.secur ty.Algor thmParameters;
+ mport java.secur ty. nval dKeyExcept on;
+ mport java.secur ty.Pr vateKey;
+ mport java.secur ty.Publ cKey;
+ mport java.secur ty.S gnatureExcept on;
+ mport java.secur ty.spec.Algor thmParameterSpec;
+ mport org.bouncycastle.crypto.DSAExt;
+ mport org.bouncycastle.crypto.d gests.GOST3411D gest;
+ mport ParametersW thRandom;
+ mport org.bouncycastle.crypto.s gners.DSTU4145S gner;
+ mport org.bouncycastle.jcajce.prov der.asymmetr c.ut l.ECUt l;
+ mport org.bouncycastle.jce. nterfaces.ECKey;
+ mport ua.DSTU4145Params;
 
-public class SignatureSpi
-    extends java.security.SignatureSpi
-    implements PKCSObjectIdentifiers, X509ObjectIdentifiers
+publ c class S gnatureSp 
+    extends java.secur ty.S gnatureSp 
+     mplements PKCSObjectIdentifiers, X509ObjectIdentifiers
 {
     private Digest digest;
     private DSAExt signer;

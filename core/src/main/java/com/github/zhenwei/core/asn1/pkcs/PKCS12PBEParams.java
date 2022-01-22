@@ -32,16 +32,16 @@ public class PKCS12PBEParams
         iterations = ASN1Integer.getInstance(seq.getObjectAt(1));
     }
 
-    public static pkcs.PKCS12PBEParams getInstance(
+    public static PKCS12PBEParams getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.PKCS12PBEParams)
+        if (obj instanceof PKCS12PBEParams)
         {
-            return (pkcs.PKCS12PBEParams)obj;
+            return  (PKCS12PBEParams)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.PKCS12PBEParams(ASN1Sequence.getInstance(obj));
+            return new PKCS12PBEParams(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.util.Memoable;
-import org.bouncycastle.util.MemoableResetException;
+import  MemoableResetException;
 
 
 /**
@@ -45,7 +45,7 @@ public class SHA512tDigest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public SHA512tDigest(org.bouncycastle.crypto.digests.SHA512tDigest t)
+    public SHA512tDigest( SHA512tDigest t)
     {
         super(t);
 
@@ -191,12 +191,12 @@ public class SHA512tDigest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SHA512tDigest(this);
+        return new  SHA512tDigest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SHA512tDigest t = (org.bouncycastle.crypto.digests.SHA512tDigest)other;
+         SHA512tDigest t = ( SHA512tDigest)other;
 
         if (this.digestLength != t.digestLength)
         {

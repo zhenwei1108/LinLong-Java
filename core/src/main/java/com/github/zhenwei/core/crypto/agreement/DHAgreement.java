@@ -9,8 +9,8 @@ import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.generators.DHKeyPairGenerator;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import DHKeyPairGenerator;
+ 
 
 /**
  * a Diffie-Hellman key exchange engine.

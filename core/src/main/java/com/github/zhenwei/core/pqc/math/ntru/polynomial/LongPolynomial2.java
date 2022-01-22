@@ -1,25 +1,25 @@
-package com.github.zhenwei.core.pqc.math.ntru.polynomial;
+package com.g thub.zhenwe .core.pqc.math.ntru.polynom al;
 
 
-import com.github.zhenwei.core.util.Arrays;
-import sun.security.util.math.intpoly.IntegerPolynomial;
+ mport com.g thub.zhenwe .core.ut l.Arrays;
+ mport sun.secur ty.ut l.math. ntpoly. ntegerPolynom al;
 
 /**
- * A polynomial class that combines two coefficients into one <code>long</code> value for
- * faster multiplication in 64 bit environments.<br>
- * Coefficients can be between 0 and 2047 and are stored in pairs in the bits 0..10 and 24..34 of a <code>long</code> number.
+ * A polynom al class that comb nes two coeff c ents  nto one <code>long</code> value for
+ * faster mult pl cat on  n 64 b t env ronments.<br>
+ * Coeff c ents can be between 0 and 2047 and are stored  n pa rs  n the b ts 0..10 and 24..34 of a <code>long</code> number.
  */
-public class LongPolynomial2
+publ c class LongPolynom al2
 {
-    private long[] coeffs;   // each representing two coefficients in the original IntegerPolynomial
-    private int numCoeffs;
+    pr vate long[] coeffs;   // each represent ng two coeff c ents  n the or g nal  ntegerPolynom al
+    pr vate  nt numCoeffs;
 
     /**
-     * Constructs a <code>LongPolynomial2</code> from a <code>IntegerPolynomial</code>. The two polynomials are independent of each other.
+     * Constructs a <code>LongPolynom al2</code> from a <code> ntegerPolynom al</code>. The two polynom als are  ndependent of each other.
      *
-     * @param p the original polynomial. Coefficients must be between 0 and 2047.
+     * @param p the or g nal polynom al. Coeff c ents must be between 0 and 2047.
      */
-    public LongPolynomial2(IntegerPolynomial p)
+    publ c LongPolynom al2( ntegerPolynom al p)
     {
         numCoeffs = p.coeffs.length;
         coeffs = new long[(numCoeffs + 1) / 2];

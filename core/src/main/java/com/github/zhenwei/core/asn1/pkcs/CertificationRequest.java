@@ -26,16 +26,16 @@ public class CertificationRequest
     protected AlgorithmIdentifier sigAlgId = null;
     protected DERBitString sigBits = null;
 
-    public static pkcs.CertificationRequest getInstance(Object o)
+    public static CertificationRequest getInstance(Object o)
     {
-        if (o instanceof pkcs.CertificationRequest)
+        if (o instanceof CertificationRequest)
         {
-            return (pkcs.CertificationRequest)o;
+            return  (CertificationRequest)o;
         }
 
         if (o != null)
         {
-            return new pkcs.CertificationRequest(ASN1Sequence.getInstance(o));
+            return new CertificationRequest(ASN1Sequence.getInstance(o));
         }
 
         return null;

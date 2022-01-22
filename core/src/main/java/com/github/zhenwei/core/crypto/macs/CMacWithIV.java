@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.macs;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.BlockCipher;
+ 
 
 /**
  * A non-NIST variant which allows passing of an IV to the underlying CBC cipher.

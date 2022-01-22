@@ -1,11 +1,17 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.Grain128Engine;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.engines.Grain128Engine;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseStreamCipher;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
+
+ 
+ 
+ 
+ 
 
 public final class Grain128
 {
@@ -34,7 +40,7 @@ public final class Grain128
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Grain128.class.getName();
+        private static final String PREFIX = Grain128.class.getName();
 
         public Mappings()
         {

@@ -111,12 +111,12 @@ public class ECDomainParameters
             return true;
         }
 
-        if (!(obj instanceof org.bouncycastle.crypto.params.ECDomainParameters))
+        if (!(obj instanceof ECDomainParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.ECDomainParameters other = (org.bouncycastle.crypto.params.ECDomainParameters)obj;
+        ECDomainParameters other =  (ECDomainParameters)obj;
 
         return this.curve.equals(other.curve)
             && this.G.equals(other.G)

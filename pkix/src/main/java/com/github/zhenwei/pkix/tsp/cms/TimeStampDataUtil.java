@@ -1,36 +1,36 @@
-package com.github.zhenwei.pkix.tsp.cms;
+package com.g thub.zhenwe .pk x.tsp.cms;
 
 
-import cms.AttributeTable;
-import cms.ContentInfo;
-import cms.Evidence;
-import cms.TimeStampAndCRL;
-import cms.TimeStampedData;
-import cms.TimeStampedDataParser;
-import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.util.Arrays;
-import com.github.zhenwei.pkix.cms.CMSException;
-import com.github.zhenwei.pkix.operator.OperatorCreationException;
-import java.io.IOException;
-import java.io.OutputStream;
-import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.operator.DigestCalculatorProvider;
-import org.bouncycastle.tsp.TSPException;
-import org.bouncycastle.tsp.TimeStampToken;
-import org.bouncycastle.tsp.TimeStampTokenInfo;
+ mport cms.Attr buteTable;
+ mport cms.Content nfo;
+ mport cms.Ev dence;
+ mport cms.T meStampAndCRL;
+ mport cms.T meStampedData;
+ mport cms.T meStampedDataParser;
+ mport com.g thub.zhenwe .core.asn1.ASN1Encod ng;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object dent f er;
+ mport com.g thub.zhenwe .core.asn1.x509.Algor thm dent f er;
+ mport com.g thub.zhenwe .core.ut l.Arrays;
+ mport com.g thub.zhenwe .pk x.cms.CMSExcept on;
+ mport com.g thub.zhenwe .pk x.operator.OperatorCreat onExcept on;
+ mport java. o. OExcept on;
+ mport java. o.OutputStream;
+ mport org.bouncycastle.operator.D gestCalculator;
+ mport org.bouncycastle.operator.D gestCalculatorProv der;
+ mport org.bouncycastle.tsp.TSPExcept on;
+ mport org.bouncycastle.tsp.T meStampToken;
+ mport org.bouncycastle.tsp.T meStampToken nfo;
 
 
-class TimeStampDataUtil
+class T meStampDataUt l
 {
-    private final TimeStampAndCRL[] timeStamps;
+    pr vate f nal T meStampAndCRL[] t meStamps;
 
-    private final MetaDataUtil      metaDataUtil;
+    pr vate f nal MetaDataUt l      metaDataUt l;
 
-    TimeStampDataUtil(TimeStampedData timeStampedData)
+    T meStampDataUt l(T meStampedData t meStampedData)
     {
-        this.metaDataUtil = new MetaDataUtil(timeStampedData.getMetaData());
+        th s.metaDataUtil = new MetaDataUtil(timeStampedData.getMetaData());
 
         Evidence evidence = timeStampedData.getTemporalEvidence();
         this.timeStamps = evidence.getTstEvidence().toTimeStampAndCRLArray();

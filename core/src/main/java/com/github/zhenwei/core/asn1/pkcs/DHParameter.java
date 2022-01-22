@@ -33,17 +33,17 @@ public class DHParameter
         }
     }
 
-    public static pkcs.DHParameter getInstance(
+    public static DHParameter getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.DHParameter)
+        if (obj instanceof DHParameter)
         {
-            return (pkcs.DHParameter)obj;
+            return  (DHParameter)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.DHParameter(ASN1Sequence.getInstance(obj));
+            return new DHParameter(ASN1Sequence.getInstance(obj));
         }
 
         return null;

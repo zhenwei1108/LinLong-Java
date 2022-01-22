@@ -24,15 +24,15 @@ public class CertBag
         this.certValue = ASN1TaggedObject.getInstance(seq.getObjectAt(1)).getObject();
     }
 
-    public static pkcs.CertBag getInstance(Object o)
+    public static CertBag getInstance(Object o)
     {
-        if (o instanceof pkcs.CertBag)
+        if (o instanceof CertBag)
         {
-            return (pkcs.CertBag)o;
+            return  (CertBag)o;
         }
         else if (o != null)
         {
-            return new pkcs.CertBag(ASN1Sequence.getInstance(o));
+            return new CertBag(ASN1Sequence.getInstance(o));
         }
 
         return null;

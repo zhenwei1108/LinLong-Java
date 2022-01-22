@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.RSAPublicKeySpec;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 
 
@@ -75,7 +75,7 @@ public class BCRSAPublicKey
     {
         try
         {
-            pkcs.RSAPublicKey  pubKey = pkcs.RSAPublicKey.getInstance(info.parsePublicKey());
+            RSAPublicKey  pubKey = RSAPublicKey.getInstance(info.parsePublicKey());
 
             this.algorithmIdentifier = info.getAlgorithm();
             this.modulus = pubKey.getModulus();
@@ -124,7 +124,7 @@ public class BCRSAPublicKey
 
     public byte[] getEncoded()
     {
-        return KeyUtil.getEncodedSubjectPublicKeyInfo(algorithmIdentifier, new pkcs.RSAPublicKey(getModulus(), getPublicExponent()));
+        return KeyUtil.getEncodedSubjectPublicKeyInfo(algorithmIdentifier, new RSAPublicKey(getModulus(), getPublicExponent()));
     }
 
     RSAKeyParameters engineGetKeyParameters()

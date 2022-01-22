@@ -28,23 +28,23 @@ public class RSAPrivateKeyStructure
     private BigInteger  coefficient;
     private ASN1Sequence otherPrimeInfos = null;
 
-    public static pkcs.RSAPrivateKeyStructure getInstance(
+    public static RSAPrivateKeyStructure getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static pkcs.RSAPrivateKeyStructure getInstance(
+    public static RSAPrivateKeyStructure getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.RSAPrivateKeyStructure)
+        if (obj instanceof RSAPrivateKeyStructure)
         {
-            return (pkcs.RSAPrivateKeyStructure)obj;
+            return  (RSAPrivateKeyStructure)obj;
         }
         else if (obj instanceof ASN1Sequence)
         {
-            return new pkcs.RSAPrivateKeyStructure((ASN1Sequence)obj);
+            return new RSAPrivateKeyStructure((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());

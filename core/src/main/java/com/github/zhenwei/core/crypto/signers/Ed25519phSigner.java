@@ -6,7 +6,7 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
 import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
+import Ed25519PublicKeyParameters;
 import rfc8032.Ed25519;
 
 public class Ed25519phSigner

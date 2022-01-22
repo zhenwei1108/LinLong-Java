@@ -8,10 +8,10 @@ import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import java.io.IOException;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+import DSAPublicKeyParameters;
+import ECPublicKeyParameters;
+import Ed25519PublicKeyParameters;
+ 
 
 
 

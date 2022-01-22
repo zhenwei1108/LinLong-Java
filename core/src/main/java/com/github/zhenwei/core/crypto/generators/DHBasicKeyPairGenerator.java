@@ -1,15 +1,13 @@
 package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
- 
- 
- 
  
 
 /**

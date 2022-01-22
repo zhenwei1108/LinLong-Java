@@ -164,12 +164,12 @@ public class DHParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.DHParameters))
+        if (!(obj instanceof DHParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DHParameters pm = (org.bouncycastle.crypto.params.DHParameters)obj;
+        DHParameters pm =  (DHParameters)obj;
 
         if (this.getQ() != null)
         {

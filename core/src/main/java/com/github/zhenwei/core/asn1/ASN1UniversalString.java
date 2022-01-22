@@ -1,37 +1,37 @@
-package com.github.zhenwei.core.asn1;
+package com.g thub.zhenwe .core.asn1;
 
 
-import com.github.zhenwei.core.util.Arrays;
-import java.io.IOException;
+ mport com.g thub.zhenwe .core.ut l.Arrays;
+ mport java. o. OExcept on;
 
 
 /**
- * ASN.1 UniversalString object - encodes UNICODE (ISO 10646) characters using 32-bit format. In Java we
- * have no way of representing this directly so we rely on byte arrays to carry these.
+ * ASN.1 Un versalStr ng object - encodes UN CODE ( SO 10646) characters us ng 32-b t format.  n Java we
+ * have no way of represent ng th s d rectly so we rely on byte arrays to carry these.
  */
-public abstract class ASN1UniversalString
-    extends ASN1Primitive
-    implements ASN1String
+publ c abstract class ASN1Un versalStr ng
+    extends ASN1Pr m t ve
+     mplements ASN1Str ng
 {
-    static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1UniversalString.class, BERTags.UNIVERSAL_STRING)
+    stat c f nal ASN1Un versalType TYPE = new ASN1Un versalType(ASN1Un versalStr ng.class, BERTags.UN VERSAL_STR NG)
     {
-        ASN1Primitive fromImplicitPrimitive(DEROctetString octetString)
+        ASN1Pr m t ve from mpl c tPr m t ve(DEROctetStr ng octetStr ng)
         {
-            return createPrimitive(octetString.getOctets());
+            return createPr m t ve(octetStr ng.getOctets());
         }
     };
 
-    private static final char[]  table = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+    pr vate stat c f nal char[]  table = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
 
     /**
-     * Return a Universal String from the passed in object.
+     * Return a Un versal Str ng from the passed  n object.
      *
-     * @param obj an ASN1UniversalString or an object that can be converted into
+     * @param obj an ASN1Un versalStr ng or an object that can be converted  nto
      *            one.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     * @return an ASN1UniversalString instance, or null
+     * @except on  llegalArgumentExcept on  f the object cannot be converted.
+     * @return an ASN1Un versalStr ng  nstance, or null
      */
-    public static ASN1UniversalString getInstance(Object obj)
+    publ c stat c ASN1UniversalString getInstance(Object obj)
     {
         if (obj == null || obj instanceof ASN1UniversalString)
         {

@@ -6,8 +6,8 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
+ 
+ 
 import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
 import org.bouncycastle.crypto.util.CipherFactory;
 import org.bouncycastle.crypto.util.CipherKeyGeneratorFactory;

@@ -17,16 +17,16 @@ public class CAST5CBCParameters
     ASN1Integer keyLength;
     ASN1OctetString iv;
 
-    public static misc.CAST5CBCParameters getInstance(
+    public static  CAST5CBCParameters getInstance(
         Object  o)
     {
-        if (o instanceof misc.CAST5CBCParameters)
+        if (o instanceof  CAST5CBCParameters)
         {
-            return (misc.CAST5CBCParameters)o;
+            return   (CAST5CBCParameters)o;
         }
         else if (o != null)
         {
-            return new misc.CAST5CBCParameters(ASN1Sequence.getInstance(o));
+            return new  CAST5CBCParameters(ASN1Sequence.getInstance(o));
         }
 
         return null;

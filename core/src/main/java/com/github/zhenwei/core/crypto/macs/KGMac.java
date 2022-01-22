@@ -3,12 +3,15 @@ package com.github.zhenwei.core.crypto.macs;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.modes.KGCMBlockCipher;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.modes.KGCMBlockCipher;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+ 
+
+ 
 
 /**
  * The GMAC specialisation of Galois/Counter mode (GCM) detailed in NIST Special Publication

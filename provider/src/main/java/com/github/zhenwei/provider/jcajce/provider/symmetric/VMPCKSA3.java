@@ -1,11 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
 import org.bouncycastle.crypto.engines.VMPCKSA3Engine;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
+ 
+ 
 
 public final class VMPCKSA3
 {
@@ -34,7 +34,7 @@ public final class VMPCKSA3
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.VMPCKSA3.class.getName();
+        private static final String PREFIX = VMPCKSA3.class.getName();
 
         public Mappings()
         {

@@ -6,8 +6,8 @@ import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.params.DHMQVPrivateParameters;
-import org.bouncycastle.crypto.params.DHMQVPublicParameters;
+import DHMQVPrivateParameters;
+import DHMQVPublicParameters;
  
  
  

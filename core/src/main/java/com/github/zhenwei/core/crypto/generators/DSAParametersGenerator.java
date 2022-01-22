@@ -7,9 +7,9 @@ import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.params.DSAParameterGenerationParameters;
-import org.bouncycastle.crypto.params.DSAValidationParameters;
+import  SHA1Digest;
+import DSAParameterGenerationParameters;
+import DSAValidationParameters;
 
 
  

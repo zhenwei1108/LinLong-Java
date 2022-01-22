@@ -14,7 +14,7 @@ import org.bouncycastle.mime.MimeContext;
 import org.bouncycastle.mime.MimeMultipartContext;
 import org.bouncycastle.mime.MimeParserContext;
 import org.bouncycastle.operator.DigestCalculator;
-import org.bouncycastle.util.io.TeeInputStream;
+import  io.TeeInputStream;
 
 
 public class SMimeMultipartContext

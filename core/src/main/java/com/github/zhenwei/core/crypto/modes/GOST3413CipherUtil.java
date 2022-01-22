@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.modes;
 
 
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * Some methods for GOST 3412 cipher algorithm

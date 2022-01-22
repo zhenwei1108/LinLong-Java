@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.Digest;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.digests.SHA256Digest;
+import  SHA256Digest;
 
 
 /**

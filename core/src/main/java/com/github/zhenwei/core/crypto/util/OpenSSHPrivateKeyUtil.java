@@ -25,7 +25,7 @@ import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.math.BigInteger;
 import nist.NISTNamedCurves;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
+import Ed25519PublicKeyParameters;
  
 
  

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.paddings;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+ 
 
 /**
  * Block cipher padders are expected to conform to this interface

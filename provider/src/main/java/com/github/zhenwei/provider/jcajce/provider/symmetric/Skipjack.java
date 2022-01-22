@@ -1,15 +1,16 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.SkipjackEngine;
-import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-import org.bouncycastle.crypto.macs.CFBBlockCipherMac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.engines.SkipjackEngine;
+import com.github.zhenwei.core.crypto.macs.CFBBlockCipherMac;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
 
 public final class Skipjack
 {
@@ -65,7 +66,7 @@ public final class Skipjack
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Skipjack.class.getName();
+        private static final String PREFIX = Skipjack.class.getName();
 
         public Mappings()
         {

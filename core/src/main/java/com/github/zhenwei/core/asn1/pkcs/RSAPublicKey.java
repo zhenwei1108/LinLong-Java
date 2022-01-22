@@ -17,24 +17,24 @@ public class RSAPublicKey
     private BigInteger modulus;
     private BigInteger publicExponent;
 
-    public static pkcs.RSAPublicKey getInstance(
+    public static RSAPublicKey getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static pkcs.RSAPublicKey getInstance(
+    public static RSAPublicKey getInstance(
         Object obj)
     {
-        if (obj instanceof pkcs.RSAPublicKey)
+        if (obj instanceof RSAPublicKey)
         {
-            return (pkcs.RSAPublicKey)obj;
+            return  (RSAPublicKey)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.RSAPublicKey(ASN1Sequence.getInstance(obj));
+            return new RSAPublicKey(ASN1Sequence.getInstance(obj));
         }
         
         return null;

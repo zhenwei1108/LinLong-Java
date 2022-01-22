@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ 
 import org.bouncycastle.pqc.crypto.MessageSigner;
 import org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
 import org.bouncycastle.pqc.crypto.gmss.util.GMSSUtil;

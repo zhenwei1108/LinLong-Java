@@ -1,6 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
 import java.security.SecureRandom;
@@ -8,8 +10,8 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.KeyGeneratorSpi;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
+ 
 
 public class BaseKeyGenerator
     extends KeyGeneratorSpi
@@ -17,7 +19,7 @@ public class BaseKeyGenerator
     protected String                algName;
     protected int                   keySize;
     protected int                   defaultKeySize;
-    protected CipherKeyGenerator    engine;
+    protected CipherKeyGenerator engine;
 
     protected boolean               uninitialised = true;
 

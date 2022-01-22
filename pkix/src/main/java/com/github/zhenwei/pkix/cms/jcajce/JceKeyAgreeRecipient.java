@@ -34,7 +34,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import org.bouncycastle.jcajce.spec.GOST28147WrapParameterSpec;
+  
 import org.bouncycastle.jcajce.spec.MQVParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;

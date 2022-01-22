@@ -8,7 +8,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import java.io.IOException;
-import pkcs.Attribute;
+import Attribute;
 
 /**
  * <pre>

@@ -2,8 +2,8 @@ package com.github.zhenwei.provider.jcajce.provider.digest;
 
 
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.crypto.digests.Blake2sDigest;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+import  Blake2sDigest;
+ 
 
 public class Blake2s
 {

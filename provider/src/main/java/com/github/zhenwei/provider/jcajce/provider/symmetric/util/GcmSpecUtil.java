@@ -2,6 +2,9 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.cms.GCMParameters;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Integers;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -11,15 +14,15 @@ import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.internal.asn1.cms.GCMParameters;
+ 
+ 
+ 
  
 
 public class GcmSpecUtil
 {
     static final Class gcmSpecClass = ClassUtil.loadClass(
-        org.bouncycastle.jcajce.provider.symmetric.util.GcmSpecUtil.class, "javax.crypto.spec.GCMParameterSpec");
+          GcmSpecUtil.class, "javax.crypto.spec.GCMParameterSpec");
 
     static final Method tLen;
     static final Method iv;

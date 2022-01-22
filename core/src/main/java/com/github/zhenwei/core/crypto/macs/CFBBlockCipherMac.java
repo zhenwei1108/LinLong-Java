@@ -1,12 +1,14 @@
 package com.github.zhenwei.core.crypto.macs;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.paddings.BlockCipherPadding;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+
+ 
 
 /**
  * implements a Cipher-FeedBack (CFB) mode on top of a simple cipher.
@@ -173,8 +175,8 @@ public class CFBBlockCipherMac
 
     private byte[]              buf;
     private int                 bufOff;
-    private org.bouncycastle.crypto.macs.MacCFBBlockCipher cipher;
-    private BlockCipherPadding  padding = null;
+    private  MacCFBBlockCipher cipher;
+    private BlockCipherPadding padding = null;
 
 
     private int                 macSize;
@@ -187,7 +189,7 @@ public class CFBBlockCipherMac
      * @param cipher the cipher to be used as the basis of the MAC generation.
      */
     public CFBBlockCipherMac(
-        BlockCipher     cipher)
+        BlockCipher cipher)
     {
         this(cipher, 8, (cipher.getBlockSize() * 8) / 2, null);
     }
@@ -257,7 +259,7 @@ public class CFBBlockCipherMac
 
         mac = new byte[cipher.getBlockSize()];
 
-        this.cipher = new org.bouncycastle.crypto.macs.MacCFBBlockCipher(cipher, cfbBitSize);
+        this.cipher = new  MacCFBBlockCipher(cipher, cfbBitSize);
         this.padding = padding;
         this.macSize = macSizeInBits / 8;
 

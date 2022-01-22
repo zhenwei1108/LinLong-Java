@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.StreamBlockCipher;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.StreamBlockCipher;
+
 
 /**
  * A Cipher Text Stealing (CTS) mode cipher. CTS allows block ciphers to
@@ -22,7 +23,7 @@ public class CTSBlockCipher
      * @param cipher the underlying block cipher this buffering object wraps.
      */
     public CTSBlockCipher(
-        BlockCipher     cipher)
+        BlockCipher cipher)
     {
         if (cipher instanceof StreamBlockCipher)
         {

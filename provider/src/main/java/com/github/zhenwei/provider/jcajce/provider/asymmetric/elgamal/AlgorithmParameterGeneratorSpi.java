@@ -9,7 +9,7 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.DHGenParameterSpec;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.crypto.generators.ElGamalParametersGenerator;
+import ElGamalParametersGenerator;
  
  
 

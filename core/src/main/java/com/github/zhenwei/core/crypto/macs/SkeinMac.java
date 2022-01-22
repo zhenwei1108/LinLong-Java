@@ -2,11 +2,10 @@ package com.github.zhenwei.core.crypto.macs;
 
 
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.digests.SkeinEngine;
-import org.bouncycastle.crypto.engines.ThreefishEngine;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.SkeinParameters;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.digests.SkeinEngine;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.SkeinParameters;
 
 /**
  * Implementation of the Skein parameterised MAC function in 256, 512 and 1024 bit block sizes,
@@ -51,7 +50,7 @@ public class SkeinMac
         this.engine = new SkeinEngine(stateSizeBits, digestSizeBits);
     }
 
-    public SkeinMac(org.bouncycastle.crypto.macs.SkeinMac mac)
+    public SkeinMac(  SkeinMac mac)
     {
         this.engine = new SkeinEngine(mac.engine);
     }

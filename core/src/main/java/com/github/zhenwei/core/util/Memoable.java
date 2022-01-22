@@ -12,7 +12,7 @@ public interface Memoable
      * The returned object may be used simply to store the state, or may be used as a similar object
      * starting from the copied state.
      */
-    org.bouncycastle.util.Memoable copy();
+     Memoable copy();
 
     /**
      * Restore a copied object state into this object.
@@ -23,5 +23,5 @@ public interface Memoable
      * @throws ClassCastException if the provided object is not of the correct type.
      * @throws MemoableResetException if the <b>other</b> parameter is in some other way invalid.
      */
-    void reset(org.bouncycastle.util.Memoable other);
+    void reset( Memoable other);
 }

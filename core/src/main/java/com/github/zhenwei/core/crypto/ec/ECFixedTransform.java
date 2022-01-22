@@ -7,7 +7,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+import ECPublicKeyParameters;
 
 /**
  * this transforms the original randomness used for an ElGamal encryption by a fixed value.

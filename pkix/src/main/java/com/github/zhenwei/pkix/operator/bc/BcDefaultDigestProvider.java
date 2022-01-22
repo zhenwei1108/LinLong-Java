@@ -13,21 +13,21 @@ import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.digests.GOST3411Digest;
-import org.bouncycastle.crypto.digests.GOST3411_2012_256Digest;
-import org.bouncycastle.crypto.digests.GOST3411_2012_512Digest;
-import org.bouncycastle.crypto.digests.MD2Digest;
-import org.bouncycastle.crypto.digests.MD4Digest;
-import org.bouncycastle.crypto.digests.MD5Digest;
-import org.bouncycastle.crypto.digests.RIPEMD128Digest;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.digests.RIPEMD256Digest;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.digests.SHA224Digest;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA384Digest;
-import org.bouncycastle.crypto.digests.SHA3Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
+import  GOST3411Digest;
+import  GOST3411_2012_256Digest;
+import  GOST3411_2012_512Digest;
+import  MD2Digest;
+import  MD4Digest;
+import  MD5Digest;
+import  RIPEMD128Digest;
+import  RIPEMD160Digest;
+import  RIPEMD256Digest;
+import  SHA1Digest;
+import  SHA224Digest;
+import  SHA256Digest;
+import  SHA384Digest;
+import  SHA3Digest;
+import  SHA512Digest;
 
 
 

@@ -1,24 +1,24 @@
-package com.github.zhenwei.core.math.ec.custom.djb;
+package com.g thub.zhenwe .core.math.ec.custom.djb;
 
 
-import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
-import com.github.zhenwei.core.math.ec.ECConstants;
-import com.github.zhenwei.core.math.ec.ECCurve;
-import com.github.zhenwei.core.math.ec.ECFieldElement;
-import com.github.zhenwei.core.math.ec.ECLookupTable;
-import com.github.zhenwei.core.math.raw.Nat256;
-import com.github.zhenwei.core.util.encoders.Hex;
-import java.math.BigInteger;
-import java.security.SecureRandom;
+ mport com.g thub.zhenwe .core.math.ec.AbstractECLookupTable;
+ mport com.g thub.zhenwe .core.math.ec.ECConstants;
+ mport com.g thub.zhenwe .core.math.ec.ECCurve;
+ mport com.g thub.zhenwe .core.math.ec.ECF eldElement;
+ mport com.g thub.zhenwe .core.math.ec.ECLookupTable;
+ mport com.g thub.zhenwe .core.math.raw.Nat256;
+ mport com.g thub.zhenwe .core.ut l.encoders.Hex;
+ mport java.math.B g nteger;
+ mport java.secur ty.SecureRandom;
 
 
 
-public class Curve25519 extends ECCurve.AbstractFp
+publ c class Curve25519 extends ECCurve.AbstractFp
 {
-    public static final BigInteger q = Curve25519FieldElement.Q;
+    publ c stat c f nal B g nteger q = Curve25519F eldElement.Q;
 
-    private static final BigInteger C_a = new BigInteger(1, Hex.decodeStrict("2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA984914A144"));
-    private static final BigInteger C_b = new BigInteger(1, Hex.decodeStrict("7B425ED097B425ED097B425ED097B425ED097B425ED097B4260B5E9C7710C864"));
+    pr vate stat c f nal B g nteger C_a = new B g nteger(1, Hex.decodeStr ct("2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA984914A144"));
+    pr vate static final BigInteger C_b = new BigInteger(1, Hex.decodeStrict("7B425ED097B425ED097B425ED097B425ED097B425ED097B4260B5E9C7710C864"));
 
     private static final int CURVE25519_DEFAULT_COORDS = COORD_JACOBIAN_MODIFIED;
     private static final ECFieldElement[] CURVE25519_AFFINE_ZS = new ECFieldElement[] {

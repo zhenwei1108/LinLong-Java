@@ -6,7 +6,30 @@ import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
-import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBE.Util;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.PasswordConverter;
+import com.github.zhenwei.core.crypto.engines.DESEngine;
+import com.github.zhenwei.core.crypto.engines.RFC3211WrapEngine;
+import com.github.zhenwei.core.crypto.generators.DESKeyGenerator;
+import com.github.zhenwei.core.crypto.macs.CBCBlockCipherMac;
+import com.github.zhenwei.core.crypto.macs.CFBBlockCipherMac;
+import com.github.zhenwei.core.crypto.macs.CMac;
+import com.github.zhenwei.core.crypto.macs.ISO9797Alg3Mac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.ISO7816d4Padding;
+import com.github.zhenwei.core.crypto.params.DESParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.provider.jcajce.PBKDF1Key;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BCPBEKey;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
@@ -18,30 +41,8 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.PasswordConverter;
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.engines.RFC3211WrapEngine;
-import org.bouncycastle.crypto.generators.DESKeyGenerator;
-import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-import org.bouncycastle.crypto.macs.CFBBlockCipherMac;
-import org.bouncycastle.crypto.macs.CMac;
-import org.bouncycastle.crypto.macs.ISO9797Alg3Mac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.paddings.ISO7816d4Padding;
-import org.bouncycastle.crypto.params.DESParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.jcajce.PBKDF1Key;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
+;
 
 
 public final class DES
@@ -436,7 +437,7 @@ public final class DES
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.DES.class.getName();
+        private static final String PREFIX = DES.class.getName();
         private static final String PACKAGE = "org.bouncycastle.jcajce.provider.symmetric"; // JDK 1.2
 
         public Mappings()

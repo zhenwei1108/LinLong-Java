@@ -40,12 +40,12 @@ public class DSTU7564Digest
     private int bufOff;
     private byte[] buf;
 
-    public DSTU7564Digest(org.bouncycastle.crypto.digests.DSTU7564Digest digest)
+    public DSTU7564Digest( DSTU7564Digest digest)
     {
         copyIn(digest);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.DSTU7564Digest digest)
+    private void copyIn( DSTU7564Digest digest)
     {
         this.hashSize = digest.hashSize;
         this.blockSize = digest.blockSize;
@@ -565,12 +565,12 @@ public class DSTU7564Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.DSTU7564Digest(this);
+        return new  DSTU7564Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.DSTU7564Digest d = (org.bouncycastle.crypto.digests.DSTU7564Digest)other;
+         DSTU7564Digest d = ( DSTU7564Digest)other;
 
         copyIn(d);
     }

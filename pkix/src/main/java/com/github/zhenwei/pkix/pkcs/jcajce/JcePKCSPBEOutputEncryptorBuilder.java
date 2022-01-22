@@ -25,11 +25,11 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import misc.ScryptParams;
+import  ScryptParams;
 import org.bouncycastle.crypto.util.PBKDF2Config;
 import org.bouncycastle.crypto.util.PBKDFConfig;
 import org.bouncycastle.crypto.util.ScryptConfig;
-import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
+  
 import org.bouncycastle.jcajce.io.CipherOutputStream;
 import org.bouncycastle.jcajce.spec.ScryptKeySpec;
 import org.bouncycastle.operator.AlgorithmNameFinder;
@@ -37,8 +37,8 @@ import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.SecretKeySizeProvider;
-import pkcs.EncryptionScheme;
-import pkcs.KeyDerivationFunc;
+import EncryptionScheme;
+import KeyDerivationFunc;
 
 
 

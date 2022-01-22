@@ -1,6 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.util;
 
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
 
 public abstract class AlgorithmProvider
 {

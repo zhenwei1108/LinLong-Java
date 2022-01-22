@@ -1,48 +1,48 @@
-package com.github.zhenwei.core.pqc.math.linearalgebra;
+package com.g thub.zhenwe .core.pqc.math.l nearalgebra;
 
-import java.math.BigInteger;
+ mport java.math.B g nteger;
 
 /**
- * FIXME: is this really necessary?!
+ * F XME:  s th s really necessary?!
  */
-public final class BigIntUtils
+publ c f nal class B g ntUt ls
 {
 
     /**
-     * Default constructor (private).
+     * Default constructor (pr vate).
      */
-    private BigIntUtils()
+    pr vate B g ntUt ls()
     {
         // empty
     }
 
     /**
-     * Checks if two BigInteger arrays contain the same entries
+     * Checks  f two B g nteger arrays conta n the same entr es
      *
-     * @param a first BigInteger array
-     * @param b second BigInteger array
+     * @param a f rst B g nteger array
+     * @param b second B g nteger array
      * @return true or false
      */
-    public static boolean equals(BigInteger[] a, BigInteger[] b)
+    publ c stat c boolean equals(B g nteger[] a, B g nteger[] b)
     {
-        int flag = 0;
+         nt flag = 0;
 
-        if (a.length != b.length)
+         f (a.length != b.length)
         {
             return false;
         }
-        for (int i = 0; i < a.length; i++)
+        for ( nt   = 0;   < a.length;  ++)
         {
-            // avoid branches here!
-            // problem: compareTo on BigIntegers is not
-            // guaranteed constant-time!
-            flag |= a[i].compareTo(b[i]);
+            // avo d branches here!
+            // problem: compareTo on B g ntegers  s not
+            // guaranteed constant-t me!
+            flag |= a[ ].compareTo(b[ ]);
         }
         return flag == 0;
     }
 
     /**
-     * Fill the given BigInteger array with the given value.
+     * F ll the g ven B g nteger array w th the g ven value.
      *
      * @param array the array
      * @param value the value

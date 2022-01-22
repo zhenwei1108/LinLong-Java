@@ -1,18 +1,14 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.engines.ThreefishEngine;
+import com.github.zhenwei.core.crypto.params.SkeinParameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Memoable;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.engines.ThreefishEngine;
-import org.bouncycastle.crypto.macs.SkeinMac;
-import org.bouncycastle.crypto.params.SkeinParameters;
-
- 
-
 
 /**
  * Implementation of the Skein family of parameterised hash functions in 256, 512 and 1024 bit block
@@ -532,13 +528,13 @@ public class SkeinEngine
     /**
      * Creates a SkeinEngine as an exact copy of an existing instance.
      */
-    public SkeinEngine(org.bouncycastle.crypto.digests.SkeinEngine engine)
+    public SkeinEngine( SkeinEngine engine)
     {
         this(engine.getBlockSize() * 8, engine.getOutputSize() * 8);
         copyIn(engine);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.SkeinEngine engine)
+    private void copyIn( SkeinEngine engine)
     {
         this.ubi.reset(engine.ubi);
         this.chain = Arrays.clone(engine.chain, this.chain);
@@ -564,12 +560,12 @@ public class SkeinEngine
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SkeinEngine(this);
+        return new  SkeinEngine(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SkeinEngine s = (org.bouncycastle.crypto.digests.SkeinEngine)other;
+         SkeinEngine s = ( SkeinEngine)other;
         if ((getBlockSize() != s.getBlockSize()) || (outputSizeBytes != s.outputSizeBytes))
         {
             throw new IllegalArgumentException("Incompatible parameters in provided SkeinEngine.");

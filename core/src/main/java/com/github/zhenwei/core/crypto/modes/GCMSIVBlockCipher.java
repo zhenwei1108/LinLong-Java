@@ -1,22 +1,23 @@
 package com.github.zhenwei.core.crypto.modes;
 
+
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.engines.AESEngine;
+import com.github.zhenwei.core.crypto.modes.gcm.GCMMultiplier;
+import com.github.zhenwei.core.crypto.modes.gcm.Tables4kGCMMultiplier;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Bytes;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Longs;
+import com.github.zhenwei.core.util.Pack;
 import java.io.ByteArrayOutputStream;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.modes.gcm.GCMMultiplier;
-import org.bouncycastle.crypto.modes.gcm.Tables4kGCMMultiplier;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.Bytes;
- 
 
 
 

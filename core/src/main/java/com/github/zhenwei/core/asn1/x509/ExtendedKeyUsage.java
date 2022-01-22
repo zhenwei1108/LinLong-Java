@@ -1,42 +1,42 @@
-package com.github.zhenwei.core.asn1.x509;
+package com.g thub.zhenwe .core.asn1.x509;
 
 
-import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.core.asn1.ASN1EncodableVector;
-import com.github.zhenwei.core.asn1.ASN1Object;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.ASN1TaggedObject;
-import com.github.zhenwei.core.asn1.DERSequence;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.Vector;
+ mport com.g thub.zhenwe .core.asn1.ASN1Encodable;
+ mport com.g thub.zhenwe .core.asn1.ASN1EncodableVector;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object dent f er;
+ mport com.g thub.zhenwe .core.asn1.ASN1Pr m t ve;
+ mport com.g thub.zhenwe .core.asn1.ASN1Sequence;
+ mport com.g thub.zhenwe .core.asn1.ASN1TaggedObject;
+ mport com.g thub.zhenwe .core.asn1.DERSequence;
+ mport java.ut l.Enumerat on;
+ mport java.ut l.Hashtable;
+ mport java.ut l.Vector;
 
 /**
  * The extendedKeyUsage object.
  * <pre>
- *      extendedKeyUsage ::= SEQUENCE SIZE (1..MAX) OF KeyPurposeId
+ *      extendedKeyUsage ::= SEQUENCE S ZE (1..MAX) OF KeyPurpose d
  * </pre>
  */
-public class ExtendedKeyUsage
+publ c class ExtendedKeyUsage
     extends ASN1Object
 {
     Hashtable     usageTable = new Hashtable();
     ASN1Sequence seq;
 
     /**
-     * Return an ExtendedKeyUsage from the passed in tagged object.
+     * Return an ExtendedKeyUsage from the passed  n tagged object.
      *
-     * @param obj the tagged object containing the ExtendedKeyUsage
-     * @param explicit true if the tagged object should be interpreted as explicitly tagged, false if implicit.
-     * @return the ExtendedKeyUsage contained.
+     * @param obj the tagged object conta n ng the ExtendedKeyUsage
+     * @param expl c t true  f the tagged object should be  nterpreted as expl c tly tagged, false  f  mpl c t.
+     * @return the ExtendedKeyUsage conta ned.
      */
-    public static ExtendedKeyUsage getInstance(
+    publ c stat c ExtendedKeyUsage get nstance(
         ASN1TaggedObject obj,
-        boolean          explicit)
+        boolean          expl c t)
     {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+        return get nstance(ASN1Sequence.get nstance(obj, expl c t));
     }
 
     /**

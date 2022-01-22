@@ -1,19 +1,19 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
+ 
 import org.bouncycastle.crypto.engines.TwofishEngine;
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.crypto.macs.GMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+ 
+ ;
+ 
+ 
+ 
+ 
+ 
+   (
+ 
+   (
+ 
 
 public final class Twofish
 {
@@ -59,7 +59,7 @@ public final class Twofish
     {
         public Poly1305()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305(new TwofishEngine()));
+            super(new  Poly1305(new TwofishEngine()));
         }
     }
 
@@ -108,7 +108,7 @@ public final class Twofish
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Twofish.class.getName();
+        private static final String PREFIX = Twofish.class.getName();
 
         public Mappings()
         {

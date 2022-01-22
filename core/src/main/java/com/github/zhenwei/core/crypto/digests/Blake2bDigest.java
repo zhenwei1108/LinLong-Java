@@ -115,7 +115,7 @@ public class Blake2bDigest
         this(512);
     }
 
-    public Blake2bDigest(org.bouncycastle.crypto.digests.Blake2bDigest digest)
+    public Blake2bDigest( Blake2bDigest digest)
     {
         this.bufferPos = digest.bufferPos;
         this.buffer = Arrays.clone(digest.buffer);

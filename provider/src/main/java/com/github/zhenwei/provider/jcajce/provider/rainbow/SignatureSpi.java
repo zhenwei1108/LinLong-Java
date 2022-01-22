@@ -7,11 +7,11 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.digests.SHA224Digest;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA384Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import  SHA224Digest;
+import  SHA256Digest;
+import  SHA384Digest;
+import  SHA512Digest;
+ 
 import org.bouncycastle.pqc.crypto.rainbow.RainbowSigner;
 
 /**

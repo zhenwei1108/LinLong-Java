@@ -102,7 +102,7 @@ public class Haraka256Digest
         this.buffer = new byte[32];
     }
 
-    public Haraka256Digest(org.bouncycastle.crypto.digests.Haraka256Digest digest)
+    public Haraka256Digest( Haraka256Digest digest)
     {
         this.buffer = Arrays.clone(digest.buffer);
         this.off = digest.off;

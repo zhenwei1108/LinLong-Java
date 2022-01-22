@@ -31,12 +31,12 @@ public class ElGamalKeyParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.ElGamalKeyParameters))
+        if (!(obj instanceof ElGamalKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.ElGamalKeyParameters dhKey = (org.bouncycastle.crypto.params.ElGamalKeyParameters)obj;
+        ElGamalKeyParameters dhKey =  (ElGamalKeyParameters)obj;
 
         if (params == null)
         {

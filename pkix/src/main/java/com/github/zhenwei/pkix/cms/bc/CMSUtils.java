@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms.bc;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.pkix.operator.GenericKey;
-import org.bouncycastle.crypto.params.KeyParameter;
+ 
 
 
 class CMSUtils

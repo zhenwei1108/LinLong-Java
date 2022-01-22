@@ -646,6 +646,6 @@ public final class BCrypt
             throw new IllegalArgumentException("BCrypt cost must be from 4..31");
         }
 
-        return new org.bouncycastle.crypto.generators.BCrypt().deriveRawKey(cost, salt, pwInput);
+        return new BCrypt().deriveRawKey(cost, salt, pwInput);
     }
 }

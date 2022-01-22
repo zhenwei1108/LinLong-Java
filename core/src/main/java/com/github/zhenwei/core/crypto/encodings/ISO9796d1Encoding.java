@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.encodings;
 
+import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+
 
 /**
  * ISO 9796-1 padding. Note in the light of recent results you should
@@ -46,7 +47,7 @@ public class ISO9796d1Encoding
         boolean             forEncryption,
         CipherParameters param)
     {
-        RSAKeyParameters  kParam = null;
+        RSAKeyParameters kParam = null;
 
         if (param instanceof ParametersWithRandom)
         {

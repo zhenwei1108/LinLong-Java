@@ -11,11 +11,11 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.digests.NullDigest;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import  NullDigest;
+import  SHA256Digest;
+import  SHA512Digest;
+import  SHAKEDigest;
+ 
 import org.bouncycastle.pqc.crypto.xmss.XMSSSigner;
 import org.bouncycastle.pqc.jcajce.interfaces.StateAwareSignature;
 

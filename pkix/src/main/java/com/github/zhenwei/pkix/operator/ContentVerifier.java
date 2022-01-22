@@ -20,7 +20,7 @@ public interface ContentVerifier
 
     /**
      * Returns a stream that will accept data for the purpose of calculating
-     * a signature for later verification. Use org.bouncycastle.util.io.TeeOutputStream if you want to accumulate
+     * a signature for later verification. Use  io.TeeOutputStream if you want to accumulate
      * the data on the fly as well.
      *
      * @return an OutputStream

@@ -7,10 +7,10 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.InputStream;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
+import  SHA1Digest;
+import PKCS12ParametersGenerator;
 import org.bouncycastle.crypto.io.CipherInputStream;
-import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
+ 
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
 

@@ -9,9 +9,9 @@ import java.security.InvalidParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.DSAParameterSpec;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.generators.DSAParametersGenerator;
-import org.bouncycastle.crypto.params.DSAParameterGenerationParameters;
+import  SHA256Digest;
+import DSAParametersGenerator;
+import DSAParameterGenerationParameters;
  
  
  

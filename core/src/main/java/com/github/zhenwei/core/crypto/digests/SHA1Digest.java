@@ -31,7 +31,7 @@ public class SHA1Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public SHA1Digest(org.bouncycastle.crypto.digests.SHA1Digest t)
+    public SHA1Digest( SHA1Digest t)
     {
         super(t);
 
@@ -60,7 +60,7 @@ public class SHA1Digest
         }
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.SHA1Digest t)
+    private void copyIn( SHA1Digest t)
     {
         H1 = t.H1;
         H2 = t.H2;
@@ -314,12 +314,12 @@ public class SHA1Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SHA1Digest(this);
+        return new  SHA1Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SHA1Digest d = (org.bouncycastle.crypto.digests.SHA1Digest)other;
+         SHA1Digest d = ( SHA1Digest)other;
 
         super.copyIn(d);
         copyIn(d);

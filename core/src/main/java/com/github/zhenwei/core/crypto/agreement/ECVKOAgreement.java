@@ -8,8 +8,8 @@ import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithUKM;
+import ECPublicKeyParameters;
+  
  
 
 /**

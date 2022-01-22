@@ -12,7 +12,7 @@ import java.math.BigInteger;
 import java.util.Enumeration;
 
 /**
- * @deprecated use pkcs.RSAPublicKey
+ * @deprecated use RSAPublicKey
  */
 public class RSAPublicKeyStructure
     extends ASN1Object

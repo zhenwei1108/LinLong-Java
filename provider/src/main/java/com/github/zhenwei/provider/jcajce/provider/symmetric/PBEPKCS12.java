@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
+ 
 
 
 public class PBEPKCS12
@@ -106,7 +106,7 @@ public class PBEPKCS12
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.PBEPKCS12.class.getName();
+        private static final String PREFIX = PBEPKCS12.class.getName();
 
         public Mappings()
         {

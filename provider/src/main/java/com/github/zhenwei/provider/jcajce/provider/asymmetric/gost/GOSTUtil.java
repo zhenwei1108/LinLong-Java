@@ -3,8 +3,8 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Strings;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.util.Fingerprint;
+import GOST3410Parameters;
+import  Fingerprint;
 
 
 class GOSTUtil

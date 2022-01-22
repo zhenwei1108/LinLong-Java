@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.macs.Poly1305;
+
+  
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 
 /**
  * Generates keys for the Poly1305 MAC.

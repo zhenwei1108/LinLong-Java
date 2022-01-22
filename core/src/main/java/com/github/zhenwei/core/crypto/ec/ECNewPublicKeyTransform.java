@@ -9,8 +9,8 @@ import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import ECPublicKeyParameters;
+ 
 
 /**
  * this does your basic Elgamal encryption algorithm using EC

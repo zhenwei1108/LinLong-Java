@@ -30,14 +30,14 @@ public class RIPEMD256Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public RIPEMD256Digest(org.bouncycastle.crypto.digests.RIPEMD256Digest t)
+    public RIPEMD256Digest( RIPEMD256Digest t)
     {
         super(t);
 
         copyIn(t);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.RIPEMD256Digest t)
+    private void copyIn( RIPEMD256Digest t)
     {
         super.copyIn(t);
 
@@ -485,12 +485,12 @@ public class RIPEMD256Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.RIPEMD256Digest(this);
+        return new  RIPEMD256Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.RIPEMD256Digest d = (org.bouncycastle.crypto.digests.RIPEMD256Digest)other;
+         RIPEMD256Digest d = ( RIPEMD256Digest)other;
 
         copyIn(d);
     }

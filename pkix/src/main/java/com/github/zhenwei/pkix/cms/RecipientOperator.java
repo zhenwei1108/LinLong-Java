@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import org.bouncycastle.operator.InputAEADDecryptor;
 import org.bouncycastle.operator.InputDecryptor;
-import org.bouncycastle.util.io.TeeInputStream;
+import  io.TeeInputStream;
 
 public class RecipientOperator
 {

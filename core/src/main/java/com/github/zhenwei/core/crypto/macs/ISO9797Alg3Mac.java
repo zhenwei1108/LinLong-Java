@@ -1,13 +1,18 @@
 package com.github.zhenwei.core.crypto.macs;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.engines.DESEngine;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.BlockCipherPadding;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+ 
+
+ 
+ 
+ 
 
 /**
  * DES based CBC Block Cipher MAC according to ISO9797, algorithm 3 (ANSI 19 Retail MAC)
@@ -27,7 +32,7 @@ public class ISO9797Alg3Mac
     private BlockCipherPadding  padding;
     
     private int                 macSize;
-    private KeyParameter        lastKey2;
+    private KeyParameter lastKey2;
     private KeyParameter        lastKey3;
     
     /**
@@ -38,7 +43,7 @@ public class ISO9797Alg3Mac
      * be DESEngine.
      */
     public ISO9797Alg3Mac(
-            BlockCipher     cipher)
+            BlockCipher cipher)
     {
         this(cipher, cipher.getBlockSize() * 8, null);
     }
@@ -52,7 +57,7 @@ public class ISO9797Alg3Mac
      */
     public ISO9797Alg3Mac(
         BlockCipher         cipher,
-        BlockCipherPadding  padding)
+        BlockCipherPadding padding)
     {
         this(cipher, cipher.getBlockSize() * 8, padding);
     }

@@ -25,12 +25,12 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import org.bouncycastle.crypto.PasswordConverter;
 import org.bouncycastle.jcajce.PBKDF2Key;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBE;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+ 
+import   BCPBEKey;
+ 
+ 
+import   PBE;
+ 
 
  
 
@@ -343,7 +343,7 @@ public class PBEPBKDF2
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.PBEPBKDF2.class.getName();
+        private static final String PREFIX = PBEPBKDF2.class.getName();
 
         public Mappings()
         {

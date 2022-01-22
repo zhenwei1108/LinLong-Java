@@ -6,11 +6,11 @@ import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.generators.OpenSSLPBEParametersGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import OpenSSLPBEParametersGenerator;
+ 
+ 
+ 
+ 
 
 
 public final class OpenSSLPBKDF
@@ -71,7 +71,7 @@ public final class OpenSSLPBKDF
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.OpenSSLPBKDF.class.getName();
+        private static final String PREFIX = OpenSSLPBKDF.class.getName();
 
         public Mappings()
         {

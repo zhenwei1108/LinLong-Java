@@ -28,12 +28,12 @@ public class CramerShoupParameters
 
     public boolean equals(Object obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.CramerShoupParameters))
+        if (!(obj instanceof CramerShoupParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.CramerShoupParameters pm = (org.bouncycastle.crypto.params.CramerShoupParameters)obj;
+        CramerShoupParameters pm =  (CramerShoupParameters)obj;
 
         return (pm.getP().equals(p) && pm.getG1().equals(g1) && pm.getG2().equals(g2));
     }

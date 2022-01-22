@@ -52,12 +52,12 @@ public class ElGamalParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.ElGamalParameters))
+        if (!(obj instanceof ElGamalParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.ElGamalParameters pm = (org.bouncycastle.crypto.params.ElGamalParameters)obj;
+        ElGamalParameters pm =  (ElGamalParameters)obj;
 
         return pm.getP().equals(p) && pm.getG().equals(g) && pm.getL() == l;
     }

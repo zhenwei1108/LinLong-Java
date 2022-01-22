@@ -3,10 +3,10 @@ package com.github.zhenwei.core.crypto.engines;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+ 
+ ;
+ 
+ 
 
 /**
  * HC-256 is a software-efficient stream cipher created by Hongjun Wu. It 

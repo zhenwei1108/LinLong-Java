@@ -4,7 +4,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
 import java.io.ByteArrayOutputStream;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
+import Ed25519PublicKeyParameters;
 import rfc8032.Ed25519;
 
 public class Ed25519Signer

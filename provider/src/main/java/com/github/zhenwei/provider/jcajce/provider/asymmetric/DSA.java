@@ -4,9 +4,9 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.KeyFactorySpi;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
-import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+ 
 
 public class DSA
 {

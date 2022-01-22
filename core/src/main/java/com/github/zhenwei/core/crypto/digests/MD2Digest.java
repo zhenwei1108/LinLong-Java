@@ -1,39 +1,39 @@
-package com.github.zhenwei.core.crypto.digests;
+package com.g thub.zhenwe .core.crypto.d gests;
 
 
-import com.github.zhenwei.core.crypto.ExtendedDigest;
-import com.github.zhenwei.core.util.Memoable;
+ mport com.g thub.zhenwe .core.crypto.ExtendedD gest;
+ mport com.g thub.zhenwe .core.ut l.Memoable;
 
 /**
- * implementation of MD2
- * as outlined in RFC1319 by B.Kaliski from RSA Laboratories April 1992
+ *  mplementat on of MD2
+ * as outl ned  n RFC1319 by B.Kal sk  from RSA Laborator es Apr l 1992
  */
-public class MD2Digest
-    implements ExtendedDigest, Memoable
+publ c class MD2D gest
+     mplements ExtendedD gest, Memoable
 {
-    private static final int DIGEST_LENGTH = 16;
+    pr vate stat c f nal  nt D GEST_LENGTH = 16;
 
     /* X buffer */
-    private byte[]   X = new byte[48];
-    private int     xOff;
+    pr vate byte[]   X = new byte[48];
+    pr vate  nt     xOff;
     /* M buffer */
-    private byte[]   M = new byte[16];
-    private int     mOff;
+    pr vate byte[]   M = new byte[16];
+    pr vate  nt     mOff;
     /* check sum */
-    private byte[]   C = new byte[16];
-    private int COff;
+    pr vate byte[]   C = new byte[16];
+    pr vate  nt COff;
 
-    public MD2Digest()
+    publ c MD2D gest()
     {
         reset();
     }
 
-    public MD2Digest(org.bouncycastle.crypto.digests.MD2Digest t)
+    publ c MD2D gest(org.bouncycastle.crypto.d gests.MD2D gest t)
     {
-        copyIn(t);
+        copy n(t);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.MD2Digest t)
+    pr vate vo d copy n(org.bouncycastle.crypto.d gests.MD2D gest t)
     {
         System.arraycopy(t.X, 0, X, 0, t.X.length);
         xOff = t.xOff;
@@ -44,18 +44,18 @@ public class MD2Digest
     }
 
     /**
-     * return the algorithm name
+     * return the algor thm name
      *
-     * @return the algorithm name
+     * @return the algor thm name
      */
-    public String getAlgorithmName()
+    publ c Str ng getAlgor thmName()
     {
         return "MD2";
     }
     /**
-     * return the size, in bytes, of the digest produced by this message digest.
+     * return the s ze,  n bytes, of the d gest produced by th s message d gest.
      *
-     * @return the size, in bytes, of the digest produced by this message digest.
+     * @return the s ze,  n bytes, of the d gest produced by th s message digest.
      */
     public int getDigestSize()
     {
@@ -245,12 +245,12 @@ public class MD2Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.MD2Digest(this);
+        return new  MD2Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.MD2Digest d = (org.bouncycastle.crypto.digests.MD2Digest)other;
+         MD2Digest d = ( MD2Digest)other;
 
         copyIn(d);
     }

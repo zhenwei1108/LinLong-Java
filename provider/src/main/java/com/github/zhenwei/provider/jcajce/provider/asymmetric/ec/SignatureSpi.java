@@ -7,10 +7,10 @@ import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.digests.NullDigest;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import  NullDigest;
+import  RIPEMD160Digest;
+import  SHAKEDigest;
+ 
 import org.bouncycastle.crypto.signers.DSAEncoding;
 import org.bouncycastle.crypto.signers.ECDSASigner;
 import org.bouncycastle.crypto.signers.ECNRSigner;

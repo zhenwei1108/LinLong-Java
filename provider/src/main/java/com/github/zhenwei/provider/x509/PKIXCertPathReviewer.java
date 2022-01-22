@@ -71,7 +71,7 @@ import org.bouncycastle.jce.provider.AnnotatedException;
 import org.bouncycastle.jce.provider.PKIXNameConstraintValidator;
 import org.bouncycastle.jce.provider.PKIXNameConstraintValidatorException;
 import org.bouncycastle.jce.provider.PKIXPolicyNode;
-import org.bouncycastle.util.Objects;
+import  Objects;
 import qualified.Iso4217CurrencyCode;
 import qualified.MonetaryValue;
 import qualified.QCStatement;

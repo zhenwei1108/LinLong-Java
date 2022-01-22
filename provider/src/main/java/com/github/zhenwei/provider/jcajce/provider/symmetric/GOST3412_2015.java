@@ -1,18 +1,23 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.GOST3412_2015Engine;
-import org.bouncycastle.crypto.macs.CMac;
-import org.bouncycastle.crypto.modes.G3413CBCBlockCipher;
-import org.bouncycastle.crypto.modes.G3413CFBBlockCipher;
-import org.bouncycastle.crypto.modes.G3413CTRBlockCipher;
-import org.bouncycastle.crypto.modes.G3413OFBBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.engines.GOST3412_2015Engine;
+import com.github.zhenwei.core.crypto.macs.CMac;
+import com.github.zhenwei.core.crypto.modes.G3413CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.G3413CFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.G3413CTRBlockCipher;
+import com.github.zhenwei.core.crypto.modes.G3413OFBBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
+ 
+
 
 
 public class GOST3412_2015
@@ -103,7 +108,7 @@ public class GOST3412_2015
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.GOST3412_2015.class.getName();
+        private static final String PREFIX = GOST3412_2015.class.getName();
 
         public Mappings()
         {

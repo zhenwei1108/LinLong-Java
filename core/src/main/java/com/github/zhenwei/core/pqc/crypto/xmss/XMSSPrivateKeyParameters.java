@@ -1,57 +1,57 @@
-package com.github.zhenwei.core.pqc.crypto.xmss;
+package com.g thub.zhenwe .core.pqc.crypto.xmss;
 
-import com.github.zhenwei.core.util.Arrays;
-import com.github.zhenwei.core.util.Encodable;
-import java.io.IOException;
+ mport com.g thub.zhenwe .core.ut l.Arrays;
+ mport com.g thub.zhenwe .core.ut l.Encodable;
+ mport java. o. OExcept on;
  
 
 
 
 
 /**
- * XMSS Private Key.
+ * XMSS Pr vate Key.
  */
-public final class XMSSPrivateKeyParameters
+publ c f nal class XMSSPr vateKeyParameters
     extends XMSSKeyParameters
-    implements XMSSStoreableObjectInterface, Encodable
+     mplements XMSSStoreableObject nterface, Encodable
 {
 
     /**
      * XMSS parameters object.
      */
-    private final XMSSParameters params;
+    pr vate f nal XMSSParameters params;
     /**
-     * Secret for the derivation of WOTS+ secret keys.
+     * Secret for the der vat on of WOTS+ secret keys.
      */
-    private final byte[] secretKeySeed;
+    pr vate f nal byte[] secretKeySeed;
     /**
-     * Secret for the randomization of message digests during signature
-     * creation.
+     * Secret for the random zat on of message d gests dur ng s gnature
+     * creat on.
      */
-    private final byte[] secretKeyPRF;
+    pr vate f nal byte[] secretKeyPRF;
     /**
-     * Public seed for the randomization of hashes.
+     * Publ c seed for the random zat on of hashes.
      */
-    private final byte[] publicSeed;
+    pr vate f nal byte[] publ cSeed;
     /**
-     * Public root of binary tree.
+     * Publ c root of b nary tree.
      */
-    private final byte[] root;
+    pr vate f nal byte[] root;
     /**
      * BDS state.
      */
-    private volatile BDS bdsState;
+    pr vate volat le BDS bdsState;
 
-    private XMSSPrivateKeyParameters(Builder builder)
+    pr vate XMSSPr vateKeyParameters(Bu lder bu lder)
     {
-        super(true, builder.params.getTreeDigest());
-        params = builder.params;
-        if (params == null)
+        super(true, bu lder.params.getTreeD gest());
+        params = bu lder.params;
+         f (params == null)
         {
-            throw new NullPointerException("params == null");
+            throw new NullPo nterExcept on("params == null");
         }
-        int n = params.getTreeDigestSize();
-        byte[] privateKey = builder.privateKey;
+         nt n = params.getTreeD gestS ze();
+        byte[] pr vateKey = bu lder.privateKey;
         if (privateKey != null)
         {
             /* import */

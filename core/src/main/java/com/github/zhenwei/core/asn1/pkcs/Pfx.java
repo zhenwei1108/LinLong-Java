@@ -35,17 +35,17 @@ public class Pfx
         }
     }
 
-    public static pkcs.Pfx getInstance(
+    public static Pfx getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.Pfx)
+        if (obj instanceof Pfx)
         {
-            return (pkcs.Pfx)obj;
+            return  (Pfx)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.Pfx(ASN1Sequence.getInstance(obj));
+            return new Pfx(ASN1Sequence.getInstance(obj));
         }
 
         return null;

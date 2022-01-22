@@ -9,7 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
-import pkcs.EncryptedPrivateKeyInfo;
+import EncryptedPrivateKeyInfo;
  
 
 /**

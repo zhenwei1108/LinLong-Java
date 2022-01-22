@@ -15,7 +15,7 @@ import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
 import org.bouncycastle.operator.OutputEncryptor;
-import pkcs.Attribute;
+import Attribute;
 
 
  

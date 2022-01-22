@@ -9,11 +9,11 @@ import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.internal.asn1.cms.CMSObjectIdentifiers;
+import  CMSObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyFactorySpi;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
-import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+ 
 
 
 

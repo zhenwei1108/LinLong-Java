@@ -45,7 +45,7 @@ public class TupleHash
         reset();
     }
 
-    public TupleHash(org.bouncycastle.crypto.digests.TupleHash original)
+    public TupleHash( TupleHash original)
     {
         this.cshake = new CSHAKEDigest(original.cshake);
         this.bitLength = cshake.fixedOutputLength;

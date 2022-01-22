@@ -3,10 +3,10 @@ package com.github.zhenwei.core.crypto.engines;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+ 
+ ;
+ 
+ 
 
 public class VMPCEngine implements StreamCipher
 {

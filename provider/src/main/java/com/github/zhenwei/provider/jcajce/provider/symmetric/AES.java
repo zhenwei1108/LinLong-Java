@@ -2,10 +2,43 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 
 import com.github.zhenwei.core.asn1.bc.BCObjectIdentifiers;
+import com.github.zhenwei.core.asn1.cms.CCMParameters;
+import com.github.zhenwei.core.asn1.cms.GCMParameters;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.engines.AESEngine;
+import com.github.zhenwei.core.crypto.engines.AESWrapEngine;
+import com.github.zhenwei.core.crypto.engines.AESWrapPadEngine;
+import com.github.zhenwei.core.crypto.engines.RFC3211WrapEngine;
+import com.github.zhenwei.core.crypto.engines.RFC5649WrapEngine;
+import com.github.zhenwei.core.crypto.generators.Poly1305KeyGenerator;
+import com.github.zhenwei.core.crypto.macs.CMac;
+import com.github.zhenwei.core.crypto.macs.GMac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.OFBBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BlockCipherProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.GcmSpecUtil;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.spec.AEADParameterSpec;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -15,39 +48,6 @@ import java.security.spec.InvalidParameterSpecException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.engines.AESWrapEngine;
-import org.bouncycastle.crypto.engines.AESWrapPadEngine;
-import org.bouncycastle.crypto.engines.RFC3211WrapEngine;
-import org.bouncycastle.crypto.engines.RFC5649WrapEngine;
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.crypto.macs.CMac;
-import org.bouncycastle.crypto.macs.GMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CCMBlockCipher;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.crypto.modes.OFBBlockCipher;
-import org.bouncycastle.internal.asn1.cms.CCMParameters;
-import org.bouncycastle.internal.asn1.cms.GCMParameters;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.GcmSpecUtil;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.PBESecretKeyFactory;
-import org.bouncycastle.jcajce.spec.AEADParameterSpec;
 
 public final class AES
 {
@@ -220,7 +220,7 @@ public final class AES
     {
         public Poly1305()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305(new AESEngine()));
+            super(new  com.github.zhenwei.core.crypto.macs.Poly1305(new AESEngine()));
         }
     }
 
@@ -788,7 +788,7 @@ public final class AES
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.AES.class.getName();
+        private static final String PREFIX = AES.class.getName();
         
         /**
          * These three got introduced in some messages as a result of a typo in an

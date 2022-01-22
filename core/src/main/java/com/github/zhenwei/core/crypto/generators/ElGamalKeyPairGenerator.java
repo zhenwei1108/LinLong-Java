@@ -4,10 +4,10 @@ import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.params.ElGamalParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.ElGamalKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
+ 
+ 
+import ElGamalKeyGenerationParameters;
+import ElGamalPublicKeyParameters;
 
 ;
 

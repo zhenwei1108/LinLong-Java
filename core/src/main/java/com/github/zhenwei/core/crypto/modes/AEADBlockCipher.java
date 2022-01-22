@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.modes;
 
-import org.bouncycastle.crypto.BlockCipher;
+
+import com.github.zhenwei.core.crypto.BlockCipher;
 
 /**
  * An {@link AEADCipher} based on a {@link BlockCipher}.

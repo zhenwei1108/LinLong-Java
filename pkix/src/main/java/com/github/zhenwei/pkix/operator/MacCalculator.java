@@ -14,7 +14,7 @@ public interface MacCalculator
 
     /**
      * Returns a stream that will accept data for the purpose of calculating
-     * the MAC for later verification. Use org.bouncycastle.util.io.TeeOutputStream if you want to accumulate
+     * the MAC for later verification. Use  io.TeeOutputStream if you want to accumulate
      * the data on the fly as well.
      *
      * @return an OutputStream

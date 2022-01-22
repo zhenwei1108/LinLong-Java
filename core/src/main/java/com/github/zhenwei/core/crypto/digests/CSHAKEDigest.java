@@ -33,7 +33,7 @@ public class CSHAKEDigest
         }
     }
 
-    CSHAKEDigest(org.bouncycastle.crypto.digests.CSHAKEDigest source)
+    CSHAKEDigest( CSHAKEDigest source)
     {
         super(source);
 

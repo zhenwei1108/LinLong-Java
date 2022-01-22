@@ -16,7 +16,7 @@ import java.util.Iterator;
  */
 public class ObjectDataSequence
     extends ASN1Object
-    implements org.bouncycastle.util.Iterable<ASN1Encodable>
+    implements  Iterable<ASN1Encodable>
 {
     private final ASN1Encodable[] dataSequence;
 

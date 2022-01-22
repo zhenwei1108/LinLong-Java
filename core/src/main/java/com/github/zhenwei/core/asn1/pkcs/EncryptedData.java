@@ -37,17 +37,17 @@ public class EncryptedData
 {
     ASN1Sequence data;
 
-    public static pkcs.EncryptedData getInstance(
+    public static EncryptedData getInstance(
          Object  obj)
     {
-         if (obj instanceof pkcs.EncryptedData)
+         if (obj instanceof EncryptedData)
          {
-             return (pkcs.EncryptedData)obj;
+             return  (EncryptedData)obj;
          }
 
          if (obj != null)
          {
-             return new pkcs.EncryptedData(ASN1Sequence.getInstance(obj));
+             return new EncryptedData(ASN1Sequence.getInstance(obj));
          }
 
          return null;

@@ -31,23 +31,23 @@ public class GCMParameters
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link org.bouncycastle.internal.asn1.cms.GCMParameters} object
+     * <li> {@link  GCMParameters} object
      * <li> {@link ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with GCMParameters structure inside
      * </ul>
      *
      * @param obj the object we want converted.
      * @exception IllegalArgumentException if the object cannot be converted.
      */
-    public static org.bouncycastle.internal.asn1.cms.GCMParameters getInstance(
+    public static  GCMParameters getInstance(
         Object  obj)
     {
-        if (obj instanceof org.bouncycastle.internal.asn1.cms.GCMParameters)
+        if (obj instanceof  GCMParameters)
         {
-            return (org.bouncycastle.internal.asn1.cms.GCMParameters)obj;
+            return    (GCMParameters)obj;
         }
         else if (obj != null)
         {
-            return new org.bouncycastle.internal.asn1.cms.GCMParameters(ASN1Sequence.getInstance(obj));
+            return new  GCMParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -141,7 +141,7 @@ public abstract class GOST3411_2012Digest
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.GOST3411_2012Digest o = (org.bouncycastle.crypto.digests.GOST3411_2012Digest)other;
+         GOST3411_2012Digest o = ( GOST3411_2012Digest)other;
 
         System.arraycopy(o.IV, 0, this.IV, 0, 64);
         System.arraycopy(o.N, 0, this.N, 0, 64);

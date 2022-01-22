@@ -8,8 +8,8 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.digests.NullDigest;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import  NullDigest;
+ 
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASigner;
 

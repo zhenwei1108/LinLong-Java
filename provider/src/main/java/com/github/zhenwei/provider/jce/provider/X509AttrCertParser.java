@@ -16,8 +16,8 @@ import java.util.List;
 import org.bouncycastle.X509AttributeCertificate;
 import org.bouncycastle.X509StreamParserSpi;
 import org.bouncycastle.X509V2AttributeCertificate;
-import org.bouncycastle.util.StreamParsingException;
-import pkcs.SignedData;
+import  StreamParsingException;
+import SignedData;
 
 public class X509AttrCertParser
     extends X509StreamParserSpi

@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+ 
+ 
+ 
+   (
+ 
 
 public final class SipHash
 {
@@ -17,7 +17,7 @@ public final class SipHash
     {
         public Mac24()
         {
-            super(new org.bouncycastle.crypto.macs.SipHash());
+            super(new  SipHash());
         }
     }
 
@@ -26,7 +26,7 @@ public final class SipHash
     {
         public Mac48()
         {
-            super(new org.bouncycastle.crypto.macs.SipHash(4, 8));
+            super(new  SipHash(4, 8));
         }
     }
 
@@ -42,7 +42,7 @@ public final class SipHash
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.SipHash.class.getName();
+        private static final String PREFIX = SipHash.class.getName();
 
         public Mappings()
         {

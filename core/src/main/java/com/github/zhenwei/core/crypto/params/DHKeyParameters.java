@@ -26,12 +26,12 @@ public class DHKeyParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.DHKeyParameters))
+        if (!(obj instanceof DHKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DHKeyParameters dhKey = (org.bouncycastle.crypto.params.DHKeyParameters)obj;
+        DHKeyParameters dhKey =  (DHKeyParameters)obj;
 
         if (params == null)
         {

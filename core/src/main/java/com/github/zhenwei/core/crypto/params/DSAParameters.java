@@ -56,12 +56,12 @@ public class DSAParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.DSAParameters))
+        if (!(obj instanceof DSAParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DSAParameters pm = (org.bouncycastle.crypto.params.DSAParameters)obj;
+        DSAParameters pm =  (DSAParameters)obj;
 
         return (pm.getP().equals(p) && pm.getQ().equals(q) && pm.getG().equals(g));
     }

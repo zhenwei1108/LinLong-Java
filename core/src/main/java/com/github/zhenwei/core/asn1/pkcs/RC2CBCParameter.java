@@ -17,16 +17,16 @@ public class RC2CBCParameter
     ASN1Integer version;
     ASN1OctetString iv;
 
-    public static pkcs.RC2CBCParameter getInstance(
+    public static RC2CBCParameter getInstance(
         Object  o)
     {
-        if (o instanceof pkcs.RC2CBCParameter)
+        if (o instanceof RC2CBCParameter)
         {
-            return (pkcs.RC2CBCParameter)o;
+            return  (RC2CBCParameter)o;
         }
         if (o != null)
         {
-            return new pkcs.RC2CBCParameter(ASN1Sequence.getInstance(o));
+            return new RC2CBCParameter(ASN1Sequence.getInstance(o));
         }
 
         return null;

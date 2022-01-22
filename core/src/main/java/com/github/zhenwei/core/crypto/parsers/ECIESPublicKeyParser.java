@@ -6,7 +6,7 @@ import com.github.zhenwei.core.util.io.Streams;
 import java.io.IOException;
 import java.io.InputStream;
 import org.bouncycastle.crypto.KeyParser;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+import ECPublicKeyParameters;
 
 
 public class ECIESPublicKeyParser

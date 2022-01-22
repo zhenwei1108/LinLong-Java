@@ -1,13 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
 import org.bouncycastle.crypto.engines.VMPCEngine;
-import org.bouncycastle.crypto.macs.VMPCMac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseStreamCipher;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import  VMPCMac;
+ 
+ 
+   (
+ 
+ 
 
 public final class VMPC
 {
@@ -45,7 +45,7 @@ public final class VMPC
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.VMPC.class.getName();
+        private static final String PREFIX = VMPC.class.getName();
 
         public Mappings()
         {

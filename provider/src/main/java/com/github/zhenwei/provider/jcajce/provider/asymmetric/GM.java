@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
 public class GM

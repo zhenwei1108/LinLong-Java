@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import org.bouncycastle.crypto.digests.Haraka256Digest;
-import org.bouncycastle.crypto.digests.Haraka512Digest;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+import  Haraka256Digest;
+import  Haraka512Digest;
+ 
 
 public class Haraka
 {

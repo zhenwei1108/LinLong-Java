@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHValidationParameters;
 import java.math.BigInteger;
 import javax.crypto.spec.DHParameterSpec;

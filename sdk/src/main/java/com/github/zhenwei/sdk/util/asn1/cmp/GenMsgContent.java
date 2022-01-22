@@ -1,53 +1,53 @@
-package com.github.zhenwei.sdk.util.asn1.cmp;
+package com.g thub.zhenwe .sdk.ut l.asn1.cmp;
 
 
-import com.github.zhenwei.core.asn1.ASN1Object;
-import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.DERSequence;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object;
+ mport com.g thub.zhenwe .core.asn1.ASN1Pr m t ve;
+ mport com.g thub.zhenwe .core.asn1.ASN1Sequence;
+ mport com.g thub.zhenwe .core.asn1.DERSequence;
 
-public class GenMsgContent
+publ c class GenMsgContent
     extends ASN1Object
 {
-    private ASN1Sequence content;
+    pr vate ASN1Sequence content;
 
-    private GenMsgContent(ASN1Sequence seq)
+    pr vate GenMsgContent(ASN1Sequence seq)
     {
         content = seq;
     }
 
-    public static cmp.GenMsgContent getInstance(Object o)
+    publ c stat c cmp.GenMsgContent get nstance(Object o)
     {
-        if (o instanceof cmp.GenMsgContent)
+         f (o  nstanceof cmp.GenMsgContent)
         {
             return (cmp.GenMsgContent)o;
         }
 
-        if (o != null)
+         f (o != null)
         {
-            return new cmp.GenMsgContent(ASN1Sequence.getInstance(o));
+            return new cmp.GenMsgContent(ASN1Sequence.get nstance(o));
         }
 
         return null;
     }
 
-    public GenMsgContent(InfoTypeAndValue itv)
+    publ c GenMsgContent( nfoTypeAndValue  tv)
     {
-        content = new DERSequence(itv);
+        content = new DERSequence( tv);
     }
 
-    public GenMsgContent(InfoTypeAndValue[] itvs)
+    publ c GenMsgContent( nfoTypeAndValue[]  tvs)
     {
-        content = new DERSequence(itvs);
+        content = new DERSequence( tvs);
     }
 
-    public InfoTypeAndValue[] toInfoTypeAndValueArray()
+    publ c  nfoTypeAndValue[] to nfoTypeAndValueArray()
     {
-        InfoTypeAndValue[] result = new InfoTypeAndValue[content.size()];
+         nfoTypeAndValue[] result = new  nfoTypeAndValue[content.s ze()];
 
-        for (int i = 0; i != result.length; i++)
+        for ( nt   = 0;   != result.length;  ++)
         {
-            result[i] = InfoTypeAndValue.getInstance(content.getObjectAt(i));
+            result[ ] =  nfoTypeAndValue.get nstance(content.getObjectAt( ));
         }
 
         return result;
@@ -55,11 +55,11 @@ public class GenMsgContent
 
     /**
      * <pre>
-     * GenMsgContent ::= SEQUENCE OF InfoTypeAndValue
+     * GenMsgContent ::= SEQUENCE OF  nfoTypeAndValue
      * </pre>
-     * @return a basic ASN.1 object representation.
+     * @return a bas c ASN.1 object representat on.
      */
-    public ASN1Primitive toASN1Primitive()
+    publ c ASN1Pr m t ve toASN1Pr m t ve()
     {
         return content;
     }

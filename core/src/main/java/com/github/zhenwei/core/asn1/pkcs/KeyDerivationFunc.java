@@ -26,15 +26,15 @@ public class KeyDerivationFunc
         this.algId = AlgorithmIdentifier.getInstance(seq);
     }
 
-    public static pkcs.KeyDerivationFunc getInstance(Object obj)
+    public static KeyDerivationFunc getInstance(Object obj)
     {
-        if (obj instanceof pkcs.KeyDerivationFunc)
+        if (obj instanceof KeyDerivationFunc)
         {
-            return (pkcs.KeyDerivationFunc)obj;
+            return  (KeyDerivationFunc)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.KeyDerivationFunc(ASN1Sequence.getInstance(obj));
+            return new KeyDerivationFunc(ASN1Sequence.getInstance(obj));
         }
 
         return null;

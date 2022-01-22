@@ -58,7 +58,7 @@ public class PemObject
         return content;
     }
 
-    public org.bouncycastle.util.io.pem.PemObject generate()
+    public  io.pem.PemObject generate()
         throws PemGenerationException
     {
         return this;

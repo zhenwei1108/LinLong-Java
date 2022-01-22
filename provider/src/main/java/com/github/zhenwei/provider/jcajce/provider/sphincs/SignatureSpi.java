@@ -10,9 +10,9 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.digests.SHA3Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.digests.SHA512tDigest;
+import  SHA3Digest;
+import  SHA512Digest;
+import  SHA512tDigest;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCS256Signer;
 
 public class SignatureSpi

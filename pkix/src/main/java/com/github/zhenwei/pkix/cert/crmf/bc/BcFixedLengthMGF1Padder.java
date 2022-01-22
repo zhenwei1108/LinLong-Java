@@ -2,9 +2,9 @@ package com.github.zhenwei.pkix.cert.crmf.bc;
 
 import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.EncryptedValuePadder;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.generators.MGF1BytesGenerator;
-import org.bouncycastle.crypto.params.MGFParameters;
+import  SHA1Digest;
+import MGF1BytesGenerator;
+import MGFParameters;
 
 /**
  * An encrypted value padder that uses MGF1 as the basis of the padding.

@@ -7,7 +7,7 @@ import com.github.zhenwei.core.util.Memoable;
 import java.util.Iterator;
 import java.util.Stack;
 import org.bouncycastle.crypto.Xof;
-import org.bouncycastle.crypto.params.Blake3Parameters;
+import Blake3Parameters;
 
  
 
@@ -273,7 +273,7 @@ public class Blake3Digest
      * Constructor.
      * @param pSource the source digest.
      */
-    private Blake3Digest(final org.bouncycastle.crypto.digests.Blake3Digest pSource)
+    private Blake3Digest(final  Blake3Digest pSource)
     {
         /* Copy default digest length */
         theDigestLen = pSource.theDigestLen;
@@ -505,7 +505,7 @@ public class Blake3Digest
     public void reset(final Memoable pSource)
     {
         /* Access source */
-        final org.bouncycastle.crypto.digests.Blake3Digest mySource = (org.bouncycastle.crypto.digests.Blake3Digest) pSource;
+        final  Blake3Digest mySource = ( Blake3Digest) pSource;
 
         /*  Reset counter */
         theCounter = mySource.theCounter;
@@ -536,7 +536,7 @@ public class Blake3Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.Blake3Digest(this);
+        return new  Blake3Digest(this);
     }
 
     /**

@@ -41,16 +41,16 @@ public class CertificationRequestInfo
     SubjectPublicKeyInfo subjectPKInfo;
     ASN1Set attributes = null;
 
-    public static pkcs.CertificationRequestInfo getInstance(
+    public static CertificationRequestInfo getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.CertificationRequestInfo)
+        if (obj instanceof CertificationRequestInfo)
         {
-            return (pkcs.CertificationRequestInfo)obj;
+            return  (CertificationRequestInfo)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.CertificationRequestInfo(ASN1Sequence.getInstance(obj));
+            return new CertificationRequestInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

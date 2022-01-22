@@ -2,16 +2,17 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.BlowfishEngine;
-import org.bouncycastle.crypto.macs.CMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.engines.BlowfishEngine;
+import com.github.zhenwei.core.crypto.macs.CMac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
+ 
 
 public final class Blowfish
 {
@@ -67,7 +68,7 @@ public final class Blowfish
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Blowfish.class.getName();
+        private static final String PREFIX = Blowfish.class.getName();
 
         public Mappings()
         {

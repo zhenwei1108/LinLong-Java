@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import org.bouncycastle.X509CertificatePair;
 import org.bouncycastle.X509StreamParserSpi;
-import org.bouncycastle.util.StreamParsingException;
+import  StreamParsingException;
 
 public class X509CertPairParser
     extends X509StreamParserSpi

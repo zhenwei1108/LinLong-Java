@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import org.bouncycastle.jcajce.provider.asymmetric.ecgost.KeyFactorySpi;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
 

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.math.ec.WNafUtil;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
@@ -10,7 +11,7 @@ import java.security.SecureRandom;
 
 class DHKeyGeneratorHelper
 {
-    static final org.bouncycastle.crypto.generators.DHKeyGeneratorHelper INSTANCE = new org.bouncycastle.crypto.generators.DHKeyGeneratorHelper();
+    static final DHKeyGeneratorHelper INSTANCE = new DHKeyGeneratorHelper();
 
     private static final BigInteger ONE = BigInteger.valueOf(1);
     private static final BigInteger TWO = BigInteger.valueOf(2);

@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.generators;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.params.CramerShoupParameters;
+import  SHA256Digest;
+import CramerShoupParameters;
  
  
 

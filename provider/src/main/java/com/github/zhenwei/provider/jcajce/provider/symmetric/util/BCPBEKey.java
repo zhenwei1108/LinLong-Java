@@ -9,8 +9,8 @@ import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.security.auth.Destroyable;
 import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+ 
+ 
 
 
 public class BCPBEKey

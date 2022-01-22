@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
-import ASN1Null;
+ 
 import CMSAlgorithm;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;

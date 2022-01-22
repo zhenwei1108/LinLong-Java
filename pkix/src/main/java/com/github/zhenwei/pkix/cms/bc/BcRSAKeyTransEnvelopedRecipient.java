@@ -7,8 +7,8 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.InputStream;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.StreamCipher;
+ 
+ ;
 import org.bouncycastle.crypto.io.CipherInputStream;
 import org.bouncycastle.operator.InputDecryptor;
 

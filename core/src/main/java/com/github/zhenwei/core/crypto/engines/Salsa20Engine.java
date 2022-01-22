@@ -3,16 +3,15 @@ package com.github.zhenwei.core.crypto.engines;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.MaxBytesExceededException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.SkippingStreamCipher;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Integers;
+import com.github.zhenwei.core.util.Pack;
 import com.github.zhenwei.core.util.Strings;
-import org.bouncycastle.crypto.MaxBytesExceededException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.SkippingStreamCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
  
-
-
 
 /**
  * Implementation of Daniel J. Bernstein's Salsa20 stream cipher, Snuffle 2005

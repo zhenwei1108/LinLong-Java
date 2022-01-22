@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.RSAPublicKeySpec;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 
 
@@ -49,7 +49,7 @@ public class JCERSAPublicKey
     {
         try
         {
-            pkcs.RSAPublicKey   pubKey = pkcs.RSAPublicKey.getInstance(info.parsePublicKey());
+            RSAPublicKey   pubKey = RSAPublicKey.getInstance(info.parsePublicKey());
 
             this.modulus = pubKey.getModulus();
             this.publicExponent = pubKey.getPublicExponent();
@@ -92,7 +92,7 @@ public class JCERSAPublicKey
 
     public byte[] getEncoded()
     {
-        return KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE), new pkcs.RSAPublicKey(getModulus(), getPublicExponent()));
+        return KeyUtil.getEncodedSubjectPublicKeyInfo(new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE), new RSAPublicKey(getModulus(), getPublicExponent()));
     }
 
     public int hashCode()

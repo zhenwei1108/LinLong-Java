@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Strings;
 import java.math.BigInteger;
-import org.bouncycastle.util.Fingerprint;
+import  Fingerprint;
 
 
 class DHUtil

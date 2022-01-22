@@ -2,8 +2,8 @@ package com.github.zhenwei.core.pqc.crypto.mceliece;
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
+ 
 import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
 import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
 import org.bouncycastle.pqc.math.linearalgebra.GoppaCode;

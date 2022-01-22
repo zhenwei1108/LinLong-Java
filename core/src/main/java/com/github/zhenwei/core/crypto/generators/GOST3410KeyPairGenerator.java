@@ -6,12 +6,12 @@ import com.github.zhenwei.core.math.ec.WNafUtil;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.GOST3410KeyGenerationParameters;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.crypto.params.GOST3410PrivateKeyParameters;
-import org.bouncycastle.crypto.params.GOST3410PublicKeyParameters;
+ 
+ 
+import GOST3410KeyGenerationParameters;
+import GOST3410Parameters;
+import GOST3410PrivateKeyParameters;
+import GOST3410PublicKeyParameters;
  
 
 /**

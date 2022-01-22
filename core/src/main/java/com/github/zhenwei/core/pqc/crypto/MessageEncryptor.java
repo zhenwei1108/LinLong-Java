@@ -2,7 +2,7 @@ package com.github.zhenwei.core.pqc.crypto;
 
 
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+ 
 
 /**
  * Base interface for a PQC encryption algorithm.

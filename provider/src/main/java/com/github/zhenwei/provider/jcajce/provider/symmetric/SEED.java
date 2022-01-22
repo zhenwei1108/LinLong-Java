@@ -6,25 +6,25 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import kisa.KISAObjectIdentifiers;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
+ 
+ 
 import org.bouncycastle.crypto.engines.SEEDEngine;
 import org.bouncycastle.crypto.engines.SEEDWrapEngine;
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.crypto.macs.CMac;
-import org.bouncycastle.crypto.macs.GMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+ 
+ 
+ ;
+ 
+ 
+ 
+ 
+ 
+ 
+   (
+ 
+ 
+ 
+   (
 
 public final class SEED
 {
@@ -106,7 +106,7 @@ public final class SEED
     {
         public Poly1305()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305(new SEEDEngine()));
+            super(new  Poly1305(new SEEDEngine()));
         }
     }
 
@@ -169,7 +169,7 @@ public final class SEED
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.SEED.class.getName();
+        private static final String PREFIX = SEED.class.getName();
 
         public Mappings()
         {

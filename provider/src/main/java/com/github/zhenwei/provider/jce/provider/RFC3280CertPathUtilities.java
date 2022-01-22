@@ -59,7 +59,7 @@ import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
 import org.bouncycastle.jcajce.PKIXCertStoreSelector;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
-import org.bouncycastle.jcajce.provider.symmetric.util.ClassUtil;
+ 
 import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
 import style.BCStyle;
 

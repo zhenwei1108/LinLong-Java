@@ -29,12 +29,12 @@ import java.security.Provider;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
+  
 import org.bouncycastle.jcajce.io.CipherOutputStream;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
-import pkcs.EncryptionScheme;
-import pkcs.KeyDerivationFunc;
+import EncryptionScheme;
+import KeyDerivationFunc;
 
 
 

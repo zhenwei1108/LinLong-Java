@@ -3,7 +3,7 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+import ECPublicKeyParameters;
 
 public class DSTU4145KeyPairGenerator
     extends ECKeyPairGenerator

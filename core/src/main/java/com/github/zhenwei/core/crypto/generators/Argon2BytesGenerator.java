@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.util.Longs;
-import org.bouncycastle.crypto.digests.Blake2bDigest;
-import org.bouncycastle.crypto.params.Argon2Parameters;
+import  Blake2bDigest;
+import Argon2Parameters;
 
 
 
@@ -56,21 +56,21 @@ public class Argon2BytesGenerator
     {
         this.parameters = parameters;
 
-        if (parameters.getLanes() < org.bouncycastle.crypto.generators.Argon2BytesGenerator.MIN_PARALLELISM)
+        if (parameters.getLanes() < Argon2BytesGenerator.MIN_PARALLELISM)
         {
-            throw new IllegalStateException("lanes must be greater than " + org.bouncycastle.crypto.generators.Argon2BytesGenerator.MIN_PARALLELISM);
+            throw new IllegalStateException("lanes must be greater than " + Argon2BytesGenerator.MIN_PARALLELISM);
         }
-        else if (parameters.getLanes() > org.bouncycastle.crypto.generators.Argon2BytesGenerator.MAX_PARALLELISM)
+        else if (parameters.getLanes() > Argon2BytesGenerator.MAX_PARALLELISM)
         {
-            throw new IllegalStateException("lanes must be less than " + org.bouncycastle.crypto.generators.Argon2BytesGenerator.MAX_PARALLELISM);
+            throw new IllegalStateException("lanes must be less than " + Argon2BytesGenerator.MAX_PARALLELISM);
         }
         else if (parameters.getMemory() < 2 * parameters.getLanes())
         {
             throw new IllegalStateException("memory is less than: " + (2 * parameters.getLanes()) + " expected " + (2 * parameters.getLanes()));
         }
-        else if (parameters.getIterations() < org.bouncycastle.crypto.generators.Argon2BytesGenerator.MIN_ITERATIONS)
+        else if (parameters.getIterations() < Argon2BytesGenerator.MIN_ITERATIONS)
         {
-            throw new IllegalStateException("iterations is less than: " + org.bouncycastle.crypto.generators.Argon2BytesGenerator.MIN_ITERATIONS);
+            throw new IllegalStateException("iterations is less than: " + Argon2BytesGenerator.MIN_ITERATIONS);
         }
 
         doInit(parameters);
@@ -93,9 +93,9 @@ public class Argon2BytesGenerator
 
     public int generateBytes(byte[] password, byte[] out, int outOff, int outLen)
     {
-        if (outLen < org.bouncycastle.crypto.generators.Argon2BytesGenerator.MIN_OUTLEN)
+        if (outLen < Argon2BytesGenerator.MIN_OUTLEN)
         {
-            throw new IllegalStateException("output length less than " + org.bouncycastle.crypto.generators.Argon2BytesGenerator.MIN_OUTLEN);
+            throw new IllegalStateException("output length less than " + Argon2BytesGenerator.MIN_OUTLEN);
         }
 
         byte[] tmpBlockBytes = new byte[ARGON2_BLOCK_SIZE];
@@ -132,16 +132,16 @@ public class Argon2BytesGenerator
         /* Minimum memoryBlocks = 8L blocks, where L is the number of lanes */
         int memoryBlocks = parameters.getMemory();
 
-        if (memoryBlocks < 2 * org.bouncycastle.crypto.generators.Argon2BytesGenerator.ARGON2_SYNC_POINTS * parameters.getLanes())
+        if (memoryBlocks < 2 * Argon2BytesGenerator.ARGON2_SYNC_POINTS * parameters.getLanes())
         {
-            memoryBlocks = 2 * org.bouncycastle.crypto.generators.Argon2BytesGenerator.ARGON2_SYNC_POINTS * parameters.getLanes();
+            memoryBlocks = 2 * Argon2BytesGenerator.ARGON2_SYNC_POINTS * parameters.getLanes();
         }
 
-        this.segmentLength = memoryBlocks / (parameters.getLanes() * org.bouncycastle.crypto.generators.Argon2BytesGenerator.ARGON2_SYNC_POINTS);
-        this.laneLength = segmentLength * org.bouncycastle.crypto.generators.Argon2BytesGenerator.ARGON2_SYNC_POINTS;
+        this.segmentLength = memoryBlocks / (parameters.getLanes() * Argon2BytesGenerator.ARGON2_SYNC_POINTS);
+        this.laneLength = segmentLength * Argon2BytesGenerator.ARGON2_SYNC_POINTS;
 
         /* Ensure that all segments have equal length */
-        memoryBlocks = segmentLength * (parameters.getLanes() * org.bouncycastle.crypto.generators.Argon2BytesGenerator.ARGON2_SYNC_POINTS);
+        memoryBlocks = segmentLength * (parameters.getLanes() * Argon2BytesGenerator.ARGON2_SYNC_POINTS);
 
         initMemory(memoryBlocks);
     }

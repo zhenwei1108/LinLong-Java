@@ -14,7 +14,7 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
+import ElGamalPublicKeyParameters;
 import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
 import org.bouncycastle.jce.spec.ElGamalParameterSpec;
 import org.bouncycastle.jce.spec.ElGamalPublicKeySpec;

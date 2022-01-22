@@ -18,7 +18,7 @@ import java.security.Provider;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import kisa.KISAObjectIdentifiers;
+ 
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.SymmetricKeyWrapper;
 

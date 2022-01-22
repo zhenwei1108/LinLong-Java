@@ -15,7 +15,7 @@ import org.bouncycastle.crypto.EphemeralKeyPair;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.KeyParser;
 import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.generators.EphemeralKeyPairGenerator;
+import EphemeralKeyPairGenerator;
 import org.bouncycastle.crypto.params.IESParameters;
 import org.bouncycastle.crypto.params.IESWithCipherParameters;
 import org.bouncycastle.crypto.params.KeyParameter;

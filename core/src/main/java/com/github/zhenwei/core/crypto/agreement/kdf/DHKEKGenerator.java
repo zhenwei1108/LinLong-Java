@@ -11,8 +11,8 @@ import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import java.io.IOException;
-import org.bouncycastle.crypto.DerivationFunction;
-import org.bouncycastle.crypto.OutputLengthException;
+ 
+ 
 
 
 /**

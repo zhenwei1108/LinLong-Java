@@ -5,7 +5,7 @@ import com.github.zhenwei.core.util.io.pem.PemObjectGenerator;
 import java.io.IOException;
 import java.io.Writer;
 import org.bouncycastle.openssl.jcajce.JcaMiscPEMGenerator;
-import org.bouncycastle.util.io.pem.PemWriter;
+import  io.pem.PemWriter;
 
 /**
  * General purpose writer for OpenSSL PEM objects.

@@ -79,12 +79,12 @@ public class DHPublicKeyParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.DHPublicKeyParameters))
+        if (!(obj instanceof DHPublicKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DHPublicKeyParameters other = (org.bouncycastle.crypto.params.DHPublicKeyParameters)obj;
+        DHPublicKeyParameters other =  (DHPublicKeyParameters)obj;
 
         return other.getY().equals(y) && super.equals(obj);
     }

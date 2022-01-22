@@ -29,7 +29,7 @@ public class SHA512Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public SHA512Digest(org.bouncycastle.crypto.digests.SHA512Digest t)
+    public SHA512Digest( SHA512Digest t)
     {
         super(t);
     }
@@ -97,12 +97,12 @@ public class SHA512Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.SHA512Digest(this);
+        return new  SHA512Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.SHA512Digest d = (org.bouncycastle.crypto.digests.SHA512Digest)other;
+         SHA512Digest d = ( SHA512Digest)other;
 
         copyIn(d);
     }

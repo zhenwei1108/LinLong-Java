@@ -6,8 +6,8 @@ import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.DigestDerivationFunction;
 import com.github.zhenwei.core.crypto.params.KDFParameters;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.params.ISO18033KDFParameters;
+ 
+import ISO18033KDFParameters;
 
 
 

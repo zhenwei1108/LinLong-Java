@@ -69,16 +69,16 @@ public class HKDFParameters
      * @param info the info to use, may be null for an info field of zero bytes
      * @return HKDFParameters that makes the implementation skip step 1
      */
-    public static org.bouncycastle.crypto.params.HKDFParameters skipExtractParameters(final byte[] ikm,
+    public static HKDFParameters skipExtractParameters(final byte[] ikm,
                                                        final byte[] info)
     {
 
-        return new org.bouncycastle.crypto.params.HKDFParameters(ikm, true, null, info);
+        return new HKDFParameters(ikm, true, null, info);
     }
 
-    public static org.bouncycastle.crypto.params.HKDFParameters defaultParameters(final byte[] ikm)
+    public static HKDFParameters defaultParameters(final byte[] ikm)
     {
-        return new org.bouncycastle.crypto.params.HKDFParameters(ikm, false, null, null);
+        return new HKDFParameters(ikm, false, null, null);
     }
 
     /**

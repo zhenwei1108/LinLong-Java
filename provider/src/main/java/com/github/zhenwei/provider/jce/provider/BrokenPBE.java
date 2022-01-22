@@ -4,15 +4,15 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.digests.MD5Digest;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
-import org.bouncycastle.crypto.generators.PKCS5S1ParametersGenerator;
-import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
+import  MD5Digest;
+import  RIPEMD160Digest;
+import  SHA1Digest;
+import PKCS12ParametersGenerator;
+import PKCS5S1ParametersGenerator;
+import PKCS5S2ParametersGenerator;
+ 
+ 
+import   BCPBEKey;
 
 /**
  * Generator for PBE derived keys and ivs as defined by PKCS 12 V1.0,

@@ -3,7 +3,7 @@ package com.github.zhenwei.core.pqc.crypto.qtesla;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ 
 import org.bouncycastle.pqc.crypto.MessageSigner;
 
 /**

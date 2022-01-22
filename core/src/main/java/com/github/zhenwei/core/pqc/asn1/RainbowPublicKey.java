@@ -1,25 +1,25 @@
-package com.github.zhenwei.core.pqc.asn1;
+package com.g thub.zhenwe .core.pqc.asn1;
 
 
-import com.github.zhenwei.core.asn1.ASN1EncodableVector;
-import com.github.zhenwei.core.asn1.ASN1Integer;
-import com.github.zhenwei.core.asn1.ASN1Object;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.DERSequence;
-import org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
+ mport com.g thub.zhenwe .core.asn1.ASN1EncodableVector;
+ mport com.g thub.zhenwe .core.asn1.ASN1 nteger;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object dent f er;
+ mport com.g thub.zhenwe .core.asn1.ASN1OctetStr ng;
+ mport com.g thub.zhenwe .core.asn1.ASN1Pr m t ve;
+ mport com.g thub.zhenwe .core.asn1.ASN1Sequence;
+ mport com.g thub.zhenwe .core.asn1.DEROctetStr ng;
+ mport com.g thub.zhenwe .core.asn1.DERSequence;
+ mport org.bouncycastle.pqc.crypto.ra nbow.ut l.Ra nbowUt l;
 
 /**
- * This class implements an ASN.1 encoded Rainbow public key. The ASN.1 definition
- * of this structure is:
+ * Th s class  mplements an ASN.1 encoded Ra nbow publ c key. The ASN.1 def n t on
+ * of th s structure  s:
  * <pre>
- *       RainbowPublicKey ::= SEQUENCE {
- *         CHOICE
+ *       Ra nbowPubl cKey ::= SEQUENCE {
+ *         CHO CE
  *         {
- *         oid        OBJECT IDENTIFIER         -- OID identifying the algorithm
+ *         o d        OBJECT  DENT F ER         -- OID identifying the algorithm
  *         version    INTEGER                    -- 0
  *         }
  *         docLength        Integer               -- length of the code

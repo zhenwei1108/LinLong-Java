@@ -80,25 +80,25 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.SecretKeySpec;
-import kisa.KISAObjectIdentifiers;
-import misc.ScryptParams;
-import nsri.NSRIObjectIdentifiers;
+ 
+import  ScryptParams;
+ 
 import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.digests.SHA3Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
-import org.bouncycastle.crypto.generators.SCrypt;
-import org.bouncycastle.crypto.params.KeyParameter;
+import  SHA3Digest;
+import  SHA512Digest;
+import PKCS5S2ParametersGenerator;
+import SCrypt;
+
 import org.bouncycastle.crypto.util.PBKDF2Config;
 import org.bouncycastle.crypto.util.PBKDFConfig;
 import org.bouncycastle.crypto.util.ScryptConfig;
-import org.bouncycastle.internal.asn1.cms.CCMParameters;
+ 
 import org.bouncycastle.jcajce.BCFKSLoadStoreParameter;
 import org.bouncycastle.jcajce.BCFKSStoreParameter;
 import org.bouncycastle.jce.interfaces.ECKey;
-import pkcs.EncryptedPrivateKeyInfo;
-import pkcs.EncryptionScheme;
-import pkcs.KeyDerivationFunc;
+import EncryptedPrivateKeyInfo;
+import EncryptionScheme;
+import KeyDerivationFunc;
 
 ;
 

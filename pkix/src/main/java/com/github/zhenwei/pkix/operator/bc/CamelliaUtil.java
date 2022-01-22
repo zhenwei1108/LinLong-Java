@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.operator.bc;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.crypto.params.KeyParameter;
+ 
 
 class CamelliaUtil
 {

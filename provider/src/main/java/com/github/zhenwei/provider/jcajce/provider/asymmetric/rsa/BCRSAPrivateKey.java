@@ -15,7 +15,7 @@ import java.math.BigInteger;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.RSAPrivateKeySpec;
 import java.util.Enumeration;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
  
 
@@ -73,7 +73,7 @@ public class BCRSAPrivateKey
         this.rsaPrivateKey = new RSAKeyParameters(true, modulus, privateExponent);
     }
 
-    BCRSAPrivateKey(AlgorithmIdentifier algID, pkcs.RSAPrivateKey key)
+    BCRSAPrivateKey(AlgorithmIdentifier algID, RSAPrivateKey key)
     {
         this.algorithmIdentifier = algID;
         this.algorithmIdentifierEnc = getEncoding(algID);
@@ -114,7 +114,7 @@ public class BCRSAPrivateKey
 
     public byte[] getEncoded()
     {
-        return KeyUtil.getEncodedPrivateKeyInfo(algorithmIdentifier, new pkcs.RSAPrivateKey(getModulus(), ZERO, getPrivateExponent(), ZERO, ZERO, ZERO, ZERO, ZERO));
+        return KeyUtil.getEncodedPrivateKeyInfo(algorithmIdentifier, new RSAPrivateKey(getModulus(), ZERO, getPrivateExponent(), ZERO, ZERO, ZERO, ZERO, ZERO));
     }
 
     public boolean equals(Object o)

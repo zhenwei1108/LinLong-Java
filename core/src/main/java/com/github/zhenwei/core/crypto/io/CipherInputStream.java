@@ -3,11 +3,11 @@ package com.github.zhenwei.core.crypto.io;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+ 
+ 
 import org.bouncycastle.crypto.SkippingCipher;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.modes.AEADBlockCipher;
+ ;
+ 
 
 
 /**

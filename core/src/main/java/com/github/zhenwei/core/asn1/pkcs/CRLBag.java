@@ -27,15 +27,15 @@ public class CRLBag
         this.crlValue = ((ASN1TaggedObject)seq.getObjectAt(1)).getObject();
     }
 
-    public static pkcs.CRLBag getInstance(Object o)
+    public static CRLBag getInstance(Object o)
     {
-        if (o instanceof pkcs.CRLBag)
+        if (o instanceof CRLBag)
         {
-            return (pkcs.CRLBag)o;
+            return  (CRLBag)o;
         }
         else if (o != null)
         {
-            return new pkcs.CRLBag(ASN1Sequence.getInstance(o));
+            return new CRLBag(ASN1Sequence.getInstance(o));
         }
 
         return null;

@@ -24,7 +24,7 @@ public class GOST3411_2012_512Digest
         super(IV);
     }
 
-    public GOST3411_2012_512Digest(org.bouncycastle.crypto.digests.GOST3411_2012_512Digest other)
+    public GOST3411_2012_512Digest( GOST3411_2012_512Digest other)
     {
         super(IV);
         reset(other);
@@ -42,6 +42,6 @@ public class GOST3411_2012_512Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.GOST3411_2012_512Digest(this);
+        return new  GOST3411_2012_512Digest(this);
     }
 }

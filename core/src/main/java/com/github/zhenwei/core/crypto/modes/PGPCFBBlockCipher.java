@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+
 
 /**
  * Implements OpenPGP's rather strange version of Cipher-FeedBack (CFB) mode on top of a simple cipher. For further info see <a href="https://www.ietf.org/rfc/rfc2440.html">RFC 2440</a>.

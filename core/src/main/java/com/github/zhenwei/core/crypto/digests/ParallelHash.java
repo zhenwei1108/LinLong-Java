@@ -58,7 +58,7 @@ public class ParallelHash
         reset();
     }
 
-    public ParallelHash(org.bouncycastle.crypto.digests.ParallelHash source)
+    public ParallelHash( ParallelHash source)
     {
         this.cshake = new CSHAKEDigest(source.cshake);
         this.compressor = new CSHAKEDigest(source.compressor);

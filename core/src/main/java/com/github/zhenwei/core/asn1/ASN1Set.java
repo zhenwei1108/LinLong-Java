@@ -97,7 +97,7 @@ import java.util.NoSuchElementException;
  */
 public abstract class ASN1Set
     extends ASN1Primitive
-    implements org.bouncycastle.util.Iterable<ASN1Encodable>
+    implements  Iterable<ASN1Encodable>
 {
     static final ASN1UniversalType TYPE = new ASN1UniversalType(ASN1Set.class, BERTags.SET)
     {

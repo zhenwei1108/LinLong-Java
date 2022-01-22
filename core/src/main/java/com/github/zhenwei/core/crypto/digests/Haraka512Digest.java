@@ -62,7 +62,7 @@ public class Haraka512Digest
         this.buffer = new byte[64];
     }
 
-    public Haraka512Digest(org.bouncycastle.crypto.digests.Haraka512Digest digest)
+    public Haraka512Digest( Haraka512Digest digest)
     {
         this.buffer = Arrays.clone(digest.buffer);
         this.off = digest.off;

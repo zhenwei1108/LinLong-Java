@@ -1,32 +1,34 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+
+import com.github.zhenwei.core.asn1.ua.UAObjectIdentifiers;
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.engines.DSTU7624Engine;
+import com.github.zhenwei.core.crypto.engines.DSTU7624WrapEngine;
+import com.github.zhenwei.core.crypto.macs.KGMac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.KCCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.KCTRBlockCipher;
+import com.github.zhenwei.core.crypto.modes.KGCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.OFBBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BlockCipherProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.DSTU7624Engine;
-import org.bouncycastle.crypto.engines.DSTU7624WrapEngine;
-import org.bouncycastle.crypto.macs.KGMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
-import org.bouncycastle.crypto.modes.KCCMBlockCipher;
-import org.bouncycastle.crypto.modes.KCTRBlockCipher;
-import org.bouncycastle.crypto.modes.KGCMBlockCipher;
-import org.bouncycastle.crypto.modes.OFBBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
-import ua.UAObjectIdentifiers;
+ 
 
 public class DSTU7624
 {
@@ -354,7 +356,7 @@ public class DSTU7624
     }
 
     public static class KeyGen128
-        extends org.bouncycastle.jcajce.provider.symmetric.DSTU7624.KeyGen
+        extends DSTU7624.KeyGen
     {
         public KeyGen128()
         {
@@ -363,7 +365,7 @@ public class DSTU7624
     }
 
     public static class KeyGen256
-        extends org.bouncycastle.jcajce.provider.symmetric.DSTU7624.KeyGen
+        extends DSTU7624.KeyGen
     {
         public KeyGen256()
         {
@@ -372,7 +374,7 @@ public class DSTU7624
     }
 
     public static class KeyGen512
-        extends org.bouncycastle.jcajce.provider.symmetric.DSTU7624.KeyGen
+        extends DSTU7624.KeyGen
     {
         public KeyGen512()
         {
@@ -464,7 +466,7 @@ public class DSTU7624
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.DSTU7624.class.getName();
+        private static final String PREFIX = DSTU7624.class.getName();
 
         public Mappings()
         {

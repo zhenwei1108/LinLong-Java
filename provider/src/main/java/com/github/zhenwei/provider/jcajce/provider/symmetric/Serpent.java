@@ -2,23 +2,23 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 
 import com.github.zhenwei.core.asn1.gnu.GNUObjectIdentifiers;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
+ 
+ 
+ 
 import org.bouncycastle.crypto.engines.SerpentEngine;
 import org.bouncycastle.crypto.engines.TnepresEngine;
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.crypto.macs.GMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.crypto.modes.OFBBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+ 
+ ;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   (
+ 
+   (
 
 public final class Serpent
 {
@@ -124,7 +124,7 @@ public final class Serpent
     {
         public Poly1305()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305(new SerpentEngine()));
+            super(new  Poly1305(new SerpentEngine()));
         }
     }
 
@@ -158,7 +158,7 @@ public final class Serpent
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Serpent.class.getName();
+        private static final String PREFIX = Serpent.class.getName();
 
         public Mappings()
         {

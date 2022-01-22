@@ -47,16 +47,16 @@ public final class KDFDoublePipelineIterationParameters
         this.useCounter = useCounter;
     }
 
-    public static org.bouncycastle.crypto.params.KDFDoublePipelineIterationParameters createWithCounter(
+    public static KDFDoublePipelineIterationParameters createWithCounter(
         byte[] ki, byte[] fixedInputData, int r)
     {
-        return new org.bouncycastle.crypto.params.KDFDoublePipelineIterationParameters(ki, fixedInputData, r, true);
+        return new KDFDoublePipelineIterationParameters(ki, fixedInputData, r, true);
     }
 
-    public static org.bouncycastle.crypto.params.KDFDoublePipelineIterationParameters createWithoutCounter(
+    public static KDFDoublePipelineIterationParameters createWithoutCounter(
         byte[] ki, byte[] fixedInputData)
     {
-        return new org.bouncycastle.crypto.params.KDFDoublePipelineIterationParameters(ki, fixedInputData, UNUSED_R, false);
+        return new KDFDoublePipelineIterationParameters(ki, fixedInputData, UNUSED_R, false);
     }
 
     public byte[] getKI()

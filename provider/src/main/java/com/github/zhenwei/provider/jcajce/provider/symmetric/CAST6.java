@@ -1,17 +1,21 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.CAST6Engine;
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.crypto.macs.GMac;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.engines.CAST6Engine;
+import com.github.zhenwei.core.crypto.generators.Poly1305KeyGenerator;
+import com.github.zhenwei.core.crypto.macs.GMac;
+import com.github.zhenwei.core.crypto.modes.GCMBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BlockCipherProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+
+;
+ 
 
 public final class CAST6
 {
@@ -57,7 +61,7 @@ public final class CAST6
     {
         public Poly1305()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305(new CAST6Engine()));
+            super(new  com.github.zhenwei.core.crypto.macs.Poly1305(new CAST6Engine()));
         }
     }
 
@@ -82,7 +86,7 @@ public final class CAST6
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.CAST6.class.getName();
+        private static final String PREFIX = CAST6.class.getName();
 
         public Mappings()
         {

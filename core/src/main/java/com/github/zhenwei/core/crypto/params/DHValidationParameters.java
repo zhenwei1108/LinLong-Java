@@ -29,12 +29,12 @@ public class DHValidationParameters
     public boolean equals(
         Object o)
     {
-        if (!(o instanceof org.bouncycastle.crypto.params.DHValidationParameters))
+        if (!(o instanceof DHValidationParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DHValidationParameters other = (org.bouncycastle.crypto.params.DHValidationParameters)o;
+        DHValidationParameters other =  (DHValidationParameters)o;
 
         if (other.counter != this.counter)
         {

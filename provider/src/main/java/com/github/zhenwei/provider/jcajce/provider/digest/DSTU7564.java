@@ -1,12 +1,12 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.digests.DSTU7564Digest;
-import org.bouncycastle.crypto.macs.DSTU7564Mac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import ua.UAObjectIdentifiers;
+ 
+import  DSTU7564Digest;
+import  DSTU7564Mac;
+ 
+ 
+   (
+ 
 
 public class DSTU7564
 {

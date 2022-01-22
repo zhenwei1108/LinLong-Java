@@ -10,7 +10,7 @@ import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
-import org.bouncycastle.crypto.digests.SHA256Digest;
+import  SHA256Digest;
 
 /**
  * An example of a J-PAKE exchange.

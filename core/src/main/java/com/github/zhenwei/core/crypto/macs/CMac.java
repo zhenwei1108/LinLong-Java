@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.macs;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.paddings.ISO7816d4Padding;
-import org.bouncycastle.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.ISO7816d4Padding;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.util.Pack;
 
 
 /**

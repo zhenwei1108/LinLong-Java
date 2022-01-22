@@ -1,13 +1,63 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
-
 import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cms.GCMParameters;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.engines.DSTU7624Engine;
+import com.github.zhenwei.core.crypto.fpe.FPEEngine;
+import com.github.zhenwei.core.crypto.fpe.FPEFF1Engine;
+import com.github.zhenwei.core.crypto.fpe.FPEFF3_1Engine;
+import com.github.zhenwei.core.crypto.modes.AEADBlockCipher;
+import com.github.zhenwei.core.crypto.modes.AEADCipher;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.CTSBlockCipher;
+import com.github.zhenwei.core.crypto.modes.EAXBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCMSIVBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GOFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.KCCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.KCTRBlockCipher;
+import com.github.zhenwei.core.crypto.modes.KGCMBlockCipher;
+import com.github.zhenwei.core.crypto.modes.OCBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.OFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.OpenPGPCFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.PGPCFBBlockCipher;
+import com.github.zhenwei.core.crypto.modes.SICBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.BlockCipherPadding;
+import com.github.zhenwei.core.crypto.paddings.ISO10126d2Padding;
+import com.github.zhenwei.core.crypto.paddings.ISO7816d4Padding;
+import com.github.zhenwei.core.crypto.paddings.PaddedBufferedBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.TBCPadding;
+import com.github.zhenwei.core.crypto.paddings.X923Padding;
+import com.github.zhenwei.core.crypto.paddings.ZeroBytePadding;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.FPEParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.ParametersWithSBox;
+import com.github.zhenwei.core.crypto.params.RC2Parameters;
+import com.github.zhenwei.core.crypto.params.RC5Parameters;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.PBKDF1Key;
+import com.github.zhenwei.provider.jcajce.PBKDF1KeyWithParameters;
 import com.github.zhenwei.provider.jcajce.PKCS12Key;
+import com.github.zhenwei.provider.jcajce.PKCS12KeyWithParameters;
+import com.github.zhenwei.provider.jcajce.spec.AEADParameterSpec;
+import com.github.zhenwei.provider.jcajce.spec.FPEParameterSpec;
+import com.github.zhenwei.provider.jcajce.spec.GOST28147ParameterSpec;
+import com.github.zhenwei.provider.jcajce.spec.RepeatedSecretKeySpec;
 import java.lang.reflect.Constructor;
 import java.nio.ByteBuffer;
 import java.security.AlgorithmParameters;
@@ -29,57 +79,6 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import javax.crypto.spec.RC5ParameterSpec;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.engines.DSTU7624Engine;
-import org.bouncycastle.crypto.fpe.FPEEngine;
-import org.bouncycastle.crypto.fpe.FPEFF1Engine;
-import org.bouncycastle.crypto.fpe.FPEFF3_1Engine;
-import org.bouncycastle.crypto.modes.AEADBlockCipher;
-import org.bouncycastle.crypto.modes.AEADCipher;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CCMBlockCipher;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
-import org.bouncycastle.crypto.modes.CTSBlockCipher;
-import org.bouncycastle.crypto.modes.EAXBlockCipher;
-import org.bouncycastle.crypto.modes.GCFBBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
-import org.bouncycastle.crypto.modes.GOFBBlockCipher;
-import org.bouncycastle.crypto.modes.KCCMBlockCipher;
-import org.bouncycastle.crypto.modes.KCTRBlockCipher;
-import org.bouncycastle.crypto.modes.KGCMBlockCipher;
-import org.bouncycastle.crypto.modes.OCBBlockCipher;
-import org.bouncycastle.crypto.modes.OFBBlockCipher;
-import org.bouncycastle.crypto.modes.OpenPGPCFBBlockCipher;
-import org.bouncycastle.crypto.modes.PGPCFBBlockCipher;
-import org.bouncycastle.crypto.modes.SICBlockCipher;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.paddings.ISO10126d2Padding;
-import org.bouncycastle.crypto.paddings.ISO7816d4Padding;
-import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.crypto.paddings.TBCPadding;
-import org.bouncycastle.crypto.paddings.X923Padding;
-import org.bouncycastle.crypto.paddings.ZeroBytePadding;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.FPEParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
-import org.bouncycastle.crypto.params.RC2Parameters;
-import org.bouncycastle.crypto.params.RC5Parameters;
-import org.bouncycastle.internal.asn1.cms.GCMParameters;
-import org.bouncycastle.jcajce.PBKDF1Key;
-import org.bouncycastle.jcajce.PBKDF1KeyWithParameters;
-import org.bouncycastle.jcajce.PKCS12KeyWithParameters;
-import org.bouncycastle.jcajce.spec.AEADParameterSpec;
-import org.bouncycastle.jcajce.spec.FPEParameterSpec;
-import org.bouncycastle.jcajce.spec.RepeatedSecretKeySpec;
-
-
 
 
 public class BaseBlockCipher
@@ -88,7 +87,7 @@ public class BaseBlockCipher
 {
     private static final int BUF_SIZE = 512;
     private static final Class gcmSpecClass = ClassUtil.loadClass(
-        org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.class, "javax.crypto.spec.GCMParameterSpec");
+          BaseBlockCipher.class, "javax.crypto.spec.GCMParameterSpec");
 
     //
     // specs we can handle.
@@ -1433,7 +1432,7 @@ public class BaseBlockCipher
         static
         {
             Class aeadBadTagClass = ClassUtil.loadClass(
-                org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.class, "javax.crypto.AEADBadTagException");
+                  BaseBlockCipher.class, "javax.crypto.AEADBadTagException");
             if (aeadBadTagClass != null)
             {
                 aeadBadTagConstructor = findExceptionConstructor(aeadBadTagClass);

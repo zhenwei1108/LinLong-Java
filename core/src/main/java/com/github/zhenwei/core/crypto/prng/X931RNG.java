@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.prng;
 
-import org.bouncycastle.crypto.BlockCipher;
+ 
 
 public class X931RNG
 {

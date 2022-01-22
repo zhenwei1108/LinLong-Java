@@ -11,10 +11,10 @@ import com.github.zhenwei.core.math.ec.WNafUtil;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
+ 
+ 
+import ECKeyGenerationParameters;
+import ECPublicKeyParameters;
  
 
 public class ECKeyPairGenerator

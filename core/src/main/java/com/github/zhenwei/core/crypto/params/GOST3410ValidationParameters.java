@@ -47,12 +47,12 @@ public class GOST3410ValidationParameters
     public boolean equals(
         Object o)
     {
-        if (!(o instanceof org.bouncycastle.crypto.params.GOST3410ValidationParameters))
+        if (!(o instanceof GOST3410ValidationParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.GOST3410ValidationParameters other = (org.bouncycastle.crypto.params.GOST3410ValidationParameters)o;
+        GOST3410ValidationParameters other =  (GOST3410ValidationParameters)o;
 
         if (other.c != this.c)
         {

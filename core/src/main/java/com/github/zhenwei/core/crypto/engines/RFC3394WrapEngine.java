@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.Wrapper;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
 
 
 /**
@@ -21,9 +21,9 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 public class RFC3394WrapEngine
     implements Wrapper
 {
-    private BlockCipher     engine;
+    private BlockCipher engine;
     private boolean         wrapCipherMode;
-    private KeyParameter    param;
+    private KeyParameter param;
     private boolean         forWrapping;
 
     private byte[]          iv = {

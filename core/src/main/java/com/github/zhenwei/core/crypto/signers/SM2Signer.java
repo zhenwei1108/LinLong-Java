@@ -18,9 +18,9 @@ import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.ECKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import ECKeyParameters;
+import ECPublicKeyParameters;
+ 
  
 
 

@@ -67,20 +67,20 @@ public class PrivateKeyInfo
     private ASN1Set attributes;
     private ASN1BitString publicKey;
 
-    public static pkcs.PrivateKeyInfo getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static PrivateKeyInfo getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static pkcs.PrivateKeyInfo getInstance(Object obj)
+    public static PrivateKeyInfo getInstance(Object obj)
     {
-        if (obj instanceof pkcs.PrivateKeyInfo)
+        if (obj instanceof PrivateKeyInfo)
         {
-            return (pkcs.PrivateKeyInfo)obj;
+            return  (PrivateKeyInfo)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.PrivateKeyInfo(ASN1Sequence.getInstance(obj));
+            return new PrivateKeyInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

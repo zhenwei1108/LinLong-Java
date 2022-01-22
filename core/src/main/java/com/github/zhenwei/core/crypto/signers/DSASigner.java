@@ -7,9 +7,9 @@ import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.params.DSAKeyParameters;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import DSAKeyParameters;
+import DSAPublicKeyParameters;
+ 
  
 
 /**

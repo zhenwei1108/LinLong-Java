@@ -1,10 +1,13 @@
 package com.github.zhenwei.core.crypto.fpe;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.engines.AESEngine;
+import com.github.zhenwei.core.crypto.params.FPEParameters;
 import com.github.zhenwei.core.util.Properties;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.params.FPEParameters;
+
+;
+  
 
 
 /**

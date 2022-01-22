@@ -6,12 +6,12 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import org.bouncycastle.crypto.PasswordConverter;
-import org.bouncycastle.crypto.generators.SCrypt;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BCPBEKey;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.util.AlgorithmProvider;
+import SCrypt;
+ 
+ 
+import   BCPBEKey;
+ 
+ 
 import org.bouncycastle.jcajce.spec.ScryptKeySpec;
 
 public class SCRYPT
@@ -85,7 +85,7 @@ public class SCRYPT
     public static class Mappings
         extends AlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.SCRYPT.class.getName();
+        private static final String PREFIX = SCRYPT.class.getName();
 
         public Mappings()
         {

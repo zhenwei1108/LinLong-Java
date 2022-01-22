@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.crypto.paddings;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+
 
 /**
  * A wrapper class that allows block ciphers to be used to process data in
@@ -27,7 +28,7 @@ public class PaddedBufferedBlockCipher
      * @param padding the padding type.
      */
     public PaddedBufferedBlockCipher(
-        BlockCipher         cipher,
+        BlockCipher cipher,
         BlockCipherPadding  padding)
     {
         this.cipher = cipher;

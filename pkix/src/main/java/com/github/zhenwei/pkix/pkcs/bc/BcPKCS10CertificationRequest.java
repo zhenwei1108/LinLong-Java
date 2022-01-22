@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCSException;
-import pkcs.CertificationRequest;
+import CertificationRequest;
 
 public class BcPKCS10CertificationRequest
     extends PKCS10CertificationRequest

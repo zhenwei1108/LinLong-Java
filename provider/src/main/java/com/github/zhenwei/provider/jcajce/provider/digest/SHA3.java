@@ -2,13 +2,13 @@ package com.github.zhenwei.provider.jcajce.provider.digest;
 
 
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.digests.SHA3Digest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
+ 
+import  SHA3Digest;
+import  SHAKEDigest;
+ 
+ 
+ 
+   (
 
 public class SHA3
 {

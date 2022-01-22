@@ -32,14 +32,14 @@ public class MD4Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public MD4Digest(org.bouncycastle.crypto.digests.MD4Digest t)
+    public MD4Digest( MD4Digest t)
     {
         super(t);
 
         copyIn(t);
     }
 
-    private void copyIn(org.bouncycastle.crypto.digests.MD4Digest t)
+    private void copyIn( MD4Digest t)
     {
         super.copyIn(t);
 
@@ -279,12 +279,12 @@ public class MD4Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.MD4Digest(this);
+        return new  MD4Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.MD4Digest d = (org.bouncycastle.crypto.digests.MD4Digest)other;
+         MD4Digest d = ( MD4Digest)other;
 
         copyIn(d);
     }

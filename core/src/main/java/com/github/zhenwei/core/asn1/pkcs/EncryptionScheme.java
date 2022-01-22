@@ -32,15 +32,15 @@ public class EncryptionScheme
         this.algId = AlgorithmIdentifier.getInstance(seq);
     }
 
-    public static pkcs.EncryptionScheme getInstance(Object obj)
+    public static EncryptionScheme getInstance(Object obj)
     {
-        if (obj instanceof pkcs.EncryptionScheme)
+        if (obj instanceof EncryptionScheme)
         {
-            return (pkcs.EncryptionScheme)obj;
+            return  (EncryptionScheme)obj;
         }
         else if (obj != null)
         {
-            return new pkcs.EncryptionScheme(ASN1Sequence.getInstance(obj));
+            return new EncryptionScheme(ASN1Sequence.getInstance(obj));
         }
 
         return null;

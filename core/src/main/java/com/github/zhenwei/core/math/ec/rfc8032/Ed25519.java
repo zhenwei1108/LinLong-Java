@@ -6,7 +6,7 @@ import com.github.zhenwei.core.math.raw.Nat;
 import com.github.zhenwei.core.math.raw.Nat256;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.digests.SHA512Digest;
+import  SHA512Digest;
 import rfc7748.X25519;
 import rfc7748.X25519Field;
 

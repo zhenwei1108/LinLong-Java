@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.agreement;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.params.DHUPrivateParameters;
-import org.bouncycastle.crypto.params.DHUPublicParameters;
+import DHUPrivateParameters;
+import DHUPublicParameters;
  
 
 /**

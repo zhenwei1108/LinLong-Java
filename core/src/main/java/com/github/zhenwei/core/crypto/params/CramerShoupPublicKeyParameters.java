@@ -39,12 +39,12 @@ public class CramerShoupPublicKeyParameters
 
     public boolean equals(Object obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.CramerShoupPublicKeyParameters))
+        if (!(obj instanceof CramerShoupPublicKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.CramerShoupPublicKeyParameters other = (org.bouncycastle.crypto.params.CramerShoupPublicKeyParameters)obj;
+        CramerShoupPublicKeyParameters other =  (CramerShoupPublicKeyParameters)obj;
 
         return other.getC().equals(c) && other.getD().equals(d) && other.getH().equals(h) && super.equals(obj);
     }

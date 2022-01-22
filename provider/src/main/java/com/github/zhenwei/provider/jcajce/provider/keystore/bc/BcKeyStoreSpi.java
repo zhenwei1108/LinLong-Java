@@ -45,13 +45,13 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
+import  SHA1Digest;
+import PKCS12ParametersGenerator;
 import org.bouncycastle.crypto.io.DigestInputStream;
 import org.bouncycastle.crypto.io.DigestOutputStream;
 import org.bouncycastle.crypto.io.MacInputStream;
 import org.bouncycastle.crypto.io.MacOutputStream;
-import org.bouncycastle.crypto.macs.HMac;
+ 
 import org.bouncycastle.jcajce.io.CipherInputStream;
 import org.bouncycastle.jcajce.io.CipherOutputStream;
 

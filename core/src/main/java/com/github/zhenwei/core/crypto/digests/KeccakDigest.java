@@ -37,7 +37,7 @@ public class KeccakDigest
     }
 
 
-    public KeccakDigest(org.bouncycastle.crypto.digests.KeccakDigest source)
+    public KeccakDigest( KeccakDigest source)
     {
         System.arraycopy(source.state, 0, this.state, 0, source.state.length);
         System.arraycopy(source.dataQueue, 0, this.dataQueue, 0, source.dataQueue.length);

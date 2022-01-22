@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.util;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 
 public abstract class AsymmetricAlgorithmProvider
     extends AlgorithmProvider

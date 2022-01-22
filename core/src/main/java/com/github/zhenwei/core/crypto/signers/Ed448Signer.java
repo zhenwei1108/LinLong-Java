@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayOutputStream;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.Ed448PublicKeyParameters;
+import Ed448PublicKeyParameters;
 import rfc8032.Ed448;
 
 

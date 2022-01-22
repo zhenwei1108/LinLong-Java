@@ -1,30 +1,30 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.engines.CamelliaEngine;
+import com.github.zhenwei.core.crypto.engines.CamelliaWrapEngine;
+import com.github.zhenwei.core.crypto.engines.RFC3211WrapEngine;
+import com.github.zhenwei.core.crypto.generators.Poly1305KeyGenerator;
+import com.github.zhenwei.core.crypto.macs.GMac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.modes.GCMBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BlockCipherProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherKeyGenerator;
-import org.bouncycastle.crypto.engines.CamelliaEngine;
-import org.bouncycastle.crypto.engines.CamelliaWrapEngine;
-import org.bouncycastle.crypto.engines.RFC3211WrapEngine;
-import org.bouncycastle.crypto.generators.Poly1305KeyGenerator;
-import org.bouncycastle.crypto.macs.GMac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.GCMBlockCipher;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseKeyGenerator;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseMac;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
-import org.bouncycastle.jcajce.provider.symmetric.util.BaseWrapCipher;
-import org.bouncycastle.jcajce.provider.symmetric.util.BlockCipherProvider;
-import org.bouncycastle.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 
 public final class Camellia
 {
@@ -97,7 +97,7 @@ public final class Camellia
     {
         public Poly1305()
         {
-            super(new org.bouncycastle.crypto.macs.Poly1305(new CamelliaEngine()));
+            super(new  com.github.zhenwei.core.crypto.macs.Poly1305(new CamelliaEngine()));
         }
     }
 
@@ -201,7 +201,7 @@ public final class Camellia
     public static class Mappings
         extends SymmetricAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.symmetric.Camellia.class.getName();
+        private static final String PREFIX = Camellia.class.getName();
 
         public Mappings()
         {

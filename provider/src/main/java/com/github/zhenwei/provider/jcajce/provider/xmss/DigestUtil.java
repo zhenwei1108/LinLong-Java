@@ -4,9 +4,9 @@ package com.github.zhenwei.provider.jcajce.provider.xmss;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import org.bouncycastle.crypto.Xof;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
+import  SHA256Digest;
+import  SHA512Digest;
+import  SHAKEDigest;
 import org.bouncycastle.pqc.jcajce.spec.XMSSParameterSpec;
 
 class DigestUtil

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.KeyGenerationParameters;
+ 
 
 public class RainbowKeyGenerationParameters
     extends KeyGenerationParameters

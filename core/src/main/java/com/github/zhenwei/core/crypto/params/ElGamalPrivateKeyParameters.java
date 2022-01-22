@@ -25,12 +25,12 @@ public class ElGamalPrivateKeyParameters
     public boolean equals(
         Object  obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters))
+        if (!(obj instanceof ElGamalPrivateKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters pKey = (org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters)obj;
+        ElGamalPrivateKeyParameters pKey =  (ElGamalPrivateKeyParameters)obj;
 
         if (!pKey.getX().equals(x))
         {

@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.prng;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
+ 
+
 
 
 

@@ -15,9 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
-import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+ 
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
-import org.bouncycastle.jcajce.provider.util.AsymmetricKeyInfoConverter;
+ 
  
 
 public class COMPOSITE

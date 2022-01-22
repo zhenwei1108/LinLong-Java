@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.SkippingStreamCipher;
+import com.github.zhenwei.core.crypto.StreamBlockCipher;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.OutputLengthException;
-import org.bouncycastle.crypto.SkippingStreamCipher;
-import org.bouncycastle.crypto.StreamBlockCipher;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-
+import com.github.zhenwei.core.util.Pack;
 
 
 /**

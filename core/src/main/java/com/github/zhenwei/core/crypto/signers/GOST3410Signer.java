@@ -7,11 +7,11 @@ import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.params.GOST3410KeyParameters;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.crypto.params.GOST3410PrivateKeyParameters;
-import org.bouncycastle.crypto.params.GOST3410PublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import GOST3410KeyParameters;
+import GOST3410Parameters;
+import GOST3410PrivateKeyParameters;
+import GOST3410PublicKeyParameters;
+ 
 
  
 

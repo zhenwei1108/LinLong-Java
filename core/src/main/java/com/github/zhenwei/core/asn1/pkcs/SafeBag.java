@@ -38,17 +38,17 @@ public class SafeBag
         this.bagAttributes = bagAttributes;
     }
 
-    public static pkcs.SafeBag getInstance(
+    public static SafeBag getInstance(
         Object  obj)
     {
-        if (obj instanceof pkcs.SafeBag)
+        if (obj instanceof SafeBag)
         {
-            return (pkcs.SafeBag)obj;
+            return  (SafeBag)obj;
         }
 
         if (obj != null)
         {
-            return new pkcs.SafeBag(ASN1Sequence.getInstance(obj));
+            return new SafeBag(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -6,8 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.Provider;
 import java.util.Collection;
-import org.bouncycastle.util.StreamParser;
-import org.bouncycastle.util.StreamParsingException;
+import  StreamParser;
+import  StreamParsingException;
 
 /**
  *

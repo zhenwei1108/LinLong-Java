@@ -14,9 +14,9 @@ import java.security.PublicKey;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.crypto.DSAExt;
-import org.bouncycastle.crypto.digests.GOST3411_2012_256Digest;
-import org.bouncycastle.crypto.params.ECKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import  GOST3411_2012_256Digest;
+import ECKeyParameters;
+ 
 import org.bouncycastle.crypto.signers.ECGOST3410_2012Signer;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jce.interfaces.ECKey;

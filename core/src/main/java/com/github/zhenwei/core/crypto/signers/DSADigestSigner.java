@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import org.bouncycastle.crypto.DSA;
 import org.bouncycastle.crypto.DSAExt;
 import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ 
 
 public class DSADigestSigner
     implements Signer

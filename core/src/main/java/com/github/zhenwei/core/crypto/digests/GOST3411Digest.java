@@ -3,10 +3,10 @@ package com.github.zhenwei.core.crypto.digests;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Memoable;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.engines.GOST28147Engine;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
+ 
+ 
+ 
+  
 
 
 
@@ -57,7 +57,7 @@ public class GOST3411Digest
      * Copy constructor.  This will copy the state of the provided
      * message digest.
      */
-    public GOST3411Digest(org.bouncycastle.crypto.digests.GOST3411Digest t)
+    public GOST3411Digest( GOST3411Digest t)
     {
         reset(t);
     }
@@ -335,12 +335,12 @@ public class GOST3411Digest
 
     public Memoable copy()
     {
-        return new org.bouncycastle.crypto.digests.GOST3411Digest(this);
+        return new  GOST3411Digest(this);
     }
 
     public void reset(Memoable other)
     {
-        org.bouncycastle.crypto.digests.GOST3411Digest t = (org.bouncycastle.crypto.digests.GOST3411Digest)other;
+         GOST3411Digest t = ( GOST3411Digest)other;
 
         this.sBox = t.sBox;
         cipher.init(true, new ParametersWithSBox(null, sBox));

@@ -1,15 +1,21 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.Wrapper;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+ 
+ 
+  
+ 
+ 
+ 
 
 
 /**
@@ -19,7 +25,7 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 public class RFC3211WrapEngine
     implements Wrapper
 {
-    private CBCBlockCipher   engine;
+    private CBCBlockCipher engine;
     private ParametersWithIV param;
     private boolean          forWrapping;
     private SecureRandom     rand;

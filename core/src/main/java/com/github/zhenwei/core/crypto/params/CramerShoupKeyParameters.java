@@ -21,12 +21,12 @@ public class CramerShoupKeyParameters
 
     public boolean equals(Object obj)
     {
-        if (!(obj instanceof org.bouncycastle.crypto.params.CramerShoupKeyParameters))
+        if (!(obj instanceof CramerShoupKeyParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.CramerShoupKeyParameters csKey = (org.bouncycastle.crypto.params.CramerShoupKeyParameters)obj;
+        CramerShoupKeyParameters csKey =  (CramerShoupKeyParameters)obj;
 
         if (params == null)
         {

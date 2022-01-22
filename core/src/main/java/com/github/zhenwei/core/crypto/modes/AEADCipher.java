@@ -3,7 +3,8 @@ package com.github.zhenwei.core.crypto.modes;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+
 
 /**
  * A cipher mode that includes authenticated encryption with a streaming mode and optional associated data.
@@ -17,7 +18,7 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
  * may be output prior to the call to {@link #doFinal(byte[], int)} that results in an authentication
  * failure. The higher level protocol utilising this cipher must ensure the plaintext data is handled 
  * appropriately until the end of data is reached and the entire ciphertext is authenticated.
- * @see org.bouncycastle.crypto.params.AEADParameters
+ * @see AEADParameters
  */
 public interface AEADCipher
 {
@@ -92,7 +93,7 @@ public interface AEADCipher
      * @throws InvalidCipherTextException if the MAC fails to match.
      */
     public int doFinal(byte[] out, int outOff)
-        throws IllegalStateException, InvalidCipherTextException;
+        throws IllegalStateException, InvalidCipherTextException, InvalidCipherTextException;
 
     /**
      * Return the value of the MAC associated with the last stream processed.

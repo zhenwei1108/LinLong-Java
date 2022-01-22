@@ -19,7 +19,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.jce.spec.ECPublicKeySpec;
-import ua.UAObjectIdentifiers;
+ 
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

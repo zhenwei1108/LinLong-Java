@@ -49,12 +49,12 @@ public class DSAValidationParameters
     public boolean equals(
         Object o)
     {
-        if (!(o instanceof org.bouncycastle.crypto.params.DSAValidationParameters))
+        if (!(o instanceof DSAValidationParameters))
         {
             return false;
         }
 
-        org.bouncycastle.crypto.params.DSAValidationParameters other = (org.bouncycastle.crypto.params.DSAValidationParameters)o;
+        DSAValidationParameters other =  (DSAValidationParameters)o;
 
         if (other.counter != this.counter)
         {

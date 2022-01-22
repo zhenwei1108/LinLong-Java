@@ -15,7 +15,7 @@ import java.security.PublicKey;
 import java.security.interfaces.DSAParams;
 import java.security.interfaces.DSAPrivateKey;
 import java.security.interfaces.DSAPublicKey;
-import org.bouncycastle.util.Fingerprint;
+import  Fingerprint;
 
 
 /**

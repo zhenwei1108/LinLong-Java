@@ -41,8 +41,8 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import pkcs.CertificationRequest;
-import pkcs.CertificationRequestInfo;
+import CertificationRequest;
+import CertificationRequestInfo;
 
 
 

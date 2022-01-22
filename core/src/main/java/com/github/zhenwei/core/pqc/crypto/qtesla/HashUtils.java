@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.qtesla;
 
-import org.bouncycastle.crypto.digests.CSHAKEDigest;
-import org.bouncycastle.crypto.digests.SHAKEDigest;
+import  CSHAKEDigest;
+import  SHAKEDigest;
 
 class HashUtils
 {

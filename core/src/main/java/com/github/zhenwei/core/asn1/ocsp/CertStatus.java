@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import ASN1Null;
+ 
 import ASN1Util;
 import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Encodable;

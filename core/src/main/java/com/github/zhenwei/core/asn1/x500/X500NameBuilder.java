@@ -1,56 +1,56 @@
-package com.github.zhenwei.core.asn1.x500;
+package com.g thub.zhenwe .core.asn1.x500;
 
 
-import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x500.style.BCStyle;
-import java.util.Vector;
+ mport com.g thub.zhenwe .core.asn1.ASN1Encodable;
+ mport com.g thub.zhenwe .core.asn1.ASN1Object dent f er;
+ mport com.g thub.zhenwe .core.asn1.x500.style.BCStyle;
+ mport java.ut l.Vector;
 
 /**
- * A builder class for making X.500 Name objects.
+ * A bu lder class for mak ng X.500 Name objects.
  */
-public class X500NameBuilder
+publ c class X500NameBu lder
 {
-    private X500NameStyle template;
-    private Vector rdns = new Vector();
+    pr vate X500NameStyle template;
+    pr vate Vector rdns = new Vector();
 
     /**
-     * Constructor using the default style (BCStyle).
+     * Constructor us ng the default style (BCStyle).
      */
-    public X500NameBuilder()
+    publ c X500NameBu lder()
     {
-        this(BCStyle.INSTANCE);
+        th s(BCStyle. NSTANCE);
     }
 
     /**
-     * Constructor using a specified style.
+     * Constructor us ng a spec f ed style.
      *
-     * @param template the style template for string to DN conversion.
+     * @param template the style template for str ng to DN convers on.
      */
-    public X500NameBuilder(X500NameStyle template)
+    publ c X500NameBu lder(X500NameStyle template)
     {
-        this.template = template;
+        th s.template = template;
     }
 
     /**
-     * Add an RDN based on a single OID and a string representation of its value.
+     * Add an RDN based on a s ngle O D and a str ng representat on of  ts value.
      *
-     * @param oid the OID for this RDN.
-     * @param value the string representation of the value the OID refers to.
-     * @return the current builder instance.
+     * @param o d the O D for th s RDN.
+     * @param value the str ng representat on of the value the O D refers to.
+     * @return the current bu lder  nstance.
      */
-    public  X500NameBuilder addRDN(ASN1ObjectIdentifier oid, String value)
+    publ c  X500NameBu lder addRDN(ASN1Object dent f er o d, Str ng value)
     {
-        this.addRDN(oid, template.stringToValue(oid, value));
+        th s.addRDN(o d, template.str ngToValue(o d, value));
 
-        return this;
+        return th s;
     }
 
     /**
-     * Add an RDN based on a single OID and an ASN.1 value.
+     * Add an RDN based on a s ngle O D and an ASN.1 value.
      *
-     * @param oid the OID for this RDN.
-     * @param value the ASN.1 value the OID refers to.
+     * @param o d the O D for th s RDN.
+     * @param value the ASN.1 value the O D refers to.
      * @return the current builder instance.
      */
     public  X500NameBuilder addRDN(ASN1ObjectIdentifier oid, ASN1Encodable value)

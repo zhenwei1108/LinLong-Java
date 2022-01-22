@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.StreamBlockCipher;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.StreamBlockCipher;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-
+ 
 
 /**
  * implements a Cipher-FeedBack (CFB) mode on top of a simple cipher.
@@ -20,7 +20,7 @@ public class CFBBlockCipher
     private byte[]          inBuf;
 
     private int             blockSize;
-    private BlockCipher     cipher = null;
+    private BlockCipher cipher = null;
     private boolean         encrypting;
     private int             byteCount;
 

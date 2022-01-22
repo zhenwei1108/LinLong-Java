@@ -1,7 +1,16 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.macs.HMac;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithIV;
+import com.github.zhenwei.core.crypto.params.RC2Parameters;
+import com.github.zhenwei.core.crypto.params.SkeinParameters;
 import com.github.zhenwei.provider.jcajce.PKCS12Key;
+import com.github.zhenwei.provider.jcajce.spec.AEADParameterSpec;
+import com.github.zhenwei.provider.jcajce.spec.SkeinParameterSpec;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -15,21 +24,13 @@ import javax.crypto.interfaces.PBEKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.crypto.params.AEADParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.RC2Parameters;
-import org.bouncycastle.crypto.params.SkeinParameters;
-import org.bouncycastle.jcajce.spec.AEADParameterSpec;
-import org.bouncycastle.jcajce.spec.SkeinParameterSpec;
+ 
 
 public class BaseMac
     extends MacSpi implements PBE
 {
     private static final Class gcmSpecClass = ClassUtil.loadClass(
-        org.bouncycastle.jcajce.provider.symmetric.util.BaseMac.class, "javax.crypto.spec.GCMParameterSpec");
+          BaseMac.class, "javax.crypto.spec.GCMParameterSpec");
 
     private Mac macEngine;
 
