@@ -9,7 +9,7 @@ package com.github.zhenwei.sdk.util.asn1.cmc;
 
 
 
-import DERBitString;
+
 
 
 import X500Name;

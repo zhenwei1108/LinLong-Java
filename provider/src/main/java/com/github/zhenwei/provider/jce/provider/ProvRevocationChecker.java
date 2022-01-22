@@ -21,7 +21,7 @@ import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
 
 
 import rosstandart.RosstandartObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class ProvRevocationChecker
     extends PKIXRevocationChecker

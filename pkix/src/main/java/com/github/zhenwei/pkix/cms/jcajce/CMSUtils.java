@@ -21,7 +21,7 @@ import org.bouncycastle.jcajce.util.AnnotatedPrivateKey;
 
 import rosstandart.RosstandartObjectIdentifiers;
 import sec.SECObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class CMSUtils
 {

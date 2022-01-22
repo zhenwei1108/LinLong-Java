@@ -11,7 +11,7 @@ import java.util.Enumeration;
 
 /**
  * ASN.1 def for Diffie-Hellman key exchange KeySpecificInfo structure. See
- * RFC 2631, or X9.42, for further details.
+ * RFC 2631, or 42, for further details.
  * <pre>
  *  KeySpecificInfo ::= SEQUENCE {
  *      algorithm OBJECT IDENTIFIER,
@@ -45,15 +45,15 @@ public class KeySpecificInfo
      * @param obj an object for conversion or a byte[].
      * @return a KeySpecificInfo
      */
-    public static x9.KeySpecificInfo getInstance(Object obj)
+    public static KeySpecificInfo getInstance(Object obj)
     {
-        if (obj instanceof x9.KeySpecificInfo)
+        if (obj instanceof KeySpecificInfo)
         {
-            return (x9.KeySpecificInfo)obj;
+            return  (KeySpecificInfo)obj;
         }
         else if (obj != null)
         {
-            return new x9.KeySpecificInfo(ASN1Sequence.getInstance(obj));
+            return new KeySpecificInfo(ASN1Sequence.getInstance(obj));
         }
 
         return null;

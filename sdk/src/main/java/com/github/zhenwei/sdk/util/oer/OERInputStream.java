@@ -6,7 +6,7 @@ package com.github.zhenwei.sdk.util.oer;
 import ASN1Enumerated;
 
 
-import DERBitString;
+
 
 
 

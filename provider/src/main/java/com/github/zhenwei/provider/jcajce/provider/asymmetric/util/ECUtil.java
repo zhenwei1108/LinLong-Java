@@ -31,9 +31,9 @@ import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.util.Fingerprint;
 
 import pkcs.PrivateKeyInfo;
-import x9.ECNamedCurveTable;
-import x9.X962Parameters;
-import x9.X9ECParameters;
+import ECNamedCurveTable;
+import X962Parameters;
+import X9ECParameters;
 
 /**
  * utility class for converting jce/jca ECDSA, ECDH, and ECDHC

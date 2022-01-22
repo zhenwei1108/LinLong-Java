@@ -6,7 +6,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 
 
-import DERBitString;
+
 
 
 import java.io.IOException;
@@ -28,8 +28,8 @@ import org.bouncycastle.jce.interfaces.ECPointEncoder;
 
 
 import pkcs.PrivateKeyInfo;
-import x9.X962Parameters;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ObjectIdentifiers;
 
 public class BCECPrivateKey
     implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder

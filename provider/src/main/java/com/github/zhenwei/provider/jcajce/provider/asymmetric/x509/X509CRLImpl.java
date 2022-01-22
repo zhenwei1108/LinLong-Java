@@ -12,7 +12,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 import CRLDistPoint;
 import CRLNumber;
 import CertificateList;
-import DERBitString;
+
 
 import Extensions;
 import GeneralNames;

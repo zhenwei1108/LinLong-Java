@@ -11,7 +11,7 @@ import kisa.KISAObjectIdentifiers;
 import rosstandart.RosstandartObjectIdentifiers;
 import sec.SECObjectIdentifiers;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class CMSAlgorithm
 {

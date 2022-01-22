@@ -33,7 +33,7 @@ public class ECKeyPairGenerator
 
     /**
      * Given the domain parameters this routine generates an EC key
-     * pair in accordance with X9.62 section 5.2.1 pages 26, 27.
+     * pair in accordance with 62 section 5.2.1 pages 26, 27.
      */
     public AsymmetricCipherKeyPair generateKeyPair()
     {

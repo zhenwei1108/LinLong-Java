@@ -3,7 +3,7 @@ package com.github.zhenwei.sdk.util.oer.its;
 import ASN1BitString;
 
 
-import DERBitString;
+
 
 /**
  * <pre>

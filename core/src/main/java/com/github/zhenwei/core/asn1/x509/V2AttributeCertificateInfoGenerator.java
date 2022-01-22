@@ -5,7 +5,7 @@ package com.github.zhenwei.core.asn1.x509;
 import ASN1GeneralizedTime;
 
 
-import DERBitString;
+
 
 
 

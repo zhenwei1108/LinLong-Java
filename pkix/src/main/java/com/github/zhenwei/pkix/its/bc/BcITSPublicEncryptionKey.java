@@ -18,7 +18,7 @@ import org.bouncycastle.oer.its.SymmAlgorithm;
 import sec.SECObjectIdentifiers;
 import teletrust.TeleTrusTNamedCurves;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public class BcITSPublicEncryptionKey
     extends ITSPublicEncryptionKey

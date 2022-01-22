@@ -15,7 +15,7 @@ import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 
 import org.bouncycastle.util.Fingerprint;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 /**
  * utility class for converting jce/jca DSA objects

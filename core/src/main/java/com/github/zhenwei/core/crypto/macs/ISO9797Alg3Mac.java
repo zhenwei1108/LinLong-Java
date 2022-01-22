@@ -10,7 +10,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
 
 /**
- * DES based CBC Block Cipher MAC according to ISO9797, algorithm 3 (ANSI X9.19 Retail MAC)
+ * DES based CBC Block Cipher MAC according to ISO9797, algorithm 3 (ANSI 19 Retail MAC)
  *
  * This could as well be derived from CBCBlockCipherMac, but then the property mac in the base
  * class must be changed to protected  

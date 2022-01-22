@@ -8,7 +8,7 @@ package com.github.zhenwei.pkix.cert;
 
 
 import Certificate;
-import DERBitString;
+
 
 
 import Extensions;

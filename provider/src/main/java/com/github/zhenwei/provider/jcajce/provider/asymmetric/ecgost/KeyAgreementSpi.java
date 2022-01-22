@@ -21,7 +21,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;
-import x9.X9IntegerConverter;
+import X9IntegerConverter;
 
 public class KeyAgreementSpi
     extends BaseAgreementSpi

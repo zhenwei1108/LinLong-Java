@@ -33,7 +33,7 @@ import BERSet;
 import BERTaggedObject;
 
  
-import DERBitString;
+
 
 
 import DLApplicationSpecific;

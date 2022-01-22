@@ -6,7 +6,7 @@ import ASN1BitString;
 
 
  
-import DERBitString;
+
 import java.io.IOException;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;

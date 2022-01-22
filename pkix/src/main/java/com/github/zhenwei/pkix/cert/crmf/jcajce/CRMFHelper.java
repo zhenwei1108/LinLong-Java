@@ -40,7 +40,7 @@ import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
 
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class CRMFHelper
 {

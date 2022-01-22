@@ -587,19 +587,19 @@ public abstract class ECFieldElement
     {
         /**
          * Indicates gaussian normal basis representation (GNB). Number chosen
-         * according to X9.62. GNB is not implemented at present.
+         * according to 62. GNB is not implemented at present.
          */
         public static final int GNB = 1;
 
         /**
          * Indicates trinomial basis representation (TPB). Number chosen
-         * according to X9.62.
+         * according to 62.
          */
         public static final int TPB = 2;
 
         /**
          * Indicates pentanomial basis representation (PPB). Number chosen
-         * according to X9.62.
+         * according to 62.
          */
         public static final int PPB = 3;
 

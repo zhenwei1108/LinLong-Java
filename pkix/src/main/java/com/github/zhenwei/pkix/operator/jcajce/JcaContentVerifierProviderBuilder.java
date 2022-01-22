@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.operator.jcajce;
 
 
 
-import DERBitString;
+
 
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;

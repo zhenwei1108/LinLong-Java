@@ -6,7 +6,7 @@ package com.github.zhenwei.core.asn1.x9;
 
 
 
-import DERBitString;
+
 
 
 /**
@@ -17,20 +17,20 @@ public class DHValidationParms extends ASN1Object
     private DERBitString seed;
     private ASN1Integer pgenCounter;
 
-    public static x9.DHValidationParms getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static DHValidationParms getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static x9.DHValidationParms getInstance(Object obj)
+    public static DHValidationParms getInstance(Object obj)
     {
-        if (obj instanceof x9.DHValidationParms)
+        if (obj instanceof DHValidationParms)
         {
-            return (x9.DHValidationParms)obj;
+            return  (DHValidationParms)obj;
         }
         else if (obj != null)
         {
-            return new x9.DHValidationParms(ASN1Sequence.getInstance(obj));
+            return new DHValidationParms(ASN1Sequence.getInstance(obj));
         }
 
         return null;

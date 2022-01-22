@@ -7,7 +7,7 @@ import kisa.KISAObjectIdentifiers;
 
 
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 /**
  * General class for generating a CMS enveloped-data message.

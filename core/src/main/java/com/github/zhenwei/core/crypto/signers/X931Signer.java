@@ -12,7 +12,7 @@ import org.bouncycastle.crypto.signers.ISOTrailers;
  
 
 /**
- * X9.31-1998 - signing using a hash.
+ * 31-1998 - signing using a hash.
  * <p>
  * The message digest hash, H, is encapsulated to form a byte string as follows
  * <pre>
@@ -51,7 +51,7 @@ public class X931Signer
     private byte[]      block;
 
     /**
-     * Generate a signer with either implicit or explicit trailers for X9.31
+     * Generate a signer with either implicit or explicit trailers for 31
      *
      * @param cipher base cipher to use for signature creation/verification
      * @param digest digest to use.
@@ -199,7 +199,7 @@ public class X931Signer
     }
 
     /**
-     * return true if the signature represents a X9.31 signature
+     * return true if the signature represents a 31 signature
      * for the passed in message.
      */
     public boolean verifySignature(

@@ -14,7 +14,7 @@ public class ECPointUtil
 {
     /**
      * Decode a point on this curve which has been encoded using point
-     * compression (X9.62 s 4.2.1 and 4.2.2) or regular encoding.
+     * compression  (62 s 4.2.1 and 4.2.2) or regular encoding.
      * 
      * @param curve
      *            The elliptic curve.

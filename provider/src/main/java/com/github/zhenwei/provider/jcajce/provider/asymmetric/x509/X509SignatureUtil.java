@@ -26,7 +26,7 @@ import org.bouncycastle.jcajce.util.MessageDigestUtils;
 
 
 import pkcs.RSASSAPSSparams;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class X509SignatureUtil
 {

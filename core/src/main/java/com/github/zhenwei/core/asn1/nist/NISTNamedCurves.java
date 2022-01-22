@@ -6,7 +6,7 @@ import java.util.Hashtable;
 
 import sec.SECNamedCurves;
 import sec.SECObjectIdentifiers;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 /**
  * Utility class for fetching curves using their NIST names as published in FIPS-PUB 186-3

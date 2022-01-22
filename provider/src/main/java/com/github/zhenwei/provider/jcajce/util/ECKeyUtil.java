@@ -8,10 +8,10 @@ import java.security.interfaces.ECPublicKey;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
-import x9.ECNamedCurveTable;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
+import ECNamedCurveTable;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
 
 /**
  * Utility class for EC Keys.
@@ -72,7 +72,7 @@ public class ECKeyUtil
                 {
                     x9 = ECNamedCurveTable.getByOID(oid);
                 }
-                curve = x9.getCurve();
+                curve = getCurve();
             }
             else if (params.isImplicitlyCA())
             {
@@ -81,7 +81,7 @@ public class ECKeyUtil
             else
             {
                 X9ECParameters x9 = X9ECParameters.getInstance(params.getParameters());
-                curve = x9.getCurve();
+                curve = getCurve();
             }
 
             ECPoint p = curve.decodePoint(publicKeyInfo.getPublicKeyData().getOctets());

@@ -25,7 +25,7 @@ import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
  
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public abstract class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator
@@ -215,7 +215,7 @@ public abstract class KeyPairGeneratorSpi
 
         protected ECKeyGenerationParameters createKeyGenParamsJCE(X9ECParameters x9, SecureRandom r)
         {
-            ECDomainParameters dp = new ECDomainParameters(x9.getCurve(), x9.getG(), x9.getN(), x9.getH());
+            ECDomainParameters dp = new ECDomainParameters(x9.getCurve(), getG(), getN(), getH());
 
             return new ECKeyGenerationParameters(dp, r);
         }
@@ -232,7 +232,7 @@ public abstract class KeyPairGeneratorSpi
             // Work-around for JDK bug -- it won't look up named curves properly if seed is present
             byte[] seed = null; //p.getSeed();
 
-            this.ecParams = new ECNamedCurveSpec(curveName, x9.getCurve(), x9.getG(), x9.getN(), x9.getH(), seed);
+            this.ecParams = new ECNamedCurveSpec(curveName, getCurve(), getG(), getN(), getH(), seed);
             this.param = createKeyGenParamsJCE(x9, random);
         }
     }

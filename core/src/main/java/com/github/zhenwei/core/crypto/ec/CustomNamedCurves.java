@@ -47,9 +47,9 @@ import java.util.Vector;
 
 
 import sec.SECObjectIdentifiers;
-import x9.X9ECParameters;
-import x9.X9ECParametersHolder;
-import x9.X9ECPoint;
+import X9ECParameters;
+import X9ECParametersHolder;
+import X9ECPoint;
 
 public class CustomNamedCurves
 {

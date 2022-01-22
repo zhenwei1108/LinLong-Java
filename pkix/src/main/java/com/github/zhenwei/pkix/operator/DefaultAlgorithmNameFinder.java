@@ -16,7 +16,7 @@ import misc.MiscObjectIdentifiers;
 
 import rosstandart.RosstandartObjectIdentifiers;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class DefaultAlgorithmNameFinder
     implements AlgorithmNameFinder

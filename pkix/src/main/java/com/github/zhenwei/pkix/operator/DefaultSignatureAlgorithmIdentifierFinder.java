@@ -24,7 +24,7 @@ import java.util.Set;
 import pkcs.RSASSAPSSparams;
 import rosstandart.RosstandartObjectIdentifiers;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class DefaultSignatureAlgorithmIdentifierFinder
     implements SignatureAlgorithmIdentifierFinder

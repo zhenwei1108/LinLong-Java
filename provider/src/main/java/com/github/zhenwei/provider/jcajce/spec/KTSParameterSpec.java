@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.jcajce.spec;
 import java.security.spec.AlgorithmParameterSpec;
 
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 /**
  * Parameter spec for doing KTS based wrapping via the Cipher API.

@@ -68,7 +68,7 @@ public class X931SecureRandomBuilder
     }
 
     /**
-     * Construct a X9.31 secure random generator using the passed in engine and key. If predictionResistant is true the
+     * Construct a 31 secure random generator using the passed in engine and key. If predictionResistant is true the
      * generator will be reseeded on each request.
      *
      * @param engine a block cipher to use as the operator.

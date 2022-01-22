@@ -14,7 +14,7 @@ import org.bouncycastle.crypto.params.DHValidationParameters;
 import org.bouncycastle.crypto.params.DSAParameters;
 import org.bouncycastle.crypto.params.DSAValidationParameters;
 
-import x9.X9ECParameters;
+import X9ECParameters;
 
 /**
  * Basic registrar class for providing defaults for cryptography services in this module.
@@ -421,7 +421,7 @@ public final class CryptoServicesRegistrar
     public static final class Property
     {
         /**
-         * The parameters to be used for processing implicitlyCA X9.62 parameters
+         * The parameters to be used for processing implicitlyCA 62 parameters
          */
         public static final Property EC_IMPLICITLY_CA = new Property("ecImplicitlyCA", X9ECParameters.class);
         /**

@@ -7,7 +7,7 @@ import ASN1Enumerated;
 
 
 
-import DERBitString;
+
 
 
 /**

@@ -26,11 +26,11 @@ import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
-import org.bouncycastle.math.field.PolynomialExtensionField;
 
-import x9.ECNamedCurveTable;
-import x9.X962Parameters;
-import x9.X9ECParameters;
+
+import ECNamedCurveTable;
+import X962Parameters;
+import X9ECParameters;
 
 public class EC5Util
 {

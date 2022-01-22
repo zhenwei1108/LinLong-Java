@@ -14,10 +14,10 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import x9.ECNamedCurveTable;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
+import ECNamedCurveTable;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
 
 public class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi

@@ -3,7 +3,7 @@ package com.github.zhenwei.core.math.field;
 import java.math.BigInteger;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
-import org.bouncycastle.math.field.PolynomialExtensionField;
+
  
 
 class GenericPolynomialExtensionField implements PolynomialExtensionField

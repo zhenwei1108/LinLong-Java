@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jce;
 
 import java.util.Enumeration;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 /**
  * a table of locally supported named curves.
@@ -34,12 +34,12 @@ public class ECNamedCurveTable
 
             if (ecP == null)
             {
-                ecP = x9.ECNamedCurveTable.getByName(name);
+                ecP = ECNamedCurveTable.getByName(name);
                 if (ecP == null)
                 {
                     try
                     {
-                        ecP = x9.ECNamedCurveTable.getByOID(new ASN1ObjectIdentifier(name));
+                        ecP = ECNamedCurveTable.getByOID(new ASN1ObjectIdentifier(name));
                     }
                     catch (IllegalArgumentException e)
                     {
@@ -70,6 +70,6 @@ public class ECNamedCurveTable
      */
     public static Enumeration getNames()
     {
-        return x9.ECNamedCurveTable.getNames();
+        return ECNamedCurveTable.getNames();
     }
 }

@@ -11,7 +11,7 @@ import java.security.spec.EllipticCurve;
 import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
-import org.bouncycastle.math.field.PolynomialExtensionField;
+
 
 
 /**

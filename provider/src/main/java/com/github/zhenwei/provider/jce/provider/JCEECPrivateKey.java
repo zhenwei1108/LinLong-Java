@@ -7,7 +7,7 @@ package com.github.zhenwei.provider.jce.provider;
 
 
 
-import DERBitString;
+
 
 
 
@@ -33,10 +33,10 @@ import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 
 import pkcs.PrivateKeyInfo;
 import sec.ECPrivateKeyStructure;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
+import X9ObjectIdentifiers;
 
 public class JCEECPrivateKey
     implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey, PKCS12BagAttributeCarrier, ECPointEncoder

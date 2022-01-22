@@ -3,7 +3,7 @@ package com.github.zhenwei.core.asn1.x509;
 
 
 import ASN1UTCTime;
-import DERBitString;
+
 
 
 import X500Name;

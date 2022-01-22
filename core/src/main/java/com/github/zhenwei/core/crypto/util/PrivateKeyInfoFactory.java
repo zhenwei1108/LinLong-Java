@@ -5,7 +5,7 @@ package com.github.zhenwei.core.crypto.util;
 
 
 
-import DERBitString;
+
 
 
 import DSAParameter;
@@ -36,10 +36,10 @@ import pkcs.PrivateKeyInfo;
 import pkcs.RSAPrivateKey;
 import rosstandart.RosstandartObjectIdentifiers;
 import sec.ECPrivateKey;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
+import X9ObjectIdentifiers;
 
 /**
  * Factory to create ASN.1 private key info objects from lightweight private keys.

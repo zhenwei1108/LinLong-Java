@@ -54,7 +54,7 @@ public class DHDomainParameterSpec
     }
 
     /**
-     * X9.42 parameters with private value length.
+     * 42 parameters with private value length.
      *
      * @param p the prime p defining the Galois field.
      * @param g the generator of the multiplicative subgroup of order g.

@@ -6,7 +6,7 @@ package com.github.zhenwei.core.asn1.x509;
 
 
 
-import DERBitString;
+
 
 import java.io.IOException;
 import java.util.Enumeration;

@@ -20,9 +20,9 @@ import org.bouncycastle.jcajce.spec.DHDomainParameterSpec;
 import org.bouncycastle.jcajce.spec.DHExtendedPublicKeySpec;
 import pkcs.DHParameter;
 
-import x9.DomainParameters;
-import x9.ValidationParams;
-import x9.X9ObjectIdentifiers;
+import DomainParameters;
+import ValidationParams;
+import X9ObjectIdentifiers;
 
 public class BCDHPublicKey
     implements DHPublicKey

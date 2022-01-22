@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert.cmp;
 
 import ASN1GeneralizedTime;
 
-import DERBitString;
+
 
 
 import cmp.CMPCertificate;

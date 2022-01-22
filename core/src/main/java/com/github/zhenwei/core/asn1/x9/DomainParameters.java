@@ -12,7 +12,7 @@ import java.math.BigInteger;
 import java.util.Enumeration;
 
 /**
- * X9.44 Diffie-Hellman domain parameters.
+ * 44 Diffie-Hellman domain parameters.
  * <pre>
  *    DomainParameters ::= SEQUENCE {
  *       p                INTEGER,           -- odd prime, p=jq +1
@@ -36,7 +36,7 @@ public class DomainParameters
      * @param explicit true if the contents of the object is explictly tagged, false otherwise.
      * @return a DomainParameters
      */
-    public static x9.DomainParameters getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static DomainParameters getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
@@ -47,15 +47,15 @@ public class DomainParameters
      * @param obj an object for conversion or a byte[].
      * @return a DomainParameters
      */
-    public static x9.DomainParameters getInstance(Object obj)
+    public static DomainParameters getInstance(Object obj)
     {
-        if (obj instanceof x9.DomainParameters)
+        if (obj instanceof DomainParameters)
         {
-            return (x9.DomainParameters)obj;
+            return  (DomainParameters)obj;
         }
         else if (obj != null)
         {
-            return new x9.DomainParameters(ASN1Sequence.getInstance(obj));
+            return new DomainParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

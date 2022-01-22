@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.crmf;
 
 
 
-import DERBitString;
+
 import crmf.EncryptedValue;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

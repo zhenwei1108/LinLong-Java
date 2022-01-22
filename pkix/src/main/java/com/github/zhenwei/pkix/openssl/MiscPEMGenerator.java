@@ -24,7 +24,7 @@ import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
 
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 /**
  * PEM generator for the original set of PEM objects used in Open SSL.

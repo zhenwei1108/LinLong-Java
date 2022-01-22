@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.jce;
 import ECGOST3410NamedCurves;
 import java.util.Enumeration;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 /**
  * a table of locally supported named curves.

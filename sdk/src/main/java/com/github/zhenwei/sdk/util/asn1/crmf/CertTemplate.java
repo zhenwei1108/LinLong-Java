@@ -6,7 +6,7 @@ package com.github.zhenwei.sdk.util.asn1.crmf;
 
 
 
-import DERBitString;
+
 import Extensions;
 
 import X500Name;

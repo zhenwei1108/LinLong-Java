@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 
 
-import DERBitString;
+
 
 
 
@@ -24,10 +24,10 @@ import org.bouncycastle.jcajce.provider.config.ProviderConfiguration;
 import org.bouncycastle.jce.interfaces.ECPointEncoder;
 
 
-import x9.X962Parameters;
-import x9.X9ECPoint;
-import x9.X9IntegerConverter;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ECPoint;
+import X9IntegerConverter;
+import X9ObjectIdentifiers;
 
 public class BCECPublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder

@@ -12,7 +12,7 @@ import ASN1Enumerated;
 
 
 
-import DERBitString;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;

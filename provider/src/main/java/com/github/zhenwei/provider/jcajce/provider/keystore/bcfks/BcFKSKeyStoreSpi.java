@@ -97,7 +97,7 @@ import pkcs.KeyDerivationFunc;
 
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class BcFKSKeyStoreSpi
     extends KeyStoreSpi

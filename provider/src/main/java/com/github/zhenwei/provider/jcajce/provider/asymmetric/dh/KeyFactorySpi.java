@@ -17,7 +17,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ExtendedInvalidKeySpecException;
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

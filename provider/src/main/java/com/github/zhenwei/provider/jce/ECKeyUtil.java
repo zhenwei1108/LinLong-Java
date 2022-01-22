@@ -18,10 +18,10 @@ import java.security.spec.X509EncodedKeySpec;
 import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 
 import pkcs.PrivateKeyInfo;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
+import X9ObjectIdentifiers;
 
 /**
  * Utility class to allow conversion of EC key parameters to explicit from named

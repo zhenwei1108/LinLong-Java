@@ -22,7 +22,7 @@ import org.bouncycastle.crypto.signers.RandomDSAKCalculator;
  
 
 /**
- * EC-DSA as described in X9.62
+ * EC-DSA as described in 62
  */
 public class ECDSASigner
     implements ECConstants, DSAExt

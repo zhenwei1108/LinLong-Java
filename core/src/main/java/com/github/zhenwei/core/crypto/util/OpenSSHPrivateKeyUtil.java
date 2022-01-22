@@ -24,8 +24,8 @@ import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import pkcs.PrivateKeyInfo;
 import pkcs.RSAPrivateKey;
 import sec.ECPrivateKey;
-import x9.ECNamedCurveTable;
-import x9.X9ECParameters;
+import ECNamedCurveTable;
+import X9ECParameters;
 
 
 /**

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
  *
@@ -157,7 +158,7 @@ public interface X9ObjectIdentifiers
     ASN1ObjectIdentifier id_dsa_with_sha1 = new ASN1ObjectIdentifier("1.2.840.10040.4.3");
 
     /**
-     * X9.63 - Signature Specification
+     * 63 - Signature Specification
      * <p>
      * Base OID: 1.3.133.16.840.63.0
      */
@@ -170,7 +171,7 @@ public interface X9ObjectIdentifiers
     ASN1ObjectIdentifier mqvSinglePass_sha1kdf_scheme           = x9_63_scheme.branch("16");
 
     /**
-     * X9.42
+     * 42
      */
 
     ASN1ObjectIdentifier ansi_X9_42 = new ASN1ObjectIdentifier("1.2.840.10046");
@@ -186,27 +187,27 @@ public interface X9ObjectIdentifiers
      */
     ASN1ObjectIdentifier dhpublicnumber = ansi_X9_42.branch("2.1");
 
-    /** X9.42 schemas base OID: 1.2.840.10046.3 */
+    /** 42 schemas base OID: 1.2.840.10046.3 */
     ASN1ObjectIdentifier x9_42_schemes = ansi_X9_42.branch("3");
-    /** X9.42 dhStatic OID: 1.2.840.10046.3.1 */
+    /** 42 dhStatic OID: 1.2.840.10046.3.1 */
     ASN1ObjectIdentifier dhStatic        = x9_42_schemes.branch("1");
-    /** X9.42 dhEphem OID: 1.2.840.10046.3.2 */
+    /** 42 dhEphem OID: 1.2.840.10046.3.2 */
     ASN1ObjectIdentifier dhEphem         = x9_42_schemes.branch("2");
-    /** X9.42 dhOneFlow OID: 1.2.840.10046.3.3 */
+    /** 42 dhOneFlow OID: 1.2.840.10046.3.3 */
     ASN1ObjectIdentifier dhOneFlow       = x9_42_schemes.branch("3");
-    /** X9.42 dhHybrid1 OID: 1.2.840.10046.3.4 */
+    /** 42 dhHybrid1 OID: 1.2.840.10046.3.4 */
     ASN1ObjectIdentifier dhHybrid1       = x9_42_schemes.branch("4");
-    /** X9.42 dhHybrid2 OID: 1.2.840.10046.3.5 */
+    /** 42 dhHybrid2 OID: 1.2.840.10046.3.5 */
     ASN1ObjectIdentifier dhHybrid2       = x9_42_schemes.branch("5");
-    /** X9.42 dhHybridOneFlow OID: 1.2.840.10046.3.6 */
+    /** 42 dhHybridOneFlow OID: 1.2.840.10046.3.6 */
     ASN1ObjectIdentifier dhHybridOneFlow = x9_42_schemes.branch("6");
-    /** X9.42 MQV2 OID: 1.2.840.10046.3.7 */
+    /** 42 MQV2 OID: 1.2.840.10046.3.7 */
     ASN1ObjectIdentifier mqv2            = x9_42_schemes.branch("7");
-    /** X9.42 MQV1 OID: 1.2.840.10046.3.8 */
+    /** 42 MQV1 OID: 1.2.840.10046.3.8 */
     ASN1ObjectIdentifier mqv1            = x9_42_schemes.branch("8");
 
     /**
-     * X9.44
+     * 44
      * <pre>
      *    x9-44 OID ::= {
      *      iso(1) identified-organization(3) tc68(133) country(16) x9(840)

@@ -24,9 +24,9 @@ import org.bouncycastle.jcajce.spec.DHExtendedPrivateKeySpec;
 import pkcs.DHParameter;
 
 import pkcs.PrivateKeyInfo;
-import x9.DomainParameters;
-import x9.ValidationParams;
-import x9.X9ObjectIdentifiers;
+import DomainParameters;
+import ValidationParams;
+import X9ObjectIdentifiers;
 
 
 public class BCDHPrivateKey

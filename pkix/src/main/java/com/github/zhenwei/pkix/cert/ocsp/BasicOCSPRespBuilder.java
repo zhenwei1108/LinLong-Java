@@ -5,7 +5,7 @@ package com.github.zhenwei.pkix.cert.ocsp;
 import ASN1GeneralizedTime;
 
 import CRLReason;
-import DERBitString;
+
 import DERGeneralizedTime;
 
 

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-import DERBitString;
+
 
 import crmf.PKMACValue;
 import java.io.IOException;

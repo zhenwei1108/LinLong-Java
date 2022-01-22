@@ -25,7 +25,7 @@ import org.bouncycastle.jcajce.spec.GOST3410ParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

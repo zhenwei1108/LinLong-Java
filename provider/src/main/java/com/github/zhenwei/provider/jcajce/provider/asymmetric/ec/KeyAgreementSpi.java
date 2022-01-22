@@ -36,7 +36,7 @@ import org.bouncycastle.jce.interfaces.ECPublicKey;
 import org.bouncycastle.jce.interfaces.MQVPrivateKey;
 import org.bouncycastle.jce.interfaces.MQVPublicKey;
 
-import x9.X9IntegerConverter;
+import X9IntegerConverter;
 
 /**
  * Diffie-Hellman key agreement using elliptic curve keys, ala IEEE P1363

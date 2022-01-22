@@ -13,7 +13,7 @@ import org.bouncycastle.crypto.ec.CustomNamedCurves;
 import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 
 import sec.SECObjectIdentifiers;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public class SSHNamedCurves
 {

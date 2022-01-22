@@ -6,7 +6,7 @@ package com.github.zhenwei.sdk.util.asn1.cmp;
 
 
 
-import DERBitString;
+
 
 import java.math.BigInteger;
 

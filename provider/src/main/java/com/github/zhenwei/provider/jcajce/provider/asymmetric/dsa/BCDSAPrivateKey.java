@@ -20,7 +20,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrie
 
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class BCDSAPrivateKey
     implements DSAPrivateKey, PKCS12BagAttributeCarrier

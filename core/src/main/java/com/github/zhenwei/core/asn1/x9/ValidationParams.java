@@ -6,7 +6,7 @@ package com.github.zhenwei.core.asn1.x9;
 
 
 
-import DERBitString;
+
 
 import java.math.BigInteger;
 
@@ -25,20 +25,20 @@ public class ValidationParams
     private DERBitString seed;
     private ASN1Integer pgenCounter;
 
-    public static x9.ValidationParams getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static ValidationParams getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static x9.ValidationParams getInstance(Object obj)
+    public static ValidationParams getInstance(Object obj)
     {
-        if (obj instanceof x9.ValidationParams)
+        if (obj instanceof ValidationParams)
         {
-            return (x9.ValidationParams)obj;
+            return  (ValidationParams)obj;
         }
         else if (obj != null)
         {
-            return new x9.ValidationParams(ASN1Sequence.getInstance(obj));
+            return new ValidationParams(ASN1Sequence.getInstance(obj));
         }
 
         return null;

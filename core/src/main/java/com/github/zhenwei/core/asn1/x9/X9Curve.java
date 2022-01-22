@@ -1,22 +1,24 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
-
-
-
-
-
-
-import DERBitString;
-
- 
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 
 
 /**
  * ASN.1 def for Elliptic-Curve Curve structure. See
- * X9.62, for further details.
+ * 62, for further details.
  */
 public class X9Curve
     extends ASN1Object
@@ -45,7 +47,7 @@ public class X9Curve
         X9FieldID     fieldID,
         BigInteger    order,
         BigInteger    cofactor,
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {   
         fieldIdentifier = fieldID.getIdentifier();
         if (fieldIdentifier.equals(prime_field))
@@ -114,7 +116,7 @@ public class X9Curve
         }
     }
 
-    public ECCurve  getCurve()
+    public ECCurve getCurve()
     {
         return curve;
     }

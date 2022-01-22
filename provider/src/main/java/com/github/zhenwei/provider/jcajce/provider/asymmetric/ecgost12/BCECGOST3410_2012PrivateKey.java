@@ -8,7 +8,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost12;
 
 
 
-import DERBitString;
+
 
 
 
@@ -38,9 +38,9 @@ import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 
 import pkcs.PrivateKeyInfo;
 import rosstandart.RosstandartObjectIdentifiers;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
 
 /**
  * Represent two kind of GOST34.10 2012 PrivateKeys: with 256 and 512 size

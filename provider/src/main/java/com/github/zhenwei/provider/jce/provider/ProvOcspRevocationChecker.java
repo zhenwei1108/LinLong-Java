@@ -65,7 +65,7 @@ import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
 import pkcs.RSASSAPSSparams;
 import rosstandart.RosstandartObjectIdentifiers;
 import style.BCStrictStyle;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class ProvOcspRevocationChecker
     implements PKIXCertRevocationChecker

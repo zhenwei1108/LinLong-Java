@@ -26,7 +26,7 @@ import java.security.spec.RSAPublicKeySpec;
 import org.bouncycastle.eac.EACException;
 import org.bouncycastle.math.field.FiniteField;
 import org.bouncycastle.math.field.Polynomial;
-import org.bouncycastle.math.field.PolynomialExtensionField;
+
 
 
 public class JcaPublicKeyConverter

@@ -18,7 +18,7 @@ import org.bouncycastle.jcajce.util.ProviderJcaJceHelper;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import pkcs.CertificationRequest;
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class JcaPKCS10CertificationRequest
     extends PKCS10CertificationRequest

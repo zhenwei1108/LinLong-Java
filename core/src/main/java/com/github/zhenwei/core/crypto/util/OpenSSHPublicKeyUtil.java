@@ -11,7 +11,7 @@ import org.bouncycastle.crypto.params.ECNamedDomainParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 
 /**

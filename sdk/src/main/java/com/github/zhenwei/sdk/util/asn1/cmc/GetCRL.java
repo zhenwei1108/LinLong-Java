@@ -6,7 +6,7 @@ import ASN1GeneralizedTime;
 
 
 
-import DERBitString;
+
 
 
 import ReasonFlags;

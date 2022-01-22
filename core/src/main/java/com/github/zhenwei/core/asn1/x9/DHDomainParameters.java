@@ -20,21 +20,21 @@ public class DHDomainParameters
     private ASN1Integer p, g, q, j;
     private DHValidationParms validationParms;
 
-    public static x9.DHDomainParameters getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static DHDomainParameters getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static x9.DHDomainParameters getInstance(Object obj)
+    public static DHDomainParameters getInstance(Object obj)
     {
-        if (obj == null || obj instanceof x9.DHDomainParameters)
+        if (obj == null || obj instanceof DHDomainParameters)
         {
-            return (x9.DHDomainParameters)obj;
+            return  (DHDomainParameters)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new x9.DHDomainParameters((ASN1Sequence)obj);
+            return new DHDomainParameters((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("Invalid DHDomainParameters: "

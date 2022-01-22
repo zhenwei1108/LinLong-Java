@@ -22,7 +22,7 @@ import org.bouncycastle.openssl.PEMException;
 import org.bouncycastle.openssl.PEMKeyPair;
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class JcaPEMKeyConverter
 {

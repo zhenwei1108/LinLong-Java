@@ -5,7 +5,7 @@ package com.github.zhenwei.core.crypto.params;
 
  
 import java.math.BigInteger;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public class ECNamedDomainParameters
     extends ECDomainParameters

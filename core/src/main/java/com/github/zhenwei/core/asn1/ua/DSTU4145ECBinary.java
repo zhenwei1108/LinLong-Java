@@ -14,7 +14,7 @@ package com.github.zhenwei.core.asn1.ua;
 
 import java.math.BigInteger;
  
-import org.bouncycastle.math.field.PolynomialExtensionField;
+
 
 
 public class DSTU4145ECBinary

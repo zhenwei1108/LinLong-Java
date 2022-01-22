@@ -21,7 +21,7 @@ import org.bouncycastle.jce.spec.ElGamalPrivateKeySpec;
 import org.bouncycastle.jce.spec.ElGamalPublicKeySpec;
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class KeyFactorySpi
     extends BaseKeyFactorySpi

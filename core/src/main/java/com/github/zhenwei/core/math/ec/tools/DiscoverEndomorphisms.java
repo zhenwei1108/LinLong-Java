@@ -14,8 +14,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
  
-import x9.ECNamedCurveTable;
-import x9.X9ECParameters;
+import ECNamedCurveTable;
+import X9ECParameters;
 
 public class DiscoverEndomorphisms
 {
@@ -72,7 +72,7 @@ public class DiscoverEndomorphisms
 
     private static void discoverEndomorphisms(X9ECParameters x9, String displayName)
     {
-        ECCurve c = x9.getCurve();
+        ECCurve c = getCurve();
 
         if (ECAlgorithms.isFpCurve(c))
         {
@@ -114,7 +114,7 @@ public class DiscoverEndomorphisms
         /*
          * Check the basic premise of the endomorphism: that multiplying a point by lambda negates the x-coordinate
          */
-        ECPoint G = x9.getG().normalize();
+        ECPoint G = getG().normalize();
         ECPoint mapG = G.multiply(lambda).normalize();
         if (!G.getXCoord().negate().equals(mapG.getXCoord()))
         {
@@ -164,7 +164,7 @@ public class DiscoverEndomorphisms
         /*
          * Check the basic premise of the endomorphism: that multiplying a point by lambda preserves the y-coordinate
          */
-        ECPoint G = x9.getG().normalize();
+        ECPoint G = getG().normalize();
         ECPoint mapG = G.multiply(lambda).normalize();
         if (!G.getYCoord().equals(mapG.getYCoord()))
         {

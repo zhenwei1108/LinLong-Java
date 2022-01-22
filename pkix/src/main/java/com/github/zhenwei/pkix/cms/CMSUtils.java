@@ -42,7 +42,7 @@ import org.bouncycastle.util.io.TeeOutputStream;
 
 import rosstandart.RosstandartObjectIdentifiers;
 import sec.SECObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class CMSUtils
 {

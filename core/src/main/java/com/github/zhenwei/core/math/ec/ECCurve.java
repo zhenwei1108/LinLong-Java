@@ -3,8 +3,11 @@ package com.github.zhenwei.core.math.ec;
 
 import com.github.zhenwei.core.math.ec.endo.ECEndomorphism;
 import com.github.zhenwei.core.math.ec.endo.GLVEndomorphism;
+import com.github.zhenwei.core.math.field.FiniteField;
+import com.github.zhenwei.core.math.field.FiniteFields;
 import com.github.zhenwei.core.math.raw.Nat;
 import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.Integers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Hashtable;
@@ -364,7 +367,7 @@ public abstract class ECCurve
     /**
      * Decode a point on this curve from its ASN.1 encoding. The different
      * encodings are taken account of, including point compression for
-     * <code>F<sub>p</sub></code> (X9.62 s 4.2.1 pg 17).
+     * <code>F<sub>p</sub></code>  (62 s 4.2.1 pg 17).
      * @return The decoded point.
      */
     public ECPoint decodePoint(byte[] encoded)
@@ -897,7 +900,7 @@ public abstract class ECCurve
         }
 
         /**
-         * Decompresses a compressed point P = (xp, yp) (X9.62 s 4.2.2).
+         * Decompresses a compressed point P = (xp, yp)  (62 s 4.2.2).
          *
          * @param yTilde
          *            ~yp, an indication bit for the decompression of yp.

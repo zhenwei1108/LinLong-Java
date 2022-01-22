@@ -8,7 +8,7 @@ import java.math.BigInteger;
 import java.util.Random;
 
 /**
- * DSTU4145 encodes points somewhat differently than X9.62
+ * DSTU4145 encodes points somewhat differently than 62
  * It compresses the point to the size of the field element
  */
 public abstract class DSTU4145PointEncoder

@@ -12,7 +12,7 @@ import AttributeCertificate;
 import AttributeCertificateInfo;
 import Certificate;
 import CertificateList;
-import DERBitString;
+
 
 
 

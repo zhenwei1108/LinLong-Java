@@ -13,7 +13,7 @@ import sec.SECNamedCurves;
 import teletrust.TeleTrusTNamedCurves;
 
 /**
- * A general class that reads all X9.62 style EC curve tables.
+ * A general class that reads all 62 style EC curve tables.
  */
 public class ECNamedCurveTable
 {

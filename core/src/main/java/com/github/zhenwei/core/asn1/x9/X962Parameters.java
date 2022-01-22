@@ -8,7 +8,7 @@ import ASN1Null;
 
 
 /**
- * The Parameters ASN.1 CHOICE from X9.62.
+ * The Parameters ASN.1 CHOICE from 62.
  */
 public class X962Parameters
     extends ASN1Object
@@ -16,24 +16,24 @@ public class X962Parameters
 {
     private ASN1Primitive           params = null;
 
-    public static x9.X962Parameters getInstance(
+    public static X962Parameters getInstance(
         Object obj)
     {
-        if (obj == null || obj instanceof x9.X962Parameters)
+        if (obj == null || obj instanceof X962Parameters)
         {
-            return (x9.X962Parameters)obj;
+            return  (X962Parameters)obj;
         }
         
         if (obj instanceof ASN1Primitive) 
         {
-            return new x9.X962Parameters((ASN1Primitive)obj);
+            return new X962Parameters((ASN1Primitive)obj);
         }
 
         if (obj instanceof byte[])
         {
             try
             {
-                return new x9.X962Parameters(ASN1Primitive.fromByteArray((byte[])obj));
+                return new X962Parameters(ASN1Primitive.fromByteArray((byte[])obj));
             }
             catch (Exception e)
             {
@@ -44,7 +44,7 @@ public class X962Parameters
         throw new IllegalArgumentException("unknown object in getInstance()");
     }
     
-    public static x9.X962Parameters getInstance(
+    public static X962Parameters getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

@@ -17,7 +17,7 @@ import java.security.spec.DSAParameterSpec;
 import java.security.spec.DSAPublicKeySpec;
 import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class JDKDSAPublicKey
     implements DSAPublicKey

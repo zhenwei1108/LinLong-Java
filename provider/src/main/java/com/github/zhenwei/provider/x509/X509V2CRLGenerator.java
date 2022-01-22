@@ -9,7 +9,7 @@ import ASN1GeneralizedTime;
 
 
 import CertificateList;
-import DERBitString;
+
 
 import Extensions;
 import TBSCertList;

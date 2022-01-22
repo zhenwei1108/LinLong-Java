@@ -4,7 +4,7 @@ package com.github.zhenwei.core.asn1.mozilla;
 
 
 
-import DERBitString;
+
 
 /**
  * <pre>

@@ -5,7 +5,7 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.crypto.paddings.BlockCipherPadding;
 
 /**
- * A padder that adds X9.23 padding to a block - if a SecureRandom is
+ * A padder that adds 23 padding to a block - if a SecureRandom is
  * passed in random padding is assumed, otherwise padding with zeros is used.
  */
 public class X923Padding

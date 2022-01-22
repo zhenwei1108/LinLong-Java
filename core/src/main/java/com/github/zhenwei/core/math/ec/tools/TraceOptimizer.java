@@ -12,8 +12,8 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import org.bouncycastle.crypto.ec.CustomNamedCurves;
  
-import x9.ECNamedCurveTable;
-import x9.X9ECParameters;
+import ECNamedCurveTable;
+import X9ECParameters;
 
 public class TraceOptimizer
 {
@@ -55,7 +55,7 @@ public class TraceOptimizer
 
     public static void implPrintNonZeroTraceBits(X9ECParameters x9)
     {
-        ECCurve c = x9.getCurve();
+        ECCurve c = getCurve();
         int m = c.getFieldSize();
 
         ArrayList nonZeroTraceBits = new ArrayList();

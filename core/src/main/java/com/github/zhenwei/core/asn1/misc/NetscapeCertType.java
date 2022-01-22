@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1.misc;
 
-import DERBitString;
+
 
 /**
  * The NetscapeCertType object.

@@ -33,8 +33,8 @@ import pkcs.EncryptedPrivateKeyInfo;
 
 import pkcs.PrivateKeyInfo;
 import pkcs.RSAPublicKey;
-import x9.X9ECParameters;
-import x9.X9ObjectIdentifiers;
+import X9ECParameters;
+import X9ObjectIdentifiers;
 
 /**
  * Class for parsing OpenSSL PEM encoded streams containing

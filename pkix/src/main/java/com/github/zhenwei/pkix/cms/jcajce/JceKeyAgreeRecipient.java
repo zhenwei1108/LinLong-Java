@@ -38,7 +38,7 @@ import org.bouncycastle.operator.SecretKeySizeProvider;
 
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public abstract class JceKeyAgreeRecipient
     implements KeyAgreeRecipient

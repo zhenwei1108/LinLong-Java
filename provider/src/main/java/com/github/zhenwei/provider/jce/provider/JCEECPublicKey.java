@@ -5,7 +5,7 @@ package com.github.zhenwei.provider.jce.provider;
 
 
 
-import DERBitString;
+
 
 
 
@@ -32,11 +32,11 @@ import org.bouncycastle.jce.interfaces.ECPointEncoder;
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
-import x9.X9IntegerConverter;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
+import X9IntegerConverter;
+import X9ObjectIdentifiers;
 
 public class JCEECPublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder

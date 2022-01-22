@@ -12,7 +12,7 @@ import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
 import sec.SECObjectIdentifiers;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class EC
 {

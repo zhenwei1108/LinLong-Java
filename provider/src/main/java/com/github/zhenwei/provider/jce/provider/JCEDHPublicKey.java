@@ -16,8 +16,8 @@ import org.bouncycastle.crypto.params.DHPublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
 import pkcs.DHParameter;
 
-import x9.DHDomainParameters;
-import x9.X9ObjectIdentifiers;
+import DHDomainParameters;
+import X9ObjectIdentifiers;
 
 public class JCEDHPublicKey
     implements DHPublicKey

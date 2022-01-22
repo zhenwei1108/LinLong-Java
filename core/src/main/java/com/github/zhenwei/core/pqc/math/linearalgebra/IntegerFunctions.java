@@ -495,7 +495,7 @@ public final class IntegerFunctions
 
     /**
      * determines the order of g modulo p, p prime and 1 &lt; g &lt; p. This algorithm
-     * is only efficient for small p (see X9.62-1998, p. 68).
+     * is only efficient for small p (see 62-1998, p. 68).
      *
      * @param g an integer with 1 &lt; g &lt; p
      * @param p a prime

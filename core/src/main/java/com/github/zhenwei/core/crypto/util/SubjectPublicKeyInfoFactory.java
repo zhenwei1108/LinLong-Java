@@ -30,10 +30,10 @@ import org.bouncycastle.crypto.params.X448PublicKeyParameters;
 
 import pkcs.RSAPublicKey;
 import rosstandart.RosstandartObjectIdentifiers;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
-import x9.X9ObjectIdentifiers;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
+import X9ObjectIdentifiers;
 
 /**
  * Factory to create ASN.1 subject public key info objects from lightweight public keys.

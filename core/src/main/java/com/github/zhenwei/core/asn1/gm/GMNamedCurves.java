@@ -8,9 +8,9 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 
 
-import x9.X9ECParameters;
-import x9.X9ECParametersHolder;
-import x9.X9ECPoint;
+import X9ECParameters;
+import X9ECParametersHolder;
+import X9ECPoint;
 
 /**
  * Chinese standard GM named curves.

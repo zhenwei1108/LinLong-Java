@@ -4,7 +4,7 @@ package com.github.zhenwei.core.asn1.x509;
 
 
 
-import DERBitString;
+
 
 
 public class AttributeCertificate

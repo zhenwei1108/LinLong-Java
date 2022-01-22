@@ -5,7 +5,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
 
 
-import DERBitString;
+
 
 
 
@@ -33,9 +33,9 @@ import org.bouncycastle.jce.interfaces.ECPointEncoder;
 
 import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
 
 public class BCECGOST3410PublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder

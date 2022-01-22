@@ -1,23 +1,24 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
-
-
-
-
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 /**
  * ASN.1 def for Elliptic-Curve Field ID structure. See
- * X9.62, for further details.
+ * 62, for further details.
  */
 public class X9FieldID
     extends ASN1Object
     implements X9ObjectIdentifiers
 {
-    private ASN1ObjectIdentifier     id;
+    private ASN1ObjectIdentifier id;
     private ASN1Primitive parameters;
 
     /**
@@ -95,22 +96,22 @@ public class X9FieldID
     }
 
     private X9FieldID(
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {
         this.id = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
         this.parameters = seq.getObjectAt(1).toASN1Primitive();
     }
 
-    public static x9.X9FieldID getInstance(Object obj)
+    public static X9FieldID getInstance(Object obj)
     {
-        if (obj instanceof x9.X9FieldID)
+        if (obj instanceof X9FieldID)
         {
-            return (x9.X9FieldID)obj;
+            return  (X9FieldID)obj;
         }
 
         if (obj != null)
         {
-            return new x9.X9FieldID(ASN1Sequence.getInstance(obj));
+            return new X9FieldID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

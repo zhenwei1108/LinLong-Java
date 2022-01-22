@@ -7,7 +7,7 @@ package com.github.zhenwei.core.asn1.x9;
 import java.math.BigInteger;
 
 /**
- * X9.42 definition of a DHPublicKey
+ * 42 definition of a DHPublicKey
  * <pre>
  *     DHPublicKey ::= INTEGER
  * </pre>
@@ -24,7 +24,7 @@ public class DHPublicKey
      * @param explicit true if the contents of the object is explictly tagged, false otherwise.
      * @return a DHPublicKey
      */
-    public static x9.DHPublicKey getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static DHPublicKey getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         return getInstance(ASN1Integer.getInstance(obj, explicit));
     }
@@ -35,16 +35,16 @@ public class DHPublicKey
      * @param obj an object for conversion or a byte[].
      * @return a DHPublicKey
      */
-    public static x9.DHPublicKey getInstance(Object obj)
+    public static DHPublicKey getInstance(Object obj)
     {
-        if (obj == null || obj instanceof x9.DHPublicKey)
+        if (obj == null || obj instanceof DHPublicKey)
         {
-            return (x9.DHPublicKey)obj;
+            return  (DHPublicKey)obj;
         }
 
         if (obj instanceof ASN1Integer)
         {
-            return new x9.DHPublicKey((ASN1Integer)obj);
+            return new DHPublicKey((ASN1Integer)obj);
         }
 
         throw new IllegalArgumentException("Invalid DHPublicKey: " + obj.getClass().getName());

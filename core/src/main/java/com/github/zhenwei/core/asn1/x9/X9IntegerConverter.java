@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
-
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
 import java.math.BigInteger;
 
 /**

@@ -30,7 +30,7 @@ import static org.bouncycastle.oer.its.template.Ieee1609Dot2BaseTypes.Time64;
 import static org.bouncycastle.oer.its.template.Ieee1609Dot2BaseTypes.UINT8;
 import static org.bouncycastle.oer.its.template.Ieee1609Dot2BaseTypes.ValidityPeriod;
 
-import DERBitString;
+
 import org.bouncycastle.oer.OERDefinition;
 
 /**

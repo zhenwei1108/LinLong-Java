@@ -32,7 +32,7 @@ import org.bouncycastle.jce.X509Principal;
 
 import pkcs.RSASSAPSSparams;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class X509Util
 {

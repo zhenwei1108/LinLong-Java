@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
 
 /**
  * class for processing an FieldElement as a DER object.

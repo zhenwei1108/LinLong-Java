@@ -1,22 +1,25 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
-
-
-
-
-
-
- 
-
-
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.field.PolynomialExtensionField;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
-import org.bouncycastle.math.field.PolynomialExtensionField;
+
 
 
 /**
  * ASN.1 def for Elliptic-Curve ECParameters structure. See
- * X9.62, for further details.
+ * 62, for further details.
  */
 public class X9ECParameters
     extends ASN1Object
@@ -25,14 +28,14 @@ public class X9ECParameters
     private static final BigInteger   ONE = BigInteger.valueOf(1);
 
     private X9FieldID           fieldID;
-    private ECCurve             curve;
+    private ECCurve curve;
     private X9ECPoint           g;
     private BigInteger          n;
     private BigInteger          h;
     private byte[]              seed;
 
     private X9ECParameters(
-        ASN1Sequence  seq)
+        ASN1Sequence seq)
     {
         if (!(seq.getObjectAt(0) instanceof ASN1Integer)
             || !((ASN1Integer)seq.getObjectAt(0)).hasValue(1))
@@ -66,16 +69,16 @@ public class X9ECParameters
         this.seed = x9c.getSeed();
     }
 
-    public static x9.X9ECParameters getInstance(Object obj)
+    public static X9ECParameters getInstance(Object obj)
     {
-        if (obj instanceof x9.X9ECParameters)
+        if (obj instanceof X9ECParameters)
         {
-            return (x9.X9ECParameters)obj;
+            return  (X9ECParameters)obj;
         }
 
         if (obj != null)
         {
-            return new x9.X9ECParameters(ASN1Sequence.getInstance(obj));
+            return new X9ECParameters(ASN1Sequence.getInstance(obj));
         }
 
         return null;

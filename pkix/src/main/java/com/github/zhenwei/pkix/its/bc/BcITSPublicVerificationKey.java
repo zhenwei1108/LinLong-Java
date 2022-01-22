@@ -16,7 +16,7 @@ import org.bouncycastle.oer.its.PublicVerificationKey;
 import sec.SECObjectIdentifiers;
 import teletrust.TeleTrusTNamedCurves;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public class BcITSPublicVerificationKey
     extends ITSPublicVerificationKey

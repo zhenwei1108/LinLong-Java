@@ -2,7 +2,7 @@ package com.github.zhenwei.core.math.field;
 
 import java.math.BigInteger;
 import org.bouncycastle.math.field.FiniteField;
-import org.bouncycastle.math.field.PolynomialExtensionField;
+
 
 public abstract class FiniteFields
 {

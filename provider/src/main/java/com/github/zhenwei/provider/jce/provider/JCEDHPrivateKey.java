@@ -20,8 +20,8 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrie
 import pkcs.DHParameter;
 
 import pkcs.PrivateKeyInfo;
-import x9.DHDomainParameters;
-import x9.X9ObjectIdentifiers;
+import DHDomainParameters;
+import X9ObjectIdentifiers;
 
 public class JCEDHPrivateKey
     implements DHPrivateKey, PKCS12BagAttributeCarrier

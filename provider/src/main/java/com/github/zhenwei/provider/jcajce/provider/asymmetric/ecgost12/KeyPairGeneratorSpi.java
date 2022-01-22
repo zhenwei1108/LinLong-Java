@@ -24,7 +24,7 @@ import org.bouncycastle.jcajce.spec.GOST3410ParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
-import x9.X9ECParameters;
+import X9ECParameters;
 
 /**
  * KeyPairGenerator for GOST34.10 2012. Algorithm is the same as for GOST34.10 2001

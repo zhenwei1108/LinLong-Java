@@ -19,7 +19,7 @@ import java.io.IOException;
 
 
 /**
- * X9.63 based key derivation function for ECDH CMS.
+ * 63 based key derivation function for ECDH CMS.
  */
 public class ECDHKEKGenerator
     implements DigestDerivationFunction

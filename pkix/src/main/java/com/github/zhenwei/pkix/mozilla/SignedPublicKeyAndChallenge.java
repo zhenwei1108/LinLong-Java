@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.mozilla;
 
 
 
-import DERBitString;
+
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -20,7 +20,7 @@ import java.security.spec.PSSParameterSpec;
 
 import pkcs.RSASSAPSSparams;
 import teletrust.TeleTrusTObjectIdentifiers;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 class X509SignatureUtil
 {

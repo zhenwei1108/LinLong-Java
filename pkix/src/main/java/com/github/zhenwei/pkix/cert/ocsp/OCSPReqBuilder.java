@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cert.ocsp;
 
 
 
-import DERBitString;
+
 
 import Extensions;
 

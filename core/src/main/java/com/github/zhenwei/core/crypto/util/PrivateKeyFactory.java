@@ -43,10 +43,10 @@ import pkcs.PrivateKeyInfo;
 import pkcs.RSAPrivateKey;
 import rosstandart.RosstandartObjectIdentifiers;
 import sec.ECPrivateKey;
-import x9.ECNamedCurveTable;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ObjectIdentifiers;
+import ECNamedCurveTable;
+import X962Parameters;
+import X9ECParameters;
+import X9ObjectIdentifiers;
 
 /**
  * Factory for creating private key objects from PKCS8 PrivateKeyInfo objects.
@@ -161,7 +161,7 @@ public class PrivateKeyFactory
             {
                 x9 = X9ECParameters.getInstance(params.getParameters());
                 dParams = new ECDomainParameters(
-                    x9.getCurve(), x9.getG(), x9.getN(), x9.getH(), x9.getSeed());
+                    getCurve(), getG(), getN(), getH(), getSeed());
             }
 
             ECPrivateKey ec = ECPrivateKey.getInstance(keyInfo.parsePrivateKey());

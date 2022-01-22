@@ -21,7 +21,7 @@ import org.bouncycastle.operator.GenericKey;
 import org.bouncycastle.operator.OperatorException;
 
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class JceKTSKeyWrapper
     extends AsymmetricKeyWrapper

@@ -7,7 +7,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
 
 
-import DERBitString;
+
 
 
 
@@ -36,9 +36,9 @@ import ua.DSTU4145NamedCurves;
 import ua.DSTU4145Params;
 import ua.DSTU4145PointEncoder;
 import ua.UAObjectIdentifiers;
-import x9.X962Parameters;
-import x9.X9ECParameters;
-import x9.X9ECPoint;
+import X962Parameters;
+import X9ECParameters;
+import X9ECPoint;
 
 public class BCDSTU4145PublicKey
     implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder

@@ -7,7 +7,7 @@ package com.github.zhenwei.core.crypto.params;
 import java.math.BigInteger;
 
  
-import x9.X9ECParameters;
+import X9ECParameters;
 
 public class ECDomainParameters
     implements ECConstants
@@ -22,7 +22,7 @@ public class ECDomainParameters
 
     public ECDomainParameters(X9ECParameters x9)
     {
-        this(x9.getCurve(), x9.getG(), x9.getN(), x9.getH(), x9.getSeed());
+        this(x9.getCurve(), getG(), getN(), getH(), getSeed());
     }
 
     public ECDomainParameters(
@@ -57,7 +57,7 @@ public class ECDomainParameters
         {
             throw new NullPointerException("n");
         }
-        // we can't check for h == null here as h is optional in X9.62 as it is not required for ECDSA
+        // we can't check for h == null here as h is optional in 62 as it is not required for ECDSA
 
         this.curve = curve;
         this.G = validatePublicPoint(curve, G);

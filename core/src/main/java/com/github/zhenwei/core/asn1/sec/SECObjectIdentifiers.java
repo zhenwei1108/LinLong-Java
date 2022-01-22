@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.asn1.sec;
 
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 /**
  * Certicom object identifiers

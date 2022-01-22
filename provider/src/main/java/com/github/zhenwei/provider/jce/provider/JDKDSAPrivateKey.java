@@ -19,7 +19,7 @@ import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 
 import pkcs.PrivateKeyInfo;
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class JDKDSAPrivateKey
     implements DSAPrivateKey, PKCS12BagAttributeCarrier

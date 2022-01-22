@@ -6,7 +6,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.dh.KeyFactorySpi;
 import org.bouncycastle.jcajce.provider.config.ConfigurableProvider;
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
-import x9.X9ObjectIdentifiers;
+import X9ObjectIdentifiers;
 
 public class DH
 {

@@ -6,7 +6,7 @@ package com.github.zhenwei.provider.x509;
 
 
 import AttributeCertificate;
-import DERBitString;
+
 
 import Extensions;
 import java.io.ByteArrayInputStream;
