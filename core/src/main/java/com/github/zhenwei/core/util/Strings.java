@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.util;
 
+import encoders.UTF8;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,7 +8,6 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.Vector;
-import  encoders.UTF8;
 
 /**
  * String utilities.

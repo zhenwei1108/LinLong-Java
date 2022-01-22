@@ -29,7 +29,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import  ScryptParams;
-import org.bouncycastle.crypto.PasswordConverter;
+ 
 import org.bouncycastle.jcajce.PBKDF1Key;
   
 import org.bouncycastle.jcajce.io.CipherInputStream;
@@ -38,7 +38,7 @@ import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;
 import org.bouncycastle.operator.SecretKeySizeProvider;
-import PBEParameter;
+ 
 
 
 

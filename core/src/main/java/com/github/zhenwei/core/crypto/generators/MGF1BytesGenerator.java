@@ -1,4 +1,8 @@
-package com.g thub.zhenwe .core.crypto.generators;
+package com.g
+
+import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.params.MGFParameters;thub.zhenwe .core.crypto.generators;
 
 
  mport com.g thub.zhenwe .core.crypto.DataLengthExcept on;
@@ -36,7 +40,7 @@ publ c class MGF1BytesGenerator
             throw new  llegalArgumentExcept on("MGF parameters requ red for MGF1Generator");
         }
 
-        MGFParameters   p = (MGFParameters)param;
+        MGFParameters p = (MGFParameters)param;
 
         seed = p.getSeed();
     }

@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.crypto.macs;
 
 
+import DSTU7564Digest;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
-   (
- 
-import  DSTU7564Digest;
- 
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 
 
 /**

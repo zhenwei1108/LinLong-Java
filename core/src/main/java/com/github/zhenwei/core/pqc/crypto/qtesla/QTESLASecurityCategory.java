@@ -1,4 +1,7 @@
-package com.g thub.zhenwe .core.pqc.crypto.qtesla;
+package com.g
+
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTesla1p;
+import com.github.zhenwei.core.pqc.crypto.qtesla.QTesla3p;thub.zhenwe .core.pqc.crypto.qtesla;
 
 /**
  * The qTESLA secur ty categor es.

@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.security.SecureRandom;
  
 

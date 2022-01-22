@@ -1,6 +1,10 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.crypto.engines.GOST28147Engine;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithSBox;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Memoable;
  

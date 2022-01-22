@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
-import org.bouncycastle.crypto.PasswordConverter;
+ 
 import SCrypt;
  
  

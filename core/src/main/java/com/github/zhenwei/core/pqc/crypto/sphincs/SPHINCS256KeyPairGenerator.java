@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.security.SecureRandom;
- 
- 
 
 ;
  

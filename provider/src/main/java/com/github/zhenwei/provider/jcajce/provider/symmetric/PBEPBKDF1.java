@@ -2,7 +2,11 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.pkcs.PBEParameter;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
@@ -10,7 +14,7 @@ import javax.crypto.spec.PBEParameterSpec;
  
  
  
-import PBEParameter;
+
 
 
 public class PBEPBKDF1

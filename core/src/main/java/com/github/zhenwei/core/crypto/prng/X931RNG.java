@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.prng;
 
- 
+
+import com.github.zhenwei.core.crypto.BlockCipher;
 
 public class X931RNG
 {

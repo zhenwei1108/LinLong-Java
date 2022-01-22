@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.util;
 
-import  SHA512tDigest;
-import  SHAKEDigest;
+import SHA512tDigest;
+import SHAKEDigest;
 
 
 /**

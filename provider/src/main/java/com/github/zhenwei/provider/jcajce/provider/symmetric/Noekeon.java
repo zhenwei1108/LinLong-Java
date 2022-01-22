@@ -1,24 +1,27 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.engines.NoekeonEngine;
+import com.github.zhenwei.core.crypto.generators.Poly1305KeyGenerator;
+import com.github.zhenwei.core.crypto.macs.GMac;
+import com.github.zhenwei.core.crypto.modes.GCMBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BlockCipherProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
+
+
  
- 
-import org.bouncycastle.crypto.engines.NoekeonEngine;
- 
- ;
- 
- 
- 
- 
- 
-   (
- 
-   (
 
 public final class Noekeon
 {
@@ -64,7 +67,7 @@ public final class Noekeon
     {
         public Poly1305()
         {
-            super(new  Poly1305(new NoekeonEngine()));
+            super(new  com.github.zhenwei.core.crypto.macs.Poly1305(new NoekeonEngine()));
         }
     }
 

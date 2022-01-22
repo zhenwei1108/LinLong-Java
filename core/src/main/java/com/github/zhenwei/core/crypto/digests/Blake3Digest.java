@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import Blake3Parameters;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
@@ -7,7 +8,6 @@ import com.github.zhenwei.core.util.Memoable;
 import java.util.Iterator;
 import java.util.Stack;
 import org.bouncycastle.crypto.Xof;
-import Blake3Parameters;
 
  
 

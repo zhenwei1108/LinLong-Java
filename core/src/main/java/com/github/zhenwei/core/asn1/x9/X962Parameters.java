@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.asn1.x9;
 
 
- 
 import com.github.zhenwei.core.asn1.ASN1Choice;
+import com.github.zhenwei.core.asn1.ASN1Null;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
@@ -66,7 +66,7 @@ public class X962Parameters
     }
 
     public X962Parameters(
-        ASN1Null           obj)
+        ASN1Null obj)
     {
         this.params = obj;
     }

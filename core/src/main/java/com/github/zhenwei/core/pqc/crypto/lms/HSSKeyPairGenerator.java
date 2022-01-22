@@ -2,9 +2,9 @@ package com.github.zhenwei.core.pqc.crypto.lms;
 
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
- 
- 
- 
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+
 
 public class HSSKeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator

@@ -8,8 +8,10 @@ import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.DerivationFunction;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.OutputLengthException;
 import java.io.IOException;
  
  

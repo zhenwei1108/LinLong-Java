@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
+import Argon2Parameters;
+import Blake2bDigest;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.util.Longs;
-import  Blake2bDigest;
-import Argon2Parameters;
 
 
 

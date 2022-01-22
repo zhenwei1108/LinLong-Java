@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.security.SecureRandom;
  
 

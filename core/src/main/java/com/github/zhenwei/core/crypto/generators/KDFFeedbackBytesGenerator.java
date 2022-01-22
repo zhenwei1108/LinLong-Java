@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import KDFFeedbackParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.DerivationParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 import java.math.BigInteger;
-   (
 import org.bouncycastle.crypto.MacDerivationFunction;
-import KDFFeedbackParameters;
  
 
 /**

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import MemoableResetException;
 import com.github.zhenwei.core.util.Memoable;
-import  MemoableResetException;
 
 
 /**

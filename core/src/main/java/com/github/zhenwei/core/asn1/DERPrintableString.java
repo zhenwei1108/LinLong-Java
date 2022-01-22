@@ -27,7 +27,7 @@ package com.github.zhenwei.core.asn1;
  * </p>
  */
 public class DERPrintableString
-    extends ASN1PrintableString
+    extends com.g.ASN1PrintableString
 {
     /**
      * Return a printable string from the passed in object.
@@ -36,7 +36,7 @@ public class DERPrintableString
      * @exception IllegalArgumentException if the object cannot be converted.
      * @return a DERPrintableString instance, or null.
      * 
-     * @deprecated Use {@link ASN1PrintableString#getInstance(Object)} instead.
+     * @deprecated Use {@link com.g.ASN1PrintableString#getInstance(Object)} instead.
      */
     public static DERPrintableString getInstance(
         Object  obj)
@@ -45,9 +45,9 @@ public class DERPrintableString
         {
             return (DERPrintableString)obj;
         }
-        if (obj instanceof ASN1PrintableString)
+        if (obj instanceof com.g.ASN1PrintableString)
         {
-            return new DERPrintableString(((ASN1PrintableString)obj).contents, false);
+            return new DERPrintableString(((com.g.ASN1PrintableString)obj).contents, false);
         }
         if (obj instanceof byte[])
         {
@@ -74,7 +74,7 @@ public class DERPrintableString
      * @return a DERPrintableString instance, or null.
      * 
      * @deprecated Use
-     *             {@link ASN1PrintableString#getInstance(ASN1TaggedObject, boolean)}
+     *             {@link com.g.ASN1PrintableString#getInstance(ASN1TaggedObject, boolean)}
      *             instead.
      */
     public static DERPrintableString getInstance(

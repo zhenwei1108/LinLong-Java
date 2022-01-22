@@ -6,7 +6,6 @@ import ASN1Enumerated;
 import ASN1External;
 import ASN1GeneralizedTime;
 import ASN1GraphicString;
- 
 import ASN1NumericString;
 import ASN1ObjectDescriptor;
 import ASN1UTCTime;
@@ -23,6 +22,7 @@ import com.github.zhenwei.core.asn1.ASN1BitString;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1IA5String;
 import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1Null;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

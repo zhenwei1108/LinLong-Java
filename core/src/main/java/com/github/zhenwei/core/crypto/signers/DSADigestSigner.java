@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.signers;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.DSA;
 import org.bouncycastle.crypto.DSAExt;

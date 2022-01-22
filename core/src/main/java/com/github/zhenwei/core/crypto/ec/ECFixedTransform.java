@@ -2,12 +2,12 @@ package com.github.zhenwei.core.crypto.ec;
 
 
 import ECMultiplier;
+import ECPublicKeyParameters;
 import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import java.math.BigInteger;
-import ECPublicKeyParameters;
 
 /**
  * this transforms the original randomness used for an ElGamal encryption by a fixed value.

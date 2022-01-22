@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import CramerShoupParameters;
+import SHA256Digest;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import  SHA256Digest;
-import CramerShoupParameters;
  
  
 

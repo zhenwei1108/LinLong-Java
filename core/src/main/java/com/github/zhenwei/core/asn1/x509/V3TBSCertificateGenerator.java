@@ -63,7 +63,7 @@ public class V3TBSCertificateGenerator
      * @deprecated use X500Name method
      */
     public void setIssuer(
-        X509Name    issuer)
+        com.g.X509Name issuer)
     {
         this.issuer = X500Name.getInstance(issuer);
     }
@@ -102,7 +102,7 @@ public class V3TBSCertificateGenerator
      * @deprecated use X500Name method
      */
     public void setSubject(
-        X509Name    subject)
+        com.g.X509Name subject)
     {
         this.subject = X500Name.getInstance(subject.toASN1Primitive());
     }

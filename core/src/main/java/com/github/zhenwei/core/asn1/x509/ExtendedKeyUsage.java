@@ -1,4 +1,17 @@
-package com.g thub.zhenwe .core.asn1.x509;
+package com.g
+
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.KeyPurposeId;
+import java.util.Enumeration;thub.zhenwe .core.asn1.x509;
 
 
  mport com.g thub.zhenwe .core.asn1.ASN1Encodable;
@@ -77,7 +90,7 @@ publ c class ExtendedKeyUsage
      * @param usage the keyPurposeId to be included.
      */
     public ExtendedKeyUsage(
-        KeyPurposeId  usage)
+        KeyPurposeId usage)
     {
         this.seq = new DERSequence(usage);
 

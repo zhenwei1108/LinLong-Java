@@ -541,7 +541,7 @@ public class ASN1InputStream
         case OCTET_STRING:
             return ASN1OctetString.createPrimitive(defIn.toByteArray());
         case PRINTABLE_STRING:
-            return ASN1PrintableString.createPrimitive(defIn.toByteArray());
+            return com.g.ASN1PrintableString.createPrimitive(defIn.toByteArray());
         case T61_STRING:
             return ASN1T61String.createPrimitive(defIn.toByteArray());
         case UNIVERSAL_STRING:

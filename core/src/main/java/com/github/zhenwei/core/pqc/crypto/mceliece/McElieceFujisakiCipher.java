@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
+import SHA1Digest;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import java.security.SecureRandom;
- 
-import  SHA1Digest;
- 
 import org.bouncycastle.crypto.prng.DigestRandomGenerator;
 import org.bouncycastle.pqc.crypto.MessageEncryptor;
 import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;

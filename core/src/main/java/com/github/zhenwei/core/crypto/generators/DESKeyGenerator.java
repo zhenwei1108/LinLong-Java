@@ -2,7 +2,8 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
- 
+import com.github.zhenwei.core.crypto.params.DESParameters;
+
 
 public class DESKeyGenerator
     extends CipherKeyGenerator

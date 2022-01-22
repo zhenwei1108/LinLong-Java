@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-  
 import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.macs.Poly1305;
 
 /**
  * Generates keys for the Poly1305 MAC.

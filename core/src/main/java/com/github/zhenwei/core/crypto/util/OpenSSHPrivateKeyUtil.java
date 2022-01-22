@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.util;
 
 
+import Ed25519PublicKeyParameters;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
@@ -14,6 +15,7 @@ import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DSAParameters;
 import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
@@ -25,7 +27,6 @@ import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.math.BigInteger;
 import nist.NISTNamedCurves;
-import Ed25519PublicKeyParameters;
  
 
  

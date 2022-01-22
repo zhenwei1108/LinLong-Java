@@ -2,6 +2,8 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;

@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.macs;
 
 
-import com.github.zhenwei.core.crypto.CipherParameters;
-   (
-import  Blake3Digest;
+import Blake3Digest;
 import Blake3Parameters;
- 
+import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+
 
 /**
  * Bouncy implementation of Blake3Mac.

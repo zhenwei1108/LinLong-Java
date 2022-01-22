@@ -1,11 +1,13 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
- 
-import org.bouncycastle.crypto.engines.HC256Engine;
- 
- 
- 
-   (
+
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
+import com.github.zhenwei.core.crypto.engines.HC256Engine;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseStreamCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.IvAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
  
 
 public final class HC256

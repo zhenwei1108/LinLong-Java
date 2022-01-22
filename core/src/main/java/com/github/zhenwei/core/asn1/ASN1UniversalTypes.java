@@ -39,7 +39,7 @@ final class ASN1UniversalTypes
         case BERTags.NUMERIC_STRING:            // [UNIVERSAL 18] IMPLICIT OCTET STRING (encode as if)
             return ASN1NumericString.TYPE;
         case BERTags.PRINTABLE_STRING:          // [UNIVERSAL 19] IMPLICIT OCTET STRING (encode as if)
-            return ASN1PrintableString.TYPE;
+            return com.g.ASN1PrintableString.TYPE;
         case BERTags.T61_STRING:                // [UNIVERSAL 20] IMPLICIT OCTET STRING (encode as if)
             return ASN1T61String.TYPE;
         case BERTags.VIDEOTEX_STRING:           // [UNIVERSAL 21] IMPLICIT OCTET STRING (encode as if)

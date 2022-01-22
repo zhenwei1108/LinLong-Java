@@ -1,17 +1,17 @@
 package com.github.zhenwei.core.crypto.util;
 
+import MD5Digest;
+import SHA1Digest;
+import SHA224Digest;
+import SHA256Digest;
+import SHA384Digest;
+import SHA3Digest;
+import SHA512Digest;
+import SHA512tDigest;
+import SHAKEDigest;
 import com.github.zhenwei.core.crypto.Digest;
 import java.util.HashMap;
 import java.util.Map;
-import  MD5Digest;
-import  SHA1Digest;
-import  SHA224Digest;
-import  SHA256Digest;
-import  SHA384Digest;
-import  SHA3Digest;
-import  SHA512Digest;
-import  SHA512tDigest;
-import  SHAKEDigest;
 
 /**
  * Basic factory class for message digests.

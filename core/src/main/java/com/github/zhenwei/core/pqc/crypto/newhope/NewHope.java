@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
+import SHA3Digest;
 import java.security.SecureRandom;
-import  SHA3Digest;
 
 /**
  * This implementation is based heavily on the C reference implementation from https://cryptojedi.org/crypto/index.shtml.

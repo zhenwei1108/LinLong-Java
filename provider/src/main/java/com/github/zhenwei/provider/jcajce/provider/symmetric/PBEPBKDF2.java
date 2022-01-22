@@ -10,8 +10,15 @@ import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.PasswordConverter;
 import com.github.zhenwei.core.util.Integers;
-import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBE.Util;
+import com.github.zhenwei.provider.jcajce.PBKDF2Key;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BCPBEKey;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseSecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBE;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import com.github.zhenwei.provider.jcajce.spec.PBKDF2KeySpec;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
@@ -23,17 +30,6 @@ import java.util.Map;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.crypto.PasswordConverter;
-import org.bouncycastle.jcajce.PBKDF2Key;
- 
-import   BCPBEKey;
- 
- 
-import   PBE;
- 
-
- 
-
 
 
 public class PBEPBKDF2

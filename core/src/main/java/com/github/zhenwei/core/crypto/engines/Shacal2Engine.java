@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
- 
- 
- 
+import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
+
 
 /**
  * Block cipher Shacal2, designed by Helena Handschuh and David Naccache,

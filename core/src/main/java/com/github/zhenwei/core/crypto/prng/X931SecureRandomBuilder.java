@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.crypto.prng;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
  

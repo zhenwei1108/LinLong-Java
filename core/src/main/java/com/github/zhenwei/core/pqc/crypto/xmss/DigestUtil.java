@@ -1,15 +1,15 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 
+import SHA256Digest;
+import SHA512Digest;
+import SHAKEDigest;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.crypto.Digest;
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.crypto.Xof;
-import  SHA256Digest;
-import  SHA512Digest;
-import  SHAKEDigest;
 
 class DigestUtil
 {

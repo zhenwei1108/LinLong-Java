@@ -1,6 +1,9 @@
 package com.github.zhenwei.core.crypto.params;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.digests.SkeinDigest;
+import com.github.zhenwei.core.crypto.digests.SkeinEngine;
+import com.github.zhenwei.core.crypto.macs.SkeinMac;
 import com.github.zhenwei.core.util.Integers;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

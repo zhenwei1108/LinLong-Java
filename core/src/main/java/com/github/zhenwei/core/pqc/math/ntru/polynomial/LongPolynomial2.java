@@ -1,4 +1,6 @@
-package com.g thub.zhenwe .core.pqc.math.ntru.polynom al;
+package com.g
+
+import com.github.zhenwei.core.util.Arrays;thub.zhenwe .core.pqc.math.ntru.polynom al;
 
 
  mport com.g thub.zhenwe .core.ut l.Arrays;

@@ -4,10 +4,13 @@ package com.github.zhenwei.core.crypto.util;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.kisa.KISAObjectIdentifiers;
+import com.github.zhenwei.core.asn1.misc.CAST5CBCParameters;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.ntt.NTTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RC2CBCParameter;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.security.SecureRandom;
  

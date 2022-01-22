@@ -4,6 +4,7 @@ package com.github.zhenwei.core.crypto.modes;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.params.AEADParameters;
 
 
 /**

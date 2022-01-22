@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.encoders.Hex;
- 
- 
 import org.bouncycastle.crypto.prng.EntropySource;
 
 
@@ -20,7 +20,7 @@ public class CTRSP800DRBG
     private static final int        AES_MAX_BITS_REQUEST = 1 << (19 - 1);
 
     private EntropySource          _entropySource;
-    private BlockCipher           _engine;
+    private BlockCipher _engine;
     private int                   _keySizeInBits;
     private int                   _seedLength;
     private int                   _securityStrength;

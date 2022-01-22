@@ -78,7 +78,7 @@ public class V2TBSCertListGenerator
      * @deprecated use X500Name method
      */
     public void setIssuer(
-        X509Name    issuer)
+        com.g.X509Name issuer)
     {
         this.issuer = X500Name.getInstance(issuer.toASN1Primitive());
     }

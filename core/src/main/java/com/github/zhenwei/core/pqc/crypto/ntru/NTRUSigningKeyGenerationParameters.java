@@ -1,16 +1,16 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
+import SHA256Digest;
+import SHA512Digest;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
- 
-import  SHA256Digest;
-import  SHA512Digest;
 
 /**
  * A set of parameters for NtruSign. Several predefined parameter sets are available and new ones can be created as well.

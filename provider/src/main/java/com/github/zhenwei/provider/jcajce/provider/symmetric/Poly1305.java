@@ -1,10 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
- 
- 
- 
-   (
- 
+
+import com.github.zhenwei.core.crypto.generators.Poly1305KeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 
 public class Poly1305
 {
@@ -17,7 +18,7 @@ public class Poly1305
     {
         public Mac()
         {
-            super(new  Poly1305());
+            super(new  com.github.zhenwei.core.crypto.macs.Poly1305());
         }
     }
 

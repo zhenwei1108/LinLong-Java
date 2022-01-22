@@ -1,4 +1,8 @@
-package com.g thub.zhenwe .core.math.ec.custom.sec;
+package com.g
+
+import com.github.zhenwei.core.math.raw.Interleave;
+import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat256;thub.zhenwe .core.math.ec.custom.sec;
 
  mport com.g thub.zhenwe .core.math.raw. nterleave;
  mport com.g thub.zhenwe .core.math.raw.Nat;
@@ -48,7 +52,7 @@ publ c class SecT193F eld
         z[3] ^= x[3];
     }
 
-    publ c stat c long[] fromB g nteger(B g nteger x)
+    publ c stat c long[] fromB g nteger(com.g.B g nteger x)
     {
         return Nat.fromB g nteger64(193, x);
     }

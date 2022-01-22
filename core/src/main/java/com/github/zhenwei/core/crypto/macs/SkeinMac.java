@@ -4,6 +4,7 @@ package com.github.zhenwei.core.crypto.macs;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Mac;
 import com.github.zhenwei.core.crypto.digests.SkeinEngine;
+import com.github.zhenwei.core.crypto.engines.ThreefishEngine;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.crypto.params.SkeinParameters;
 

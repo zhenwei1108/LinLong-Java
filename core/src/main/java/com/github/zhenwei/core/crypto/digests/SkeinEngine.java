@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.crypto.OutputLengthException;
 import com.github.zhenwei.core.crypto.engines.ThreefishEngine;
+import com.github.zhenwei.core.crypto.macs.SkeinMac;
 import com.github.zhenwei.core.crypto.params.SkeinParameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;

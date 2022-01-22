@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.agreement;
 
+import DHKeyPairGenerator;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
@@ -7,9 +8,9 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.DHKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import DHKeyPairGenerator;
  
 
 /**

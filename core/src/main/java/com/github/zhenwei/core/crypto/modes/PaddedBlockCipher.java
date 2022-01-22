@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.modes;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
+import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.DataLengthException;
- 
- 
- 
- 
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.OutputLengthException;
+
 
 /**
  * A wrapper class that allows block ciphers to be used to process data in
@@ -24,7 +25,7 @@ public class PaddedBlockCipher
      * @param cipher the underlying block cipher this buffering object wraps.
      */
     public PaddedBlockCipher(
-        BlockCipher     cipher)
+        BlockCipher cipher)
     {
         this.cipher = cipher;
 

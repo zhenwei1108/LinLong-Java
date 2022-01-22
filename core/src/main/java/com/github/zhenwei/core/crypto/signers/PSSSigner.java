@@ -1,16 +1,17 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import RSABlindingParameters;
+import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import java.security.SecureRandom;
- 
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Signer;
 import org.bouncycastle.crypto.Xof;
- 
-import RSABlindingParameters;
  
 
 
@@ -27,7 +28,7 @@ public class PSSSigner
 
     private Digest contentDigest;
     private Digest                      mgfDigest;
-    private AsymmetricBlockCipher       cipher;
+    private AsymmetricBlockCipher cipher;
     private SecureRandom                random;
 
     private int                         hLen;

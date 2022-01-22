@@ -1,5 +1,12 @@
 package com.github.zhenwei.core.crypto.examples;
 
+import DESedeKeyGenerator;
+import DESedeParameters;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.engines.DESedeEngine;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
+import com.github.zhenwei.core.crypto.paddings.PaddedBufferedBlockCipher;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -11,12 +18,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.CryptoException;
- 
- 
-import DESedeKeyGenerator;
- 
- 
-import DESedeParameters;
  
 
 

@@ -1,4 +1,6 @@
-package com.g thub.zhenwe .core.pqc.math.l nearalgebra;
+package com.g
+
+import java.math.BigInteger;thub.zhenwe .core.pqc.math.l nearalgebra;
 
  mport java.math.B g nteger;
 

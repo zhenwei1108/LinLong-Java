@@ -1,9 +1,12 @@
 package com.github.zhenwei.core.crypto.encodings;
 
+import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.crypto.util.DigestFactory;
 import java.security.SecureRandom;
  

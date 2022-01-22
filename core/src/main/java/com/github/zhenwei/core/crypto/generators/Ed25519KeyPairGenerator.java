@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import Ed25519PublicKeyParameters;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
 import java.security.SecureRandom;
- 
- 
-import Ed25519PublicKeyParameters;
 
 public class Ed25519KeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator

@@ -65,7 +65,7 @@ public class GeneralName
      * @param dirName
      */
         public GeneralName(
-        X509Name  dirName)
+        com.g.X509Name dirName)
     {
         this.obj = X500Name.getInstance(dirName);
         this.tag = 4;

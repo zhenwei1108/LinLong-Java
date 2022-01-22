@@ -45,16 +45,17 @@ public class X509DefaultEntryConverter
             {
                 value = value.substring(1);
             }
-            if (oid.equals(X509Name.EmailAddress) || oid.equals(X509Name.DC))
+            if (oid.equals(com.g.X509Name.EmailAddress) || oid.equals(com.g.X509Name.DC))
             {
                 return new DERIA5String(value);
             }
-            else if (oid.equals(X509Name.DATE_OF_BIRTH))  // accept time string as well as # (for compatibility)
+            else if (oid.equals(com.g.X509Name.DATE_OF_BIRTH))  // accept time string as well as # (for compatibility)
             {
                 return new DERGeneralizedTime(value);
             }
-            else if (oid.equals(X509Name.C) || oid.equals(X509Name.SN) || oid.equals(X509Name.DN_QUALIFIER)
-                || oid.equals(X509Name.TELEPHONE_NUMBER))
+            else if (oid.equals(com.g.X509Name.C) || oid.equals(com.g.X509Name.SN) || oid.equals(
+                com.g.X509Name.DN_QUALIFIER)
+                || oid.equals(com.g.X509Name.TELEPHONE_NUMBER))
             {
                  return new DERPrintableString(value);
             }

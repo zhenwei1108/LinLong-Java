@@ -1,4 +1,6 @@
-package com.g thub.zhenwe .core.crypto.d gests;
+package com.g
+
+import com.github.zhenwei.core.util.Memoable;thub.zhenwe .core.crypto.d gests;
 
 
  mport com.g thub.zhenwe .core.crypto.ExtendedD gest;

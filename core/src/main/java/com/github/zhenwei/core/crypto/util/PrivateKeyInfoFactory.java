@@ -22,6 +22,7 @@ import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DSAParameters;
 import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
@@ -29,6 +30,7 @@ import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.Ed25519PrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
 import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
@@ -36,7 +38,6 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
- 
 
 ;
 ;

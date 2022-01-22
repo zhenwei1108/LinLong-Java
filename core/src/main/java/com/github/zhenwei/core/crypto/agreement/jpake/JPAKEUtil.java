@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.crypto.agreement.jpake;
 
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.macs.HMac;
+import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Strings;
 import java.math.BigInteger;

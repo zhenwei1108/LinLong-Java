@@ -4,6 +4,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.BasicAgreement;
  

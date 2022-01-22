@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.examples;
 
+import SHA256Digest;
 import com.github.zhenwei.core.crypto.Digest;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -10,7 +11,6 @@ import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
 import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
-import  SHA256Digest;
 
 /**
  * An example of a J-PAKE exchange.

@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.agreement.srp;
 
+import SRP6GroupParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import java.math.BigInteger;
-import SRP6GroupParameters;
 
 /**
  * Generates new SRP verifier for user

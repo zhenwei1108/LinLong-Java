@@ -3,8 +3,24 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.RC2CBCParameter;
+import com.github.zhenwei.core.crypto.CipherKeyGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.engines.RC2Engine;
+import com.github.zhenwei.core.crypto.engines.RC2WrapEngine;
+import com.github.zhenwei.core.crypto.macs.CBCBlockCipherMac;
+import com.github.zhenwei.core.crypto.macs.CFBBlockCipherMac;
+import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameterGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseAlgorithmParameters;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseBlockCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseKeyGenerator;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseMac;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.BaseWrapCipher;
+import com.github.zhenwei.provider.jcajce.provider.symmetric.util.PBESecretKeyFactory;
+import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -15,18 +31,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
  
  
-import org.bouncycastle.crypto.engines.RC2WrapEngine;
-   (
-   (
- 
- 
- 
- 
- 
- 
-   (
- 
- 
+
  
  
 

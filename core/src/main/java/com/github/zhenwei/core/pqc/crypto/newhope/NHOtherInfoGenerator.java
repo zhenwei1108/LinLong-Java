@@ -4,10 +4,10 @@ package com.github.zhenwei.core.pqc.crypto.newhope;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import java.io.IOException;
 import java.security.SecureRandom;
- 
 import org.bouncycastle.crypto.util.DEROtherInfo;
 import org.bouncycastle.pqc.crypto.ExchangePair;
  
