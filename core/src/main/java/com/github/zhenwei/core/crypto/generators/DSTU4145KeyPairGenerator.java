@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-import ECPublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 

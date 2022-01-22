@@ -9,14 +9,27 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.ua.DSTU4145BinaryField;
+import com.github.zhenwei.core.asn1.ua.DSTU4145ECBinary;
+import com.github.zhenwei.core.asn1.ua.DSTU4145NamedCurves;
+import com.github.zhenwei.core.asn1.ua.DSTU4145Params;
+import com.github.zhenwei.core.asn1.ua.DSTU4145PointEncoder;
+import com.github.zhenwei.core.asn1.ua.UAObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X962Parameters;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
+import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
+import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
+import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -26,19 +39,13 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
-import ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
  
-import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import ua.DSTU4145BinaryField;
-import ua.DSTU4145ECBinary;
-import ua.DSTU4145NamedCurves;
-import ua.DSTU4145Params;
-import ua.DSTU4145PointEncoder;
+ 
+ 
+ 
+ 
+ 
+ 
  
  
 
@@ -52,12 +59,12 @@ public class BCDSTU4145PublicKey
     private String algorithm = "DSTU4145";
     private boolean withCompression;
 
-    private transient ECPublicKeyParameters   ecPublicKey;
+    private transient ECPublicKeyParameters ecPublicKey;
     private transient ECParameterSpec ecSpec;
     private transient DSTU4145Params dstuParams;
 
     public BCDSTU4145PublicKey(
-        org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey key)
+        BCDSTU4145PublicKey key)
     {
         this.ecPublicKey = key.ecPublicKey;
         this.ecSpec = key.ecSpec;
@@ -73,7 +80,7 @@ public class BCDSTU4145PublicKey
     }
 
     public BCDSTU4145PublicKey(
-        org.bouncycastle.jce.spec.ECPublicKeySpec spec,
+        ECPublicKeySpec spec,
         ProviderConfiguration configuration)
     {
         if (spec.getParams() != null) // can be null if implictlyCa
@@ -88,7 +95,7 @@ public class BCDSTU4145PublicKey
         }
         else
         {
-            org.bouncycastle.jce.spec.ECParameterSpec s = configuration.getEcImplicitlyCa();
+            ECParameterSpec s = configuration.getEcImplicitlyCa();
 
             this.ecPublicKey = new ECPublicKeyParameters(s.getCurve().createPoint(spec.getQ().getAffineXCoord().toBigInteger(), spec.getQ().getAffineYCoord().toBigInteger()), EC5Util.getDomainParameters(configuration, (ECParameterSpec)null));
             this.ecSpec = null;
@@ -120,7 +127,7 @@ public class BCDSTU4145PublicKey
     public BCDSTU4145PublicKey(
         String algorithm,
         ECPublicKeyParameters params,
-        org.bouncycastle.jce.spec.ECParameterSpec spec)
+        ECParameterSpec spec)
     {
         ECDomainParameters      dp = params.getParameters();
 
@@ -204,13 +211,13 @@ public class BCDSTU4145PublicKey
         }
 
         ASN1Sequence seq = ASN1Sequence.getInstance(info.getAlgorithm().getParameters());
-        org.bouncycastle.jce.spec.ECParameterSpec spec = null;
+        ECParameterSpec spec = null;
         X9ECParameters x9Params = null;
 
         if (seq.getObjectAt(0) instanceof ASN1Integer)
         {
             x9Params = X9ECParameters.getInstance(seq);
-            spec = new  org.bouncycastle.jce.spec.ECParameterSpec(x9Params.getCurve(), x9Params.getG(), x9Params.getN(), x9Params.getH(), x9Params.getSeed());
+            spec = new  ECParameterSpec(x9Params.getCurve(), x9Params.getG(), x9Params.getN(), x9Params.getH(), x9Params.getSeed());
         }
         else
         {
@@ -238,7 +245,7 @@ public class BCDSTU4145PublicKey
                 {
                     reverseBytes(g_bytes);
                 }
-                spec = new org.bouncycastle.jce.spec.ECParameterSpec(curve, DSTU4145PointEncoder.decodePoint(curve, g_bytes), binary.getN());
+                spec = new ECParameterSpec(curve, DSTU4145PointEncoder.decodePoint(curve, g_bytes), binary.getN());
             }
         }
 
@@ -341,7 +348,7 @@ public class BCDSTU4145PublicKey
         return ecSpec;
     }
 
-    public org.bouncycastle.jce.spec.ECParameterSpec getParameters()
+    public ECParameterSpec getParameters()
     {
         if (ecSpec == null)     // implictlyCA
         {
@@ -373,7 +380,7 @@ public class BCDSTU4145PublicKey
         return ecPublicKey;
     }
 
-    org.bouncycastle.jce.spec.ECParameterSpec engineGetSpec()
+    ECParameterSpec engineGetSpec()
     {
         if (ecSpec != null)
         {
@@ -395,12 +402,12 @@ public class BCDSTU4145PublicKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey))
+        if (!(o instanceof BCDSTU4145PublicKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey)o;
+        BCDSTU4145PublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey)o;
 
         return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

@@ -13,8 +13,8 @@ import javax.crypto.spec.DHParameterSpec;
 import ElGamalKeyPairGenerator;
 import ElGamalParametersGenerator;
 import ElGamalKeyGenerationParameters;
-import ElGamalPublicKeyParameters;
-import org.bouncycastle.jce.spec.ElGamalParameterSpec;
+ 
+import ElGamalParameterSpec;
 
 ;
 

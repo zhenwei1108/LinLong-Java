@@ -8,7 +8,7 @@ import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Strings;
-import org.bouncycastle.crypto.Xof;
+ 
  
 
 

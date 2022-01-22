@@ -9,7 +9,7 @@ import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.crypto.Digest;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.Xof;
+ 
 
 /**
  * LMS digest utils provides oid mapping to provider digest name.

@@ -14,12 +14,12 @@ import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import GOST3410PublicKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
+ 
 import org.bouncycastle.jce.interfaces.GOST3410Params;
 import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
-import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeySpec;
+import GOST3410ParameterSpec;
+import GOST3410PublicKeyParameterSetSpec;
+import GOST3410PublicKeySpec;
 
 public class BCGOST3410PublicKey
     implements GOST3410PublicKey

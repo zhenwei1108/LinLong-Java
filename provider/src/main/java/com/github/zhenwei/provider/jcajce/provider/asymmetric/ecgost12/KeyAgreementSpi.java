@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost12;
 
-import X9IntegerConverter;
+ 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
@@ -17,7 +17,7 @@ import org.bouncycastle.crypto.agreement.ECVKOAgreement;
 import  GOST3411_2012_256Digest;
   
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;

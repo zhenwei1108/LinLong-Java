@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Xof;
+ 
 import org.bouncycastle.pqc.crypto.ExchangePair;
  
 

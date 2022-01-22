@@ -4,13 +4,15 @@ package com.github.zhenwei.pkix.eac.jcajce;
 import EACObjectIdentifiers;
 import ECDSAPublicKey;
 import PublicKeyDataObject;
-import RSAPublicKey;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.field.FiniteField;
+import com.github.zhenwei.core.math.field.Polynomial;
 import com.github.zhenwei.core.math.field.PolynomialExtensionField;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.eac.EACException;
 import java.math.BigInteger;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -26,9 +28,8 @@ import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
-import org.bouncycastle.eac.EACException;
-import org.bouncycastle.math.field.FiniteField;
-import org.bouncycastle.math.field.Polynomial;
+ 
+ 
 
 
 
@@ -36,14 +37,14 @@ public class JcaPublicKeyConverter
 {
     private EACHelper helper = new DefaultEACHelper();
 
-    public org.bouncycastle.eac.jcajce.JcaPublicKeyConverter setProvider(String providerName)
+    public JcaPublicKeyConverter setProvider(String providerName)
     {
         this.helper = new NamedEACHelper(providerName);
 
         return this;
     }
 
-    public org.bouncycastle.eac.jcajce.JcaPublicKeyConverter setProvider(Provider provider)
+    public JcaPublicKeyConverter setProvider(Provider provider)
     {
         this.helper = new ProviderEACHelper(provider);
 

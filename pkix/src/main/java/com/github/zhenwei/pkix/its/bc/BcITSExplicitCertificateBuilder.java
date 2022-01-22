@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.its.bc;
 
-import ECPublicKeyParameters;
+ 
 import org.bouncycastle.its.ITSCertificate;
 import org.bouncycastle.its.ITSExplicitCertificateBuilder;
 import org.bouncycastle.its.ITSPublicEncryptionKey;

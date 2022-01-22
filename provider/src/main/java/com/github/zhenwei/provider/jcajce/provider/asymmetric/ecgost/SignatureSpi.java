@@ -18,7 +18,7 @@ import org.bouncycastle.crypto.DSAExt;
 import  GOST3411Digest;
  
 import org.bouncycastle.crypto.signers.ECGOST3410Signer;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
 import org.bouncycastle.jce.interfaces.ECKey;
 import org.bouncycastle.jce.interfaces.ECPublicKey;

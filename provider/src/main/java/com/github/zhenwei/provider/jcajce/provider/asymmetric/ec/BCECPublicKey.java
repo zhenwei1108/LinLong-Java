@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 
-import X9IntegerConverter;
+ 
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERBitString;
@@ -23,12 +23,12 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
-import ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
  
-import org.bouncycastle.jce.interfaces.ECPointEncoder;
+ 
+ 
+ 
+ 
+ 
 
 
 public class BCECPublicKey
@@ -67,7 +67,7 @@ public class BCECPublicKey
 
     public BCECPublicKey(
         String algorithm,
-        org.bouncycastle.jce.spec.ECPublicKeySpec spec,
+        ECPublicKeySpec spec,
         ProviderConfiguration configuration)
     {
         this.algorithm = algorithm;
@@ -84,7 +84,7 @@ public class BCECPublicKey
         }
         else
         {
-            org.bouncycastle.jce.spec.ECParameterSpec s = configuration.getEcImplicitlyCa();
+            ECParameterSpec s = configuration.getEcImplicitlyCa();
 
             this.ecPublicKey = new ECPublicKeyParameters(s.getCurve().createPoint(spec.getQ().getAffineXCoord().toBigInteger(), spec.getQ().getAffineYCoord().toBigInteger()), EC5Util.getDomainParameters(configuration, (ECParameterSpec)null));
             this.ecSpec = null;
@@ -121,7 +121,7 @@ public class BCECPublicKey
     public BCECPublicKey(
         String algorithm,
         ECPublicKeyParameters params,
-        org.bouncycastle.jce.spec.ECParameterSpec spec,
+        ECParameterSpec spec,
         ProviderConfiguration configuration)
     {
         ECDomainParameters      dp = params.getParameters();
@@ -253,7 +253,7 @@ public class BCECPublicKey
         return ecSpec;
     }
 
-    public org.bouncycastle.jce.spec.ECParameterSpec getParameters()
+    public ECParameterSpec getParameters()
     {
         if (ecSpec == null)     // implictlyCA
         {
@@ -285,7 +285,7 @@ public class BCECPublicKey
         return ecPublicKey;
     }
 
-    org.bouncycastle.jce.spec.ECParameterSpec engineGetSpec()
+    ECParameterSpec engineGetSpec()
     {
         if (ecSpec != null)
         {

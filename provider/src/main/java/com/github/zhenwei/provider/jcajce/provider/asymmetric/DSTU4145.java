@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
-import org.bouncycastle.jcajce.provider.asymmetric.dstu.KeyFactorySpi;
+import KeyFactorySpi;
  
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
  

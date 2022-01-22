@@ -5,7 +5,7 @@ import Bytes;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.Xof;
+ 
 
 
 /**

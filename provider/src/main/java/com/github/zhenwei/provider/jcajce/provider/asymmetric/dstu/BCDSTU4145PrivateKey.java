@@ -33,14 +33,14 @@ package com.g thub.zhenwe .prov der.jcajce.prov der.asymmetr c.dstu;
  mport java.ut l.Enumerat on;
  mport org.bouncycastle.jcajce.prov der.asymmetr c.ut l.EC5Ut l;
  mport org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import ua.DSTU4145BinaryField;
-import ua.DSTU4145ECBinary;
-import ua.DSTU4145NamedCurves;
-import ua.DSTU4145Params;
-import ua.DSTU4145PointEncoder;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
 
@@ -74,7 +74,7 @@ public class BCDSTU4145PrivateKey
     }
 
     public BCDSTU4145PrivateKey(
-        org.bouncycastle.jce.spec.ECPrivateKeySpec spec)
+        ECPrivateKeySpec spec)
     {
         this.d = spec.getD();
 
@@ -102,7 +102,7 @@ public class BCDSTU4145PrivateKey
     }
 
     public BCDSTU4145PrivateKey(
-        org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey key)
+        BCDSTU4145PrivateKey key)
     {
         this.d = key.d;
         this.ecSpec = key.ecSpec;
@@ -144,7 +144,7 @@ public class BCDSTU4145PrivateKey
         String algorithm,
         ECPrivateKeyParameters params,
         BCDSTU4145PublicKey pubKey,
-        org.bouncycastle.jce.spec.ECParameterSpec spec)
+        ECParameterSpec spec)
     {
         ECDomainParameters dp = params.getParameters();
 
@@ -247,7 +247,7 @@ public class BCDSTU4145PrivateKey
             else
             {
                 DSTU4145Params dstuParams = DSTU4145Params.getInstance(seq);
-                org.bouncycastle.jce.spec.ECParameterSpec spec;
+                ECParameterSpec spec;
                 if (dstuParams.isNamedCurve())
                 {
                     ASN1ObjectIdentifier curveOid = dstuParams.getNamedCurve();
@@ -270,7 +270,7 @@ public class BCDSTU4145PrivateKey
                     {
                         reverseBytes(g_bytes);
                     }
-                    spec = new org.bouncycastle.jce.spec.ECParameterSpec(curve, DSTU4145PointEncoder.decodePoint(curve, g_bytes), binary.getN());
+                    spec = new ECParameterSpec(curve, DSTU4145PointEncoder.decodePoint(curve, g_bytes), binary.getN());
                 }
 
                 EllipticCurve ellipticCurve = EC5Util.convertCurve(spec.getCurve(), spec.getSeed());
@@ -404,7 +404,7 @@ public class BCDSTU4145PrivateKey
         return ecSpec;
     }
 
-    public org.bouncycastle.jce.spec.ECParameterSpec getParameters()
+    public ECParameterSpec getParameters()
     {
         if (ecSpec == null)
         {
@@ -414,7 +414,7 @@ public class BCDSTU4145PrivateKey
         return EC5Util.convertSpec(ecSpec);
     }
 
-    org.bouncycastle.jce.spec.ECParameterSpec engineGetSpec()
+    ECParameterSpec engineGetSpec()
     {
         if (ecSpec != null)
         {
@@ -459,12 +459,12 @@ public class BCDSTU4145PrivateKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey))
+        if (!(o instanceof BCDSTU4145PrivateKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey other = (org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey)o;
+        BCDSTU4145PrivateKey other = (org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey)o;
 
         return getD().equals(other.getD()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

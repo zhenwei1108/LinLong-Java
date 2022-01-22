@@ -11,9 +11,9 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SignatureException;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Signer;
-import Ed25519PublicKeyParameters;
-import Ed448PublicKeyParameters;
+ 
+ 
+ 
 import org.bouncycastle.crypto.signers.Ed25519Signer;
 import org.bouncycastle.crypto.signers.Ed448Signer;
 

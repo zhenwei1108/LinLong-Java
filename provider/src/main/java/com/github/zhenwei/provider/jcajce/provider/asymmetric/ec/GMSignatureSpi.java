@@ -15,7 +15,7 @@ import org.bouncycastle.crypto.CryptoException;
 import  SHA256Digest;
  
 import org.bouncycastle.crypto.signers.SM2Signer;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.spec.SM2ParameterSpec;
 
 ;

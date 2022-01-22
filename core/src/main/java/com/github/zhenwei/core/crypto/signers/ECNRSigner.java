@@ -4,7 +4,7 @@ package com.github.zhenwei.core.crypto.signers;
 import ECKeyGenerationParameters;
 import ECKeyPairGenerator;
 import ECKeyParameters;
-import ECPublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;

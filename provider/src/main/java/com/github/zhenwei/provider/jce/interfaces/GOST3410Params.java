@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jce.interfaces;
 
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
+import GOST3410PublicKeyParameterSetSpec;
 
 public interface GOST3410Params
 {

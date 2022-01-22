@@ -18,7 +18,7 @@ import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
 import org.bouncycastle.crypto.signers.PlainDSAEncoding;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;
 import org.bouncycastle.jcajce.provider.asymmetric.util.DSABase;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 
 public class SignatureSpi
     extends DSABase

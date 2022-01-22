@@ -12,29 +12,25 @@ import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.field.FiniteField;
 import com.github.zhenwei.core.math.field.PolynomialExtensionField;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
+import com.github.zhenwei.provider.jce.ECGOST3410NamedCurveTable;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
+import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
+import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import java.math.BigInteger;
 import java.security.spec.ECField;
 import java.security.spec.ECFieldF2m;
 import java.security.spec.ECFieldFp;
-import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
- 
-import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.math.field.FiniteField;
-import org.bouncycastle.math.field.Polynomial;
-
-
- 
  
 
 
@@ -134,7 +130,7 @@ public class EC5Util
 
         if (params == null)
         {
-            org.bouncycastle.jce.spec.ECParameterSpec iSpec = configuration.getEcImplicitlyCa();
+            ECParameterSpec iSpec = configuration.getEcImplicitlyCa();
 
             domainParameters = new ECDomainParameters(iSpec.getCurve(), iSpec.getG(), iSpec.getN(), iSpec.getH(), iSpec.getSeed());
         }
@@ -301,7 +297,7 @@ public class EC5Util
 
     public static ECParameterSpec convertSpec(
         EllipticCurve ellipticCurve,
-        org.bouncycastle.jce.spec.ECParameterSpec spec)
+        ECParameterSpec spec)
     {
         ECPoint g = convertPoint(spec.getG());
 
@@ -317,7 +313,7 @@ public class EC5Util
         }
     }
 
-    public static org.bouncycastle.jce.spec.ECParameterSpec convertSpec(ECParameterSpec ecSpec)
+    public static ECParameterSpec convertSpec(ECParameterSpec ecSpec)
     {
         ECCurve curve = convertCurve(ecSpec.getCurve());
 
@@ -333,7 +329,7 @@ public class EC5Util
         }
         else
         {
-            return new org.bouncycastle.jce.spec.ECParameterSpec(curve, g, n, h, seed);
+            return new ECParameterSpec(curve, g, n, h, seed);
         }
     }
 

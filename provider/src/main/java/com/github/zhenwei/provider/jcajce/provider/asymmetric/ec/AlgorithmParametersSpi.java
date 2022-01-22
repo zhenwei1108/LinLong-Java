@@ -15,10 +15,10 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
  
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
+ 
+ 
+ 
  
  
 
@@ -167,7 +167,7 @@ public class AlgorithmParametersSpi
             }
             else
             {
-                org.bouncycastle.jce.spec.ECParameterSpec ecSpec = EC5Util.convertSpec(ecParameterSpec);
+                ECParameterSpec ecSpec = EC5Util.convertSpec(ecParameterSpec);
                 X9ECParameters ecP = new X9ECParameters(
                     ecSpec.getCurve(),
                     new X9ECPoint(ecSpec.getG(), false),

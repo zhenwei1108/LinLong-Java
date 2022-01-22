@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
  
  
-import org.bouncycastle.jce.spec.IESParameterSpec;
+import IESParameterSpec;
 
 public class IESUtil
 {

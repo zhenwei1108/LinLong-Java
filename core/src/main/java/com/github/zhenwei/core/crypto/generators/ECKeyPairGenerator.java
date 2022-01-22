@@ -3,7 +3,7 @@ package com.github.zhenwei.core.crypto.generators;
 
 import ECKeyGenerationParameters;
 import ECMultiplier;
-import ECPublicKeyParameters;
+ 
 import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;

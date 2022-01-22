@@ -20,7 +20,7 @@ import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.util.Hashtable;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Signer;
+ 
 import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.RSABlindedEngine;
  

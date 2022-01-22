@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
 
-import DomainParameters;
-import ValidationParams;
+ 
+ 
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
@@ -21,7 +21,7 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
+ 
 import org.bouncycastle.jcajce.spec.DHExtendedPublicKeySpec;
 
 

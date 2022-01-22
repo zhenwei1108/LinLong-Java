@@ -15,9 +15,9 @@ import java.security.spec.KeySpec;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import org.bouncycastle.jce.interfaces.GOST3410PrivateKey;
 import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
-import org.bouncycastle.jce.spec.GOST3410PrivateKeySpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeySpec;
+import GOST3410PrivateKeySpec;
+import GOST3410PublicKeyParameterSetSpec;
+import GOST3410PublicKeySpec;
  
 
 public class KeyFactorySpi

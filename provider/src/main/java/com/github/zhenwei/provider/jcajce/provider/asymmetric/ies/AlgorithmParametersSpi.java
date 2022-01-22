@@ -14,7 +14,7 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import org.bouncycastle.jce.spec.IESParameterSpec;
+import IESParameterSpec;
 
 public class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi

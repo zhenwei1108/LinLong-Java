@@ -8,7 +8,7 @@ import com.github.zhenwei.pkix.operator.ContentVerifier;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
-import ECPublicKeyParameters;
+ 
 import org.bouncycastle.crypto.signers.DSADigestSigner;
 import org.bouncycastle.crypto.signers.ECDSASigner;
 import org.bouncycastle.its.ITSCertificate;

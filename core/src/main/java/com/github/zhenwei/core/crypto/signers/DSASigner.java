@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.signers;
 
 import DSAKeyParameters;
-import DSAPublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;

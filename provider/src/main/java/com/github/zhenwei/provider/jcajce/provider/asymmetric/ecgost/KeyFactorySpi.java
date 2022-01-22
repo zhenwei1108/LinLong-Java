@@ -16,10 +16,10 @@ import java.security.interfaces.ECPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jce.spec.ECParameterSpec;
-import org.bouncycastle.jce.spec.ECPrivateKeySpec;
-import org.bouncycastle.jce.spec.ECPublicKeySpec;
+ 
+import ECParameterSpec;
+import ECPrivateKeySpec;
+import ECPublicKeySpec;
  
 
 public class KeyFactorySpi

@@ -9,7 +9,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
 import javax.crypto.spec.DHParameterSpec;
  
-import org.bouncycastle.jce.spec.ElGamalParameterSpec;
+import ElGamalParameterSpec;
 
 public class AlgorithmParametersSpi
     extends BaseAlgorithmParameters

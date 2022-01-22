@@ -9,8 +9,8 @@ import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.InvalidParameterSpecException;
-import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
+import GOST3410ParameterSpec;
+import GOST3410PublicKeyParameterSetSpec;
 
 public class AlgorithmParametersSpi
     extends java.security.AlgorithmParametersSpi

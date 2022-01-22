@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.generators;
 
 
 import DSAKeyGenerationParameters;
-import DSAPublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;

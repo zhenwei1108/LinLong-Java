@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import Ed448PublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;

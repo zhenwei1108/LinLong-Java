@@ -5,7 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import java.util.Enumeration;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
+ 
 
 
 /**

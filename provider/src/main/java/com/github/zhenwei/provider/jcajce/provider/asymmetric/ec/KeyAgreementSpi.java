@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
-import X9IntegerConverter;
+ 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.generators.KDF2BytesGenerator;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
@@ -25,11 +25,11 @@ import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
 import  RIPEMD160Digest;
 import ECDHUPrivateParameters;
 import ECDHUPublicParameters;
-import ECPublicKeyParameters;
+ 
 import MQVPrivateParameters;
 import MQVPublicParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;
 import org.bouncycastle.jcajce.spec.MQVParameterSpec;
 import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;

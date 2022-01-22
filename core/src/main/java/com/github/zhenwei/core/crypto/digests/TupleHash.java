@@ -4,7 +4,7 @@ package com.github.zhenwei.core.crypto.digests;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.util.Strings;
-import org.bouncycastle.crypto.Xof;
+ 
 
 
 /**

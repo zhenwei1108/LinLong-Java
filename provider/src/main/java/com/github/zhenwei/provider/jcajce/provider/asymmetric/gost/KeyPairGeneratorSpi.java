@@ -13,8 +13,8 @@ import GOST3410KeyGenerationParameters;
 import GOST3410Parameters;
 import GOST3410PrivateKeyParameters;
 import GOST3410PublicKeyParameters;
-import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
+import GOST3410ParameterSpec;
+import GOST3410PublicKeyParameterSetSpec;
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

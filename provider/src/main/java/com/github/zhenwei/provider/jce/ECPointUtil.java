@@ -6,7 +6,7 @@ import java.security.spec.ECFieldF2m;
 import java.security.spec.ECFieldFp;
 import java.security.spec.ECPoint;
 import java.security.spec.EllipticCurve;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
+ 
 
 /**
  * Utility class for handling EC point decoding.

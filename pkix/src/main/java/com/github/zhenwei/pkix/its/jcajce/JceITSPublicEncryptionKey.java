@@ -20,7 +20,7 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPublicKeySpec;
 import nist.NISTNamedCurves;
 import org.bouncycastle.its.ITSPublicEncryptionKey;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
+ 
 import org.bouncycastle.oer.its.BasePublicEncryptionKey;
 import org.bouncycastle.oer.its.EccCurvePoint;
 import org.bouncycastle.oer.its.EccP256CurvePoint;

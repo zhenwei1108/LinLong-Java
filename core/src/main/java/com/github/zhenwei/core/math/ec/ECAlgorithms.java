@@ -7,7 +7,7 @@ import endo.ECEndomorphism;
 import endo.EndoUtil;
 import endo.GLVEndomorphism;
 import java.math.BigInteger;
-import org.bouncycastle.math.field.FiniteField;
+ 
 
 
 

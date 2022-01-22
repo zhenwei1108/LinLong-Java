@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import X9IntegerConverter;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
@@ -30,14 +30,14 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
-import ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
-import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
-import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 public class JCEECPublicKey
@@ -71,7 +71,7 @@ public class JCEECPublicKey
 
     public JCEECPublicKey(
         String              algorithm,
-        org.bouncycastle.jce.spec.ECPublicKeySpec     spec)
+        ECPublicKeySpec     spec)
     {
         this.algorithm = algorithm;
         this.q = spec.getQ();
@@ -87,7 +87,7 @@ public class JCEECPublicKey
         {
             if (q.getCurve() == null)
             {
-                org.bouncycastle.jce.spec.ECParameterSpec s = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+                ECParameterSpec s = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
 
                 q = s.getCurve().createPoint(q.getAffineXCoord().toBigInteger(), q.getAffineYCoord().toBigInteger());
             }               
@@ -120,7 +120,7 @@ public class JCEECPublicKey
     public JCEECPublicKey(
         String                  algorithm,
         ECPublicKeyParameters   params,
-        org.bouncycastle.jce.spec.ECParameterSpec         spec)
+        ECParameterSpec         spec)
     {
         ECDomainParameters      dp = params.getParameters();
 
@@ -410,7 +410,7 @@ public class JCEECPublicKey
         return ecSpec;
     }
 
-    public org.bouncycastle.jce.spec.ECParameterSpec getParameters()
+    public ECParameterSpec getParameters()
     {
         if (ecSpec == null)     // implictlyCA
         {
@@ -440,7 +440,7 @@ public class JCEECPublicKey
         return q;
     }
 
-    org.bouncycastle.jce.spec.ECParameterSpec engineGetSpec()
+    ECParameterSpec engineGetSpec()
     {
         if (ecSpec != null)
         {

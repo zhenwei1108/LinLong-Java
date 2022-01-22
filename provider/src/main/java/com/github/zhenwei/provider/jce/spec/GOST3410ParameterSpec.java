@@ -99,9 +99,9 @@ public class GOST3410ParameterSpec
     
     public boolean equals(Object o)
     {
-        if (o instanceof org.bouncycastle.jce.spec.GOST3410ParameterSpec)
+        if (o instanceof GOST3410ParameterSpec)
         {
-            org.bouncycastle.jce.spec.GOST3410ParameterSpec other = (org.bouncycastle.jce.spec.GOST3410ParameterSpec)o;
+            GOST3410ParameterSpec other = (org.bouncycastle.jce.spec.GOST3410ParameterSpec)o;
             
             return this.keyParameters.equals(other.keyParameters) 
                 && this.digestParamSetOID.equals(other.digestParamSetOID)
@@ -118,16 +118,16 @@ public class GOST3410ParameterSpec
                        ^ (this.encryptionParamSetOID != null ? this.encryptionParamSetOID.hashCode() : 0);
     }
 
-    public static org.bouncycastle.jce.spec.GOST3410ParameterSpec fromPublicKeyAlg(
+    public static GOST3410ParameterSpec fromPublicKeyAlg(
         GOST3410PublicKeyAlgParameters params)
     {
         if (params.getEncryptionParamSet() != null)
         {
-            return new org.bouncycastle.jce.spec.GOST3410ParameterSpec(params.getPublicKeyParamSet().getId(), params.getDigestParamSet().getId(), params.getEncryptionParamSet().getId());
+            return new GOST3410ParameterSpec(params.getPublicKeyParamSet().getId(), params.getDigestParamSet().getId(), params.getEncryptionParamSet().getId());
         }
         else
         {
-            return new org.bouncycastle.jce.spec.GOST3410ParameterSpec(params.getPublicKeyParamSet().getId(), params.getDigestParamSet().getId());
+            return new GOST3410ParameterSpec(params.getPublicKeyParamSet().getId(), params.getDigestParamSet().getId());
         }
     }
 }

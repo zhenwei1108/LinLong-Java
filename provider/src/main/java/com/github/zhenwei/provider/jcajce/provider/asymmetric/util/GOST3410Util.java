@@ -9,7 +9,7 @@ import GOST3410PrivateKeyParameters;
 import GOST3410PublicKeyParameters;
 import org.bouncycastle.jce.interfaces.GOST3410PrivateKey;
 import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
+import GOST3410PublicKeyParameterSetSpec;
 
 /**
  * utility class for converting jce/jca GOST3410-94 objects

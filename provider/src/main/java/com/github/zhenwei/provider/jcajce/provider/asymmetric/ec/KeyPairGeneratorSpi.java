@@ -19,13 +19,13 @@ import java.security.spec.ECGenParameterSpec;
 import java.util.Hashtable;
 import ECKeyPairGenerator;
 import ECKeyGenerationParameters;
-import ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
  
-import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.jce.spec.ECParameterSpec;
+ 
+ 
+ 
+import ECNamedCurveGenParameterSpec;
+ 
+import ECParameterSpec;
  
 
 

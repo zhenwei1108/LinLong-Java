@@ -8,7 +8,7 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.Arrays;
 import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Signer;
+ 
  
 
 

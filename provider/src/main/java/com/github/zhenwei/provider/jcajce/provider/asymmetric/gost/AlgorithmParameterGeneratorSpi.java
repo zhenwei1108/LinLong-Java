@@ -8,8 +8,8 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import GOST3410ParametersGenerator;
 import GOST3410Parameters;
-import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
+import GOST3410ParameterSpec;
+import GOST3410PublicKeyParameterSetSpec;
 
 public class AlgorithmParameterGeneratorSpi
     extends BaseAlgorithmParameterGeneratorSpi

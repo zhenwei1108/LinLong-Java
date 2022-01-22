@@ -20,12 +20,12 @@ import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
 import ECKeyPairGenerator;
 import ECKeyGenerationParameters;
-import ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
+ 
+ 
 import org.bouncycastle.jcajce.spec.GOST3410ParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.jce.spec.ECParameterSpec;
+import ECNamedCurveGenParameterSpec;
+ 
+import ECParameterSpec;
 
 ;
 

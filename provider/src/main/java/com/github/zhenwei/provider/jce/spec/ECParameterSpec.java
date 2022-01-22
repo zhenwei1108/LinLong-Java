@@ -103,12 +103,12 @@ public class ECParameterSpec
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jce.spec.ECParameterSpec))
+        if (!(o instanceof ECParameterSpec))
         {
             return false;
         }
 
-        org.bouncycastle.jce.spec.ECParameterSpec other = (org.bouncycastle.jce.spec.ECParameterSpec)o;
+        ECParameterSpec other = (org.bouncycastle.jce.spec.ECParameterSpec)o;
 
         return this.getCurve().equals(other.getCurve()) && this.getG().equals(other.getG());
     }

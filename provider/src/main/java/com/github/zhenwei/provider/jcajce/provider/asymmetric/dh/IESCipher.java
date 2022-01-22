@@ -47,7 +47,7 @@ import org.bouncycastle.crypto.parsers.DHIESPublicKeyParser;
 import org.bouncycastle.jcajce.provider.asymmetric.util.IESUtil;
 import org.bouncycastle.jcajce.provider.util.BadBlockException;
 import org.bouncycastle.jce.interfaces.IESKey;
-import org.bouncycastle.jce.spec.IESParameterSpec;
+import IESParameterSpec;
 
 ;
  

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
-import ECPublicKeyParameters;
+ 
 import MQVPrivateParameters;
 import MQVPublicParameters;
 import com.github.zhenwei.core.crypto.CipherParameters;

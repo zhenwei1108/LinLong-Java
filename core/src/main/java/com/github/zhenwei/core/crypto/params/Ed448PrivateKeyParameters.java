@@ -6,7 +6,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import rfc8032.Ed448;
+ 
 
 public final class Ed448PrivateKeyParameters
     extends AsymmetricKeyParameter

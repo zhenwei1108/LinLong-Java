@@ -3,8 +3,8 @@ package com.github.zhenwei.provider.jcajce.spec;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.spec.ECParameterSpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import ua.DSTU4145Params;
+ 
+ 
 
 /**
  * ParameterSpec for a DSTU4145 key.

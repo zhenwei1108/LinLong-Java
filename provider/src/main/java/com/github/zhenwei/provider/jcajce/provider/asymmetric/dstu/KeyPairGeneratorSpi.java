@@ -18,13 +18,13 @@ import DSTU4145KeyPairGenerator;
 import ECKeyPairGenerator;
 import DSTU4145Parameters;
 import ECKeyGenerationParameters;
-import ECPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
+ 
+ 
 import org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
-import org.bouncycastle.jce.spec.ECParameterSpec;
-import ua.DSTU4145NamedCurves;
+import ECNamedCurveGenParameterSpec;
+ 
+import ECParameterSpec;
+ 
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGenerator

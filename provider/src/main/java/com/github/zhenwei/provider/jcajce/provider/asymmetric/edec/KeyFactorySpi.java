@@ -22,10 +22,10 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import Ed25519PublicKeyParameters;
-import Ed448PublicKeyParameters;
-import X25519PublicKeyParameters;
-import X448PublicKeyParameters;
+ 
+ 
+ 
+ 
 import org.bouncycastle.crypto.util.OpenSSHPrivateKeyUtil;
 import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
 import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;

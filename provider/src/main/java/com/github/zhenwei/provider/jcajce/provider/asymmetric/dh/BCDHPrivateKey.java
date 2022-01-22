@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
 
-import DomainParameters;
-import ValidationParams;
+ 
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Integer;

@@ -18,7 +18,7 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
+ 
 
 
 public class JCEDHPublicKey

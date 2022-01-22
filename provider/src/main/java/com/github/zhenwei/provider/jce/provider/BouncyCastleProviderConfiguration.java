@@ -10,11 +10,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.crypto.spec.DHParameterSpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
+ 
  
  
 import org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission;
-import org.bouncycastle.jce.spec.ECParameterSpec;
+import ECParameterSpec;
 
 class BouncyCastleProviderConfiguration
     implements ProviderConfiguration

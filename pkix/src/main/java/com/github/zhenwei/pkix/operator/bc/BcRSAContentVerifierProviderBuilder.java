@@ -8,7 +8,7 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
-import org.bouncycastle.crypto.Signer;
+ 
 import org.bouncycastle.crypto.signers.RSADigestSigner;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
 

@@ -19,10 +19,10 @@ import Ed25519KeyGenerationParameters;
 import Ed448KeyGenerationParameters;
 import X25519KeyGenerationParameters;
 import X448KeyGenerationParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.spec.EdDSAParameterSpec;
 import org.bouncycastle.jcajce.spec.XDHParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveGenParameterSpec;
+import ECNamedCurveGenParameterSpec;
 
 public class KeyPairGeneratorSpi
     extends java.security.KeyPairGeneratorSpi

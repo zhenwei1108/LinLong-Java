@@ -3,7 +3,7 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.crypto.Digest;
-import org.bouncycastle.crypto.Xof;
+ 
  
 
 /**

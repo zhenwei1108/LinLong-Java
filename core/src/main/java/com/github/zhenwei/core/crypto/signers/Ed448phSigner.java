@@ -1,13 +1,14 @@
 package com.github.zhenwei.core.crypto.signers;
 
 
-import Ed448PublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Signer;
+import com.github.zhenwei.core.crypto.Xof;
 import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.rfc8032.Ed448;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.Signer;
-import org.bouncycastle.crypto.Xof;
-import rfc8032.Ed448;
+ 
 
 public class Ed448phSigner
     implements Signer

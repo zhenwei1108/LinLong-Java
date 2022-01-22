@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.xmss;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.crypto.Xof;
+ 
 import  SHA256Digest;
 import  SHA512Digest;
 import  SHAKEDigest;

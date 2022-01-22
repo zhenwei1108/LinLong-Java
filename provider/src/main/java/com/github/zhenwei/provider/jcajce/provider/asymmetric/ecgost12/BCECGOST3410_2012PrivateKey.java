@@ -36,12 +36,12 @@ import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPrivateKeySpec;
 import java.security.spec.EllipticCurve;
 import java.util.Enumeration;
-import org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
-import org.bouncycastle.jce.ECGOST3410NamedCurveTable;
-import org.bouncycastle.jce.interfaces.ECPointEncoder;
-import org.bouncycastle.jce.spec.ECNamedCurveParameterSpec;
-import org.bouncycastle.jce.spec.ECNamedCurveSpec;
+ 
+ 
+ 
+ 
+ 
+ 
 
  
 
@@ -80,7 +80,7 @@ public class BCECGOST3410_2012PrivateKey
     }
 
     public BCECGOST3410_2012PrivateKey(
-        org.bouncycastle.jce.spec.ECPrivateKeySpec spec)
+        ECPrivateKeySpec spec)
     {
         this.d = spec.getD();
 
@@ -153,7 +153,7 @@ public class BCECGOST3410_2012PrivateKey
         String algorithm,
         ECPrivateKeyParameters params,
         BCECGOST3410_2012PublicKey pubKey,
-        org.bouncycastle.jce.spec.ECParameterSpec spec)
+        ECParameterSpec spec)
     {
         ECDomainParameters dp = params.getParameters();
 
@@ -439,7 +439,7 @@ public class BCECGOST3410_2012PrivateKey
         return ecSpec;
     }
 
-    public org.bouncycastle.jce.spec.ECParameterSpec getParameters()
+    public ECParameterSpec getParameters()
     {
         if (ecSpec == null)
         {
@@ -449,7 +449,7 @@ public class BCECGOST3410_2012PrivateKey
         return EC5Util.convertSpec(ecSpec);
     }
 
-    org.bouncycastle.jce.spec.ECParameterSpec engineGetSpec()
+    ECParameterSpec engineGetSpec()
     {
         if (ecSpec != null)
         {

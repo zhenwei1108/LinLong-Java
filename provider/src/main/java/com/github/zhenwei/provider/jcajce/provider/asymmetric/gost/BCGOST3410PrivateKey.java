@@ -23,9 +23,9 @@ import GOST3410PrivateKeyParameters;
 import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
 import org.bouncycastle.jce.interfaces.GOST3410Params;
 import org.bouncycastle.jce.interfaces.GOST3410PrivateKey;
-import org.bouncycastle.jce.spec.GOST3410ParameterSpec;
-import org.bouncycastle.jce.spec.GOST3410PrivateKeySpec;
-import org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec;
+import GOST3410ParameterSpec;
+import GOST3410PrivateKeySpec;
+import GOST3410PublicKeyParameterSetSpec;
  
 
 public class BCGOST3410PrivateKey

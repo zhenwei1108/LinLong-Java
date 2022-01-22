@@ -1,6 +1,6 @@
 package com.github.zhenwei.provider.jce.interfaces;
 
-import org.bouncycastle.jce.spec.ECParameterSpec;
+import ECParameterSpec;
 
 /**
  * generic interface for an Elliptic Curve Key.

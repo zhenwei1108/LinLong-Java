@@ -4,7 +4,7 @@ import SHAKEDigest;
 import com.github.zhenwei.core.math.raw.Nat;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Xof;
+ 
 import rfc7748.X448;
 import rfc7748.X448Field;
 

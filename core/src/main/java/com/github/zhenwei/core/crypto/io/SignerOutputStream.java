@@ -2,7 +2,7 @@ package com.github.zhenwei.core.crypto.io;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.crypto.Signer;
+ 
 
 public class SignerOutputStream
     extends OutputStream

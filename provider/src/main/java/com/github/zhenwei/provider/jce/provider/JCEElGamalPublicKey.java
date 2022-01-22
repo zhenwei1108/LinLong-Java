@@ -13,11 +13,11 @@ import java.math.BigInteger;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import ElGamalPublicKeyParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.util.KeyUtil;
+ 
+ 
 import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
-import org.bouncycastle.jce.spec.ElGamalParameterSpec;
-import org.bouncycastle.jce.spec.ElGamalPublicKeySpec;
+import ElGamalParameterSpec;
+import ElGamalPublicKeySpec;
 
 public class JCEElGamalPublicKey
     implements ElGamalPublicKey, DHPublicKey

@@ -40,16 +40,16 @@ import EphemeralKeyPairGenerator;
  
 import ECKeyGenerationParameters;
 import ECKeyParameters;
-import ECPublicKeyParameters;
+ 
 import IESWithCipherParameters;
  
 import org.bouncycastle.crypto.parsers.ECIESPublicKeyParser;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
+ 
 import org.bouncycastle.jcajce.provider.asymmetric.util.IESUtil;
 import org.bouncycastle.jcajce.provider.util.BadBlockException;
 import org.bouncycastle.jce.interfaces.ECKey;
 import org.bouncycastle.jce.interfaces.IESKey;
-import org.bouncycastle.jce.spec.IESParameterSpec;
+import IESParameterSpec;
 
 ;
 

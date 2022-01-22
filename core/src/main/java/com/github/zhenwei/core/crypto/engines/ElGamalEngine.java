@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import ElGamalKeyParameters;
-import ElGamalPublicKeyParameters;
+ 
 import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;

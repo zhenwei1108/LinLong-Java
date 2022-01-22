@@ -10,7 +10,7 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import nist.NISTNamedCurves;
-import ECPublicKeyParameters;
+ 
 import org.bouncycastle.its.ITSPublicEncryptionKey;
 import org.bouncycastle.oer.its.BasePublicEncryptionKey;
 import org.bouncycastle.oer.its.EccCurvePoint;

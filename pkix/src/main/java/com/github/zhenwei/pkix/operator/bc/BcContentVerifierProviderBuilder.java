@@ -10,7 +10,7 @@ import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.crypto.Signer;
+ 
  
 
 
