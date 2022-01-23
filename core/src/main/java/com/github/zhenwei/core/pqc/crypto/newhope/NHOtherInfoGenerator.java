@@ -5,11 +5,12 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.util.DEROtherInfo;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.crypto.ExchangePair;
 import java.io.IOException;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.util.DEROtherInfo;
-import org.bouncycastle.pqc.crypto.ExchangePair;
+ 
 
 
 /**
@@ -41,7 +42,7 @@ public class NHOtherInfoGenerator {
    * Party U (initiator) generation.
    */
   public static class PartyU
-      extends org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator {
+      extends NHOtherInfoGenerator {
 
     private AsymmetricCipherKeyPair aKp;
     private NHAgreement agreement = new NHAgreement();
@@ -65,7 +66,7 @@ public class NHOtherInfoGenerator {
      * @param suppPubInfo supplementary public info.
      * @return the current builder instance.
      */
-    public org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator withSuppPubInfo(
+    public NHOtherInfoGenerator withSuppPubInfo(
         byte[] suppPubInfo) {
       this.otherInfoBuilder.withSuppPubInfo(suppPubInfo);
 
@@ -84,7 +85,7 @@ public class NHOtherInfoGenerator {
       used = true;
 
       this.otherInfoBuilder.withSuppPrivInfo(agreement.calculateAgreement(
-          org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator.getPublicKey(
+          NHOtherInfoGenerator.getPublicKey(
               suppPrivInfoPartB)));
 
       return otherInfoBuilder.build();
@@ -95,7 +96,7 @@ public class NHOtherInfoGenerator {
    * Party V (responder) generation.
    */
   public static class PartyV
-      extends org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator {
+      extends NHOtherInfoGenerator {
 
     public PartyV(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo,
         SecureRandom random) {
@@ -108,7 +109,7 @@ public class NHOtherInfoGenerator {
      * @param suppPubInfo supplementary public info.
      * @return the current builder instance.
      */
-    public org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator withSuppPubInfo(
+    public NHOtherInfoGenerator withSuppPubInfo(
         byte[] suppPubInfo) {
       this.otherInfoBuilder.withSuppPubInfo(suppPubInfo);
 

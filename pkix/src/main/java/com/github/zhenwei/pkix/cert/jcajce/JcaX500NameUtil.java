@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert.jcajce;
  
 import java.security.cert.X509Certificate;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
+ 
 
 public class JcaX500NameUtil
 {

@@ -8,7 +8,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.BCDHPublicKey;
+import dh.BCDHPublicKey;
 
 /**
  * utility class for converting jce/jca DH objects

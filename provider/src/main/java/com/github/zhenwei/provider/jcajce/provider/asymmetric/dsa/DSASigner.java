@@ -163,7 +163,7 @@ public class DSASigner
     }
 
     static public class stdDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public stdDSA()
         {
@@ -172,7 +172,7 @@ public class DSASigner
     }
 
     static public class detDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSA()
         {
@@ -181,7 +181,7 @@ public class DSASigner
     }
 
     static public class dsaRMD160
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsaRMD160()
         {
@@ -190,7 +190,7 @@ public class DSASigner
     }
 
     static public class dsa224
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsa224()
         {
@@ -199,7 +199,7 @@ public class DSASigner
     }
 
     static public class detDSA224
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSA224()
         {
@@ -208,7 +208,7 @@ public class DSASigner
     }
 
     static public class dsa256
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsa256()
         {
@@ -217,7 +217,7 @@ public class DSASigner
     }
 
     static public class detDSA256
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSA256()
         {
@@ -226,7 +226,7 @@ public class DSASigner
     }
 
     static public class dsa384
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsa384()
         {
@@ -235,7 +235,7 @@ public class DSASigner
     }
 
     static public class detDSA384
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSA384()
         {
@@ -244,7 +244,7 @@ public class DSASigner
     }
 
     static public class dsa512
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsa512()
         {
@@ -253,7 +253,7 @@ public class DSASigner
     }
 
     static public class detDSA512
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSA512()
         {
@@ -262,7 +262,7 @@ public class DSASigner
     }
 
     static public class dsaSha3_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsaSha3_224()
         {
@@ -271,7 +271,7 @@ public class DSASigner
     }
 
     static public class detDSASha3_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSASha3_224()
         {
@@ -280,7 +280,7 @@ public class DSASigner
     }
 
     static public class dsaSha3_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsaSha3_256()
         {
@@ -289,7 +289,7 @@ public class DSASigner
     }
 
     static public class detDSASha3_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSASha3_256()
         {
@@ -298,7 +298,7 @@ public class DSASigner
     }
 
     static public class dsaSha3_384
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsaSha3_384()
         {
@@ -307,7 +307,7 @@ public class DSASigner
     }
 
     static public class detDSASha3_384
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSASha3_384()
         {
@@ -316,7 +316,7 @@ public class DSASigner
     }
 
     static public class dsaSha3_512
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public dsaSha3_512()
         {
@@ -325,7 +325,7 @@ public class DSASigner
     }
 
     static public class detDSASha3_512
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public detDSASha3_512()
         {
@@ -334,7 +334,7 @@ public class DSASigner
     }
 
     static public class noneDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner
+        extends dsa.DSASigner
     {
         public noneDSA()
         {

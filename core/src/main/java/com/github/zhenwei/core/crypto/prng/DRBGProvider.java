@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.prng;
 
-import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
+
+import com.github.zhenwei.core.crypto.prng.drbg.SP80090DRBG;
 
 interface DRBGProvider {
 

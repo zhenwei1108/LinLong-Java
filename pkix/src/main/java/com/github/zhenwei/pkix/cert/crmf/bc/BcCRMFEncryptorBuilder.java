@@ -10,7 +10,7 @@ import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.CRMFException;
  
  
-import org.bouncycastle.crypto.util.CipherFactory;
+import CipherFactory;
 import org.bouncycastle.operator.OutputEncryptor;
 
 /**

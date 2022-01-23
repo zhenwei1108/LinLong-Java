@@ -177,9 +177,9 @@ class X509CertificateObject
             return true;
         }
 
-        if (other instanceof org.bouncycastle.jcajce.provider.asymmetric.X509CertificateObject)
+        if (other instanceof X509CertificateObject)
         {
-            org.bouncycastle.jcajce.provider.asymmetric.X509CertificateObject otherBC = (org.bouncycastle.jcajce.provider.asymmetric.X509CertificateObject)other;
+            X509CertificateObject otherBC = ( provider.asymmetric.X509CertificateObject)other;
 
             if (this.hashValueSet && otherBC.hashValueSet)
             {

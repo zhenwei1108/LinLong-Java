@@ -1,54 +1,49 @@
-package com.g thub.zhenwe .prov der.jcajce.prov der.asymmetr c.dstu;
+package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
-
- mport com.g thub.zhenwe .core.asn1.ASN1Encodable;
- mport com.g thub.zhenwe .core.asn1.ASN1Encod ng;
- mport com.g thub.zhenwe .core.asn1.ASN1 nteger;
- mport com.g thub.zhenwe .core.asn1.ASN1Object dent f er;
- mport com.g thub.zhenwe .core.asn1.ASN1Pr m t ve;
- mport com.g thub.zhenwe .core.asn1.ASN1Sequence;
- mport com.g thub.zhenwe .core.asn1.DERB tStr ng;
- mport com.g thub.zhenwe .core.asn1.DERNull;
- mport com.g thub.zhenwe .core.asn1.pkcs.Pr vateKey nfo;
- mport com.g thub.zhenwe .core.asn1.x509.Algor thm dent f er;
- mport com.g thub.zhenwe .core.asn1.x509.SubjectPubl cKey nfo;
- mport com.g thub.zhenwe .core.asn1.x9.X962Parameters;
- mport com.g thub.zhenwe .core.asn1.x9.X9ECParameters;
- mport com.g thub.zhenwe .core.asn1.x9.X9ECPo nt;
- mport com.g thub.zhenwe .core.asn1.x9.X9Object dent f ers;
- mport com.g thub.zhenwe .core.crypto.params.ECDoma nParameters;
- mport com.g thub.zhenwe .core.crypto.params.ECPr vateKeyParameters;
- mport com.g thub.zhenwe .core.math.ec.ECCurve;
- mport com.g thub.zhenwe .prov der.jcajce.prov der.asymmetr c.ut l.PKCS12BagAttr buteCarr er mpl;
- mport com.g thub.zhenwe .prov der.jce. nterfaces.PKCS12BagAttr buteCarr er;
- mport com.g thub.zhenwe .prov der.jce.prov der.BouncyCastleProv der;
- mport java. o. OExcept on;
- mport java. o.Object nputStream;
- mport java. o.ObjectOutputStream;
- mport java.math.B g nteger;
- mport java.secur ty. nterfaces.ECPr vateKey;
- mport java.secur ty.spec.ECParameterSpec;
- mport java.secur ty.spec.ECPr vateKeySpec;
- mport java.secur ty.spec.Ell pt cCurve;
- mport java.ut l.Enumerat on;
- mport org.bouncycastle.jcajce.prov der.asymmetr c.ut l.EC5Ut l;
- mport org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-
-
+import com.github.zhenwei.core.asn1.ASN1Encodable;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.ua.DSTU4145BinaryField;
+import com.github.zhenwei.core.asn1.ua.DSTU4145ECBinary;
+import com.github.zhenwei.core.asn1.ua.DSTU4145NamedCurves;
+import com.github.zhenwei.core.asn1.ua.DSTU4145Params;
+import com.github.zhenwei.core.asn1.ua.DSTU4145PointEncoder;
+import com.github.zhenwei.core.asn1.ua.UAObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.asn1.x9.X962Parameters;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.asn1.x9.X9ECPoint;
+import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
+import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
+import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
+import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
+import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.math.BigInteger;
+import java.security.interfaces.ECPrivateKey;
+import java.security.spec.ECParameterSpec;
+import java.security.spec.ECPrivateKeySpec;
+import java.security.spec.EllipticCurve;
+import java.util.Enumeration;
 
 public class BCDSTU4145PrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    implements com.github.zhenwei.provider.jce.interfaces.ECPrivateKey,  ECPrivateKey,
     PKCS12BagAttributeCarrier, ECPointEncoder
 {
     static final long serialVersionUID = 7245981689601667138L;
@@ -74,7 +69,7 @@ public class BCDSTU4145PrivateKey
     }
 
     public BCDSTU4145PrivateKey(
-        ECPrivateKeySpec spec)
+        com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec spec)
     {
         this.d = spec.getD();
 
@@ -144,7 +139,7 @@ public class BCDSTU4145PrivateKey
         String algorithm,
         ECPrivateKeyParameters params,
         BCDSTU4145PublicKey pubKey,
-        ECParameterSpec spec)
+         ECParameterSpec spec)
     {
         ECDomainParameters dp = params.getParameters();
 
@@ -247,7 +242,7 @@ public class BCDSTU4145PrivateKey
             else
             {
                 DSTU4145Params dstuParams = DSTU4145Params.getInstance(seq);
-                ECParameterSpec spec;
+                 ECParameterSpec spec;
                 if (dstuParams.isNamedCurve())
                 {
                     ASN1ObjectIdentifier curveOid = dstuParams.getNamedCurve();
@@ -270,7 +265,7 @@ public class BCDSTU4145PrivateKey
                     {
                         reverseBytes(g_bytes);
                     }
-                    spec = new ECParameterSpec(curve, DSTU4145PointEncoder.decodePoint(curve, g_bytes), binary.getN());
+                    spec = new  ECParameterSpec(curve, DSTU4145PointEncoder.decodePoint(curve, g_bytes), binary.getN());
                 }
 
                 EllipticCurve ellipticCurve = EC5Util.convertCurve(spec.getCurve(), spec.getSeed());
@@ -292,7 +287,7 @@ public class BCDSTU4145PrivateKey
         }
         else
         {
-            sec.ECPrivateKey ec = sec.ECPrivateKey.getInstance(privKey);
+            org.bouncycastle.asn1. ECPrivateKey ec = org.bouncycastle.asn1. ECPrivateKey.getInstance(privKey);
 
             this.d = ec.getKey();
             this.publicKey = ec.getPublicKey();
@@ -368,15 +363,15 @@ public class BCDSTU4145PrivateKey
         }
 
         PrivateKeyInfo info;
-        sec.ECPrivateKey keyStructure;
+        org.bouncycastle.asn1. ECPrivateKey keyStructure;
 
         if (publicKey != null)
         {
-            keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
+            keyStructure = new org.bouncycastle.asn1. ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
         }
         else
         {
-            keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), params);
+            keyStructure = new org.bouncycastle.asn1. ECPrivateKey(orderBitLength, this.getS(), params);
         }
 
         try
@@ -404,7 +399,7 @@ public class BCDSTU4145PrivateKey
         return ecSpec;
     }
 
-    public ECParameterSpec getParameters()
+    public  ECParameterSpec getParameters()
     {
         if (ecSpec == null)
         {
@@ -414,7 +409,7 @@ public class BCDSTU4145PrivateKey
         return EC5Util.convertSpec(ecSpec);
     }
 
-    ECParameterSpec engineGetSpec()
+     ECParameterSpec engineGetSpec()
     {
         if (ecSpec != null)
         {
@@ -464,7 +459,7 @@ public class BCDSTU4145PrivateKey
             return false;
         }
 
-        BCDSTU4145PrivateKey other = (org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PrivateKey)o;
+        BCDSTU4145PrivateKey other = (BCDSTU4145PrivateKey)o;
 
         return getD().equals(other.getD()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

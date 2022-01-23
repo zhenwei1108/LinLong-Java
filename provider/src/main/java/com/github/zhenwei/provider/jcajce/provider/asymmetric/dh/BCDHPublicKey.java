@@ -22,7 +22,7 @@ import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
  
-import org.bouncycastle.jcajce.spec.DHExtendedPublicKeySpec;
+import  spec.DHExtendedPublicKeySpec;
 
 
 public class BCDHPublicKey

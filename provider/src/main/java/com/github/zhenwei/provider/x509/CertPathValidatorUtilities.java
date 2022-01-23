@@ -52,7 +52,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.jcajce.PKIXCertStoreSelector;
+import  PKIXCertStoreSelector;
 
 import org.bouncycastle.jce.provider.AnnotatedException;
 import org.bouncycastle.jce.provider.PKIXPolicyNode;
@@ -503,7 +503,7 @@ class CertPathValidatorUtilities
     {
         Set certs = new HashSet();
         Iterator iter = certStores.iterator();
-        org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory certFact = new org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory();
+        x509.CertificateFactory certFact = new x509.CertificateFactory();
 
         while (iter.hasNext())
         {

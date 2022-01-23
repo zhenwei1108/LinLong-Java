@@ -2,8 +2,8 @@ package com.github.zhenwei.pkix.pkcs.bc;
 
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.io.IOException;
-import org.bouncycastle.crypto.util.PublicKeyFactory;
-import org.bouncycastle.pkcs.PKCS10CertificationRequest;
+import PublicKeyFactory;
+ 
 import org.bouncycastle.pkcs.PKCSException;
 import CertificationRequest;
 

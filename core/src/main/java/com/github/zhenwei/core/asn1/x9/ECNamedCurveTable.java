@@ -10,7 +10,7 @@ import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
 import gm.GMNamedCurves;
 import java.util.Enumeration;
 import java.util.Vector;
-import nist.NISTNamedCurves;
+ 
 import teletrust.TeleTrusTNamedCurves;
 
 /**

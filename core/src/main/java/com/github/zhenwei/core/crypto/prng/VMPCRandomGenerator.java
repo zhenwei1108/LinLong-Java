@@ -67,7 +67,7 @@ public class VMPCRandomGenerator implements RandomGenerator {
           (byte) 0x3b, (byte) 0x54};
 
   /**
-   * Value generated in the same way as {@link org.bouncycastle.crypto.prng.VMPCRandomGenerator#P};
+   * Value generated in the same way as {@link VMPCRandomGenerator#P};
    */
   private byte s = (byte) 0xbe;
 

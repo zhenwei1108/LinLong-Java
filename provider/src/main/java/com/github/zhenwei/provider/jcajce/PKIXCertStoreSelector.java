@@ -40,9 +40,9 @@ public class PKIXCertStoreSelector<T extends Certificate>
          *
          * @return a new PKIXCertStoreSelector
          */
-        public org.bouncycastle.jcajce.PKIXCertStoreSelector<? extends Certificate> build()
+        public  PKIXCertStoreSelector<? extends Certificate> build()
         {
-            return new org.bouncycastle.jcajce.PKIXCertStoreSelector(baseSelector);
+            return new  PKIXCertStoreSelector(baseSelector);
         }
     }
 
@@ -75,10 +75,10 @@ public class PKIXCertStoreSelector<T extends Certificate>
 
     public Object clone()
     {
-        return new org.bouncycastle.jcajce.PKIXCertStoreSelector(baseSelector);
+        return new  PKIXCertStoreSelector(baseSelector);
     }
 
-    public static Collection<? extends Certificate> getCertificates(final org.bouncycastle.jcajce.PKIXCertStoreSelector selector, CertStore certStore)
+    public static Collection<? extends Certificate> getCertificates(final  PKIXCertStoreSelector selector, CertStore certStore)
         throws CertStoreException
     {
         return certStore.getCertificates(new SelectorClone(selector));
@@ -87,9 +87,9 @@ public class PKIXCertStoreSelector<T extends Certificate>
     private static class SelectorClone
         extends X509CertSelector
     {
-        private final org.bouncycastle.jcajce.PKIXCertStoreSelector selector;
+        private final  PKIXCertStoreSelector selector;
 
-        SelectorClone(org.bouncycastle.jcajce.PKIXCertStoreSelector selector)
+        SelectorClone( PKIXCertStoreSelector selector)
         {
             this.selector = selector;
 

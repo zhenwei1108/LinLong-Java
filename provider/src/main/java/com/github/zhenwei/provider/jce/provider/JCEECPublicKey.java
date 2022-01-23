@@ -41,7 +41,7 @@ import java.security.spec.EllipticCurve;
 
 
 public class JCEECPublicKey
-    implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
+    implements ECPublicKey,  ECPublicKey, ECPointEncoder
 {
     private String                  algorithm = "EC";
     private ECPoint q;

@@ -37,11 +37,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.jcajce.PKIXCRLStore;
+import  PKIXCRLStore;
 
-import org.bouncycastle.jcajce.PKIXCertStoreSelector;
-import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
+import  PKIXCertStoreSelector;
+import  PKIXExtendedBuilderParameters;
+import  PKIXExtendedParameters;
 
 import org.bouncycastle.x509.PKIXAttrCertChecker;
 import org.bouncycastle.x509.X509AttributeCertificate;

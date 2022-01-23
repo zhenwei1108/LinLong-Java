@@ -2,9 +2,10 @@ package com.github.zhenwei.core.pqc.crypto.gmss;
 
 
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.pqc.crypto.gmss.util.GMSSRandom;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.encoders.Hex;
-import org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
+ 
 
 
 /**
@@ -175,7 +176,7 @@ public class GMSSLeaf {
     initLeafCalc(seed0);
   }
 
-  private GMSSLeaf(org.bouncycastle.pqc.crypto.gmss.GMSSLeaf original) {
+  private GMSSLeaf( GMSSLeaf original) {
     this.messDigestOTS = original.messDigestOTS;
     this.mdsize = original.mdsize;
     this.keysize = original.keysize;
@@ -205,8 +206,8 @@ public class GMSSLeaf {
     this.seed = gmssRandom.nextSeed(dummy);
   }
 
-  org.bouncycastle.pqc.crypto.gmss.GMSSLeaf nextLeaf() {
-    org.bouncycastle.pqc.crypto.gmss.GMSSLeaf nextLeaf = new org.bouncycastle.pqc.crypto.gmss.GMSSLeaf(
+   GMSSLeaf nextLeaf() {
+     GMSSLeaf nextLeaf = new  GMSSLeaf(
         this);
 
     nextLeaf.updateLeafCalc();

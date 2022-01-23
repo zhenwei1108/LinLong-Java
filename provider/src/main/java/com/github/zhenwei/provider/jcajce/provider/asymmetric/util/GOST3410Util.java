@@ -7,8 +7,8 @@ import java.security.PublicKey;
   
   
   
-import org.bouncycastle.jce.interfaces.GOST3410PrivateKey;
-import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
+import  GOST3410PrivateKey;
+import  GOST3410PublicKey;
 import GOST3410PublicKeyParameterSetSpec;
 
 /**

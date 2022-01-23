@@ -30,10 +30,10 @@ import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
   
  
  
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
-import org.bouncycastle.jcajce.spec.DHUParameterSpec;
-import org.bouncycastle.jcajce.spec.MQVParameterSpec;
-import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
+import util.BaseAgreementSpi;
+import  spec.DHUParameterSpec;
+import  spec.MQVParameterSpec;
+import  spec.UserKeyingMaterialSpec;
 
 /**
  * Diffie-Hellman key agreement. There's actually a better way of doing this
@@ -418,7 +418,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithRFC2631KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithRFC2631KDF()
         {
@@ -427,7 +427,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA1KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA1KDF()
         {
@@ -436,7 +436,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA224KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA224KDF()
         {
@@ -445,7 +445,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA256KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA256KDF()
         {
@@ -454,7 +454,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA384KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA384KDF()
         {
@@ -463,7 +463,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA512KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA512KDF()
         {
@@ -472,7 +472,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA1CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA1CKDF()
         {
@@ -481,7 +481,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA224CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA224CKDF()
         {
@@ -490,7 +490,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA256CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA256CKDF()
         {
@@ -499,7 +499,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA384CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA384CKDF()
         {
@@ -508,7 +508,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHwithSHA512CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHwithSHA512CKDF()
         {
@@ -517,7 +517,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA1KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA1KDF()
         {
@@ -526,7 +526,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA224KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA224KDF()
         {
@@ -535,7 +535,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA256KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA256KDF()
         {
@@ -544,7 +544,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA384KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA384KDF()
         {
@@ -553,7 +553,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA512KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA512KDF()
         {
@@ -562,7 +562,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA1CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA1CKDF()
         {
@@ -571,7 +571,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA224CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA224CKDF()
         {
@@ -580,7 +580,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA256CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA256CKDF()
         {
@@ -589,7 +589,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA384CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA384CKDF()
         {
@@ -598,7 +598,7 @@ public class KeyAgreementSpi
     }
 
     public static class DHUwithSHA512CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public DHUwithSHA512CKDF()
         {
@@ -607,7 +607,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA1KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA1KDF()
         {
@@ -616,7 +616,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA224KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA224KDF()
         {
@@ -625,7 +625,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA256KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA256KDF()
         {
@@ -634,7 +634,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA384KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA384KDF()
         {
@@ -643,7 +643,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA512KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA512KDF()
         {
@@ -652,7 +652,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA1CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA1CKDF()
         {
@@ -661,7 +661,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA224CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA224CKDF()
         {
@@ -670,7 +670,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA256CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA256CKDF()
         {
@@ -679,7 +679,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA384CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA384CKDF()
         {
@@ -688,7 +688,7 @@ public class KeyAgreementSpi
     }
 
     public static class MQVwithSHA512CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.KeyAgreementSpi
+        extends dh.KeyAgreementSpi
     {
         public MQVwithSHA512CKDF()
         {

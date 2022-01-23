@@ -17,13 +17,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import  SHA512Digest;
  
-import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.EntropySourceProvider;
-import org.bouncycastle.crypto.prng.SP800SecureRandom;
-import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
  
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import SP800SecureRandom;
+import SP800SecureRandomBuilder;
+ 
+ 
+import  provider.util.AsymmetricAlgorithmProvider;
 
 
 
@@ -46,7 +46,7 @@ import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
  */
 public class DRBG
 {
-    private static final String PREFIX = org.bouncycastle.jcajce.provider.drbg.DRBG.class.getName();
+    private static final String PREFIX =  provider.drbg.DRBG.class.getName();
 
     // {"Provider class name","SecureRandomSpi class name"}
     private static final String[][] initialEntropySourceNames = new String[][]
@@ -165,7 +165,7 @@ public class DRBG
             {
                 try
                 {
-                    Class clazz = ClassUtil.loadClass(org.bouncycastle.jcajce.provider.drbg.DRBG.class, sourceClass);
+                    Class clazz = ClassUtil.loadClass( provider.drbg.DRBG.class, sourceClass);
 
                     return (EntropySourceProvider)clazz.newInstance();
                 }

@@ -12,7 +12,7 @@ import SCrypt;
 import   BCPBEKey;
  
  
-import org.bouncycastle.jcajce.spec.ScryptKeySpec;
+import  spec.ScryptKeySpec;
 
 public class SCRYPT
 {

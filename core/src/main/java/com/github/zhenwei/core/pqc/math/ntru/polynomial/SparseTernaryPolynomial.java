@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
+import com.github.zhenwei.core.pqc.math.ntru.util.ArrayEncoder;
+import com.github.zhenwei.core.pqc.math.ntru.util.Util;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
 import java.security.SecureRandom;
  
- 
-import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * A <code>TernaryPolynomial</code> with a "low" number of nonzero coefficients.

@@ -219,9 +219,9 @@ class X509CRLEntryObject extends X509CRLEntry
             return true;
         }
 
-        if (other instanceof org.bouncycastle.jcajce.provider.asymmetric.x509.X509CRLEntryObject)
+        if (other instanceof x509.X509CRLEntryObject)
         {
-            org.bouncycastle.jcajce.provider.asymmetric.x509.X509CRLEntryObject otherBC = (org.bouncycastle.jcajce.provider.asymmetric.x509.X509CRLEntryObject)other;
+            x509.X509CRLEntryObject otherBC = ( provider.asymmetric.x509.X509CRLEntryObject)other;
 
             if (this.hashValueSet && otherBC.hashValueSet)
             {

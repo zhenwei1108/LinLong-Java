@@ -1,15 +1,15 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import static org.bouncycastle.pqc.crypto.lms.LM_OTS.D_MESG;
+import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.D_MESG;
 
 import com.github.zhenwei.core.crypto.Digest;
-import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 
 class LMOtsPublicKey
@@ -28,10 +28,10 @@ class LMOtsPublicKey
     this.K = k;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.LMOtsPublicKey getInstance(Object src)
+  public static LMOtsPublicKey getInstance(Object src)
       throws Exception {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.LMOtsPublicKey) {
-      return (org.bouncycastle.pqc.crypto.lms.LMOtsPublicKey) src;
+    if (src instanceof LMOtsPublicKey) {
+      return ( LMOtsPublicKey) src;
     } else if (src instanceof DataInputStream) {
       LMOtsParameters parameter = LMOtsParameters.getParametersForType(
           ((DataInputStream) src).readInt());
@@ -42,7 +42,7 @@ class LMOtsPublicKey
       byte[] K = new byte[parameter.getN()];
       ((DataInputStream) src).readFully(K);
 
-      return new org.bouncycastle.pqc.crypto.lms.LMOtsPublicKey(parameter, I, q, K);
+      return new LMOtsPublicKey(parameter, I, q, K);
 
     } else if (src instanceof byte[]) {
       InputStream in = null;
@@ -87,7 +87,7 @@ class LMOtsPublicKey
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.LMOtsPublicKey that = (org.bouncycastle.pqc.crypto.lms.LMOtsPublicKey) o;
+    LMOtsPublicKey that = ( LMOtsPublicKey) o;
 
     if (q != that.q) {
       return false;

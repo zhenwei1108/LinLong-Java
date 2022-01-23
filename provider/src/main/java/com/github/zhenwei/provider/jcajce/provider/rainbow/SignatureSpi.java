@@ -12,7 +12,7 @@ import  SHA256Digest;
 import  SHA384Digest;
 import  SHA512Digest;
  
-import org.bouncycastle.pqc.crypto.rainbow.RainbowSigner;
+import RainbowSigner;
 
 /**
  * Rainbow Signature class, extending the jce SignatureSpi.

@@ -1,11 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 public class IES
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".ies.";
+    private static final String PREFIX = " provider.asymmetric" + ".ies.";
 
     public static class Mappings
         extends AsymmetricAlgorithmProvider

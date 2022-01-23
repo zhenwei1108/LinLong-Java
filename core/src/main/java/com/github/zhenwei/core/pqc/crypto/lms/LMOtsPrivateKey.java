@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import static org.bouncycastle.pqc.crypto.lms.LM_OTS.D_MESG;
-import static org.bouncycastle.pqc.crypto.lms.LM_OTS.SEED_LEN;
-import static org.bouncycastle.pqc.crypto.lms.LM_OTS.SEED_RANDOMISER_INDEX;
+import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.D_MESG;
+import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.SEED_LEN;
+import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.SEED_RANDOMISER_INDEX;
 
 import com.github.zhenwei.core.crypto.Digest;
 

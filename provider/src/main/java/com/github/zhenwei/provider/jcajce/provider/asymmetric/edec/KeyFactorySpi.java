@@ -26,15 +26,15 @@ import java.security.spec.X509EncodedKeySpec;
  
  
  
-import org.bouncycastle.crypto.util.OpenSSHPrivateKeyUtil;
-import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
-import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
-import org.bouncycastle.jcajce.interfaces.XDHPublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
+import OpenSSHPrivateKeyUtil;
+import OpenSSHPublicKeyUtil;
+import  interfaces.EdDSAPublicKey;
+import  interfaces.XDHPublicKey;
+import util.BaseKeyFactorySpi;
  
-import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
-import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
-import org.bouncycastle.jcajce.spec.RawEncodedKeySpec;
+import  spec.OpenSSHPrivateKeySpec;
+import  spec.OpenSSHPublicKeySpec;
+import  spec.RawEncodedKeySpec;
 
 
  
@@ -289,7 +289,7 @@ public class KeyFactorySpi
     }
 
     public static class XDH
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi
+        extends edec.KeyFactorySpi
     {
         public XDH()
         {
@@ -298,7 +298,7 @@ public class KeyFactorySpi
     }
 
     public static class X448
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi
+        extends edec.KeyFactorySpi
     {
         public X448()
         {
@@ -307,7 +307,7 @@ public class KeyFactorySpi
     }
 
     public static class X25519
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi
+        extends edec.KeyFactorySpi
     {
         public X25519()
         {
@@ -316,7 +316,7 @@ public class KeyFactorySpi
     }
 
     public static class EdDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi
+        extends edec.KeyFactorySpi
     {
         public EdDSA()
         {
@@ -325,7 +325,7 @@ public class KeyFactorySpi
     }
 
     public static class Ed448
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi
+        extends edec.KeyFactorySpi
     {
         public Ed448()
         {
@@ -334,7 +334,7 @@ public class KeyFactorySpi
     }
 
     public static class Ed25519
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi
+        extends edec.KeyFactorySpi
     {
         public Ed25519()
         {

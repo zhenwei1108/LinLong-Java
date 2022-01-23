@@ -2,12 +2,12 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 import KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
  
 
 public class DSTU4145 
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".dstu.";
+    private static final String PREFIX = " provider.asymmetric" + ".dstu.";
 
     public static class Mappings
         extends AsymmetricAlgorithmProvider

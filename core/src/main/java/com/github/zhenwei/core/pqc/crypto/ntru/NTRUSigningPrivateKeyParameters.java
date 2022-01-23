@@ -1,6 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Polynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.ProductFormPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -8,11 +13,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
+ 
+ 
+ 
+ 
+ 
 
 /**
  * A NtruSign private key comprises one or more {@link Basis} of three polynomials each, except the

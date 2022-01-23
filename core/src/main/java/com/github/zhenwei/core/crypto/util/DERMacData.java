@@ -71,16 +71,16 @@ public final class DERMacData {
       return this;
     }
 
-    public org.bouncycastle.crypto.util.DERMacData build() {
+    public DERMacData build() {
       switch (type) {
         case UNILATERALU:
         case BILATERALU:
-          return new org.bouncycastle.crypto.util.DERMacData(concatenate(type.getHeader(),
+          return new DERMacData(concatenate(type.getHeader(),
               DerUtil.toByteArray(idU), DerUtil.toByteArray(idV),
               DerUtil.toByteArray(ephemDataU), DerUtil.toByteArray(ephemDataV), text));
         case UNILATERALV:
         case BILATERALV:
-          return new org.bouncycastle.crypto.util.DERMacData(concatenate(type.getHeader(),
+          return new DERMacData(concatenate(type.getHeader(),
               DerUtil.toByteArray(idV), DerUtil.toByteArray(idU),
               DerUtil.toByteArray(ephemDataV), DerUtil.toByteArray(ephemDataU), text));
       }

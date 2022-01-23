@@ -20,7 +20,7 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPrivateKeySpec;
  
-import org.bouncycastle.jce.interfaces.ElGamalPrivateKey;
+import  ElGamalPrivateKey;
 import ElGamalParameterSpec;
 import ElGamalPrivateKeySpec;
 

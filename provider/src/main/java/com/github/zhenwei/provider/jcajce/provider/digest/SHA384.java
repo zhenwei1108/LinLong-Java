@@ -71,7 +71,7 @@ public class SHA384
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.SHA384.class.getName();
+        private static final String PREFIX =  provider.digest.SHA384.class.getName();
 
         public Mappings()
         {

@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
+ 
 
 /**
  * A NtruSign public key is essentially a polynomial named <code>h</code>.

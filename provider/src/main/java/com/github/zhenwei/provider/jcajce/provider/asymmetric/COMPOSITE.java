@@ -13,22 +13,22 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.jcajce.CompositePublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import util.BaseKeyFactorySpi;
+ 
+import  provider.util.AsymmetricAlgorithmProvider;
  
  
 
 public class COMPOSITE
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric.COMPOSITE";
+    private static final String PREFIX = " provider.asymmetric.COMPOSITE";
 
     private static final Map<String, String> compositeAttributes = new HashMap<String, String>();
 
     static
     {
-        compositeAttributes.put("SupportedKeyClasses", "org.bouncycastle.jcajce.CompositePublicKey|org.bouncycastle.jcajce.CompositePrivateKey");
+        compositeAttributes.put("SupportedKeyClasses", " CompositePublicKey| CompositePrivateKey");
         compositeAttributes.put("SupportedKeyFormats", "PKCS#8|X.509");
     }
 

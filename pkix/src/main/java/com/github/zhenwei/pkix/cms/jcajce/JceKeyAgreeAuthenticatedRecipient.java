@@ -12,7 +12,7 @@ import java.io.OutputStream;
 import java.security.Key;
 import java.security.PrivateKey;
 import javax.crypto.Mac;
-import org.bouncycastle.jcajce.io.MacOutputStream;
+import  io.MacOutputStream;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
 
 public class JceKeyAgreeAuthenticatedRecipient

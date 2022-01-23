@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 import java.util.List;
-import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
+ 
 
 
 class HSS {

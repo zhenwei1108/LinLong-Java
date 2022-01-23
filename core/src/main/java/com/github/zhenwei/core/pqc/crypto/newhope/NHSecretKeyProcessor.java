@@ -7,7 +7,7 @@ import com.github.zhenwei.core.crypto.Xof;
 import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.crypto.ExchangePair;
+ 
 
 
 /**
@@ -47,14 +47,14 @@ public class NHSecretKeyProcessor {
       return ((NHPublicKeyParameters) aKp.getPublic()).getPubData();
     }
 
-    public org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor build(byte[] partB) {
+    public NHSecretKeyProcessor build(byte[] partB) {
       if (used) {
         throw new IllegalStateException("builder already used");
       }
 
       used = true;
 
-      return new org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor(
+      return new NHSecretKeyProcessor(
           agreement.calculateAgreement(new NHPublicKeyParameters(partB)), sharedInfo);
     }
   }
@@ -90,14 +90,14 @@ public class NHSecretKeyProcessor {
       return ((NHPublicKeyParameters) bEp.getPublicKey()).getPubData();
     }
 
-    public org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor build() {
+    public NHSecretKeyProcessor build() {
       if (used) {
         throw new IllegalStateException("builder already used");
       }
 
       used = true;
 
-      return new org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor(sharedSecret, sharedInfo);
+      return new NHSecretKeyProcessor(sharedSecret, sharedInfo);
     }
   }
 

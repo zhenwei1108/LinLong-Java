@@ -40,9 +40,9 @@ class X509CRLObject
             return true;
         }
 
-        if (other instanceof org.bouncycastle.jcajce.provider.asymmetric.x509.X509CRLObject)
+        if (other instanceof x509.X509CRLObject)
         {
-            org.bouncycastle.jcajce.provider.asymmetric.x509.X509CRLObject otherBC = (org.bouncycastle.jcajce.provider.asymmetric.x509.X509CRLObject)other;
+            x509.X509CRLObject otherBC = ( provider.asymmetric.x509.X509CRLObject)other;
 
             if (this.hashValueSet && otherBC.hashValueSet)
             {

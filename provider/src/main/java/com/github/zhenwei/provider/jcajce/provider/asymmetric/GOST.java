@@ -2,13 +2,13 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
-import org.bouncycastle.jcajce.provider.asymmetric.gost.KeyFactorySpi;
+import gost.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 public class GOST
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".gost.";
+    private static final String PREFIX = " provider.asymmetric" + ".gost.";
 
     public static class Mappings
         extends AsymmetricAlgorithmProvider

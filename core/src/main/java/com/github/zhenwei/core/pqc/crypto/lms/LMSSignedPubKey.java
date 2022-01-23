@@ -33,7 +33,7 @@ class LMSSignedPubKey
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.LMSSignedPubKey that = (org.bouncycastle.pqc.crypto.lms.LMSSignedPubKey) o;
+    LMSSignedPubKey that = ( LMSSignedPubKey) o;
 
     if (signature != null ? !signature.equals(that.signature) : that.signature != null) {
       return false;

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.openssl;
 
 
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import org.bouncycastle.pkcs.PKCS10CertificationRequest;
-import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
+ 
+ 
 
 
 

@@ -20,9 +20,9 @@ import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.util.Enumeration;
   
-import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
-import org.bouncycastle.jce.interfaces.GOST3410Params;
-import org.bouncycastle.jce.interfaces.GOST3410PrivateKey;
+import util.GOST3410Util;
+import  GOST3410Params;
+import  GOST3410PrivateKey;
 import GOST3410ParameterSpec;
 import GOST3410PrivateKeySpec;
 import GOST3410PublicKeyParameterSetSpec;

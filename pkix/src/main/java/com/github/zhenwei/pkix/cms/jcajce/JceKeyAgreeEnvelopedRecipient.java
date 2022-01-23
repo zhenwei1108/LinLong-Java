@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.security.Key;
 import java.security.PrivateKey;
 import javax.crypto.Cipher;
-import org.bouncycastle.jcajce.io.CipherInputStream;
+import  io.CipherInputStream;
 import org.bouncycastle.operator.InputDecryptor;
 
 public class JceKeyAgreeEnvelopedRecipient

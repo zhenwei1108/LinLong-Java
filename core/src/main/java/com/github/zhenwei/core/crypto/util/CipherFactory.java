@@ -26,6 +26,7 @@ import com.github.zhenwei.core.crypto.engines.DESEngine;
 import com.github.zhenwei.core.crypto.engines.DESedeEngine;
 import com.github.zhenwei.core.crypto.engines.RC2Engine;
 import com.github.zhenwei.core.crypto.engines.RC4Engine;
+import com.github.zhenwei.core.crypto.io.CipherOutputStream;
 import com.github.zhenwei.core.crypto.modes.AEADBlockCipher;
 import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
 import com.github.zhenwei.core.crypto.modes.CCMBlockCipher;
@@ -215,15 +216,15 @@ public class CipherFactory {
    * @param cipher the cipher to use.
    * @return a BC CipherOutputStream using the cipher and writing to dOut.
    */
-  public static C createOutputStream(OutputStream dOut, Object cipher) {
+  public static CipherOutputStream createOutputStream(OutputStream dOut, Object cipher) {
     if (cipher instanceof BufferedBlockCipher) {
-      return new C(dOut, (BufferedBlockCipher) cipher);
+      return new CipherOutputStream(dOut, (BufferedBlockCipher) cipher);
     }
     if (cipher instanceof StreamCipher) {
-      return new C(dOut, (StreamCipher) cipher);
+      return new CipherOutputStream(dOut, (StreamCipher) cipher);
     }
     if (cipher instanceof AEADBlockCipher) {
-      return new C(dOut, (AEADBlockCipher) cipher);
+      return new CipherOutputStream(dOut, (AEADBlockCipher) cipher);
     }
     throw new IllegalArgumentException("unknown cipher object: " + cipher);
   }

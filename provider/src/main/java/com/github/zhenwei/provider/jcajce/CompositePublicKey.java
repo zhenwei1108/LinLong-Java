@@ -1,41 +1,41 @@
-package com.g thub.zhenwe .prov der.jcajce;
+package com.github.zhenwei.provider.jcajce;
 
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import java.io.IOException;
+import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
- mport com.g thub.zhenwe .core.asn1.ASN1EncodableVector;
- mport com.g thub.zhenwe .core.asn1.ASN1Encod ng;
- mport com.g thub.zhenwe .core.asn1.DERSequence;
- mport com.g thub.zhenwe .core.asn1.m sc.M scObject dent f ers;
- mport com.g thub.zhenwe .core.asn1.x509.Algor thm dent f er;
- mport com.g thub.zhenwe .core.asn1.x509.SubjectPubl cKey nfo;
- mport java. o. OExcept on;
- mport java.secur ty.Publ cKey;
- mport java.ut l.ArrayL st;
- mport java.ut l.Collect ons;
- mport java.ut l.L st;
 
 
 /**
- * A compos te key class.
+ * A composite key class.
  */
-publ c class Compos tePubl cKey
-     mplements Publ cKey
+public class CompositePublicKey
+    implements PublicKey
 {
-    pr vate f nal L st<Publ cKey> keys;
+    private final List<PublicKey> keys;
 
     /**
-     * Create a compos te key conta n ng a s ngle publ c key.
+     * Create a composite key containing a single public key.
      *
-     * @param keys the publ c keys the compos te key wraps.
+     * @param keys the public keys the composite key wraps.
      */
-    publ c Compos tePubl cKey(Publ cKey... keys)
+    public CompositePublicKey(PublicKey... keys)
     {
-         f (keys == null || keys.length == 0)
+        if (keys == null || keys.length == 0)
         {
-            throw new  llegalArgumentExcept on("at least one publ c key must be prov ded");
+            throw new IllegalArgumentException("at least one public key must be provided");
         }
 
-        L st<Publ cKey> keyL st = new ArrayL st<Publ cKey>(keys.length);
-        for ( nt i = 0; i != keys.length; i++)
+        List<PublicKey> keyList = new ArrayList<PublicKey>(keys.length);
+        for (int i = 0; i != keys.length; i++)
         {
             keyList.add(keys[i]);
         }
@@ -95,9 +95,9 @@ publ c class Compos tePubl cKey
             return true;
         }
 
-        if (o instanceof org.bouncycastle.jcajce.CompositePublicKey)
+        if (o instanceof CompositePublicKey)
         {
-            return keys.equals(((org.bouncycastle.jcajce.CompositePublicKey)o).keys);
+            return keys.equals(((CompositePublicKey)o).keys);
         }
 
         return false;

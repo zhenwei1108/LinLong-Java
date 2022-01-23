@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms;
 
  
 import cms.AttributeTable;
-import cms.ContentInfo;
+ 
 import cms.EncryptedContentInfo;
 import cms.EncryptedData;
 import com.github.zhenwei.core.asn1.ASN1OctetString;

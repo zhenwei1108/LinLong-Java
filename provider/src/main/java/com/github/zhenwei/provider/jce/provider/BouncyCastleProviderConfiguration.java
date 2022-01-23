@@ -13,7 +13,7 @@ import javax.crypto.spec.DHParameterSpec;
  
  
  
-import org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission;
+import  provider.config.ProviderConfigurationPermission;
 import ECParameterSpec;
 
 class BouncyCastleProviderConfiguration

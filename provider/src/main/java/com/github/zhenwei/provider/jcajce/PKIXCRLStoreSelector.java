@@ -139,9 +139,9 @@ public class PKIXCRLStoreSelector<T extends CRL>
          *
          * @return a new PKIXCRLStoreSelector
          */
-        public org.bouncycastle.jcajce.PKIXCRLStoreSelector<? extends CRL> build()
+        public  PKIXCRLStoreSelector<? extends CRL> build()
         {
-            return new org.bouncycastle.jcajce.PKIXCRLStoreSelector(this);
+            return new  PKIXCRLStoreSelector(this);
         }
     }
 
@@ -314,7 +314,7 @@ public class PKIXCRLStoreSelector<T extends CRL>
         return null;
     }
 
-    public static Collection<? extends CRL> getCRLs(final org.bouncycastle.jcajce.PKIXCRLStoreSelector selector, CertStore certStore)
+    public static Collection<? extends CRL> getCRLs(final  PKIXCRLStoreSelector selector, CertStore certStore)
         throws CertStoreException
     {
         return certStore.getCRLs(new SelectorClone(selector));
@@ -323,9 +323,9 @@ public class PKIXCRLStoreSelector<T extends CRL>
     private static class SelectorClone
         extends X509CRLSelector
     {
-        private final org.bouncycastle.jcajce.PKIXCRLStoreSelector selector;
+        private final  PKIXCRLStoreSelector selector;
 
-        SelectorClone(org.bouncycastle.jcajce.PKIXCRLStoreSelector selector)
+        SelectorClone( PKIXCRLStoreSelector selector)
         {
             this.selector = selector;
 

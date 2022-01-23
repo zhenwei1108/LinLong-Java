@@ -3,21 +3,22 @@ package com.github.zhenwei.provider.jcajce.provider.gmss;
 
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.asn1.GMSSPublicKey;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
+import com.github.zhenwei.core.pqc.asn1.ParSet;
+import com.github.zhenwei.core.pqc.crypto.gmss.GMSSParameters;
+import com.github.zhenwei.core.pqc.crypto.gmss.GMSSPublicKeyParameters;
 import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.provider.jcajce.provider.util.KeyUtil;
 import java.security.PublicKey;
-import  GMSSPublicKey;
-import  ParSet;
-import org.bouncycastle.pqc.crypto.gmss.GMSSParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSPublicKeyParameters;
-import org.bouncycastle.pqc.jcajce.provider.util.KeyUtil;
+ 
 
 
 /**
  * This class implements the GMSS public key and is usually initiated by the <a
  * href="GMSSKeyPairGenerator">GMSSKeyPairGenerator</a>.
  *
- * @see org.bouncycastle.pqc.crypto.gmss.GMSSKeyPairGenerator
+ * @see  GMSSKeyPairGenerator
  */
 public class BCGMSSPublicKey
     implements CipherParameters, PublicKey
@@ -46,7 +47,7 @@ public class BCGMSSPublicKey
      *
      * @param pub              a raw GMSS public key
      * @param gmssParameterSet an instance of GMSS Parameterset
-     * @see org.bouncycastle.pqc.crypto.gmss.GMSSKeyPairGenerator
+     * @see  GMSSKeyPairGenerator
      */
     public BCGMSSPublicKey(byte[] pub, GMSSParameters gmssParameterSet)
     {

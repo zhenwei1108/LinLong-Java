@@ -69,7 +69,7 @@ public class DEROtherInfo {
      *
      * @return an KTSOtherInfo containing the data.
      */
-    public org.bouncycastle.crypto.util.DEROtherInfo build() {
+    public DEROtherInfo build() {
       ASN1EncodableVector v = new ASN1EncodableVector();
 
       v.add(algorithmID);
@@ -84,7 +84,7 @@ public class DEROtherInfo {
         v.add(suppPrivInfo);
       }
 
-      return new org.bouncycastle.crypto.util.DEROtherInfo(new DERSequence(v));
+      return new DEROtherInfo(new DERSequence(v));
     }
   }
 

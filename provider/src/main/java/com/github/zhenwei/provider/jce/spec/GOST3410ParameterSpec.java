@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.jce.interfaces.GOST3410Params;
+import  GOST3410Params;
 
 /**
  * ParameterSpec for a GOST 3410-94 key.
@@ -101,7 +101,7 @@ public class GOST3410ParameterSpec
     {
         if (o instanceof GOST3410ParameterSpec)
         {
-            GOST3410ParameterSpec other = (org.bouncycastle.jce.spec.GOST3410ParameterSpec)o;
+            GOST3410ParameterSpec other = ( GOST3410ParameterSpec)o;
             
             return this.keyParameters.equals(other.keyParameters) 
                 && this.digestParamSetOID.equals(other.digestParamSetOID)

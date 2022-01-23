@@ -113,7 +113,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA1WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA1WithRSAEncryption()
         {
@@ -122,7 +122,7 @@ public class ISOSignatureSpi
     }
 
     static public class MD5WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public MD5WithRSAEncryption()
         {
@@ -131,7 +131,7 @@ public class ISOSignatureSpi
     }
 
     static public class RIPEMD160WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public RIPEMD160WithRSAEncryption()
         {
@@ -140,7 +140,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA224WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA224WithRSAEncryption()
         {
@@ -149,7 +149,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA256WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA256WithRSAEncryption()
         {
@@ -158,7 +158,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA384WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA384WithRSAEncryption()
         {
@@ -167,7 +167,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA512WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA512WithRSAEncryption()
         {
@@ -176,7 +176,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA512_224WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA512_224WithRSAEncryption()
         {
@@ -185,7 +185,7 @@ public class ISOSignatureSpi
     }
 
     static public class SHA512_256WithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public SHA512_256WithRSAEncryption()
         {
@@ -194,7 +194,7 @@ public class ISOSignatureSpi
     }
 
     static public class WhirlpoolWithRSAEncryption
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi
+        extends rsa.ISOSignatureSpi
     {
         public WhirlpoolWithRSAEncryption()
         {

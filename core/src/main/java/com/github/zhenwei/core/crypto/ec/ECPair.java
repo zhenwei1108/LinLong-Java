@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.crypto.ec;
 
 
+import com.github.zhenwei.core.math.ec.ECPoint;
+
 public class ECPair {
 
   private final ECPoint x;
@@ -19,13 +21,13 @@ public class ECPair {
     return y;
   }
 
-  public boolean equals(org.bouncycastle.crypto.ec.ECPair other) {
+  public boolean equals( ECPair other) {
     return other.getX().equals(getX()) && other.getY().equals(getY());
   }
 
   public boolean equals(Object other) {
-    return other instanceof org.bouncycastle.crypto.ec.ECPair
-        ? equals((org.bouncycastle.crypto.ec.ECPair) other) : false;
+    return other instanceof  ECPair
+        ? equals(( ECPair) other) : false;
   }
 
   public int hashCode() {

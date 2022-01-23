@@ -4,10 +4,10 @@ package com.github.zhenwei.core.pqc.crypto.ntru;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
-import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
+ 
+ 
+ 
+ 
  
 
 /**

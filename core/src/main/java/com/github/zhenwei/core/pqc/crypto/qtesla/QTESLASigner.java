@@ -4,7 +4,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.crypto.MessageSigner;
+ 
 
 /**
  * Signer for the qTESLA algorithm (https://qtesla.org/)

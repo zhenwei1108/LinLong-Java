@@ -1,8 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.rainbow;
 
+import com.github.zhenwei.core.pqc.crypto.rainbow.util.GF2Field;
 import com.github.zhenwei.core.pqc.crypto.rainbow.util.RainbowUtil;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.crypto.rainbow.util.GF2Field;
+ 
 
 
 /**
@@ -255,10 +257,10 @@ public class Layer {
    * @return the result of the comparison
    */
   public boolean equals(Object other) {
-    if (other == null || !(other instanceof org.bouncycastle.pqc.crypto.rainbow.Layer)) {
+    if (other == null || !(other instanceof Layer)) {
       return false;
     }
-    org.bouncycastle.pqc.crypto.rainbow.Layer otherLayer = (org.bouncycastle.pqc.crypto.rainbow.Layer) other;
+    Layer otherLayer = (Layer) other;
 
     return vi == otherLayer.getVi()
         && viNext == otherLayer.getViNext()

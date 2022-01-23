@@ -21,8 +21,8 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
-import org.bouncycastle.jcajce.util.AnnotatedPrivateKey;
+import  util.AlgorithmParametersUtils;
+import  util.AnnotatedPrivateKey;
 
 
 

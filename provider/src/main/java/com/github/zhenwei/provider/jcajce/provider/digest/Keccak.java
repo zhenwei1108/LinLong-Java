@@ -171,7 +171,7 @@ public class Keccak
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.Keccak.class.getName();
+        private static final String PREFIX =  provider.digest.Keccak.class.getName();
 
         public Mappings()
         {

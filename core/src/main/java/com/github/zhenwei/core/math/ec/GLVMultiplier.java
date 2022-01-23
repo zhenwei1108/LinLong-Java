@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.math.ec;
 
-import endo.EndoUtil;
-import endo.GLVEndomorphism;
+
+import com.github.zhenwei.core.math.ec.endo.EndoUtil;
+import com.github.zhenwei.core.math.ec.endo.GLVEndomorphism;
 import java.math.BigInteger;
 
 public class GLVMultiplier extends AbstractECMultiplier {

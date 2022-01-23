@@ -57,7 +57,7 @@ public class RIPEMD320
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.RIPEMD320.class.getName();
+        private static final String PREFIX =  provider.digest.RIPEMD320.class.getName();
 
         public Mappings()
         {

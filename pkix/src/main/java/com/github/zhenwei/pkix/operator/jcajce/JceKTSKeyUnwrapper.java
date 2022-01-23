@@ -15,8 +15,8 @@ import java.security.Provider;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.Cipher;
-import org.bouncycastle.crypto.util.DEROtherInfo;
-import org.bouncycastle.jcajce.spec.KTSParameterSpec;
+ 
+import  spec.KTSParameterSpec;
 import org.bouncycastle.operator.AsymmetricKeyUnwrapper;
 import org.bouncycastle.operator.OperatorException;
 

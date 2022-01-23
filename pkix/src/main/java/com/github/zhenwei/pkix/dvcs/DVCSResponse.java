@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.dvcs;
 
 import CMSSignedData;
 import DVCSObjectIdentifiers;
-import cms.ContentInfo;
+ 
 import cms.SignedData;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1OctetString;

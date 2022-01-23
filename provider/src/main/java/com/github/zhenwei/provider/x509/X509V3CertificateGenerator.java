@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.x509;
 
 
-import TBSCertificate;
+ 
 import Time;
 import V3TBSCertificateGenerator;
 import X509ExtensionsGenerator;
@@ -35,8 +35,8 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.Iterator;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory;
-import org.bouncycastle.jce.X509Principal;
+import x509.CertificateFactory;
+ 
 import org.bouncycastle.x509.extension.X509ExtensionUtil;
 
 ;

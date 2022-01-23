@@ -41,7 +41,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.RC2ParameterSpec;
 import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.jcajce.util.AlgorithmParametersUtils;
+import  util.AlgorithmParametersUtils;
 
 
 

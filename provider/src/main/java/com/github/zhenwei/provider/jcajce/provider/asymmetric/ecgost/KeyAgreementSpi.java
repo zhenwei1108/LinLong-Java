@@ -16,12 +16,12 @@ import java.security.spec.AlgorithmParameterSpec;
 import org.bouncycastle.crypto.agreement.ECVKOAgreement;
 import  GOST3411Digest;
   
-import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
+import ec.BCECPublicKey;
+import util.BaseAgreementSpi;
  
-import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
-import org.bouncycastle.jce.interfaces.ECPrivateKey;
-import org.bouncycastle.jce.interfaces.ECPublicKey;
+import  spec.UserKeyingMaterialSpec;
+import  ECPrivateKey;
+import  ECPublicKey;
 
 public class KeyAgreementSpi
     extends BaseAgreementSpi
@@ -149,7 +149,7 @@ public class KeyAgreementSpi
     }
 
     public static class ECVKO
-        extends org.bouncycastle.jcajce.provider.asymmetric.ecgost.KeyAgreementSpi
+        extends ecgost.KeyAgreementSpi
     {
         public ECVKO()
         {

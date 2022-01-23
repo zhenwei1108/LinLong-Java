@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms;
 
 import cms.AttributeTable;
 import cms.AuthEnvelopedData;
-import cms.ContentInfo;
+ 
 import cms.EncryptedContentInfo;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Set;

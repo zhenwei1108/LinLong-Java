@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.WeakHashMap;
-import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
+ 
 
 
 public class LMSPrivateKeyParameters
@@ -58,7 +58,7 @@ public class LMSPrivateKeyParameters
     this.tDigest = DigestUtil.getDigest(lmsParameter.getDigestOID());
   }
 
-  private LMSPrivateKeyParameters(org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters parent,
+  private LMSPrivateKeyParameters( LMSPrivateKeyParameters parent,
       int q, int maxQ) {
     super(true);
     this.parameters = parent.parameters;
@@ -73,20 +73,20 @@ public class LMSPrivateKeyParameters
     this.publicKey = parent.publicKey;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters getInstance(byte[] privEnc,
+  public static LMSPrivateKeyParameters getInstance(byte[] privEnc,
       byte[] pubEnc)
       throws IOException {
-    org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters pKey = getInstance(privEnc);
+    LMSPrivateKeyParameters pKey = getInstance(privEnc);
 
     pKey.publicKey = LMSPublicKeyParameters.getInstance(pubEnc);
 
     return pKey;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters getInstance(Object src)
+  public static LMSPrivateKeyParameters getInstance(Object src)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters) {
-      return (org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters) src;
+    if (src instanceof LMSPrivateKeyParameters) {
+      return ( LMSPrivateKeyParameters) src;
     } else if (src instanceof DataInputStream) {
       DataInputStream dIn = (DataInputStream) src;
 
@@ -123,7 +123,7 @@ public class LMSPrivateKeyParameters
       byte[] masterSecret = new byte[l];
       dIn.readFully(masterSecret);
 
-      return new org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters(parameter, otsParameter, q,
+      return new LMSPrivateKeyParameters(parameter, otsParameter, q,
           I, maxQ, masterSecret);
 
     } else if (src instanceof byte[]) {
@@ -219,12 +219,12 @@ public class LMSPrivateKeyParameters
    * @param usageCount the number of usages the key should have.
    * @return a key based on the current key that can be used usageCount times.
    */
-  public org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters extractKeyShard(int usageCount) {
+  public LMSPrivateKeyParameters extractKeyShard(int usageCount) {
     synchronized (this) {
       if (q + usageCount >= maxQ) {
         throw new IllegalArgumentException("usageCount exceeds usages remaining");
       }
-      org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters keyParameters = new org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters(
+      LMSPrivateKeyParameters keyParameters = new LMSPrivateKeyParameters(
           this, q, q + usageCount);
       q += usageCount;
 
@@ -333,7 +333,7 @@ public class LMSPrivateKeyParameters
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters that = (org.bouncycastle.pqc.crypto.lms.LMSPrivateKeyParameters) o;
+    LMSPrivateKeyParameters that = ( LMSPrivateKeyParameters) o;
 
     if (q != that.q) {
       return false;

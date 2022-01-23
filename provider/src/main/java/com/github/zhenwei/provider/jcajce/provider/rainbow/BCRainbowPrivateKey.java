@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.security.PrivateKey;
 import  RainbowPrivateKey;
   
-import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
+import RainbowPrivateKeyParameters;
   
 import org.bouncycastle.pqc.jcajce.spec.RainbowPrivateKeySpec;
  

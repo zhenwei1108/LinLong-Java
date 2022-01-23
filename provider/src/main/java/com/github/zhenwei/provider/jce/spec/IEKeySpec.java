@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jce.spec;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.KeySpec;
-import org.bouncycastle.jce.interfaces.IESKey;
+import  IESKey;
 
 /**
  * key pair for use with an integrated encryptor - together

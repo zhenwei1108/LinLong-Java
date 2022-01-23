@@ -15,7 +15,7 @@ import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.DHPublicKeySpec;
  
-import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
+import  ElGamalPublicKey;
 import ElGamalParameterSpec;
 import ElGamalPublicKeySpec;
 

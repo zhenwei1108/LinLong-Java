@@ -20,7 +20,7 @@ import java.security.SecureRandom;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.jcajce.io.MacOutputStream;
+import  io.MacOutputStream;
 import org.bouncycastle.pkcs.PKCS12MacCalculatorBuilder;
 
 

@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jce.provider;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.crypto.PBEParametersGenerator;
+ 
 import  MD5Digest;
 import  RIPEMD160Digest;
 import  SHA1Digest;

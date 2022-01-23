@@ -14,9 +14,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
-import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
-import org.bouncycastle.jcajce.interfaces.EdDSAPrivateKey;
-import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
+import PrivateKeyInfoFactory;
+import  interfaces.EdDSAPrivateKey;
+import  interfaces.EdDSAPublicKey;
 
 
  

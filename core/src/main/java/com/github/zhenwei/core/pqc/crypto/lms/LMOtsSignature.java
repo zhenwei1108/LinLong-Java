@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 
 class LMOtsSignature
@@ -22,10 +22,10 @@ class LMOtsSignature
     this.y = y;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.LMOtsSignature getInstance(Object src)
+  public static LMOtsSignature getInstance(Object src)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.LMOtsSignature) {
-      return (org.bouncycastle.pqc.crypto.lms.LMOtsSignature) src;
+    if (src instanceof LMOtsSignature) {
+      return ( LMOtsSignature) src;
     } else if (src instanceof DataInputStream) {
 
       LMOtsParameters type = LMOtsParameters.getParametersForType(
@@ -37,7 +37,7 @@ class LMOtsSignature
       byte[] sig = new byte[type.getP() * type.getN()];
       ((DataInputStream) src).readFully(sig);
 
-      return new org.bouncycastle.pqc.crypto.lms.LMOtsSignature(type, C, sig);
+      return new LMOtsSignature(type, C, sig);
     } else if (src instanceof byte[]) {
       InputStream in = null;
       try // 1.5 / 1.4 compatibility
@@ -79,7 +79,7 @@ class LMOtsSignature
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.LMOtsSignature that = (org.bouncycastle.pqc.crypto.lms.LMOtsSignature) o;
+    LMOtsSignature that = ( LMOtsSignature) o;
 
     if (type != null ? !type.equals(that.type) : that.type != null) {
       return false;

@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.security.Key;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
-import org.bouncycastle.jcajce.io.MacOutputStream;
+import  io.MacOutputStream;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
 
 

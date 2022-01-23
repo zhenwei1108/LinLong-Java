@@ -9,7 +9,7 @@ import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.io.OutputStream;
 import java.security.Key;
 import javax.crypto.Mac;
-import org.bouncycastle.jcajce.io.MacOutputStream;
+import  io.MacOutputStream;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
 
 public class JcePasswordAuthenticatedRecipient

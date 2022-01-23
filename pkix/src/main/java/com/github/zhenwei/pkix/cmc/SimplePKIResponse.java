@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cmc;
 
 
 import CMSSignedData;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.core.util.Store;

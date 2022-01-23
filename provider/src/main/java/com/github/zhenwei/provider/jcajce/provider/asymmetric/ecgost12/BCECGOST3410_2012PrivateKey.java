@@ -53,7 +53,7 @@ import java.util.Enumeration;
  * Represent two kind of GOST34.10 2012 PrivateKeys: with 256 and 512 size
  */
 public class BCECGOST3410_2012PrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    implements ECPrivateKey,  ECPrivateKey,
     PKCS12BagAttributeCarrier, ECPointEncoder
 {
     static final long serialVersionUID = 7245981689601667138L;
@@ -108,7 +108,7 @@ public class BCECGOST3410_2012PrivateKey
     }
 
     public BCECGOST3410_2012PrivateKey(
-        org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PrivateKey key)
+        ecgost12.BCECGOST3410_2012PrivateKey key)
     {
         this.d = key.d;
         this.ecSpec = key.ecSpec;
@@ -304,7 +304,7 @@ public class BCECGOST3410_2012PrivateKey
             }
             else
             {
-                sec.ECPrivateKey ec = sec.ECPrivateKey.getInstance(privKey);
+                 ECPrivateKey ec =  ECPrivateKey.getInstance(privKey);
 
                 this.d = ec.getKey();
                 this.publicKey = ec.getPublicKey();
@@ -394,15 +394,15 @@ public class BCECGOST3410_2012PrivateKey
             }
 
             PrivateKeyInfo info;
-            sec.ECPrivateKey keyStructure;
+             ECPrivateKey keyStructure;
 
             if (publicKey != null)
             {
-                keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
+                keyStructure = new  ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
             }
             else
             {
-                keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), params);
+                keyStructure = new  ECPrivateKey(orderBitLength, this.getS(), params);
             }
 
             try
@@ -494,12 +494,12 @@ public class BCECGOST3410_2012PrivateKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PrivateKey))
+        if (!(o instanceof ecgost12.BCECGOST3410_2012PrivateKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PrivateKey other = (org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PrivateKey)o;
+        ecgost12.BCECGOST3410_2012PrivateKey other = ( provider.asymmetric.ecgost12.BCECGOST3410_2012PrivateKey)o;
 
         return getD().equals(other.getD()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

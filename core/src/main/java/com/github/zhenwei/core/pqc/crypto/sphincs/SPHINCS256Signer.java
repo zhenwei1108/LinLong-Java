@@ -4,7 +4,7 @@ package com.github.zhenwei.core.pqc.crypto.sphincs;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
-import org.bouncycastle.pqc.crypto.MessageSigner;
+ 
 import sun.security.ec.ECDSAOperations.Seed;
 
 ;

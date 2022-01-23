@@ -52,7 +52,7 @@ public class PemObject
     return content;
   }
 
-  public io.pem.PemObject generate()
+  public PemObject generate()
       throws PemGenerationException {
     return this;
   }

@@ -11,7 +11,7 @@ import java.io.IOException;
  
 import org.bouncycastle.crypto.signers.DSADigestSigner;
 import org.bouncycastle.crypto.signers.ECDSASigner;
-import org.bouncycastle.crypto.util.PublicKeyFactory;
+import PublicKeyFactory;
 
 
 

@@ -63,7 +63,7 @@ public class GOST3410PublicKeyParameterSetSpec
     {
         if (o instanceof GOST3410PublicKeyParameterSetSpec)
         {
-            GOST3410PublicKeyParameterSetSpec other = (org.bouncycastle.jce.spec.GOST3410PublicKeyParameterSetSpec)o;
+            GOST3410PublicKeyParameterSetSpec other = ( GOST3410PublicKeyParameterSetSpec)o;
             
             return this.a.equals(other.a) && this.p.equals(other.p) && this.q.equals(other.q);
         }

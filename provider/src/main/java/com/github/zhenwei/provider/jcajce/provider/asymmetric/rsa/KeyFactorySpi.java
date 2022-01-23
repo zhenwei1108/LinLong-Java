@@ -21,12 +21,12 @@ import java.security.spec.RSAPrivateCrtKeySpec;
 import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
  
-import org.bouncycastle.crypto.util.OpenSSHPrivateKeyUtil;
-import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ExtendedInvalidKeySpecException;
-import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
-import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
+import OpenSSHPrivateKeyUtil;
+import OpenSSHPublicKeyUtil;
+import util.BaseKeyFactorySpi;
+import util.ExtendedInvalidKeySpecException;
+import  spec.OpenSSHPrivateKeySpec;
+import  spec.OpenSSHPublicKeySpec;
  
  
 

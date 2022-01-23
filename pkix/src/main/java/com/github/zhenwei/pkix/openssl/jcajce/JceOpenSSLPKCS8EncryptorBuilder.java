@@ -30,7 +30,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
   
-import org.bouncycastle.jcajce.io.CipherOutputStream;
+import  io.CipherOutputStream;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JceGenericKey;
 import EncryptionScheme;

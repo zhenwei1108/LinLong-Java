@@ -34,8 +34,8 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import org.bouncycastle.crypto.engines.SM2Engine;
-import org.bouncycastle.jcajce.provider.util.BadBlockException;
-import org.bouncycastle.jce.interfaces.ECKey;
+import  provider.util.BadBlockException;
+import  ECKey;
 
 ;
 
@@ -306,7 +306,7 @@ public class GMCipherSpi
      * Classes that inherit from us
      */
     static public class SM2
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2()
         {
@@ -315,7 +315,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withBlake2b
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withBlake2b()
         {
@@ -324,7 +324,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withBlake2s
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withBlake2s()
         {
@@ -333,7 +333,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withWhirlpool
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withWhirlpool()
         {
@@ -342,7 +342,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withMD5
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withMD5()
         {
@@ -351,7 +351,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withRMD
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withRMD()
         {
@@ -360,7 +360,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withSha1
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withSha1()
         {
@@ -369,7 +369,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withSha224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withSha224()
         {
@@ -378,7 +378,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withSha256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withSha256()
         {
@@ -387,7 +387,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withSha384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withSha384()
         {
@@ -396,7 +396,7 @@ public class GMCipherSpi
     }
 
     static public class SM2withSha512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMCipherSpi
+        extends ec.GMCipherSpi
     {
         public SM2withSha512()
         {

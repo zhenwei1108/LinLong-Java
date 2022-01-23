@@ -119,7 +119,7 @@ public class ProviderConfigurationPermission
     public boolean implies(
         Permission permission)
     {
-        if (!(permission instanceof org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission))
+        if (!(permission instanceof  provider.config.ProviderConfigurationPermission))
         {
             return false;
         }
@@ -129,7 +129,7 @@ public class ProviderConfigurationPermission
             return false;
         }
         
-        org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission other = (org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission)permission;
+         provider.config.ProviderConfigurationPermission other = ( provider.config.ProviderConfigurationPermission)permission;
         
         return (this.permissionMask & other.permissionMask) == other.permissionMask;
     }
@@ -142,9 +142,9 @@ public class ProviderConfigurationPermission
             return true;
         }
 
-        if (obj instanceof org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission)
+        if (obj instanceof  provider.config.ProviderConfigurationPermission)
         {
-            org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission other = (org.bouncycastle.jcajce.provider.config.ProviderConfigurationPermission)obj;
+             provider.config.ProviderConfigurationPermission other = ( provider.config.ProviderConfigurationPermission)obj;
 
             return this.permissionMask == other.permissionMask && this.getName().equals(other.getName());
         }

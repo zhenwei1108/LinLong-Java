@@ -56,13 +56,13 @@ public class AnnotatedPrivateKey
      * @param annotation the object providing the annotation details.
      * @return a new annotated key with the extra annotation.
      */
-    public org.bouncycastle.jcajce.util.AnnotatedPrivateKey addAnnotation(String name, Object annotation)
+    public  util.AnnotatedPrivateKey addAnnotation(String name, Object annotation)
     {
         Map<String, Object> newAnnotations = new HashMap<String, Object>(annotations);
 
         newAnnotations.put(name, annotation);
 
-        return new org.bouncycastle.jcajce.util.AnnotatedPrivateKey(this.key, Collections.unmodifiableMap(newAnnotations));
+        return new  util.AnnotatedPrivateKey(this.key, Collections.unmodifiableMap(newAnnotations));
     }
 
     /**
@@ -71,13 +71,13 @@ public class AnnotatedPrivateKey
      * @param name the name of the annotation to remove.
      * @return a new annotated key with the named annotation removed.
      */
-    public org.bouncycastle.jcajce.util.AnnotatedPrivateKey removeAnnotation(String name)
+    public  util.AnnotatedPrivateKey removeAnnotation(String name)
     {
         Map<String, Object> newAnnotations = new HashMap<String, Object>(annotations);
 
         newAnnotations.remove(name);
 
-        return new org.bouncycastle.jcajce.util.AnnotatedPrivateKey(this.key, Collections.unmodifiableMap(newAnnotations));
+        return new  util.AnnotatedPrivateKey(this.key, Collections.unmodifiableMap(newAnnotations));
     }
 
     public String getFormat()
@@ -97,9 +97,9 @@ public class AnnotatedPrivateKey
 
     public boolean equals(Object o)
     {
-        if (o instanceof org.bouncycastle.jcajce.util.AnnotatedPrivateKey)
+        if (o instanceof  util.AnnotatedPrivateKey)
         {
-            return this.key.equals(((org.bouncycastle.jcajce.util.AnnotatedPrivateKey)o).key);
+            return this.key.equals((( util.AnnotatedPrivateKey)o).key);
         }
         return this.key.equals(o);
     }

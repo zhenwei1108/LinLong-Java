@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 
 class LMSSignature
@@ -24,10 +24,10 @@ class LMSSignature
     this.y = y;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.LMSSignature getInstance(Object src)
+  public static LMSSignature getInstance(Object src)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.LMSSignature) {
-      return (org.bouncycastle.pqc.crypto.lms.LMSSignature) src;
+    if (src instanceof LMSSignature) {
+      return ( LMSSignature) src;
     } else if (src instanceof DataInputStream) {
       int q = ((DataInputStream) src).readInt();
       LMOtsSignature otsSignature = LMOtsSignature.getInstance(src);
@@ -40,7 +40,7 @@ class LMSSignature
         ((DataInputStream) src).readFully(path[h]);
       }
 
-      return new org.bouncycastle.pqc.crypto.lms.LMSSignature(q, otsSignature, type, path);
+      return new LMSSignature(q, otsSignature, type, path);
     } else if (src instanceof byte[]) {
       InputStream in = null;
       try // 1.5 / 1.6 compatibility
@@ -68,7 +68,7 @@ class LMSSignature
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.LMSSignature that = (org.bouncycastle.pqc.crypto.lms.LMSSignature) o;
+    LMSSignature that = ( LMSSignature) o;
 
     if (q != that.q) {
       return false;

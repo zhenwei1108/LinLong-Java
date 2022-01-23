@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 
 import cms.CompressedData;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.util.Encodable;

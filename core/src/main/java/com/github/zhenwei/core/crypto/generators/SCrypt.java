@@ -1,11 +1,13 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
+import com.github.zhenwei.core.crypto.PBEParametersGenerator;
 import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.crypto.engines.Salsa20Engine;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Integers;
-import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.engines.Salsa20Engine;
+import com.github.zhenwei.core.util.Pack;
+import java.util.Arrays;
 
 
 /**

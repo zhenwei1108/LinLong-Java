@@ -11,7 +11,7 @@ import org.sdk.crypto.init.InitProvider;
  * @date: 2021/6/1 23:15
  * {@link org.bouncycastle.jce.provider.BouncyCastleProvider#setup()}
  * BC默认实现在:
- * {@link org.bouncycastle.jcajce.provider.asymmetric}
+ * {@link  provider.asymmetric}
  * 其中GM(国密?) 为EC的子类. 包含常见国产算法的使用方式.
  */
 public class AsymmetricKeyBuilder {

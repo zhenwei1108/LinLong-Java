@@ -13,10 +13,10 @@ import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
   
-import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
+import util.GOST3410Util;
  
-import org.bouncycastle.jce.interfaces.GOST3410Params;
-import org.bouncycastle.jce.interfaces.GOST3410PublicKey;
+import  GOST3410Params;
+import  GOST3410PublicKey;
 import GOST3410ParameterSpec;
 import GOST3410PublicKeyParameterSetSpec;
 import GOST3410PublicKeySpec;
@@ -169,9 +169,9 @@ public class BCGOST3410PublicKey
     
     public boolean equals(Object o)
     {
-        if (o instanceof org.bouncycastle.jcajce.provider.asymmetric.gost.BCGOST3410PublicKey)
+        if (o instanceof gost.BCGOST3410PublicKey)
         {
-            org.bouncycastle.jcajce.provider.asymmetric.gost.BCGOST3410PublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.gost.BCGOST3410PublicKey)o;
+            gost.BCGOST3410PublicKey other = ( provider.asymmetric.gost.BCGOST3410PublicKey)o;
             
             return this.y.equals(other.y) && this.gost3410Spec.equals(other.gost3410Spec);
         }

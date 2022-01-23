@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
+import com.github.zhenwei.core.crypto.BasicAgreement;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;

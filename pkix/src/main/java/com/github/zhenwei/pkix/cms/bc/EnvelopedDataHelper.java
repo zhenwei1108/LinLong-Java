@@ -30,9 +30,9 @@ import  SHA512Digest;
  
  ;
  
-import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
-import org.bouncycastle.crypto.util.CipherFactory;
-import org.bouncycastle.crypto.util.CipherKeyGeneratorFactory;
+import AlgorithmIdentifierFactory;
+import CipherFactory;
+import CipherKeyGeneratorFactory;
 import org.bouncycastle.operator.bc.BcDigestProvider;
 
 

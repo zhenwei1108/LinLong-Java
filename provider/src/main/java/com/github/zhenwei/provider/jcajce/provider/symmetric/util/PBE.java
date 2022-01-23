@@ -8,7 +8,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
-import org.bouncycastle.crypto.PBEParametersGenerator;
+ 
 import  GOST3411Digest;
 import  MD2Digest;
 import  RIPEMD160Digest;

@@ -2,10 +2,10 @@ package com.github.zhenwei.provider.jce.spec;
 
 /**
  * A parameter spec for the GOST-28147 cipher.
- * @deprecated use  org.bouncycastle.jcajce.spec.GOST28147ParameterSpec
+ * @deprecated use   spec.GOST28147ParameterSpec
  */
 public class GOST28147ParameterSpec
-    extends org.bouncycastle.jcajce.spec.GOST28147ParameterSpec
+    extends  spec.GOST28147ParameterSpec
 {
     /**
      * @deprecated

@@ -54,8 +54,8 @@ import java.util.WeakHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.security.auth.x500.X500Principal;
-import org.bouncycastle.jcajce.PKIXCRLStore;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
+import  PKIXCRLStore;
+import  PKIXExtendedParameters;
 
 
 

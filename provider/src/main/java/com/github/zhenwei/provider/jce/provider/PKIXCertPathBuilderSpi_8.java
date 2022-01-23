@@ -23,10 +23,10 @@ import java.util.Iterator;
 import java.util.List;
 import org.bouncycastle.ExtendedPKIXBuilderParameters;
 import org.bouncycastle.ExtendedPKIXParameters;
-import org.bouncycastle.jcajce.PKIXCertStore;
-import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.CertificateFactory;
+import  PKIXCertStore;
+import  PKIXExtendedBuilderParameters;
+import  PKIXExtendedParameters;
+import CertificateFactory;
 
 ;
 

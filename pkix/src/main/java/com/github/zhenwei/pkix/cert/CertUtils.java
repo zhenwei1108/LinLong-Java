@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert;
 
 import ExtensionsGenerator;
 import TBSCertList;
-import TBSCertificate;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;

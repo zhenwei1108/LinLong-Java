@@ -2,15 +2,15 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSAUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.KeyFactorySpi;
+import dsa.DSAUtil;
+import dsa.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
  
 
 public class DSA
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".dsa.";
+    private static final String PREFIX = " provider.asymmetric" + ".dsa.";
 
     public static class Mappings
         extends AsymmetricAlgorithmProvider

@@ -32,7 +32,7 @@ import java.security.spec.EllipticCurve;
 
 
 public class BCECPublicKey
-    implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
+    implements ECPublicKey,  ECPublicKey, ECPointEncoder
 {
     static final long serialVersionUID = 2422789860422731812L;
 
@@ -45,7 +45,7 @@ public class BCECPublicKey
 
     public BCECPublicKey(
         String algorithm,
-        org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey key)
+        ec.BCECPublicKey key)
     {
         this.algorithm = algorithm;
         this.ecPublicKey = key.ecPublicKey;
@@ -307,12 +307,12 @@ public class BCECPublicKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey))
+        if (!(o instanceof ec.BCECPublicKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey)o;
+        ec.BCECPublicKey other = ( provider.asymmetric.ec.BCECPublicKey)o;
 
         return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

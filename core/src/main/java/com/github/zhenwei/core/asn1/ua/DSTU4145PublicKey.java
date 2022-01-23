@@ -5,6 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.math.ec.ECPoint;
 
 public class DSTU4145PublicKey
     extends ASN1Object {
@@ -20,13 +21,13 @@ public class DSTU4145PublicKey
     pubKey = ocStr;
   }
 
-  public static ua.DSTU4145PublicKey getInstance(Object obj) {
-    if (obj instanceof ua.DSTU4145PublicKey) {
-      return (ua.DSTU4145PublicKey) obj;
+  public static DSTU4145PublicKey getInstance(Object obj) {
+    if (obj instanceof DSTU4145PublicKey) {
+      return  (DSTU4145PublicKey) obj;
     }
 
     if (obj != null) {
-      return new ua.DSTU4145PublicKey(ASN1OctetString.getInstance(obj));
+      return new DSTU4145PublicKey(ASN1OctetString.getInstance(obj));
     }
 
     return null;

@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
-import cms.ContentInfo;
+ 
 import cms.EncryptedContentInfo;
 import cms.EncryptedData;
 import java.io.ByteArrayInputStream;

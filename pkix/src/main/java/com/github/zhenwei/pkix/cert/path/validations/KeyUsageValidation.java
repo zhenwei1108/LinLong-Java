@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
 
-import KeyUsage;
+ 
 import com.github.zhenwei.core.asn1.x509.Extension;
 import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

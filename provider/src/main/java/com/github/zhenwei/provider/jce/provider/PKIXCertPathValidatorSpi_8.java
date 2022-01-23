@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import TBSCertificate;
+ 
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
@@ -30,9 +30,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
-import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
+import  PKIXExtendedBuilderParameters;
+import  PKIXExtendedParameters;
+ 
 
 import org.bouncycastle.x509.ExtendedPKIXParameters;
 

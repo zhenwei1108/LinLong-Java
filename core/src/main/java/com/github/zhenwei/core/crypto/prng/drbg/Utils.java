@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Mac;
 import com.github.zhenwei.core.util.Integers;
 import java.util.Hashtable;
 

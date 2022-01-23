@@ -1808,7 +1808,7 @@ public class PKCS12KeyStoreSpi
     {
         public BCPKCS12KeyStore()
         {
-            super(new BCJcaJceHelper(), new org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi(new BCJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd40BitRC2_CBC));
+            super(new BCJcaJceHelper(), new  provider.keystore.pkcs12.PKCS12KeyStoreSpi(new BCJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd40BitRC2_CBC));
         }
     }
 
@@ -1817,7 +1817,7 @@ public class PKCS12KeyStoreSpi
     {
         public BCPKCS12KeyStore3DES()
         {
-            super(new BCJcaJceHelper(), new org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi(new BCJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd3_KeyTripleDES_CBC));
+            super(new BCJcaJceHelper(), new  provider.keystore.pkcs12.PKCS12KeyStoreSpi(new BCJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd3_KeyTripleDES_CBC));
         }
     }
 
@@ -1826,7 +1826,7 @@ public class PKCS12KeyStoreSpi
     {
         public DefPKCS12KeyStore()
         {
-            super(new DefaultJcaJceHelper(), new org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi(new DefaultJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd40BitRC2_CBC));
+            super(new DefaultJcaJceHelper(), new  provider.keystore.pkcs12.PKCS12KeyStoreSpi(new DefaultJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd40BitRC2_CBC));
         }
     }
 
@@ -1835,7 +1835,7 @@ public class PKCS12KeyStoreSpi
     {
         public DefPKCS12KeyStore3DES()
         {
-            super(new DefaultJcaJceHelper(), new org.bouncycastle.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi(new DefaultJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd3_KeyTripleDES_CBC));
+            super(new DefaultJcaJceHelper(), new  provider.keystore.pkcs12.PKCS12KeyStoreSpi(new DefaultJcaJceHelper(), pbeWithSHAAnd3_KeyTripleDES_CBC, pbeWithSHAAnd3_KeyTripleDES_CBC));
         }
     }
 

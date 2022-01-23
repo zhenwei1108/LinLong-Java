@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.est.jcajce;
 
 import ExtendedKeyUsage;
 
-import KeyUsage;
+ 
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.security.GeneralSecurityException;

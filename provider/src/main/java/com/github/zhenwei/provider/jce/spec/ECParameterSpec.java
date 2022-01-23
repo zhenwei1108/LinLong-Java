@@ -108,7 +108,7 @@ public class ECParameterSpec
             return false;
         }
 
-        ECParameterSpec other = (org.bouncycastle.jce.spec.ECParameterSpec)o;
+        ECParameterSpec other = ( ECParameterSpec)o;
 
         return this.getCurve().equals(other.getCurve()) && this.getG().equals(other.getG());
     }

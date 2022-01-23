@@ -23,7 +23,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyAgreement;
 import javax.crypto.SecretKey;
   
-import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
+import  spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;
 

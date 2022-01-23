@@ -13,6 +13,7 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERUTF8String;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.math.BigInteger;
+import java.util.Date;
 
 /**
  * <pre>

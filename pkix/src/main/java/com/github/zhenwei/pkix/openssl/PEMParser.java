@@ -1,15 +1,18 @@
 package com.github.zhenwei.pkix.openssl;
 
-
-import cms.ContentInfo;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERNull;
+import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
+import com.github.zhenwei.core.asn1.pkcs.EncryptedPrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
+import com.github.zhenwei.core.asn1.pkcs.RSAPublicKey;
+import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.DSAParameter;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
@@ -18,9 +21,13 @@ import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.core.util.io.pem.PemHeader;
 import com.github.zhenwei.core.util.io.pem.PemObject;
+import com.github.zhenwei.core.util.io.pem.PemObjectParser;
+import com.github.zhenwei.core.util.io.pem.PemReader;
 import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
 import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.pkcs.PKCS10CertificationRequest;
+import com.github.zhenwei.pkix.pkcs.PKCS8EncryptedPrivateKeyInfo;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Collections;
@@ -30,13 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-import org.bouncycastle.pkcs.PKCS10CertificationRequest;
-import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
-import  io.pem.PemObjectParser;
-import  io.pem.PemReader;
-import EncryptedPrivateKeyInfo;
  
-
 
 
 /**
@@ -266,7 +267,7 @@ public class PEMParser
             {
                 ASN1Sequence seq = ASN1Sequence.getInstance(encoding);
 
-                sec.ECPrivateKey pKey = sec.ECPrivateKey.getInstance(seq);
+                 ECPrivateKey pKey =  ECPrivateKey.getInstance(seq);
                 AlgorithmIdentifier algId = new AlgorithmIdentifier(X9ObjectIdentifiers.id_ecPublicKey,
                     pKey.getParametersObject());
                 PrivateKeyInfo privInfo = new PrivateKeyInfo(algId, pKey);

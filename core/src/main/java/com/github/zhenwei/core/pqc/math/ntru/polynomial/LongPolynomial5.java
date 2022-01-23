@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
 
-import sun.security.util.math.intpoly.IntegerPolynomial;
+import com.github.zhenwei.core.util.Arrays;
 
 /**
  * A polynomial class that combines five coefficients into one <code>long</code> value for faster

@@ -7,6 +7,14 @@ import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.pqc.math.ntru.euclid.BigIntEuclidean;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.BigDecimalPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.BigIntPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Polynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.ProductFormPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Resultant;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -15,14 +23,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
- 
-import org.bouncycastle.pqc.math.ntru.polynomial.BigDecimalPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.BigIntPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Resultant;
+
 
 public class NTRUSigningKeyPairGenerator
     implements AsymmetricCipherKeyPairGenerator {

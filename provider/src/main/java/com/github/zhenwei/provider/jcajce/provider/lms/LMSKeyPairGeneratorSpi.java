@@ -14,13 +14,13 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
  
  
-import org.bouncycastle.pqc.crypto.lms.HSSKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.HSSKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.lms.LMSParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
+import HSSKeyGenerationParameters;
+import HSSKeyPairGenerator;
+import LMOtsParameters;
+import LMSKeyGenerationParameters;
+import LMSKeyPairGenerator;
+import LMSParameters;
+import LMSigParameters;
 import org.bouncycastle.pqc.jcajce.spec.LMSHSSKeyGenParameterSpec;
 import org.bouncycastle.pqc.jcajce.spec.LMSHSSParameterSpec;
 import org.bouncycastle.pqc.jcajce.spec.LMSKeyGenParameterSpec;

@@ -9,18 +9,18 @@ import java.util.Map;
 
 public class LMSigParameters {
 
-  public static final org.bouncycastle.pqc.crypto.lms.LMSigParameters lms_sha256_n32_h5 = new org.bouncycastle.pqc.crypto.lms.LMSigParameters(
+  public static final LMSigParameters lms_sha256_n32_h5 = new LMSigParameters(
       5, 32, 5, NISTObjectIdentifiers.id_sha256);
-  public static final org.bouncycastle.pqc.crypto.lms.LMSigParameters lms_sha256_n32_h10 = new org.bouncycastle.pqc.crypto.lms.LMSigParameters(
+  public static final LMSigParameters lms_sha256_n32_h10 = new LMSigParameters(
       6, 32, 10, NISTObjectIdentifiers.id_sha256);
-  public static final org.bouncycastle.pqc.crypto.lms.LMSigParameters lms_sha256_n32_h15 = new org.bouncycastle.pqc.crypto.lms.LMSigParameters(
+  public static final LMSigParameters lms_sha256_n32_h15 = new LMSigParameters(
       7, 32, 15, NISTObjectIdentifiers.id_sha256);
-  public static final org.bouncycastle.pqc.crypto.lms.LMSigParameters lms_sha256_n32_h20 = new org.bouncycastle.pqc.crypto.lms.LMSigParameters(
+  public static final LMSigParameters lms_sha256_n32_h20 = new LMSigParameters(
       8, 32, 20, NISTObjectIdentifiers.id_sha256);
-  public static final org.bouncycastle.pqc.crypto.lms.LMSigParameters lms_sha256_n32_h25 = new org.bouncycastle.pqc.crypto.lms.LMSigParameters(
+  public static final LMSigParameters lms_sha256_n32_h25 = new LMSigParameters(
       9, 32, 25, NISTObjectIdentifiers.id_sha256);
 
-  private static Map<Object, org.bouncycastle.pqc.crypto.lms.LMSigParameters> paramBuilders = new HashMap<Object, org.bouncycastle.pqc.crypto.lms.LMSigParameters>() {
+  private static Map<Object, LMSigParameters> paramBuilders = new HashMap<Object, LMSigParameters>() {
     {
       put(lms_sha256_n32_h5.type, lms_sha256_n32_h5);
       put(lms_sha256_n32_h10.type, lms_sha256_n32_h10);
@@ -58,7 +58,7 @@ public class LMSigParameters {
     return digestOid;
   }
 
-  static org.bouncycastle.pqc.crypto.lms.LMSigParameters getParametersForType(int type) {
+  static LMSigParameters getParametersForType(int type) {
     return paramBuilders.get(type);
   }
 }

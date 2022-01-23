@@ -21,7 +21,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import org.bouncycastle.jcajce.io.CipherOutputStream;
+import  io.CipherOutputStream;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.MacCaptureStream;
 import org.bouncycastle.operator.OutputAEADEncryptor;

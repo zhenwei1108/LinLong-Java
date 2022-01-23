@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
 import java.math.BigInteger;
-import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * Contains a resultant and a polynomial <code>rho</code> such that

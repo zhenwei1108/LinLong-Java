@@ -32,9 +32,9 @@ import org.bouncycastle.crypto.encodings.OAEPEncoding;
 import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.RSABlindedEngine;
  
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseCipherSpi;
-import org.bouncycastle.jcajce.provider.util.BadBlockException;
-import org.bouncycastle.jcajce.provider.util.DigestFactory;
+import util.BaseCipherSpi;
+import  provider.util.BadBlockException;
+import  provider.util.DigestFactory;
 
 ;
 
@@ -555,7 +555,7 @@ public class CipherSpi
      */
 
     static public class NoPadding
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi
+        extends rsa.CipherSpi
     {
         public NoPadding()
         {
@@ -564,7 +564,7 @@ public class CipherSpi
     }
 
     static public class PKCS1v1_5Padding
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi
+        extends rsa.CipherSpi
     {
         public PKCS1v1_5Padding()
         {
@@ -573,7 +573,7 @@ public class CipherSpi
     }
 
     static public class PKCS1v1_5Padding_PrivateOnly
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi
+        extends rsa.CipherSpi
     {
         public PKCS1v1_5Padding_PrivateOnly()
         {
@@ -582,7 +582,7 @@ public class CipherSpi
     }
 
     static public class PKCS1v1_5Padding_PublicOnly
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi
+        extends rsa.CipherSpi
     {
         public PKCS1v1_5Padding_PublicOnly()
         {
@@ -591,7 +591,7 @@ public class CipherSpi
     }
 
     static public class OAEPPadding
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi
+        extends rsa.CipherSpi
     {
         public OAEPPadding()
         {
@@ -600,7 +600,7 @@ public class CipherSpi
     }
     
     static public class ISO9796d1Padding
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.CipherSpi
+        extends rsa.CipherSpi
     {
         public ISO9796d1Padding()
         {

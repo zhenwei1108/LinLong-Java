@@ -48,7 +48,7 @@ import java.security.spec.EllipticCurve;
  * Represent two kind of GOST34.10 2012 PublicKeys: with 256 and 512 size
  */
 public class BCECGOST3410_2012PublicKey
-    implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
+    implements ECPublicKey,  ECPublicKey, ECPointEncoder
 {
     static final long serialVersionUID = 7026240464295649314L;
 
@@ -60,7 +60,7 @@ public class BCECGOST3410_2012PublicKey
     private transient GOST3410PublicKeyAlgParameters gostParams;
 
     public BCECGOST3410_2012PublicKey(
-        org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PublicKey key)
+        ecgost12.BCECGOST3410_2012PublicKey key)
     {
         this.ecPublicKey = key.ecPublicKey;
         this.ecSpec = key.ecSpec;
@@ -402,12 +402,12 @@ public class BCECGOST3410_2012PublicKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PublicKey))
+        if (!(o instanceof ecgost12.BCECGOST3410_2012PublicKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.ecgost12.BCECGOST3410_2012PublicKey)o;
+        ecgost12.BCECGOST3410_2012PublicKey other = ( provider.asymmetric.ecgost12.BCECGOST3410_2012PublicKey)o;
 
         return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

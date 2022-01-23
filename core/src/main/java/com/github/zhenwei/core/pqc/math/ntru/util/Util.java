@@ -1,5 +1,9 @@
 package com.github.zhenwei.core.pqc.math.ntru.util;
 
+import com.github.zhenwei.core.pqc.math.ntru.euclid.IntEuclidean;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.TernaryPolynomial;
 import com.github.zhenwei.core.util.Integers;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,10 +11,9 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.bouncycastle.pqc.math.ntru.euclid.IntEuclidean;
-import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.TernaryPolynomial;
+
+ 
+ 
 
 
 public class Util {

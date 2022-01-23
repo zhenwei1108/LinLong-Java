@@ -19,10 +19,10 @@ import  GOST3411Digest;
  
 import org.bouncycastle.crypto.signers.ECGOST3410Signer;
  
-import org.bouncycastle.jcajce.provider.asymmetric.util.GOST3410Util;
-import org.bouncycastle.jce.interfaces.ECKey;
-import org.bouncycastle.jce.interfaces.ECPublicKey;
-import org.bouncycastle.jce.interfaces.GOST3410Key;
+import util.GOST3410Util;
+import  ECKey;
+import  ECPublicKey;
+import  GOST3410Key;
 
 
 

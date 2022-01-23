@@ -30,10 +30,10 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import  ScryptParams;
  
-import org.bouncycastle.jcajce.PBKDF1Key;
+import  PBKDF1Key;
   
-import org.bouncycastle.jcajce.io.CipherInputStream;
-import org.bouncycastle.jcajce.spec.ScryptKeySpec;
+import  io.CipherInputStream;
+import  spec.ScryptKeySpec;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;

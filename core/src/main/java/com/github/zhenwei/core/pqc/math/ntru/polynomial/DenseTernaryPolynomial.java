@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
+import com.github.zhenwei.core.pqc.math.ntru.util.Util;
+import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
- 
-import sun.security.util.math.intpoly.IntegerPolynomial;
+
 
 /**
  * A <code>TernaryPolynomial</code> with a "high" number of nonzero coefficients.

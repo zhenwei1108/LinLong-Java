@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
-import org.bouncycastle.jcajce.io.CipherInputStream;
+import  io.CipherInputStream;
 import org.bouncycastle.operator.InputDecryptor;
 
 public class JceKEKEnvelopedRecipient

@@ -8,11 +8,11 @@ import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
 import  NullDigest;
-import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
-import org.bouncycastle.pqc.crypto.MessageSigner;
-import org.bouncycastle.pqc.crypto.lms.LMSContext;
-import org.bouncycastle.pqc.crypto.lms.LMSContextBasedSigner;
-import org.bouncycastle.pqc.crypto.lms.LMSContextBasedVerifier;
+ 
+ 
+import LMSContext;
+import LMSContextBasedSigner;
+import LMSContextBasedVerifier;
 
 public class LMSSignatureSpi
     extends Signature

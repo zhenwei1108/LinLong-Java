@@ -356,7 +356,7 @@ public final class DESede
         extends AlgorithmProvider
     {
         private static final String PREFIX = DESede.class.getName();
-        private static final String PACKAGE = "org.bouncycastle.jcajce.provider.symmetric"; // JDK 1.2
+        private static final String PACKAGE = " provider.symmetric"; // JDK 1.2
                 
         public Mappings()
         {

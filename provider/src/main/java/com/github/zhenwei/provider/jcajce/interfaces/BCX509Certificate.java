@@ -1,7 +1,8 @@
 package com.github.zhenwei.provider.jcajce.interfaces;
 
-import TBSCertificate;
 
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x509.TBSCertificate;
 
 /**
  * Interface exposing some additional methods on a BC native certificate object.

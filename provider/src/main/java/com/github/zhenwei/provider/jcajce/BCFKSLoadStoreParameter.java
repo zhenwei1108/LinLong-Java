@@ -7,8 +7,8 @@ import java.security.KeyStore;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.X509Certificate;
-import org.bouncycastle.crypto.util.PBKDF2Config;
-import org.bouncycastle.crypto.util.PBKDFConfig;
+import PBKDF2Config;
+import PBKDFConfig;
 
 /**
  * LoadStoreParameter to allow configuring of the PBKDF used to generate encryption keys for
@@ -240,9 +240,9 @@ public class BCFKSLoadStoreParameter
          *
          * @return a new BCFKSLoadStoreParameter.
          */
-        public org.bouncycastle.jcajce.BCFKSLoadStoreParameter build()
+        public  BCFKSLoadStoreParameter build()
         {
-            return new org.bouncycastle.jcajce.BCFKSLoadStoreParameter(this);
+            return new  BCFKSLoadStoreParameter(this);
         }
     }
 

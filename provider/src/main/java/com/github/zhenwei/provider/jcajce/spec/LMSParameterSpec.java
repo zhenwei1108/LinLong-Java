@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.pqc.crypto.lms.LMOtsParameters;
-import org.bouncycastle.pqc.crypto.lms.LMSigParameters;
+import LMOtsParameters;
+import LMSigParameters;
 
 /**
  * ParameterSpec for the Leighton-Micali Hash-Based Signature (LMS) scheme.

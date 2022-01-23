@@ -5,7 +5,7 @@ import cms.AttributeTable;
 import cms.AuthenticatedData;
 import cms.CMSAlgorithmProtection;
 import cms.CMSAttributes;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1OctetString;

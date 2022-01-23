@@ -9,7 +9,7 @@ import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
  
-import org.bouncycastle.pqc.crypto.newhope.NHKeyPairGenerator;
+import NHKeyPairGenerator;
  
  
 

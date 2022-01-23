@@ -19,13 +19,13 @@ import java.security.interfaces.ECPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
  
-import org.bouncycastle.crypto.util.OpenSSHPublicKeyUtil;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
+import OpenSSHPublicKeyUtil;
+import util.BaseKeyFactorySpi;
  
  
  
-import org.bouncycastle.jcajce.spec.OpenSSHPrivateKeySpec;
-import org.bouncycastle.jcajce.spec.OpenSSHPublicKeySpec;
+import  spec.OpenSSHPrivateKeySpec;
+import  spec.OpenSSHPublicKeySpec;
 import ECParameterSpec;
 import ECPrivateKeySpec;
 import ECPublicKeySpec;
@@ -186,7 +186,7 @@ public class KeyFactorySpi
         }
         else if (keySpec instanceof OpenSSHPrivateKeySpec)
         {
-            sec.ECPrivateKey ecKey = sec.ECPrivateKey.getInstance(((OpenSSHPrivateKeySpec)keySpec).getEncoded());
+             ECPrivateKey ecKey =  ECPrivateKey.getInstance(((OpenSSHPrivateKeySpec)keySpec).getEncoded());
 
             try
             {
@@ -275,7 +275,7 @@ public class KeyFactorySpi
     }
 
     public static class EC
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public EC()
         {
@@ -284,7 +284,7 @@ public class KeyFactorySpi
     }
 
     public static class ECDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public ECDSA()
         {
@@ -293,7 +293,7 @@ public class KeyFactorySpi
     }
 
     public static class ECGOST3410
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public ECGOST3410()
         {
@@ -302,7 +302,7 @@ public class KeyFactorySpi
     }
 
     public static class ECGOST3410_2012
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public ECGOST3410_2012()
         {
@@ -311,7 +311,7 @@ public class KeyFactorySpi
     }
 
     public static class ECDH
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public ECDH()
         {
@@ -320,7 +320,7 @@ public class KeyFactorySpi
     }
 
     public static class ECDHC
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public ECDHC()
         {
@@ -329,7 +329,7 @@ public class KeyFactorySpi
     }
 
     public static class ECMQV
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi
+        extends ec.KeyFactorySpi
     {
         public ECMQV()
         {

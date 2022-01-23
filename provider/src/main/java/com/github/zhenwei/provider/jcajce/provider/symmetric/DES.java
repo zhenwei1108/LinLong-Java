@@ -438,7 +438,7 @@ public final class DES
         extends AlgorithmProvider
     {
         private static final String PREFIX = DES.class.getName();
-        private static final String PACKAGE = "org.bouncycastle.jcajce.provider.symmetric"; // JDK 1.2
+        private static final String PACKAGE = " provider.symmetric"; // JDK 1.2
 
         public Mappings()
         {

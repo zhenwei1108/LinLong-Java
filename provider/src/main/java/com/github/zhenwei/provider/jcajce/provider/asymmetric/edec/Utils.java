@@ -57,7 +57,7 @@ class Utils
         buf.append(algorithm)
             .append(" ")
             .append(label).append(" [")
-            .append(org.bouncycastle.jcajce.provider.asymmetric.edec.Utils.generateKeyFingerprint(keyBytes))
+            .append( provider.asymmetric.edec.Utils.generateKeyFingerprint(keyBytes))
             .append("]")
             .append(nl)
             .append("    public data: ")

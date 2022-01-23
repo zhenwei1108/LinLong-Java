@@ -4,6 +4,7 @@ package com.github.zhenwei.core.asn1.ua;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
 import java.math.BigInteger;
 import java.util.Random;
 

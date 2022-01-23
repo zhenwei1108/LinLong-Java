@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import static org.bouncycastle.pqc.crypto.lms.HSS.rangeTestKeys;
+import static HSS.rangeTestKeys;
 
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.io.Streams;
@@ -55,20 +55,20 @@ public class HSSPrivateKeyParameters
     this.isShard = isShard;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters getInstance(byte[] privEnc,
+  public static HSSPrivateKeyParameters getInstance(byte[] privEnc,
       byte[] pubEnc)
       throws IOException {
-    org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters pKey = getInstance(privEnc);
+    HSSPrivateKeyParameters pKey = getInstance(privEnc);
 
     pKey.publicKey = HSSPublicKeyParameters.getInstance(pubEnc);
 
     return pKey;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters getInstance(Object src)
+  public static HSSPrivateKeyParameters getInstance(Object src)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters) {
-      return (org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters) src;
+    if (src instanceof HSSPrivateKeyParameters) {
+      return ( HSSPrivateKeyParameters) src;
     } else if (src instanceof DataInputStream) {
       if (((DataInputStream) src).readInt() != 0) {
         throw new IllegalStateException("unknown version for hss private key");
@@ -89,7 +89,7 @@ public class HSSPrivateKeyParameters
         signatures.add(LMSSignature.getInstance(src));
       }
 
-      return new org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters(d, keys, signatures, index,
+      return new HSSPrivateKeyParameters(d, keys, signatures, index,
           maxIndex, limited);
     } else if (src instanceof byte[]) {
       InputStream in = null;
@@ -136,10 +136,10 @@ public class HSSPrivateKeyParameters
     index++;
   }
 
-  private static org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters makeCopy(
-      org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters privateKeyParameters) {
+  private static HSSPrivateKeyParameters makeCopy(
+      HSSPrivateKeyParameters privateKeyParameters) {
     try {
-      return org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters.getInstance(
+      return HSSPrivateKeyParameters.getInstance(
           privateKeyParameters.getEncoded());
     } catch (Exception ex) {
       throw new RuntimeException(ex.getMessage(), ex);
@@ -178,7 +178,7 @@ public class HSSPrivateKeyParameters
    * @param usageCount the number of usages the key should have.
    * @return a key based on the current key that can be used usageCount times.
    */
-  public org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters extractKeyShard(int usageCount) {
+  public HSSPrivateKeyParameters extractKeyShard(int usageCount) {
     synchronized (this) {
 
       if (getUsagesRemaining() < usageCount) {
@@ -196,8 +196,8 @@ public class HSSPrivateKeyParameters
       List<LMSPrivateKeyParameters> keys = new ArrayList<LMSPrivateKeyParameters>(this.getKeys());
       List<LMSSignature> sig = new ArrayList<LMSSignature>(this.getSig());
 
-      org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters shard = makeCopy(
-          new org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters(l, keys, sig, shardStartIndex,
+      HSSPrivateKeyParameters shard = makeCopy(
+          new HSSPrivateKeyParameters(l, keys, sig, shardStartIndex,
               maxIndexForShard, true));
 
       resetKeyToIndex();
@@ -368,7 +368,7 @@ public class HSSPrivateKeyParameters
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters that = (org.bouncycastle.pqc.crypto.lms.HSSPrivateKeyParameters) o;
+    HSSPrivateKeyParameters that = ( HSSPrivateKeyParameters) o;
 
     if (l != that.l) {
       return false;

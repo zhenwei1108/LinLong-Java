@@ -33,14 +33,14 @@ public class CompositeAlgorithmSpec
             return this;
         }
 
-        public org.bouncycastle.jcajce.spec.CompositeAlgorithmSpec build()
+        public  spec.CompositeAlgorithmSpec build()
         {
             if (algorithmNames.isEmpty())
             {
                 throw new IllegalStateException("cannot call build with no algorithm names added");
             }
 
-            return new org.bouncycastle.jcajce.spec.CompositeAlgorithmSpec(this);
+            return new  spec.CompositeAlgorithmSpec(this);
         }
     }
 

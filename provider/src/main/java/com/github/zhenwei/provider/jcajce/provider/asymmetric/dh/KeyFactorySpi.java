@@ -17,8 +17,8 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHPrivateKeySpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
-import org.bouncycastle.jcajce.provider.asymmetric.util.ExtendedInvalidKeySpecException;
+import util.BaseKeyFactorySpi;
+import util.ExtendedInvalidKeySpecException;
 
  
 

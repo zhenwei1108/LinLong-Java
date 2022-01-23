@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 
 import DLSet;
-import cms.ContentInfo;
+ 
 import cms.SignedData;
 import cms.SignerInfo;
 import com.github.zhenwei.core.asn1.ASN1Encodable;

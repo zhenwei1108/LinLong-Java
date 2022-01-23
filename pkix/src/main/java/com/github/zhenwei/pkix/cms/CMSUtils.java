@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cms;
 import BEROctetStringGenerator;
  
 import DLSet;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1InputStream;

@@ -126,8 +126,8 @@ public class PBKDF2Config
       return this;
     }
 
-    public org.bouncycastle.crypto.util.PBKDF2Config build() {
-      return new org.bouncycastle.crypto.util.PBKDF2Config(this);
+    public PBKDF2Config build() {
+      return new PBKDF2Config(this);
     }
   }
 

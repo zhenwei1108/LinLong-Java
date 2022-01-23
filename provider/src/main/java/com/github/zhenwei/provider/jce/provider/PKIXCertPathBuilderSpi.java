@@ -18,10 +18,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import org.bouncycastle.jcajce.PKIXCertStore;
-import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
-import org.bouncycastle.jcajce.provider.asymmetric.x509.CertificateFactory;
+import  PKIXCertStore;
+import  PKIXExtendedBuilderParameters;
+import  PKIXExtendedParameters;
+import x509.CertificateFactory;
 import org.bouncycastle.x509.ExtendedPKIXBuilderParameters;
 import org.bouncycastle.x509.ExtendedPKIXParameters;
 

@@ -161,7 +161,7 @@ public class EC5Util
                 }
             }
 
-            ellipticCurve = org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util.convertCurve(curve, ecP.getSeed());
+            ellipticCurve = util.EC5Util.convertCurve(curve, ecP.getSeed());
 
             ecSpec = new ECNamedCurveSpec(
                 ECUtil.getCurveName(oid),
@@ -181,7 +181,7 @@ public class EC5Util
             {
                 X9ECParameters ecP = X9ECParameters.getInstance(pSeq);
 
-                ellipticCurve = org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util.convertCurve(curve, ecP.getSeed());
+                ellipticCurve = util.EC5Util.convertCurve(curve, ecP.getSeed());
 
                 if (ecP.getH() != null)
                 {
@@ -208,12 +208,12 @@ public class EC5Util
                     gostParams.getPublicKeyParamSet()));
 
                 curve = spec.getCurve();
-                ellipticCurve = org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util.convertCurve(curve, spec.getSeed());
+                ellipticCurve = util.EC5Util.convertCurve(curve, spec.getSeed());
 
                 ecSpec = new ECNamedCurveSpec(
                     ECGOST3410NamedCurves.getName(gostParams.getPublicKeyParamSet()),
                     ellipticCurve,
-                    org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util.convertPoint(spec.getG()),
+                    util.EC5Util.convertPoint(spec.getG()),
                     spec.getN(), spec.getH());
             }
         }
@@ -226,7 +226,7 @@ public class EC5Util
     {
         return new ECParameterSpec(
             convertCurve(domainParameters.getCurve(), null),  // JDK 1.5 has trouble with this if it's not null...
-            org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util.convertPoint(domainParameters.getG()),
+            util.EC5Util.convertPoint(domainParameters.getG()),
             domainParameters.getN(),
             domainParameters.getH().intValue());
     }
@@ -236,7 +236,7 @@ public class EC5Util
     {
         return new ECParameterSpec(
             convertCurve(domainParameters.getCurve(), null),  // JDK 1.5 has trouble with this if it's not null...
-            org.bouncycastle.jcajce.provider.asymmetric.util.EC5Util.convertPoint(domainParameters.getG()),
+            util.EC5Util.convertPoint(domainParameters.getG()),
             domainParameters.getN(),
             domainParameters.getH().intValue());
     }

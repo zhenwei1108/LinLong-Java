@@ -7,10 +7,10 @@ import com.github.zhenwei.core.crypto.engines.DESedeEngine;
 import com.github.zhenwei.core.crypto.macs.HMac;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.prng.drbg.CTRSP800DRBG;
-import org.bouncycastle.crypto.prng.drbg.HMacSP800DRBG;
-import org.bouncycastle.crypto.prng.drbg.HashSP800DRBG;
-import org.bouncycastle.crypto.prng.drbg.SP80090DRBG;
+import drbg.CTRSP800DRBG;
+import drbg.HMacSP800DRBG;
+import drbg.HashSP800DRBG;
+ 
 
 
 /**
@@ -77,7 +77,7 @@ public class SP800SecureRandomBuilder {
    * @param personalizationString the personalisation string for the underlying DRBG.
    * @return the current builder.
    */
-  public org.bouncycastle.crypto.prng.SP800SecureRandomBuilder setPersonalizationString(
+  public SP800SecureRandomBuilder setPersonalizationString(
       byte[] personalizationString) {
     this.personalizationString = Arrays.clone(personalizationString);
 
@@ -90,7 +90,7 @@ public class SP800SecureRandomBuilder {
    * @param securityStrength the security strength (in bits)
    * @return the current builder.
    */
-  public org.bouncycastle.crypto.prng.SP800SecureRandomBuilder setSecurityStrength(
+  public SP800SecureRandomBuilder setSecurityStrength(
       int securityStrength) {
     this.securityStrength = securityStrength;
 
@@ -105,7 +105,7 @@ public class SP800SecureRandomBuilder {
    *                            source on each seed/reseed.
    * @return the current builder.
    */
-  public org.bouncycastle.crypto.prng.SP800SecureRandomBuilder setEntropyBitsRequired(
+  public SP800SecureRandomBuilder setEntropyBitsRequired(
       int entropyBitsRequired) {
     this.entropyBitsRequired = entropyBitsRequired;
 

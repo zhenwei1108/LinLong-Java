@@ -19,8 +19,8 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import javax.crypto.Cipher;
-import org.bouncycastle.crypto.util.DEROtherInfo;
-import org.bouncycastle.jcajce.spec.KTSParameterSpec;
+ 
+import  spec.KTSParameterSpec;
 import org.bouncycastle.operator.AsymmetricKeyWrapper;
 import org.bouncycastle.operator.OperatorException;
 

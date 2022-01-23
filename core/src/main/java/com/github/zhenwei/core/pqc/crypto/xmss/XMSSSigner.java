@@ -3,9 +3,10 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.crypto.ExhaustedPrivateKeyException;
+import com.github.zhenwei.core.pqc.crypto.StateAwareMessageSigner;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.pqc.crypto.ExhaustedPrivateKeyException;
-import org.bouncycastle.pqc.crypto.StateAwareMessageSigner;
+
 
 
 public class XMSSSigner

@@ -26,12 +26,12 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import  ScryptParams;
-import org.bouncycastle.crypto.util.PBKDF2Config;
-import org.bouncycastle.crypto.util.PBKDFConfig;
-import org.bouncycastle.crypto.util.ScryptConfig;
+import PBKDF2Config;
+import PBKDFConfig;
+import ScryptConfig;
   
-import org.bouncycastle.jcajce.io.CipherOutputStream;
-import org.bouncycastle.jcajce.spec.ScryptKeySpec;
+import  io.CipherOutputStream;
+import  spec.ScryptKeySpec;
 import org.bouncycastle.operator.AlgorithmNameFinder;
 import org.bouncycastle.operator.DefaultAlgorithmNameFinder;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;

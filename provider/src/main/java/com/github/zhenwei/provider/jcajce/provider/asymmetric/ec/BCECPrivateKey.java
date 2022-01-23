@@ -38,7 +38,7 @@ import java.util.Enumeration;
 
 
 public class BCECPrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    implements ECPrivateKey,  ECPrivateKey,
     PKCS12BagAttributeCarrier, ECPointEncoder
 {
     static final long serialVersionUID = 994553197664784084L;
@@ -106,7 +106,7 @@ public class BCECPrivateKey
 
     public BCECPrivateKey(
         String algorithm,
-        org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey key)
+        ec.BCECPrivateKey key)
     {
         this.algorithm = algorithm;
         this.d = key.d;
@@ -225,7 +225,7 @@ public class BCECPrivateKey
         }
         else
         {
-            sec.ECPrivateKey ec = sec.ECPrivateKey.getInstance(privKey);
+             ECPrivateKey ec =  ECPrivateKey.getInstance(privKey);
 
             this.d = ec.getKey();
             this.publicKey = ec.getPublicKey();
@@ -268,15 +268,15 @@ public class BCECPrivateKey
         }
         
         PrivateKeyInfo          info;
-        sec.ECPrivateKey            keyStructure;
+         ECPrivateKey            keyStructure;
 
         if (publicKey != null)
         {
-            keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
+            keyStructure = new  ECPrivateKey(orderBitLength, this.getS(), publicKey, params);
         }
         else
         {
-            keyStructure = new sec.ECPrivateKey(orderBitLength, this.getS(), params);
+            keyStructure = new  ECPrivateKey(orderBitLength, this.getS(), params);
         }
 
         try
@@ -351,12 +351,12 @@ public class BCECPrivateKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey))
+        if (!(o instanceof ec.BCECPrivateKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey other = (org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey)o;
+        ec.BCECPrivateKey other = ( provider.asymmetric.ec.BCECPrivateKey)o;
 
         return getD().equals(other.getD()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

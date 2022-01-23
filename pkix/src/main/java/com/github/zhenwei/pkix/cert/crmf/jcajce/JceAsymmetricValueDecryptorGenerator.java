@@ -13,7 +13,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import org.bouncycastle.cert.crmf.CRMFException;
 import org.bouncycastle.cert.crmf.ValueDecryptorGenerator;
-import org.bouncycastle.jcajce.io.CipherInputStream;
+import  io.CipherInputStream;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.OperatorException;
 import org.bouncycastle.operator.jcajce.JceAsymmetricKeyUnwrapper;

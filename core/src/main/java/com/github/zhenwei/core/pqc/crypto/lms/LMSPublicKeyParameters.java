@@ -27,10 +27,10 @@ public class LMSPublicKeyParameters
     this.T1 = Arrays.clone(T1);
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters getInstance(Object src)
+  public static LMSPublicKeyParameters getInstance(Object src)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters) {
-      return (org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters) src;
+    if (src instanceof LMSPublicKeyParameters) {
+      return ( LMSPublicKeyParameters) src;
     } else if (src instanceof DataInputStream) {
       int pubType = ((DataInputStream) src).readInt();
       LMSigParameters lmsParameter = LMSigParameters.getParametersForType(pubType);
@@ -42,7 +42,7 @@ public class LMSPublicKeyParameters
 
       byte[] T1 = new byte[lmsParameter.getM()];
       ((DataInputStream) src).readFully(T1);
-      return new org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters(lmsParameter, ostTypeCode,
+      return new LMSPublicKeyParameters(lmsParameter, ostTypeCode,
           T1, I);
     } else if (src instanceof byte[]) {
 
@@ -105,7 +105,7 @@ public class LMSPublicKeyParameters
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters publicKey = (org.bouncycastle.pqc.crypto.lms.LMSPublicKeyParameters) o;
+    LMSPublicKeyParameters publicKey = ( LMSPublicKeyParameters) o;
 
     if (!parameterSet.equals(publicKey.parameterSet)) {
       return false;

@@ -3,8 +3,8 @@ package com.github.zhenwei.core.pqc.crypto.gmss;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.util.Arrays;
 import java.util.Vector;
-import org.bouncycastle.pqc.crypto.gmss.util.GMSSRandom;
-import org.bouncycastle.pqc.crypto.gmss.util.WinternitzOTSignature;
+ 
+ 
 
 
 /**
@@ -108,7 +108,7 @@ public class GMSSPrivateKeyParameters
    * @param nextRoot         the roots of the next subtree
    * @param currentRootSig   array of signatures of the roots of the current subtrees
    * @param gmssParameterset the GMSS Parameterset
-   * @see org.bouncycastle.pqc.crypto.gmss.GMSSKeyPairGenerator
+   * @see  GMSSKeyPairGenerator
    */
 
   public GMSSPrivateKeyParameters(byte[][] currentSeed, byte[][] nextNextSeed,
@@ -316,7 +316,7 @@ public class GMSSPrivateKeyParameters
 
   // we assume this only gets called from nextKey so used is never copied.
   private GMSSPrivateKeyParameters(
-      org.bouncycastle.pqc.crypto.gmss.GMSSPrivateKeyParameters original) {
+       GMSSPrivateKeyParameters original) {
     super(true, original.getParameters());
 
     this.index = Arrays.clone(original.index);
@@ -359,8 +359,8 @@ public class GMSSPrivateKeyParameters
     this.used = true;
   }
 
-  public org.bouncycastle.pqc.crypto.gmss.GMSSPrivateKeyParameters nextKey() {
-    org.bouncycastle.pqc.crypto.gmss.GMSSPrivateKeyParameters nKey = new org.bouncycastle.pqc.crypto.gmss.GMSSPrivateKeyParameters(
+  public  GMSSPrivateKeyParameters nextKey() {
+     GMSSPrivateKeyParameters nKey = new  GMSSPrivateKeyParameters(
         this);
 
     nKey.nextKey(gmssPS.getNumOfLayers() - 1);

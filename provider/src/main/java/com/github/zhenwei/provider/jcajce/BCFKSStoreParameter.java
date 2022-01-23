@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce;
 
 import java.io.OutputStream;
 import java.security.KeyStore;
-import org.bouncycastle.crypto.util.PBKDFConfig;
+import PBKDFConfig;
 
 /**
  * LoadStoreParameter to allow configuring of the PBKDF used to generate encryption keys for

@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms;
 
  
 import cms.AuthenticatedData;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1OctetString;

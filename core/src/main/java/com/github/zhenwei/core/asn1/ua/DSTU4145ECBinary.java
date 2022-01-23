@@ -77,13 +77,13 @@ public class DSTU4145ECBinary
     bp = ASN1OctetString.getInstance(seq.getObjectAt(index));
   }
 
-  public static ua.DSTU4145ECBinary getInstance(Object obj) {
-    if (obj instanceof ua.DSTU4145ECBinary) {
-      return (ua.DSTU4145ECBinary) obj;
+  public static DSTU4145ECBinary getInstance(Object obj) {
+    if (obj instanceof DSTU4145ECBinary) {
+      return  (DSTU4145ECBinary) obj;
     }
 
     if (obj != null) {
-      return new ua.DSTU4145ECBinary(ASN1Sequence.getInstance(obj));
+      return new DSTU4145ECBinary(ASN1Sequence.getInstance(obj));
     }
 
     return null;

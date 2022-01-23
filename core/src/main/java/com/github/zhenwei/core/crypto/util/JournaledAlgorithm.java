@@ -130,7 +130,7 @@ public class JournaledAlgorithm
     out.write(this.getEncoded());
   }
 
-  public static org.bouncycastle.crypto.util.JournaledAlgorithm getState(InputStream stateIn,
+  public static JournaledAlgorithm getState(InputStream stateIn,
       SecureRandom random)
       throws IOException, ClassNotFoundException {
     if (stateIn == null) {
@@ -140,7 +140,7 @@ public class JournaledAlgorithm
     InputStream fIn = new BufferedInputStream(stateIn);
 
     try {
-      return new org.bouncycastle.crypto.util.JournaledAlgorithm(Streams.readAll(fIn), random);
+      return new JournaledAlgorithm(Streams.readAll(fIn), random);
     } finally {
       fIn.close();
     }
@@ -154,7 +154,7 @@ public class JournaledAlgorithm
    * @throws IOException
    * @throws ClassNotFoundException
    */
-  public static org.bouncycastle.crypto.util.JournaledAlgorithm getState(File tempfile,
+  public static JournaledAlgorithm getState(File tempfile,
       SecureRandom random)
       throws IOException, ClassNotFoundException {
     if (tempfile == null) {
@@ -164,7 +164,7 @@ public class JournaledAlgorithm
     InputStream fIn = new BufferedInputStream(new FileInputStream(tempfile));
 
     try {
-      return new org.bouncycastle.crypto.util.JournaledAlgorithm(Streams.readAll(fIn), random);
+      return new JournaledAlgorithm(Streams.readAll(fIn), random);
     } finally {
       fIn.close();
     }

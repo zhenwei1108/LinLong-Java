@@ -30,10 +30,10 @@ import org.bouncycastle.crypto.encodings.OAEPEncoding;
 import org.bouncycastle.crypto.encodings.PKCS1Encoding;
 import org.bouncycastle.crypto.engines.ElGamalEngine;
  
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseCipherSpi;
-import org.bouncycastle.jcajce.provider.util.BadBlockException;
-import org.bouncycastle.jcajce.provider.util.DigestFactory;
-import org.bouncycastle.jce.interfaces.ElGamalKey;
+import util.BaseCipherSpi;
+import  provider.util.BadBlockException;
+import  provider.util.DigestFactory;
+import  ElGamalKey;
 
 
 
@@ -426,7 +426,7 @@ public class CipherSpi
      * classes that inherit from us.
      */
     static public class NoPadding
-        extends org.bouncycastle.jcajce.provider.asymmetric.elgamal.CipherSpi
+        extends elgamal.CipherSpi
     {
         public NoPadding()
         {
@@ -435,7 +435,7 @@ public class CipherSpi
     }
     
     static public class PKCS1v1_5Padding
-        extends org.bouncycastle.jcajce.provider.asymmetric.elgamal.CipherSpi
+        extends elgamal.CipherSpi
     {
         public PKCS1v1_5Padding()
         {

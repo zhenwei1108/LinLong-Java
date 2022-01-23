@@ -10,12 +10,13 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.pqc.crypto.gmss.GMSSLeaf;
+import com.github.zhenwei.core.pqc.crypto.gmss.GMSSParameters;
+import com.github.zhenwei.core.pqc.crypto.gmss.GMSSRootCalc;
+import com.github.zhenwei.core.pqc.crypto.gmss.GMSSRootSig;
+import com.github.zhenwei.core.pqc.crypto.gmss.Treehash;
 import java.util.Vector;
-import org.bouncycastle.pqc.crypto.gmss.GMSSLeaf;
-import org.bouncycastle.pqc.crypto.gmss.GMSSParameters;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootCalc;
-import org.bouncycastle.pqc.crypto.gmss.GMSSRootSig;
-import org.bouncycastle.pqc.crypto.gmss.Treehash;
+
 
 public class GMSSPrivateKey
     extends ASN1Object {

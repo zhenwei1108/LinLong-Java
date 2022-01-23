@@ -16,7 +16,7 @@ import  SHA512Digest;
  
  
  
-import org.bouncycastle.jcajce.spec.TLSKeyMaterialSpec;
+import  spec.TLSKeyMaterialSpec;
 
 
 

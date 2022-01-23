@@ -5,11 +5,11 @@ import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 public class GM
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".ec.";
+    private static final String PREFIX = " provider.asymmetric" + ".ec.";
 
     private static final Map<String, String> generalSm2Attributes = new HashMap<String, String>();
 

@@ -74,7 +74,7 @@ public class PKIXExtendedParameters
             this.trustAnchors = baseParameters.getTrustAnchors();
         }
 
-        public Builder(org.bouncycastle.jcajce.PKIXExtendedParameters baseParameters)
+        public Builder( PKIXExtendedParameters baseParameters)
         {
             this.baseParameters = baseParameters.baseParameters;
             this.validityDate = baseParameters.validityDate;
@@ -185,9 +185,9 @@ public class PKIXExtendedParameters
             this.revocationEnabled = revocationEnabled;
         }
 
-        public org.bouncycastle.jcajce.PKIXExtendedParameters build()
+        public  PKIXExtendedParameters build()
         {
-            return new org.bouncycastle.jcajce.PKIXExtendedParameters(this);
+            return new  PKIXExtendedParameters(this);
         }
     }
 

@@ -16,7 +16,7 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import org.bouncycastle.cert.crmf.CRMFException;
-import org.bouncycastle.jcajce.io.CipherOutputStream;
+import  io.CipherOutputStream;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.SecretKeySizeProvider;

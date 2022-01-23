@@ -10,9 +10,9 @@ import java.util.Map;
 
 import  CMSObjectIdentifiers;
 
-import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
+import ec.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 
 
@@ -20,7 +20,7 @@ import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
 
 public class EC
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".ec.";
+    private static final String PREFIX = " provider.asymmetric" + ".ec.";
 
     private static final Map<String, String> generalEcAttributes = new HashMap<String, String>();
 

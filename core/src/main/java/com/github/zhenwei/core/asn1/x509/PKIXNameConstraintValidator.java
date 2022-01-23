@@ -6,6 +6,8 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.x500.RDN;
 import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x500.style.IETFUtils;
+import com.github.zhenwei.core.asn1.x500.style.RFC4519Style;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Strings;
@@ -18,8 +20,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import style.IETFUtils;
-import style.RFC4519Style;
+ 
 
 public class PKIXNameConstraintValidator
     implements NameConstraintValidator {

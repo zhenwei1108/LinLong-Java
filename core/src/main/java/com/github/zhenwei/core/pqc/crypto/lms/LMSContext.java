@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import static org.bouncycastle.pqc.crypto.lms.LM_OTS.MAX_HASH;
+import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.MAX_HASH;
 
 import com.github.zhenwei.core.crypto.Digest;
 
@@ -77,7 +77,7 @@ public class LMSContext
     return signedPubKeys;
   }
 
-  org.bouncycastle.pqc.crypto.lms.LMSContext withSignedPublicKeys(LMSSignedPubKey[] signedPubKeys) {
+  LMSContext withSignedPublicKeys(LMSSignedPubKey[] signedPubKeys) {
     this.signedPubKeys = signedPubKeys;
 
     return this;

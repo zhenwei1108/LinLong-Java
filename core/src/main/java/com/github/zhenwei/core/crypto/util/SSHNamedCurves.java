@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.util;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.nist.NISTNamedCurves;
 import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
@@ -14,7 +15,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import nist.NISTNamedCurves;
+
 
 
 public class SSHNamedCurves {

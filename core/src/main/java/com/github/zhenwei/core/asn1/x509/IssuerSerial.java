@@ -9,6 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 import java.math.BigInteger;
 
 public class IssuerSerial

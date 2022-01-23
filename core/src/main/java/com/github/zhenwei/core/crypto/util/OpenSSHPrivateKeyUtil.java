@@ -9,7 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
-import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
+import com.github.zhenwei.core.asn1. ECPrivateKey;
 import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
@@ -26,7 +26,7 @@ import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.math.BigInteger;
-import nist.NISTNamedCurves;
+ 
 
 
 /**

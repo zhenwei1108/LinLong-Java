@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.pqc.crypto.ExchangePair;
+import com.github.zhenwei.core.pqc.crypto.ExchangePairGenerator;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.crypto.ExchangePair;
-import org.bouncycastle.pqc.crypto.ExchangePairGenerator;
+
 
 
 public class NHExchangePairGenerator

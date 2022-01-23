@@ -8,9 +8,9 @@ import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.CRMFException;
  
  
-import org.bouncycastle.crypto.util.AlgorithmIdentifierFactory;
-import org.bouncycastle.crypto.util.CipherFactory;
-import org.bouncycastle.crypto.util.CipherKeyGeneratorFactory;
+import AlgorithmIdentifierFactory;
+import CipherFactory;
+import CipherKeyGeneratorFactory;
 
 class CRMFHelper
 {

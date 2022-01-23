@@ -59,7 +59,7 @@ public class MD4
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.MD4.class.getName();
+        private static final String PREFIX =  provider.digest.MD4.class.getName();
 
         public Mappings()
         {

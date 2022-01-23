@@ -18,7 +18,7 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-import org.bouncycastle.jcajce.provider.util.DigestFactory;
+import  provider.util.DigestFactory;
 
 import RSAESOAEPparams;
 
@@ -47,7 +47,7 @@ public abstract class AlgorithmParametersSpi
         throws InvalidParameterSpecException;
 
     public static class OAEP
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.AlgorithmParametersSpi
+        extends rsa.AlgorithmParametersSpi
     {
         OAEPParameterSpec currentSpec;
     
@@ -166,7 +166,7 @@ public abstract class AlgorithmParametersSpi
     }
     
     public static class PSS
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.AlgorithmParametersSpi
+        extends rsa.AlgorithmParametersSpi
     {  
         PSSParameterSpec currentSpec;
     

@@ -40,19 +40,10 @@ import java.security.spec.ECPoint;
 import java.security.spec.ECPublicKeySpec;
 import java.security.spec.EllipticCurve;
  
- 
- 
- 
- 
- 
- 
- 
- 
-
 
 
 public class BCDSTU4145PublicKey
-    implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
+    implements ECPublicKey,  ECPublicKey, ECPointEncoder
 {
     static final long serialVersionUID = 7026240464295649314L;
 
@@ -407,7 +398,7 @@ public class BCDSTU4145PublicKey
             return false;
         }
 
-        BCDSTU4145PublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.dstu.BCDSTU4145PublicKey)o;
+        BCDSTU4145PublicKey other = ( provider.asymmetric.dstu.BCDSTU4145PublicKey)o;
 
         return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

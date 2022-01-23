@@ -32,11 +32,11 @@ public class PemHeader {
   }
 
   public boolean equals(Object o) {
-    if (!(o instanceof io.pem.PemHeader)) {
+    if (!(o instanceof PemHeader)) {
       return false;
     }
 
-    io.pem.PemHeader other = (io.pem.PemHeader) o;
+    PemHeader other = (io.pem.PemHeader) o;
 
     return other == this || (isEqual(this.name, other.name) && isEqual(this.value, other.value));
   }

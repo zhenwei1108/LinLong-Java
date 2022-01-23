@@ -29,13 +29,13 @@ public class DSTU4145BinaryField
     }
   }
 
-  public static ua.DSTU4145BinaryField getInstance(Object obj) {
-    if (obj instanceof ua.DSTU4145BinaryField) {
-      return (ua.DSTU4145BinaryField) obj;
+  public static DSTU4145BinaryField getInstance(Object obj) {
+    if (obj instanceof DSTU4145BinaryField) {
+      return  (DSTU4145BinaryField) obj;
     }
 
     if (obj != null) {
-      return new ua.DSTU4145BinaryField(ASN1Sequence.getInstance(obj));
+      return new DSTU4145BinaryField(ASN1Sequence.getInstance(obj));
     }
 
     return null;

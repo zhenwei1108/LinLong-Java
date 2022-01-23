@@ -32,14 +32,14 @@ public class ECPrivateKey
     this.seq = seq;
   }
 
-  public static sec.ECPrivateKey getInstance(
+  public static  ECPrivateKey getInstance(
       Object obj) {
-    if (obj instanceof sec.ECPrivateKey) {
-      return (sec.ECPrivateKey) obj;
+    if (obj instanceof  ECPrivateKey) {
+      return ( ECPrivateKey) obj;
     }
 
     if (obj != null) {
-      return new sec.ECPrivateKey(ASN1Sequence.getInstance(obj));
+      return new  ECPrivateKey(ASN1Sequence.getInstance(obj));
     }
 
     return null;

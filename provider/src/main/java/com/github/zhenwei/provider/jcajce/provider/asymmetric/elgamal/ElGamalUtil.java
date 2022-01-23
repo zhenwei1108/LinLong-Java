@@ -9,8 +9,8 @@ import java.security.PublicKey;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
  
-import org.bouncycastle.jce.interfaces.ElGamalPrivateKey;
-import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
+import  ElGamalPrivateKey;
+import  ElGamalPublicKey;
 
 ;
 

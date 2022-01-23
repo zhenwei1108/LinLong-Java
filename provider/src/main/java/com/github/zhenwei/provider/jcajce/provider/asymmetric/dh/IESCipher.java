@@ -44,9 +44,9 @@ import DHKeyParameters;
 import IESWithCipherParameters;
  
 import org.bouncycastle.crypto.parsers.DHIESPublicKeyParser;
-import org.bouncycastle.jcajce.provider.asymmetric.util.IESUtil;
-import org.bouncycastle.jcajce.provider.util.BadBlockException;
-import org.bouncycastle.jce.interfaces.IESKey;
+import util.IESUtil;
+import  provider.util.BadBlockException;
+import  IESKey;
 import IESParameterSpec;
 
 ;
@@ -510,7 +510,7 @@ public class IESCipher
      */
 
     static public class IES
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.IESCipher
+        extends dh.IESCipher
     {
         public IES()
         {
@@ -521,7 +521,7 @@ public class IESCipher
     }
 
     static public class IESwithDESedeCBC
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.IESCipher
+        extends dh.IESCipher
     {
         public IESwithDESedeCBC()
         {
@@ -533,7 +533,7 @@ public class IESCipher
     }
 
     static public class IESwithAESCBC
-        extends org.bouncycastle.jcajce.provider.asymmetric.dh.IESCipher
+        extends dh.IESCipher
     {
         public IESwithAESCBC()
         {

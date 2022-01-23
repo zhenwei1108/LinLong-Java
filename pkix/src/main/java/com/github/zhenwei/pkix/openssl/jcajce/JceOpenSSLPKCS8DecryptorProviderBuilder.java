@@ -21,7 +21,7 @@ import javax.crypto.SecretKey;
  
   
   
-import org.bouncycastle.jcajce.io.CipherInputStream;
+import  io.CipherInputStream;
 import org.bouncycastle.openssl.PEMException;
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;

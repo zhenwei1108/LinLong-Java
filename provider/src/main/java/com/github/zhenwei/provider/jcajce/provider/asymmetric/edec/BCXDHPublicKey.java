@@ -13,7 +13,7 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
  
  
-import org.bouncycastle.jcajce.interfaces.XDHPublicKey;
+import  interfaces.XDHPublicKey;
 
 
 public class BCXDHPublicKey

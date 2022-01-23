@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cms;
 import DLSet;
 import cms.AttributeTable;
 import cms.AuthEnvelopedData;
-import cms.ContentInfo;
+ 
 import cms.EncryptedContentInfo;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;

@@ -18,7 +18,7 @@ import java.security.PublicKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPublicKeySpec;
-import nist.NISTNamedCurves;
+ 
 import org.bouncycastle.its.ITSPublicEncryptionKey;
  
 import org.bouncycastle.oer.its.BasePublicEncryptionKey;

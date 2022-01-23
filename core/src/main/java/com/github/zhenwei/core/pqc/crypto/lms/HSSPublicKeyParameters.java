@@ -21,14 +21,14 @@ public class HSSPublicKeyParameters
     this.lmsPublicKey = lmsPublicKey;
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters getInstance(Object src)
+  public static HSSPublicKeyParameters getInstance(Object src)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters) {
-      return (org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters) src;
+    if (src instanceof HSSPublicKeyParameters) {
+      return ( HSSPublicKeyParameters) src;
     } else if (src instanceof DataInputStream) {
       int L = ((DataInputStream) src).readInt();
       LMSPublicKeyParameters lmsPublicKey = LMSPublicKeyParameters.getInstance(src);
-      return new org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters(L, lmsPublicKey);
+      return new HSSPublicKeyParameters(L, lmsPublicKey);
     } else if (src instanceof byte[]) {
       InputStream in = null;
       try // 1.5 / 1.6 compatibility
@@ -64,7 +64,7 @@ public class HSSPublicKeyParameters
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters publicKey = (org.bouncycastle.pqc.crypto.lms.HSSPublicKeyParameters) o;
+    HSSPublicKeyParameters publicKey = ( HSSPublicKeyParameters) o;
 
     if (l != publicKey.l) {
       return false;

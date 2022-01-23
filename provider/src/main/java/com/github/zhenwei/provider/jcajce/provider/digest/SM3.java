@@ -58,7 +58,7 @@ public class SM3
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.SM3.class.getName();
+        private static final String PREFIX =  provider.digest.SM3.class.getName();
 
         public Mappings()
         {

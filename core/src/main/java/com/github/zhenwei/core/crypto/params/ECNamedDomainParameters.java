@@ -5,6 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECPoint;
 import java.math.BigInteger;
 
 

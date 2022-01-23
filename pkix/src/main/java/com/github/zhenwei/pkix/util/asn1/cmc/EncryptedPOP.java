@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.util.asn1.cmc;
 
 
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1OctetString;

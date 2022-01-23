@@ -91,7 +91,7 @@ public class Blake2s
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.Blake2s.class.getName();
+        private static final String PREFIX =  provider.digest.Blake2s.class.getName();
 
         public Mappings()
         {

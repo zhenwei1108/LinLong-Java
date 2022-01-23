@@ -36,9 +36,9 @@ public class DSTU4145ParameterSpec
 
     public boolean equals(Object o)
     {
-        if (o instanceof org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec)
+        if (o instanceof  spec.DSTU4145ParameterSpec)
         {
-            org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec other = (org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec)o;
+             spec.DSTU4145ParameterSpec other = ( spec.DSTU4145ParameterSpec)o;
             
             return this.parameters.equals(other.parameters);
         }

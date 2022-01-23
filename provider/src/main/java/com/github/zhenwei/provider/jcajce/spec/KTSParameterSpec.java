@@ -92,9 +92,9 @@ public class KTSParameterSpec
          *
          * @return a new parameter spec configured according to the builder state.
          */
-        public org.bouncycastle.jcajce.spec.KTSParameterSpec build()
+        public  spec.KTSParameterSpec build()
         {
-            return new org.bouncycastle.jcajce.spec.KTSParameterSpec(algorithmName, keySizeInBits, parameterSpec, kdfAlgorithm, otherInfo);
+            return new  spec.KTSParameterSpec(algorithmName, keySizeInBits, parameterSpec, kdfAlgorithm, otherInfo);
         }
     }
 

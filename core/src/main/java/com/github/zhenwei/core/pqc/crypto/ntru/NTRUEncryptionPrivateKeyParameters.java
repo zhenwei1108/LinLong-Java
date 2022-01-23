@@ -1,14 +1,19 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Polynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.ProductFormPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
+ 
+ 
+ 
+ 
+ 
 
 /**
  * A NtruEncrypt private key is essentially a polynomial named <code>f</code> which takes different

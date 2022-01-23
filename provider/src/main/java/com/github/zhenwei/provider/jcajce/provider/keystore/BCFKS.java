@@ -1,11 +1,11 @@
 package com.github.zhenwei.provider.jcajce.provider.keystore;
 
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 public class BCFKS
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.keystore" + ".bcfks.";
+    private static final String PREFIX = " provider.keystore" + ".bcfks.";
 
     public static class Mappings
         extends AsymmetricAlgorithmProvider

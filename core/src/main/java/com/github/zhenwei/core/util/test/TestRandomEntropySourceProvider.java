@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.util.test;
 
+import com.github.zhenwei.core.crypto.prng.EntropySource;
+import com.github.zhenwei.core.crypto.prng.EntropySourceProvider;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.prng.EntropySource;
-import org.bouncycastle.crypto.prng.EntropySourceProvider;
+
 
 /**
  * A class for returning "quick entropy" for testing purposes.

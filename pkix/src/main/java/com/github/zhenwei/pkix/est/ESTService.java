@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.est;
 
 
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERPrintableString;
@@ -26,7 +26,7 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 import org.bouncycastle.cmc.CMCException;
 import org.bouncycastle.cmc.SimplePKIResponse;
-import org.bouncycastle.pkcs.PKCS10CertificationRequest;
+ 
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
 
 

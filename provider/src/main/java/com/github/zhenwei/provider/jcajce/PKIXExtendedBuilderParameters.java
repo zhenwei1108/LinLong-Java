@@ -84,9 +84,9 @@ public class PKIXExtendedBuilderParameters
             return this;
         }
 
-        public org.bouncycastle.jcajce.PKIXExtendedBuilderParameters build()
+        public  PKIXExtendedBuilderParameters build()
         {
-            return new org.bouncycastle.jcajce.PKIXExtendedBuilderParameters(this);
+            return new  PKIXExtendedBuilderParameters(this);
         }
     }
 

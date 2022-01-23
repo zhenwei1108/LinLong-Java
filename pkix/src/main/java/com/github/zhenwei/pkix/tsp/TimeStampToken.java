@@ -8,7 +8,7 @@ import SignerInformation;
 import SignerInformationVerifier;
 
 import cms.AttributeTable;
-import cms.ContentInfo;
+ 
 import cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

@@ -44,7 +44,7 @@ import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
 import javax.crypto.spec.SecretKeySpec;
   
-import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
+import  spec.UserKeyingMaterialSpec;
 import org.bouncycastle.operator.AsymmetricKeyWrapper;
 import org.bouncycastle.operator.OperatorException;
 import RSAESOAEPparams;

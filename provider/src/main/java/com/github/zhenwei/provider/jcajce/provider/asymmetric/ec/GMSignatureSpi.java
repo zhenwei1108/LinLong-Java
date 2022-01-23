@@ -16,7 +16,7 @@ import  SHA256Digest;
  
 import org.bouncycastle.crypto.signers.SM2Signer;
  
-import org.bouncycastle.jcajce.spec.SM2ParameterSpec;
+import  spec.SM2ParameterSpec;
 
 ;
 
@@ -195,7 +195,7 @@ public class GMSignatureSpi
 //    }
 
     static public class sha256WithSM2
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMSignatureSpi
+        extends ec.GMSignatureSpi
     {
         public sha256WithSM2()
         {
@@ -222,7 +222,7 @@ public class GMSignatureSpi
 //    }
 
     static public class sm3WithSM2
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.GMSignatureSpi
+        extends ec.GMSignatureSpi
     {
         public sm3WithSM2()
         {

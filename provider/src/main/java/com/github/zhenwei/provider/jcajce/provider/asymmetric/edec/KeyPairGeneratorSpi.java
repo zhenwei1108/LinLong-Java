@@ -20,8 +20,8 @@ import Ed448KeyGenerationParameters;
 import X25519KeyGenerationParameters;
 import X448KeyGenerationParameters;
  
-import org.bouncycastle.jcajce.spec.EdDSAParameterSpec;
-import org.bouncycastle.jcajce.spec.XDHParameterSpec;
+import  spec.EdDSAParameterSpec;
+import  spec.XDHParameterSpec;
 import ECNamedCurveGenParameterSpec;
 
 public class KeyPairGeneratorSpi
@@ -253,7 +253,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static final class EdDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi
+        extends edec.KeyPairGeneratorSpi
     {
         public EdDSA()
         {
@@ -262,7 +262,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static final class Ed448
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi
+        extends edec.KeyPairGeneratorSpi
     {
         public Ed448()
         {
@@ -271,7 +271,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static final class Ed25519
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi
+        extends edec.KeyPairGeneratorSpi
     {
         public Ed25519()
         {
@@ -280,7 +280,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static final class XDH
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi
+        extends edec.KeyPairGeneratorSpi
     {
         public XDH()
         {
@@ -289,7 +289,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static final class X448
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi
+        extends edec.KeyPairGeneratorSpi
     {
         public X448()
         {
@@ -298,7 +298,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static final class X25519
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi
+        extends edec.KeyPairGeneratorSpi
     {
         public X25519()
         {

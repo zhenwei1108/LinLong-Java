@@ -3,8 +3,8 @@ package com.github.zhenwei.core.pqc.crypto.ntru;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import java.nio.ByteBuffer;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
+ 
+ 
 
 /**
  * Signs, verifies data and generates key pairs.

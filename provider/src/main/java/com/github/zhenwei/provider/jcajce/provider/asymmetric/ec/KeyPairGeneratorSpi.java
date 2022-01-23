@@ -38,7 +38,7 @@ public abstract class KeyPairGeneratorSpi
     }
 
     public static class EC
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi
+        extends ec.KeyPairGeneratorSpi
     {
         ECKeyGenerationParameters   param;
         ECKeyPairGenerator          engine = new ECKeyPairGenerator();

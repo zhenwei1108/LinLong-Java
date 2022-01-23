@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.dvcs;
 
 
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 

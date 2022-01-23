@@ -19,8 +19,8 @@ import  GOST3411_2012_512Digest;
  
 import org.bouncycastle.crypto.signers.ECGOST3410_2012Signer;
  
-import org.bouncycastle.jce.interfaces.ECKey;
-import org.bouncycastle.jce.interfaces.ECPublicKey;
+import  ECKey;
+import  ECPublicKey;
 
 
 

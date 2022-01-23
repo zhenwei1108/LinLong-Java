@@ -19,7 +19,7 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
-import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
+import com.github.zhenwei.core.asn1. ECPrivateKey;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.DSAParameter;
 import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;

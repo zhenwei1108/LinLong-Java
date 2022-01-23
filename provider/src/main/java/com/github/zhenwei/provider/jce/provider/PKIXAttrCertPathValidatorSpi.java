@@ -13,7 +13,7 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import org.bouncycastle.jcajce.PKIXExtendedParameters;
+import  PKIXExtendedParameters;
 import org.bouncycastle.x509.ExtendedPKIXParameters;
 import org.bouncycastle.x509.X509AttributeCertStoreSelector;
 import org.bouncycastle.x509.X509AttributeCertificate;

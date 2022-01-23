@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.bouncycastle.cert.X509ExtensionUtils;
 import  SHA1Digest;
-import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;
+import SubjectPublicKeyInfoFactory;
 import org.bouncycastle.operator.DigestCalculator;
 
 public class BcX509ExtensionUtils

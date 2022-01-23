@@ -29,10 +29,10 @@ public class HSSSignature
    * @return An HSSSignature instance.
    * @throws IOException
    */
-  public static org.bouncycastle.pqc.crypto.lms.HSSSignature getInstance(Object src, int L)
+  public static HSSSignature getInstance(Object src, int L)
       throws IOException {
-    if (src instanceof org.bouncycastle.pqc.crypto.lms.HSSSignature) {
-      return (org.bouncycastle.pqc.crypto.lms.HSSSignature) src;
+    if (src instanceof HSSSignature) {
+      return ( HSSSignature) src;
     } else if (src instanceof DataInputStream) {
 
       int lminus = ((DataInputStream) src).readInt();
@@ -48,7 +48,7 @@ public class HSSSignature
       }
       LMSSignature sig = LMSSignature.getInstance(src);
 
-      return new org.bouncycastle.pqc.crypto.lms.HSSSignature(lminus, signedPubKeys, sig);
+      return new HSSSignature(lminus, signedPubKeys, sig);
     } else if (src instanceof byte[]) {
       InputStream in = null;
       try // 1.5 / 1.6 compatibility
@@ -89,7 +89,7 @@ public class HSSSignature
       return false;
     }
 
-    org.bouncycastle.pqc.crypto.lms.HSSSignature signature1 = (org.bouncycastle.pqc.crypto.lms.HSSSignature) o;
+    HSSSignature signature1 = ( HSSSignature) o;
 
     if (lMinus1 != signature1.lMinus1) {
       return false;

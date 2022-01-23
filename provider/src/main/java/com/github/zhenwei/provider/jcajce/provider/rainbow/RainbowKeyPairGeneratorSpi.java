@@ -6,11 +6,11 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowKeyPairGenerator;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowPublicKeyParameters;
+import RainbowKeyGenerationParameters;
+import RainbowKeyPairGenerator;
+import RainbowParameters;
+import RainbowPrivateKeyParameters;
+import RainbowPublicKeyParameters;
 import org.bouncycastle.pqc.jcajce.spec.RainbowParameterSpec;
 
 public class RainbowKeyPairGeneratorSpi

@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 
 import cms.AttributeTable;
-import cms.ContentInfo;
+ 
 import cms.EncryptedContentInfo;
 import cms.EnvelopedData;
 import com.github.zhenwei.core.asn1.ASN1Encodable;

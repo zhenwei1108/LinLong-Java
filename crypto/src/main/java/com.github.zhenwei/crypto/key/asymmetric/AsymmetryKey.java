@@ -19,9 +19,9 @@ public class AsymmetryKey {
    * @return java.security.KeyPair
    * @description
    * 生成非对称密钥对  当前仅支持部分算法
-   * RSA 算法见 {@link org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyPairGeneratorSpi}
-   * SM2 算法见 {@link org.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi}
-   * ED25519 算法见 {@link org.bouncycastle.jcajce.provider.asymmetric.edec.KeyPairGeneratorSpi}
+   * RSA 算法见 {@link rsa.KeyPairGeneratorSpi}
+   * SM2 算法见 {@link ec.KeyPairGeneratorSpi}
+   * ED25519 算法见 {@link edec.KeyPairGeneratorSpi}
    *
    * @date 2021/6/5 23:04
    */

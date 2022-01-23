@@ -21,7 +21,7 @@ import java.security.spec.ECGenParameterSpec;
   
  
  
-import org.bouncycastle.jcajce.spec.GOST3410ParameterSpec;
+import  spec.GOST3410ParameterSpec;
 import ECNamedCurveGenParameterSpec;
  
 import ECParameterSpec;

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 
-import cms.ContentInfo;
+ 
 import cms.DigestedData;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;

@@ -23,7 +23,7 @@ import java.security.spec.PSSParameterSpec;
 import org.bouncycastle.crypto.engines.RSABlindedEngine;
  
  
-import org.bouncycastle.jcajce.provider.util.DigestFactory;
+import  provider.util.DigestFactory;
 
 ;
 
@@ -337,7 +337,7 @@ public class PSSSignatureSpi
     }
 
     static public class nonePSS
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public nonePSS()
         {
@@ -346,7 +346,7 @@ public class PSSSignatureSpi
     }
 
     static public class PSSwithRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public PSSwithRSA()
         {
@@ -355,7 +355,7 @@ public class PSSSignatureSpi
     }
     
     static public class SHA1withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA1withRSA()
         {
@@ -364,7 +364,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA1withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA1withRSAandSHAKE128()
         {
@@ -373,7 +373,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA1withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA1withRSAandSHAKE256()
         {
@@ -382,7 +382,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA224withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA224withRSA()
         {
@@ -391,7 +391,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA224withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA224withRSAandSHAKE128()
         {
@@ -400,7 +400,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA224withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA224withRSAandSHAKE256()
         {
@@ -409,7 +409,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA256withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA256withRSA()
         {
@@ -418,7 +418,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA256withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA256withRSAandSHAKE128()
         {
@@ -427,7 +427,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA256withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA256withRSAandSHAKE256()
         {
@@ -436,7 +436,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA384withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA384withRSA()
         {
@@ -445,7 +445,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA384withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA384withRSAandSHAKE128()
         {
@@ -454,7 +454,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA384withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA384withRSAandSHAKE256()
         {
@@ -463,7 +463,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512withRSA()
         {
@@ -472,7 +472,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512withRSAandSHAKE128()
         {
@@ -481,7 +481,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512withRSAandSHAKE256()
         {
@@ -490,7 +490,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512_224withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512_224withRSA()
         {
@@ -499,7 +499,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512_224withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512_224withRSAandSHAKE128()
         {
@@ -508,7 +508,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512_224withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512_224withRSAandSHAKE256()
         {
@@ -517,7 +517,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512_256withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512_256withRSA()
         {
@@ -526,7 +526,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512_256withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512_256withRSAandSHAKE128()
         {
@@ -535,7 +535,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA512_256withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA512_256withRSAandSHAKE256()
         {
@@ -544,7 +544,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_224withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_224withRSA()
         {
@@ -553,7 +553,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_224withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_224withRSAandSHAKE128()
         {
@@ -562,7 +562,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_224withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_224withRSAandSHAKE256()
         {
@@ -571,7 +571,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_256withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_256withRSA()
         {
@@ -580,7 +580,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_256withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_256withRSAandSHAKE128()
         {
@@ -589,7 +589,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_256withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_256withRSAandSHAKE256()
         {
@@ -598,7 +598,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_384withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_384withRSA()
         {
@@ -607,7 +607,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_384withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_384withRSAandSHAKE128()
         {
@@ -616,7 +616,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_384withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_384withRSAandSHAKE256()
         {
@@ -625,7 +625,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_512withRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_512withRSA()
         {
@@ -634,7 +634,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_512withRSAandSHAKE128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_512withRSAandSHAKE128()
         {
@@ -643,7 +643,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHA3_512withRSAandSHAKE256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHA3_512withRSAandSHAKE256()
         {
@@ -652,7 +652,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHAKE128WithRSAPSS
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHAKE128WithRSAPSS()
         {
@@ -661,7 +661,7 @@ public class PSSSignatureSpi
     }
 
     static public class SHAKE256WithRSAPSS
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.PSSSignatureSpi
+        extends rsa.PSSSignatureSpi
     {
         public SHAKE256WithRSAPSS()
         {

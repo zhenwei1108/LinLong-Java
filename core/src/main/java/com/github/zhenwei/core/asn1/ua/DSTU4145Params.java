@@ -62,24 +62,24 @@ public class DSTU4145Params
     return namedCurve;
   }
 
-  public static ua.DSTU4145Params getInstance(Object obj) {
-    if (obj instanceof ua.DSTU4145Params) {
-      return (ua.DSTU4145Params) obj;
+  public static DSTU4145Params getInstance(Object obj) {
+    if (obj instanceof DSTU4145Params) {
+      return  (DSTU4145Params) obj;
     }
 
     if (obj != null) {
       ASN1Sequence seq = ASN1Sequence.getInstance(obj);
-      ua.DSTU4145Params params;
+      DSTU4145Params params;
 
       if (seq.getObjectAt(0) instanceof ASN1ObjectIdentifier) {
-        params = new ua.DSTU4145Params(ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0)));
+        params = new DSTU4145Params(ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0)));
       } else {
-        params = new ua.DSTU4145Params(DSTU4145ECBinary.getInstance(seq.getObjectAt(0)));
+        params = new DSTU4145Params(DSTU4145ECBinary.getInstance(seq.getObjectAt(0)));
       }
 
       if (seq.size() == 2) {
         params.dke = ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets();
-        if (params.dke.length != ua.DSTU4145Params.DEFAULT_DKE.length) {
+        if (params.dke.length != DSTU4145Params.DEFAULT_DKE.length) {
           throw new IllegalArgumentException("object parse error");
         }
       }

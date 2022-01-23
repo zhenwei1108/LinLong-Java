@@ -10,16 +10,16 @@ import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
 import  CMSObjectIdentifiers;
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyFactorySpi;
+import rsa.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
  
 
 
 
 public class RSA
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".rsa.";
+    private static final String PREFIX = " provider.asymmetric" + ".rsa.";
 
     private static final Map<String, String> generalRsaAttributes = new HashMap<String, String>();
 

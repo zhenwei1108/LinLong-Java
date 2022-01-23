@@ -4,13 +4,13 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
+import edec.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 public class EdEC
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".edec.";
+    private static final String PREFIX = " provider.asymmetric" + ".edec.";
 
     private static final Map<String, String> edxAttributes = new HashMap<String, String>();
 

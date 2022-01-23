@@ -14,7 +14,7 @@ import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
+import util.BaseKeyFactorySpi;
  
 import ECParameterSpec;
 import ECPrivateKeySpec;

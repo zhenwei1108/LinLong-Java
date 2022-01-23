@@ -17,7 +17,7 @@ import org.bouncycastle.crypto.signers.ECNRSigner;
 import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
 import org.bouncycastle.crypto.signers.PlainDSAEncoding;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;
-import org.bouncycastle.jcajce.provider.asymmetric.util.DSABase;
+import util.DSABase;
  
 
 public class SignatureSpi
@@ -61,7 +61,7 @@ public class SignatureSpi
     }
     
     static public class ecDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSA()
         {
@@ -70,7 +70,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSA()
         {
@@ -79,7 +79,7 @@ public class SignatureSpi
     }
 
     static public class ecDSAnone
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSAnone()
         {
@@ -88,7 +88,7 @@ public class SignatureSpi
     }
 
     static public class ecDSA224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSA224()
         {
@@ -97,7 +97,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSA224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSA224()
         {
@@ -106,7 +106,7 @@ public class SignatureSpi
     }
 
     static public class ecDSA256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSA256()
         {
@@ -115,7 +115,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSA256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSA256()
         {
@@ -124,7 +124,7 @@ public class SignatureSpi
     }
 
     static public class ecDSA384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSA384()
         {
@@ -133,7 +133,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSA384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSA384()
         {
@@ -142,7 +142,7 @@ public class SignatureSpi
     }
 
     static public class ecDSA512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSA512()
         {
@@ -151,7 +151,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSA512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSA512()
         {
@@ -160,7 +160,7 @@ public class SignatureSpi
     }
 
     static public class ecDSASha3_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSASha3_224()
         {
@@ -169,7 +169,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSASha3_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSASha3_224()
         {
@@ -178,7 +178,7 @@ public class SignatureSpi
     }
 
     static public class ecDSASha3_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSASha3_256()
         {
@@ -187,7 +187,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSASha3_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSASha3_256()
         {
@@ -196,7 +196,7 @@ public class SignatureSpi
     }
 
     static public class ecDSASha3_384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSASha3_384()
         {
@@ -205,7 +205,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSASha3_384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSASha3_384()
         {
@@ -214,7 +214,7 @@ public class SignatureSpi
     }
 
     static public class ecDSASha3_512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSASha3_512()
         {
@@ -223,7 +223,7 @@ public class SignatureSpi
     }
 
     static public class ecDetDSASha3_512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDetDSASha3_512()
         {
@@ -232,7 +232,7 @@ public class SignatureSpi
     }
 
     static public class ecDSARipeMD160
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSARipeMD160()
         {
@@ -241,7 +241,7 @@ public class SignatureSpi
     }
 
     static public class ecDSAShake128
-         extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+         extends ec.SignatureSpi
     {
         public ecDSAShake128()
         {
@@ -251,7 +251,7 @@ public class SignatureSpi
     }
 
     static public class ecDSAShake256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecDSAShake256()
         {
@@ -261,7 +261,7 @@ public class SignatureSpi
     }
 
     static public class ecNR
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecNR()
         {
@@ -270,7 +270,7 @@ public class SignatureSpi
     }
 
     static public class ecNR224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecNR224()
         {
@@ -279,7 +279,7 @@ public class SignatureSpi
     }
 
     static public class ecNR256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecNR256()
         {
@@ -288,7 +288,7 @@ public class SignatureSpi
     }
 
     static public class ecNR384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecNR384()
         {
@@ -297,7 +297,7 @@ public class SignatureSpi
     }
 
     static public class ecNR512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecNR512()
         {
@@ -306,7 +306,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA()
         {
@@ -315,7 +315,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA224()
         {
@@ -324,7 +324,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA256()
         {
@@ -333,7 +333,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA384()
         {
@@ -342,7 +342,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA512()
         {
@@ -351,7 +351,7 @@ public class SignatureSpi
     }
 
     static public class ecPlainDSARP160
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecPlainDSARP160()
         {
@@ -360,7 +360,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA3_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA3_224()
         {
@@ -369,7 +369,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA3_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA3_256()
         {
@@ -378,7 +378,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA3_384
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA3_384()
         {
@@ -387,7 +387,7 @@ public class SignatureSpi
     }
 
     static public class ecCVCDSA3_512
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi
+        extends ec.SignatureSpi
     {
         public ecCVCDSA3_512()
         {

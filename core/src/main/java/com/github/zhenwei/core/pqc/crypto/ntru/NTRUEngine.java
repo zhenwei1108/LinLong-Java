@@ -7,15 +7,15 @@ import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Polynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.ProductFormPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.TernaryPolynomial;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.SparseTernaryPolynomial;
-import org.bouncycastle.pqc.math.ntru.polynomial.TernaryPolynomial;
-
+ 
 
 /**
  * Encrypts, decrypts data and generates key pairs.<br> The parameter p is hardcoded to 3.

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
 
-import cms.ContentInfo;
+ 
 import cms.Evidence;
 import cms.TimeStampAndCRL;
 import cms.TimeStampTokenEvidence;

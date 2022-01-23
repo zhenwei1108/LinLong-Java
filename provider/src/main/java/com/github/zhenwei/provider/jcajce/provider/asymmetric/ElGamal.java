@@ -2,14 +2,14 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 
 
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
-import org.bouncycastle.jcajce.provider.asymmetric.elgamal.KeyFactorySpi;
+import elgamal.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
  
 
 public class ElGamal
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".elgamal.";
+    private static final String PREFIX = " provider.asymmetric" + ".elgamal.";
 
     public static class Mappings
         extends AsymmetricAlgorithmProvider

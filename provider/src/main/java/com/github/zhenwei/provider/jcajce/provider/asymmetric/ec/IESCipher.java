@@ -45,10 +45,10 @@ import IESWithCipherParameters;
  
 import org.bouncycastle.crypto.parsers.ECIESPublicKeyParser;
  
-import org.bouncycastle.jcajce.provider.asymmetric.util.IESUtil;
-import org.bouncycastle.jcajce.provider.util.BadBlockException;
-import org.bouncycastle.jce.interfaces.ECKey;
-import org.bouncycastle.jce.interfaces.IESKey;
+import util.IESUtil;
+import  provider.util.BadBlockException;
+import  ECKey;
+import  IESKey;
 import IESParameterSpec;
 
 ;
@@ -507,7 +507,7 @@ public class IESCipher
      */
 
     static public class ECIES
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher
+        extends ec.IESCipher
     {
         public ECIES()
         {
@@ -550,7 +550,7 @@ public class IESCipher
     }
 
     static public class ECIESwithCipher
-        extends org.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher
+        extends ec.IESCipher
     {
         public ECIESwithCipher(BlockCipher cipher, int ivLength)
         {

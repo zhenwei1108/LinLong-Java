@@ -96,7 +96,7 @@ public class Tiger
     public static class Mappings
         extends DigestAlgorithmProvider
     {
-        private static final String PREFIX = org.bouncycastle.jcajce.provider.digest.Tiger.class.getName();
+        private static final String PREFIX =  provider.digest.Tiger.class.getName();
 
         public Mappings()
         {

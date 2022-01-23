@@ -5,7 +5,7 @@ package com.github.zhenwei.pkix.tsp;
 import cmp.PKIFailureInfo;
 import cmp.PKIFreeText;
 import cmp.PKIStatus;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;

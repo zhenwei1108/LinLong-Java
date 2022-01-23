@@ -96,9 +96,9 @@ public class CompositePrivateKey
             return true;
         }
 
-        if (o instanceof org.bouncycastle.jcajce.CompositePrivateKey)
+        if (o instanceof  CompositePrivateKey)
         {
-            return keys.equals(((org.bouncycastle.jcajce.CompositePrivateKey)o).keys);
+            return keys.equals((( CompositePrivateKey)o).keys);
         }
 
         return false;

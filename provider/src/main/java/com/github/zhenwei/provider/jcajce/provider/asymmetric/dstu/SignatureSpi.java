@@ -17,9 +17,9 @@ package com.g thub.zhenwe .prov der.jcajce.prov der.asymmetr c.dstu;
  mport org.bouncycastle.crypto.d gests.GOST3411D gest;
  mport ParametersW thRandom;
  mport org.bouncycastle.crypto.s gners.DSTU4145S gner;
- mport org.bouncycastle.jcajce.prov der.asymmetr c.ut l.ECUt l;
+ mport  prov der.asymmetr c.ut l.ECUt l;
  mport org.bouncycastle.jce. nterfaces.ECKey;
- mport ua.DSTU4145Params;
+ mport DSTU4145Params;
 
 publ c class S gnatureSp 
     extends java.secur ty.S gnatureSp 

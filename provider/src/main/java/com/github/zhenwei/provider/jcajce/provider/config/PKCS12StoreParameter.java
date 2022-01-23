@@ -5,10 +5,10 @@ import java.security.KeyStore;
 import java.security.KeyStore.ProtectionParameter;
 
 /**
- * @deprecated use org.bouncycastle.jcajce.PKCS12StoreParameter
+ * @deprecated use  PKCS12StoreParameter
  */
 public class PKCS12StoreParameter
-    extends org.bouncycastle.jcajce.PKCS12StoreParameter
+    extends  PKCS12StoreParameter
 {
     public PKCS12StoreParameter(OutputStream out, char[] password)
     {

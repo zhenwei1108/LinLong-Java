@@ -20,7 +20,7 @@ import DSTU4145Parameters;
   
  
  
-import org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec;
+import  spec.DSTU4145ParameterSpec;
 import ECNamedCurveGenParameterSpec;
  
 import ECParameterSpec;

@@ -15,18 +15,18 @@ public class Composer {
 
   }
 
-  public static org.bouncycastle.pqc.crypto.lms.Composer compose() {
-    return new org.bouncycastle.pqc.crypto.lms.Composer();
+  public static Composer compose() {
+    return new Composer();
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer u64str(long n) {
+  public Composer u64str(long n) {
     u32str((int) (n >>> 32));
     u32str((int) n);
 
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer u32str(int n) {
+  public Composer u32str(int n) {
     bos.write((byte) (n >>> 24));
     bos.write((byte) (n >>> 16));
     bos.write((byte) (n >>> 8));
@@ -34,14 +34,14 @@ public class Composer {
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer u16str(int n) {
+  public Composer u16str(int n) {
     n &= 0xFFFF;
     bos.write((byte) (n >>> 8));
     bos.write((byte) (n));
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bytes(Encodable[] encodable) {
+  public Composer bytes(Encodable[] encodable) {
     try {
       for (Encodable e : encodable) {
         bos.write(e.getEncoded());
@@ -54,7 +54,7 @@ public class Composer {
   }
 
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bytes(Encodable encodable) {
+  public Composer bytes(Encodable encodable) {
     try {
       bos.write(encodable.getEncoded());
     } catch (Exception ex) {
@@ -64,7 +64,7 @@ public class Composer {
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer pad(int v, int len) {
+  public Composer pad(int v, int len) {
     for (; len >= 0; len--) {
       try {
 
@@ -78,7 +78,7 @@ public class Composer {
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bytes(byte[][] arrays) {
+  public Composer bytes(byte[][] arrays) {
     try {
       for (byte[] array : arrays) {
         bos.write(array);
@@ -90,7 +90,7 @@ public class Composer {
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bytes(byte[][] arrays, int start, int end) {
+  public Composer bytes(byte[][] arrays, int start, int end) {
     try {
       int j = start;
       while (j != end) {
@@ -105,7 +105,7 @@ public class Composer {
   }
 
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bytes(byte[] array) {
+  public Composer bytes(byte[] array) {
     try {
       bos.write(array);
     } catch (Exception ex) {
@@ -116,7 +116,7 @@ public class Composer {
   }
 
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bytes(byte[] array, int start, int len) {
+  public Composer bytes(byte[] array, int start, int len) {
     try {
       bos.write(array, start, len);
     } catch (Exception ex) {
@@ -130,7 +130,7 @@ public class Composer {
     return bos.toByteArray();
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer padUntil(int v, int requiredLen) {
+  public Composer padUntil(int v, int requiredLen) {
     while (bos.size() < requiredLen) {
       bos.write(v);
     }
@@ -138,7 +138,7 @@ public class Composer {
     return this;
   }
 
-  public org.bouncycastle.pqc.crypto.lms.Composer bool(boolean v) {
+  public Composer bool(boolean v) {
     bos.write(v ? 1 : 0);
     return this;
   }

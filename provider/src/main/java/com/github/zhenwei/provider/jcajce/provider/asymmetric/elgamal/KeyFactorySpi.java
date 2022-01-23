@@ -18,9 +18,9 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
 import javax.crypto.spec.DHPrivateKeySpec;
 import javax.crypto.spec.DHPublicKeySpec;
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
-import org.bouncycastle.jce.interfaces.ElGamalPrivateKey;
-import org.bouncycastle.jce.interfaces.ElGamalPublicKey;
+import util.BaseKeyFactorySpi;
+import  ElGamalPrivateKey;
+import  ElGamalPublicKey;
 import ElGamalPrivateKeySpec;
 import ElGamalPublicKeySpec;
 

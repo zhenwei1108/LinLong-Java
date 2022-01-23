@@ -1,9 +1,6 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
-import KeyUsage;
-import TBSCertificate;
-
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1IA5String;
@@ -17,17 +14,28 @@ import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
+import com.github.zhenwei.core.asn1.misc.NetscapeCertType;
+import com.github.zhenwei.core.asn1.misc.NetscapeRevocationURL;
+import com.github.zhenwei.core.asn1.misc.VerisignCzagExtension;
 import com.github.zhenwei.core.asn1.util.ASN1Dump;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x500.style.RFC4519Style;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.asn1.x509.Extension;
+import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.KeyUsage;
+import com.github.zhenwei.core.asn1.x509.TBSCertificate;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Properties;
 import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.provider.jcajce.interfaces.BCX509Certificate;
 import com.github.zhenwei.provider.jcajce.io.OutputStreamFactory;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jce.X509Principal;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
@@ -58,13 +66,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-import  NetscapeCertType;
-import  NetscapeRevocationURL;
-import  VerisignCzagExtension;
-import org.bouncycastle.jcajce.CompositePublicKey;
-import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
-import org.bouncycastle.jce.X509Principal;
-import style.RFC4519Style;
+
+ 
 
 
 abstract class X509CertificateImpl
@@ -413,7 +416,7 @@ abstract class X509CertificateImpl
     {
         if (this.getVersion() == 3)
         {
-            Extensions  extensions = c.getTBSCertificate().getExtensions();
+            Extensions extensions = c.getTBSCertificate().getExtensions();
 
             if (extensions != null)
             {

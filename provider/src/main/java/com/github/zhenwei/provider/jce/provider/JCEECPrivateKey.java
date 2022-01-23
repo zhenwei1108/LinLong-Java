@@ -37,14 +37,14 @@ import java.util.Enumeration;
  
  
  
-import sec.ECPrivateKeyStructure;
+import  ECPrivateKeyStructure;
  
 
 
 
 
 public class JCEECPrivateKey
-    implements ECPrivateKey, org.bouncycastle.jce.interfaces.ECPrivateKey,
+    implements ECPrivateKey,  ECPrivateKey,
     PKCS12BagAttributeCarrier, ECPointEncoder
 {
     private String          algorithm = "EC";

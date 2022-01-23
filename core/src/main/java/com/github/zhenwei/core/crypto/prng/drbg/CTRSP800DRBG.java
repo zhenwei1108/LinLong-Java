@@ -4,7 +4,7 @@ import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.encoders.Hex;
-import org.bouncycastle.crypto.prng.EntropySource;
+ 
 
 
 /**

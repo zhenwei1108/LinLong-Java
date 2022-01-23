@@ -1,5 +1,9 @@
 package com.github.zhenwei.core.i18n;
 
+import com.github.zhenwei.core.i18n.filter.Filter;
+import com.github.zhenwei.core.i18n.filter.TrustedInput;
+import com.github.zhenwei.core.i18n.filter.UntrustedInput;
+import com.github.zhenwei.core.i18n.filter.UntrustedUrlInput;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
@@ -9,10 +13,8 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
-import org.bouncycastle.i18n.filter.Filter;
-import org.bouncycastle.i18n.filter.TrustedInput;
-import org.bouncycastle.i18n.filter.UntrustedInput;
-import org.bouncycastle.i18n.filter.UntrustedUrlInput;
+
+ 
 
 public class LocalizedMessage {
 

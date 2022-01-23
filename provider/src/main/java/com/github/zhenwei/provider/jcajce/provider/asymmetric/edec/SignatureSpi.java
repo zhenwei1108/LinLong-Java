@@ -162,7 +162,7 @@ public class SignatureSpi
     }
 
     public final static class EdDSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.SignatureSpi
+        extends edec.SignatureSpi
     {
         public EdDSA()
         {
@@ -171,7 +171,7 @@ public class SignatureSpi
     }
 
     public final static class Ed448
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.SignatureSpi
+        extends edec.SignatureSpi
     {
         public Ed448()
         {
@@ -180,7 +180,7 @@ public class SignatureSpi
     }
 
     public final static class Ed25519
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.SignatureSpi
+        extends edec.SignatureSpi
     {
         public Ed25519()
         {

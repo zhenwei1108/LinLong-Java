@@ -44,7 +44,7 @@ import java.security.spec.EllipticCurve;
 
 
 public class BCECGOST3410PublicKey
-    implements ECPublicKey, org.bouncycastle.jce.interfaces.ECPublicKey, ECPointEncoder
+    implements ECPublicKey,  ECPublicKey, ECPointEncoder
 {
     static final long serialVersionUID = 7026240464295649314L;
 
@@ -56,7 +56,7 @@ public class BCECGOST3410PublicKey
     private transient ASN1Encodable gostParams;
 
     public BCECGOST3410PublicKey(
-        org.bouncycastle.jcajce.provider.asymmetric.ecgost.BCECGOST3410PublicKey key)
+        ecgost.BCECGOST3410PublicKey key)
     {
         this.ecPublicKey = key.ecPublicKey;
         this.ecSpec = key.ecSpec;
@@ -370,12 +370,12 @@ public class BCECGOST3410PublicKey
 
     public boolean equals(Object o)
     {
-        if (!(o instanceof org.bouncycastle.jcajce.provider.asymmetric.ecgost.BCECGOST3410PublicKey))
+        if (!(o instanceof ecgost.BCECGOST3410PublicKey))
         {
             return false;
         }
 
-        org.bouncycastle.jcajce.provider.asymmetric.ecgost.BCECGOST3410PublicKey other = (org.bouncycastle.jcajce.provider.asymmetric.ecgost.BCECGOST3410PublicKey)o;
+        ecgost.BCECGOST3410PublicKey other = ( provider.asymmetric.ecgost.BCECGOST3410PublicKey)o;
 
         return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(other.engineGetSpec()));
     }

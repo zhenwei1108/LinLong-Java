@@ -7,10 +7,10 @@ import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.PublicKey;
 import  RainbowPublicKey;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowParameters;
-import org.bouncycastle.pqc.crypto.rainbow.RainbowPublicKeyParameters;
+import RainbowParameters;
+import RainbowPublicKeyParameters;
   
-import org.bouncycastle.pqc.jcajce.provider.util.KeyUtil;
+ 
 import org.bouncycastle.pqc.jcajce.spec.RainbowPublicKeySpec;
 
 

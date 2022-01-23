@@ -91,7 +91,7 @@ public class KeyPairGeneratorSpi
     }
 
     public static class PSS
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.KeyPairGeneratorSpi
+        extends rsa.KeyPairGeneratorSpi
     {
         public PSS()
         {

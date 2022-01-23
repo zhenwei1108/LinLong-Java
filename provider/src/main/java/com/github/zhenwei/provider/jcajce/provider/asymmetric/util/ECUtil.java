@@ -29,8 +29,8 @@ import java.util.Enumeration;
 import java.util.Map;
  
  
-import org.bouncycastle.jce.interfaces.ECPrivateKey;
-import org.bouncycastle.jce.interfaces.ECPublicKey;
+import  ECPrivateKey;
+import  ECPublicKey;
  
 import ECParameterSpec;
 import  Fingerprint;
@@ -125,7 +125,7 @@ public class ECUtil
         if (params instanceof ECNamedCurveParameterSpec)
         {
             ECNamedCurveParameterSpec nParams = (ECNamedCurveParameterSpec)params;
-            ASN1ObjectIdentifier nameOid = org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil.getNamedCurveOid(nParams.getName());
+            ASN1ObjectIdentifier nameOid = util.ECUtil.getNamedCurveOid(nParams.getName());
 
             domainParameters = new ECNamedDomainParameters(nameOid, nParams.getCurve(), nParams.getG(), nParams.getN(), nParams.getH(), nParams.getSeed());
         }
@@ -152,7 +152,7 @@ public class ECUtil
         if (params.isNamedCurve())
         {
             ASN1ObjectIdentifier oid = ASN1ObjectIdentifier.getInstance(params.getParameters());
-            X9ECParameters ecP = org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil.getNamedCurveByOid(oid);
+            X9ECParameters ecP = util.ECUtil.getNamedCurveByOid(oid);
             if (ecP == null)
             {
                 Map extraCurves = configuration.getAdditionalECParameters();
@@ -214,7 +214,7 @@ public class ECUtil
 
                 if (publicKey instanceof java.security.interfaces.ECPublicKey)
                 {
-                    return org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil.generatePublicKeyParameter(publicKey);
+                    return util.ECUtil.generatePublicKeyParameter(publicKey);
                 }
             }
             catch (Exception e)
@@ -279,7 +279,7 @@ public class ECUtil
 
                 if (privateKey instanceof java.security.interfaces.ECPrivateKey)
                 {
-                    return org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil.generatePrivateKeyParameter(privateKey);
+                    return util.ECUtil.generatePrivateKeyParameter(privateKey);
                 }
             }
             catch (Exception e)
@@ -395,7 +395,7 @@ public class ECUtil
 
         buf.append(algorithm);
         buf.append(" Private Key [").append(
-            org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil.generateKeyFingerprint(q, spec)).append("]").append(nl);
+            util.ECUtil.generateKeyFingerprint(q, spec)).append("]").append(nl);
         buf.append("            X: ").append(q.getAffineXCoord().toBigInteger().toString(16)).append(nl);
         buf.append("            Y: ").append(q.getAffineYCoord().toBigInteger().toString(16)).append(nl);
 
@@ -409,7 +409,7 @@ public class ECUtil
 
         buf.append(algorithm);
         buf.append(" Public Key [").append(
-            org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil.generateKeyFingerprint(q, spec)).append("]").append(nl);
+            util.ECUtil.generateKeyFingerprint(q, spec)).append("]").append(nl);
         buf.append("            X: ").append(q.getAffineXCoord().toBigInteger().toString(16)).append(nl);
         buf.append("            Y: ").append(q.getAffineYCoord().toBigInteger().toString(16)).append(nl);
 

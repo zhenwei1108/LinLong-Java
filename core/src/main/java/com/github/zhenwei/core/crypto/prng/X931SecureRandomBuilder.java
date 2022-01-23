@@ -4,6 +4,7 @@ import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Pack;
 import java.security.SecureRandom;
 
 
@@ -57,7 +58,7 @@ public class X931SecureRandomBuilder {
     this.entropySourceProvider = entropySourceProvider;
   }
 
-  public org.bouncycastle.crypto.prng.X931SecureRandomBuilder setDateTimeVector(
+  public X931SecureRandomBuilder setDateTimeVector(
       byte[] dateTimeVector) {
     this.dateTimeVector = Arrays.clone(dateTimeVector);
 

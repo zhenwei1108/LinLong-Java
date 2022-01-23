@@ -18,9 +18,9 @@ import org.bouncycastle.crypto.agreement.XDHUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
  
  
-import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
-import org.bouncycastle.jcajce.spec.DHUParameterSpec;
-import org.bouncycastle.jcajce.spec.UserKeyingMaterialSpec;
+import util.BaseAgreementSpi;
+import  spec.DHUParameterSpec;
+import  spec.UserKeyingMaterialSpec;
 
 ;
 
@@ -218,7 +218,7 @@ public class KeyAgreementSpi
     }
 
     public final static class XDH
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public XDH()
         {
@@ -227,7 +227,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X448
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448()
         {
@@ -236,7 +236,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X25519
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519()
         {
@@ -245,7 +245,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X25519withSHA256CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519withSHA256CKDF()
         {
@@ -254,7 +254,7 @@ public class KeyAgreementSpi
     }
 
     public static class X25519withSHA384CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519withSHA384CKDF()
         {
@@ -263,7 +263,7 @@ public class KeyAgreementSpi
     }
 
     public static class X25519withSHA512CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519withSHA512CKDF()
         {
@@ -272,7 +272,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X448withSHA256CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448withSHA256CKDF()
         {
@@ -281,7 +281,7 @@ public class KeyAgreementSpi
     }
 
     public static class X448withSHA384CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448withSHA384CKDF()
         {
@@ -290,7 +290,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X448withSHA512CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448withSHA512CKDF()
         {
@@ -299,7 +299,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X25519withSHA256KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519withSHA256KDF()
         {
@@ -308,7 +308,7 @@ public class KeyAgreementSpi
     }
 
     public final static class X448withSHA512KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448withSHA512KDF()
         {
@@ -317,7 +317,7 @@ public class KeyAgreementSpi
     }
 
     public static class X25519UwithSHA256CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519UwithSHA256CKDF()
         {
@@ -326,7 +326,7 @@ public class KeyAgreementSpi
     }
 
     public static class X448UwithSHA512CKDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448UwithSHA512CKDF()
         {
@@ -335,7 +335,7 @@ public class KeyAgreementSpi
     }
 
     public static class X25519UwithSHA256KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X25519UwithSHA256KDF()
         {
@@ -344,7 +344,7 @@ public class KeyAgreementSpi
     }
 
     public static class X448UwithSHA512KDF
-        extends org.bouncycastle.jcajce.provider.asymmetric.edec.KeyAgreementSpi
+        extends edec.KeyAgreementSpi
     {
         public X448UwithSHA512KDF()
         {

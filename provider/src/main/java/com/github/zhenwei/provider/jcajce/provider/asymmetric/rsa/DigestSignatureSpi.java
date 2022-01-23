@@ -247,7 +247,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA1
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA1()
         {
@@ -256,7 +256,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA224
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA224()
         {
@@ -265,7 +265,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA256()
         {
@@ -274,7 +274,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA384
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA384()
         {
@@ -283,7 +283,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA512
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA512()
         {
@@ -292,7 +292,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA512_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA512_224()
         {
@@ -301,7 +301,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA512_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA512_256()
         {
@@ -310,7 +310,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA3_224
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA3_224()
         {
@@ -319,7 +319,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA3_256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA3_256()
         {
@@ -328,7 +328,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA3_384
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA3_384()
         {
@@ -337,7 +337,7 @@ public class DigestSignatureSpi
     }
 
     static public class SHA3_512
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public SHA3_512()
         {
@@ -346,7 +346,7 @@ public class DigestSignatureSpi
     }
 
     static public class MD2
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public MD2()
         {
@@ -355,7 +355,7 @@ public class DigestSignatureSpi
     }
 
     static public class MD4
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public MD4()
         {
@@ -364,7 +364,7 @@ public class DigestSignatureSpi
     }
 
     static public class MD5
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public MD5()
         {
@@ -373,7 +373,7 @@ public class DigestSignatureSpi
     }
 
     static public class RIPEMD160
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public RIPEMD160()
         {
@@ -382,7 +382,7 @@ public class DigestSignatureSpi
     }
 
     static public class RIPEMD128
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public RIPEMD128()
         {
@@ -391,7 +391,7 @@ public class DigestSignatureSpi
     }
 
     static public class RIPEMD256
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public RIPEMD256()
         {
@@ -400,7 +400,7 @@ public class DigestSignatureSpi
     }
 
     static public class noneRSA
-        extends org.bouncycastle.jcajce.provider.asymmetric.rsa.DigestSignatureSpi
+        extends rsa.DigestSignatureSpi
     {
         public noneRSA()
         {

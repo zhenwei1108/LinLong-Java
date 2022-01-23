@@ -5,7 +5,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.PBEParametersGenerator;
+ 
 
 
 /**

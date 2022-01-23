@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.util.asn1.tsp;
 
 
 import cmp.PKIStatusInfo;
-import cms.ContentInfo;
+ 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

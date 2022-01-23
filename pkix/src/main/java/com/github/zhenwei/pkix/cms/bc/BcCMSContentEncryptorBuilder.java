@@ -13,7 +13,7 @@ import java.security.SecureRandom;
  
  
  
-import org.bouncycastle.crypto.util.CipherFactory;
+import CipherFactory;
 import org.bouncycastle.operator.DefaultSecretKeySizeProvider;
 import org.bouncycastle.operator.MacCaptureStream;
 import org.bouncycastle.operator.OutputAEADEncryptor;

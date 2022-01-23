@@ -13,7 +13,7 @@ import org.sdk.crypto.init.InitProvider;
  * 对称密钥加载方式见:
  * {@link BouncyCastleProvider#setup()}
  * 各种实现方式在如下包下
- * {@link org.bouncycastle.jcajce.provider.symmetric}
+ * {@link  provider.symmetric}
  * @date: 2021/6/1 23:07
  */
 public class SymmetricKeyBuilder {

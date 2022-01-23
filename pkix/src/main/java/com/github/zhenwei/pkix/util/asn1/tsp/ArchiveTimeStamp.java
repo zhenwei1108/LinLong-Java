@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.util.asn1.tsp;
 
 
 import cms.Attributes;
-import cms.ContentInfo;
+ 
 import cms.SignedData;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;

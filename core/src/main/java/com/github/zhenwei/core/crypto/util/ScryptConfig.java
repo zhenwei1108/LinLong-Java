@@ -46,8 +46,8 @@ public class ScryptConfig
       return this;
     }
 
-    public org.bouncycastle.crypto.util.ScryptConfig build() {
-      return new org.bouncycastle.crypto.util.ScryptConfig(this);
+    public ScryptConfig build() {
+      return new ScryptConfig(this);
     }
 
     // note: we know X is non-zero

@@ -4,15 +4,15 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.jcajce.provider.asymmetric.dh.KeyFactorySpi;
+import dh.KeyFactorySpi;
  
-import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import  provider.util.AsymmetricAlgorithmProvider;
 
 
 
 public class DH
 {
-    private static final String PREFIX = "org.bouncycastle.jcajce.provider.asymmetric" + ".dh.";
+    private static final String PREFIX = " provider.asymmetric" + ".dh.";
 
     private static final Map<String, String> generalDhAttributes = new HashMap<String, String>();
 

@@ -44,7 +44,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.PBEParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.bouncycastle.crypto.PBEParametersGenerator;
+ 
 import  SHA1Digest;
 import PKCS12ParametersGenerator;
 import org.bouncycastle.crypto.io.DigestInputStream;
@@ -52,8 +52,8 @@ import org.bouncycastle.crypto.io.DigestOutputStream;
 import org.bouncycastle.crypto.io.MacInputStream;
 import org.bouncycastle.crypto.io.MacOutputStream;
  
-import org.bouncycastle.jcajce.io.CipherInputStream;
-import org.bouncycastle.jcajce.io.CipherOutputStream;
+import  io.CipherInputStream;
+import  io.CipherOutputStream;
 
 ;
 
@@ -945,7 +945,7 @@ public class BcKeyStoreSpi
      * Also referred to by the alias UBER.
      */
     public static class BouncyCastleStore
-        extends org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi
+        extends  provider.keystore.bc.BcKeyStoreSpi
     {
         public BouncyCastleStore()
         {
@@ -1056,7 +1056,7 @@ public class BcKeyStoreSpi
     }
 
     public static class Std
-       extends org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi
+       extends  provider.keystore.bc.BcKeyStoreSpi
     {
         public Std()
         {
@@ -1065,7 +1065,7 @@ public class BcKeyStoreSpi
     }
 
     public static class Version1
-        extends org.bouncycastle.jcajce.provider.keystore.bc.BcKeyStoreSpi
+        extends  provider.keystore.bc.BcKeyStoreSpi
     {
         public Version1()
         {

@@ -12,7 +12,7 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
  
  
-import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
+import  interfaces.EdDSAPublicKey;
 
 
 public class BCEdDSAPublicKey
