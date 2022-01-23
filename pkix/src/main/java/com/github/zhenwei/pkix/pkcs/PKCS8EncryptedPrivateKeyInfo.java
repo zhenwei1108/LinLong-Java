@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.pkcs;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.pkcs.EncryptedPrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.util.io.Streams;
 import com.github.zhenwei.pkix.operator.InputDecryptor;
 import com.github.zhenwei.pkix.operator.InputDecryptorProvider;

@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cert.selector;
 
 
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.TargetInformation;
-import com.github.zhenwei.core.asn1.x509.Targets;
+import  Extension;
+import  TargetInformation;
+import  Targets;
 import com.github.zhenwei.pkix.cert.AttributeCertificateHolder;
 import com.github.zhenwei.pkix.cert.AttributeCertificateIssuer;
 import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;

@@ -18,7 +18,7 @@ import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  Extension;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

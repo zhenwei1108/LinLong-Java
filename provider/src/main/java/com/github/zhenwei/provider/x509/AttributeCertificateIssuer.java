@@ -2,11 +2,11 @@ package com.github.zhenwei.provider.x509;
 
 
 import AttCertIssuer;
-import GeneralNames;
+ 
 import V2Form;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+import  GeneralName;
 import java.io.IOException;
 import java.security.Principal;
 import java.security.cert.CertSelector;

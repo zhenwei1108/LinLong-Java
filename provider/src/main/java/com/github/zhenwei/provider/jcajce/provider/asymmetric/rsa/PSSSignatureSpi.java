@@ -20,7 +20,7 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
  
  
-import org.bouncycastle.crypto.engines.RSABlindedEngine;
+ 
  
  
 import  provider.util.DigestFactory;
@@ -46,7 +46,7 @@ public class PSSSignatureSpi
     private RSAKeyParameters key;
     private SecureRandom random;
 
-    private org.bouncycastle.crypto.signers.PSSSigner pss;
+    private PSSSigner pss;
     private boolean isInitState = true;
 
     private byte getTrailer(
@@ -54,7 +54,7 @@ public class PSSSignatureSpi
     {
         if (trailerField == 1)
         {
-            return org.bouncycastle.crypto.signers.PSSSigner.TRAILER_IMPLICIT;
+            return PSSSigner.TRAILER_IMPLICIT;
         }
         
         throw new IllegalArgumentException("unknown trailer field");
@@ -123,7 +123,7 @@ public class PSSSignatureSpi
         }
 
         key = RSAUtil.generatePublicKeyParameter((RSAPublicKey)publicKey);
-        pss = new org.bouncycastle.crypto.signers.PSSSigner(signer, contentDigest, mgfDigest, saltLength, trailer);
+        pss = new PSSSigner(signer, contentDigest, mgfDigest, saltLength, trailer);
         pss.init(false, key);
         isInitState = true;
     }
@@ -147,7 +147,7 @@ public class PSSSignatureSpi
         }
 
         key = RSAUtil.generatePrivateKeyParameter((RSAPrivateKey)privateKey);
-        pss = new org.bouncycastle.crypto.signers.PSSSigner(signer, contentDigest, mgfDigest, saltLength, trailer);
+        pss = new PSSSigner(signer, contentDigest, mgfDigest, saltLength, trailer);
 
         if (random != null)
         {
@@ -277,7 +277,7 @@ public class PSSSignatureSpi
 
             if (key != null)
             {
-                pss = new org.bouncycastle.crypto.signers.PSSSigner(signer, contentDigest, mgfDigest, saltLength, trailer);
+                pss = new PSSSigner(signer, contentDigest, mgfDigest, saltLength, trailer);
                 if (key.isPrivate())
                 {
                     pss.init(true, key);

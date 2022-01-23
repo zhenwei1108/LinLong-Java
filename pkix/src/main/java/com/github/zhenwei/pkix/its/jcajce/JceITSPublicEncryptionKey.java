@@ -5,7 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.sec.SECObjectIdentifiers;
 import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
@@ -27,7 +27,7 @@ import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
 import org.bouncycastle.oer.its.PublicEncryptionKey;
 import org.bouncycastle.oer.its.SymmAlgorithm;
-import teletrust.TeleTrusTNamedCurves;
+ 
 
 
 

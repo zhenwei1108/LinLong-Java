@@ -7,6 +7,7 @@ import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithSBox;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 
 
 /**

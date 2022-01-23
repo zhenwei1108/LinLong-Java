@@ -706,7 +706,7 @@ public final class IntegerFunctions {
 
   /**
    * Short trial-division test to find out whether a number is not prime. This test is usually used
-   * before a Miller-Rabin primality test.
+   * before a Miller-Rabin primality 
    *
    * @param candidate the number to test
    * @return <tt>true</tt> if the number has no factor of the tested primes,

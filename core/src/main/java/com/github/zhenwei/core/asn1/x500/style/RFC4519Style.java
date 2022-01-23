@@ -5,6 +5,8 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.x500.RDN;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x500.X500NameStyle;
 import java.util.Hashtable;
 

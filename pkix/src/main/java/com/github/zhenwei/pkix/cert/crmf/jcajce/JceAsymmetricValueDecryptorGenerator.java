@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;

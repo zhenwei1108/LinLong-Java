@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
 
 import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;

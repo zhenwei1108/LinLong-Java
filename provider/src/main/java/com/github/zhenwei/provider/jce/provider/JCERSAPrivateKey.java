@@ -5,7 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
 import java.io.IOException;

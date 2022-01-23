@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
 
-import com.github.zhenwei.core.asn1.x509.BasicConstraints;
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  BasicConstraints;
+import  Extension;
 import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Memoable;

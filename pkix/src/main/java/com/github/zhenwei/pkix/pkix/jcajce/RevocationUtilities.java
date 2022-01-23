@@ -5,15 +5,15 @@ import CRLDistPoint;
 
 import DistributionPoint;
 import DistributionPointName;
-import GeneralNames;
+ 
 import IssuingDistributionPoint;
 
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+import  Extension;
+import  GeneralName;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.core.util.StoreException;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;

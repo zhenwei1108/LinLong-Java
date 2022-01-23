@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.qualified;
+ package com.github.zhenwei.core.asn1.x509.qualified;
 
 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
@@ -30,13 +30,13 @@ public class SemanticsInformation
   private ASN1ObjectIdentifier semanticsIdentifier;
   private GeneralName[] nameRegistrationAuthorities;
 
-  public static qualified.SemanticsInformation getInstance(Object obj) {
-    if (obj instanceof qualified.SemanticsInformation) {
-      return (qualified.SemanticsInformation) obj;
+  public static SemanticsInformation getInstance(Object obj) {
+    if (obj instanceof SemanticsInformation) {
+      return ( SemanticsInformation) obj;
     }
 
     if (obj != null) {
-      return new qualified.SemanticsInformation(ASN1Sequence.getInstance(obj));
+      return new SemanticsInformation(ASN1Sequence.getInstance(obj));
     }
 
     return null;

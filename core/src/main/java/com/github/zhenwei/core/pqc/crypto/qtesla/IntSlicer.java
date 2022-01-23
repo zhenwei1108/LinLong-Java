@@ -30,8 +30,8 @@ final class IntSlicer {
     return values[base + index] = (int) value;
   }
 
-  final org.bouncycastle.pqc.crypto.qtesla.IntSlicer from(int o) {
-    return new org.bouncycastle.pqc.crypto.qtesla.IntSlicer(values, base + o);
+  final IntSlicer from(int o) {
+    return new IntSlicer(values, base + o);
   }
 
   final void incBase(int paramM) {
@@ -39,8 +39,8 @@ final class IntSlicer {
 
   }
 
-  final org.bouncycastle.pqc.crypto.qtesla.IntSlicer copy() {
-    return new org.bouncycastle.pqc.crypto.qtesla.IntSlicer(values, base);
+  final IntSlicer copy() {
+    return new IntSlicer(values, base);
   }
 
 }

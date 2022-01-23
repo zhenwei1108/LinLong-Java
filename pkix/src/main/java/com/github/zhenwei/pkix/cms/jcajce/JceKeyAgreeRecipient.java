@@ -12,8 +12,8 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.cms.CMSException;

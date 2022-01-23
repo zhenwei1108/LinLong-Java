@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.est;
 
 
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.core.util.encoders.Base64;
 import com.github.zhenwei.core.util.encoders.Hex;

@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.pkix;
 import KeyTransRecipientId;
 import RecipientId;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import  SubjectKeyIdentifier;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 
 

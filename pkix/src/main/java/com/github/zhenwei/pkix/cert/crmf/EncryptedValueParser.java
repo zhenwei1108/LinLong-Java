@@ -2,8 +2,8 @@ package com.github.zhenwei.pkix.cert.crmf;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Certificate;
+ 
+import  Certificate;
 import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.core.util.io.Streams;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

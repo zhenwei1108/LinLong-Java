@@ -4,6 +4,7 @@ import com.github.zhenwei.core.math.raw.Mod;
 import com.github.zhenwei.core.math.raw.Nat;
 import com.github.zhenwei.core.math.raw.Nat128;
 import com.github.zhenwei.core.math.raw.Nat256;
+import com.github.zhenwei.core.util.Pack;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

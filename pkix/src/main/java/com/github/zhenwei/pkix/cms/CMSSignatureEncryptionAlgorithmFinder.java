@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 
 /**
  * Finder which is used to look up the algorithm identifiers representing the encryption algorithms that

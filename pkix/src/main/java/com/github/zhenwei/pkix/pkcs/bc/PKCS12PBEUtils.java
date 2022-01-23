@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.pkcs.bc;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Integers;
@@ -19,7 +19,7 @@ import java.util.Set;
  
  
 import PKCS12ParametersGenerator;
-import org.bouncycastle.crypto.io.MacOutputStream;
+import  io.MacOutputStream;
  
  
  

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.pqc.crypto.MessageSigner;
 import java.io.IOException;
  
 

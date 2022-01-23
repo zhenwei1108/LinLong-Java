@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.util;
 
+import com.github.zhenwei.core.crypto.AlphabetMapper;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.crypto.AlphabetMapper;
+
 
 /**
  * A basic alphabet mapper that just creates a mapper based on the passed in array of characters.

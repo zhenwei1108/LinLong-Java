@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.pkcs.jcajce;
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.Certificate;
+import  Certificate;
 import java.io.IOException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateEncodingException;

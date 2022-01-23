@@ -5,8 +5,8 @@ import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.oiw.ElGamalParameter;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

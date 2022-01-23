@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.pkix.operator.GenericKey;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;

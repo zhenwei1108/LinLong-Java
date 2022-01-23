@@ -5,7 +5,7 @@ import Time;
 import V1TBSCertificateGenerator;
 
 import com.github.zhenwei.core.asn1.ASN1Integer;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.Locale;

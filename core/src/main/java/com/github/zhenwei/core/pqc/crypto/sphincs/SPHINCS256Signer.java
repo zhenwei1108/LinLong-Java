@@ -4,10 +4,9 @@ package com.github.zhenwei.core.pqc.crypto.sphincs;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
- 
-import sun.security.ec.ECDSAOperations.Seed;
+import com.github.zhenwei.core.pqc.crypto.MessageSigner;
+import com.github.zhenwei.core.util.Pack;
 
-;
 
 /**
  * SPHINCS-256 signer.

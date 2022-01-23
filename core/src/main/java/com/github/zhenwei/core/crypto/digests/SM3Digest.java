@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * Implementation of Chinese SM3 digest as described at https://tools.ietf.org/html/draft-shen-sm3-hash-01

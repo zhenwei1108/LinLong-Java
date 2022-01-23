@@ -38,10 +38,10 @@ class GenericPolynomialExtensionField implements PolynomialExtensionField {
     if (this == obj) {
       return true;
     }
-    if (!(obj instanceof org.bouncycastle.math.field.GenericPolynomialExtensionField)) {
+    if (!(obj instanceof  GenericPolynomialExtensionField)) {
       return false;
     }
-    org.bouncycastle.math.field.GenericPolynomialExtensionField other = (org.bouncycastle.math.field.GenericPolynomialExtensionField) obj;
+     GenericPolynomialExtensionField other = ( GenericPolynomialExtensionField) obj;
     return subfield.equals(other.subfield) && minimalPolynomial.equals(other.minimalPolynomial);
   }
 

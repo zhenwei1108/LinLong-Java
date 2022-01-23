@@ -30,11 +30,11 @@ public class ElGamalParameter
     g = (ASN1Integer) e.nextElement();
   }
 
-  public static oiw.ElGamalParameter getInstance(Object o) {
-    if (o instanceof oiw.ElGamalParameter) {
-      return (oiw.ElGamalParameter) o;
+  public static ElGamalParameter getInstance(Object o) {
+    if (o instanceof ElGamalParameter) {
+      return (ElGamalParameter) o;
     } else if (o != null) {
-      return new oiw.ElGamalParameter(ASN1Sequence.getInstance(o));
+      return new ElGamalParameter(ASN1Sequence.getInstance(o));
     }
 
     return null;

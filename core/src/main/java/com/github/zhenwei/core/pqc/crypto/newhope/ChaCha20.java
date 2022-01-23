@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
+import com.github.zhenwei.core.crypto.engines.ChaChaEngine;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.engines.ChaChaEngine;
+
 
 
 class ChaCha20 {

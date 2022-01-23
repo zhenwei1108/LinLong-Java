@@ -5,7 +5,7 @@ import CRLDistPoint;
 
 import DistributionPoint;
 import DistributionPointName;
-import GeneralNames;
+ 
 import GeneralSubtree;
 import IssuingDistributionPoint;
 import NameConstraints;
@@ -21,9 +21,9 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.BasicConstraints;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+import  BasicConstraints;
+import  Extension;
+import  GeneralName;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;

@@ -18,7 +18,7 @@ import java.security.SecureRandom;
  * <p>
  * The recommended way to perform a J-PAKE exchange is by using two {@link JPAKEParticipant}s.
  * Internally, those participants call these primitive operations in {@link
- * org.bouncycastle.crypto.agreement.jpake.JPAKEUtil}.
+ *  agreement.jpake.JPAKEUtil}.
  * <p>
  * The primitives, however, can be used without a {@link JPAKEParticipant} if needed.
  */

@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.dstu;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.io.IOException;
 import java.security.InvalidKeyException;

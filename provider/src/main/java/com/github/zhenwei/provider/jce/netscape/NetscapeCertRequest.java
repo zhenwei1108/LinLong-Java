@@ -11,8 +11,8 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

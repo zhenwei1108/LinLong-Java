@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import java.io.IOException;
 import java.security.AlgorithmParameters;

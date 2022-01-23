@@ -4,12 +4,12 @@ import CRLDistPoint;
 
 import DistributionPoint;
 import DistributionPointName;
-import GeneralNames;
+ 
 
 
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
-import com.github.zhenwei.core.asn1.x509.TargetInformation;
+import  Extension;
+import  GeneralName;
+import  TargetInformation;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;

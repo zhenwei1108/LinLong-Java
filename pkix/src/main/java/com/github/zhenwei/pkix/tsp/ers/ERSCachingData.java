@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.operator.DigestCalculator;

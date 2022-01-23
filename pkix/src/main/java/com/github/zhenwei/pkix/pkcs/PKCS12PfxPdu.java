@@ -8,7 +8,7 @@ import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
 import com.github.zhenwei.core.asn1.pkcs.MacData;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
 import com.github.zhenwei.core.asn1.pkcs.Pfx;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 

@@ -198,7 +198,7 @@ public class NaccacheSternEngine
       //      System.out.println("Decryption is " + test);
       // }
       // if ((key.getG().modPow(test, key.getModulus())).equals(input)) {
-      //      output = test.toByteArray();
+      //      output = toByteArray();
       // } else {
       //      if(debug){
       //          System.out.println("Engine seems to be used as an oracle,
@@ -207,7 +207,7 @@ public class NaccacheSternEngine
       //      output = null;
       // }
 
-      output = test.toByteArray();
+      output = toByteArray();
 
     }
 

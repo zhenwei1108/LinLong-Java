@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.util.io.pem;
 
+import com.github.zhenwei.core.util.encoders.Base64;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;

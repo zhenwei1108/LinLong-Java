@@ -11,7 +11,7 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.io.TeeOutputStream;
 import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import com.github.zhenwei.pkix.operator.DefaultSignatureAlgorithmIdentifierFinder;

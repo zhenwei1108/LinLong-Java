@@ -33,7 +33,7 @@ import javax.crypto.CipherSpi;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
-import org.bouncycastle.crypto.engines.SM2Engine;
+import SM2Engine;
 import  provider.util.BadBlockException;
 import  ECKey;
 

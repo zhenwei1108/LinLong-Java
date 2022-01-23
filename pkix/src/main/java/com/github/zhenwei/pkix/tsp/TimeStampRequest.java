@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.tsp;
 import cmp.PKIFailureInfo;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

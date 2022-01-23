@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.util.asn1.cms;
 
 import ASN1SequenceParser;
 import com.github.zhenwei.core.asn1.ASN1Integer;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.io.IOException;
 
 /**

@@ -11,8 +11,8 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLAKeyPairGenerator;
+import QTESLAKeyGenerationParameters;
+import QTESLAKeyPairGenerator;
   
 import org.bouncycastle.pqc.jcajce.spec.QTESLAParameterSpec;
  

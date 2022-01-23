@@ -6,8 +6,8 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X962Parameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;

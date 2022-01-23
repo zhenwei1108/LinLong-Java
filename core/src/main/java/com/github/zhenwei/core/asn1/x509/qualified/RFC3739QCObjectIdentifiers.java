@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.qualified;
+ package com.github.zhenwei.core.asn1.x509.qualified;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;

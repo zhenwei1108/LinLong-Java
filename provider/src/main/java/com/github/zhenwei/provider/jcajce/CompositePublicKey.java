@@ -4,8 +4,8 @@ import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+ 
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.PublicKey;
 import java.util.ArrayList;

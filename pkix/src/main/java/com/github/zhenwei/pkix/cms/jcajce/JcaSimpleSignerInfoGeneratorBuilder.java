@@ -6,7 +6,7 @@ import DefaultSignedAttributeTableGenerator;
 import SignerInfoGenerator;
 import SignerInfoGeneratorBuilder;
 import cms.AttributeTable;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.security.PrivateKey;

@@ -1,12 +1,14 @@
 package com.github.zhenwei.core.crypto.commitments;
 
+import com.github.zhenwei.core.crypto.Commitment;
+import com.github.zhenwei.core.crypto.Committer;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.Commitment;
-import org.bouncycastle.crypto.Committer;
+ 
+ 
 
 
 /**

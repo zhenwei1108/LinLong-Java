@@ -10,7 +10,7 @@ import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.SecureRandom;

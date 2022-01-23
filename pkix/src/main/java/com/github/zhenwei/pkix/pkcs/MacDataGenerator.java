@@ -3,8 +3,8 @@ package com.github.zhenwei.pkix.pkcs;
 
 import com.github.zhenwei.core.asn1.pkcs.MacData;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.DigestInfo;
+
+import  DigestInfo;
 import com.github.zhenwei.pkix.operator.MacCalculator;
 import java.io.OutputStream;
 

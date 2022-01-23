@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.signers;
 
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 
@@ -7,7 +8,7 @@ import java.math.BigInteger;
 public class PlainDSAEncoding
     implements DSAEncoding {
 
-  public static final org.bouncycastle.crypto.signers.PlainDSAEncoding INSTANCE = new org.bouncycastle.crypto.signers.PlainDSAEncoding();
+  public static final PlainDSAEncoding INSTANCE = new PlainDSAEncoding();
 
   public byte[] encode(BigInteger n, BigInteger r, BigInteger s) {
     int valueLength = BigIntegers.getUnsignedByteLength(n);

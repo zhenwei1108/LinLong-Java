@@ -29,10 +29,10 @@ import javax.crypto.ShortBufferException;
  
  
   
-import org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
+import  agreement.ECDHBasicAgreement;
  ;
  
-import org.bouncycastle.crypto.engines.IESEngine;
+import IESEngine;
  
   
  
@@ -43,7 +43,7 @@ import org.bouncycastle.crypto.engines.IESEngine;
  
 import IESWithCipherParameters;
  
-import org.bouncycastle.crypto.parsers.ECIESPublicKeyParser;
+import  parsers.ECIESPublicKeyParser;
  
 import util.IESUtil;
 import  provider.util.BadBlockException;

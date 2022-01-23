@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  Extension;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.security.InvalidAlgorithmParameterException;

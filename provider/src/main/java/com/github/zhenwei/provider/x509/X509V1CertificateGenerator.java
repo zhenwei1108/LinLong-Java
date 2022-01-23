@@ -11,8 +11,8 @@ import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.ByteArrayInputStream;

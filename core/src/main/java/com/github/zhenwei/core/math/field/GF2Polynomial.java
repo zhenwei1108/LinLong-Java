@@ -22,10 +22,10 @@ class GF2Polynomial implements Polynomial {
     if (this == obj) {
       return true;
     }
-    if (!(obj instanceof org.bouncycastle.math.field.GF2Polynomial)) {
+    if (!(obj instanceof  GF2Polynomial)) {
       return false;
     }
-    org.bouncycastle.math.field.GF2Polynomial other = (org.bouncycastle.math.field.GF2Polynomial) obj;
+     GF2Polynomial other = ( GF2Polynomial) obj;
     return Arrays.areEqual(exponents, other.exponents);
   }
 

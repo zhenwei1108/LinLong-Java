@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * A polynomial of the form <code>f1*f2+f3</code>, where

@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
-import com.github.zhenwei.core.asn1.x509.Certificate;
+import  Certificate;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;

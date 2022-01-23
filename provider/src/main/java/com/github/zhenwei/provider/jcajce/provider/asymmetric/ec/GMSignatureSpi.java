@@ -14,7 +14,7 @@ import java.security.spec.AlgorithmParameterSpec;
  
 import  SHA256Digest;
  
-import org.bouncycastle.crypto.signers.SM2Signer;
+import SM2Signer;
  
 import  spec.SM2ParameterSpec;
 

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms.bc;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;

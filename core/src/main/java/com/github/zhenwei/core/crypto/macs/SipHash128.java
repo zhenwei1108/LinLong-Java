@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.macs;
 
 
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * Implementation of SipHash with 128 bit output.

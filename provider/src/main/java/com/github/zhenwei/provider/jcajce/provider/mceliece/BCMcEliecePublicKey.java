@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+ 
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import java.io.IOException;

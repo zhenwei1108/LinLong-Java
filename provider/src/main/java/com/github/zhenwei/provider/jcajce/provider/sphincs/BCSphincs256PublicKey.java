@@ -2,8 +2,8 @@ package com.github.zhenwei.provider.jcajce.provider.sphincs;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;

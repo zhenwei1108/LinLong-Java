@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.qualified;
+ package com.github.zhenwei.core.asn1.x509.qualified;
 
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
@@ -9,8 +9,6 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
-import qualified.ETSIQCObjectIdentifiers;
-import qualified.RFC3739QCObjectIdentifiers;
 
 /**
  * The QCStatement object.
@@ -23,18 +21,19 @@ import qualified.RFC3739QCObjectIdentifiers;
 
 public class QCStatement
     extends ASN1Object
-    implements ETSIQCObjectIdentifiers, RFC3739QCObjectIdentifiers {
+    implements ETSIQCObjectIdentifiers,
+    RFC3739QCObjectIdentifiers {
 
   ASN1ObjectIdentifier qcStatementId;
   ASN1Encodable qcStatementInfo;
 
-  public static qualified.QCStatement getInstance(
+  public static QCStatement getInstance(
       Object obj) {
-    if (obj instanceof qualified.QCStatement) {
-      return (qualified.QCStatement) obj;
+    if (obj instanceof QCStatement) {
+      return ( QCStatement) obj;
     }
     if (obj != null) {
-      return new qualified.QCStatement(ASN1Sequence.getInstance(obj));
+      return new QCStatement(ASN1Sequence.getInstance(obj));
     }
 
     return null;

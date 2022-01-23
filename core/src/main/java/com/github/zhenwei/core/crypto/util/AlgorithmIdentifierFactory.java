@@ -4,6 +4,8 @@ package com.github.zhenwei.core.crypto.util;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.cms.CCMParameters;
+import com.github.zhenwei.core.asn1.cms.GCMParameters;
 import com.github.zhenwei.core.asn1.kisa.KISAObjectIdentifiers;
 import com.github.zhenwei.core.asn1.misc.CAST5CBCParameters;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;

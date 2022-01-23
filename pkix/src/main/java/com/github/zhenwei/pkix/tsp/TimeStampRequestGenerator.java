@@ -5,7 +5,7 @@ import ExtensionsGenerator;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import java.io.IOException;
 import java.math.BigInteger;

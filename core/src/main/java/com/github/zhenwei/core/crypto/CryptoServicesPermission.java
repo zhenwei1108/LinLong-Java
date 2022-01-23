@@ -35,8 +35,8 @@ public class CryptoServicesPermission
   }
 
   public boolean implies(Permission permission) {
-    if (permission instanceof org.bouncycastle.crypto.CryptoServicesPermission) {
-      org.bouncycastle.crypto.CryptoServicesPermission other = (org.bouncycastle.crypto.CryptoServicesPermission) permission;
+    if (permission instanceof  CryptoServicesPermission) {
+       CryptoServicesPermission other = ( CryptoServicesPermission) permission;
 
       if (this.getName().equals(other.getName())) {
         return true;
@@ -51,8 +51,8 @@ public class CryptoServicesPermission
   }
 
   public boolean equals(Object obj) {
-    if (obj instanceof org.bouncycastle.crypto.CryptoServicesPermission) {
-      org.bouncycastle.crypto.CryptoServicesPermission other = (org.bouncycastle.crypto.CryptoServicesPermission) obj;
+    if (obj instanceof  CryptoServicesPermission) {
+       CryptoServicesPermission other = ( CryptoServicesPermission) obj;
 
       if (this.actions.equals(other.actions)) {
         return true;

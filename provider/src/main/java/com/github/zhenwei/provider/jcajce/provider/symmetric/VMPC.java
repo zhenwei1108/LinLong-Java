@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
  
-import org.bouncycastle.crypto.engines.VMPCEngine;
+import VMPCEngine;
 import  VMPCMac;
  
  

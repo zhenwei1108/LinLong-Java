@@ -5,8 +5,8 @@ package com.github.zhenwei.pkix.cert.ocsp;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import java.io.OutputStream;
 
 import org.bouncycastle.operator.DigestCalculator;

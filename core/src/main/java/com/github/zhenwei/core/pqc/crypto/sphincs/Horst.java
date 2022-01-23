@@ -1,6 +1,5 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
-import sun.security.ec.ECDSAOperations.Seed;
 
 class Horst {
 
@@ -12,7 +11,7 @@ class Horst {
       + (((HORST_LOGT - 6) * SPHINCS256Config.HASH_BYTES) + HORST_SKBYTES) * HORST_K);
 
   static final int N_MASKS = (2
-      * (org.bouncycastle.pqc.crypto.sphincs.Horst.HORST_LOGT)); /* has to be the max of  (2*(SUBTREE_HEIGHT+WOTS_LOGL)) and (WOTS_W-1) and 2*HORST_LOGT */
+      * ( Horst.HORST_LOGT)); /* has to be the max of  (2*(SUBTREE_HEIGHT+WOTS_LOGL)) and (WOTS_W-1) and 2*HORST_LOGT */
 
   static void expand_seed(byte[] outseeds, byte[] inseed) {
     Seed.prg(outseeds, 0, HORST_T * HORST_SKBYTES, inseed, 0);

@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.util;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
 import com.github.zhenwei.core.asn1.x9.X962Parameters;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;

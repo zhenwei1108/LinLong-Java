@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.agreement;
 
 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.StagedAgreement;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
@@ -9,7 +10,6 @@ import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.StagedAgreement;
 
 public class ECDHCStagedAgreement
     implements StagedAgreement {

@@ -18,7 +18,7 @@ public class SM2P256V1Point extends ECPoint.AbstractFp {
   }
 
   protected ECPoint detach() {
-    return new custom.gm.SM2P256V1Point(null, getAffineXCoord(), getAffineYCoord());
+    return new SM2P256V1Point(null, getAffineXCoord(), getAffineYCoord());
   }
 
   public ECPoint add(ECPoint b) {
@@ -129,7 +129,7 @@ public class SM2P256V1Point extends ECPoint.AbstractFp {
 
     ECFieldElement[] zs = new ECFieldElement[]{Z3};
 
-    return new custom.gm.SM2P256V1Point(curve, X3, Y3, zs);
+    return new SM2P256V1Point(curve, X3, Y3, zs);
   }
 
   public ECPoint twice() {
@@ -196,7 +196,7 @@ public class SM2P256V1Point extends ECPoint.AbstractFp {
       SM2P256V1Field.multiply(Z3.x, Z1.x, Z3.x);
     }
 
-    return new custom.gm.SM2P256V1Point(curve, X3, Y3, new ECFieldElement[]{Z3});
+    return new SM2P256V1Point(curve, X3, Y3, new ECFieldElement[]{Z3});
   }
 
   public ECPoint twicePlus(ECPoint b) {
@@ -232,6 +232,6 @@ public class SM2P256V1Point extends ECPoint.AbstractFp {
       return this;
     }
 
-    return new custom.gm.SM2P256V1Point(curve, this.x, this.y.negate(), this.zs);
+    return new SM2P256V1Point(curve, this.x, this.y.negate(), this.zs);
   }
 }

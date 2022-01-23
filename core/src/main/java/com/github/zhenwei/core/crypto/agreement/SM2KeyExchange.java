@@ -14,6 +14,7 @@ import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 import java.math.BigInteger;
 
 

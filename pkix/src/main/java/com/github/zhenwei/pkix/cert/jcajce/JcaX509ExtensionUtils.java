@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
 
-import GeneralNames;
+ 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
@@ -10,12 +10,12 @@ import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
-import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+ 
+import  AuthorityKeyIdentifier;
+import  Extension;
+import  GeneralName;
+import  SubjectKeyIdentifier;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.util.Integers;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

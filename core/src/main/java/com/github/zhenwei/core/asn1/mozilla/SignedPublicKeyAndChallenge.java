@@ -7,6 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
+
 /**
  * <pre>
  *  SignedPublicKeyAndChallenge ::= SEQUENCE {
@@ -23,11 +24,11 @@ public class SignedPublicKeyAndChallenge
   private final PublicKeyAndChallenge pubKeyAndChal;
   private final ASN1Sequence pkacSeq;
 
-  public static mozilla.SignedPublicKeyAndChallenge getInstance(Object obj) {
-    if (obj instanceof mozilla.SignedPublicKeyAndChallenge) {
-      return (mozilla.SignedPublicKeyAndChallenge) obj;
+  public static SignedPublicKeyAndChallenge getInstance(Object obj) {
+    if (obj instanceof SignedPublicKeyAndChallenge) {
+      return (SignedPublicKeyAndChallenge) obj;
     } else if (obj != null) {
-      return new mozilla.SignedPublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
+      return new SignedPublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
     }
 
     return null;

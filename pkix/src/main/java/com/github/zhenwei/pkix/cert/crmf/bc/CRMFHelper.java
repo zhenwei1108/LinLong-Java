@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.crmf.bc;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.SecureRandom;
 import org.bouncycastle.cert.crmf.CRMFException;

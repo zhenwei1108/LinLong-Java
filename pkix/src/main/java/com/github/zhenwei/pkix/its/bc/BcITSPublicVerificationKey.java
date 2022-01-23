@@ -16,7 +16,7 @@ import org.bouncycastle.oer.its.EccCurvePoint;
 import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
 import org.bouncycastle.oer.its.PublicVerificationKey;
-import teletrust.TeleTrusTNamedCurves;
+ 
 
 
 

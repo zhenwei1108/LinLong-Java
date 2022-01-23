@@ -19,7 +19,7 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Strings;
 import java.util.HashMap;

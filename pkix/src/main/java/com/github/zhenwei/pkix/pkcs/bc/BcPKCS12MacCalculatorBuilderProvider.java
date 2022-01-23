@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.pkcs.bc;
 
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.operator.MacCalculator;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import org.bouncycastle.operator.bc.BcDigestProvider;

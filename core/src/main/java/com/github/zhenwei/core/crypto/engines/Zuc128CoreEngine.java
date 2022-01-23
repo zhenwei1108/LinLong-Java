@@ -152,7 +152,7 @@ public class Zuc128CoreEngine
   /**
    * Reset state.
    */
-  private org.bouncycastle.crypto.engines.Zuc128CoreEngine theResetState;
+  private Zuc128CoreEngine theResetState;
 
   /**
    * Constructor.
@@ -165,7 +165,7 @@ public class Zuc128CoreEngine
    *
    * @param pSource the source engine
    */
-  protected Zuc128CoreEngine(final org.bouncycastle.crypto.engines.Zuc128CoreEngine pSource) {
+  protected Zuc128CoreEngine(final Zuc128CoreEngine pSource) {
     reset(pSource);
   }
 
@@ -203,7 +203,7 @@ public class Zuc128CoreEngine
     setKeyAndIV(newKey, newIV);
 
     /* Save reset state */
-    theResetState = (org.bouncycastle.crypto.engines.Zuc128CoreEngine) copy();
+    theResetState = ( Zuc128CoreEngine) copy();
   }
 
   /**
@@ -578,7 +578,7 @@ public class Zuc128CoreEngine
    * @return the copy
    */
   public Memoable copy() {
-    return new org.bouncycastle.crypto.engines.Zuc128CoreEngine(this);
+    return new Zuc128CoreEngine(this);
   }
 
   /**
@@ -587,7 +587,7 @@ public class Zuc128CoreEngine
    * @param pState the state to restore
    */
   public void reset(final Memoable pState) {
-    final org.bouncycastle.crypto.engines.Zuc128CoreEngine e = (org.bouncycastle.crypto.engines.Zuc128CoreEngine) pState;
+    final Zuc128CoreEngine e = ( Zuc128CoreEngine) pState;
     System.arraycopy(e.LFSR, 0, LFSR, 0, LFSR.length);
     System.arraycopy(e.F, 0, F, 0, F.length);
     System.arraycopy(e.BRC, 0, BRC, 0, BRC.length);

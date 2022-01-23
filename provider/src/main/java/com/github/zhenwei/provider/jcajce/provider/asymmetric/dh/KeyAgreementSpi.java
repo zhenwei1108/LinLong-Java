@@ -22,9 +22,9 @@ import javax.crypto.spec.DHParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
   
  
-import org.bouncycastle.crypto.agreement.DHUnifiedAgreement;
-import org.bouncycastle.crypto.agreement.MQVBasicAgreement;
-import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
+import  agreement.DHUnifiedAgreement;
+import  agreement.MQVBasicAgreement;
+import  agreement.kdf.ConcatenationKDFGenerator;
  
   
   

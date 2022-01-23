@@ -5,7 +5,7 @@ import cms.IssuerAndSerialNumber;
 import cms.KeyTransRecipientInfo;
 import cms.RecipientIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 
 /**
  * the KeyTransRecipientInformation class for a recipient who has been sent a secret

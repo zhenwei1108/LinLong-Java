@@ -5,7 +5,7 @@ import KeyTransRecipientInfoGenerator;
 import cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;
 import java.security.Provider;

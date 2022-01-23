@@ -20,7 +20,7 @@ public class JPAKEPrimeOrderGroup {
   private final BigInteger g;
 
   /**
-   * Constructs a new {@link org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroup}.
+   * Constructs a new {@link  agreement.jpake.JPAKEPrimeOrderGroup}.
    * <p>
    * In general, you should use one of the pre-approved groups from {@link JPAKEPrimeOrderGroups},
    * rather than manually constructing one.

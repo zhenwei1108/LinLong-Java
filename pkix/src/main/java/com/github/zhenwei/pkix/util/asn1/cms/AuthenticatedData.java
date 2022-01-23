@@ -11,7 +11,7 @@ import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.BERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.util.Enumeration;
 
 /**

@@ -1,16 +1,16 @@
 package com.github.zhenwei.pkix.cert;
 
 
-import GeneralNames;
+ 
 import Holder;
 import ObjectDigestInfo;
 
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
-import com.github.zhenwei.core.asn1.x509.IssuerSerial;
+
+import  GeneralName;
+import  IssuerSerial;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.OutputStream;
 import java.math.BigInteger;

@@ -14,8 +14,8 @@ import java.security.SignatureException;
  
  
  
-import org.bouncycastle.crypto.signers.Ed25519Signer;
-import org.bouncycastle.crypto.signers.Ed448Signer;
+import Ed25519Signer;
+import Ed448Signer;
 
 public class SignatureSpi
     extends java.security.SignatureSpi

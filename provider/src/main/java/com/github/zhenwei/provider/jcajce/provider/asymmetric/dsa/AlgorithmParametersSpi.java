@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.dsa;
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.x509.DSAParameter;
+import  DSAParameter;
 import java.io.IOException;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.DSAParameterSpec;

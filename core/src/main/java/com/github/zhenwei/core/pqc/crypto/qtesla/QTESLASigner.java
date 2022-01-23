@@ -3,6 +3,7 @@ package com.github.zhenwei.core.pqc.crypto.qtesla;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.pqc.crypto.MessageSigner;
 import java.security.SecureRandom;
  
 

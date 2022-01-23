@@ -2,11 +2,11 @@ package com.github.zhenwei.pkix.cert;
 
 
 import AttCertIssuer;
-import GeneralNames;
+ 
 import V2Form;
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+import  GeneralName;
 import java.util.ArrayList;
 import java.util.List;
 

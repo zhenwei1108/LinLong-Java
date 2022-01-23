@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.its.jcajce;
 
 
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.operator.ContentVerifier;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;

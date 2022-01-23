@@ -5,6 +5,7 @@ import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.raw.Mod;
 import com.github.zhenwei.core.math.raw.Nat;
 import com.github.zhenwei.core.math.raw.Nat224;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 

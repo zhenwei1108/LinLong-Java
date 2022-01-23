@@ -7,7 +7,7 @@ import GostR3410TransportParameters;
 import KeyTransRecipient;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.cms.CMSException;
 import java.security.Key;

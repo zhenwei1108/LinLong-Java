@@ -44,7 +44,7 @@ public class F2mSqrtOptimizer {
   }
 
   private static void implPrintRootZ(X9ECParameters x9) {
-    ECFieldElement z = getCurve().fromBigInteger(BigInteger.valueOf(2));
+    ECFieldElement z = x9.getCurve().fromBigInteger(BigInteger.valueOf(2));
     ECFieldElement rootZ = z.sqrt();
 
     System.out.println(rootZ.toBigInteger().toString(16).toUpperCase());

@@ -13,7 +13,7 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
  
-import org.bouncycastle.crypto.agreement.ECVKOAgreement;
+import  agreement.ECVKOAgreement;
 import  GOST3411_2012_256Digest;
   
 import util.BaseAgreementSpi;

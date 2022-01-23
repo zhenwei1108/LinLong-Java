@@ -2,7 +2,8 @@ package com.github.zhenwei.core.crypto.macs;
 
 
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.engines.Zuc128CoreEngine;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.engines.Zuc128CoreEngine;
 
 /**
  * Zuc128 Mac implementation. Based on https://www.qtc.jp/3GPP/Specs/eea3eia3specificationv16.pdf

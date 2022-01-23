@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.lms;
 
 
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.pqc.crypto.lms.HSSPublicKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.lms.LMSPublicKeyParameters;

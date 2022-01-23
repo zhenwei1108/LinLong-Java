@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cms.jcajce;
 import KeyTransRecipientInfoGenerator;
 import cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;

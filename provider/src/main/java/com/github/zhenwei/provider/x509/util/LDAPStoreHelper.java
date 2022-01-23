@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.util;
 
 import CertificatePair;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
-import com.github.zhenwei.core.asn1.x509.Certificate;
+import  Certificate;
 import com.github.zhenwei.core.util.StoreException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

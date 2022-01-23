@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cert.path.validations;
 
 import PolicyConstraints;
 import com.github.zhenwei.core.asn1.ASN1Integer;
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  Extension;
 import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.cert.path.CertPathValidation;

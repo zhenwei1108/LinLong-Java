@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
  
  
-import org.bouncycastle.crypto.engines.TwofishEngine;
+import TwofishEngine;
  
  ;
  

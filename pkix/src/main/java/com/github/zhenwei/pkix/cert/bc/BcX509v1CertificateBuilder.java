@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Date;
 import org.bouncycastle.cert.X509v1CertificateBuilder;
-import SubjectPublicKeyInfoFactory;
+ Factory;
 
 /**
  * JCA helper class to allow BC lightweight objects to be used in the construction of a Version 1 certificate.

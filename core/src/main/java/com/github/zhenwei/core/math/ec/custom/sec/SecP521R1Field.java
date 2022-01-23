@@ -2,9 +2,10 @@ package com.github.zhenwei.core.math.ec.custom.sec;
 
 import com.github.zhenwei.core.math.raw.Mod;
 import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat512;
+import com.github.zhenwei.core.util.Pack;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.raw.Nat512;
 
 
 public class SecP521R1Field {

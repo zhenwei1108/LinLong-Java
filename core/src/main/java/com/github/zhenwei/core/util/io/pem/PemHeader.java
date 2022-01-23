@@ -36,7 +36,7 @@ public class PemHeader {
       return false;
     }
 
-    PemHeader other = (io.pem.PemHeader) o;
+    PemHeader other = (PemHeader) o;
 
     return other == this || (isEqual(this.name, other.name) && isEqual(this.value, other.value));
   }

@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * implementation of MD5 as outlined in "Handbook of Applied Cryptography", pages 346 - 347.

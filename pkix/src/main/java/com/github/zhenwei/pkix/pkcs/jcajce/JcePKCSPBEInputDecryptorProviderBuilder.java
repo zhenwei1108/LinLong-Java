@@ -12,7 +12,7 @@ import com.github.zhenwei.core.asn1.pkcs.PBES2Parameters;
 import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import com.github.zhenwei.provider.jcajce.spec.PBKDF2KeySpec;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;

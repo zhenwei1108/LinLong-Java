@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.tsp.ers;
 
 
 import SignerInformationVerifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

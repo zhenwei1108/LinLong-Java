@@ -44,7 +44,7 @@ public class DERPrintableString
       return (DERPrintableString) obj;
     }
     if (obj instanceof ASN1PrintableString) {
-      return new DERPrintableString(((com.g.ASN1PrintableString) obj).contents, false);
+      return new DERPrintableString((( ASN1PrintableString) obj).contents, false);
     }
     if (obj instanceof byte[]) {
       try {

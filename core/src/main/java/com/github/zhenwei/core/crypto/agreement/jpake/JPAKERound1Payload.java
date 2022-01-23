@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.agreement.jpake;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 
 
@@ -12,7 +13,7 @@ import java.math.BigInteger;
  * <p>
  * Each {@link JPAKEParticipant} must also validate the payload received from the other {@link
  * JPAKEParticipant}. The received payload should be validated via {@link
- * JPAKEParticipant#validateRound1PayloadReceived(org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload)}.
+ * JPAKEParticipant#validateRound1PayloadReceived( agreement.jpake.JPAKERound1Payload)}.
  */
 public class JPAKERound1Payload {
 

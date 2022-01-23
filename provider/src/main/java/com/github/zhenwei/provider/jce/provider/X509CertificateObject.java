@@ -17,10 +17,10 @@ import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import com.github.zhenwei.core.asn1.util.ASN1Dump;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.BasicConstraints;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+
+import  BasicConstraints;
+import  Extension;
+import  GeneralName;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Strings;

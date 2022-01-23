@@ -6,6 +6,7 @@ import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.DigestDerivationFunction;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * BSI Key Derivation Function for Session Keys (see BSI-TR-03111 Section 4.3.3)

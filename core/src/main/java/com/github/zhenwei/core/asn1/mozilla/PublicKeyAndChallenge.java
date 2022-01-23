@@ -8,6 +8,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
+
 /**
  * This is designed to parse the PublicKeyAndChallenge created by the KEYGEN tag included by Mozilla
  * based browsers.
@@ -26,11 +27,11 @@ public class PublicKeyAndChallenge
   private SubjectPublicKeyInfo spki;
   private ASN1IA5String challenge;
 
-  public static mozilla.PublicKeyAndChallenge getInstance(Object obj) {
-    if (obj instanceof mozilla.PublicKeyAndChallenge) {
-      return (mozilla.PublicKeyAndChallenge) obj;
+  public static PublicKeyAndChallenge getInstance(Object obj) {
+    if (obj instanceof PublicKeyAndChallenge) {
+      return (PublicKeyAndChallenge) obj;
     } else if (obj != null) {
-      return new mozilla.PublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
+      return new PublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
     }
 
     return null;

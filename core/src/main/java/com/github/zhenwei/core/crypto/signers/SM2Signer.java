@@ -5,6 +5,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Signer;
 import com.github.zhenwei.core.crypto.digests.SM3Digest;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECKeyParameters;

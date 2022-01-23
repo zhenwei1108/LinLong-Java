@@ -10,9 +10,9 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.core.asn1.x509.Extensions;
-import com.github.zhenwei.core.asn1.x509.GeneralNames;
-import com.github.zhenwei.core.asn1.x509.PolicyInformation;
+import  Extensions;
+import  GeneralNames;
+import  PolicyInformation;
 import java.math.BigInteger;
 
 /**

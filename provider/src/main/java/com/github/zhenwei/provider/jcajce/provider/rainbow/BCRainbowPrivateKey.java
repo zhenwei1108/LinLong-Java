@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.rainbow;
 
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.asn1;
 
 
-import com.github.zhenwei.core.asn1.x509.ASN1UniversalString;
+ 
 
 final class ASN1UniversalTypes {
 

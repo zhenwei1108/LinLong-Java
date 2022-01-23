@@ -13,8 +13,8 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import  SHA3Digest;
 import  SHA512tDigest;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCS256KeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCS256KeyPairGenerator;
+import  SPHINCS256KeyGenerationParameters;
+import  SPHINCS256KeyPairGenerator;
 import org.bouncycastle.pqc.jcajce.spec.SPHINCS256KeyGenParameterSpec;
 
 ;

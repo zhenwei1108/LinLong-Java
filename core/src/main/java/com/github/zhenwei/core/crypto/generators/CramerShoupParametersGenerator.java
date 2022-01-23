@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.digests.SHA256Digest;
 import com.github.zhenwei.core.crypto.params.CramerShoupParameters;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;

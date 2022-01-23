@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
-import com.github.zhenwei.core.asn1.x509.CertificateList;
+import  CertificateList;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.security.cert.CRLException;
 

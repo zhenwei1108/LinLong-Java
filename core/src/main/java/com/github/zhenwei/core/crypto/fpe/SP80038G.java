@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.fpe;
 import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.Pack;
 import java.math.BigInteger;
 
 

@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  Extension;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.core.util.StoreException;
 import java.io.IOException;

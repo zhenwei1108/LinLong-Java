@@ -2,7 +2,7 @@ package org.sdk.crypto.sign;
 
  
  
-import org.bouncycastle.crypto.signers.SM2Signer;
+import SM2Signer;
 import org.bouncycastle.jce.provider.asymmetric.ec.ECUtil;
 import org.sdk.crypto.init.InitProvider;
 

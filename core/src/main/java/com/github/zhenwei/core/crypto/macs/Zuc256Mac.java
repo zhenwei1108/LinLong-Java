@@ -2,7 +2,8 @@ package com.github.zhenwei.core.crypto.macs;
 
 
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.engines.Zuc256CoreEngine;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.engines.Zuc256CoreEngine;
 
 /**
  * Zuc256 Mac implementation. Based on https://www.is.cas.cn/ztzl2016/zouchongzhi/201801/W020180126529970733243.pdf

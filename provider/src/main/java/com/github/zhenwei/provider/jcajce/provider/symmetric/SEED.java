@@ -9,8 +9,8 @@ import javax.crypto.spec.IvParameterSpec;
  
  
  
-import org.bouncycastle.crypto.engines.SEEDEngine;
-import org.bouncycastle.crypto.engines.SEEDWrapEngine;
+import SEEDEngine;
+import SEEDWrapEngine;
  
  
  ;

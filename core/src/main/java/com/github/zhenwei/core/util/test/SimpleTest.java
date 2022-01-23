@@ -158,7 +158,7 @@ public abstract class SimpleTest
   }
 
   public static void runTest(Test test, PrintStream out) {
-    TestResult result = test.perform();
+    TestResult result = perform();
 
     if (result.getException() != null) {
       result.getException().printStackTrace(out);

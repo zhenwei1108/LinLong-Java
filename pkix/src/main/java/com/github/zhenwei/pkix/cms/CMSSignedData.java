@@ -13,7 +13,7 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.BERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;

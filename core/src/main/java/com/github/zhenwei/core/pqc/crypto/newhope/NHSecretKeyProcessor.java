@@ -5,6 +5,7 @@ import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.crypto.Xof;
 import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
+import com.github.zhenwei.core.pqc.crypto.ExchangePair;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
  

@@ -6,6 +6,7 @@ import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.raw.Nat224;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;

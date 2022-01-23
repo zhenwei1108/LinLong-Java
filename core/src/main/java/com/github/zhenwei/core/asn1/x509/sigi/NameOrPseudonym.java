@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.sigi;
+package  sigi;
 
 
 import com.github.zhenwei.core.asn1.ASN1Choice;
@@ -36,17 +36,17 @@ public class NameOrPseudonym
 
   private ASN1Sequence givenName;
 
-  public static sigi.NameOrPseudonym getInstance(Object obj) {
-    if (obj == null || obj instanceof sigi.NameOrPseudonym) {
-      return (sigi.NameOrPseudonym) obj;
+  public static NameOrPseudonym getInstance(Object obj) {
+    if (obj == null || obj instanceof NameOrPseudonym) {
+      return (NameOrPseudonym) obj;
     }
 
     if (obj instanceof ASN1String) {
-      return new sigi.NameOrPseudonym(DirectoryString.getInstance(obj));
+      return new NameOrPseudonym(DirectoryString.getInstance(obj));
     }
 
     if (obj instanceof ASN1Sequence) {
-      return new sigi.NameOrPseudonym((ASN1Sequence) obj);
+      return new NameOrPseudonym((ASN1Sequence) obj);
     }
 
     throw new IllegalArgumentException("illegal object in getInstance: "

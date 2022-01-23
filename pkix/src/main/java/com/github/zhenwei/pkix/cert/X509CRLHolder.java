@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert;
 
 
-import GeneralNames;
+ 
 import IssuingDistributionPoint;
 import TBSCertList;
 import Time;
@@ -10,8 +10,8 @@ import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  CertificateList;
+import  Extension;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.pkix.operator.ContentVerifier;
 import com.github.zhenwei.pkix.operator.ContentVerifierProvider;

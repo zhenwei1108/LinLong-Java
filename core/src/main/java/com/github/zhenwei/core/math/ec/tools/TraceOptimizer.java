@@ -50,7 +50,7 @@ public class TraceOptimizer {
   }
 
   public static void implPrintNonZeroTraceBits(X9ECParameters x9) {
-    ECCurve c = getCurve();
+    ECCurve c = x9.getCurve();
     int m = c.getFieldSize();
 
     ArrayList nonZeroTraceBits = new ArrayList();

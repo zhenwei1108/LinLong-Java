@@ -2,14 +2,14 @@ package com.github.zhenwei.pkix.pkcs.bc;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.InputStream;
 import  SHA1Digest;
 import PKCS12ParametersGenerator;
-import org.bouncycastle.crypto.io.CipherInputStream;
+import  io.CipherInputStream;
  
 import org.bouncycastle.operator.InputDecryptor;
 import org.bouncycastle.operator.InputDecryptorProvider;

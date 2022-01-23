@@ -30,10 +30,10 @@ import javax.crypto.spec.SecretKeySpec;
  
  
  
-import org.bouncycastle.crypto.engines.TwofishEngine;
+import TwofishEngine;
  
  
-import org.bouncycastle.crypto.modes.CTSBlockCipher;
+import  modes.CTSBlockCipher;
  
  
 

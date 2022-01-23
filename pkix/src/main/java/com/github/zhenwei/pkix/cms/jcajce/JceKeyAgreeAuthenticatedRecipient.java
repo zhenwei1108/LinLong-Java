@@ -3,8 +3,8 @@ package com.github.zhenwei.pkix.cms.jcajce;
 
 import RecipientOperator;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+ 
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.pkix.cms.CMSException;
 import com.github.zhenwei.pkix.operator.GenericKey;
 import com.github.zhenwei.pkix.operator.MacCalculator;

@@ -14,9 +14,9 @@ import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Certificate;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  Certificate;
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.math.BigInteger;

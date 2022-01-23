@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.qualified;
+ package com.github.zhenwei.core.asn1.x509.qualified;
 
 
 import com.github.zhenwei.core.asn1.ASN1Choice;
@@ -30,19 +30,19 @@ public class Iso4217CurrencyCode
   ASN1Encodable obj;
   int numeric;
 
-  public static qualified.Iso4217CurrencyCode getInstance(
+  public static Iso4217CurrencyCode getInstance(
       Object obj) {
-    if (obj == null || obj instanceof qualified.Iso4217CurrencyCode) {
-      return (qualified.Iso4217CurrencyCode) obj;
+    if (obj == null || obj instanceof Iso4217CurrencyCode) {
+      return ( Iso4217CurrencyCode) obj;
     }
 
     if (obj instanceof ASN1Integer) {
       ASN1Integer numericobj = ASN1Integer.getInstance(obj);
       int numeric = numericobj.intValueExact();
-      return new qualified.Iso4217CurrencyCode(numeric);
+      return new Iso4217CurrencyCode(numeric);
     } else if (obj instanceof ASN1PrintableString) {
       ASN1PrintableString alphabetic = ASN1PrintableString.getInstance(obj);
-      return new qualified.Iso4217CurrencyCode(alphabetic.getString());
+      return new Iso4217CurrencyCode(alphabetic.getString());
     }
     throw new IllegalArgumentException("unknown object in getInstance");
   }

@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
  
-import org.bouncycastle.crypto.engines.Zuc128Engine;
-import org.bouncycastle.crypto.engines.Zuc256Engine;
+import Zuc128Engine;
+import Zuc256Engine;
 import  Zuc128Mac;
 import  Zuc256Mac;
  

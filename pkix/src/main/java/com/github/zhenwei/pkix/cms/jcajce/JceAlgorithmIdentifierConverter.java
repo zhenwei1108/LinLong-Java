@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms.jcajce;
 
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.cms.CMSException;
 import java.security.AlgorithmParameters;
 import java.security.NoSuchAlgorithmException;

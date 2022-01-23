@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.keystore.bc;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.util.Arrays;
@@ -47,10 +47,10 @@ import javax.crypto.spec.SecretKeySpec;
  
 import  SHA1Digest;
 import PKCS12ParametersGenerator;
-import org.bouncycastle.crypto.io.DigestInputStream;
-import org.bouncycastle.crypto.io.DigestOutputStream;
-import org.bouncycastle.crypto.io.MacInputStream;
-import org.bouncycastle.crypto.io.MacOutputStream;
+import  io.DigestInputStream;
+import  io.DigestOutputStream;
+import  io.MacInputStream;
+import  io.MacOutputStream;
  
 import  io.CipherInputStream;
 import  io.CipherOutputStream;

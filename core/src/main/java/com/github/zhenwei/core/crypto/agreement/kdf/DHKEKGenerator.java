@@ -12,6 +12,7 @@ import com.github.zhenwei.core.crypto.DerivationFunction;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.OutputLengthException;
+import com.github.zhenwei.core.util.Pack;
 import java.io.IOException;
 
 

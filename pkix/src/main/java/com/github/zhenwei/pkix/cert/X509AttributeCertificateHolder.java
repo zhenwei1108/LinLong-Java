@@ -4,10 +4,10 @@ package com.github.zhenwei.pkix.cert;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.AttCertValidityPeriod;
-import com.github.zhenwei.core.asn1.x509.AttributeCertificate;
-import com.github.zhenwei.core.asn1.x509.AttributeCertificateInfo;
+
+import  AttCertValidityPeriod;
+import  AttributeCertificate;
+import  AttributeCertificateInfo;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.pkix.operator.ContentVerifier;
 import com.github.zhenwei.pkix.operator.ContentVerifierProvider;

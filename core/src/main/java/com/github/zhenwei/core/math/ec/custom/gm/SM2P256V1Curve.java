@@ -6,6 +6,7 @@ import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.raw.Nat256;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
@@ -40,7 +41,7 @@ public class SM2P256V1Curve extends ECCurve.AbstractFp {
   }
 
   protected ECCurve cloneCurve() {
-    return new custom.gm.SM2P256V1Curve();
+    return new SM2P256V1Curve();
   }
 
   public boolean supportsCoordinateSystem(int coord) {

@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 import CRLDistPoint;
 import CRLNumber;
-import GeneralNames;
+ 
 import IssuingDistributionPoint;
 import TBSCertList;
 import Time;
@@ -18,9 +18,9 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.util.ASN1Dump;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
-import com.github.zhenwei.core.asn1.x509.Extension;
+ 
+import  CertificateList;
+import  Extension;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.provider.jcajce.io.OutputStreamFactory;

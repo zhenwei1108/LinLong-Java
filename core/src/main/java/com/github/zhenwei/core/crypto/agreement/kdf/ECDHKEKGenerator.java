@@ -15,6 +15,7 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.DigestDerivationFunction;
 import com.github.zhenwei.core.crypto.generators.KDF2BytesGenerator;
 import com.github.zhenwei.core.crypto.params.KDFParameters;
+import com.github.zhenwei.core.util.Pack;
 import java.io.IOException;
 
 

@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.mozilla.jcajce;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;

@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  Extension;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.cert.CertPath;
 import java.security.cert.CertPathBuilderException;

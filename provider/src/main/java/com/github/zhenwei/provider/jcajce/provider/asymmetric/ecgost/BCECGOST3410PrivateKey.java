@@ -15,8 +15,8 @@ import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.cryptopro.ECGOST3410NamedCurves;
 import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X962Parameters;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;

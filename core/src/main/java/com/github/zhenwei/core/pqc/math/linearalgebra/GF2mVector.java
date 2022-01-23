@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
+import com.github.zhenwei.core.util.Arrays;
+
 /**
  * This class implements vectors over the finite field
  * <tt>GF(2<sup>m</sup>)</tt> for small <tt>m</tt> (i.e.,

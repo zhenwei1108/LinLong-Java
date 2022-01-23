@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * Base class for SHA-384 and SHA-512.

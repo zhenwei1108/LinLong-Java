@@ -15,6 +15,8 @@ import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x509.X509Name;
 import java.util.Enumeration;
 
+;
+
 /**
  * PKCS10 CertificationRequestInfo object.
  * <pre>

@@ -3,15 +3,15 @@ package com.github.zhenwei.core.crypto.examples;
 
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.agreement.jpake.JPAKEParticipant;
+import com.github.zhenwei.core.crypto.agreement.jpake.JPAKEPrimeOrderGroup;
+import com.github.zhenwei.core.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
+import com.github.zhenwei.core.crypto.agreement.jpake.JPAKERound1Payload;
+import com.github.zhenwei.core.crypto.agreement.jpake.JPAKERound2Payload;
+import com.github.zhenwei.core.crypto.agreement.jpake.JPAKERound3Payload;
 import com.github.zhenwei.core.crypto.digests.SHA256Digest;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroup;
-import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;
-import org.bouncycastle.crypto.agreement.jpake.JPAKERound1Payload;
-import org.bouncycastle.crypto.agreement.jpake.JPAKERound2Payload;
-import org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload;
 
 /**
  * An example of a J-PAKE exchange.

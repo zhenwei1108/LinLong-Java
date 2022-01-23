@@ -12,10 +12,10 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
  
  
-import org.bouncycastle.crypto.agreement.X25519Agreement;
-import org.bouncycastle.crypto.agreement.X448Agreement;
-import org.bouncycastle.crypto.agreement.XDHUnifiedAgreement;
-import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
+import  agreement.X25519Agreement;
+import  agreement.X448Agreement;
+import  agreement.XDHUnifiedAgreement;
+import  agreement.kdf.ConcatenationKDFGenerator;
  
  
 import util.BaseAgreementSpi;

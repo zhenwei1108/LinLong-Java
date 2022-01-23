@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERBitString;
-import com.github.zhenwei.core.asn1.x509.BasicConstraints;
+import  BasicConstraints;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;

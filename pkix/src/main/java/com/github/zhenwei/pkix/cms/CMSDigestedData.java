@@ -5,7 +5,7 @@ package com.github.zhenwei.pkix.cms;
 import cms.DigestedData;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;

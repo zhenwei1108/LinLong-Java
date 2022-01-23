@@ -12,7 +12,7 @@ import java.math.BigInteger;
  * <p>
  * Each {@link JPAKEParticipant} must also validate the payload received from the other {@link
  * JPAKEParticipant}. The received payload should be validated via {@link
- * JPAKEParticipant#validateRound3PayloadReceived(org.bouncycastle.crypto.agreement.jpake.JPAKERound3Payload,
+ * JPAKEParticipant#validateRound3PayloadReceived( agreement.jpake.JPAKERound3Payload,
  * BigInteger)}
  */
 public class JPAKERound3Payload {
@@ -26,7 +26,7 @@ public class JPAKERound3Payload {
    * The value of MacTag, as computed by round 3.
    *
    * @see JPAKEUtil#calculateMacTag(String, String, BigInteger, BigInteger, BigInteger, BigInteger,
-   * BigInteger, org.bouncycastle.crypto.Digest)
+   * BigInteger,  Digest)
    */
   private final BigInteger macTag;
 

@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms;
 
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 
 public interface PasswordRecipient
     extends Recipient

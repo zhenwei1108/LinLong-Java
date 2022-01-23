@@ -14,11 +14,11 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.AttributeCertificate;
-import com.github.zhenwei.core.asn1.x509.AttributeCertificateInfo;
-import com.github.zhenwei.core.asn1.x509.Certificate;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
+
+import  AttributeCertificate;
+import  AttributeCertificateInfo;
+import  Certificate;
+import  CertificateList;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Properties;
 import java.io.IOException;

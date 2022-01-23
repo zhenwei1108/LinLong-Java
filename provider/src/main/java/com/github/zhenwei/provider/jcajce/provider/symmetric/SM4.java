@@ -8,7 +8,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.IvParameterSpec;
  
  
-import org.bouncycastle.crypto.engines.SM4Engine;
+import SM4Engine;
  
  
  ;

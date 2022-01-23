@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jcajce.CompositePrivateKey;
 import java.io.IOException;
 import java.security.InvalidKeyException;

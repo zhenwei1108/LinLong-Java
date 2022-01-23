@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.mime.smime;
 import CMSAlgorithm;
 import CMSSignedDataStreamGenerator;
 import SignerInfoGenerator;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

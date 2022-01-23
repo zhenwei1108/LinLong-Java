@@ -9,7 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import  SubjectKeyIdentifier;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-6.2.2">RFC 5652</a>:

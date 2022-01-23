@@ -3,6 +3,7 @@ package com.github.zhenwei.core.math.ec.custom.gm;
 
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.raw.Nat256;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 
@@ -56,53 +57,53 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp {
 
   public ECFieldElement add(ECFieldElement b) {
     int[] z = Nat256.create();
-    SM2P256V1Field.add(x, ((custom.gm.SM2P256V1FieldElement) b).x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    SM2P256V1Field.add(x, ( (SM2P256V1FieldElement) b).x, z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement addOne() {
     int[] z = Nat256.create();
     SM2P256V1Field.addOne(x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement subtract(ECFieldElement b) {
     int[] z = Nat256.create();
-    SM2P256V1Field.subtract(x, ((custom.gm.SM2P256V1FieldElement) b).x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    SM2P256V1Field.subtract(x, ( (SM2P256V1FieldElement) b).x, z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement multiply(ECFieldElement b) {
     int[] z = Nat256.create();
-    SM2P256V1Field.multiply(x, ((custom.gm.SM2P256V1FieldElement) b).x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    SM2P256V1Field.multiply(x, ( (SM2P256V1FieldElement) b).x, z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement divide(ECFieldElement b) {
 //        return multiply(b.invert());
     int[] z = Nat256.create();
-    SM2P256V1Field.inv(((custom.gm.SM2P256V1FieldElement) b).x, z);
+    SM2P256V1Field.inv(( (SM2P256V1FieldElement) b).x, z);
     SM2P256V1Field.multiply(z, x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement negate() {
     int[] z = Nat256.create();
     SM2P256V1Field.negate(x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement square() {
     int[] z = Nat256.create();
     SM2P256V1Field.square(x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    return new SM2P256V1FieldElement(z);
   }
 
   public ECFieldElement invert() {
 //        return new SM2P256V1FieldElement(toBigInteger().modInverse(Q));
     int[] z = Nat256.create();
     SM2P256V1Field.inv(x, z);
-    return new custom.gm.SM2P256V1FieldElement(z);
+    return new SM2P256V1FieldElement(z);
   }
 
   /**
@@ -165,7 +166,7 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp {
     int[] t2 = x4;
     SM2P256V1Field.square(t1, t2);
 
-    return Nat256.eq(x1, t2) ? new custom.gm.SM2P256V1FieldElement(t1) : null;
+    return Nat256.eq(x1, t2) ? new SM2P256V1FieldElement(t1) : null;
   }
 
   public boolean equals(Object other) {
@@ -173,11 +174,11 @@ public class SM2P256V1FieldElement extends ECFieldElement.AbstractFp {
       return true;
     }
 
-    if (!(other instanceof custom.gm.SM2P256V1FieldElement)) {
+    if (!(other instanceof SM2P256V1FieldElement)) {
       return false;
     }
 
-    custom.gm.SM2P256V1FieldElement o = (custom.gm.SM2P256V1FieldElement) other;
+    SM2P256V1FieldElement o =  (SM2P256V1FieldElement) other;
     return Nat256.eq(x, o.x);
   }
 

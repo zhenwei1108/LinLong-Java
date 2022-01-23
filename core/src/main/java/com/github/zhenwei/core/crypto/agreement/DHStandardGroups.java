@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.crypto.agreement;
 
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 

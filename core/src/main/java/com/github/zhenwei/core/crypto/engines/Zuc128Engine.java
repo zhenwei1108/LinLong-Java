@@ -20,7 +20,7 @@ public final class Zuc128Engine
    *
    * @param pSource the source engine
    */
-  private Zuc128Engine(final org.bouncycastle.crypto.engines.Zuc128Engine pSource) {
+  private Zuc128Engine(final Zuc128Engine pSource) {
     super(pSource);
   }
 
@@ -30,6 +30,6 @@ public final class Zuc128Engine
    * @return the copy
    */
   public Memoable copy() {
-    return new org.bouncycastle.crypto.engines.Zuc128Engine(this);
+    return new Zuc128Engine(this);
   }
 }

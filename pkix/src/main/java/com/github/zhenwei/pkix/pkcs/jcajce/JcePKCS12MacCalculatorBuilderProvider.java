@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.pkcs.jcajce;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.pkix.operator.GenericKey;
 import com.github.zhenwei.pkix.operator.MacCalculator;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;

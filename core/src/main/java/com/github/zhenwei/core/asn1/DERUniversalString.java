@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.asn1;
 
-import com.github.zhenwei.core.asn1.x509.ASN1UniversalString;
+ 
 
 /**
  * DER UniversalString object - encodes UNICODE (ISO 10646) characters using 32-bit format. In Java

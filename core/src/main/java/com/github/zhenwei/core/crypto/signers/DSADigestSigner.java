@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.crypto.signers;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.DSA;
 import com.github.zhenwei.core.crypto.DSAExt;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Signer;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.DSA;
 
 
 public class DSADigestSigner

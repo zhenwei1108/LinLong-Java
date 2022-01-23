@@ -1,15 +1,5 @@
-package com.github.zhenwei.core.asn1.x509;
+package com.github.zhenwei.core.asn1;
 
-import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.core.asn1.ASN1OutputStream;
-import com.github.zhenwei.core.asn1.ASN1ParsingException;
-import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.ASN1String;
-import com.github.zhenwei.core.asn1.ASN1TaggedObject;
-import com.github.zhenwei.core.asn1.ASN1UniversalType;
-import com.github.zhenwei.core.asn1.BERTags;
-import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.DERUniversalString;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 

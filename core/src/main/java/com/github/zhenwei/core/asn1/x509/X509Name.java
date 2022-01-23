@@ -10,6 +10,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.ASN1UniversalString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERSet;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
@@ -420,7 +421,7 @@ public class X509Name
 
         ASN1Encodable value = s.getObjectAt(1);
         if (value instanceof ASN1String
-            && !(value instanceof com.github.zhenwei.core.asn1.x509.ASN1UniversalString)) {
+            && !(value instanceof ASN1UniversalString)) {
           String v = ((ASN1String) value).getString();
           if (v.length() > 0 && v.charAt(0) == '#') {
             values.addElement("\\" + v);

@@ -8,7 +8,7 @@ import CRLDistPoint;
 
 import DistributionPoint;
 import DistributionPointName;
-import GeneralNames;
+ 
 import PolicyInformation;
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
@@ -20,11 +20,11 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  AuthorityKeyIdentifier;
+import  Extension;
+import  GeneralName;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.util.Properties;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.core.util.StoreException;

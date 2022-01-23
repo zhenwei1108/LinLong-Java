@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import java.security.Key;
 import java.security.PrivateKey;
 import java.security.PublicKey;

@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.util.Pack;
+
 /**
  * Implementation of Daniel J. Bernstein's XSalsa20 stream cipher - Salsa20 with an extended nonce.
  * <p>

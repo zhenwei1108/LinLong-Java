@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cms;
 import cms.IssuerAndSerialNumber;
 import cms.SignerIdentifier;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;

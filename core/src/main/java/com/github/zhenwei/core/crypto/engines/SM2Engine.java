@@ -17,6 +17,7 @@ import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

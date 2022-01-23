@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
+import  CertificateList;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;

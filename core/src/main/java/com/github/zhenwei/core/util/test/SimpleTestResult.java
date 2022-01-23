@@ -25,20 +25,20 @@ public class SimpleTestResult implements TestResult {
   public static TestResult successful(
       Test test,
       String message) {
-    return new test.SimpleTestResult(true, test.getName() + ": " + message);
+    return new SimpleTestResult(true, test.getName() + ": " + message);
   }
 
   public static TestResult failed(
       Test test,
       String message) {
-    return new test.SimpleTestResult(false, test.getName() + ": " + message);
+    return new SimpleTestResult(false, test.getName() + ": " + message);
   }
 
   public static TestResult failed(
       Test test,
       String message,
       Throwable t) {
-    return new test.SimpleTestResult(false, test.getName() + ": " + message, t);
+    return new SimpleTestResult(false, test.getName() + ": " + message, t);
   }
 
   public static TestResult failed(

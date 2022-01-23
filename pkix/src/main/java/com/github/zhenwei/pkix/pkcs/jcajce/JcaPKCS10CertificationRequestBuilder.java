@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.pkcs.jcajce;
 
 
 
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import java.security.PublicKey;
 import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;

@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.qtesla;
 
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Pack;
 import java.security.SecureRandom;
 
 

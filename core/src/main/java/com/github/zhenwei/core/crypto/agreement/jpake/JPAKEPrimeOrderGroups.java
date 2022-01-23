@@ -40,7 +40,7 @@ public class JPAKEPrimeOrderGroups {
   );
 
   /**
-   * From NIST. 2048-bit p, 224-bit q and 2048-bit g for 112-bit security.
+   * From  2048-bit p, 224-bit q and 2048-bit g for 112-bit security.
    */
   public static final JPAKEPrimeOrderGroup NIST_2048 = new JPAKEPrimeOrderGroup(
       // p
@@ -70,7 +70,7 @@ public class JPAKEPrimeOrderGroups {
   );
 
   /**
-   * From NIST. 3072-bit p, 256-bit q and 3072-bit g for 128-bit security.
+   * From  3072-bit p, 256-bit q and 3072-bit g for 128-bit security.
    */
   public static final JPAKEPrimeOrderGroup NIST_3072 = new JPAKEPrimeOrderGroup(
       // p

@@ -19,7 +19,7 @@ import com.github.zhenwei.core.asn1.ocsp.ResponseData;
 import com.github.zhenwei.core.asn1.ocsp.Signature;
 import com.github.zhenwei.core.asn1.ocsp.SingleResponse;
 import com.github.zhenwei.core.asn1.ocsp.TBSRequest;
-import com.github.zhenwei.core.asn1.x509.Extensions;
+import  Extensions;
 import com.github.zhenwei.core.util.io.Streams;
 import com.github.zhenwei.provider.jcajce.PKIXCertRevocationCheckerParameters;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
@@ -138,7 +138,7 @@ class OcspCache
                 nonce = value;
             }
 
-            requestExtensions.add(new com.github.zhenwei.core.asn1.x509.Extension(
+            requestExtensions.add(new  Extension(
                 new ASN1ObjectIdentifier(ext.getId()), ext.isCritical(), value));
         }
 

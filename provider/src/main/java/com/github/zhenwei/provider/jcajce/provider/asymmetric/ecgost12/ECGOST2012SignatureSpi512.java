@@ -2,8 +2,8 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost12;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
-import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import  SubjectPublicKeyInfo;
+import  X509ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.math.BigInteger;
@@ -17,7 +17,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import  GOST3411_2012_512Digest;
   
  
-import org.bouncycastle.crypto.signers.ECGOST3410_2012Signer;
+import ECGOST3410_2012Signer;
  
 import  ECKey;
 import  ECPublicKey;

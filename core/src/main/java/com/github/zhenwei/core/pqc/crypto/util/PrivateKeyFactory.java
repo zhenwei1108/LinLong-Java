@@ -31,6 +31,7 @@ import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTPrivateKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.xmss.XMSSParameters;
 import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPrivateKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.xmss.XMSSUtil;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Pack;
 import java.io.IOException;
 import java.io.InputStream;

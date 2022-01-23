@@ -4,6 +4,7 @@ import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Signer;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;

@@ -4,9 +4,9 @@ package com.github.zhenwei.pkix.cert.ocsp;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Certificate;
-import com.github.zhenwei.core.asn1.x509.Extensions;
+
+import  Certificate;
+import  Extensions;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.operator.ContentVerifier;

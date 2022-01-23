@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.operator.GenericKey;
 import java.security.Key;
 

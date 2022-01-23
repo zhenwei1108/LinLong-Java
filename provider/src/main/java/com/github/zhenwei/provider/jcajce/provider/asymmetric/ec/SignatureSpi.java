@@ -11,12 +11,12 @@ import  NullDigest;
 import  RIPEMD160Digest;
 import  SHAKEDigest;
  
-import org.bouncycastle.crypto.signers.DSAEncoding;
-import org.bouncycastle.crypto.signers.ECDSASigner;
-import org.bouncycastle.crypto.signers.ECNRSigner;
-import org.bouncycastle.crypto.signers.HMacDSAKCalculator;
-import org.bouncycastle.crypto.signers.PlainDSAEncoding;
-import org.bouncycastle.crypto.signers.StandardDSAEncoding;
+import DSAEncoding;
+import ECDSASigner;
+import ECNRSigner;
+import HMacDSAKCalculator;
+import PlainDSAEncoding;
+import StandardDSAEncoding;
 import util.DSABase;
  
 

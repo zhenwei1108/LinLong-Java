@@ -8,7 +8,7 @@ import CMSProcessableByteArray;
 import CMSSignedData;
 import CMSSignedDataGenerator;
 import ExtensionsGenerator;
-import GeneralNames;
+ 
 import SignerInfoGenerator;
 import cms.AttributeTable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
@@ -16,8 +16,8 @@ import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.IssuerSerial;
+ 
+import  IssuerSerial;
 import com.github.zhenwei.core.util.CollectionStore;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

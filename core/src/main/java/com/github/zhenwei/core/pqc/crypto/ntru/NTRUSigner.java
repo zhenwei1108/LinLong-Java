@@ -2,6 +2,8 @@ package com.github.zhenwei.core.pqc.crypto.ntru;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Polynomial;
 import java.nio.ByteBuffer;
  
  

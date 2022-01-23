@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;

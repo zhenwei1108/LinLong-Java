@@ -10,9 +10,9 @@ import cms.RecipientEncryptedKey;
 import cms.RecipientKeyIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectKeyIdentifier;
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.util.List;
 

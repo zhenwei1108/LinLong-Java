@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.gmss;
 
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.pqc.crypto.gmss.util.GMSSRandom;
+import com.github.zhenwei.core.pqc.crypto.gmss.util.WinternitzOTSignature;
 import com.github.zhenwei.core.util.Arrays;
 import java.util.Vector;
  

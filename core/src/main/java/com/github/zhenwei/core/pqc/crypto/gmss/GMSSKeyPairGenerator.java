@@ -4,6 +4,9 @@ import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.pqc.crypto.gmss.util.GMSSRandom;
+import com.github.zhenwei.core.pqc.crypto.gmss.util.WinternitzOTSVerify;
+import com.github.zhenwei.core.pqc.crypto.gmss.util.WinternitzOTSignature;
 import java.security.SecureRandom;
 import java.util.Vector;
  

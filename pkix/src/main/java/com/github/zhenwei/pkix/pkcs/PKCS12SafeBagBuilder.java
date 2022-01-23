@@ -10,7 +10,7 @@ import com.github.zhenwei.core.asn1.pkcs.CertBag;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.SafeBag;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
+import  CertificateList;
 import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;

@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

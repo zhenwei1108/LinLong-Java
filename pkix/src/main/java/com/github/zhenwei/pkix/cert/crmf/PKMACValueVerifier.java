@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.crmf;
 
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.operator.MacCalculator;
 import crmf.PKMACValue;

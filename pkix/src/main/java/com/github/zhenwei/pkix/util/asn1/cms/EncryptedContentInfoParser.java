@@ -6,7 +6,7 @@ import ASN1TaggedObjectParser;
  
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import java.io.IOException;
 
 /**

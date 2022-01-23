@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms;
 
 import cms.SignerInfo;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.io.IOException;
 
 /**

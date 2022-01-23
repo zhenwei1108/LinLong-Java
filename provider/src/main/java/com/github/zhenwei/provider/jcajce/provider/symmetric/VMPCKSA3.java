@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
  
-import org.bouncycastle.crypto.engines.VMPCKSA3Engine;
+import VMPCKSA3Engine;
  
  
  

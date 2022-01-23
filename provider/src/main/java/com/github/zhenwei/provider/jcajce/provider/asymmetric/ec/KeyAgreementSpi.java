@@ -17,11 +17,11 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
   
  
-import org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
-import org.bouncycastle.crypto.agreement.ECDHCBasicAgreement;
-import org.bouncycastle.crypto.agreement.ECDHCUnifiedAgreement;
-import org.bouncycastle.crypto.agreement.ECMQVBasicAgreement;
-import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
+import  agreement.ECDHBasicAgreement;
+import  agreement.ECDHCBasicAgreement;
+import  agreement.ECDHCUnifiedAgreement;
+import  agreement.ECMQVBasicAgreement;
+import  agreement.kdf.ConcatenationKDFGenerator;
 import  RIPEMD160Digest;
   
   

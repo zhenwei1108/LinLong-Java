@@ -22,10 +22,10 @@ class PrimeField implements FiniteField {
     if (this == obj) {
       return true;
     }
-    if (!(obj instanceof org.bouncycastle.math.field.PrimeField)) {
+    if (!(obj instanceof  PrimeField)) {
       return false;
     }
-    org.bouncycastle.math.field.PrimeField other = (org.bouncycastle.math.field.PrimeField) obj;
+     PrimeField other = ( PrimeField) obj;
     return characteristic.equals(other.characteristic);
   }
 

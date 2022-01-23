@@ -1,7 +1,9 @@
 package com.github.zhenwei.core.crypto.agreement;
 
+import com.github.zhenwei.core.crypto.BasicAgreement;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;

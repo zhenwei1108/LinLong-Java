@@ -11,7 +11,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import  NullDigest;
  
   
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASigner;
+import QTESLASigner;
 
 public class SignatureSpi
     extends Signature

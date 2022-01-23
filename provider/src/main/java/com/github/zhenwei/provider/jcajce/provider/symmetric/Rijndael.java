@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.symmetric;
 
  
  
-import org.bouncycastle.crypto.engines.RijndaelEngine;
+import RijndaelEngine;
  
  
  

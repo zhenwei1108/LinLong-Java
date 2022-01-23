@@ -7,6 +7,7 @@ import com.github.zhenwei.core.crypto.Mac;
 import com.github.zhenwei.core.crypto.OutputLengthException;
 import com.github.zhenwei.core.crypto.engines.DSTU7624Engine;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 
 
 /**

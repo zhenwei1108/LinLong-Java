@@ -31,10 +31,10 @@ import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
  
   
-import org.bouncycastle.crypto.agreement.DHBasicAgreement;
+import  agreement.DHBasicAgreement;
  ;
  
-import org.bouncycastle.crypto.engines.IESEngine;
+import IESEngine;
   
   
  
@@ -43,7 +43,7 @@ import org.bouncycastle.crypto.engines.IESEngine;
 import DHKeyParameters;
 import IESWithCipherParameters;
  
-import org.bouncycastle.crypto.parsers.DHIESPublicKeyParser;
+import  parsers.DHIESPublicKeyParser;
 import util.IESUtil;
 import  provider.util.BadBlockException;
 import  IESKey;

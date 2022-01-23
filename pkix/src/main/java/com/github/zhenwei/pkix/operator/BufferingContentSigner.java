@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.operator;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.io.OutputStream;
 import  io.BufferingOutputStream;
 

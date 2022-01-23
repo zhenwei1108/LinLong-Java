@@ -2,8 +2,8 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
-import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+import  SubjectPublicKeyInfo;
+import  X509ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
@@ -17,7 +17,7 @@ import java.security.spec.AlgorithmParameterSpec;
  
 import  GOST3411Digest;
  
-import org.bouncycastle.crypto.signers.ECGOST3410Signer;
+import ECGOST3410Signer;
  
 import util.GOST3410Util;
 import  ECKey;

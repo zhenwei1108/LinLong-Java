@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * FIPS 180-2 implementation of SHA-256.

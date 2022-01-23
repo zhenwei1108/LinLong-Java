@@ -25,7 +25,6 @@ import com.github.zhenwei.core.pqc.crypto.xmss.XMSSMTPublicKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.xmss.XMSSPublicKeyParameters;
 import java.io.IOException;
 
-
 /**
  * Factory to create ASN.1 subject public key info objects from lightweight public keys.
  */

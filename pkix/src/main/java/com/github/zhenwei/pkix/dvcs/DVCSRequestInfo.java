@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.dvcs;
 
 import DVCSRequestInformation;
 import DVCSTime;
-import GeneralNames;
+ 
 import PolicyInformation;
 import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;

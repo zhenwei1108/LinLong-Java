@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.signers;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.macs.HMac;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;

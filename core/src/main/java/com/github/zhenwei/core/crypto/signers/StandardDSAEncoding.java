@@ -15,7 +15,7 @@ import java.math.BigInteger;
 public class StandardDSAEncoding
     implements DSAEncoding {
 
-  public static final org.bouncycastle.crypto.signers.StandardDSAEncoding INSTANCE = new org.bouncycastle.crypto.signers.StandardDSAEncoding();
+  public static final StandardDSAEncoding INSTANCE = new StandardDSAEncoding();
 
   public byte[] encode(BigInteger n, BigInteger r, BigInteger s) throws IOException {
     ASN1EncodableVector v = new ASN1EncodableVector();

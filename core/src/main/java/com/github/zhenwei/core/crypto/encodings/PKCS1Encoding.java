@@ -6,6 +6,7 @@ import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Properties;
 import java.security.SecureRandom;
 
@@ -275,7 +276,7 @@ public class PKCS1Encoding
     /*
      * Check the padding.
      */
-    int correct = org.bouncycastle.crypto.encodings.PKCS1Encoding.checkPkcs1Encoding(data,
+    int correct = PKCS1Encoding.checkPkcs1Encoding(data,
         this.pLen);
 
     /*

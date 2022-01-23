@@ -2,12 +2,12 @@ package com.github.zhenwei.core.crypto.io;
 
 import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.SkippingCipher;
 import com.github.zhenwei.core.crypto.StreamCipher;
 import com.github.zhenwei.core.crypto.modes.AEADBlockCipher;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.bouncycastle.crypto.SkippingCipher;
 
 ;
 

@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.sigi;
+package  sigi;
 
 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
@@ -15,7 +15,6 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x500.DirectoryString;
 import java.math.BigInteger;
 import java.util.Enumeration;
-import sigi.NameOrPseudonym;
 
 /**
  * Contains personal data for the otherName field in the subjectAltNames extension.
@@ -31,26 +30,26 @@ import sigi.NameOrPseudonym;
  *       }
  * </pre>
  *
- * @see NameOrPseudonym
+ * @see sigi.NameOrPseudonym
  * @see sigi.SigIObjectIdentifiers
  */
 public class PersonalData
     extends ASN1Object {
 
-  private NameOrPseudonym nameOrPseudonym;
+  private sigi.NameOrPseudonym nameOrPseudonym;
   private BigInteger nameDistinguisher;
   private ASN1GeneralizedTime dateOfBirth;
   private DirectoryString placeOfBirth;
   private String gender;
   private DirectoryString postalAddress;
 
-  public static sigi.PersonalData getInstance(Object obj) {
-    if (obj == null || obj instanceof sigi.PersonalData) {
-      return (sigi.PersonalData) obj;
+  public static PersonalData getInstance(Object obj) {
+    if (obj == null || obj instanceof PersonalData) {
+      return (PersonalData) obj;
     }
 
     if (obj instanceof ASN1Sequence) {
-      return new sigi.PersonalData((ASN1Sequence) obj);
+      return new PersonalData((ASN1Sequence) obj);
     }
 
     throw new IllegalArgumentException(
@@ -83,7 +82,7 @@ public class PersonalData
 
     Enumeration e = seq.getObjects();
 
-    nameOrPseudonym = NameOrPseudonym.getInstance(e.nextElement());
+    nameOrPseudonym = sigi.NameOrPseudonym.getInstance(e.nextElement());
 
     while (e.hasMoreElements()) {
       ASN1TaggedObject o = ASN1TaggedObject.getInstance(e.nextElement());
@@ -120,7 +119,7 @@ public class PersonalData
    * @param gender            Gender.
    * @param postalAddress     Postal Address.
    */
-  public PersonalData(NameOrPseudonym nameOrPseudonym,
+  public PersonalData(sigi.NameOrPseudonym nameOrPseudonym,
       BigInteger nameDistinguisher, ASN1GeneralizedTime dateOfBirth,
       DirectoryString placeOfBirth, String gender, DirectoryString postalAddress) {
     this.nameOrPseudonym = nameOrPseudonym;
@@ -131,7 +130,7 @@ public class PersonalData
     this.placeOfBirth = placeOfBirth;
   }
 
-  public NameOrPseudonym getNameOrPseudonym() {
+  public sigi.NameOrPseudonym getNameOrPseudonym() {
     return nameOrPseudonym;
   }
 

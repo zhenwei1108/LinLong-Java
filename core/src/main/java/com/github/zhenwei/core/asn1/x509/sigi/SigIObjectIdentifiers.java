@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.sigi;
+package  sigi;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;

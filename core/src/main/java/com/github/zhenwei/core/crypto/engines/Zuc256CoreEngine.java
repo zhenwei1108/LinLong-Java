@@ -74,7 +74,7 @@ public class Zuc256CoreEngine
    *
    * @param pSource the source engine
    */
-  protected Zuc256CoreEngine(final org.bouncycastle.crypto.engines.Zuc256CoreEngine pSource) {
+  protected Zuc256CoreEngine(final Zuc256CoreEngine pSource) {
     super(pSource);
   }
 
@@ -152,7 +152,7 @@ public class Zuc256CoreEngine
    * @return the copy
    */
   public Memoable copy() {
-    return new org.bouncycastle.crypto.engines.Zuc256CoreEngine(this);
+    return new Zuc256CoreEngine(this);
   }
 
   /**
@@ -161,7 +161,7 @@ public class Zuc256CoreEngine
    * @param pState the state to restore
    */
   public void reset(final Memoable pState) {
-    final org.bouncycastle.crypto.engines.Zuc256CoreEngine e = (org.bouncycastle.crypto.engines.Zuc256CoreEngine) pState;
+    final Zuc256CoreEngine e = ( Zuc256CoreEngine) pState;
     super.reset(pState);
     theD = e.theD;
   }

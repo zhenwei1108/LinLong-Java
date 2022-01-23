@@ -7,13 +7,13 @@ import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.crypto.digests.SHA256Digest;
 import com.github.zhenwei.core.crypto.digests.SHA512Digest;
 import com.github.zhenwei.core.crypto.util.DigestFactory;
-import com.github.zhenwei.core.util.Arrays;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.SecureRandom;
+import java.util.Arrays;
 
 
 /**

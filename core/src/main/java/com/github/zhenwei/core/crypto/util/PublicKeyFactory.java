@@ -40,8 +40,10 @@ import com.github.zhenwei.core.asn1.x9.X9IntegerConverter;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHValidationParameters;
+import com.github.zhenwei.core.crypto.params.DSAParameters;
 import com.github.zhenwei.core.crypto.params.DSAPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
@@ -62,8 +64,6 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
-
-;
 
 
 /**

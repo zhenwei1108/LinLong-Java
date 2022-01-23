@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert;
 
 
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.pkix.operator.ContentVerifierProvider;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 

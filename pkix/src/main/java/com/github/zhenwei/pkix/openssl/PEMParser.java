@@ -13,9 +13,9 @@ import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
 import com.github.zhenwei.core.asn1.pkcs.RSAPublicKey;
 import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.DSAParameter;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  DSAParameter;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.encoders.Hex;

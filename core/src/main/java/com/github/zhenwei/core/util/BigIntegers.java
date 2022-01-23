@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.util;
 
 
+import com.github.zhenwei.core.math.raw.Mod;
 import com.github.zhenwei.core.math.raw.Nat;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 

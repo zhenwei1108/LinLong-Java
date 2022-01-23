@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
+import com.github.zhenwei.core.pqc.crypto.ExhaustedPrivateKeyException;
 import java.util.List;
  
 

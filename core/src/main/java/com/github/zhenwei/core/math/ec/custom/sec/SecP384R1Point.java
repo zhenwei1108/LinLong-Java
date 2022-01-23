@@ -5,7 +5,8 @@ import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.raw.Nat;
-import org.bouncycastle.math.raw.Nat384;
+import com.github.zhenwei.core.math.raw.Nat384;
+
 
 public class SecP384R1Point extends ECPoint.AbstractFp {
 

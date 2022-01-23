@@ -9,8 +9,8 @@ import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.pkcs.MacData;
 import com.github.zhenwei.core.asn1.pkcs.Pfx;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.DigestInfo;
+
+import  DigestInfo;
 import java.io.IOException;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;

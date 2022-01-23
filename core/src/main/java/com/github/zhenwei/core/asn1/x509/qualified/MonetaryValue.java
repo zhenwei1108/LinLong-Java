@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.qualified;
+ package com.github.zhenwei.core.asn1.x509.qualified;
 
 
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
@@ -9,7 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 import java.util.Enumeration;
-import qualified.Iso4217CurrencyCode;
+ 
 
 /**
  * The MonetaryValue object.
@@ -28,14 +28,14 @@ public class MonetaryValue
   private ASN1Integer amount;
   private ASN1Integer exponent;
 
-  public static qualified.MonetaryValue getInstance(
+  public static MonetaryValue getInstance(
       Object obj) {
-    if (obj instanceof qualified.MonetaryValue) {
-      return (qualified.MonetaryValue) obj;
+    if (obj instanceof MonetaryValue) {
+      return ( MonetaryValue) obj;
     }
 
     if (obj != null) {
-      return new qualified.MonetaryValue(ASN1Sequence.getInstance(obj));
+      return new MonetaryValue(ASN1Sequence.getInstance(obj));
     }
 
     return null;

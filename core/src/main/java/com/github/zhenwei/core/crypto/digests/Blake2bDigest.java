@@ -26,6 +26,7 @@ package com.github.zhenwei.core.crypto.digests;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Longs;
+import com.github.zhenwei.core.util.Pack;
 
 
 /**

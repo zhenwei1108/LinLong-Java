@@ -11,7 +11,6 @@ import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import java.util.Enumeration;
-import qualified.TypeOfBiometricData;
 
 /**
  * The BiometricData object.
@@ -31,14 +30,14 @@ public class BiometricData
   private ASN1OctetString biometricDataHash;
   private ASN1IA5String sourceDataUri;
 
-  public static qualified.BiometricData getInstance(
+  public static BiometricData getInstance(
       Object obj) {
-    if (obj instanceof qualified.BiometricData) {
-      return (qualified.BiometricData) obj;
+    if (obj instanceof BiometricData) {
+      return ( BiometricData) obj;
     }
 
     if (obj != null) {
-      return new qualified.BiometricData(ASN1Sequence.getInstance(obj));
+      return new BiometricData(ASN1Sequence.getInstance(obj));
     }
 
     return null;

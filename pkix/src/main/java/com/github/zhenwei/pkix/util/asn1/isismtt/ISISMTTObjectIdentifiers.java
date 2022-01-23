@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.util.asn1.isismtt;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectDirectoryAttributes;
+import  SubjectDirectoryAttributes;
 import com.github.zhenwei.sdk.util.asn1.isismtt.x509.AdditionalInformationSyntax;
 import com.github.zhenwei.sdk.util.asn1.isismtt.x509.Restriction;
 

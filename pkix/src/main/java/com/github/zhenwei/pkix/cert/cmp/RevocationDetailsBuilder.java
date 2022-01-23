@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert.cmp;
 
 import cmp.RevDetails;
 import com.github.zhenwei.core.asn1.ASN1Integer;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import crmf.CertTemplateBuilder;
 import java.math.BigInteger;
 

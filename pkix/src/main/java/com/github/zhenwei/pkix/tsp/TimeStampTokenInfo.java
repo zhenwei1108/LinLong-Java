@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.tsp;
 
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.io.IOException;
 import java.math.BigInteger;
 import java.text.ParseException;

@@ -9,9 +9,9 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.DigestInfo;
-import com.github.zhenwei.core.asn1.x509.IssuerSerial;
+
+import  DigestInfo;
+import  IssuerSerial;
 
 public class OtherCertID
     extends ASN1Object

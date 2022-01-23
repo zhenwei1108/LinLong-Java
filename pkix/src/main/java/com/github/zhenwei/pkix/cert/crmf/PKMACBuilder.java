@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert.crmf;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.iana.IANAObjectIdentifiers;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.pkix.operator.GenericKey;
 import com.github.zhenwei.pkix.operator.MacCalculator;

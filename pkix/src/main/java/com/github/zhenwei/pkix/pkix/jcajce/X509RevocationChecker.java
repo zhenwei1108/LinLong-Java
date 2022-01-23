@@ -4,11 +4,11 @@ package com.github.zhenwei.pkix.pkix.jcajce;
 import CRLDistPoint;
 import DistributionPoint;
 import DistributionPointName;
-import GeneralNames;
+ 
 
 import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+import  Extension;
+import  GeneralName;
 import com.github.zhenwei.core.util.CollectionStore;
 import com.github.zhenwei.core.util.Selector;
 import com.github.zhenwei.core.util.Store;

@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.openssl.jcajce;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.Key;
 import java.security.KeyPair;

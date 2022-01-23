@@ -12,8 +12,8 @@ import com.github.zhenwei.core.asn1.DERPrintableString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x500.DirectoryString;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
-import com.github.zhenwei.core.asn1.x509.IssuerSerial;
+import  GeneralName;
+import  IssuerSerial;
 import java.util.Enumeration;
 
 /**

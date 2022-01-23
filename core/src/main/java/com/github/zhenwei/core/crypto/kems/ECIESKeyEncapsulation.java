@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.kems;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DerivationFunction;
+import com.github.zhenwei.core.crypto.KeyEncapsulation;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
@@ -17,7 +18,7 @@ import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.KeyEncapsulation;
+
 
 
 /**

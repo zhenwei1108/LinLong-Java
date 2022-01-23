@@ -5,9 +5,9 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.DERNull;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.DSAParameter;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  DSAParameter;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;

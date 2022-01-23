@@ -4,6 +4,7 @@ package com.github.zhenwei.core.crypto.generators;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.crypto.PBEParametersGenerator;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithIV;
  

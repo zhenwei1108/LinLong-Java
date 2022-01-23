@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.security.PrivateKey;
 import java.security.Provider;

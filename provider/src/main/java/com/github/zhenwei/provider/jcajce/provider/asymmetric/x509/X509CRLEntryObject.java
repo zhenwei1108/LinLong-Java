@@ -3,15 +3,15 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
  
 
-import GeneralNames;
+ 
 import TBSCertList;
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.util.ASN1Dump;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
+import  Extension;
+import  GeneralName;
 import com.github.zhenwei.core.util.Strings;
 import java.io.IOException;
 import java.math.BigInteger;

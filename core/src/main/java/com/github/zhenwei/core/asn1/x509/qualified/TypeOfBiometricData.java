@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.qualified;
+ package com.github.zhenwei.core.asn1.x509.qualified;
 
 
 import com.github.zhenwei.core.asn1.ASN1Choice;
@@ -29,19 +29,19 @@ public class TypeOfBiometricData
 
   ASN1Encodable obj;
 
-  public static qualified.TypeOfBiometricData getInstance(Object obj) {
-    if (obj == null || obj instanceof qualified.TypeOfBiometricData) {
-      return (qualified.TypeOfBiometricData) obj;
+  public static TypeOfBiometricData getInstance(Object obj) {
+    if (obj == null || obj instanceof TypeOfBiometricData) {
+      return ( TypeOfBiometricData) obj;
     }
 
     if (obj instanceof ASN1Integer) {
       ASN1Integer predefinedBiometricTypeObj = ASN1Integer.getInstance(obj);
       int predefinedBiometricType = predefinedBiometricTypeObj.intValueExact();
 
-      return new qualified.TypeOfBiometricData(predefinedBiometricType);
+      return new TypeOfBiometricData(predefinedBiometricType);
     } else if (obj instanceof ASN1ObjectIdentifier) {
       ASN1ObjectIdentifier BiometricDataID = ASN1ObjectIdentifier.getInstance(obj);
-      return new qualified.TypeOfBiometricData(BiometricDataID);
+      return new TypeOfBiometricData(BiometricDataID);
     }
 
     throw new IllegalArgumentException("unknown object in getInstance");

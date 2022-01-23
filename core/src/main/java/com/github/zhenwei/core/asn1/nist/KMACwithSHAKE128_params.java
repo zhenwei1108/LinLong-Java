@@ -38,11 +38,11 @@ public class KMACwithSHAKE128_params
     this.customizationString = Arrays.clone(customizationString);
   }
 
-  public static nist.KMACwithSHAKE128_params getInstance(Object o) {
-    if (o instanceof nist.KMACwithSHAKE128_params) {
-      return (nist.KMACwithSHAKE128_params) o;
+  public static KMACwithSHAKE128_params getInstance(Object o) {
+    if (o instanceof KMACwithSHAKE128_params) {
+      return (KMACwithSHAKE128_params) o;
     } else if (o != null) {
-      return new nist.KMACwithSHAKE128_params(ASN1Sequence.getInstance(o));
+      return new KMACwithSHAKE128_params(ASN1Sequence.getInstance(o));
     }
 
     return null;

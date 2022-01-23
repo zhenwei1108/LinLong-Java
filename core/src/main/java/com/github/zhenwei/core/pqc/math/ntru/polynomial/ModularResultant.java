@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
+import com.github.zhenwei.core.pqc.math.ntru.euclid.BigIntEuclidean;
 import java.math.BigInteger;
  
 

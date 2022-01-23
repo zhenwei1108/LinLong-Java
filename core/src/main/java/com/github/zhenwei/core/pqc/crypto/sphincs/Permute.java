@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
 
+import com.github.zhenwei.core.util.Pack;
+
 class Permute {
 
   private static final int CHACHA_ROUNDS = 12;

@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.pkcs.bc;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.pkix.operator.GenericKey;
@@ -13,7 +13,7 @@ import java.security.SecureRandom;
  
 import  SHA1Digest;
 import PKCS12ParametersGenerator;
-import org.bouncycastle.crypto.io.CipherOutputStream;
+import  io.CipherOutputStream;
  
  
 import org.bouncycastle.operator.OutputEncryptor;

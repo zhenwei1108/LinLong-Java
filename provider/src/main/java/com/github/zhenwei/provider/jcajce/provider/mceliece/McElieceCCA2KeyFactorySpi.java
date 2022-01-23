@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PrivateKey;
 import com.github.zhenwei.core.pqc.asn1.McElieceCCA2PublicKey;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;

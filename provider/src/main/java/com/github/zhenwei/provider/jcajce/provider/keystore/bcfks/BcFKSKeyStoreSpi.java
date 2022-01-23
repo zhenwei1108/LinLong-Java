@@ -25,8 +25,8 @@ import com.github.zhenwei.core.asn1.pkcs.PBES2Parameters;
 import com.github.zhenwei.core.asn1.pkcs.PBKDF2Params;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
+
+import  X509ObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.util.Arrays;
@@ -83,7 +83,7 @@ import javax.crypto.spec.SecretKeySpec;
  
 import  ScryptParams;
  
-import org.bouncycastle.crypto.PBEParametersGenerator;
+import  PBEParametersGenerator;
 import  SHA3Digest;
 import  SHA512Digest;
 import PKCS5S2ParametersGenerator;

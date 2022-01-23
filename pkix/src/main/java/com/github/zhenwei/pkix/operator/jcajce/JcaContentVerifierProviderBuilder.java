@@ -4,8 +4,8 @@ package com.github.zhenwei.pkix.operator.jcajce;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+ 
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.util.io.TeeOutputStream;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.operator.ContentVerifier;

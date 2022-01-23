@@ -9,9 +9,9 @@ import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Extensions;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  Extensions;
+import  SubjectPublicKeyInfo;
 
 public class CertTemplateBuilder
 {

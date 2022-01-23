@@ -5,7 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.cryptopro.GOST28147Parameters;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;

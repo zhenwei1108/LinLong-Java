@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
+import com.github.zhenwei.core.util.Pack;
+
 /**
  * Hash tree address.
  */

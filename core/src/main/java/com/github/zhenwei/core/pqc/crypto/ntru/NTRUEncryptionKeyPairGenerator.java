@@ -4,11 +4,12 @@ package com.github.zhenwei.core.pqc.crypto.ntru;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
- 
- 
- 
- 
- 
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.IntegerPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.Polynomial;
+import com.github.zhenwei.core.pqc.math.ntru.polynomial.ProductFormPolynomial;
+import com.github.zhenwei.core.pqc.math.ntru.util.Util;
+
 
 /**
  * Generates key pairs.<br> The parameter p is hardcoded to 3.

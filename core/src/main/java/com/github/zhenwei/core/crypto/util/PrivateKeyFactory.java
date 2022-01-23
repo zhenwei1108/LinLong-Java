@@ -19,7 +19,7 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
-import com.github.zhenwei.core.asn1. ECPrivateKey;
+import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.DSAParameter;
 import com.github.zhenwei.core.asn1.x509.X509ObjectIdentifiers;
@@ -29,7 +29,9 @@ import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DSAParameters;
 import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
@@ -148,7 +150,7 @@ public class PrivateKeyFactory {
       } else {
         x9 = X9ECParameters.getInstance(params.getParameters());
         dParams = new ECDomainParameters(
-            getCurve(), getG(), getN(), getH(), getSeed());
+            x9.getCurve(), x9.getG(), x9.getN(), x9.getH(), x9.getSeed());
       }
 
       ECPrivateKey ec = ECPrivateKey.getInstance(keyInfo.parsePrivateKey());

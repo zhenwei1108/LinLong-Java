@@ -18,7 +18,7 @@ import org.bouncycastle.oer.its.EccP256CurvePoint;
 import org.bouncycastle.oer.its.EccP384CurvePoint;
 import org.bouncycastle.oer.its.PublicEncryptionKey;
 import org.bouncycastle.oer.its.SymmAlgorithm;
-import teletrust.TeleTrusTNamedCurves;
+ 
 
 
 

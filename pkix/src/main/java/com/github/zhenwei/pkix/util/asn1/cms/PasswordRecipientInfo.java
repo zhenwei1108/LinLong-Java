@@ -10,7 +10,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.7">RFC 5652</a>:

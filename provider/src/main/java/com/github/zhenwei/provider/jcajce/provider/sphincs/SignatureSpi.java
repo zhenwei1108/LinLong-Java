@@ -13,7 +13,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import  SHA3Digest;
 import  SHA512Digest;
 import  SHA512tDigest;
-import org.bouncycastle.pqc.crypto.sphincs.SPHINCS256Signer;
+import  SPHINCS256Signer;
 
 public class SignatureSpi
     extends java.security.SignatureSpi

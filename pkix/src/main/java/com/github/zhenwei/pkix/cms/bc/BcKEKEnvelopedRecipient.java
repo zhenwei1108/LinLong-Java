@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms.bc;
 
 
 import RecipientOperator;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.cms.CMSException;
 import java.io.InputStream;
  
@@ -37,11 +37,11 @@ public class BcKEKEnvelopedRecipient
             {
                 if (dataCipher instanceof BufferedBlockCipher)
                 {
-                    return new org.bouncycastle.crypto.io.CipherInputStream(dataOut, (BufferedBlockCipher)dataCipher);
+                    return new  io.CipherInputStream(dataOut, (BufferedBlockCipher)dataCipher);
                 }
                 else
                 {
-                    return new org.bouncycastle.crypto.io.CipherInputStream(dataOut, (StreamCipher)dataCipher);
+                    return new  io.CipherInputStream(dataOut, (StreamCipher)dataCipher);
                 }
             }
         });

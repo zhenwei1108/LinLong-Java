@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms.jcajce;
 
 import KeyTransRecipientId;
 import RecipientOperator;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.pkix.cms.CMSException;
 import com.github.zhenwei.pkix.operator.GenericKey;
 import com.github.zhenwei.pkix.operator.MacCalculator;

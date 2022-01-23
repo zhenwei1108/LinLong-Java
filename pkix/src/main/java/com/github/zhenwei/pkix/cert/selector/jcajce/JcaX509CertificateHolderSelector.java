@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cert.selector.jcajce;
 
 
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  Extension;
 import java.math.BigInteger;
 import java.security.cert.X509Certificate;
 import javax.security.auth.x500.X500Principal;

@@ -8,6 +8,8 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.crypto.util.DigestFactory;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Pack;
 import java.security.SecureRandom;
 
 

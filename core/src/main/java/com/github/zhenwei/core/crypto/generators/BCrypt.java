@@ -3,6 +3,7 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.core.util.Pack;
 import com.github.zhenwei.core.util.Strings;
 
 /**

@@ -7,6 +7,7 @@ import com.github.zhenwei.core.crypto.params.Blake3Parameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 import java.util.Iterator;
 import java.util.Stack;
 

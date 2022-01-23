@@ -18,10 +18,10 @@ import java.security.SecureRandom;
  * "Password Authenticated Key Exchange by Juggling, 2008."</a>
  * <p>
  * The J-PAKE protocol is symmetric. There is no notion of a <i>client</i> or <i>server</i>, but
- * rather just two <i>participants</i>. An instance of {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant}
+ * rather just two <i>participants</i>. An instance of {@link  agreement.jpake.JPAKEParticipant}
  * represents one participant, and is the primary interface for executing the exchange.
  * <p>
- * To execute an exchange, construct a {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant}
+ * To execute an exchange, construct a {@link  agreement.jpake.JPAKEParticipant}
  * on each end, and call the following 7 methods (once and only once, in the given order, for each
  * participant, sending messages between them as described):
  * <ol>
@@ -54,7 +54,7 @@ import java.security.SecureRandom;
  * <p>
  * This class is stateful and NOT threadsafe.
  * Each instance should only be used for ONE complete J-PAKE exchange
- * (i.e. a new {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant} should be constructed for each new J-PAKE exchange).
+ * (i.e. a new {@link  agreement.jpake.JPAKEParticipant} should be constructed for each new J-PAKE exchange).
  * <p>
  */
 public class JPAKEParticipant {
@@ -141,7 +141,7 @@ public class JPAKEParticipant {
   private int state;
 
   /**
-   * Convenience constructor for a new {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant}
+   * Convenience constructor for a new {@link  agreement.jpake.JPAKEParticipant}
    * that uses the {@link JPAKEPrimeOrderGroups#NIST_3072} prime order group, a SHA-256 digest, and
    * a default {@link SecureRandom} implementation.
    * <p>
@@ -166,7 +166,7 @@ public class JPAKEParticipant {
 
 
   /**
-   * Convenience constructor for a new {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant}
+   * Convenience constructor for a new {@link  agreement.jpake.JPAKEParticipant}
    * that uses a SHA-256 digest and a default {@link SecureRandom} implementation.
    * <p>
    * After construction, the {@link #getState() state} will be  {@link #STATE_INITIALIZED}.
@@ -194,7 +194,7 @@ public class JPAKEParticipant {
 
 
   /**
-   * Construct a new {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant}.
+   * Construct a new {@link  agreement.jpake.JPAKEParticipant}.
    * <p>
    * After construction, the {@link #getState() state} will be  {@link #STATE_INITIALIZED}.
    *
@@ -394,14 +394,14 @@ public class JPAKEParticipant {
   /**
    * Calculates and returns the key material. A session key must be derived from this key material
    * using a secure key derivation function (KDF). The KDF used to derive the key is handled
-   * externally (i.e. not by {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant}).
+   * externally (i.e. not by {@link  agreement.jpake.JPAKEParticipant}).
    * <p>
    * The keying material will be identical for each participant if and only if each participant's
    * password is the same.  i.e. If the participants do not share the same password, then each
    * participant will derive a different key. Therefore, if you immediately start using a key
    * derived from the keying material, then you must handle detection of incorrect keys. If you want
    * to handle this detection explicitly, you can optionally perform rounds 3 and 4.  See {@link
-   * org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant} for details on how to execute rounds
+   *  agreement.jpake.JPAKEParticipant} for details on how to execute rounds
    * 3 and 4.
    * <p>
    * The keying material will be in the range <tt>[0, p-1]</tt>.
@@ -462,7 +462,7 @@ public class JPAKEParticipant {
   /**
    * Creates and returns the payload to send to the other participant during round 3.
    * <p>
-   * See {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant} for more details on round
+   * See {@link  agreement.jpake.JPAKEParticipant} for more details on round
    * 3.
    * <p>
    * After execution, the {@link #getState() state} will be  {@link #STATE_ROUND_3_CREATED}.
@@ -499,7 +499,7 @@ public class JPAKEParticipant {
   /**
    * Validates the payload received from the other participant during round 3.
    * <p>
-   * See {@link org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant} for more details on round
+   * See {@link  agreement.jpake.JPAKEParticipant} for more details on round
    * 3.
    * <p>
    * After execution, the {@link #getState() state} will be {@link #STATE_ROUND_3_VALIDATED}.

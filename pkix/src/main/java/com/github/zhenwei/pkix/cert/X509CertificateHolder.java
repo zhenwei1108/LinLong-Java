@@ -5,9 +5,9 @@ package com.github.zhenwei.pkix.cert;
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Certificate;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  Certificate;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.pkix.operator.ContentVerifier;
 import com.github.zhenwei.pkix.operator.ContentVerifierProvider;

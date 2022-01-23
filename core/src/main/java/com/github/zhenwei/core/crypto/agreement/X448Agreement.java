@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.agreement;
 
 
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.RawAgreement;
 import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.X448PublicKeyParameters;
  

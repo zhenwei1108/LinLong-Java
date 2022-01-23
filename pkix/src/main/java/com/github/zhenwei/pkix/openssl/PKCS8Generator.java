@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.io.pem.PemGenerationException;
 import com.github.zhenwei.core.util.io.pem.PemObject;
 import com.github.zhenwei.core.util.io.pem.PemObjectGenerator;

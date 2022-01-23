@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.jcajce;
 
 
 
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import java.math.BigInteger;
 import java.security.PublicKey;
 import java.util.Date;

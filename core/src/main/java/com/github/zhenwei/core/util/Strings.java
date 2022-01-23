@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.util;
 
-import encoders.UTF8;
+import com.github.zhenwei.core.util.encoders.UTF8;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;

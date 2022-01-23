@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import org.bouncycastle.operator.InputDecryptor;
 
 public interface ValueDecryptorGenerator

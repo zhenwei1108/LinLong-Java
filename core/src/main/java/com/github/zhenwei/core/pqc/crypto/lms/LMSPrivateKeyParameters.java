@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.pqc.crypto.ExhaustedPrivateKeyException;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;

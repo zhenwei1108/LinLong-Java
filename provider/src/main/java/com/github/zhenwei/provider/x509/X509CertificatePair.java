@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.x509;
 import CertificatePair;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
-import com.github.zhenwei.core.asn1.x509.Certificate;
+import  Certificate;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;

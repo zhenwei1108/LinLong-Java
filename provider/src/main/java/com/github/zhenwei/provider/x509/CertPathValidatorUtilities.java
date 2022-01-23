@@ -14,9 +14,9 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  Extension;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.util.Encodable;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.core.util.StoreException;

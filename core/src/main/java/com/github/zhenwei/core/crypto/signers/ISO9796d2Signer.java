@@ -5,6 +5,7 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
+import com.github.zhenwei.core.crypto.SignerWithRecovery;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.util.Arrays;
  

@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jce.provider;
 
 import CRLDistPoint;
 import CRLNumber;
-import GeneralNames;
+ 
 import IssuingDistributionPoint;
 import TBSCertList;
 
@@ -14,8 +14,8 @@ import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.util.ASN1Dump;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
-import com.github.zhenwei.core.asn1.x509.Extension;
+import  CertificateList;
+import  Extension;
 import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.IOException;

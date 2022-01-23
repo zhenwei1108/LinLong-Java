@@ -34,7 +34,7 @@ public class NullEngine implements BlockCipher
   }
 
   /* (non-Javadoc)
-   * @see org.bouncycastle.crypto.BlockCipher#init(boolean, org.bouncycastle.crypto.CipherParameters)
+   * @see  BlockCipher#init(boolean,  CipherParameters)
    */
   public void init(boolean forEncryption, CipherParameters params) throws IllegalArgumentException
   {
@@ -43,7 +43,7 @@ public class NullEngine implements BlockCipher
   }
 
   /* (non-Javadoc)
-   * @see org.bouncycastle.crypto.BlockCipher#getAlgorithmName()
+   * @see  BlockCipher#getAlgorithmName()
    */
   public String getAlgorithmName()
   {
@@ -51,7 +51,7 @@ public class NullEngine implements BlockCipher
   }
 
   /* (non-Javadoc)
-   * @see org.bouncycastle.crypto.BlockCipher#getBlockSize()
+   * @see  BlockCipher#getBlockSize()
    */
   public int getBlockSize()
   {
@@ -59,7 +59,7 @@ public class NullEngine implements BlockCipher
   }
 
   /* (non-Javadoc)
-   * @see org.bouncycastle.crypto.BlockCipher#processBlock(byte[], int, byte[], int)
+   * @see  BlockCipher#processBlock(byte[], int, byte[], int)
    */
   public int processBlock(byte[] in, int inOff, byte[] out, int outOff)
       throws DataLengthException, IllegalStateException
@@ -87,7 +87,7 @@ public class NullEngine implements BlockCipher
   }
 
   /* (non-Javadoc)
-   * @see org.bouncycastle.crypto.BlockCipher#reset()
+   * @see  BlockCipher#reset()
    */
   public void reset()
   {

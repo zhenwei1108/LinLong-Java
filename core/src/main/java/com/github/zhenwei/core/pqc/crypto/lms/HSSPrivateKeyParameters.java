@@ -1,17 +1,16 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import static HSS.rangeTestKeys;
+import static com.github.zhenwei.core.pqc.crypto.lms.HSS.rangeTestKeys;
 
-import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
 
 public class HSSPrivateKeyParameters
     extends LMSKeyParameters
@@ -285,8 +284,8 @@ public class HSSPrivateKeyParameters
       // Equality is I and seed being equal and the lmsQMath.
       // I and seed are derived from this nodes parent and will change if the parent q, I, seed changes.
       //
-      boolean seedEquals = Arrays.areEqual(childI, keys[i].getI())
-          && Arrays.areEqual(childSeed, keys[i].getMasterSecret());
+      boolean seedEquals = com.github.zhenwei.core.util.Arrays.areEqual(childI, keys[i].getI())
+          && com.github.zhenwei.core.util.Arrays.areEqual(childSeed, keys[i].getMasterSecret());
 
       if (!seedEquals) {
         //

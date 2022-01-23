@@ -13,7 +13,7 @@ import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import com.github.zhenwei.core.asn1.teletrust.TeleTrusTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import java.util.HashMap;
 import java.util.Map;

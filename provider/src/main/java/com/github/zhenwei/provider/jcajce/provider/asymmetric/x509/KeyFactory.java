@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import java.security.InvalidKeyException;
 import java.security.Key;

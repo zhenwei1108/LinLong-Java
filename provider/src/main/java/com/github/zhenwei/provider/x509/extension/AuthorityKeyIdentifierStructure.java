@@ -1,13 +1,13 @@
 package com.github.zhenwei.provider.extension;
 
 
-import GeneralNames;
+ 
 import X509Extension;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.x509.AuthorityKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.Extension;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  AuthorityKeyIdentifier;
+import  Extension;
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.PublicKey;

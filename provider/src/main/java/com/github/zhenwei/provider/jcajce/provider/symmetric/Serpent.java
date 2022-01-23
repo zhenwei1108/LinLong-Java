@@ -5,8 +5,8 @@ import com.github.zhenwei.core.asn1.gnu.GNUObjectIdentifiers;
  
  
  
-import org.bouncycastle.crypto.engines.SerpentEngine;
-import org.bouncycastle.crypto.engines.TnepresEngine;
+import SerpentEngine;
+import TnepresEngine;
  
  ;
  

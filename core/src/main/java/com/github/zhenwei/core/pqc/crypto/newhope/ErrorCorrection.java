@@ -1,6 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
 
+import com.github.zhenwei.core.util.Arrays;
+
 class ErrorCorrection {
 
   static int abs(int v) {

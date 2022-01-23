@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.util.asn1.cmp;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.core.asn1.x509.CertificateList;
+import  CertificateList;
 import crmf.CertId;
 
 public class RevRepContentBuilder

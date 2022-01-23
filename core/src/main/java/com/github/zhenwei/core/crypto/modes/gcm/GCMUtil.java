@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.modes.gcm;
 
 import com.github.zhenwei.core.math.raw.Interleave;
 import com.github.zhenwei.core.util.Longs;
+import com.github.zhenwei.core.util.Pack;
 
 
 public abstract class GCMUtil {
@@ -125,10 +126,10 @@ public abstract class GCMUtil {
   }
 
   public static void multiply(byte[] x, byte[] y) {
-    long[] t1 = org.bouncycastle.crypto.modes.gcm.GCMUtil.asLongs(x);
-    long[] t2 = org.bouncycastle.crypto.modes.gcm.GCMUtil.asLongs(y);
-    org.bouncycastle.crypto.modes.gcm.GCMUtil.multiply(t1, t2);
-    org.bouncycastle.crypto.modes.gcm.GCMUtil.asBytes(t1, x);
+    long[] t1 =  GCMUtil.asLongs(x);
+    long[] t2 =  GCMUtil.asLongs(y);
+     GCMUtil.multiply(t1, t2);
+     GCMUtil.asBytes(t1, x);
   }
 
   public static void multiply(int[] x, int[] y) {

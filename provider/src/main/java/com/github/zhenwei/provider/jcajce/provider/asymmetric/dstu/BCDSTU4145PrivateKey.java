@@ -15,8 +15,8 @@ import com.github.zhenwei.core.asn1.ua.DSTU4145NamedCurves;
 import com.github.zhenwei.core.asn1.ua.DSTU4145Params;
 import com.github.zhenwei.core.asn1.ua.DSTU4145PointEncoder;
 import com.github.zhenwei.core.asn1.ua.UAObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X962Parameters;
 import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;

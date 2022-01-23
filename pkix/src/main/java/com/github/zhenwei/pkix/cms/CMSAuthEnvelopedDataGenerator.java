@@ -14,7 +14,7 @@ import com.github.zhenwei.core.asn1.BEROctetString;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSet;
 import com.github.zhenwei.core.asn1.cms.CMSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.pkix.operator.GenericKey;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

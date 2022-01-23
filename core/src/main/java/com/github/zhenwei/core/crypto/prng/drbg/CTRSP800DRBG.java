@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.prng.drbg;
 
 import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.prng.EntropySource;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.encoders.Hex;
  

@@ -32,14 +32,14 @@ import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x500.style.BCStrictStyle;
-import com.github.zhenwei.core.asn1.x509.AccessDescription;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.AuthorityInformationAccess;
-import com.github.zhenwei.core.asn1.x509.CRLReason;
-import com.github.zhenwei.core.asn1.x509.Extensions;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
-import com.github.zhenwei.core.asn1.x509.KeyPurposeId;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  AccessDescription;
+
+import  AuthorityInformationAccess;
+import  CRLReason;
+import  Extensions;
+import  GeneralName;
+import  KeyPurposeId;
+import  SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Properties;
@@ -212,7 +212,7 @@ class ProvOcspRevocationChecker
                                     null, parameters.getCertPath(), parameters.getIndex());
             }
 
-            com.github.zhenwei.core.asn1.x509.Certificate issuer = extractCert();
+             Certificate issuer = extractCert();
 
             // TODO: configure hash algorithm
             CertID id = createCertID(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1), issuer, new ASN1Integer(cert.getSerialNumber()));
@@ -282,7 +282,7 @@ class ProvOcspRevocationChecker
                                         }
                                         if (certID == null || !certID.getHashAlgorithm().equals(resp.getCertID().getHashAlgorithm()))
                                         {
-                                            com.github.zhenwei.core.asn1.x509.Certificate issuer = extractCert();
+                                             Certificate issuer = extractCert();
 
                                             certID = createCertID(resp.getCertID(), issuer, serialNumber);
                                         }
@@ -343,7 +343,7 @@ class ProvOcspRevocationChecker
 
     static URI getOcspResponderURI(X509Certificate cert)
     {
-        byte[] extValue = cert.getExtensionValue  (com.github.zhenwei.core.asn1.x509.Extension.authorityInfoAccess.getId());
+        byte[] extValue = cert.getExtensionValue  ( Extension.authorityInfoAccess.getId());
         if (extValue == null)
         {
             return null;
@@ -438,7 +438,7 @@ class ProvOcspRevocationChecker
                 {
                     Extensions exts = basicResp.getTbsResponseData().getResponseExtensions();
 
-                    com.github.zhenwei.core.asn1.x509.Extension ext = exts.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
+                     Extension ext = exts.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
 
                     if (!Arrays.areEqual(nonce, ext.getExtnValue().getOctets()))
                     {
@@ -543,12 +543,12 @@ class ProvOcspRevocationChecker
         return digest.digest(info.getPublicKeyData().getBytes());
     }
 
-    private com.github.zhenwei.core.asn1.x509.Certificate extractCert()
+    private  Certificate extractCert()
         throws CertPathValidatorException
     {
         try
         {
-            return com.github.zhenwei.core.asn1.x509.Certificate.getInstance(parameters.getSigningCert().getEncoded());
+            return  Certificate.getInstance(parameters.getSigningCert().getEncoded());
         }
         catch (Exception e)
         {
@@ -556,13 +556,13 @@ class ProvOcspRevocationChecker
         }
     }
 
-    private CertID createCertID(CertID base, com.github.zhenwei.core.asn1.x509.Certificate issuer, ASN1Integer serialNumber)
+    private CertID createCertID(CertID base,  Certificate issuer, ASN1Integer serialNumber)
         throws CertPathValidatorException
     {
         return createCertID(base.getHashAlgorithm(), issuer, serialNumber);
     }
 
-    private CertID createCertID(AlgorithmIdentifier digestAlg, com.github.zhenwei.core.asn1.x509.Certificate issuer, ASN1Integer serialNumber)
+    private CertID createCertID(AlgorithmIdentifier digestAlg,  Certificate issuer, ASN1Integer serialNumber)
         throws CertPathValidatorException
     {
         try

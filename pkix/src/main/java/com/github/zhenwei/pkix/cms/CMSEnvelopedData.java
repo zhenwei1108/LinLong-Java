@@ -7,7 +7,7 @@ import cms.EncryptedContentInfo;
 import cms.EnvelopedData;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+ 
 import com.github.zhenwei.core.util.Encodable;
 import java.io.IOException;
 import java.io.InputStream;

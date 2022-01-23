@@ -9,7 +9,7 @@ import cms.RecipientInfo;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;

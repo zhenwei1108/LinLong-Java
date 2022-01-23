@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.raw;
 
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister.Pack;
+import com.github.zhenwei.core.util.Pack;
 import java.math.BigInteger;
 
 public abstract class Nat {

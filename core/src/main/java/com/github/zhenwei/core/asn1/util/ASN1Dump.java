@@ -18,6 +18,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectDescriptor;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1PrintableString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1T61String;
@@ -175,7 +176,7 @@ public class ASN1Dump {
       buf.append(indent + "NumericString(" + ((ASN1NumericString) obj).getString() + ") " + nl);
     } else if (obj instanceof ASN1PrintableString) {
       buf.append(
-          indent + "PrintableString(" + ((com.g.ASN1PrintableString) obj).getString() + ") " + nl);
+          indent + "PrintableString(" + ((ASN1PrintableString) obj).getString() + ") " + nl);
     } else if (obj instanceof ASN1VisibleString) {
       buf.append(indent + "VisibleString(" + ((ASN1VisibleString) obj).getString() + ") " + nl);
     } else if (obj instanceof ASN1BMPString) {

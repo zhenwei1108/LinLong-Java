@@ -8,6 +8,7 @@ import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -61,7 +62,7 @@ public class DiscoverEndomorphisms {
   }
 
   private static void discoverEndomorphisms(X9ECParameters x9, String displayName) {
-    ECCurve c = getCurve();
+    ECCurve c = x9.getCurve();
 
     if (ECAlgorithms.isFpCurve(c)) {
       BigInteger characteristic = c.getField().getCharacteristic();
@@ -101,7 +102,7 @@ public class DiscoverEndomorphisms {
     /*
      * Check the basic premise of the endomorphism: that multiplying a point by lambda negates the x-coordinate
      */
-    ECPoint G = getG().normalize();
+    ECPoint G = x9.getG().normalize();
     ECPoint mapG = G.multiply(lambda).normalize();
     if (!G.getXCoord().negate().equals(mapG.getXCoord())) {
       throw new IllegalStateException("Derivation of GLV Type A parameters failed unexpectedly");
@@ -147,7 +148,7 @@ public class DiscoverEndomorphisms {
     /*
      * Check the basic premise of the endomorphism: that multiplying a point by lambda preserves the y-coordinate
      */
-    ECPoint G = getG().normalize();
+    ECPoint G = x9.getG().normalize();
     ECPoint mapG = G.multiply(lambda).normalize();
     if (!G.getYCoord().equals(mapG.getYCoord())) {
       throw new IllegalStateException("Derivation of GLV Type B parameters failed unexpectedly");

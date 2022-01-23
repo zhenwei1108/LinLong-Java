@@ -14,6 +14,7 @@ import com.github.zhenwei.core.asn1.BERSequence;
 import com.github.zhenwei.core.asn1.BERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
+
 /**
  * The EncryptedData object.
  * <pre>

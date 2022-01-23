@@ -15,7 +15,7 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.BERTags;
 import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.ByteArrayInputStream;

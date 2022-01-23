@@ -23,7 +23,7 @@ public class ECDomainParameters
   private BigInteger hInv = null;
 
   public ECDomainParameters(X9ECParameters x9) {
-    this(x9.getCurve(), getG(), getN(), getH(), getSeed());
+    this(x9.getCurve(), x9.getG(), x9.getN(), x9.getH(), x9.getSeed());
   }
 
   public ECDomainParameters(

@@ -10,7 +10,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.BERSequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652#section-7">RFC 5652</a> DigestedData object.

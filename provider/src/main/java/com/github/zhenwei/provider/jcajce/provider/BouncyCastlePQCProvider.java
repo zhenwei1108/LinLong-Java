@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import  SubjectPublicKeyInfo;
 import java.io.IOException;
 import java.security.AccessController;
 import java.security.PrivateKey;

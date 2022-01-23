@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.util.Pack;
+
 /**
  * Serpent is a 128-bit 32-round block cipher with variable key lengths, including 128, 192 and 256
  * bit keys conjectured to be at least as secure as three-key triple-DES.
