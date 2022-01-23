@@ -1,62 +1,56 @@
-package com.g
+package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import java.math.BigInteger;thub.zhenwe.core.pqc.math.l nearalgebra;
-
-    mport java.math.B g nteger;
+import java.math.BigInteger;
 
 /**
- * F XME:  s th s really necessary?!
+ * FIXME: is this really necessary?!
  */
-    publ c f nal
-
-class B g ntUt ls {
+public final class BigIntUtils
+{
 
   /**
-   * Default constructor (pr vate).
+   * Default constructor (private).
    */
-  pr vate
-  B g
-
-  ntUt ls() {
+  private BigIntUtils()
+  {
     // empty
   }
 
   /**
-   * Checks  f two B g nteger arrays conta n the same entr es
+   * Checks if two BigInteger arrays contain the same entries
    *
-   * @param a f rst B g nteger array
-   * @param b second B g nteger array
+   * @param a first BigInteger array
+   * @param b second BigInteger array
    * @return true or false
    */
-  publ c
-  stat c
+  public static boolean equals(BigInteger[] a, BigInteger[] b)
+  {
+    int flag = 0;
 
-  boolean equals(B g nteger[]a, B g nteger[]b) {
-    nt flag = 0;
-
-    f(a.length != b.length)
+    if (a.length != b.length)
     {
       return false;
     }
-    for (nt = 0;   <a.length;
-    ++)
+    for (int i = 0; i < a.length; i++)
     {
-      // avo d branches here!
-      // problem: compareTo on B g ntegers  s not
-      // guaranteed constant-t me!
-      flag |= a[].compareTo(b[ ]);
+      // avoid branches here!
+      // problem: compareTo on BigIntegers is not
+      // guaranteed constant-time!
+      flag |= a[i].compareTo(b[i]);
     }
     return flag == 0;
   }
 
   /**
-   * F ll the g ven B g nteger array w th the g ven value.
+   * Fill the given BigInteger array with the given value.
    *
    * @param array the array
    * @param value the value
    */
-  public static void fill(BigInteger[] array, BigInteger value) {
-    for (int i = array.length - 1; i >= 0; i--) {
+  public static void fill(BigInteger[] array, BigInteger value)
+  {
+    for (int i = array.length - 1; i >= 0; i--)
+    {
       array[i] = value;
     }
   }
@@ -64,13 +58,17 @@ class B g ntUt ls {
   /**
    * Generates a subarray of a given BigInteger array.
    *
-   * @param input - the input BigInteger array
-   * @param start - the start index
-   * @param end   - the end index
+   * @param input -
+   *              the input BigInteger array
+   * @param start -
+   *              the start index
+   * @param end   -
+   *              the end index
    * @return a subarray of <tt>input</tt>, ranging from <tt>start</tt> to
-   * <tt>end</tt>
+   *         <tt>end</tt>
    */
-  public static BigInteger[] subArray(BigInteger[] input, int start, int end) {
+  public static BigInteger[] subArray(BigInteger[] input, int start, int end)
+  {
     BigInteger[] result = new BigInteger[end - start];
     System.arraycopy(input, start, result, 0, end - start);
     return result;
@@ -79,45 +77,57 @@ class B g ntUt ls {
   /**
    * Converts a BigInteger array into an integer array
    *
-   * @param input - the BigInteger array
+   * @param input -
+   *              the BigInteger array
    * @return the integer array
    */
-  public static int[] toIntArray(BigInteger[] input) {
+  public static int[] toIntArray(BigInteger[] input)
+  {
     int[] result = new int[input.length];
-    for (int i = 0; i < input.length; i++) {
+    for (int i = 0; i < input.length; i++)
+    {
       result[i] = input[i].intValue();
     }
     return result;
   }
 
   /**
-   * Converts a BigInteger array into an integer array, reducing all BigIntegers mod q.
+   * Converts a BigInteger array into an integer array, reducing all
+   * BigIntegers mod q.
    *
-   * @param q     - the modulus
-   * @param input - the BigInteger array
+   * @param q     -
+   *              the modulus
+   * @param input -
+   *              the BigInteger array
    * @return the integer array
    */
-  public static int[] toIntArrayModQ(int q, BigInteger[] input) {
+  public static int[] toIntArrayModQ(int q, BigInteger[] input)
+  {
     BigInteger bq = BigInteger.valueOf(q);
     int[] result = new int[input.length];
-    for (int i = 0; i < input.length; i++) {
+    for (int i = 0; i < input.length; i++)
+    {
       result[i] = input[i].mod(bq).intValue();
     }
     return result;
   }
 
   /**
-   * Return the value of <tt>big</tt> as a byte array. Although BigInteger has such a method, it
-   * uses an extra bit to indicate the sign of the number. For elliptic curve cryptography, the
-   * numbers usually are positive. Thus, this helper method returns a byte array of minimal length,
-   * ignoring the sign of the number.
+   * Return the value of <tt>big</tt> as a byte array. Although BigInteger
+   * has such a method, it uses an extra bit to indicate the sign of the
+   * number. For elliptic curve cryptography, the numbers usually are
+   * positive. Thus, this helper method returns a byte array of minimal
+   * length, ignoring the sign of the number.
    *
-   * @param value the <tt>BigInteger</tt> value to be converted to a byte array
+   * @param value the <tt>BigInteger</tt> value to be converted to a byte
+   *              array
    * @return the value <tt>big</tt> as byte array
    */
-  public static byte[] toMinimalByteArray(BigInteger value) {
+  public static byte[] toMinimalByteArray(BigInteger value)
+  {
     byte[] valBytes = value.toByteArray();
-    if ((valBytes.length == 1) || (value.bitLength() & 0x07) != 0) {
+    if ((valBytes.length == 1) || (value.bitLength() & 0x07) != 0)
+    {
       return valBytes;
     }
     byte[] result = new byte[value.bitLength() >> 3];

@@ -3,7 +3,8 @@ package com.github.zhenwei.core.pqc.crypto.mceliece;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialRingGF2;
+import com.github.zhenwei.core.pqc.math.linearalgebra.PolynomialRingGF2;
+
 
 public class McElieceParameters
     implements CipherParameters {

@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
-
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialRingGF2m;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Matrix;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2mField;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GoppaCode;
+import com.github.zhenwei.core.pqc.math.linearalgebra.Permutation;
+import com.github.zhenwei.core.pqc.math.linearalgebra.PolynomialGF2mSmallM;
+import com.github.zhenwei.core.pqc.math.linearalgebra.PolynomialRingGF2m;
 
 /**
  *

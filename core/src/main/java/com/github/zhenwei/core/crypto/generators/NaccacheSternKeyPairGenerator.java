@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import NaccacheSternKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.NaccacheSternKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.NaccacheSternKeyParameters;
 import com.github.zhenwei.core.crypto.params.NaccacheSternPrivateKeyParameters;
 import com.github.zhenwei.core.util.BigIntegers;

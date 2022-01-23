@@ -54,7 +54,7 @@ public final class ByteUtils {
 
     boolean result = true;
     for (int i = left.length - 1; i >= 0; i--) {
-      result &= org.bouncycastle.pqc.math.linearalgebra.ByteUtils.equals(left[i], right[i]);
+      result &=  ByteUtils.equals(left[i], right[i]);
     }
 
     return result;
@@ -78,7 +78,7 @@ public final class ByteUtils {
         return false;
       }
       for (int j = left[i].length - 1; j >= 0; j--) {
-        result &= org.bouncycastle.pqc.math.linearalgebra.ByteUtils.equals(left[i][j], right[i][j]);
+        result &=  ByteUtils.equals(left[i][j], right[i][j]);
       }
     }
 

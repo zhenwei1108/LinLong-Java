@@ -23,7 +23,7 @@ public final class GoppaCode {
    * This class is a container for two instances of {@link GF2Matrix} and one instance of {@link
    * Permutation}. It is used to hold the systematic form
    * <tt>S*H*P = (Id|M)</tt> of the check matrix <tt>H</tt> as returned by
-   * {@link org.bouncycastle.pqc.math.linearalgebra.GoppaCode#computeSystematicForm(GF2Matrix,
+   * {@link  GoppaCode#computeSystematicForm(GF2Matrix,
    * SecureRandom)}.
    *
    * @see GF2Matrix

@@ -119,15 +119,15 @@ public class GF2Vector
   /**
    * Copy constructor.
    *
-   * @param other another {@link org.bouncycastle.pqc.math.linearalgebra.GF2Vector}
+   * @param other another {@link  GF2Vector}
    */
-  public GF2Vector(org.bouncycastle.pqc.math.linearalgebra.GF2Vector other) {
+  public GF2Vector( GF2Vector other) {
     this.length = other.length;
     this.v = IntUtils.clone(other.v);
   }
 
   /**
-   * Construct a new {@link org.bouncycastle.pqc.math.linearalgebra.GF2Vector} of the given length
+   * Construct a new {@link  GF2Vector} of the given length
    * and with the given element array. The array is not changed and only a reference to the array is
    * stored. No length checking is performed either.
    *
@@ -146,7 +146,7 @@ public class GF2Vector
    * @param encVec the encoded vector
    * @return the decoded vector
    */
-  public static org.bouncycastle.pqc.math.linearalgebra.GF2Vector OS2VP(int length, byte[] encVec) {
+  public static  GF2Vector OS2VP(int length, byte[] encVec) {
     if (length < 0) {
       throw new ArithmeticException("negative length");
     }
@@ -157,7 +157,7 @@ public class GF2Vector
       throw new ArithmeticException("length mismatch");
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(length,
+    return new  GF2Vector(length,
         LittleEndianConversions.toIntArray(encVec));
   }
 
@@ -245,22 +245,22 @@ public class GF2Vector
    * @throws ArithmeticException if the other vector is not a GF2Vector or has another length.
    */
   public Vector add(Vector other) {
-    if (!(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2Vector)) {
+    if (!(other instanceof  GF2Vector)) {
       throw new ArithmeticException("vector is not defined over GF(2)");
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Vector otherVec = (org.bouncycastle.pqc.math.linearalgebra.GF2Vector) other;
+     GF2Vector otherVec = ( GF2Vector) other;
     if (length != otherVec.length) {
       throw new ArithmeticException("length mismatch");
     }
 
-    int[] vec = IntUtils.clone(((org.bouncycastle.pqc.math.linearalgebra.GF2Vector) other).v);
+    int[] vec = IntUtils.clone((( GF2Vector) other).v);
 
     for (int i = vec.length - 1; i >= 0; i--) {
       vec[i] ^= v[i];
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(length, vec);
+    return new  GF2Vector(length, vec);
   }
 
   /**
@@ -275,7 +275,7 @@ public class GF2Vector
       throw new ArithmeticException("length mismatch");
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Vector result = new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(
+     GF2Vector result = new  GF2Vector(
         length);
 
     for (int i = 0; i < pVec.length; i++) {
@@ -293,16 +293,16 @@ public class GF2Vector
    * <tt>setJ</tt>.
    *
    * @param setJ the set of indices of elements to extract
-   * @return the new {@link org.bouncycastle.pqc.math.linearalgebra.GF2Vector}
+   * @return the new {@link  GF2Vector}
    * <tt>[this_setJ[0], this_setJ[1], ..., this_setJ[#setJ-1]]</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Vector extractVector(int[] setJ) {
+  public  GF2Vector extractVector(int[] setJ) {
     int k = setJ.length;
     if (setJ[k - 1] > length) {
       throw new ArithmeticException("invalid index set");
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Vector result = new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(
+     GF2Vector result = new  GF2Vector(
         k);
 
     for (int i = 0; i < k; i++) {
@@ -319,19 +319,19 @@ public class GF2Vector
    * Return a new vector consisting of the first <tt>k</tt> elements of this vector.
    *
    * @param k the number of elements to extract
-   * @return a new {@link org.bouncycastle.pqc.math.linearalgebra.GF2Vector} consisting of the first
+   * @return a new {@link  GF2Vector} consisting of the first
    * <tt>k</tt> elements of this vector
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Vector extractLeftVector(int k) {
+  public  GF2Vector extractLeftVector(int k) {
     if (k > length) {
       throw new ArithmeticException("invalid length");
     }
 
     if (k == length) {
-      return new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(this);
+      return new  GF2Vector(this);
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Vector result = new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(
+     GF2Vector result = new  GF2Vector(
         k);
 
     int q = k >> 5;
@@ -349,19 +349,19 @@ public class GF2Vector
    * Return a new vector consisting of the last <tt>k</tt> elements of this vector.
    *
    * @param k the number of elements to extract
-   * @return a new {@link org.bouncycastle.pqc.math.linearalgebra.GF2Vector} consisting of the last
+   * @return a new {@link  GF2Vector} consisting of the last
    * <tt>k</tt> elements of this vector
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Vector extractRightVector(int k) {
+  public  GF2Vector extractRightVector(int k) {
     if (k > length) {
       throw new ArithmeticException("invalid length");
     }
 
     if (k == length) {
-      return new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(this);
+      return new  GF2Vector(this);
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Vector result = new org.bouncycastle.pqc.math.linearalgebra.GF2Vector(
+     GF2Vector result = new  GF2Vector(
         k);
 
     int q = (length - k) >> 5;
@@ -427,10 +427,10 @@ public class GF2Vector
    */
   public boolean equals(Object other) {
 
-    if (!(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2Vector)) {
+    if (!(other instanceof  GF2Vector)) {
       return false;
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2Vector otherVec = (org.bouncycastle.pqc.math.linearalgebra.GF2Vector) other;
+     GF2Vector otherVec = ( GF2Vector) other;
 
     return (length == otherVec.length) && IntUtils.equals(v, otherVec.v);
   }

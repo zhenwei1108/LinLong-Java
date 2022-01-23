@@ -17,8 +17,8 @@ import java.security.KeyPair;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
-import ECKeyPairGenerator;
-import ECKeyGenerationParameters;
+ 
+  
  
  
 import org.bouncycastle.jcajce.spec.GOST3410ParameterSpec;

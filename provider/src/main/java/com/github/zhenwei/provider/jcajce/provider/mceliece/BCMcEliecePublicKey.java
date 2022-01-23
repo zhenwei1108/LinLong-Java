@@ -10,7 +10,7 @@ import java.security.PublicKey;
 import  McEliecePublicKey;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePublicKeyParameters;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
+ 
 
 /**
  * This class implements a McEliece public key and is usually instantiated by

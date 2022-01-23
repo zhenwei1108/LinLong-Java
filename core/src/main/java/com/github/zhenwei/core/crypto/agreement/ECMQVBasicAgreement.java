@@ -1,19 +1,20 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
-import MQVPrivateParameters;
-import MQVPublicParameters;
+import com.github.zhenwei.core.crypto.BasicAgreement;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.MQVPrivateParameters;
+import com.github.zhenwei.core.crypto.params.MQVPublicParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.util.Properties;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.BasicAgreement;
+  
 
 
 public class ECMQVBasicAgreement

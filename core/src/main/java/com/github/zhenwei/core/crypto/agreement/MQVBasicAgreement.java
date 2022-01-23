@@ -1,13 +1,15 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
-import DHMQVPrivateParameters;
-import DHMQVPublicParameters;
+import com.github.zhenwei.core.crypto.BasicAgreement;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.DHMQVPrivateParameters;
+import com.github.zhenwei.core.crypto.params.DHMQVPublicParameters;
+import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
-import org.bouncycastle.crypto.BasicAgreement;
+  
 
 
 public class MQVBasicAgreement

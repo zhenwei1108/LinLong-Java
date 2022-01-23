@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.macs;
 
 
-import Blake3Digest;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.crypto.digests.Blake3Digest;
 import com.github.zhenwei.core.crypto.params.Blake3Parameters;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 

@@ -57,8 +57,8 @@ public interface GFElement {
    * @param addend the addend
    * @return <tt>this + other</tt> (newly created)
    */
-  org.bouncycastle.pqc.math.linearalgebra.GFElement add(
-      org.bouncycastle.pqc.math.linearalgebra.GFElement addend)
+   GFElement add(
+       GFElement addend)
       throws RuntimeException;
 
   /**
@@ -66,7 +66,7 @@ public interface GFElement {
    *
    * @param addend the addend
    */
-  void addToThis(org.bouncycastle.pqc.math.linearalgebra.GFElement addend)
+  void addToThis( GFElement addend)
       throws RuntimeException;
 
   /**
@@ -75,8 +75,8 @@ public interface GFElement {
    * @param minuend the minuend
    * @return <tt>this - minuend</tt> (newly created)
    */
-  org.bouncycastle.pqc.math.linearalgebra.GFElement subtract(
-      org.bouncycastle.pqc.math.linearalgebra.GFElement minuend)
+   GFElement subtract(
+       GFElement minuend)
       throws RuntimeException;
 
   /**
@@ -84,7 +84,7 @@ public interface GFElement {
    *
    * @param minuend the minuend
    */
-  void subtractFromThis(org.bouncycastle.pqc.math.linearalgebra.GFElement minuend);
+  void subtractFromThis( GFElement minuend);
 
   /**
    * Compute the product of this element and <tt>factor</tt>.
@@ -92,8 +92,8 @@ public interface GFElement {
    * @param factor the factor
    * @return <tt>this * factor</tt> (newly created)
    */
-  org.bouncycastle.pqc.math.linearalgebra.GFElement multiply(
-      org.bouncycastle.pqc.math.linearalgebra.GFElement factor)
+   GFElement multiply(
+       GFElement factor)
       throws RuntimeException;
 
   /**
@@ -101,7 +101,7 @@ public interface GFElement {
    *
    * @param factor the factor
    */
-  void multiplyThisBy(org.bouncycastle.pqc.math.linearalgebra.GFElement factor)
+  void multiplyThisBy( GFElement factor)
       throws RuntimeException;
 
   /**
@@ -110,7 +110,7 @@ public interface GFElement {
    * @return <tt>this<sup>-1</sup></tt> (newly created)
    * @throws ArithmeticException if <tt>this</tt> is the zero element.
    */
-  org.bouncycastle.pqc.math.linearalgebra.GFElement invert()
+   GFElement invert()
       throws ArithmeticException;
 
   // /////////////////////////////////////////////////////////////////////

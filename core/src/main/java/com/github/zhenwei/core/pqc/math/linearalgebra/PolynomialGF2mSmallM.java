@@ -63,7 +63,7 @@ public class PolynomialGF2mSmallM {
     this.field = field;
 
     switch (typeOfPolynomial) {
-      case org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM.RANDOM_IRREDUCIBLE_POLYNOMIAL:
+      case  PolynomialGF2mSmallM.RANDOM_IRREDUCIBLE_POLYNOMIAL:
         coefficients = createRandomIrreduciblePolynomial(deg, sr);
         break;
       default:
@@ -171,9 +171,9 @@ public class PolynomialGF2mSmallM {
   /**
    * Copy constructor.
    *
-   * @param other another {@link org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM}
+   * @param other another {@link  PolynomialGF2mSmallM}
    */
-  public PolynomialGF2mSmallM(org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM other) {
+  public PolynomialGF2mSmallM( PolynomialGF2mSmallM other) {
     // field needs not to be cloned since it is immutable
     field = other.field;
     degree = other.degree;
@@ -289,10 +289,10 @@ public class PolynomialGF2mSmallM {
    * @param addend the addend
    * @return <tt>this + a</tt> (newly created)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM add(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM addend) {
+  public  PolynomialGF2mSmallM add(
+       PolynomialGF2mSmallM addend) {
     int[] resultCoeff = add(coefficients, addend.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -300,7 +300,7 @@ public class PolynomialGF2mSmallM {
    *
    * @param addend the addend
    */
-  public void addToThis(org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM addend) {
+  public void addToThis( PolynomialGF2mSmallM addend) {
     coefficients = add(coefficients, addend.coefficients);
     computeDegree();
   }
@@ -338,11 +338,11 @@ public class PolynomialGF2mSmallM {
    * @param degree the degree of the monomial
    * @return <tt>this + X^k</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM addMonomial(int degree) {
+  public  PolynomialGF2mSmallM addMonomial(int degree) {
     int[] monomial = new int[degree + 1];
     monomial[degree] = 1;
     int[] resultCoeff = add(coefficients, monomial);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -353,13 +353,13 @@ public class PolynomialGF2mSmallM {
    * @throws ArithmeticException if <tt>element</tt> is not an element of the finite field this
    *                             polynomial is defined over.
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM multWithElement(int element) {
+  public  PolynomialGF2mSmallM multWithElement(int element) {
     if (!field.isElementOfThisField(element)) {
       throw new ArithmeticException(
           "Not an element of the finite field this polynomial is defined over.");
     }
     int[] resultCoeff = multWithElement(coefficients, element);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -409,9 +409,9 @@ public class PolynomialGF2mSmallM {
    * @param k the degree of the monomial
    * @return <tt>this * X^k</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM multWithMonomial(int k) {
+  public  PolynomialGF2mSmallM multWithMonomial(int k) {
     int[] resultCoeff = multWithMonomial(coefficients, k);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -437,12 +437,12 @@ public class PolynomialGF2mSmallM {
    * @param f a polynomial
    * @return polynomial pair = {q,r} where this = q*f+r and deg(r) &lt; deg(f);
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM[] div(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM f) {
+  public  PolynomialGF2mSmallM[] div(
+       PolynomialGF2mSmallM f) {
     int[][] resultCoeffs = div(coefficients, f.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM[]{
-        new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeffs[0]),
-        new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeffs[1])};
+    return new  PolynomialGF2mSmallM[]{
+        new  PolynomialGF2mSmallM(field, resultCoeffs[0]),
+        new  PolynomialGF2mSmallM(field, resultCoeffs[1])};
   }
 
   /**
@@ -486,10 +486,10 @@ public class PolynomialGF2mSmallM {
    * @param f polynomial
    * @return GCD(this, f)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM gcd(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM f) {
+  public  PolynomialGF2mSmallM gcd(
+       PolynomialGF2mSmallM f) {
     int[] resultCoeff = gcd(coefficients, f.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -523,10 +523,10 @@ public class PolynomialGF2mSmallM {
    * @param factor the polynomial
    * @return <tt>this * factor</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM multiply(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM factor) {
+  public  PolynomialGF2mSmallM multiply(
+       PolynomialGF2mSmallM factor) {
     int[] resultCoeff = multiply(coefficients, factor.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -638,10 +638,10 @@ public class PolynomialGF2mSmallM {
    * @param f the reduction polynomial
    * @return <tt>this mod f</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM mod(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM f) {
+  public  PolynomialGF2mSmallM mod(
+       PolynomialGF2mSmallM f) {
     int[] resultCoeff = mod(coefficients, f.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -677,12 +677,12 @@ public class PolynomialGF2mSmallM {
    * @param b the reduction polynomial
    * @return <tt>this * a mod b</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modMultiply(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM a,
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM b) {
+  public  PolynomialGF2mSmallM modMultiply(
+       PolynomialGF2mSmallM a,
+       PolynomialGF2mSmallM b) {
     int[] resultCoeff = modMultiply(coefficients, a.coefficients,
         b.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -692,8 +692,8 @@ public class PolynomialGF2mSmallM {
    * @return <tt>this^2</tt> modulo the reduction polynomial implicitly
    * given via the squaring matrix
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modSquareMatrix(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM[] matrix) {
+  public  PolynomialGF2mSmallM modSquareMatrix(
+       PolynomialGF2mSmallM[] matrix) {
 
     int length = matrix.length;
 
@@ -718,7 +718,7 @@ public class PolynomialGF2mSmallM {
       }
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -740,8 +740,8 @@ public class PolynomialGF2mSmallM {
    * @param a the reduction polynomial
    * @return <tt>this^(1/2) mod a</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modSquareRoot(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM a) {
+  public  PolynomialGF2mSmallM modSquareRoot(
+       PolynomialGF2mSmallM a) {
     int[] resultCoeff = IntUtils.clone(coefficients);
     int[] help = modMultiply(resultCoeff, resultCoeff, a.coefficients);
     while (!isEqual(help, coefficients)) {
@@ -749,7 +749,7 @@ public class PolynomialGF2mSmallM {
       help = modMultiply(resultCoeff, resultCoeff, a.coefficients);
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -761,8 +761,8 @@ public class PolynomialGF2mSmallM {
    * @return <tt>this^(1/2)</tt> modulo the reduction polynomial implicitly
    * given via the square root matrix
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modSquareRootMatrix(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM[] matrix) {
+  public  PolynomialGF2mSmallM modSquareRootMatrix(
+       PolynomialGF2mSmallM[] matrix) {
 
     int length = matrix.length;
 
@@ -788,7 +788,7 @@ public class PolynomialGF2mSmallM {
       resultCoeff[i] = field.sqRoot(resultCoeff[i]);
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -799,12 +799,12 @@ public class PolynomialGF2mSmallM {
    * @param modulus the reduction polynomial
    * @return <tt>this * divisor^(-1) mod modulus</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modDiv(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM divisor,
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modulus) {
+  public  PolynomialGF2mSmallM modDiv(
+       PolynomialGF2mSmallM divisor,
+       PolynomialGF2mSmallM modulus) {
     int[] resultCoeff = modDiv(coefficients, divisor.coefficients,
         modulus.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -843,11 +843,11 @@ public class PolynomialGF2mSmallM {
    * @param a the reduction polynomial
    * @return <tt>this^(-1) mod a</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM modInverse(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM a) {
+  public  PolynomialGF2mSmallM modInverse(
+       PolynomialGF2mSmallM a) {
     int[] unit = {1};
     int[] resultCoeff = modDiv(unit, coefficients, a.coefficients);
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, resultCoeff);
+    return new  PolynomialGF2mSmallM(field, resultCoeff);
   }
 
   /**
@@ -857,8 +857,8 @@ public class PolynomialGF2mSmallM {
    * @param g the reduction polynomial
    * @return PolynomialGF2mSmallM[] {a,b} with b*this = a mod g and deg(a)&lt;= deg(g)/2
    */
-  public org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM[] modPolynomialToFracton(
-      org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM g) {
+  public  PolynomialGF2mSmallM[] modPolynomialToFracton(
+       PolynomialGF2mSmallM g) {
     int dg = g.degree >> 1;
     int[] a0 = normalForm(g.coefficients);
     int[] a1 = mod(coefficients, g.coefficients);
@@ -873,9 +873,9 @@ public class PolynomialGF2mSmallM {
       b1 = b2;
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM[]{
-        new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, a1),
-        new org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM(field, b1)};
+    return new  PolynomialGF2mSmallM[]{
+        new  PolynomialGF2mSmallM(field, a1),
+        new  PolynomialGF2mSmallM(field, b1)};
   }
 
   /**
@@ -889,11 +889,11 @@ public class PolynomialGF2mSmallM {
   public boolean equals(Object other) {
 
     if (other == null
-        || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM)) {
+        || !(other instanceof  PolynomialGF2mSmallM)) {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM p = (org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM) other;
+     PolynomialGF2mSmallM p = ( PolynomialGF2mSmallM) other;
 
     if ((field.equals(p.field)) && (degree == p.degree)
         && (isEqual(coefficients, p.coefficients))) {

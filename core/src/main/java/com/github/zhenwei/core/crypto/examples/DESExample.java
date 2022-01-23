@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.crypto.examples;
 
-import DESedeKeyGenerator;
-import DESedeParameters;
+
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.crypto.engines.DESedeEngine;
+import com.github.zhenwei.core.crypto.generators.DESedeKeyGenerator;
 import com.github.zhenwei.core.crypto.modes.CBCBlockCipher;
 import com.github.zhenwei.core.crypto.paddings.PaddedBufferedBlockCipher;
+import com.github.zhenwei.core.crypto.params.DESedeParameters;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.io.BufferedInputStream;
@@ -26,7 +27,7 @@ import java.security.SecureRandom;
  * The program is command line driven, with the input and output files specified on the command
  * line.
  * <pre>
- * java org.bouncycastle.crypto.examples.DESExample infile outfile [keyfile]
+ * java  DESExample infile outfile [keyfile]
  * </pre>
  * A new key is generated for each encryption, if key is not specified, then the example will assume
  * encryption is required, and as output create deskey.dat in the current directory.  This key is a
@@ -76,7 +77,7 @@ public class DESExample extends Object {
     String keyfile = null;
 
     if (args.length < 2) {
-      org.bouncycastle.crypto.examples.DESExample de = new org.bouncycastle.crypto.examples.DESExample();
+       DESExample de = new  DESExample();
       System.err.println("Usage: java " + de.getClass().getName() +
           " infile outfile [keyfile]");
       System.exit(1);
@@ -91,7 +92,7 @@ public class DESExample extends Object {
       keyfile = args[2];
     }
 
-    org.bouncycastle.crypto.examples.DESExample de = new org.bouncycastle.crypto.examples.DESExample(
+     DESExample de = new  DESExample(
         infile, outfile, keyfile, encrypt);
     de.process();
   }

@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.crypto.signers;
 
 
-import ECKeyGenerationParameters;
-import ECKeyPairGenerator;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DSAExt;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.generators.ECKeyPairGenerator;
+import com.github.zhenwei.core.crypto.params.ECKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.ECKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;

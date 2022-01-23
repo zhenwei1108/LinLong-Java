@@ -7,11 +7,12 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.digests.SHA1Digest;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.prng.DigestRandomGenerator;
+import com.github.zhenwei.core.pqc.crypto.MessageEncryptor;
+import com.github.zhenwei.core.pqc.math.linearalgebra.ByteUtils;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Vector;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.prng.DigestRandomGenerator;
-import org.bouncycastle.pqc.crypto.MessageEncryptor;
-import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
+
 
 /**
  * This class implements the Pointcheval conversion of the McEliecePKCS. Pointcheval presents a

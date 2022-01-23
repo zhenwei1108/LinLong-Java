@@ -1,11 +1,12 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import TweakableBlockCipherParameters;
+
 import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.OutputLengthException;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.crypto.params.TweakableBlockCipherParameters;
 
 /**
  * Implementation of the Threefish tweakable large block cipher in 256, 512 and 1024 bit block

@@ -283,7 +283,7 @@ public class GF2nPolynomialField
     } else {
       gamma = new GF2nPolynomialElement[mDegree];
       gamma[mDegree - 1] = GF2nPolynomialElement
-          .ONE((org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomialField) B1);
+          .ONE(( GF2nPolynomialField) B1);
     }
     gamma[mDegree - 2] = u;
     for (i = mDegree - 3; i >= 0; i--) {

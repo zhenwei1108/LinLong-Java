@@ -10,7 +10,8 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Matrix;
+
 
 public class McElieceCCA2PublicKey
     extends ASN1Object {

@@ -1,9 +1,11 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import ElGamalKeyGenerationParameters;
+
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DHParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPublicKeyParameters;

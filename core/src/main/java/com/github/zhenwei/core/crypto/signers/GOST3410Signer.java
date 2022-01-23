@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.crypto.signers;
 
-import GOST3410KeyParameters;
-import GOST3410Parameters;
-import GOST3410PrivateKeyParameters;
-import GOST3410PublicKeyParameters;
+
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DSAExt;
+import com.github.zhenwei.core.crypto.params.GOST3410KeyParameters;
+import com.github.zhenwei.core.crypto.params.GOST3410Parameters;
+import com.github.zhenwei.core.crypto.params.GOST3410PrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.GOST3410PublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;

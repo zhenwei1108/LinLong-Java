@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.io;
 
+import com.github.zhenwei.core.crypto.Mac;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-   (
 
 public class MacInputStream
     extends FilterInputStream {

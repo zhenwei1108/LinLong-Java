@@ -1,75 +1,52 @@
-package com.g
+package com.github.zhenwei.core.math.ec.custom.djb;
 
 import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECLookupTable;
-import com.github.zhenwei.core.math.ec.custom.djb.Curve25519Field;
-import com.github.zhenwei.core.math.ec.custom.djb.Curve25519FieldElement;
-import com.github.zhenwei.core.math.ec.custom.djb.Curve25519Point;
+import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.raw.Nat256;
 import com.github.zhenwei.core.util.encoders.Hex;
-import java.math.BigInteger;thub.zhenwe.core.math.ec.custom.djb;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
-    mport com.g thub.zhenwe.core.math.ec.AbstractECLookupTable;
-    mport com.g thub.zhenwe.core.math.ec.ECConstants;
-    mport com.g thub.zhenwe.core.math.ec.ECCurve;
-    mport com.g thub.zhenwe.core.math.ec.ECF eldElement;
-    mport com.g thub.zhenwe.core.math.ec.ECLookupTable;
-    mport com.g thub.zhenwe.core.math.raw.Nat256;
-    mport com.g thub.zhenwe.core.ut l.encoders.Hex;
-    mport java.math.B g nteger;
-    mport java.secur ty.SecureRandom;
+public class Curve25519 extends ECCurve.AbstractFp
+{
+  public static final BigInteger q = Curve25519FieldElement.Q;
 
-    publ c
-
-class Curve25519 extends ECCurve.AbstractFp {
-
-  publ c
-  stat c
-  f nal
-  B g
-  nteger q = Curve25519F
-  eldElement.Q;
-
-  pr vate
-  stat c
-  f nal
-  B g
-  nteger C_a = new B
-
-  g nteger(1,Hex.decodeStr ct("2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA984914A144"));
-  pr vate
-  static final BigInteger C_b = new BigInteger(1,
-      Hex.decodeStrict("7B425ED097B425ED097B425ED097B425ED097B425ED097B4260B5E9C7710C864"));
+  private static final BigInteger C_a = new BigInteger(1, Hex.decodeStrict("2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA984914A144"));
+  private static final BigInteger C_b = new BigInteger(1, Hex.decodeStrict("7B425ED097B425ED097B425ED097B425ED097B425ED097B4260B5E9C7710C864"));
 
   private static final int CURVE25519_DEFAULT_COORDS = COORD_JACOBIAN_MODIFIED;
-  private static final ECFieldElement[] CURVE25519_AFFINE_ZS = new ECFieldElement[]{
-      new Curve25519FieldElement(ECConstants.ONE), new Curve25519FieldElement(C_a)};
+  private static final ECFieldElement[] CURVE25519_AFFINE_ZS = new ECFieldElement[] {
+      new Curve25519FieldElement(ECConstants.ONE), new Curve25519FieldElement(C_a) };
 
   protected Curve25519Point infinity;
 
-  public Curve25519() {
+  public Curve25519()
+  {
     super(q);
 
     this.infinity = new Curve25519Point(this, null, null);
 
     this.a = fromBigInteger(C_a);
     this.b = fromBigInteger(C_b);
-    this.order = new BigInteger(1,
-        Hex.decodeStrict("1000000000000000000000000000000014DEF9DEA2F79CD65812631A5CF5D3ED"));
+    this.order = new BigInteger(1, Hex.decodeStrict("1000000000000000000000000000000014DEF9DEA2F79CD65812631A5CF5D3ED"));
     this.cofactor = BigInteger.valueOf(8);
 
     this.coord = CURVE25519_DEFAULT_COORDS;
   }
 
-  protected ECCurve cloneCurve() {
+  protected ECCurve cloneCurve()
+  {
     return new Curve25519();
   }
 
-  public boolean supportsCoordinateSystem(int coord) {
-    switch (coord) {
+  public boolean supportsCoordinateSystem(int coord)
+  {
+    switch (coord)
+    {
       case COORD_JACOBIAN_MODIFIED:
         return true;
       default:
@@ -77,58 +54,69 @@ class Curve25519 extends ECCurve.AbstractFp {
     }
   }
 
-  public BigInteger getQ() {
+  public BigInteger getQ()
+  {
     return q;
   }
 
-  public int getFieldSize() {
+  public int getFieldSize()
+  {
     return q.bitLength();
   }
 
-  public ECFieldElement fromBigInteger(BigInteger x) {
+  public ECFieldElement fromBigInteger(BigInteger x)
+  {
     return new Curve25519FieldElement(x);
   }
 
-  protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y) {
+  protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y)
+  {
     return new Curve25519Point(this, x, y);
   }
 
-  protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y, ECFieldElement[] zs) {
+  protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y, ECFieldElement[] zs)
+  {
     return new Curve25519Point(this, x, y, zs);
   }
 
-  public ECPoint getInfinity() {
+  public ECPoint getInfinity()
+  {
     return infinity;
   }
 
-  public ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, final int len) {
+  public ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, final int len)
+  {
     final int FE_INTS = 8;
 
     final int[] table = new int[len * FE_INTS * 2];
     {
       int pos = 0;
-      for (int i = 0; i < len; ++i) {
+      for (int i = 0; i < len; ++i)
+      {
         ECPoint p = points[off + i];
-        Nat256.copy(((Curve25519FieldElement) p.getRawXCoord()).x, 0, table, pos);
-        pos += FE_INTS;
-        Nat256.copy(((Curve25519FieldElement) p.getRawYCoord()).x, 0, table, pos);
-        pos += FE_INTS;
+        Nat256.copy(((Curve25519FieldElement)p.getRawXCoord()).x, 0, table, pos); pos += FE_INTS;
+        Nat256.copy(((Curve25519FieldElement)p.getRawYCoord()).x, 0, table, pos); pos += FE_INTS;
       }
     }
 
-    return new AbstractECLookupTable() {
-      public int getSize() {
+    return new AbstractECLookupTable()
+    {
+      public int getSize()
+      {
         return len;
       }
 
-      public ECPoint lookup(int index) {
+      public ECPoint lookup(int index)
+      {
         int[] x = Nat256.create(), y = Nat256.create();
         int pos = 0;
 
-        for (int i = 0; i < len; ++i) {
+        for (int i = 0; i < len; ++i)
+        {
           int MASK = ((i ^ index) - 1) >> 31;
 
-          for (int j = 0; j < FE_INTS; ++j) {
+          for (int j = 0; j < FE_INTS; ++j)
+          {
             x[j] ^= table[pos + j] & MASK;
             y[j] ^= table[pos + FE_INTS + j] & MASK;
           }
@@ -139,11 +127,13 @@ class Curve25519 extends ECCurve.AbstractFp {
         return createPoint(x, y);
       }
 
-      public ECPoint lookupVar(int index) {
+      public ECPoint lookupVar(int index)
+      {
         int[] x = Nat256.create(), y = Nat256.create();
         int pos = index * FE_INTS * 2;
 
-        for (int j = 0; j < FE_INTS; ++j) {
+        for (int j = 0; j < FE_INTS; ++j)
+        {
           x[j] = table[pos + j];
           y[j] = table[pos + FE_INTS + j];
         }
@@ -151,20 +141,22 @@ class Curve25519 extends ECCurve.AbstractFp {
         return createPoint(x, y);
       }
 
-      private ECPoint createPoint(int[] x, int[] y) {
-        return createRawPoint(new Curve25519FieldElement(x), new Curve25519FieldElement(y),
-            CURVE25519_AFFINE_ZS);
+      private ECPoint createPoint(int[] x, int[] y)
+      {
+        return createRawPoint(new Curve25519FieldElement(x), new Curve25519FieldElement(y), CURVE25519_AFFINE_ZS);
       }
     };
   }
 
-  public ECFieldElement randomFieldElement(SecureRandom r) {
+  public ECFieldElement randomFieldElement(SecureRandom r)
+  {
     int[] x = Nat256.create();
     Curve25519Field.random(r, x);
     return new Curve25519FieldElement(x);
   }
 
-  public ECFieldElement randomFieldElementMult(SecureRandom r) {
+  public ECFieldElement randomFieldElementMult(SecureRandom r)
+  {
     int[] x = Nat256.create();
     Curve25519Field.randomMult(r, x);
     return new Curve25519FieldElement(x);

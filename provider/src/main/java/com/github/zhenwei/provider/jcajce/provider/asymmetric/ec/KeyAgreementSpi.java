@@ -15,7 +15,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.BasicAgreement;
+  
  
 import org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
 import org.bouncycastle.crypto.agreement.ECDHCBasicAgreement;
@@ -23,11 +23,11 @@ import org.bouncycastle.crypto.agreement.ECDHCUnifiedAgreement;
 import org.bouncycastle.crypto.agreement.ECMQVBasicAgreement;
 import org.bouncycastle.crypto.agreement.kdf.ConcatenationKDFGenerator;
 import  RIPEMD160Digest;
-import ECDHUPrivateParameters;
-import ECDHUPublicParameters;
+  
+  
  
-import MQVPrivateParameters;
-import MQVPublicParameters;
+  
+  
 import org.bouncycastle.jcajce.provider.asymmetric.util.BaseAgreementSpi;
  
 import org.bouncycastle.jcajce.spec.DHUParameterSpec;

@@ -4,7 +4,7 @@ package com.github.zhenwei.core.math.ec.custom.sec;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
-import org.bouncycastle.math.raw.Nat192;
+ 
 
 
 public class SecP192R1FieldElement extends ECFieldElement.AbstractFp {

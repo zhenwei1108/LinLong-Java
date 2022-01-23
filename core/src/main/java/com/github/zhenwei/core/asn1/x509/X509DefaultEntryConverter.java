@@ -39,7 +39,7 @@ public class X509DefaultEntryConverter
       if (oid.equals(com.g.X509Name.EmailAddress) || oid.equals(com.g.X509Name.DC)) {
         return new DERIA5String(value);
       } else if (oid.equals(
-          com.g.X509Name.DATE_OF_BIRTH))  // accept time string as well as # (for compatibility)
+          X509Name.DATE_OF_BIRTH))  // accept time string as well as # (for compatibility)
       {
         return new DERGeneralizedTime(value);
       } else if (oid.equals(com.g.X509Name.C) || oid.equals(com.g.X509Name.SN) || oid.equals(

@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.math.ec.endo;
 
 
-import ScaleYNegateXPointMap;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPointMap;
+import com.github.zhenwei.core.math.ec.ScaleYNegateXPointMap;
 import java.math.BigInteger;
 
 public class GLVTypeAEndomorphism implements GLVEndomorphism {

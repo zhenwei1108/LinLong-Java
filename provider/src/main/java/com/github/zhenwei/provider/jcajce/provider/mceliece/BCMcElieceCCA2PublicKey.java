@@ -11,7 +11,7 @@ import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PublicKeyParamete
 import java.io.IOException;
 import java.security.PublicKey;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2KeyPairGenerator;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
+ 
 
 /**
  * This class implements a McEliece CCA2 public key and is usually instantiated

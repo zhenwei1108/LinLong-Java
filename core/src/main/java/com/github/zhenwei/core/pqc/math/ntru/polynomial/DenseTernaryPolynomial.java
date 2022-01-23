@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.math.ntru.util.Util;
+ 
 import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**

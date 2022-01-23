@@ -36,8 +36,8 @@ public abstract class Vector {
    * @param addend the other vector
    * @return <tt>this + addend</tt>
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.Vector add(
-      org.bouncycastle.pqc.math.linearalgebra.Vector addend);
+  public abstract  Vector add(
+       Vector addend);
 
   /**
    * Multiply this vector with a permutation.
@@ -45,7 +45,7 @@ public abstract class Vector {
    * @param p the permutation
    * @return <tt>this*p = p*this</tt>
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.Vector multiply(Permutation p);
+  public abstract  Vector multiply(Permutation p);
 
   /**
    * Check if the given object is equal to this vector.

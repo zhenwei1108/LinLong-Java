@@ -15,9 +15,9 @@ import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.ECGenParameterSpec;
 import DSTU4145KeyPairGenerator;
-import ECKeyPairGenerator;
+ 
 import DSTU4145Parameters;
-import ECKeyGenerationParameters;
+  
  
  
 import org.bouncycastle.jcajce.spec.DSTU4145ParameterSpec;

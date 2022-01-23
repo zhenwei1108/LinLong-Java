@@ -9,7 +9,7 @@ import com.github.zhenwei.core.math.ec.ECLookupTable;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.raw.Nat192;
+ 
 
 
 public class SecP192R1Curve extends ECCurve.AbstractFp {

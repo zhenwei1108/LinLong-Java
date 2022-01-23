@@ -7,7 +7,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import GOST3410ParametersGenerator;
-import GOST3410Parameters;
+  
 import GOST3410ParameterSpec;
 import GOST3410PublicKeyParameterSetSpec;
 

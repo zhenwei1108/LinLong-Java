@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.crypto.io;
 
+import com.github.zhenwei.core.crypto.Mac;
 import java.io.IOException;
 import java.io.OutputStream;
-   (
 
 public class MacOutputStream
     extends OutputStream {

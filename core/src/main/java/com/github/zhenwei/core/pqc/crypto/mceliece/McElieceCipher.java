@@ -4,15 +4,15 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.pqc.crypto.MessageEncryptor;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Matrix;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Vector;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2mField;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GoppaCode;
+import com.github.zhenwei.core.pqc.math.linearalgebra.Permutation;
+import com.github.zhenwei.core.pqc.math.linearalgebra.PolynomialGF2mSmallM;
+import com.github.zhenwei.core.pqc.math.linearalgebra.Vector;
 import java.security.SecureRandom;
-import org.bouncycastle.pqc.crypto.MessageEncryptor;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
 
 /**
  * This class implements the McEliece Public Key cryptosystem (McEliecePKCS). It was first described

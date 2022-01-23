@@ -197,7 +197,7 @@ public class GF2nONBElement
    *
    * @param gf2n the field
    */
-  public GF2nONBElement(org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement gf2n) {
+  public GF2nONBElement( GF2nONBElement gf2n) {
 
     mField = gf2n.mField;
     mDegree = mField.getDegree();
@@ -213,7 +213,7 @@ public class GF2nONBElement
    * @return a copy of this element
    */
   public Object clone() {
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(this);
+    return new  GF2nONBElement(this);
   }
 
   /**
@@ -222,9 +222,9 @@ public class GF2nONBElement
    * @param gf2n the finite field
    * @return the zero element in the given finite field
    */
-  public static org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement ZERO(GF2nONBField gf2n) {
+  public static  GF2nONBElement ZERO(GF2nONBField gf2n) {
     long[] polynomial = new long[gf2n.getONBLength()];
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(gf2n, polynomial);
+    return new  GF2nONBElement(gf2n, polynomial);
   }
 
   /**
@@ -233,7 +233,7 @@ public class GF2nONBElement
    * @param gf2n the finite field
    * @return the one element in the given finite field
    */
-  public static org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement ONE(GF2nONBField gf2n) {
+  public static  GF2nONBElement ONE(GF2nONBField gf2n) {
     int mLength = gf2n.getONBLength();
     long[] polynomial = new long[mLength];
 
@@ -243,7 +243,7 @@ public class GF2nONBElement
     }
     polynomial[mLength - 1] = mMaxmask[gf2n.getONBBit() - 1];
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(gf2n, polynomial);
+    return new  GF2nONBElement(gf2n, polynomial);
   }
 
   // /////////////////////////////////////////////////////////////////////
@@ -353,11 +353,11 @@ public class GF2nONBElement
    */
   public boolean equals(Object other) {
     if (other == null
-        || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement)) {
+        || !(other instanceof  GF2nONBElement)) {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement otherElem = (org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement) other;
+     GF2nONBElement otherElem = ( GF2nONBElement) other;
 
     for (int i = 0; i < mLength; i++) {
       if (mPol[i] != otherElem.mPol[i]) {
@@ -452,7 +452,7 @@ public class GF2nONBElement
    */
   public GFElement add(GFElement addend)
       throws RuntimeException {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement result = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(
+     GF2nONBElement result = new  GF2nONBElement(
         this);
     result.addToThis(addend);
     return result;
@@ -465,15 +465,15 @@ public class GF2nONBElement
    */
   public void addToThis(GFElement addend)
       throws RuntimeException {
-    if (!(addend instanceof org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement)) {
+    if (!(addend instanceof  GF2nONBElement)) {
       throw new RuntimeException();
     }
-    if (!mField.equals(((org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement) addend).mField)) {
+    if (!mField.equals((( GF2nONBElement) addend).mField)) {
       throw new RuntimeException();
     }
 
     for (int i = 0; i < mLength; i++) {
-      mPol[i] ^= ((org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement) addend).mPol[i];
+      mPol[i] ^= (( GF2nONBElement) addend).mPol[i];
     }
   }
 
@@ -483,7 +483,7 @@ public class GF2nONBElement
    * @return <tt>this</tt> + 1
    */
   public GF2nElement increase() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement result = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(
+     GF2nONBElement result = new  GF2nONBElement(
         this);
     result.increaseThis();
     return result;
@@ -504,7 +504,7 @@ public class GF2nONBElement
    */
   public GFElement multiply(GFElement factor)
       throws RuntimeException {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement result = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(
+     GF2nONBElement result = new  GF2nONBElement(
         this);
     result.multiplyThisBy(factor);
     return result;
@@ -518,11 +518,11 @@ public class GF2nONBElement
   public void multiplyThisBy(GFElement factor)
       throws RuntimeException {
 
-    if (!(factor instanceof org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement)) {
+    if (!(factor instanceof  GF2nONBElement)) {
       throw new RuntimeException("The elements have different"
           + " representation: not yet" + " implemented");
     }
-    if (!mField.equals(((org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement) factor).mField)) {
+    if (!mField.equals((( GF2nONBElement) factor).mField)) {
       throw new RuntimeException();
     }
 
@@ -531,7 +531,7 @@ public class GF2nONBElement
     } else {
 
       long[] a = mPol;
-      long[] b = ((org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement) factor).mPol;
+      long[] b = (( GF2nONBElement) factor).mPol;
       long[] c = new long[mLength];
 
       int[][] m = ((GF2nONBField) mField).mMult;
@@ -676,7 +676,7 @@ public class GF2nONBElement
    * @return <tt>this</tt><sup>2</sup>
    */
   public GF2nElement square() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement result = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(
+     GF2nONBElement result = new  GF2nONBElement(
         this);
     result.squareThis();
     return result;
@@ -736,7 +736,7 @@ public class GF2nONBElement
    */
   public GFElement invert()
       throws ArithmeticException {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement result = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(
+     GF2nONBElement result = new  GF2nONBElement(
         this);
     result.invertThis();
     return result;
@@ -765,7 +765,7 @@ public class GF2nONBElement
     r++;
 
     GF2nElement m = ZERO((GF2nONBField) mField);
-    GF2nElement n = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(this);
+    GF2nElement n = new  GF2nONBElement(this);
 
     int k = 1;
 
@@ -795,7 +795,7 @@ public class GF2nONBElement
    * @return <tt>this</tt><sup>1/2</sup>
    */
   public GF2nElement squareRoot() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement result = new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement(
+     GF2nONBElement result = new  GF2nONBElement(
         this);
     result.squareRootThis();
     return result;
@@ -920,7 +920,7 @@ public class GF2nONBElement
       }
     }
     p[mLength - 1] = z;
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2nONBElement((GF2nONBField) mField, p);
+    return new  GF2nONBElement((GF2nONBField) mField, p);
   }
 
   // /////////////////////////////////////////////////////////////////

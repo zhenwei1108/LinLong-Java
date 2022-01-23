@@ -73,9 +73,9 @@ public class GF2mMatrix
   /**
    * Copy constructor.
    *
-   * @param other another {@link org.bouncycastle.pqc.math.linearalgebra.GF2mMatrix}
+   * @param other another {@link  GF2mMatrix}
    */
-  public GF2mMatrix(org.bouncycastle.pqc.math.linearalgebra.GF2mMatrix other) {
+  public GF2mMatrix( GF2mMatrix other) {
     numRows = other.numRows;
     numColumns = other.numColumns;
     field = other.field;
@@ -210,7 +210,7 @@ public class GF2mMatrix
       }
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2mMatrix(field, invMatrix);
+    return new  GF2mMatrix(field, invMatrix);
   }
 
   private static void swapColumns(int[][] matrix, int first, int second) {
@@ -270,11 +270,11 @@ public class GF2mMatrix
    */
   public boolean equals(Object other) {
 
-    if (other == null || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2mMatrix)) {
+    if (other == null || !(other instanceof  GF2mMatrix)) {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2mMatrix otherMatrix = (org.bouncycastle.pqc.math.linearalgebra.GF2mMatrix) other;
+     GF2mMatrix otherMatrix = ( GF2mMatrix) other;
 
     if ((!this.field.equals(otherMatrix.field))
         || (otherMatrix.numRows != this.numColumns)

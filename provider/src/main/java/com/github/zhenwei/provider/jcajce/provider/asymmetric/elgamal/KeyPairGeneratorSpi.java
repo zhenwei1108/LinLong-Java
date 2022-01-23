@@ -12,7 +12,7 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.spec.DHParameterSpec;
 import ElGamalKeyPairGenerator;
 import ElGamalParametersGenerator;
-import ElGamalKeyGenerationParameters;
+  
  
 import ElGamalParameterSpec;
 

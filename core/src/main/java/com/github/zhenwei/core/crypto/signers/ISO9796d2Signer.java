@@ -7,7 +7,7 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.util.Arrays;
-import org.bouncycastle.crypto.SignerWithRecovery;
+ 
 
 
 /**

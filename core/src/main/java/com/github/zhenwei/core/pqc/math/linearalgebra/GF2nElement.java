@@ -90,7 +90,7 @@ public abstract class GF2nElement
    *
    * @return <tt>this</tt> + 1
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.GF2nElement increase();
+  public abstract  GF2nElement increase();
 
   /**
    * Increases this element by one.
@@ -121,7 +121,7 @@ public abstract class GF2nElement
    *
    * @return <tt>this</tt><sup>2</sup>
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.GF2nElement square();
+  public abstract  GF2nElement square();
 
   /**
    * Squares <tt>this</tt> element.
@@ -130,11 +130,11 @@ public abstract class GF2nElement
 
   /**
    * Compute the square root of this element and return the result in a new {@link
-   * org.bouncycastle.pqc.math.linearalgebra.GF2nElement}.
+   *  GF2nElement}.
    *
    * @return <tt>this<sup>1/2</sup></tt> (newly created)
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.GF2nElement squareRoot();
+  public abstract  GF2nElement squareRoot();
 
   /**
    * Compute the square root of this element.
@@ -148,7 +148,7 @@ public abstract class GF2nElement
    * @param basis the GF2nField representation to transform this element to
    * @return this element in the representation of <tt>basis</tt>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nElement convert(GF2nField basis) {
+  public final  GF2nElement convert(GF2nField basis) {
     return mField.convert(this, basis);
   }
 
@@ -165,7 +165,7 @@ public abstract class GF2nElement
    *
    * @return z with z<sup>2</sup> + z = <tt>this</tt>
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.GF2nElement solveQuadraticEquation()
+  public abstract  GF2nElement solveQuadraticEquation()
       throws RuntimeException;
 
 }

@@ -10,10 +10,10 @@ import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParamet
 import java.io.IOException;
 import java.security.PrivateKey;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceCCA2KeyPairGenerator;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
+ 
+ 
+import  Permutation;
+import  PolynomialGF2mSmallM;
  
 
 /**

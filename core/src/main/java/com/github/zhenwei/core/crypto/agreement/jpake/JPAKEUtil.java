@@ -2,14 +2,15 @@ package com.github.zhenwei.core.crypto.agreement.jpake;
 
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Mac;
 import com.github.zhenwei.core.crypto.macs.HMac;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Strings;
 import java.math.BigInteger;
 import java.security.SecureRandom;
  
-   (
 
 
 /**

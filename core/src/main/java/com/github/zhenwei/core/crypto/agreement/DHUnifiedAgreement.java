@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.agreement;
 
-import DHUPrivateParameters;
-import DHUPublicParameters;
+
 import com.github.zhenwei.core.crypto.CipherParameters;
+import com.github.zhenwei.core.crypto.params.DHUPrivateParameters;
+import com.github.zhenwei.core.crypto.params.DHUPublicParameters;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 

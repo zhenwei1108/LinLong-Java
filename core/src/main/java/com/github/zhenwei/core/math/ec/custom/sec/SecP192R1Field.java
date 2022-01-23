@@ -4,7 +4,7 @@ import com.github.zhenwei.core.math.raw.Mod;
 import com.github.zhenwei.core.math.raw.Nat;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.math.raw.Nat192;
+ 
 
 
 public class SecP192R1Field {

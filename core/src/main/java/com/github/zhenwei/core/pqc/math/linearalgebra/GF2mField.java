@@ -77,7 +77,7 @@ public class GF2mField {
     degree = PolynomialRingGF2.degree(polynomial);
   }
 
-  public GF2mField(org.bouncycastle.pqc.math.linearalgebra.GF2mField field) {
+  public GF2mField( GF2mField field) {
     degree = field.degree;
     polynomial = field.polynomial;
   }
@@ -264,11 +264,11 @@ public class GF2mField {
    * @return true or false
    */
   public boolean equals(Object other) {
-    if ((other == null) || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2mField)) {
+    if ((other == null) || !(other instanceof  GF2mField)) {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2mField otherField = (org.bouncycastle.pqc.math.linearalgebra.GF2mField) other;
+     GF2mField otherField = ( GF2mField) other;
 
     if ((degree == otherField.degree)
         && (polynomial == otherField.polynomial)) {

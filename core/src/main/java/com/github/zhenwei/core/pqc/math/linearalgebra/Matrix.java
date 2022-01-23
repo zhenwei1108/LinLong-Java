@@ -77,7 +77,7 @@ public abstract class Matrix {
    *
    * @return the inverse of this matrix (newly created).
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.Matrix computeInverse();
+  public abstract  Matrix computeInverse();
 
   /**
    * Check if this is the zero matrix (i.e., all entries are zero).
@@ -92,8 +92,8 @@ public abstract class Matrix {
    * @param a the other matrix
    * @return <tt>this * a</tt> (newly created)
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.Matrix rightMultiply(
-      org.bouncycastle.pqc.math.linearalgebra.Matrix a);
+  public abstract  Matrix rightMultiply(
+       Matrix a);
 
   /**
    * Compute the product of this matrix and a permutation.
@@ -101,7 +101,7 @@ public abstract class Matrix {
    * @param p the permutation
    * @return <tt>this * p</tt> (newly created)
    */
-  public abstract org.bouncycastle.pqc.math.linearalgebra.Matrix rightMultiply(Permutation p);
+  public abstract  Matrix rightMultiply(Permutation p);
 
   /**
    * Compute the product of a vector and this matrix. If the length of the vector is greater than

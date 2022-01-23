@@ -3,13 +3,13 @@ package com.github.zhenwei.provider.jcajce.provider.mceliece;
 
 import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PrivateKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.mceliece.McElieceCCA2PublicKeyParameters;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
+ 
+import  GF2Vector;
+ 
+import  GoppaCode;
+import  Permutation;
+import  PolynomialGF2mSmallM;
+import  Vector;
 
 /**
  * Core operations for the CCA-secure variants of McEliece.

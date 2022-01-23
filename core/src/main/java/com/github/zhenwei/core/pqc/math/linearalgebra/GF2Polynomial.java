@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
 
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.util.Random;
 
@@ -289,7 +290,7 @@ public class GF2Polynomial {
    *
    * @param b the GF2Polynomial to clone
    */
-  public GF2Polynomial(org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public GF2Polynomial( GF2Polynomial b) {
     len = b.len;
     blocks = b.blocks;
     value = IntUtils.clone(b.value);
@@ -299,7 +300,7 @@ public class GF2Polynomial {
    * @return a copy of this GF2Polynomial
    */
   public Object clone() {
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(this);
+    return new  GF2Polynomial(this);
   }
 
   /**
@@ -484,11 +485,11 @@ public class GF2Polynomial {
    */
   public boolean equals(Object other) {
     if (other == null
-        || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial)) {
+        || !(other instanceof  GF2Polynomial)) {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial otherPol = (org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial) other;
+     GF2Polynomial otherPol = ( GF2Polynomial) other;
 
     if (len != otherPol.len) {
       return false;
@@ -550,7 +551,7 @@ public class GF2Polynomial {
    *
    * @param b GF2Polynomial to add to this GF2Polynomial
    */
-  public void addToThis(org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public void addToThis( GF2Polynomial b) {
     expandN(b.len);
     xorThisBy(b);
   }
@@ -562,8 +563,8 @@ public class GF2Polynomial {
    * @param b a GF2Polynomial
    * @return a new GF2Polynomial (<i>this</i> + <i>b</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial add(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public  GF2Polynomial add(
+       GF2Polynomial b) {
     return xor(b);
   }
 
@@ -573,7 +574,7 @@ public class GF2Polynomial {
    *
    * @param b a GF2Polynomial
    */
-  public void subtractFromThis(org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public void subtractFromThis( GF2Polynomial b) {
     expandN(b.len);
     xorThisBy(b);
   }
@@ -585,8 +586,8 @@ public class GF2Polynomial {
    * @param b a GF2Polynomial
    * @return a new GF2Polynomial (<i>this</i> - <i>b</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial subtract(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public  GF2Polynomial subtract(
+       GF2Polynomial b) {
     return xor(b);
   }
 
@@ -603,8 +604,8 @@ public class GF2Polynomial {
    *
    * @return <tt>this + 1</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial increase() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+  public  GF2Polynomial increase() {
+     GF2Polynomial result = new  GF2Polynomial(
         this);
     result.increaseThis();
     return result;
@@ -618,13 +619,13 @@ public class GF2Polynomial {
    * @param b a GF2Polynomial
    * @return a new GF2Polynomial (<i>this</i> * <i>b</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial multiplyClassic(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+  public  GF2Polynomial multiplyClassic(
+       GF2Polynomial b) {
+     GF2Polynomial result = new  GF2Polynomial(
         Math.max(len, b.len) << 1);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial[] m = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial[32];
+     GF2Polynomial[] m = new  GF2Polynomial[32];
     int i, j;
-    m[0] = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(this);
+    m[0] = new  GF2Polynomial(this);
     for (i = 1; i <= 31; i++) {
       m[i] = m[i - 1].shiftLeft();
     }
@@ -648,8 +649,8 @@ public class GF2Polynomial {
    * @param b a GF2Polynomial
    * @return a new GF2Polynomial (<i>this</i> * <i>b</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial multiply(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public  GF2Polynomial multiply(
+       GF2Polynomial b) {
     int n = Math.max(len, b.len);
     expandN(n);
     b.expandN(n);
@@ -659,9 +660,9 @@ public class GF2Polynomial {
   /**
    * Does the recursion for Karatzuba multiplication.
    */
-  private org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial karaMult(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+  private  GF2Polynomial karaMult(
+       GF2Polynomial b) {
+     GF2Polynomial result = new  GF2Polynomial(
         len << 1);
     if (len <= 32) {
       result.value = mult32(value[0], b.value[0]);
@@ -687,16 +688,16 @@ public class GF2Polynomial {
     int n = IntegerFunctions.floorLog(len - 1);
     n = bitMask[n];
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial a0 = lower(((n - 1) >> 5) + 1);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial a1 = upper(((n - 1) >> 5) + 1);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b0 = b.lower(((n - 1) >> 5) + 1);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b1 = b.upper(((n - 1) >> 5) + 1);
+     GF2Polynomial a0 = lower(((n - 1) >> 5) + 1);
+     GF2Polynomial a1 = upper(((n - 1) >> 5) + 1);
+     GF2Polynomial b0 = b.lower(((n - 1) >> 5) + 1);
+     GF2Polynomial b1 = b.upper(((n - 1) >> 5) + 1);
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial c = a1.karaMult(b1); // c = a1*b1
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial e = a0.karaMult(b0); // e = a0*b0
+     GF2Polynomial c = a1.karaMult(b1); // c = a1*b1
+     GF2Polynomial e = a0.karaMult(b0); // e = a0*b0
     a0.addToThis(a1); // a0 = a0 + a1
     b0.addToThis(b1); // b0 = b0 + b1
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial d = a0.karaMult(
+     GF2Polynomial d = a0.karaMult(
         b0); // d = (a0+a1)*(b0+b1)
 
     result.shiftLeftAddThis(c, n << 1);
@@ -1021,11 +1022,11 @@ public class GF2Polynomial {
    *
    * @param k
    * @return a new GF2Polynomial containing the upper <i>k</i> bytes of this GF2Polynomial
-   * @see org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial#karaMult
+   * @see  GF2Polynomial#karaMult
    */
-  private org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial upper(int k) {
+  private  GF2Polynomial upper(int k) {
     int j = Math.min(k, blocks - k);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial result = new  GF2Polynomial(
         j << 5);
     if (blocks >= k) {
       System.arraycopy(value, k, result.value, 0, j);
@@ -1038,10 +1039,10 @@ public class GF2Polynomial {
    *
    * @param k
    * @return a new GF2Polynomial containing the lower <i>k</i> bytes of this GF2Polynomial
-   * @see org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial#karaMult
+   * @see  GF2Polynomial#karaMult
    */
-  private org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial lower(int k) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+  private  GF2Polynomial lower(int k) {
+     GF2Polynomial result = new  GF2Polynomial(
         k << 5);
     System.arraycopy(value, 0, result.value, 0, Math.min(k, blocks));
     return result;
@@ -1053,15 +1054,15 @@ public class GF2Polynomial {
    * @param g GF2Polynomial != 0
    * @return a new GF2Polynomial (<i>this</i> % <i>g</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial remainder(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial g)
+  public  GF2Polynomial remainder(
+       GF2Polynomial g)
       throws RuntimeException {
     /* a div b = q / r */
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial a = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial a = new  GF2Polynomial(
         this);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial b = new  GF2Polynomial(
         g);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial j;
+     GF2Polynomial j;
     int i;
     if (b.isZero()) {
       throw new RuntimeException();
@@ -1087,17 +1088,17 @@ public class GF2Polynomial {
    * @param g GF2Polynomial != 0
    * @return a new GF2Polynomial |_ <i>this</i> / <i>g</i> _|
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial quotient(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial g)
+  public  GF2Polynomial quotient(
+       GF2Polynomial g)
       throws RuntimeException {
     /* a div b = q / r */
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial q = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial q = new  GF2Polynomial(
         len);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial a = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial a = new  GF2Polynomial(
         this);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial b = new  GF2Polynomial(
         g);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial j;
+     GF2Polynomial j;
     int i;
     if (b.isZero()) {
       throw new RuntimeException();
@@ -1105,7 +1106,7 @@ public class GF2Polynomial {
     a.reduceN();
     b.reduceN();
     if (a.len < b.len) {
-      return new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(0);
+      return new  GF2Polynomial(0);
     }
     i = a.len - b.len;
     q.expandN(i + 1);
@@ -1128,18 +1129,18 @@ public class GF2Polynomial {
    * @param g GF2Polynomial != 0
    * @return a new GF2Polynomial[2] containing quotient and remainder
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial[] divide(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial g)
+  public  GF2Polynomial[] divide(
+       GF2Polynomial g)
       throws RuntimeException {
     /* a div b = q / r */
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial[] result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial[2];
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial q = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial[] result = new  GF2Polynomial[2];
+     GF2Polynomial q = new  GF2Polynomial(
         len);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial a = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial a = new  GF2Polynomial(
         this);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial b = new  GF2Polynomial(
         g);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial j;
+     GF2Polynomial j;
     int i;
     if (b.isZero()) {
       throw new RuntimeException();
@@ -1147,7 +1148,7 @@ public class GF2Polynomial {
     a.reduceN();
     b.reduceN();
     if (a.len < b.len) {
-      result[0] = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(0);
+      result[0] = new  GF2Polynomial(0);
       result[1] = a;
       return result;
     }
@@ -1174,23 +1175,23 @@ public class GF2Polynomial {
    * @return a new GF2Polynomial gcd(<i>this</i>,<i>g</i>)
    * @throws ArithmeticException if <i>this</i> and <i>g</i> both are equal to zero
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial gcd(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial g)
+  public  GF2Polynomial gcd(
+       GF2Polynomial g)
       throws RuntimeException {
     if (isZero() && g.isZero()) {
       throw new ArithmeticException("Both operands of gcd equal zero.");
     }
     if (isZero()) {
-      return new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(g);
+      return new  GF2Polynomial(g);
     }
     if (g.isZero()) {
-      return new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(this);
+      return new  GF2Polynomial(this);
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial a = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial a = new  GF2Polynomial(
         this);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial b = new  GF2Polynomial(
         g);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial c;
+     GF2Polynomial c;
 
     while (!b.isZero()) {
       c = a.remainder(b);
@@ -1214,19 +1215,19 @@ public class GF2Polynomial {
     if (isZero()) {
       return false;
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial f = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial f = new  GF2Polynomial(
         this);
     int d, i;
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial u, g;
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial dummy;
+     GF2Polynomial u, g;
+     GF2Polynomial dummy;
     f.reduceN();
     d = f.len - 1;
-    u = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(f.len, "X");
+    u = new  GF2Polynomial(f.len, "X");
 
     for (i = 1; i <= (d >> 1); i++) {
       u.squareThisPreCalc();
       u = u.remainder(f);
-      dummy = u.add(new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(32, "X"));
+      dummy = u.add(new  GF2Polynomial(32, "X"));
       if (!dummy.isZero()) {
         g = f.gcd(dummy);
         if (!g.isOne()) {
@@ -1433,15 +1434,15 @@ public class GF2Polynomial {
     }
     if (value.length >= (blocks << 1)) {
       for (i = blocks - 1; i >= 0; i--) {
-        value[(i << 1) + 1] = org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[
+        value[(i << 1) + 1] =  GF2Polynomial.squaringTable[
             (value[i] & 0x00ff0000) >>> 16]
             | (
-            org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[
+             GF2Polynomial.squaringTable[
                 (value[i] & 0xff000000) >>> 24] << 16);
-        value[i << 1] = org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[value[i]
+        value[i << 1] =  GF2Polynomial.squaringTable[value[i]
             & 0x000000ff]
             | (
-            org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[
+             GF2Polynomial.squaringTable[
                 (value[i] & 0x0000ff00) >>> 8] << 16);
       }
       blocks <<= 1;
@@ -1450,15 +1451,15 @@ public class GF2Polynomial {
       int[] result = new int[blocks << 1];
       for (i = 0; i < blocks; i++) {
         result[i << 1] =
-            org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[value[i]
+             GF2Polynomial.squaringTable[value[i]
                 & 0x000000ff]
                 | (
-                org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[
+                 GF2Polynomial.squaringTable[
                     (value[i] & 0x0000ff00) >>> 8] << 16);
-        result[(i << 1) + 1] = org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[
+        result[(i << 1) + 1] =  GF2Polynomial.squaringTable[
             (value[i] & 0x00ff0000) >>> 16]
             | (
-            org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial.squaringTable[
+             GF2Polynomial.squaringTable[
                 (value[i] & 0xff000000) >>> 24] << 16);
       }
       value = null;
@@ -1474,7 +1475,7 @@ public class GF2Polynomial {
    * @param b GF2Polynomial
    * @return this x <i>b</i> as boolean (1-&gt;true, 0-&gt;false)
    */
-  public boolean vectorMult(org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b)
+  public boolean vectorMult( GF2Polynomial b)
       throws RuntimeException {
     int i;
     int h;
@@ -1499,18 +1500,18 @@ public class GF2Polynomial {
    * @param b GF2Polynomial
    * @return a new GF2Polynomial (<i>this</i> ^ <i>b</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial xor(
-      org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public  GF2Polynomial xor(
+       GF2Polynomial b) {
     int i;
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result;
+     GF2Polynomial result;
     int k = Math.min(blocks, b.blocks);
     if (len >= b.len) {
-      result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(this);
+      result = new  GF2Polynomial(this);
       for (i = 0; i < k; i++) {
         result.value[i] ^= b.value[i];
       }
     } else {
-      result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(b);
+      result = new  GF2Polynomial(b);
       for (i = 0; i < k; i++) {
         result.value[i] ^= value[i];
       }
@@ -1527,7 +1528,7 @@ public class GF2Polynomial {
    *
    * @param b GF2Polynomial
    */
-  public void xorThisBy(org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b) {
+  public void xorThisBy( GF2Polynomial b) {
     int i;
     for (i = 0; i < Math.min(blocks, b.blocks); i++) {
       value[i] ^= b.value[i];
@@ -1632,8 +1633,8 @@ public class GF2Polynomial {
    *
    * @return a new GF2Polynomial (this &lt;&lt; 1)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial shiftLeft() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+  public  GF2Polynomial shiftLeft() {
+     GF2Polynomial result = new  GF2Polynomial(
         len + 1, value);
     int i;
     for (i = result.blocks - 1; i >= 1; i--) {
@@ -1679,13 +1680,13 @@ public class GF2Polynomial {
    * @param k int
    * @return a new GF2Polynomial (this &lt;&lt; <i>k</i>)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial shiftLeft(int k) {
+  public  GF2Polynomial shiftLeft(int k) {
     // Variant 2, requiring a modified shiftBlocksLeft(k)
     // In case of modification, consider a rename to doShiftBlocksLeft()
     // with an explicit note that this method assumes that the polynomial
     // has already been resized. Or consider doing things inline.
     // Construct the resulting polynomial of appropriate length:
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+     GF2Polynomial result = new  GF2Polynomial(
         len + k, value);
     // Shift left as many multiples of the block size as possible:
     if (k >= 32) {
@@ -1711,7 +1712,7 @@ public class GF2Polynomial {
    * @param k the amount to shift
    * @see GF2nPolynomialElement#invertEEA
    */
-  public void shiftLeftAddThis(org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial b, int k) {
+  public void shiftLeftAddThis( GF2Polynomial b, int k) {
     if (k == 0) {
       addToThis(b);
       return;
@@ -1730,7 +1731,7 @@ public class GF2Polynomial {
   /**
    * Shifts-left this GF2Polynomial's value blockwise 1 block resulting in a shift-left by 32.
    *
-   * @see org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial#multiply
+   * @see  GF2Polynomial#multiply
    */
   void shiftBlocksLeft() {
     blocks += 1;
@@ -1778,8 +1779,8 @@ public class GF2Polynomial {
    *
    * @return a new GF2Polynomial (this &lt;&lt; 1)
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial shiftRight() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2Polynomial(
+  public  GF2Polynomial shiftRight() {
+     GF2Polynomial result = new  GF2Polynomial(
         len - 1);
     int i;
     System.arraycopy(value, 0, result.value, 0, result.blocks);

@@ -8,7 +8,7 @@ import org.bouncycastle.pqc.math.ntru.polynomial.DenseTernaryPolynomial;
 import org.bouncycastle.pqc.math.ntru.polynomial.IntegerPolynomial;
 import org.bouncycastle.pqc.math.ntru.polynomial.Polynomial;
 import org.bouncycastle.pqc.math.ntru.polynomial.ProductFormPolynomial;
-import org.bouncycastle.pqc.math.ntru.util.Util;
+ 
 
 /**
  * Generates key pairs.<br> The parameter p is hardcoded to 3.

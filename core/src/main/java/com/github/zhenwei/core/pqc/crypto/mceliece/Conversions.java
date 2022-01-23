@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
+import com.github.zhenwei.core.pqc.math.linearalgebra.BigIntUtils;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Vector;
+import com.github.zhenwei.core.pqc.math.linearalgebra.IntegerFunctions;
 import java.math.BigInteger;
-import org.bouncycastle.pqc.math.linearalgebra.BigIntUtils;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
 
 
 /**
@@ -90,7 +90,7 @@ final class Conversions {
     int nn = n;
     int tt = t;
     for (int i = 0; i < n; i++) {
-      bc = multiply(BigInteger.valueOf(nn - tt)).divide(
+      bc = bc.multiply(BigInteger.valueOf(nn - tt)).divide(
           BigInteger.valueOf(nn));
       nn--;
 
@@ -102,7 +102,7 @@ final class Conversions {
         if (nn == tt) {
           bc = ONE;
         } else {
-          bc = multiply(BigInteger.valueOf(tt + 1)).divide(
+          bc = bc.multiply(BigInteger.valueOf(tt + 1)).divide(
               BigInteger.valueOf(nn - tt));
         }
 
@@ -130,7 +130,7 @@ final class Conversions {
 
     BigInteger bc = IntegerFunctions.binomial(n, t);
     // finds s = floor[log(binomial(n,t))]
-    int s = bitLength() - 1;
+    int s = bc.bitLength() - 1;
     // s = sq*8 + sr;
     int sq = s >> 3;
     int sr = s & 7;
@@ -163,7 +163,7 @@ final class Conversions {
     int nn = n;
     int tt = t;
     for (int i = 0; i < n; i++) {
-      bc = (multiply(new BigInteger(Integer.toString(nn - tt))))
+      bc = (bc.multiply(new BigInteger(Integer.toString(nn - tt))))
           .divide(new BigInteger(Integer.toString(nn)));
       nn--;
 

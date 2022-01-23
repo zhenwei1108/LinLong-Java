@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.pqc.math.linearalgebra;
 
+import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
 
 
@@ -142,9 +143,9 @@ public class GF2Matrix
   /**
    * Copy constructor.
    *
-   * @param a another {@link org.bouncycastle.pqc.math.linearalgebra.GF2Matrix}
+   * @param a another {@link  GF2Matrix}
    */
-  public GF2Matrix(org.bouncycastle.pqc.math.linearalgebra.GF2Matrix a) {
+  public GF2Matrix( GF2Matrix a) {
     numColumns = a.getNumColumns();
     numRows = a.getNumRows();
     length = a.length;
@@ -279,11 +280,11 @@ public class GF2Matrix
     numColumns = n;
     length = (n + 31) >>> 5;
     matrix = new int[numRows][length];
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix lm = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix lm = new  GF2Matrix(
         n, Matrix.MATRIX_TYPE_RANDOM_LT, sr);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix um = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix um = new  GF2Matrix(
         n, Matrix.MATRIX_TYPE_RANDOM_UT, sr);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix rm = (org.bouncycastle.pqc.math.linearalgebra.GF2Matrix) lm.rightMultiply(
+     GF2Matrix rm = ( GF2Matrix) lm.rightMultiply(
         um);
     Permutation perm = new Permutation(n, sr);
     int[] p = perm.getVector();
@@ -299,11 +300,11 @@ public class GF2Matrix
    * @param sr source of randomness
    * @return the created random regular matrix and its inverse
    */
-  public static org.bouncycastle.pqc.math.linearalgebra.GF2Matrix[] createRandomRegularMatrixAndItsInverse(
+  public static  GF2Matrix[] createRandomRegularMatrixAndItsInverse(
       int n,
       SecureRandom sr) {
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix[] result = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix[2];
+     GF2Matrix[] result = new  GF2Matrix[2];
 
     // ------------------------------------
     // First part: create regular matrix
@@ -311,11 +312,11 @@ public class GF2Matrix
 
     // ------
     int length = (n + 31) >> 5;
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix lm = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix lm = new  GF2Matrix(
         n, Matrix.MATRIX_TYPE_RANDOM_LT, sr);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix um = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix um = new  GF2Matrix(
         n, Matrix.MATRIX_TYPE_RANDOM_UT, sr);
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix rm = (org.bouncycastle.pqc.math.linearalgebra.GF2Matrix) lm.rightMultiply(
+     GF2Matrix rm = ( GF2Matrix) lm.rightMultiply(
         um);
     Permutation p = new Permutation(n, sr);
     int[] pVec = p.getVector();
@@ -325,14 +326,14 @@ public class GF2Matrix
       System.arraycopy(rm.matrix[pVec[i]], 0, matrix[i], 0, length);
     }
 
-    result[0] = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(n, matrix);
+    result[0] = new  GF2Matrix(n, matrix);
 
     // ------------------------------------
     // Second part: create inverse matrix
     // ------------------------------------
 
     // inverse to lm
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix invLm = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix invLm = new  GF2Matrix(
         n, Matrix.MATRIX_TYPE_UNIT);
     for (int i = 0; i < n; i++) {
       int rest = i & 0x1f;
@@ -348,7 +349,7 @@ public class GF2Matrix
       }
     }
     // inverse to um
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix invUm = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix invUm = new  GF2Matrix(
         n, Matrix.MATRIX_TYPE_UNIT);
     for (int i = n - 1; i >= 0; i--) {
       int rest = i & 0x1f;
@@ -365,7 +366,7 @@ public class GF2Matrix
     }
 
     // inverse matrix
-    result[1] = (org.bouncycastle.pqc.math.linearalgebra.GF2Matrix) invUm.rightMultiply(
+    result[1] = ( GF2Matrix) invUm.rightMultiply(
         invLm.rightMultiply(p));
 
     return result;
@@ -487,7 +488,7 @@ public class GF2Matrix
    *
    * @return the <tt>(numRows x numRows)</tt> submatrix
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Matrix getLeftSubMatrix() {
+  public  GF2Matrix getLeftSubMatrix() {
     if (numColumns <= numRows) {
       throw new ArithmeticException("empty submatrix");
     }
@@ -501,7 +502,7 @@ public class GF2Matrix
       System.arraycopy(matrix[i], 0, result[i], 0, length);
       result[i][length - 1] &= bitMask;
     }
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(numRows, result);
+    return new  GF2Matrix(numRows, result);
   }
 
   /**
@@ -511,9 +512,9 @@ public class GF2Matrix
    *
    * @return <tt>(this | Id)</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Matrix extendLeftCompactForm() {
+  public  GF2Matrix extendLeftCompactForm() {
     int newNumColumns = numColumns + numRows;
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix result = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix result = new  GF2Matrix(
         numRows, newNumColumns);
 
     int ind = numRows - 1 + numColumns;
@@ -533,7 +534,7 @@ public class GF2Matrix
    *
    * @return the <tt>(numRows x (numColumns-numRows))</tt> submatrix
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Matrix getRightSubMatrix() {
+  public  GF2Matrix getRightSubMatrix() {
     if (numColumns <= numRows) {
       throw new ArithmeticException("empty submatrix");
     }
@@ -541,7 +542,7 @@ public class GF2Matrix
     int q = numRows >> 5;
     int r = numRows & 0x1f;
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix result = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix result = new  GF2Matrix(
         numRows, numColumns - numRows);
 
     for (int i = numRows - 1; i >= 0; i--) {
@@ -575,8 +576,8 @@ public class GF2Matrix
    *
    * @return <tt>(Id | this)</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.GF2Matrix extendRightCompactForm() {
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix result = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+  public  GF2Matrix extendRightCompactForm() {
+     GF2Matrix result = new  GF2Matrix(
         numRows, numRows + numColumns);
 
     int q = numRows >> 5;
@@ -634,7 +635,7 @@ public class GF2Matrix
       }
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(numRows, result);
+    return new  GF2Matrix(numRows, result);
   }
 
   /**
@@ -699,7 +700,7 @@ public class GF2Matrix
       }
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(numColumns, invMatrix);
+    return new  GF2Matrix(numColumns, invMatrix);
   }
 
   /**
@@ -707,7 +708,7 @@ public class GF2Matrix
    * matrix.
    *
    * @param p the permutation
-   * @return {@link org.bouncycastle.pqc.math.linearalgebra.GF2Matrix} <tt>P*this</tt>
+   * @return {@link  GF2Matrix} <tt>P*this</tt>
    */
   public Matrix leftMultiply(Permutation p) {
     int[] pVec = p.getVector();
@@ -721,7 +722,7 @@ public class GF2Matrix
       result[i] = IntUtils.clone(matrix[pVec[i]]);
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(numRows, result);
+    return new  GF2Matrix(numRows, result);
   }
 
   /**
@@ -850,7 +851,7 @@ public class GF2Matrix
    * @return matrix product <tt>this*matrixA</tt>
    */
   public Matrix rightMultiply(Matrix mat) {
-    if (!(mat instanceof org.bouncycastle.pqc.math.linearalgebra.GF2Matrix)) {
+    if (!(mat instanceof  GF2Matrix)) {
       throw new ArithmeticException("matrix is not defined over GF(2)");
     }
 
@@ -858,8 +859,8 @@ public class GF2Matrix
       throw new ArithmeticException("length mismatch");
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix a = (org.bouncycastle.pqc.math.linearalgebra.GF2Matrix) mat;
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix result = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix a = ( GF2Matrix) mat;
+     GF2Matrix result = new  GF2Matrix(
         numRows, mat.numColumns);
 
     int d;
@@ -904,7 +905,7 @@ public class GF2Matrix
    * n-permutation.
    *
    * @param p the permutation
-   * @return {@link org.bouncycastle.pqc.math.linearalgebra.GF2Matrix} <tt>this*P</tt>
+   * @return {@link  GF2Matrix} <tt>this*P</tt>
    */
   public Matrix rightMultiply(Permutation p) {
 
@@ -913,7 +914,7 @@ public class GF2Matrix
       throw new ArithmeticException("length mismatch");
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix result = new org.bouncycastle.pqc.math.linearalgebra.GF2Matrix(
+     GF2Matrix result = new  GF2Matrix(
         numRows, numColumns);
 
     for (int i = numColumns - 1; i >= 0; i--) {
@@ -1042,10 +1043,10 @@ public class GF2Matrix
    */
   public boolean equals(Object other) {
 
-    if (!(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2Matrix)) {
+    if (!(other instanceof  GF2Matrix)) {
       return false;
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2Matrix otherMatrix = (org.bouncycastle.pqc.math.linearalgebra.GF2Matrix) other;
+     GF2Matrix otherMatrix = ( GF2Matrix) other;
 
     if ((numRows != otherMatrix.numRows)
         || (numColumns != otherMatrix.numColumns)

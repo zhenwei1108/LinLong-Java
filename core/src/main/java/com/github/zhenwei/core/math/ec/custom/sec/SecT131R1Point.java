@@ -4,6 +4,8 @@ package com.github.zhenwei.core.math.ec.custom.sec;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.ec.ECPoint.AbstractF2m;
 
 public class SecT131R1Point extends AbstractF2m {
 

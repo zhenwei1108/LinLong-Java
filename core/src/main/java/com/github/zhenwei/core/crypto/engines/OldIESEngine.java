@@ -1,11 +1,10 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.crypto.BasicAgreement;
 import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.DerivationFunction;
-import org.bouncycastle.crypto.BasicAgreement;
- 
- 
-   (
+import com.github.zhenwei.core.crypto.Mac;
+import com.github.zhenwei.core.util.Pack;
 
 
 /**

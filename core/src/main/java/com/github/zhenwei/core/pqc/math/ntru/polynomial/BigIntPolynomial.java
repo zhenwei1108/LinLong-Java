@@ -7,7 +7,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import sun.security.util.math.intpoly.IntegerPolynomial;
 
 /**
  * A polynomial with {@link BigInteger} coefficients.<br> Some methods (like <code>add</code>)

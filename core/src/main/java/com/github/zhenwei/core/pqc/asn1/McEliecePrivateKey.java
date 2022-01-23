@@ -9,10 +9,10 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Matrix;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2mField;
+import com.github.zhenwei.core.pqc.math.linearalgebra.Permutation;
+import com.github.zhenwei.core.pqc.math.linearalgebra.PolynomialGF2mSmallM;
 
 public class McEliecePrivateKey
     extends ASN1Object {

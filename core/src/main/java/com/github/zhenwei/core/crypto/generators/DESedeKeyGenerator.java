@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-import DESedeParameters;
+ 
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 
 public class DESedeKeyGenerator

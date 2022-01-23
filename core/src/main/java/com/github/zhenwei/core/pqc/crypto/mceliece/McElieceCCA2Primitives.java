@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
 
-import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;
-import org.bouncycastle.pqc.math.linearalgebra.GF2Vector;
-import org.bouncycastle.pqc.math.linearalgebra.GF2mField;
-import org.bouncycastle.pqc.math.linearalgebra.GoppaCode;
-import org.bouncycastle.pqc.math.linearalgebra.Permutation;
-import org.bouncycastle.pqc.math.linearalgebra.PolynomialGF2mSmallM;
-import org.bouncycastle.pqc.math.linearalgebra.Vector;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Matrix;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Vector;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GF2mField;
+import com.github.zhenwei.core.pqc.math.linearalgebra.GoppaCode;
+import com.github.zhenwei.core.pqc.math.linearalgebra.Permutation;
+import com.github.zhenwei.core.pqc.math.linearalgebra.PolynomialGF2mSmallM;
+import com.github.zhenwei.core.pqc.math.linearalgebra.Vector;
 
 /**
  * Core operations for the CCA-secure variants of McEliece.

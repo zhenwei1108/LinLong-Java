@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
-import XDHUPrivateParameters;
-import XDHUPublicParameters;
 import com.github.zhenwei.core.crypto.CipherParameters;
-import org.bouncycastle.crypto.RawAgreement;
+import com.github.zhenwei.core.crypto.RawAgreement;
+import com.github.zhenwei.core.crypto.params.XDHUPrivateParameters;
+import com.github.zhenwei.core.crypto.params.XDHUPublicParameters;
+
 
 public class XDHUnifiedAgreement
     implements RawAgreement {

@@ -129,8 +129,8 @@ public class Permutation {
    *
    * @return <tt>this<sup>-1</sup></tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.Permutation computeInverse() {
-    org.bouncycastle.pqc.math.linearalgebra.Permutation result = new org.bouncycastle.pqc.math.linearalgebra.Permutation(
+  public  Permutation computeInverse() {
+     Permutation result = new  Permutation(
         perm.length);
     for (int i = perm.length - 1; i >= 0; i--) {
       result.perm[perm[i]] = i;
@@ -144,12 +144,12 @@ public class Permutation {
    * @param p the other permutation
    * @return <tt>this * p</tt>
    */
-  public org.bouncycastle.pqc.math.linearalgebra.Permutation rightMultiply(
-      org.bouncycastle.pqc.math.linearalgebra.Permutation p) {
+  public  Permutation rightMultiply(
+       Permutation p) {
     if (p.perm.length != perm.length) {
       throw new IllegalArgumentException("length mismatch");
     }
-    org.bouncycastle.pqc.math.linearalgebra.Permutation result = new org.bouncycastle.pqc.math.linearalgebra.Permutation(
+     Permutation result = new  Permutation(
         perm.length);
     for (int i = perm.length - 1; i >= 0; i--) {
       result.perm[i] = perm[p.perm[i]];
@@ -167,10 +167,10 @@ public class Permutation {
    */
   public boolean equals(Object other) {
 
-    if (!(other instanceof org.bouncycastle.pqc.math.linearalgebra.Permutation)) {
+    if (!(other instanceof  Permutation)) {
       return false;
     }
-    org.bouncycastle.pqc.math.linearalgebra.Permutation otherPerm = (org.bouncycastle.pqc.math.linearalgebra.Permutation) other;
+     Permutation otherPerm = ( Permutation) other;
 
     return IntUtils.equals(perm, otherPerm.perm);
   }

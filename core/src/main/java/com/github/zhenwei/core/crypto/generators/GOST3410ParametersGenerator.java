@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import GOST3410Parameters;
-import GOST3410ValidationParameters;
+
+import com.github.zhenwei.core.crypto.params.GOST3410Parameters;
+import com.github.zhenwei.core.crypto.params.GOST3410ValidationParameters;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;

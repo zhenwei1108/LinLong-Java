@@ -42,7 +42,7 @@ public class GF2nPolynomial {
    *
    * @param a the PolynomialGF2n to clone
    */
-  public GF2nPolynomial(org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial a) {
+  public GF2nPolynomial( GF2nPolynomial a) {
     int i;
     coeff = new GF2nElement[a.size];
     size = a.size;
@@ -204,11 +204,11 @@ public class GF2nPolynomial {
 
   public final boolean equals(Object other) {
     if (other == null
-        || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial)) {
+        || !(other instanceof  GF2nPolynomial)) {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial otherPol = (org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial) other;
+     GF2nPolynomial otherPol = ( GF2nPolynomial) other;
 
     if (getDegree() != otherPol.getDegree()) {
       return false;
@@ -236,11 +236,11 @@ public class GF2nPolynomial {
    * @param b - the <tt>PolynomialGF2n</tt> to add
    * @return <tt>this + b</tt>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial add(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial result;
+  public final  GF2nPolynomial add(
+       GF2nPolynomial b) {
+     GF2nPolynomial result;
     if (size() >= b.size()) {
-      result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(size());
+      result = new  GF2nPolynomial(size());
       int i;
       for (i = 0; i < b.size(); i++) {
         result.coeff[i] = (GF2nElement) coeff[i].add(b.coeff[i]);
@@ -249,7 +249,7 @@ public class GF2nPolynomial {
         result.coeff[i] = coeff[i];
       }
     } else {
-      result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(b.size());
+      result = new  GF2nPolynomial(b.size());
       int i;
       for (i = 0; i < size(); i++) {
         result.coeff[i] = (GF2nElement) coeff[i].add(b.coeff[i]);
@@ -268,9 +268,9 @@ public class GF2nPolynomial {
    * @param s the scalar to multiply
    * @return <i>this</i> x <i>s</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial scalarMultiply(
+  public final  GF2nPolynomial scalarMultiply(
       GF2nElement s) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(
+     GF2nPolynomial result = new  GF2nPolynomial(
         size());
     int i;
     for (i = 0; i < size(); i++) {
@@ -287,8 +287,8 @@ public class GF2nPolynomial {
    * @param b the PolynomialGF2n to multiply
    * @return <i>this</i> * <i>b</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial multiply(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b) {
+  public final  GF2nPolynomial multiply(
+       GF2nPolynomial b) {
     int i, j;
     int aDegree = size();
     int bDegree = b.size();
@@ -297,7 +297,7 @@ public class GF2nPolynomial {
           "PolynomialGF2n.multiply: this and b must "
               + "have the same size!");
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(
+     GF2nPolynomial result = new  GF2nPolynomial(
         (aDegree << 1) - 1);
     for (i = 0; i < size(); i++) {
       for (j = 0; j < b.size(); j++) {
@@ -321,9 +321,9 @@ public class GF2nPolynomial {
    * @param g the modul
    * @return <i>this</i> * <i>b</i> mod <i>g</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial multiplyAndReduce(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b,
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial g) {
+  public final  GF2nPolynomial multiplyAndReduce(
+       GF2nPolynomial b,
+       GF2nPolynomial g) {
     return multiply(b).reduce(g);
   }
 
@@ -333,8 +333,8 @@ public class GF2nPolynomial {
    * @param g - the modulus
    * @return <i>this</i> % <i>g</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial reduce(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial g)
+  public final  GF2nPolynomial reduce(
+       GF2nPolynomial g)
       throws RuntimeException, ArithmeticException {
     return remainder(g); // return this % g
   }
@@ -367,11 +367,11 @@ public class GF2nPolynomial {
     }
   }
 
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial shiftLeft(int amount) {
+  public final  GF2nPolynomial shiftLeft(int amount) {
     if (amount <= 0) {
-      return new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(this);
+      return new  GF2nPolynomial(this);
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(
+     GF2nPolynomial result = new  GF2nPolynomial(
         size + amount, coeff[0]);
     result.assignZeroToElements();
     for (int i = 0; i < size; i++) {
@@ -387,25 +387,25 @@ public class GF2nPolynomial {
    * @param b the divisor
    * @return the quotient and remainder of <i>this</i> / <i>b</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[] divide(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[] result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[2];
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial a = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(
+  public final  GF2nPolynomial[] divide(
+       GF2nPolynomial b) {
+     GF2nPolynomial[] result = new  GF2nPolynomial[2];
+     GF2nPolynomial a = new  GF2nPolynomial(
         this);
     a.shrink();
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial shift;
+     GF2nPolynomial shift;
     GF2nElement factor;
     int bDegree = b.getDegree();
     GF2nElement inv = (GF2nElement) b.coeff[bDegree].invert();
     if (a.getDegree() < bDegree) {
-      result[0] = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(this);
+      result[0] = new  GF2nPolynomial(this);
       result[0].assignZeroToElements();
       result[0].shrink();
-      result[1] = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(this);
+      result[1] = new  GF2nPolynomial(this);
       result[1].shrink();
       return result;
     }
-    result[0] = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(this);
+    result[0] = new  GF2nPolynomial(this);
     result[0].assignZeroToElements();
     int i = a.getDegree() - bDegree;
     while (i >= 0) {
@@ -428,10 +428,10 @@ public class GF2nPolynomial {
    * @param b the divisor
    * @return the remainder <i>this</i> % <i>b</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial remainder(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b)
+  public final  GF2nPolynomial remainder(
+       GF2nPolynomial b)
       throws RuntimeException, ArithmeticException {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[] result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[2];
+     GF2nPolynomial[] result = new  GF2nPolynomial[2];
     result = divide(b);
     return result[1];
   }
@@ -442,10 +442,10 @@ public class GF2nPolynomial {
    * @param b the divisor
    * @return the quotient <i>this</i> / <i>b</i>
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial quotient(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b)
+  public final  GF2nPolynomial quotient(
+       GF2nPolynomial b)
       throws RuntimeException, ArithmeticException {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[] result = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial[2];
+     GF2nPolynomial[] result = new  GF2nPolynomial[2];
     result = divide(b);
     return result[0];
   }
@@ -457,16 +457,16 @@ public class GF2nPolynomial {
    * @param g - a GF2nPolynomial
    * @return gcd(< i > this < / i >, < i > g < / i >)
    */
-  public final org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial gcd(
-      org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial g) {
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial a = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(
+  public final  GF2nPolynomial gcd(
+       GF2nPolynomial g) {
+     GF2nPolynomial a = new  GF2nPolynomial(
         this);
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial b = new org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial(
+     GF2nPolynomial b = new  GF2nPolynomial(
         g);
     a.shrink();
     b.shrink();
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial c;
-    org.bouncycastle.pqc.math.linearalgebra.GF2nPolynomial result;
+     GF2nPolynomial c;
+     GF2nPolynomial result;
     GF2nElement alpha;
     while (!b.isZero()) {
       c = a.remainder(b);

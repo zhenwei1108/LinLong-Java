@@ -1,58 +1,46 @@
-package com.g
+package com.github.zhenwei.core.pqc.math.linearalgebra;
 
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Polynomial;
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2nElement;
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2nONBElement;
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2nONBField;
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2nPolynomial;
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2nPolynomialElement;
-import com.github.zhenwei.core.pqc.math.linearalgebra.GF2nPolynomialField;thub.zhenwe.core.pqc.math.l nearalgebra;
-
-    mport java.secur ty.SecureRandom;
-    mport java.ut l.Vector;
+import java.security.SecureRandom;
+import java.util.Vector;
 
 /**
- * Th s abstract class def nes the f n te f eld < >GF(2<sup>n</sup>)</ >.  t
- * holds the extens on degree < >n</ >, the character st c, the  rreduc ble
- * f eldpolynom al and convers on matr ces. GF2nF eld  s  mplemented by the
- * classes GF2nPolynom alF eld and GF2nONBF eld.
+ * This abstract class defines the finite field <i>GF(2<sup>n</sup>)</i>. It
+ * holds the extension degree <i>n</i>, the characteristic, the irreducible
+ * fieldpolynomial and conversion matrices. GF2nField is implemented by the
+ * classes GF2nPolynomialField and GF2nONBField.
  *
- * @see GF2nONBF eld
- * @see GF2nPolynom alF eld
+ * @see GF2nONBField
+ * @see GF2nPolynomialField
  */
-    publ c
+public abstract class GF2nField
+{
 
-abstract class GF2nF eld {
-
-  protected f nal
-  SecureRandom random;
+  protected final SecureRandom random;
 
   /**
-   * the degree of th s f eld
+   * the degree of this field
    */
-  protected nt mDegree;
+  protected int mDegree;
 
   /**
-   * the  rreduc ble f eldPolynom al stored  n normal order (also for ONB)
+   * the irreducible fieldPolynomial stored in normal order (also for ONB)
    */
-  protected GF2Polynom al
-  f eldPolynom
-  al;
+  protected GF2Polynomial fieldPolynomial;
 
   /**
-   * holds a l st of GF2nF elds to wh ch elements have been converted and thus a COB-Matr x ex sts
+   * holds a list of GF2nFields to which elements have been converted and thus
+   * a COB-Matrix exists
    */
-  protected Vector f
-  elds;
+  protected java.util.Vector fields;
 
   /**
-   * the COB matr ces
+   * the COB matrices
    */
-  protected Vector matr
-  ces;
+  protected Vector matrices;
 
-  protected GF2nF eld(SecureRandom random) {
-    th s.random = random;
+  protected GF2nField(SecureRandom random)
+  {
+    this.random = random;
   }
 
   /**
@@ -60,7 +48,8 @@ abstract class GF2nF eld {
    *
    * @return the degree <i>n</i> of this field
    */
-  public final int getDegree() {
+  public final int getDegree()
+  {
     return mDegree;
   }
 
@@ -69,38 +58,47 @@ abstract class GF2nF eld {
    *
    * @return a copy of the fieldpolynomial as a new Bitstring
    */
-  public final GF2Polynomial getFieldPolynomial() {
-    if (fieldPolynomial == null) {
+  public final GF2Polynomial getFieldPolynomial()
+  {
+    if (fieldPolynomial == null)
+    {
       computeFieldPolynomial();
     }
     return new GF2Polynomial(fieldPolynomial);
   }
 
   /**
-   * Decides whether the given object <tt>other</tt> is the same as this field.
+   * Decides whether the given object <tt>other</tt> is the same as this
+   * field.
    *
    * @param other another object
-   * @return (this = = other)
+   * @return (this == other)
    */
-  public final boolean equals(Object other) {
-    if (other == null || !(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2nField)) {
+  public final boolean equals(Object other)
+  {
+    if (other == null || !(other instanceof GF2nField))
+    {
       return false;
     }
 
-    org.bouncycastle.pqc.math.linearalgebra.GF2nField otherField = (org.bouncycastle.pqc.math.linearalgebra.GF2nField) other;
+    GF2nField otherField = (GF2nField)other;
 
-    if (otherField.mDegree != mDegree) {
+    if (otherField.mDegree != mDegree)
+    {
       return false;
     }
-    if (!fieldPolynomial.equals(otherField.fieldPolynomial)) {
+    if (!fieldPolynomial.equals(otherField.fieldPolynomial))
+    {
       return false;
     }
     if ((this instanceof GF2nPolynomialField)
-        && !(otherField instanceof GF2nPolynomialField)) {
+        && !(otherField instanceof GF2nPolynomialField))
+    {
       return false;
     }
     if ((this instanceof GF2nONBField)
-        && !(otherField instanceof GF2nONBField)) {
+        && !(otherField instanceof GF2nONBField))
+    {
       return false;
     }
     return true;
@@ -109,28 +107,31 @@ abstract class GF2nF eld {
   /**
    * @return the hash code of this field
    */
-  public int hashCode() {
+  public int hashCode()
+  {
     return mDegree + fieldPolynomial.hashCode();
   }
 
   /**
-   * Computes a random root from the given irreducible fieldpolynomial according to IEEE 1363
-   * algorithm A.5.6. This cal take very long for big degrees.
+   * Computes a random root from the given irreducible fieldpolynomial
+   * according to IEEE 1363 algorithm A.5.6. This cal take very long for big
+   * degrees.
    *
    * @param B0FieldPolynomial the fieldpolynomial if the other basis as a Bitstring
-   * @return a random root of BOFieldPolynomial in representation according to this field
+   * @return a random root of BOFieldPolynomial in representation according to
+   *         this field
    * @see "P1363 A.5.6, p103f"
    */
   protected abstract GF2nElement getRandomRoot(GF2Polynomial B0FieldPolynomial);
 
   /**
-   * Computes the change-of-basis matrix for basis conversion according to 1363. The result is
-   * stored in the lists fields and matrices.
+   * Computes the change-of-basis matrix for basis conversion according to
+   * 1363. The result is stored in the lists fields and matrices.
    *
    * @param B1 the GF2nField to convert to
    * @see "P1363 A.7.3, p111ff"
    */
-  protected abstract void computeCOBMatrix(org.bouncycastle.pqc.math.linearalgebra.GF2nField B1);
+  protected abstract void computeCOBMatrix(GF2nField B1);
 
   /**
    * Computes the fieldpolynomial. This can take a long time for big degrees.
@@ -143,30 +144,36 @@ abstract class GF2nF eld {
    * @param matrix the matrix to invert as a Bitstring[]
    * @return matrix^(-1)
    */
-  protected final GF2Polynomial[] invertMatrix(GF2Polynomial[] matrix) {
+  protected final GF2Polynomial[] invertMatrix(GF2Polynomial[] matrix)
+  {
     GF2Polynomial[] a = new GF2Polynomial[matrix.length];
     GF2Polynomial[] inv = new GF2Polynomial[matrix.length];
     GF2Polynomial dummy;
     int i, j;
     // initialize a as a copy of matrix and inv as E(inheitsmatrix)
-    for (i = 0; i < mDegree; i++) {
+    for (i = 0; i < mDegree; i++)
+    {
       a[i] = new GF2Polynomial(matrix[i]);
       inv[i] = new GF2Polynomial(mDegree);
       inv[i].setBit(mDegree - 1 - i);
     }
     // construct triangle matrix so that for each a[i] the first i bits are
     // zero
-    for (i = 0; i < mDegree - 1; i++) {
+    for (i = 0; i < mDegree - 1; i++)
+    {
       // find column where bit i is set
       j = i;
-      while ((j < mDegree) && !a[j].testBit(mDegree - 1 - i)) {
+      while ((j < mDegree) && !a[j].testBit(mDegree - 1 - i))
+      {
         j++;
       }
-      if (j >= mDegree) {
+      if (j >= mDegree)
+      {
         throw new RuntimeException(
             "GF2nField.invertMatrix: Matrix cannot be inverted!");
       }
-      if (i != j) { // swap a[i]/a[j] and inv[i]/inv[j]
+      if (i != j)
+      { // swap a[i]/a[j] and inv[i]/inv[j]
         dummy = a[i];
         a[i] = a[j];
         a[j] = dummy;
@@ -174,19 +181,24 @@ abstract class GF2nF eld {
         inv[i] = inv[j];
         inv[j] = dummy;
       }
-      for (j = i + 1; j < mDegree; j++) { // add column i to all columns>i
+      for (j = i + 1; j < mDegree; j++)
+      { // add column i to all columns>i
         // having their i-th bit set
-        if (a[j].testBit(mDegree - 1 - i)) {
+        if (a[j].testBit(mDegree - 1 - i))
+        {
           a[j].addToThis(a[i]);
           inv[j].addToThis(inv[i]);
         }
       }
     }
     // construct Einheitsmatrix from a
-    for (i = mDegree - 1; i > 0; i--) {
-      for (j = i - 1; j >= 0; j--) { // eliminate the i-th bit in all
+    for (i = mDegree - 1; i > 0; i--)
+    {
+      for (j = i - 1; j >= 0; j--)
+      { // eliminate the i-th bit in all
         // columns < i
-        if (a[j].testBit(mDegree - 1 - i)) {
+        if (a[j].testBit(mDegree - 1 - i))
+        {
           a[j].addToThis(a[i]);
           inv[j].addToThis(inv[i]);
         }
@@ -196,29 +208,32 @@ abstract class GF2nF eld {
   }
 
   /**
-   * Converts the given element in representation according to this field to a new element in
-   * representation according to B1 using the change-of-basis matrix calculated by
-   * computeCOBMatrix.
+   * Converts the given element in representation according to this field to a
+   * new element in representation according to B1 using the change-of-basis
+   * matrix calculated by computeCOBMatrix.
    *
    * @param elem  the GF2nElement to convert
    * @param basis the basis to convert <tt>elem</tt> to
    * @return <tt>elem</tt> converted to a new element representation
-   * according to <tt>basis</tt>
-   * @see org.bouncycastle.pqc.math.linearalgebra.GF2nField#computeCOBMatrix
-   * @see org.bouncycastle.pqc.math.linearalgebra.GF2nField#getRandomRoot
+   *         according to <tt>basis</tt>
+   * @see GF2nField#computeCOBMatrix
+   * @see GF2nField#getRandomRoot
    * @see GF2nPolynomial
    * @see "P1363 A.7 p109ff"
    */
-  public final GF2nElement convert(GF2nElement elem,
-      org.bouncycastle.pqc.math.linearalgebra.GF2nField basis)
-      throws RuntimeException {
-    if (basis == this) {
-      return (GF2nElement) elem.clone();
+  public final GF2nElement convert(GF2nElement elem, GF2nField basis)
+      throws RuntimeException
+  {
+    if (basis == this)
+    {
+      return (GF2nElement)elem.clone();
     }
-    if (fieldPolynomial.equals(basis.fieldPolynomial)) {
-      return (GF2nElement) elem.clone();
+    if (fieldPolynomial.equals(basis.fieldPolynomial))
+    {
+      return (GF2nElement)elem.clone();
     }
-    if (mDegree != basis.mDegree) {
+    if (mDegree != basis.mDegree)
+    {
       throw new RuntimeException("GF2nField.convert: B1 has a"
           + " different degree and thus cannot be coverted to!");
     }
@@ -226,35 +241,44 @@ abstract class GF2nF eld {
     int i;
     GF2Polynomial[] COBMatrix;
     i = fields.indexOf(basis);
-    if (i == -1) {
+    if (i == -1)
+    {
       computeCOBMatrix(basis);
       i = fields.indexOf(basis);
     }
-    COBMatrix = (GF2Polynomial[]) matrices.elementAt(i);
+    COBMatrix = (GF2Polynomial[])matrices.elementAt(i);
 
-    GF2nElement elemCopy = (GF2nElement) elem.clone();
-    if (elemCopy instanceof GF2nONBElement) {
+    GF2nElement elemCopy = (GF2nElement)elem.clone();
+    if (elemCopy instanceof GF2nONBElement)
+    {
       // remember: ONB treats its bits in reverse order
-      ((GF2nONBElement) elemCopy).reverseOrder();
+      ((GF2nONBElement)elemCopy).reverseOrder();
     }
     GF2Polynomial bs = new GF2Polynomial(mDegree, elemCopy.toFlexiBigInt());
     bs.expandN(mDegree);
     GF2Polynomial result = new GF2Polynomial(mDegree);
-    for (i = 0; i < mDegree; i++) {
-      if (bs.vectorMult(COBMatrix[i])) {
+    for (i = 0; i < mDegree; i++)
+    {
+      if (bs.vectorMult(COBMatrix[i]))
+      {
         result.setBit(mDegree - 1 - i);
       }
     }
-    if (basis instanceof GF2nPolynomialField) {
-      return new GF2nPolynomialElement((GF2nPolynomialField) basis,
+    if (basis instanceof GF2nPolynomialField)
+    {
+      return new GF2nPolynomialElement((GF2nPolynomialField)basis,
           result);
-    } else if (basis instanceof GF2nONBField) {
-      GF2nONBElement res = new GF2nONBElement((GF2nONBField) basis,
+    }
+    else if (basis instanceof GF2nONBField)
+    {
+      GF2nONBElement res = new GF2nONBElement((GF2nONBField)basis,
           result.toFlexiBigInt());
       // TODO Remember: ONB treats its Bits in reverse order !!!
       res.reverseOrder();
       return res;
-    } else {
+    }
+    else
+    {
       throw new RuntimeException(
           "GF2nField.convert: B1 must be an instance of "
               + "GF2nPolynomialField or GF2nONBField!");

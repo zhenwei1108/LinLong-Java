@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.pqc.math.ntru.polynomial;
 
 import java.math.BigInteger;
-import org.bouncycastle.pqc.math.ntru.euclid.BigIntEuclidean;
+ 
 
 /**
  * A resultant modulo a <code>BigInteger</code>

@@ -3,8 +3,8 @@ package com.github.zhenwei.core.crypto.macs;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Mac;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
-   (
 
 
 /**

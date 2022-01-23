@@ -77,9 +77,9 @@ public class GF2mVector
   /**
    * Copy constructor.
    *
-   * @param other another {@link org.bouncycastle.pqc.math.linearalgebra.GF2mVector}
+   * @param other another {@link  GF2mVector}
    */
-  public GF2mVector(org.bouncycastle.pqc.math.linearalgebra.GF2mVector other) {
+  public GF2mVector( GF2mVector other) {
     field = new GF2mField(other.field);
     length = other.length;
     vector = IntUtils.clone(other.vector);
@@ -165,7 +165,7 @@ public class GF2mVector
       result[i] = vector[pVec[i]];
     }
 
-    return new org.bouncycastle.pqc.math.linearalgebra.GF2mVector(field, result);
+    return new  GF2mVector(field, result);
   }
 
   /**
@@ -176,10 +176,10 @@ public class GF2mVector
    */
   public boolean equals(Object other) {
 
-    if (!(other instanceof org.bouncycastle.pqc.math.linearalgebra.GF2mVector)) {
+    if (!(other instanceof  GF2mVector)) {
       return false;
     }
-    org.bouncycastle.pqc.math.linearalgebra.GF2mVector otherVec = (org.bouncycastle.pqc.math.linearalgebra.GF2mVector) other;
+     GF2mVector otherVec = ( GF2mVector) other;
 
     if (!field.equals(otherVec.field)) {
       return false;
