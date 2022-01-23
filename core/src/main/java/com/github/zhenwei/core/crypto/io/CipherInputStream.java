@@ -5,6 +5,7 @@ import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.SkippingCipher;
 import com.github.zhenwei.core.crypto.StreamCipher;
 import com.github.zhenwei.core.crypto.modes.AEADBlockCipher;
+import com.github.zhenwei.core.util.Arrays;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;

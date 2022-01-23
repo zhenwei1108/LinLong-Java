@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
 import com.github.zhenwei.core.util.Memoable;
+import com.github.zhenwei.core.util.Pack;
 
 /**
  * implementation of SHA-1 as outlined in "Handbook of Applied Cryptography", pages 346 - 349.

@@ -207,7 +207,7 @@ public class NaccacheSternEngine
       //      output = null;
       // }
 
-      output = toByteArray();
+      output = test.toByteArray();
 
     }
 

@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.prng;
 
+import com.github.zhenwei.core.util.Pack;
+
 public class VMPCRandomGenerator implements RandomGenerator {
 
   private byte n = 0;

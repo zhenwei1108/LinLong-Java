@@ -1,5 +1,7 @@
 package com.github.zhenwei.core.crypto.modes.gcm;
 
+import com.github.zhenwei.core.util.Pack;
+
 public class Tables4kGCMMultiplier
     implements GCMMultiplier {
 
