@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.generators;
 
 
-import HKDFParameters;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.DerivationFunction;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.macs.HMac;
+import com.github.zhenwei.core.crypto.params.HKDFParameters;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 
 

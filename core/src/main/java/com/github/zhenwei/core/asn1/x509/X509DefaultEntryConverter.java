@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-import DERGeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.DERGeneralizedTime;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERPrintableString;
 import com.github.zhenwei.core.asn1.DERUTF8String;

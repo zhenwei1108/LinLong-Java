@@ -1,57 +1,54 @@
-package com.g
-
-import com.github.zhenwei.core.pqc.crypto.qtesla.QTesla1p;
-import com.github.zhenwei.core.pqc.crypto.qtesla.QTesla3p;thub.zhenwe .core.pqc.crypto.qtesla;
+package com.github.zhenwei.core.pqc.crypto.qtesla;
 
 /**
- * The qTESLA secur ty categor es.
+ * The qTESLA security categories.
  */
-publ c class QTESLASecur tyCategory
+public class QTESLASecurityCategory
 {
-    publ c stat c f nal  nt PROVABLY_SECURE_  = 5;
-    publ c stat c f nal  nt PROVABLY_SECURE_    = 6;
+    public static final int PROVABLY_SECURE_I = 5;
+    public static final int PROVABLY_SECURE_III = 6;
 
-    pr vate QTESLASecur tyCategory()
+    private QTESLASecurityCategory()
     {
     }
 
-    stat c vo d val date( nt secur tyCategory)
+    static void validate(int securityCategory)
     {
-        sw tch (secur tyCategory)
+        switch (securityCategory)
         {
-        case PROVABLY_SECURE_ :
-        case PROVABLY_SECURE_   :
-            break;
-        default:
-            throw new  llegalArgumentExcept on("unknown secur ty category: " + secur tyCategory);
+            case PROVABLY_SECURE_I:
+            case PROVABLY_SECURE_III:
+                break;
+            default:
+                throw new IllegalArgumentException("unknown security category: " + securityCategory);
         }
     }
 
-    stat c  nt getPr vateS ze( nt secur tyCategory)
+    static int getPrivateSize(int securityCategory)
     {
-        sw tch (secur tyCategory)
+        switch (securityCategory)
         {
-        case PROVABLY_SECURE_ :
-            return QTesla1p.CRYPTO_SECRETKEYBYTES;
-        case PROVABLY_SECURE_   :
-            return QTesla3p.CRYPTO_SECRETKEYBYTES;
+            case PROVABLY_SECURE_I:
+                return QTesla1p.CRYPTO_SECRETKEYBYTES;
+            case PROVABLY_SECURE_III:
+                return QTesla3p.CRYPTO_SECRETKEYBYTES;
 
-        default:
-            throw new  llegalArgumentExcept on("unknown secur ty category: " + secur tyCategory);
+            default:
+                throw new IllegalArgumentException("unknown security category: " + securityCategory);
         }
     }
 
-    stat c  nt getPubl cS ze( nt secur tyCategory)
+    static int getPublicSize(int securityCategory)
     {
-        sw tch (secur tyCategory)
+        switch (securityCategory)
         {
-        case PROVABLY_SECURE_ :
-            return QTesla1p.CRYPTO_PUBL CKEYBYTES;
-        case PROVABLY_SECURE_ II:
-            return QTesla3p.CRYPTO_PUBLICKEYBYTES;
+            case PROVABLY_SECURE_I:
+                return QTesla1p.CRYPTO_PUBLICKEYBYTES;
+            case PROVABLY_SECURE_III:
+                return QTesla3p.CRYPTO_PUBLICKEYBYTES;
 
-        default:
-            throw new IllegalArgumentException("unknown security category: " + securityCategory);
+            default:
+                throw new IllegalArgumentException("unknown security category: " + securityCategory);
         }
     }
 
@@ -60,12 +57,12 @@ publ c class QTESLASecur tyCategory
         switch (securityCategory)
         {
 
-        case PROVABLY_SECURE_I:
-            return QTesla1p.CRYPTO_BYTES;
-        case PROVABLY_SECURE_III:
-            return QTesla3p.CRYPTO_BYTES;
-        default:
-            throw new IllegalArgumentException("unknown security category: " + securityCategory);
+            case PROVABLY_SECURE_I:
+                return QTesla1p.CRYPTO_BYTES;
+            case PROVABLY_SECURE_III:
+                return QTesla3p.CRYPTO_BYTES;
+            default:
+                throw new IllegalArgumentException("unknown security category: " + securityCategory);
         }
     }
 
@@ -79,12 +76,12 @@ publ c class QTESLASecur tyCategory
     {
         switch (securityCategory)
         {
-        case PROVABLY_SECURE_I:
-            return "qTESLA-p-I";
-        case PROVABLY_SECURE_III:
-            return "qTESLA-p-III";
-        default:
-            throw new IllegalArgumentException("unknown security category: " + securityCategory);
+            case PROVABLY_SECURE_I:
+                return "qTESLA-p-I";
+            case PROVABLY_SECURE_III:
+                return "qTESLA-p-III";
+            default:
+                throw new IllegalArgumentException("unknown security category: " + securityCategory);
         }
     }
 }

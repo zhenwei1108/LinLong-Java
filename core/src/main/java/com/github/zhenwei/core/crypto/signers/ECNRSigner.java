@@ -3,11 +3,12 @@ package com.github.zhenwei.core.crypto.signers;
 
 import ECKeyGenerationParameters;
 import ECKeyPairGenerator;
-import ECKeyParameters;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DSAExt;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.params.ECKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
@@ -29,7 +30,7 @@ public class ECNRSigner
     implements DSAExt
 {
     private boolean             forSigning;
-    private ECKeyParameters     key;
+    private ECKeyParameters key;
     private SecureRandom        random;
 
     /**

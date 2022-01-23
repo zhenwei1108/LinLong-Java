@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.ec;
 
 
-import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECMultiplier;
+import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import java.math.BigInteger;
 
 /**

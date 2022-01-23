@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.crypto.util;
 
 
-import FixedPointCombMultiplier;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
@@ -14,7 +13,9 @@ import com.github.zhenwei.core.asn1.cryptopro.GOST3410PublicKeyAlgParameters;
 import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.sec.ECPrivateKey;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.DSAParameter;
 import com.github.zhenwei.core.asn1.x9.X962Parameters;
@@ -34,6 +35,8 @@ import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
 import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.X448PrivateKeyParameters;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashSet;

@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import ElGamalKeyParameters;
 import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
+import com.github.zhenwei.core.crypto.params.ElGamalKeyParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
@@ -12,8 +12,6 @@ import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
-;
- 
 
 /**
  * this does your basic ElGamal algorithm.
@@ -21,7 +19,7 @@ import java.security.SecureRandom;
 public class ElGamalEngine
     implements AsymmetricBlockCipher
 {
-    private ElGamalKeyParameters    key;
+    private ElGamalKeyParameters key;
     private SecureRandom            random;
     private boolean                 forEncryption;
     private int                     bitSize;

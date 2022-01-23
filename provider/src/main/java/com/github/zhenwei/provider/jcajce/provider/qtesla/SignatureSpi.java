@@ -10,7 +10,7 @@ import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
 import  NullDigest;
  
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
+  
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASigner;
 
 public class SignatureSpi

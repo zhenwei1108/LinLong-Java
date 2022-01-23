@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cert.ocsp;
 
 
 
-import DERGeneralizedTime;
+  
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.DERBitString;

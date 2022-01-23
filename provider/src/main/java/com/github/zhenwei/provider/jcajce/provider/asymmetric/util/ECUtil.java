@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 
 
-import FixedPointCombMultiplier;
+  
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;

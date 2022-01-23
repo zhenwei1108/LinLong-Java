@@ -1,4 +1,4 @@
-package com.g
+package com.github.zhenwei.core.crypto.engines;
 
 import com.github.zhenwei.core.crypto.BasicAgreement;
 import com.github.zhenwei.core.crypto.BufferedBlockCipher;
@@ -11,6 +11,7 @@ import com.github.zhenwei.core.crypto.DigestDerivationFunction;
 import com.github.zhenwei.core.crypto.EphemeralKeyPair;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.KeyParser;
+import com.github.zhenwei.core.crypto.Mac;
 import com.github.zhenwei.core.crypto.OutputLengthException;
 import com.github.zhenwei.core.crypto.digests.SHA256Digest;
 import com.github.zhenwei.core.crypto.generators.EphemeralKeyPairGenerator;
@@ -23,41 +24,10 @@ import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
+import com.github.zhenwei.core.util.Pack;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.math.BigInteger;thub.zhenwe .core.crypto.eng nes;
-
-
- mport com.g thub.zhenwe .core.crypto.C pherParameters;
- mport com.g thub.zhenwe .core.crypto.DataLengthExcept on;
- mport com.g thub.zhenwe .core.crypto.Der vat onParameters;
- mport com.g thub.zhenwe .core.crypto.D gest;
- mport com.g thub.zhenwe .core.crypto.D gestDer vat onFunct on;
- mport com.g thub.zhenwe .core.crypto.params.Asymmetr cKeyParameter;
- mport com.g thub.zhenwe .core.crypto.params.KDFParameters;
- mport com.g thub.zhenwe .core.ut l.Arrays;
- mport com.g thub.zhenwe .core.ut l.B g ntegers;
- mport java. o.ByteArray nputStream;
- mport java. o. OExcept on;
- mport java.math.B g nteger;
- mport org.bouncycastle.crypto.Bas cAgreement;
- 
- 
- mport org.bouncycastle.crypto.EphemeralKeyPa r;
- mport org.bouncycastle.crypto. nval dC pherTextExcept on;
- mport org.bouncycastle.crypto.KeyParser;
- mport org.bouncycastle.crypto.Mac;
- mport org.bouncycastle.crypto.OutputLengthExcept on;
- mport org.bouncycastle.crypto.d gests.SHA256D gest;
- mport EphemeralKeyPa rGenerator;
- mport  ESParameters;
- mport  ESW thC pherParameters;
- mport  SO18033KDFParameters;
- 
- 
-
- 
-
+import java.math.BigInteger;
 
 /**
  * Support class for constructing integrated encryption ciphers for doing basic message exchanges on top of key

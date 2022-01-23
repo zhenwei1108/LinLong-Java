@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
+  
 
 /**
  * qTESLA parameter details. These are divided up on the basis of the security categories for each

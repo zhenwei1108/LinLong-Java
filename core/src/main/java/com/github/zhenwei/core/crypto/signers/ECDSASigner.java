@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto.signers;
 
 
-import ECKeyParameters;
-import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DSAExt;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
@@ -15,6 +15,7 @@ import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECMultiplier;
 import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;

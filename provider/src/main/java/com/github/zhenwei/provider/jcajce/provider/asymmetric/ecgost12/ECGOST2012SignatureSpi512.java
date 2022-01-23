@@ -15,7 +15,7 @@ import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
  
 import  GOST3411_2012_512Digest;
-import ECKeyParameters;
+  
  
 import org.bouncycastle.crypto.signers.ECGOST3410_2012Signer;
  

@@ -8,6 +8,7 @@ import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.crypto.params.ParametersWithSBox;
 import com.github.zhenwei.core.crypto.params.ParametersWithUKM;
+import com.github.zhenwei.core.util.Pack;
 
 
 public class CryptoProWrapEngine

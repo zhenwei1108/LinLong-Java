@@ -28,7 +28,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
  
  
-import org.bouncycastle.crypto.KeyEncoder;
+  
 import org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
  ;
  
@@ -39,7 +39,7 @@ import EphemeralKeyPairGenerator;
  
  
 import ECKeyGenerationParameters;
-import ECKeyParameters;
+  
  
 import IESWithCipherParameters;
  

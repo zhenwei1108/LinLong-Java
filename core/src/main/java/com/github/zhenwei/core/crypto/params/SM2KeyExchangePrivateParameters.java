@@ -1,9 +1,9 @@
 package com.github.zhenwei.core.crypto.params;
 
 
-import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.math.ec.ECMultiplier;
+import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 
 
 /**

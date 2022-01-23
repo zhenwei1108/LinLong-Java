@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.engines;
 
-import CramerShoupKeyParameters;
-import CramerShoupPrivateKeyParameters;
-import CramerShoupPublicKeyParameters;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.params.CramerShoupKeyParameters;
+import com.github.zhenwei.core.crypto.params.CramerShoupPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.CramerShoupPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Strings;

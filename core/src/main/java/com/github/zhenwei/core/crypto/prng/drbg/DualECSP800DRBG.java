@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
 
-import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECMultiplier;
+import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;

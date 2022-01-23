@@ -3,8 +3,9 @@ package com.github.zhenwei.core.crypto.generators;
 
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.EphemeralKeyPair;
-import org.bouncycastle.crypto.KeyEncoder;
+import com.github.zhenwei.core.crypto.EphemeralKeyPair;
+import com.github.zhenwei.core.crypto.KeyEncoder;
+
 
 public class EphemeralKeyPairGenerator
 {
