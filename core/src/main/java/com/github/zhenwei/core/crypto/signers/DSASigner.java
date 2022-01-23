@@ -1,16 +1,17 @@
 package com.github.zhenwei.core.crypto.signers;
 
-import DSAKeyParameters;
- 
+
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
+import com.github.zhenwei.core.crypto.DSAExt;
+import com.github.zhenwei.core.crypto.params.DSAKeyParameters;
+import com.github.zhenwei.core.crypto.params.DSAParameters;
 import com.github.zhenwei.core.crypto.params.DSAPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DSAPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.DSAExt;
- 
  
 
 /**
@@ -86,7 +87,7 @@ public class DSASigner
     public BigInteger[] generateSignature(
         byte[] message)
     {
-        DSAParameters   params = key.getParameters();
+        DSAParameters params = key.getParameters();
         BigInteger      q = params.getQ();
         BigInteger      m = calculateE(q, message);
         BigInteger      x = ((DSAPrivateKeyParameters)key).getX();

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.selector.jcajce;
 
 
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.x509.Extension;
 import java.math.BigInteger;

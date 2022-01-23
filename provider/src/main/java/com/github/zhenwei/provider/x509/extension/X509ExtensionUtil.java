@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.x509.extension;
 
 
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

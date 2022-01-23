@@ -1,15 +1,16 @@
 package com.github.zhenwei.core.crypto.util;
 
-import MD5Digest;
-import SHA1Digest;
-import SHA224Digest;
-import SHA256Digest;
-import SHA384Digest;
-import SHA3Digest;
-import SHA512Digest;
-import SHA512tDigest;
-import SHAKEDigest;
+
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.MD5Digest;
+import com.github.zhenwei.core.crypto.digests.SHA1Digest;
+import com.github.zhenwei.core.crypto.digests.SHA224Digest;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.crypto.digests.SHA384Digest;
+import com.github.zhenwei.core.crypto.digests.SHA3Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512tDigest;
+import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
 import java.util.HashMap;
 import java.util.Map;
 

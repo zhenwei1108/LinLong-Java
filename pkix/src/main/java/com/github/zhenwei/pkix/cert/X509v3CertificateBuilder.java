@@ -5,7 +5,7 @@ import ExtensionsGenerator;
 import TBSCertificate;
 import Time;
 import V3TBSCertificateGenerator;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;

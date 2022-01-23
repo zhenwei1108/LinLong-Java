@@ -2,8 +2,9 @@ package com.github.zhenwei.core.math.ec.custom.sec;
 
 import com.github.zhenwei.core.math.raw.Interleave;
 import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat448;
 import java.math.BigInteger;
-import org.bouncycastle.math.raw.Nat448;
+
 
 public class SecT409Field
 {

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.util.asn1.cms;
 
 
-import X500Name;
+
 import X509CertificateStructure;
 import X509Name;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;

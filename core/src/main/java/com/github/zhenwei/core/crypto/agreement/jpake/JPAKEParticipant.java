@@ -1,11 +1,14 @@
 package com.github.zhenwei.core.crypto.agreement.jpake;
 
-import SHA256Digest;
+
+import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CryptoException;
+
 
 
 /**

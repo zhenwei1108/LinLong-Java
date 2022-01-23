@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.digests;
 
- 
 
+import com.github.zhenwei.core.crypto.Xof;
 
 /**
  * implementation of SHAKE based on following KeccakNISTInterface.c from https://keccak.noekeon.org/

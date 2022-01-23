@@ -56,7 +56,7 @@ final class OTSHashAddress
         @Override
         protected XMSSAddress build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.OTSHashAddress(this);
+            return new   OTSHashAddress(this);
         }
 
         @Override

@@ -15,23 +15,23 @@ import java.util.Map;
  */
 public final class XMSSParameters
 {
-    private static final Map<Integer, org.bouncycastle.pqc.crypto.xmss.XMSSParameters> paramsLookupTable;
+    private static final Map<Integer,   XMSSParameters> paramsLookupTable;
 
     static
     {
-        Map<Integer, org.bouncycastle.pqc.crypto.xmss.XMSSParameters> pMap = new HashMap<Integer, org.bouncycastle.pqc.crypto.xmss.XMSSParameters>();
-        pMap.put(Integers.valueOf(0x00000001), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(10, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000002), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(16, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000003), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(20, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000004), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(10, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x00000005), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(16, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x00000006), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(20, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x00000007), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(10, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000008), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(16, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000009), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(20, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x0000000a), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(10, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000000b), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(16, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000000c), new org.bouncycastle.pqc.crypto.xmss.XMSSParameters(20, NISTObjectIdentifiers.id_shake256));
+        Map<Integer,   XMSSParameters> pMap = new HashMap<Integer,   XMSSParameters>();
+        pMap.put(Integers.valueOf(0x00000001), new   XMSSParameters(10, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000002), new   XMSSParameters(16, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000003), new   XMSSParameters(20, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000004), new   XMSSParameters(10, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x00000005), new   XMSSParameters(16, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x00000006), new   XMSSParameters(20, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x00000007), new   XMSSParameters(10, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000008), new   XMSSParameters(16, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000009), new   XMSSParameters(20, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x0000000a), new   XMSSParameters(10, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000000b), new   XMSSParameters(16, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000000c), new   XMSSParameters(20, NISTObjectIdentifiers.id_shake256));
         paramsLookupTable = Collections.unmodifiableMap(pMap);
     }
 
@@ -166,7 +166,7 @@ public final class XMSSParameters
         return k;
     }
 
-    public static org.bouncycastle.pqc.crypto.xmss.XMSSParameters lookupByOID(int oid)
+    public static   XMSSParameters lookupByOID(int oid)
     {
         return paramsLookupTable.get(Integers.valueOf(oid));
     }

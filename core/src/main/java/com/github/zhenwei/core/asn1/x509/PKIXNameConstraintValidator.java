@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-import RDN;
-import X500Name;
 import com.github.zhenwei.core.asn1.ASN1IA5String;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x500.RDN;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Strings;

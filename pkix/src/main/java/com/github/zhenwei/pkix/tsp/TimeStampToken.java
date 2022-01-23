@@ -6,7 +6,7 @@ import CMSSignedData;
 import SignerId;
 import SignerInformation;
 import SignerInformationVerifier;
-import X500Name;
+
 import cms.AttributeTable;
 import cms.ContentInfo;
 import cms.IssuerAndSerialNumber;

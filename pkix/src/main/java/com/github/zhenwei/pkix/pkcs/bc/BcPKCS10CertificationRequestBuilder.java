@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.pkcs.bc;
 
-import X500Name;
+
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.io.IOException;
 import org.bouncycastle.crypto.util.SubjectPublicKeyInfoFactory;

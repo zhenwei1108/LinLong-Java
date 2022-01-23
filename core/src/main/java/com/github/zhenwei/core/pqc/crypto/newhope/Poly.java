@@ -1,7 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
-import SHAKEDigest;
 
+import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
+import com.github.zhenwei.core.util.Pack;
 
 class Poly
 {

@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert;
 
 
 import TBSCertificate;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;

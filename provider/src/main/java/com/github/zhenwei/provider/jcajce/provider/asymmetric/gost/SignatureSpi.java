@@ -13,7 +13,7 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.DSAExt;
+ 
 import  GOST3411Digest;
  
 import org.bouncycastle.crypto.signers.GOST3410Signer;

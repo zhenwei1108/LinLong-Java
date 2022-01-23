@@ -16,7 +16,7 @@ import  SHA256Digest;
 import  SHA512Digest;
 import  SHAKEDigest;
  
-import org.bouncycastle.pqc.crypto.xmss.XMSSSigner;
+import   XMSSSigner;
 import org.bouncycastle.pqc.jcajce.interfaces.StateAwareSignature;
 
 public class XMSSSignatureSpi

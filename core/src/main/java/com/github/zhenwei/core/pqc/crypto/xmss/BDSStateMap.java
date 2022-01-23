@@ -27,7 +27,7 @@ public class BDSStateMap
         this.maxIndex = maxIndex;
     }
 
-    BDSStateMap(org.bouncycastle.pqc.crypto.xmss.BDSStateMap stateMap, long maxIndex)
+    BDSStateMap(  BDSStateMap stateMap, long maxIndex)
     {
         for (Iterator it = stateMap.bdsState.keySet().iterator(); it.hasNext();)
         {
@@ -121,10 +121,10 @@ public class BDSStateMap
         bdsState.put(Integers.valueOf(index), bds);
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.BDSStateMap withWOTSDigest(
+    public   BDSStateMap withWOTSDigest(
         ASN1ObjectIdentifier digestName)
     {
-        org.bouncycastle.pqc.crypto.xmss.BDSStateMap newStateMap = new org.bouncycastle.pqc.crypto.xmss.BDSStateMap(this.maxIndex);
+          BDSStateMap newStateMap = new   BDSStateMap(this.maxIndex);
 
         for (Iterator<Integer> keys = bdsState.keySet().iterator(); keys.hasNext();)
         {

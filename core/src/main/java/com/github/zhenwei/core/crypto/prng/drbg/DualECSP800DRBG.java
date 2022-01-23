@@ -1,10 +1,10 @@
 package com.github.zhenwei.core.crypto.prng.drbg;
 
 
-import ECMultiplier;
 import FixedPointCombMultiplier;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECMultiplier;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
@@ -73,7 +73,7 @@ public class DualECSP800DRBG
     private ECPoint                _Q;
     private byte[]                 _s;
     private int                    _sLength;
-    private ECMultiplier           _fixedPointMultiplier = new FixedPointCombMultiplier();
+    private ECMultiplier _fixedPointMultiplier = new FixedPointCombMultiplier();
 
     /**
      * Construct a SP800-90A Dual EC DRBG.

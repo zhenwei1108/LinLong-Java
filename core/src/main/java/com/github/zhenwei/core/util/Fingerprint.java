@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.util;
 
-import SHA512tDigest;
-import SHAKEDigest;
 
+import com.github.zhenwei.core.crypto.digests.SHA512tDigest;
+import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
 
 /**
  * Basic 20 byte finger print class.

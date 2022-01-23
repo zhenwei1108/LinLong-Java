@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.util.asn1.cmp;
 
 
-import ASN1GeneralizedTime;
-import X500Name;
+
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;

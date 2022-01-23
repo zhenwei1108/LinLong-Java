@@ -5,7 +5,7 @@ import CRLDistPoint;
 import DistributionPoint;
 import DistributionPointName;
 import GeneralNames;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.x509.Extension;
 import com.github.zhenwei.core.asn1.x509.GeneralName;

@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.agreement.srp;
 
 import SRP6GroupParameters;
+import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Digest;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CryptoException;
+ 
 
 /**
  * Implements the server side SRP-6a protocol. Note that this class is stateful, and therefore NOT threadsafe.

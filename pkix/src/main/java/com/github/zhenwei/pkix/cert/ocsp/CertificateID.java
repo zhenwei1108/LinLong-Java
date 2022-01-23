@@ -14,7 +14,7 @@ import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import java.io.OutputStream;
 import java.math.BigInteger;
-import ocsp.CertID;
+
 import org.bouncycastle.operator.DigestCalculator;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 

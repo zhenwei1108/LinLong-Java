@@ -1,9 +1,10 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import DSAParameterGenerationParameters;
-import DSAValidationParameters;
-import SHA1Digest;
+
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA1Digest;
+import com.github.zhenwei.core.crypto.params.DSAParameterGenerationParameters;
+import com.github.zhenwei.core.crypto.params.DSAValidationParameters;
 import com.github.zhenwei.core.crypto.util.DigestFactory;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;

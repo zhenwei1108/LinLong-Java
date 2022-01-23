@@ -1,14 +1,9 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import ASN1GeneralizedTime;
-import AccessDescription;
-import AuthorityInformationAccess;
-import CRLReason;
-import KeyPurposeId;
-import X500Name;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
@@ -16,20 +11,43 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.bsi.BSIObjectIdentifiers;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
+import com.github.zhenwei.core.asn1.eac.EACObjectIdentifiers;
 import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ocsp.BasicOCSPResponse;
+import com.github.zhenwei.core.asn1.ocsp.CertID;
+import com.github.zhenwei.core.asn1.ocsp.OCSPObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ocsp.OCSPResponse;
+import com.github.zhenwei.core.asn1.ocsp.OCSPResponseStatus;
+import com.github.zhenwei.core.asn1.ocsp.ResponderID;
+import com.github.zhenwei.core.asn1.ocsp.ResponseBytes;
+import com.github.zhenwei.core.asn1.ocsp.ResponseData;
+import com.github.zhenwei.core.asn1.ocsp.RevokedInfo;
+import com.github.zhenwei.core.asn1.ocsp.SingleResponse;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.RSASSAPSSparams;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x500.style.BCStrictStyle;
+import com.github.zhenwei.core.asn1.x509.AccessDescription;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.AuthorityInformationAccess;
+import com.github.zhenwei.core.asn1.x509.CRLReason;
+import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.KeyPurposeId;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Properties;
+import com.github.zhenwei.provider.jcajce.PKIXCertRevocationChecker;
+import com.github.zhenwei.provider.jcajce.PKIXCertRevocationCheckerParameters;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.MessageDigestUtils;
+import com.github.zhenwei.provider.jce.exception.ExtCertPathValidatorException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URI;
@@ -49,23 +67,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import ocsp.BasicOCSPResponse;
-import ocsp.CertID;
-import ocsp.OCSPObjectIdentifiers;
-import ocsp.OCSPResponse;
-import ocsp.OCSPResponseStatus;
-import ocsp.ResponderID;
-import ocsp.ResponseBytes;
-import ocsp.ResponseData;
-import ocsp.RevokedInfo;
-import ocsp.SingleResponse;
-import org.bouncycastle.internal.asn1.bsi.BSIObjectIdentifiers;
-import org.bouncycastle.internal.asn1.eac.EACObjectIdentifiers;
-import org.bouncycastle.jcajce.PKIXCertRevocationChecker;
-import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
-import org.bouncycastle.jcajce.util.MessageDigestUtils;
-import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
-import style.BCStrictStyle;
 
 
 class ProvOcspRevocationChecker
@@ -211,7 +212,7 @@ class ProvOcspRevocationChecker
                                     null, parameters.getCertPath(), parameters.getIndex());
             }
 
-            Certificate issuer = extractCert();
+            com.github.zhenwei.core.asn1.x509.Certificate issuer = extractCert();
 
             // TODO: configure hash algorithm
             CertID id = createCertID(new AlgorithmIdentifier(OIWObjectIdentifiers.idSHA1), issuer, new ASN1Integer(cert.getSerialNumber()));
@@ -281,7 +282,7 @@ class ProvOcspRevocationChecker
                                         }
                                         if (certID == null || !certID.getHashAlgorithm().equals(resp.getCertID().getHashAlgorithm()))
                                         {
-                                            Certificate issuer = extractCert();
+                                            com.github.zhenwei.core.asn1.x509.Certificate issuer = extractCert();
 
                                             certID = createCertID(resp.getCertID(), issuer, serialNumber);
                                         }
@@ -342,7 +343,7 @@ class ProvOcspRevocationChecker
 
     static URI getOcspResponderURI(X509Certificate cert)
     {
-        byte[] extValue = cert.getExtensionValue(x509.Extension.authorityInfoAccess.getId());
+        byte[] extValue = cert.getExtensionValue  (com.github.zhenwei.core.asn1.x509.Extension.authorityInfoAccess.getId());
         if (extValue == null)
         {
             return null;
@@ -437,7 +438,7 @@ class ProvOcspRevocationChecker
                 {
                     Extensions exts = basicResp.getTbsResponseData().getResponseExtensions();
 
-                    Extension ext = exts.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
+                    com.github.zhenwei.core.asn1.x509.Extension ext = exts.getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nonce);
 
                     if (!Arrays.areEqual(nonce, ext.getExtnValue().getOctets()))
                     {
@@ -542,12 +543,12 @@ class ProvOcspRevocationChecker
         return digest.digest(info.getPublicKeyData().getBytes());
     }
 
-    private Certificate extractCert()
+    private com.github.zhenwei.core.asn1.x509.Certificate extractCert()
         throws CertPathValidatorException
     {
         try
         {
-            return Certificate.getInstance(parameters.getSigningCert().getEncoded());
+            return com.github.zhenwei.core.asn1.x509.Certificate.getInstance(parameters.getSigningCert().getEncoded());
         }
         catch (Exception e)
         {
@@ -555,13 +556,13 @@ class ProvOcspRevocationChecker
         }
     }
 
-    private CertID createCertID(CertID base, Certificate issuer, ASN1Integer serialNumber)
+    private CertID createCertID(CertID base, com.github.zhenwei.core.asn1.x509.Certificate issuer, ASN1Integer serialNumber)
         throws CertPathValidatorException
     {
         return createCertID(base.getHashAlgorithm(), issuer, serialNumber);
     }
 
-    private CertID createCertID(AlgorithmIdentifier digestAlg, Certificate issuer, ASN1Integer serialNumber)
+    private CertID createCertID(AlgorithmIdentifier digestAlg, com.github.zhenwei.core.asn1.x509.Certificate issuer, ASN1Integer serialNumber)
         throws CertPathValidatorException
     {
         try

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf.jcajce;
 
 
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;

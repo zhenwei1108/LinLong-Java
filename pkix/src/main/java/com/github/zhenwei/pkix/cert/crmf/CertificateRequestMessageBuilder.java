@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert.crmf;
  
 import ExtensionsGenerator;
 import Time;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;

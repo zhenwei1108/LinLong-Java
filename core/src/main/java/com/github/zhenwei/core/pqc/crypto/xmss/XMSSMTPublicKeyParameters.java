@@ -136,9 +136,9 @@ public final class XMSSMTPublicKeyParameters
             return this;
         }
 
-        public org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters build()
+        public   XMSSMTPublicKeyParameters build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.XMSSMTPublicKeyParameters(this);
+            return new   XMSSMTPublicKeyParameters(this);
         }
     }
 

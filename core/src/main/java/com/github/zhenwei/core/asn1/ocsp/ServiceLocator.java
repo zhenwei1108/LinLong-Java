@@ -1,13 +1,13 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import AuthorityInformationAccess;
-import X500Name;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x509.AuthorityInformationAccess;
 
 public class ServiceLocator
     extends ASN1Object
@@ -29,16 +29,16 @@ public class ServiceLocator
         }
     }
 
-    public static ocsp.ServiceLocator getInstance(
+    public static ServiceLocator getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.ServiceLocator)
+        if (obj instanceof ServiceLocator)
         {
-            return (ocsp.ServiceLocator)obj;
+            return  (ServiceLocator)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.ServiceLocator(ASN1Sequence.getInstance(obj));
+            return new ServiceLocator(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -8,6 +8,7 @@ package com.github.zhenwei.core.crypto.digests;
   Reference Implementation and Description can be found at: https://blake2.net/blake2x.pdf
  */
 
+import com.github.zhenwei.core.crypto.Xof;
 import com.github.zhenwei.core.util.Arrays;
  
 

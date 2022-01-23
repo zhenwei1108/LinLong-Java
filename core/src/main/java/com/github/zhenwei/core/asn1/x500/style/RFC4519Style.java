@@ -1,13 +1,11 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
 
-import RDN;
-import X500Name;
-import X500NameStyle;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERPrintableString;
+import com.github.zhenwei.core.asn1.x500.X500NameStyle;
 import java.util.Hashtable;
 
 public class RFC4519Style
@@ -164,7 +162,7 @@ public class RFC4519Style
     /**
      * Singleton instance.
      */
-    public static final X500NameStyle INSTANCE = new  style.RFC4519Style();
+    public static final X500NameStyle INSTANCE = new RFC4519Style();
 
     protected final Hashtable defaultLookUp;
     protected final Hashtable defaultSymbols;

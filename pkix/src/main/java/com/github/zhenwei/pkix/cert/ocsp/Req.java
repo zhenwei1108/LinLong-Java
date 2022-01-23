@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-import ocsp.Request;
+
 
 public class Req
 {

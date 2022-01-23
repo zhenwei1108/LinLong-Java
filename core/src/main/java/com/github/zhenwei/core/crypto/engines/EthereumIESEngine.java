@@ -24,7 +24,8 @@ import com.github.zhenwei.core.crypto.params.ParametersWithIV;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;thub.zhenwe .core.crypto.eng nes;
+import java.io.IOException;
+import java.math.BigInteger;thub.zhenwe .core.crypto.eng nes;
 
 
  mport com.g thub.zhenwe .core.crypto.C pherParameters;

@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.tsp;
 
 import ExtendedKeyUsage;
 import ExtensionsGenerator;
-import KeyPurposeId;
+
 import SignerInformation;
 import cms.AttributeTable;
 import cms.ContentInfo;

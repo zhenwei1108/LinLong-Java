@@ -1,5 +1,6 @@
 package com.github.zhenwei.core.math.ec.rfc7748;
 
+import com.github.zhenwei.core.math.ec.rfc8032.Ed448;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
  

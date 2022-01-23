@@ -140,9 +140,9 @@ public final class XMSSMTSignature
             return this;
         }
 
-        public org.bouncycastle.pqc.crypto.xmss.XMSSMTSignature build()
+        public   XMSSMTSignature build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.XMSSMTSignature(this);
+            return new   XMSSMTSignature(this);
         }
     }
 

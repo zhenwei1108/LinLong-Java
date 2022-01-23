@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
-import X500Name;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;

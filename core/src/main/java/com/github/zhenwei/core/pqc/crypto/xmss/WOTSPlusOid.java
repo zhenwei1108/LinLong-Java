@@ -14,15 +14,15 @@ final class WOTSPlusOid
     /**
      * XMSS OID lookup table.
      */
-    private static final Map<String, org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid> oidLookupTable;
+    private static final Map<String,   WOTSPlusOid> oidLookupTable;
 
     static
     {
-        Map<String, org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid> map = new HashMap<String, org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid>();
-        map.put(createKey("SHA-256", 32, 16, 67), new org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid(0x01000001, "WOTSP_SHA2-256_W16"));
-        map.put(createKey("SHA-512", 64, 16, 131), new org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid(0x02000002, "WOTSP_SHA2-512_W16"));
-        map.put(createKey("SHAKE128", 32, 16, 67), new org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid(0x03000003, "WOTSP_SHAKE128_W16"));
-        map.put(createKey("SHAKE256", 64, 16, 131), new org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid(0x04000004, "WOTSP_SHAKE256_W16"));
+        Map<String,   WOTSPlusOid> map = new HashMap<String,   WOTSPlusOid>();
+        map.put(createKey("SHA-256", 32, 16, 67), new   WOTSPlusOid(0x01000001, "WOTSP_SHA2-256_W16"));
+        map.put(createKey("SHA-512", 64, 16, 131), new   WOTSPlusOid(0x02000002, "WOTSP_SHA2-512_W16"));
+        map.put(createKey("SHAKE128", 32, 16, 67), new   WOTSPlusOid(0x03000003, "WOTSP_SHAKE128_W16"));
+        map.put(createKey("SHAKE256", 64, 16, 131), new   WOTSPlusOid(0x04000004, "WOTSP_SHAKE256_W16"));
         oidLookupTable = Collections.unmodifiableMap(map);
     }
 
@@ -55,7 +55,7 @@ final class WOTSPlusOid
      * @param winternitzParameter Winternitz parameter.
      * @return WOTS+ OID if parameters were found, null else.
      */
-    protected static org.bouncycastle.pqc.crypto.xmss.WOTSPlusOid lookup(String algorithmName, int digestSize, int winternitzParameter, int len)
+    protected static   WOTSPlusOid lookup(String algorithmName, int digestSize, int winternitzParameter, int len)
     {
         if (algorithmName == null)
         {

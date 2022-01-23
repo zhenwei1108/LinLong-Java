@@ -1,9 +1,8 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import ASN1GeneralizedTime;
-import X509Extensions;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
@@ -12,6 +11,7 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.X509Extensions;
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -33,7 +33,7 @@ public class ResponseData
     
     private ASN1Integer          version;
     private ResponderID         responderID;
-    private ASN1GeneralizedTime  producedAt;
+    private ASN1GeneralizedTime producedAt;
     private ASN1Sequence responses;
     private Extensions      responseExtensions;
 
@@ -113,23 +113,23 @@ public class ResponseData
         }
     }
 
-    public static ocsp.ResponseData getInstance(
+    public static ResponseData getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.ResponseData getInstance(
+    public static ResponseData getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.ResponseData)
+        if (obj instanceof ResponseData)
         {
-            return (ocsp.ResponseData)obj;
+            return  (ResponseData)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.ResponseData(ASN1Sequence.getInstance(obj));
+            return new ResponseData(ASN1Sequence.getInstance(obj));
         }
 
         return null;

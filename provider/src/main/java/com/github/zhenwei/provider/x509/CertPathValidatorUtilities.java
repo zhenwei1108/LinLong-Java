@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.x509;
 
 import ASN1Enumerated;
 import ASN1OutputStream;
-import CRLReason;
+
 import IssuingDistributionPoint;
 import PolicyInformation;
 import X509Extension;
@@ -53,7 +53,7 @@ import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
 import org.bouncycastle.jcajce.PKIXCertStoreSelector;
-import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
+
 import org.bouncycastle.jce.provider.AnnotatedException;
 import org.bouncycastle.jce.provider.PKIXPolicyNode;
 

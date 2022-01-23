@@ -40,23 +40,23 @@ public class CertID
         serialNumber = (ASN1Integer)seq.getObjectAt(3);
     }
 
-    public static ocsp.CertID getInstance(
+    public static CertID getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.CertID getInstance(
+    public static CertID getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.CertID)
+        if (obj instanceof CertID)
         {
-            return (ocsp.CertID)obj;
+            return  (CertID)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.CertID(ASN1Sequence.getInstance(obj));
+            return new CertID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

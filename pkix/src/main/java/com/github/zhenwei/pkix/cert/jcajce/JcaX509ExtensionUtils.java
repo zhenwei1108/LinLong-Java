@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.jcajce;
 
 
 import GeneralNames;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

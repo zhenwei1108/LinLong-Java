@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cert.path.validations;
 
-import X500Name;
+
 import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.core.util.Store;
 import com.github.zhenwei.pkix.cert.X509CRLHolder;

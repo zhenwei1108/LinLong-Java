@@ -35,16 +35,16 @@ public class CertHash
     private AlgorithmIdentifier hashAlgorithm;
     private byte[] certificateHash;
 
-    public static ocsp.CertHash getInstance(Object obj)
+    public static CertHash getInstance(Object obj)
     {
-        if (obj == null || obj instanceof ocsp.CertHash)
+        if (obj == null || obj instanceof CertHash)
         {
-            return  (ocsp.CertHash)obj;
+            return   (CertHash)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new ocsp.CertHash((ASN1Sequence)obj);
+            return new CertHash((ASN1Sequence)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "

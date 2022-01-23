@@ -56,7 +56,7 @@ final class LTreeAddress
         @Override
         protected XMSSAddress build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.LTreeAddress(this);
+            return new   LTreeAddress(this);
         }
 
         @Override

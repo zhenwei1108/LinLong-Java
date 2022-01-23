@@ -35,23 +35,23 @@ public class OCSPRequest
         }
     }
     
-    public static ocsp.OCSPRequest getInstance(
+    public static OCSPRequest getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.OCSPRequest getInstance(
+    public static OCSPRequest getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.OCSPRequest)
+        if (obj instanceof OCSPRequest)
         {
-            return (ocsp.OCSPRequest)obj;
+            return  (OCSPRequest)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.OCSPRequest(ASN1Sequence.getInstance(obj));
+            return new OCSPRequest(ASN1Sequence.getInstance(obj));
         }
 
         return null;

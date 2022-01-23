@@ -116,9 +116,9 @@ public class XMSSReducedSignature
             return this;
         }
 
-        public org.bouncycastle.pqc.crypto.xmss.XMSSReducedSignature build()
+        public   XMSSReducedSignature build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.XMSSReducedSignature(this);
+            return new   XMSSReducedSignature(this);
         }
     }
 

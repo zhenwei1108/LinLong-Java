@@ -2,6 +2,7 @@ package com.github.zhenwei.core.crypto.digests;
 
 
 import com.github.zhenwei.core.crypto.ExtendedDigest;
+import com.github.zhenwei.core.crypto.Xof;
 import com.github.zhenwei.core.crypto.params.Blake3Parameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Integers;

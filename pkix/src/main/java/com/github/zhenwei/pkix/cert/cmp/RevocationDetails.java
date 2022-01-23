@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
-import X500Name;
+
 import cmp.RevDetails;
 import java.math.BigInteger;
 

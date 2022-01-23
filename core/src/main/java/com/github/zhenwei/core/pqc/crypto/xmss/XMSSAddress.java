@@ -55,7 +55,7 @@ public abstract class XMSSAddress
             return getThis();
         }
 
-        protected abstract org.bouncycastle.pqc.crypto.xmss.XMSSAddress build();
+        protected abstract   XMSSAddress build();
 
         protected abstract T getThis();
     }

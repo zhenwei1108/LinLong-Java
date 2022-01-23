@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jce.provider;
 
 import GeneralSubtree;
 import NameConstraintValidatorException;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 
 public class PKIXNameConstraintValidator

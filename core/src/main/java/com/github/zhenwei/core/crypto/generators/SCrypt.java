@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import SHA256Digest;
+
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.core.util.Integers;
 import org.bouncycastle.crypto.PBEParametersGenerator;

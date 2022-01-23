@@ -20,6 +20,7 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.RSAPublicKey;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;
 import com.github.zhenwei.core.asn1.ua.DSTU4145BinaryField;
+import com.github.zhenwei.core.asn1.ua.DSTU4145ECBinary;
 import com.github.zhenwei.core.asn1.ua.DSTU4145NamedCurves;
 import com.github.zhenwei.core.asn1.ua.DSTU4145Params;
 import com.github.zhenwei.core.asn1.ua.DSTU4145PointEncoder;
@@ -61,7 +62,6 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
- 
 
 ;
 

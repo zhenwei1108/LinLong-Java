@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
 
-import SHA256Digest;
-import SHA512Digest;
-import SHAKEDigest;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.Xof;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512Digest;
+import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
 import java.util.HashMap;
 import java.util.Map;
  

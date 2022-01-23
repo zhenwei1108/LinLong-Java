@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 
-import ASN1GeneralizedTime;
+
 import cmp.InfoTypeAndValue;
 import cmp.PKIFreeText;
 import cmp.PKIHeaderBuilder;

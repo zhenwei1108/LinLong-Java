@@ -3,8 +3,8 @@ package com.github.zhenwei.pkix.cert.ocsp;
 
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import java.util.Date;
-import ocsp.ResponseData;
-import ocsp.SingleResponse;
+
+
 
 /**
  * OCSP RFC 2560, RFC 6960

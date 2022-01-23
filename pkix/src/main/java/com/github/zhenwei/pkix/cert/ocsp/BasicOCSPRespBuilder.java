@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-import ASN1GeneralizedTime;
-import CRLReason;
+
+
 import DERGeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import ocsp.BasicOCSPResponse;
-import ocsp.CertStatus;
-import ocsp.ResponseData;
-import ocsp.RevokedInfo;
-import ocsp.SingleResponse;
+
+import CertStatus;
+
+
+
 import org.bouncycastle.operator.DigestCalculator;
 
 /**

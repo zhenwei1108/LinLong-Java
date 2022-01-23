@@ -1,30 +1,20 @@
-package com.g
+package com.github.zhenwei.core.pqc.crypto.rainbow;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.pqc.crypto.MessageSigner;
-import com.github.zhenwei.core.pqc.crypto.rainbow.RainbowKeyParameters;
-import com.github.zhenwei.core.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
-import com.github.zhenwei.core.pqc.crypto.rainbow.RainbowPublicKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.rainbow.util.ComputeInField;
-import com.github.zhenwei.core.pqc.crypto.rainbow.util.GF2Field;thub.zhenwe .core.pqc.crypto.ra nbow;
-
- mport com.g thub.zhenwe .core.crypto.C pherParameters;
- mport com.g thub.zhenwe .core.crypto.CryptoServ cesReg strar;
- mport java.secur ty.SecureRandom;
- mport ParametersW thRandom;
- mport org.bouncycastle.pqc.crypto.MessageS gner;
- mport org.bouncycastle.pqc.crypto.ra nbow.ut l.Compute nF eld;
- mport org.bouncycastle.pqc.crypto.ra nbow.ut l.GF2F eld;
+import com.github.zhenwei.core.pqc.crypto.rainbow.util.GF2Field;
+import java.security.SecureRandom;
 
 /**
- *  t  mplements the s gn and ver fy funct ons for the Ra nbow S gnature Scheme.
- * Here the message, wh ch has to be s gned,  s updated. The use of
- * d fferent hash funct ons  s poss ble.
+ * It implements the sign and verify functions for the Rainbow Signature Scheme.
+ * Here the message, which has to be signed, is updated. The use of
+ * different hash functions is possible.
  * <p>
- * Deta led  nformat on about the s gnature and the ver fy-method  s to be found
- *  n the paper of J nta  D ng, D eter Schm dt: Ra nbow, a New Mult variable
+ * Detailed information about the signature and the verify-method is to be found
+ * in the paper of Jintai Ding, Dieter Schmidt: Rainbow, a New Multivariable
  * Polynomial Signature Scheme. ACNS 2005: 164-175
  * (https://dx.doi.org/10.1007/11496137_12)
  */
@@ -32,7 +22,7 @@ public class RainbowSigner
     implements MessageSigner
 {
     private static final int MAXITS = 65536;
-    
+
     // Source of randomness
     private SecureRandom random;
 
@@ -47,7 +37,7 @@ public class RainbowSigner
     RainbowKeyParameters key;
 
     public void init(boolean forSigning,
-                     CipherParameters param)
+        CipherParameters param)
     {
         if (forSigning)
         {

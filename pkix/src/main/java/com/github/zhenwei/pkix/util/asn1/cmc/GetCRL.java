@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.util.asn1.cmc;
 
 
-import ASN1GeneralizedTime;
+
 import ReasonFlags;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

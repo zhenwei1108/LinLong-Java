@@ -14,7 +14,7 @@ import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.SignatureSpi;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.DSAExt;
+ 
 import  NullDigest;
 import  RIPEMD160Digest;
  

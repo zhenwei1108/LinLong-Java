@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.agreement;
 
 
- 
 import MQVPrivateParameters;
 import MQVPublicParameters;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
@@ -66,7 +66,7 @@ public class ECMQVBasicAgreement
         ECDomainParameters      parameters,
         ECPrivateKeyParameters  d1U,
         ECPrivateKeyParameters  d2U,
-        ECPublicKeyParameters   Q2U,
+        ECPublicKeyParameters Q2U,
         ECPublicKeyParameters   Q1V,
         ECPublicKeyParameters   Q2V)
     {

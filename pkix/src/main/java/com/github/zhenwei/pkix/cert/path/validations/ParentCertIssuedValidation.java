@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.path.validations;
 
 
  
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;

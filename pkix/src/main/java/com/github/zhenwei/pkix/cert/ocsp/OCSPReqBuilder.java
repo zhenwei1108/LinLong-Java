@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.DERBitString;
@@ -13,10 +13,10 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import ocsp.OCSPRequest;
-import ocsp.Request;
-import ocsp.Signature;
-import ocsp.TBSRequest;
+
+
+import Signature;
+
  
 
 

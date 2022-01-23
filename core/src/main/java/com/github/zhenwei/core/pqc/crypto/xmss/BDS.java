@@ -114,7 +114,7 @@ public final class BDS
         this.used = false;
     }
 
-    BDS(org.bouncycastle.pqc.crypto.xmss.BDS last)
+    BDS(  BDS last)
     {
         this.wotsPlus = new WOTSPlus(last.wotsPlus.getParams());
         this.treeHeight = last.treeHeight;
@@ -141,7 +141,7 @@ public final class BDS
         this.used = last.used;
     }
 
-    private BDS(org.bouncycastle.pqc.crypto.xmss.BDS last, byte[] publicSeed, byte[] secretKeySeed, OTSHashAddress otsHashAddress)
+    private BDS(  BDS last, byte[] publicSeed, byte[] secretKeySeed, OTSHashAddress otsHashAddress)
     {
         this.wotsPlus = new WOTSPlus(last.wotsPlus.getParams());
         this.treeHeight = last.treeHeight;
@@ -170,7 +170,7 @@ public final class BDS
         this.nextAuthenticationPath(publicSeed, secretKeySeed, otsHashAddress);
     }
 
-    private BDS(org.bouncycastle.pqc.crypto.xmss.BDS last, ASN1ObjectIdentifier digest)
+    private BDS(  BDS last, ASN1ObjectIdentifier digest)
     {
         this.wotsPlus = new WOTSPlus(new WOTSPlusParameters(digest));
         this.treeHeight = last.treeHeight;
@@ -198,7 +198,7 @@ public final class BDS
         this.validate();
     }
 
-    private BDS(org.bouncycastle.pqc.crypto.xmss.BDS last, int maxIndex, ASN1ObjectIdentifier digest)
+    private BDS(  BDS last, int maxIndex, ASN1ObjectIdentifier digest)
     {
         this.wotsPlus = new WOTSPlus(new WOTSPlusParameters(digest));
         this.treeHeight = last.treeHeight;
@@ -226,9 +226,9 @@ public final class BDS
         this.validate();
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.BDS getNextState(byte[] publicSeed, byte[] secretKeySeed, OTSHashAddress otsHashAddress)
+    public   BDS getNextState(byte[] publicSeed, byte[] secretKeySeed, OTSHashAddress otsHashAddress)
     {
-        return new org.bouncycastle.pqc.crypto.xmss.BDS(this, publicSeed, secretKeySeed, otsHashAddress);
+        return new   BDS(this, publicSeed, secretKeySeed, otsHashAddress);
     }
 
     private void initialize(byte[] publicSeed, byte[] secretSeed, OTSHashAddress otsHashAddress)
@@ -524,14 +524,14 @@ public final class BDS
         return maxIndex;
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.BDS withWOTSDigest(ASN1ObjectIdentifier digestName)
+    public   BDS withWOTSDigest(ASN1ObjectIdentifier digestName)
     {
-        return new org.bouncycastle.pqc.crypto.xmss.BDS(this, digestName);
+        return new   BDS(this, digestName);
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.BDS withMaxIndex(int maxIndex, ASN1ObjectIdentifier digestName)
+    public   BDS withMaxIndex(int maxIndex, ASN1ObjectIdentifier digestName)
     {
-        return new org.bouncycastle.pqc.crypto.xmss.BDS(this, maxIndex, digestName);
+        return new   BDS(this, maxIndex, digestName);
     }
 
     private void readObject(

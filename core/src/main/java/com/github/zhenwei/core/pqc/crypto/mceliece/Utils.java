@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.pqc.crypto.mceliece;
 
 
-import SHA1Digest;
-import SHA224Digest;
-import SHA256Digest;
-import SHA384Digest;
-import SHA512Digest;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA1Digest;
+import com.github.zhenwei.core.crypto.digests.SHA224Digest;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.crypto.digests.SHA384Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512Digest;
 
 class Utils
 {

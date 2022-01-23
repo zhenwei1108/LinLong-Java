@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.pkcs;
 
 import CMSEncryptedDataGenerator;
 import CMSProcessableByteArray;
-import DLSequence;
+
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;

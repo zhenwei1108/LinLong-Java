@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert;
 
 
-import ASN1GeneralizedTime;
+
 import ExtensionsGenerator;
 import TBSCertList;
 import TBSCertificate;

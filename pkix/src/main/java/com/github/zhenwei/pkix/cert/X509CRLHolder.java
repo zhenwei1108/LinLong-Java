@@ -5,7 +5,7 @@ import GeneralNames;
 import IssuingDistributionPoint;
 import TBSCertList;
 import Time;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;

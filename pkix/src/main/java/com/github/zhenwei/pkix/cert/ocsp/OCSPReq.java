@@ -15,8 +15,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Set;
-import ocsp.OCSPRequest;
-import ocsp.Request;
+
+
 import org.bouncycastle.cert.CertIOException;
  
 

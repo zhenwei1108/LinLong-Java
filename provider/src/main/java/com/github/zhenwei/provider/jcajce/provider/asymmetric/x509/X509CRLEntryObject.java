@@ -2,10 +2,10 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
 import ASN1Enumerated;
-import CRLReason;
+
 import GeneralNames;
 import TBSCertList;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;

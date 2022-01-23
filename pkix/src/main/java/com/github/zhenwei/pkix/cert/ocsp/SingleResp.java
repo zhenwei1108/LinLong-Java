@@ -5,9 +5,9 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import ocsp.CertStatus;
-import ocsp.RevokedInfo;
-import ocsp.SingleResponse;
+import CertStatus;
+
+
 
 public class SingleResp
 {

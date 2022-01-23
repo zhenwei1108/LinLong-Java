@@ -3,8 +3,10 @@ package com.github.zhenwei.core.math.ec.custom.sec;
 
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.raw.Nat;
+import com.github.zhenwei.core.math.raw.Nat448;
+import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
-import org.bouncycastle.math.raw.Nat448;
+
 
 
 public class SecT409FieldElement extends ECFieldElement.AbstractF2m

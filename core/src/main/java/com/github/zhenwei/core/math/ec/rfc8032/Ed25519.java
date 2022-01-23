@@ -1,14 +1,16 @@
 package com.github.zhenwei.core.math.ec.rfc8032;
 
-import SHA512Digest;
+
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512Digest;
+import com.github.zhenwei.core.math.ec.rfc7748.X25519;
+import com.github.zhenwei.core.math.ec.rfc7748.X25519Field;
 import com.github.zhenwei.core.math.raw.Interleave;
 import com.github.zhenwei.core.math.raw.Nat;
 import com.github.zhenwei.core.math.raw.Nat256;
 import com.github.zhenwei.core.util.Arrays;
 import java.security.SecureRandom;
-import rfc7748.X25519;
-import rfc7748.X25519Field;
+
 
 public abstract class Ed25519
 {

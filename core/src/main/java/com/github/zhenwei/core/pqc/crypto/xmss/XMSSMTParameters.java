@@ -15,44 +15,44 @@ import java.util.Map;
  */
 public final class XMSSMTParameters
 {
-    private static final Map<Integer, org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters> paramsLookupTable;
+    private static final Map<Integer,   XMSSMTParameters> paramsLookupTable;
 
     static
     {
-        Map<Integer, org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters> pMap = new HashMap<Integer, org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters>();
+        Map<Integer,   XMSSMTParameters> pMap = new HashMap<Integer,   XMSSMTParameters>();
 
-        pMap.put(Integers.valueOf(0x00000001), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000002), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000003), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000004), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000005), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000006), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000007), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000008), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_sha256));
-        pMap.put(Integers.valueOf(0x00000009), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x0000000a), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x0000000b), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x0000000c), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x0000000d), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x0000000e), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x0000000f), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x00000010), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_sha512));
-        pMap.put(Integers.valueOf(0x00000011), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000012), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000013), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000014), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000015), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000016), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000017), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000018), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_shake128));
-        pMap.put(Integers.valueOf(0x00000019), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000001a), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000001b), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000001c), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000001d), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000001e), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x0000001f), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_shake256));
-        pMap.put(Integers.valueOf(0x00000020), new org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x00000001), new   XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000002), new   XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000003), new   XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000004), new   XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000005), new   XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000006), new   XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000007), new   XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000008), new   XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_sha256));
+        pMap.put(Integers.valueOf(0x00000009), new   XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x0000000a), new   XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x0000000b), new   XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x0000000c), new   XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x0000000d), new   XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x0000000e), new   XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x0000000f), new   XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x00000010), new   XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_sha512));
+        pMap.put(Integers.valueOf(0x00000011), new   XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000012), new   XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000013), new   XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000014), new   XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000015), new   XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000016), new   XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000017), new   XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000018), new   XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_shake128));
+        pMap.put(Integers.valueOf(0x00000019), new   XMSSMTParameters(20, 2, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000001a), new   XMSSMTParameters(20, 4, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000001b), new   XMSSMTParameters(40, 2, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000001c), new   XMSSMTParameters(40, 4, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000001d), new   XMSSMTParameters(40, 8, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000001e), new   XMSSMTParameters(60, 3, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x0000001f), new   XMSSMTParameters(60, 6, NISTObjectIdentifiers.id_shake256));
+        pMap.put(Integers.valueOf(0x00000020), new   XMSSMTParameters(60, 12, NISTObjectIdentifiers.id_shake256));
         paramsLookupTable = Collections.unmodifiableMap(pMap);
     }
 
@@ -186,7 +186,7 @@ public final class XMSSMTParameters
         return oid;
     }
 
-    public static org.bouncycastle.pqc.crypto.xmss.XMSSMTParameters lookupByOID(int oid)
+    public static   XMSSMTParameters lookupByOID(int oid)
     {
         return paramsLookupTable.get(Integers.valueOf(oid));
     }

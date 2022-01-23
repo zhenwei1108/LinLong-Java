@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
-import X500Name;
+
 import com.github.zhenwei.core.util.Arrays;
 import java.math.BigInteger;
 

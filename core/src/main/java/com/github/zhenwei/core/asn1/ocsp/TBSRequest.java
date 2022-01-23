@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import X509Extensions;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -12,6 +11,7 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.core.asn1.x509.X509Extensions;
 
 public class TBSRequest
     extends ASN1Object
@@ -91,23 +91,23 @@ public class TBSRequest
         }
     }
 
-    public static ocsp.TBSRequest getInstance(
+    public static TBSRequest getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.TBSRequest getInstance(
+    public static TBSRequest getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.TBSRequest)
+        if (obj instanceof TBSRequest)
         {
-            return (ocsp.TBSRequest)obj;
+            return  (TBSRequest)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.TBSRequest(ASN1Sequence.getInstance(obj));
+            return new TBSRequest(ASN1Sequence.getInstance(obj));
         }
 
         return null;

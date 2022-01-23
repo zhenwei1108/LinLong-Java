@@ -1,10 +1,11 @@
 package com.github.zhenwei.core.crypto.examples;
 
-import SHA256Digest;
+
+import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEParticipant;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroup;
 import org.bouncycastle.crypto.agreement.jpake.JPAKEPrimeOrderGroups;

@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jce.provider;
 
 
 import KeyUsage;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1BitString;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;

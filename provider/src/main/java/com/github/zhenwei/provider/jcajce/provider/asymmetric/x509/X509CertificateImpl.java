@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 import KeyUsage;
 import TBSCertificate;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1IA5String;
@@ -834,7 +834,7 @@ abstract class X509CertificateImpl
         return true;
     }
 
-    private static Collection getAlternativeNames(x509.Certificate c, String oid)
+    private static Collection getAlternativeNames  (Certificate c, String oid)
         throws CertificateParsingException
     {
         byte[] extOctets = getExtensionOctets(c, oid);
@@ -900,7 +900,7 @@ abstract class X509CertificateImpl
         }
     }
 
-    protected static byte[] getExtensionOctets(x509.Certificate c, String oid)
+    protected static byte[] getExtensionOctets  (Certificate c, String oid)
     {
         ASN1OctetString extValue = getExtensionValue(c, oid);
         if (null != extValue)
@@ -910,7 +910,7 @@ abstract class X509CertificateImpl
         return null;
     }
 
-    protected static ASN1OctetString getExtensionValue(x509.Certificate c, String oid)
+    protected static ASN1OctetString getExtensionValue  (Certificate c, String oid)
     {
         Extensions exts = c.getTBSCertificate().getExtensions();
         if (null != exts)

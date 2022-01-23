@@ -295,7 +295,7 @@ class BcFKSKeyStoreSpi
             {
                 CertificateFactory certFact = helper.createCertificateFactory("X.509");
 
-                return certFact.generateCertificate(new ByteArrayInputStream(x509.Certificate.getInstance(cert).getEncoded()));
+                return certFact.generateCertificate(new ByteArrayInputStream  (Certificate.getInstance(cert).getEncoded()));
             }
             catch (Exception e)
             {
@@ -308,7 +308,7 @@ class BcFKSKeyStoreSpi
             {
                 CertificateFactory certFact = CertificateFactory.getInstance("X.509");
 
-                return certFact.generateCertificate(new ByteArrayInputStream(x509.Certificate.getInstance(cert).getEncoded()));
+                return certFact.generateCertificate(new ByteArrayInputStream  (Certificate.getInstance(cert).getEncoded()));
             }
             catch (Exception e)
             {

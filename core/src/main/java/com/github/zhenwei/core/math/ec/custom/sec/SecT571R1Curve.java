@@ -1,15 +1,17 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import ECCurve.AbstractF2m;
 import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECCurve.AbstractF2m;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECLookupTable;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.raw.Nat576;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
-import org.bouncycastle.math.raw.Nat576;
+
 
 
 public class SecT571R1Curve extends AbstractF2m

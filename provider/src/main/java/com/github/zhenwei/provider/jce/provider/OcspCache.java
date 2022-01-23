@@ -1,14 +1,27 @@
 package com.github.zhenwei.provider.jce.provider;
 
 
-import ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.ocsp.BasicOCSPResponse;
+import com.github.zhenwei.core.asn1.ocsp.CertID;
+import com.github.zhenwei.core.asn1.ocsp.OCSPObjectIdentifiers;
+import com.github.zhenwei.core.asn1.ocsp.OCSPRequest;
+import com.github.zhenwei.core.asn1.ocsp.OCSPResponse;
+import com.github.zhenwei.core.asn1.ocsp.OCSPResponseStatus;
+import com.github.zhenwei.core.asn1.ocsp.Request;
+import com.github.zhenwei.core.asn1.ocsp.ResponseBytes;
+import com.github.zhenwei.core.asn1.ocsp.ResponseData;
+import com.github.zhenwei.core.asn1.ocsp.Signature;
+import com.github.zhenwei.core.asn1.ocsp.SingleResponse;
+import com.github.zhenwei.core.asn1.ocsp.TBSRequest;
 import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.provider.jcajce.PKIXCertRevocationCheckerParameters;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,19 +40,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
-import ocsp.BasicOCSPResponse;
-import ocsp.CertID;
-import ocsp.OCSPObjectIdentifiers;
-import ocsp.OCSPRequest;
-import ocsp.OCSPResponse;
-import ocsp.OCSPResponseStatus;
-import ocsp.Request;
-import ocsp.ResponseBytes;
-import ocsp.ResponseData;
-import ocsp.SingleResponse;
-import ocsp.TBSRequest;
-import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
-
 
 
 class OcspCache
@@ -138,7 +138,7 @@ class OcspCache
                 nonce = value;
             }
 
-            requestExtensions.add(new Extension(
+            requestExtensions.add(new com.github.zhenwei.core.asn1.x509.Extension(
                 new ASN1ObjectIdentifier(ext.getId()), ext.isCritical(), value));
         }
 
@@ -146,7 +146,7 @@ class OcspCache
         TBSRequest tbsReq = new TBSRequest(null, new DERSequence(requests),
             Extensions.getInstance(new DERSequence(requestExtensions)));
 
-        ocsp.Signature signature = null;
+        Signature signature = null;
 
         try
         {

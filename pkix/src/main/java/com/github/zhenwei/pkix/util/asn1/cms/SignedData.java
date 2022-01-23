@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.util.asn1.cms;
 
 
 import BERSet;
-import BERTaggedObject;
+
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;

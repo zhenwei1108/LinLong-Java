@@ -1,13 +1,6 @@
 package com.github.zhenwei.core.crypto.util;
 
 
- 
- 
- 
- 
- 
- 
- 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
@@ -26,10 +19,16 @@ import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DSAPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
 import com.github.zhenwei.core.crypto.params.ECNamedDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed25519PublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.Ed448PublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
+import com.github.zhenwei.core.crypto.params.X25519PublicKeyParameters;
+import com.github.zhenwei.core.crypto.params.X448PublicKeyParameters;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashSet;

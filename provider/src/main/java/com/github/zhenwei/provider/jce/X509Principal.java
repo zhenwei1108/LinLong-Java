@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jce;
 
 
-import X500Name;
+
 import X509Name;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;

@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms;
 
-import X500Name;
+
 import java.math.BigInteger;
 import org.bouncycastle.cert.selector.X509CertificateHolderSelector;
 

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.util.asn1.cms;
 
 
-import ASN1GeneralizedTime;
+
 import ASN1UTCTime;
 import DERGeneralizedTime;
 import DERUTCTime;

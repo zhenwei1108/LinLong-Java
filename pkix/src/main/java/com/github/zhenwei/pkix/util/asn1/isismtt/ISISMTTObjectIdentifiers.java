@@ -134,7 +134,7 @@ public interface ISISMTTObjectIdentifiers
      * <p>
      * OID: 1.3.36.8.3.10
      * 
-     * @see ocsp.RequestedCertificate
+     * @see RequestedCertificate
      */
     static final ASN1ObjectIdentifier id_isismtt_at_requestedCertificate = id_isismtt_at.branch("10");
 
@@ -160,11 +160,11 @@ public interface ISISMTTObjectIdentifiers
     static final ASN1ObjectIdentifier id_isismtt_at_certInDirSince = id_isismtt_at.branch("12");
 
     /**
-     * Hash of a certificate in OCSP.
+     * Hash of a certificate in 
      * <p>
      * OID: 1.3.36.8.3.13
      * 
-     * @see ocsp.CertHash
+     * @see CertHash
      */
     static final ASN1ObjectIdentifier id_isismtt_at_certHash = id_isismtt_at.branch("13");
 

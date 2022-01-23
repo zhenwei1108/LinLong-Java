@@ -159,9 +159,9 @@ class BDSTreeHash
         return tailNode;
     }
 
-    protected org.bouncycastle.pqc.crypto.xmss.BDSTreeHash clone()
+    protected   BDSTreeHash clone()
     {
-        org.bouncycastle.pqc.crypto.xmss.BDSTreeHash th = new org.bouncycastle.pqc.crypto.xmss.BDSTreeHash(this.initialHeight);
+          BDSTreeHash th = new   BDSTreeHash(this.initialHeight);
 
         th.tailNode = this.tailNode;
         th.height = this.height;

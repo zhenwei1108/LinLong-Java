@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.operator.bc;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import org.bouncycastle.crypto.CryptoException;
+ 
  
 
 public class BcSignerOutputStream

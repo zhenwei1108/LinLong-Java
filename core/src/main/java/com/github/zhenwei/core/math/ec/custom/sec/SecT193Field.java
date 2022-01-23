@@ -1,23 +1,16 @@
-package com.g
+package com.github.zhenwei.core.math.ec.custom.sec;
 
 import com.github.zhenwei.core.math.raw.Interleave;
 import com.github.zhenwei.core.math.raw.Nat;
-import com.github.zhenwei.core.math.raw.Nat256;thub.zhenwe .core.math.ec.custom.sec;
+import com.github.zhenwei.core.math.raw.Nat256;
+import java.math.BigInteger;
 
- mport com.g thub.zhenwe .core.math.raw. nterleave;
- mport com.g thub.zhenwe .core.math.raw.Nat;
- mport com.g thub.zhenwe .core.math.raw.Nat256;
- mport java.math.B g nteger;
-
-
-
-
-publ c class SecT193F eld
+public class SecT193Field
 {
-    pr vate stat c f nal long M01 = 1L;
-    pr vate stat c f nal long M49 = -1L >>> 15;
+    private static final long M01 = 1L;
+    private static final long M49 = -1L >>> 15;
 
-    publ c stat c vo d add(long[] x, long[] y, long[] z)
+    public static void add(long[] x, long[] y, long[] z)
     {
         z[0] = x[0] ^ y[0];
         z[1] = x[1] ^ y[1];
@@ -25,7 +18,7 @@ publ c class SecT193F eld
         z[3] = x[3] ^ y[3];
     }
 
-    publ c stat c vo d addExt(long[] xx, long[] yy, long[] zz)
+    public static void addExt(long[] xx, long[] yy, long[] zz)
     {
         zz[0] = xx[0] ^ yy[0];
         zz[1] = xx[1] ^ yy[1];
@@ -36,7 +29,7 @@ publ c class SecT193F eld
         zz[6] = xx[6] ^ yy[6];
     }
 
-    publ c stat c vo d addOne(long[] x, long[] z)
+    public static void addOne(long[] x, long[] z)
     {
         z[0] = x[0] ^ 1L;
         z[1] = x[1];
@@ -44,7 +37,7 @@ publ c class SecT193F eld
         z[3] = x[3];
     }
 
-    pr vate stat c vo d addTo(long[] x, long[] z)
+    private static void addTo(long[] x, long[] z)
     {
         z[0] ^= x[0];
         z[1] ^= x[1];
@@ -52,31 +45,31 @@ publ c class SecT193F eld
         z[3] ^= x[3];
     }
 
-    publ c stat c long[] fromB g nteger(com.g.B g nteger x)
+    public static long[] fromBigInteger(BigInteger x)
     {
-        return Nat.fromB g nteger64(193, x);
+        return Nat.fromBigInteger64(193, x);
     }
 
-    publ c stat c vo d halfTrace(long[] x, long[] z)
+    public static void halfTrace(long[] x, long[] z)
     {
         long[] tt = Nat256.createExt64();
 
         Nat256.copy64(x, z);
-        for ( nt   = 1;   < 193;   += 2)
+        for (int i = 1; i < 193; i += 2)
         {
-             mplSquare(z, tt);
+            implSquare(z, tt);
             reduce(tt, z);
-             mplSquare(z, tt);
+            implSquare(z, tt);
             reduce(tt, z);
             addTo(x, z);
         }
     }
 
-    publ c stat c vo d  nvert(long[] x, long[] z)
+    public static void invert(long[] x, long[] z)
     {
-         f (Nat256. sZero64(x))
+        if (Nat256.isZero64(x))
         {
-            throw new  llegalStateExcept on();
+            throw new IllegalStateException();
         }
 
         // Itoh-Tsujii inversion with bases { 2, 3 }
@@ -221,9 +214,9 @@ publ c class SecT193F eld
         zz[1] = (z1 >>> 15) ^ (z2 << 34);
         zz[2] = (z2 >>> 30) ^ (z3 << 19);
         zz[3] = (z3 >>> 45) ^ (z4 <<  4)
-                            ^ (z5 << 53);
+            ^ (z5 << 53);
         zz[4] = (z4 >>> 60) ^ (z6 << 38)
-              ^ (z5 >>> 11);
+            ^ (z5 >>> 11);
         zz[5] = (z6 >>> 26) ^ (z7 << 23);
         zz[6] = (z7 >>> 41);
         zz[7] = 0;
@@ -304,16 +297,16 @@ publ c class SecT193F eld
 
         int j = (int)x;
         long g, h = 0, l = u[j & 7]
-                         ^ (u[(j >>> 3) & 7] << 3);
+            ^ (u[(j >>> 3) & 7] << 3);
         int k = 36;
         do
         {
             j  = (int)(x >>> k);
             g  = u[j & 7]
-               ^ u[(j >>> 3) & 7] << 3
-               ^ u[(j >>> 6) & 7] << 6
-               ^ u[(j >>> 9) & 7] << 9
-               ^ u[(j >>> 12) & 7] << 12;
+                ^ u[(j >>> 3) & 7] << 3
+                ^ u[(j >>> 6) & 7] << 6
+                ^ u[(j >>> 9) & 7] << 9
+                ^ u[(j >>> 12) & 7] << 12;
             l ^= (g <<   k);
             h ^= (g >>> -k);
         }

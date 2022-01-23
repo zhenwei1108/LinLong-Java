@@ -6,7 +6,7 @@ import CRLNumber;
 import GeneralNames;
 import IssuingDistributionPoint;
 import TBSCertList;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;

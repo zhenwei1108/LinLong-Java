@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import X500Name;
 import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -10,6 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 
 public class ResponderID
     extends ASN1Object
@@ -29,16 +29,16 @@ public class ResponderID
         this.value = value;
     }
 
-    public static ocsp.ResponderID getInstance(
+    public static ResponderID getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.ResponderID)
+        if (obj instanceof ResponderID)
         {
-            return (ocsp.ResponderID)obj;
+            return  (ResponderID)obj;
         }
         else if (obj instanceof DEROctetString)
         {
-            return new ocsp.ResponderID((DEROctetString)obj);
+            return new ResponderID((DEROctetString)obj);
         }
         else if (obj instanceof ASN1TaggedObject)
         {
@@ -46,18 +46,18 @@ public class ResponderID
 
             if (o.getTagNo() == 1)
             {
-                return new ocsp.ResponderID(X500Name.getInstance(o, true));
+                return new ResponderID(X500Name.getInstance(o, true));
             }
             else
             {
-                return new ocsp.ResponderID(ASN1OctetString.getInstance(o, true));
+                return new ResponderID(ASN1OctetString.getInstance(o, true));
             }
         }
 
-        return new ocsp.ResponderID(X500Name.getInstance(obj));
+        return new ResponderID(X500Name.getInstance(obj));
     }
 
-    public static ocsp.ResponderID getInstance(
+    public static ResponderID getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
-import ASN1GeneralizedTime;
-import CRLReason;
+
+
 import java.util.Date;
-import ocsp.RevokedInfo;
+
 
 /**
  * wrapper for the RevokedInfo object

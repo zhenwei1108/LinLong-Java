@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1IA5String;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -19,7 +19,7 @@ public class CrlID
 {
     private ASN1IA5String crlUrl;
     private ASN1Integer crlNum;
-    private ASN1GeneralizedTime  crlTime;
+    private ASN1GeneralizedTime crlTime;
 
     private CrlID(
         ASN1Sequence seq)
@@ -48,16 +48,16 @@ public class CrlID
         }
     }
 
-    public static ocsp.CrlID getInstance(
+    public static CrlID getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.CrlID)
+        if (obj instanceof CrlID)
         {
-            return (ocsp.CrlID)obj;
+            return  (CrlID)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.CrlID(ASN1Sequence.getInstance(obj));
+            return new CrlID(ASN1Sequence.getInstance(obj));
         }
 
         return null;

@@ -39,23 +39,23 @@ public class ResponseBytes
         response = (ASN1OctetString)seq.getObjectAt(1);
     }
 
-    public static ocsp.ResponseBytes getInstance(
+    public static ResponseBytes getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.ResponseBytes getInstance(
+    public static ResponseBytes getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.ResponseBytes)
+        if (obj instanceof ResponseBytes)
         {
-            return (ocsp.ResponseBytes)obj;
+            return  (ResponseBytes)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.ResponseBytes(ASN1Sequence.getInstance(obj));
+            return new ResponseBytes(ASN1Sequence.getInstance(obj));
         }
 
         return null;

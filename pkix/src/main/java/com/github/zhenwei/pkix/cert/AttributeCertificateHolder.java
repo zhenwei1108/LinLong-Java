@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.cert;
 import GeneralNames;
 import Holder;
 import ObjectDigestInfo;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Sequence;

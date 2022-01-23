@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-import SHA1Digest;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -13,6 +12,7 @@ import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA1Digest;
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.math.BigInteger;
 import java.util.Enumeration;

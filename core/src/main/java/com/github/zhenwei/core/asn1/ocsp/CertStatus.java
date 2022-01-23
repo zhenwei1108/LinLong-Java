@@ -67,22 +67,22 @@ public class CertStatus
         this.tagNo = tagNo;
     }
 
-    public static ocsp.CertStatus getInstance(
+    public static CertStatus getInstance(
         Object  obj)
     {
-        if (obj == null || obj instanceof ocsp.CertStatus)
+        if (obj == null || obj instanceof CertStatus)
         {
-            return (ocsp.CertStatus)obj;
+            return  (CertStatus)obj;
         }
         else if (obj instanceof ASN1TaggedObject)
         {
-            return new ocsp.CertStatus((ASN1TaggedObject)obj);
+            return new CertStatus((ASN1TaggedObject)obj);
         }
 
         throw new IllegalArgumentException("unknown object in factory: " + obj.getClass().getName());
     }
 
-    public static ocsp.CertStatus getInstance(
+    public static CertStatus getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {

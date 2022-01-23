@@ -1,8 +1,6 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-import DLSequence;
-import DLTaggedObject;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -11,6 +9,8 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
+import com.github.zhenwei.core.asn1.DLSequence;
+import com.github.zhenwei.core.asn1.DLTaggedObject;
 
 public class SafeBag
     extends ASN1Object

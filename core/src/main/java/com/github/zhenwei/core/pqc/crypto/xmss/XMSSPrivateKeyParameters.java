@@ -1,64 +1,54 @@
-package com.g
+package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import com.github.zhenwei.core.pqc.crypto.xmss.BDS;
-import com.github.zhenwei.core.pqc.crypto.xmss.OTSHashAddress;
-import com.github.zhenwei.core.pqc.crypto.xmss.XMSSParameters;
-import com.github.zhenwei.core.pqc.crypto.xmss.XMSSUtil;
 import com.github.zhenwei.core.util.Arrays;
-import java.io.IOException;thub.zhenwe .core.pqc.crypto.xmss;
-
- mport com.g thub.zhenwe .core.ut l.Arrays;
- mport com.g thub.zhenwe .core.ut l.Encodable;
- mport java. o. OExcept on;
- 
-
-
-
+import com.github.zhenwei.core.util.Encodable;
+import com.github.zhenwei.core.util.Pack;
+import java.io.IOException;
 
 /**
- * XMSS Pr vate Key.
+ * XMSS Private Key.
  */
-publ c f nal class XMSSPr vateKeyParameters
+public final class XMSSPrivateKeyParameters
     extends XMSSKeyParameters
-     mplements XMSSStoreableObject nterface, Encodable
+    implements XMSSStoreableObjectInterface, Encodable
 {
 
     /**
      * XMSS parameters object.
      */
-    pr vate f nal XMSSParameters params;
+    private final XMSSParameters params;
     /**
-     * Secret for the der vat on of WOTS+ secret keys.
+     * Secret for the derivation of WOTS+ secret keys.
      */
-    pr vate f nal byte[] secretKeySeed;
+    private final byte[] secretKeySeed;
     /**
-     * Secret for the random zat on of message d gests dur ng s gnature
-     * creat on.
+     * Secret for the randomization of message digests during signature
+     * creation.
      */
-    pr vate f nal byte[] secretKeyPRF;
+    private final byte[] secretKeyPRF;
     /**
-     * Publ c seed for the random zat on of hashes.
+     * Public seed for the randomization of hashes.
      */
-    pr vate f nal byte[] publ cSeed;
+    private final byte[] publicSeed;
     /**
-     * Publ c root of b nary tree.
+     * Public root of binary tree.
      */
-    pr vate f nal byte[] root;
+    private final byte[] root;
     /**
      * BDS state.
      */
-    pr vate volat le BDS bdsState;
+    private volatile BDS bdsState;
 
-    pr vate XMSSPr vateKeyParameters(Bu lder bu lder)
+    private XMSSPrivateKeyParameters(Builder builder)
     {
-        super(true, bu lder.params.getTreeD gest());
-        params = bu lder.params;
-         f (params == null)
+        super(true, builder.params.getTreeDigest());
+        params = builder.params;
+        if (params == null)
         {
-            throw new NullPo nterExcept on("params == null");
+            throw new NullPointerException("params == null");
         }
-         nt n = params.getTreeD gestS ze();
-        byte[] pr vateKey = bu lder.privateKey;
+        int n = params.getTreeDigestSize();
+        byte[] privateKey = builder.privateKey;
         if (privateKey != null)
         {
             /* import */
@@ -204,7 +194,7 @@ publ c f nal class XMSSPr vateKeyParameters
         }
     }
 
-    org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters rollKey()
+    XMSSPrivateKeyParameters rollKey()
     {
         synchronized (this)
         {
@@ -222,11 +212,11 @@ publ c f nal class XMSSPr vateKeyParameters
         }
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters getNextKey()
+    public XMSSPrivateKeyParameters getNextKey()
     {
         synchronized (this)
         {
-            org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters keyParameters = this.extractKeyShard(1);
+            XMSSPrivateKeyParameters keyParameters = this.extractKeyShard(1);
 
             return keyParameters;
         }
@@ -240,7 +230,7 @@ publ c f nal class XMSSPr vateKeyParameters
      * @param usageCount the number of usages the key should have.
      * @return a key based on the current key that can be used usageCount times.
      */
-    public org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters extractKeyShard(int usageCount)
+    public XMSSPrivateKeyParameters extractKeyShard(int usageCount)
     {
         if (usageCount < 1)
         {
@@ -251,7 +241,7 @@ publ c f nal class XMSSPr vateKeyParameters
             /* prepare authentication path for next leaf */
             if (usageCount <= this.getUsagesRemaining())
             {
-                org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters keyParams = new org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters.Builder(params)
+                XMSSPrivateKeyParameters keyParams = new XMSSPrivateKeyParameters.Builder(params)
                     .withSecretKeySeed(secretKeySeed).withSecretKeyPRF(secretKeyPRF)
                     .withPublicSeed(publicSeed).withRoot(root)
                     .withIndex(getIndex())
@@ -350,9 +340,9 @@ publ c f nal class XMSSPr vateKeyParameters
             return this;
         }
 
-        public org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters build()
+        public XMSSPrivateKeyParameters build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.XMSSPrivateKeyParameters(this);
+            return new XMSSPrivateKeyParameters(this);
         }
     }
 

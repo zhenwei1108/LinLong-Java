@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.pqc.crypto.ntru;
 
-import SHA256Digest;
-import SHA512Digest;
+
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512Digest;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

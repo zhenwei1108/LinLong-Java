@@ -4,10 +4,10 @@ package com.github.zhenwei.pkix.cert.ocsp;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import java.io.IOException;
-import ocsp.OCSPObjectIdentifiers;
-import ocsp.OCSPResponse;
-import ocsp.OCSPResponseStatus;
-import ocsp.ResponseBytes;
+
+
+
+
 
 /**
  * base generator for an OCSP response - at the moment this only supports the

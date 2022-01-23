@@ -1,9 +1,8 @@
 package com.github.zhenwei.core.asn1.ocsp;
 
 
-import ASN1GeneralizedTime;
-import X509Extensions;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
@@ -11,13 +10,14 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.X509Extensions;
 
 public class SingleResponse
     extends ASN1Object
 {
     private CertID              certID;
     private CertStatus          certStatus;
-    private ASN1GeneralizedTime  thisUpdate;
+    private ASN1GeneralizedTime thisUpdate;
     private ASN1GeneralizedTime  nextUpdate;
     private Extensions      singleExtensions;
 
@@ -82,23 +82,23 @@ public class SingleResponse
         }
     }
 
-    public static ocsp.SingleResponse getInstance(
+    public static SingleResponse getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.SingleResponse getInstance(
+    public static SingleResponse getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.SingleResponse)
+        if (obj instanceof SingleResponse)
         {
-            return (ocsp.SingleResponse)obj;
+            return  (SingleResponse)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.SingleResponse(ASN1Sequence.getInstance(obj));
+            return new SingleResponse(ASN1Sequence.getInstance(obj));
         }
 
         return null;

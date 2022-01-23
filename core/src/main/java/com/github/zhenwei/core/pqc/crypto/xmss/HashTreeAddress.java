@@ -50,7 +50,7 @@ final class HashTreeAddress
         @Override
         protected XMSSAddress build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.HashTreeAddress(this);
+            return new   HashTreeAddress(this);
         }
 
         @Override

@@ -62,16 +62,16 @@ public class OCSPResponseStatus
         this.value = value;
     }
 
-    public static ocsp.OCSPResponseStatus getInstance(
+    public static OCSPResponseStatus getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.OCSPResponseStatus)
+        if (obj instanceof OCSPResponseStatus)
         {
-            return (ocsp.OCSPResponseStatus)obj;
+            return  (OCSPResponseStatus)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.OCSPResponseStatus(ASN1Enumerated.getInstance(obj));
+            return new OCSPResponseStatus(ASN1Enumerated.getInstance(obj));
         }
 
         return null;

@@ -15,8 +15,8 @@ import java.security.spec.AlgorithmParameterSpec;
 import  SHA256Digest;
 import  SHA512Digest;
 import  SHAKEDigest;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTKeyGenerationParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSMTKeyPairGenerator;
+import   XMSSMTKeyGenerationParameters;
+import   XMSSMTKeyPairGenerator;
 import org.bouncycastle.pqc.jcajce.spec.XMSSMTParameterSpec;
 import org.bouncycastle.pqc.jcajce.spec.XMSSParameterSpec;
 

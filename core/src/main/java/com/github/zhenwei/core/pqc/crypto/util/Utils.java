@@ -1,15 +1,15 @@
 package com.github.zhenwei.core.pqc.crypto.util;
 
 
-import SHA256Digest;
-import SHA512Digest;
-import SHAKEDigest;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.crypto.Digest;
+import com.github.zhenwei.core.crypto.digests.SHA256Digest;
+import com.github.zhenwei.core.crypto.digests.SHA512Digest;
+import com.github.zhenwei.core.crypto.digests.SHAKEDigest;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import com.github.zhenwei.core.pqc.asn1.SPHINCS256KeyParams;
 import com.github.zhenwei.core.util.Integers;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.bouncycastle.pqc.crypto.qtesla.QTESLASecurityCategory;
 import org.bouncycastle.pqc.crypto.sphincs.SPHINCSKeyParameters;
-import org.bouncycastle.pqc.crypto.xmss.XMSSKeyParameters;
+import   XMSSKeyParameters;
  
 
 class Utils

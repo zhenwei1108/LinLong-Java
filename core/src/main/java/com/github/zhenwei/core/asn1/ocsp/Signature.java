@@ -49,23 +49,23 @@ public class Signature
         }
     }
 
-    public static ocsp.Signature getInstance(
+    public static Signature getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.Signature getInstance(
+    public static Signature getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.Signature)
+        if (obj instanceof Signature)
         {
-            return (ocsp.Signature)obj;
+            return  (Signature)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.Signature(ASN1Sequence.getInstance(obj));
+            return new Signature(ASN1Sequence.getInstance(obj));
         }
 
         return null;

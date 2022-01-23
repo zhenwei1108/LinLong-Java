@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import ECCurve.AbstractF2m;
+
 import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;

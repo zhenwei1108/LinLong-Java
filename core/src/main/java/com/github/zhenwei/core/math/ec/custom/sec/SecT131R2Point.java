@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-import ECPoint.AbstractF2m;
+
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;

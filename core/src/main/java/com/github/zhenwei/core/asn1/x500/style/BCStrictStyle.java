@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
-import RDN;
-import X500Name;
-import X500NameStyle;
+
+import com.github.zhenwei.core.asn1.x500.RDN;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x500.X500NameStyle;
 
 /**
  * Variation of BCStyle that insists on strict ordering for equality
@@ -11,7 +12,7 @@ import X500NameStyle;
 public class BCStrictStyle
     extends BCStyle
 {
-    public static final X500NameStyle INSTANCE = new  style.BCStrictStyle();
+    public static final X500NameStyle INSTANCE = new BCStrictStyle();
 
     public boolean areEqual(X500Name name1, X500Name name2)
     {

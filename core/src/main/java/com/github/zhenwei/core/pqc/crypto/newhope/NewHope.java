@@ -1,6 +1,7 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
-import SHA3Digest;
+
+import com.github.zhenwei.core.crypto.digests.SHA3Digest;
 import java.security.SecureRandom;
 
 /**

@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.security.SignatureException;
 import java.security.SignatureSpi;
 import java.security.spec.AlgorithmParameterSpec;
-import org.bouncycastle.crypto.DSAExt;
+ 
 import org.bouncycastle.crypto.signers.DSAEncoding;
 
 

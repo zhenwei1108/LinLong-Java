@@ -94,9 +94,9 @@ public final class XMSSSignature
             return this;
         }
 
-        public org.bouncycastle.pqc.crypto.xmss.XMSSSignature build()
+        public   XMSSSignature build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.XMSSSignature(this);
+            return new   XMSSSignature(this);
         }
     }
 

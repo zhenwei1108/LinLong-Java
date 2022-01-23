@@ -57,27 +57,27 @@ public class RequestedCertificate
     private byte[] publicKeyCert;
     private byte[] attributeCert;
 
-    public static ocsp.RequestedCertificate getInstance(Object obj)
+    public static RequestedCertificate getInstance(Object obj)
     {
-        if (obj == null || obj instanceof ocsp.RequestedCertificate)
+        if (obj == null || obj instanceof RequestedCertificate)
         {
-            return  (ocsp.RequestedCertificate)obj;
+            return   (RequestedCertificate)obj;
         }
 
         if (obj instanceof ASN1Sequence)
         {
-            return new ocsp.RequestedCertificate(Certificate.getInstance(obj));
+            return new RequestedCertificate(Certificate.getInstance(obj));
         }
         if (obj instanceof ASN1TaggedObject)
         {
-            return new ocsp.RequestedCertificate((ASN1TaggedObject)obj);
+            return new RequestedCertificate((ASN1TaggedObject)obj);
         }
 
         throw new IllegalArgumentException("illegal object in getInstance: "
             + obj.getClass().getName());
     }
 
-    public static ocsp.RequestedCertificate getInstance(ASN1TaggedObject obj, boolean explicit)
+    public static RequestedCertificate getInstance(ASN1TaggedObject obj, boolean explicit)
     {
         if (!explicit)
         {

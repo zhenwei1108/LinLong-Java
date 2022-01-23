@@ -8,7 +8,7 @@ import ASN1SetParser;
 import ASN1StreamParser;
 import BERSequenceGenerator;
 import BERSetParser;
-import BERTaggedObject;
+
 import cms.ContentInfoParser;
 import cms.SignedDataParser;
 import cms.SignerInfo;

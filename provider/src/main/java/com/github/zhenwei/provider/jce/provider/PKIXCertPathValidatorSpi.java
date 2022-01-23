@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jce.provider;
 
 
 import TBSCertificate;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
@@ -31,7 +31,7 @@ import java.util.Set;
 import org.bouncycastle.jcajce.PKIXExtendedBuilderParameters;
 import org.bouncycastle.jcajce.PKIXExtendedParameters;
 import org.bouncycastle.jcajce.interfaces.BCX509Certificate;
-import org.bouncycastle.jce.exception.ExtCertPathValidatorException;
+
 import org.bouncycastle.x509.ExtendedPKIXParameters;
 
 ;

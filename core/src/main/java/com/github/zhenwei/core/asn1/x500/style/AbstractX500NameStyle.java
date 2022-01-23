@@ -1,14 +1,14 @@
 package com.github.zhenwei.core.asn1.x500.style;
 
 
-import AttributeTypeAndValue;
-import RDN;
-import X500Name;
-import X500NameStyle;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1ParsingException;
 import com.github.zhenwei.core.asn1.DERUTF8String;
+import com.github.zhenwei.core.asn1.x500.AttributeTypeAndValue;
+import com.github.zhenwei.core.asn1.x500.RDN;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x500.X500NameStyle;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -82,10 +82,10 @@ public abstract class AbstractX500NameStyle
      * already valid ASN.1 objects encoded in hex.
      * <p>
      * All other string values are send to
-     * {@link  style.AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}.
+     * {@link AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}.
      * </p>
      * Subclasses should overwrite
-     * {@link  style.AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}
+     * {@link AbstractX500NameStyle#encodeStringValue(ASN1ObjectIdentifier, String)}
      * to change the encoding of specific types.
      *
      * @param oid the DN name of the value.

@@ -1,12 +1,12 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import ElGamalKeyParameters;
- 
 import com.github.zhenwei.core.crypto.AsymmetricBlockCipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.ElGamalPublicKeyParameters;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;

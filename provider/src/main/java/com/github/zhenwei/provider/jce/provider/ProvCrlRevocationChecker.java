@@ -5,8 +5,8 @@ import java.security.cert.CertPathValidatorException;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.Date;
-import org.bouncycastle.jcajce.PKIXCertRevocationChecker;
-import org.bouncycastle.jcajce.PKIXCertRevocationCheckerParameters;
+
+
 
 
 class ProvCrlRevocationChecker

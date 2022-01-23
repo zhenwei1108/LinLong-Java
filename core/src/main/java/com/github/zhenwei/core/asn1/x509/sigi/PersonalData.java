@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.asn1.sigi;
 
 
-import ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

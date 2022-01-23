@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-import BERTaggedObject;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
@@ -12,6 +11,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.BERSequence;
+import com.github.zhenwei.core.asn1.BERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**

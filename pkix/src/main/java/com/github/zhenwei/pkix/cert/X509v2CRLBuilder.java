@@ -1,12 +1,12 @@
 package com.github.zhenwei.pkix.cert;
 
 
-import ASN1GeneralizedTime;
+
 import ExtensionsGenerator;
 import TBSCertList;
 import Time;
 import V2TBSCertListGenerator;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Integer;

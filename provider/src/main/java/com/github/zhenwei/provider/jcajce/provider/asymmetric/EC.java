@@ -7,9 +7,9 @@ import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Properties;
 import java.util.HashMap;
 import java.util.Map;
-import org.bouncycastle.internal.asn1.bsi.BSIObjectIdentifiers;
+
 import  CMSObjectIdentifiers;
-import org.bouncycastle.internal.asn1.eac.EACObjectIdentifiers;
+
 import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
  
 import org.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;

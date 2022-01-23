@@ -6,7 +6,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import rfc8032.Ed25519;
+  
 
 public final class Ed25519PrivateKeyParameters
     extends AsymmetricKeyParameter

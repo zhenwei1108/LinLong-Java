@@ -254,9 +254,9 @@ public final class XMSSMTPrivateKeyParameters
             return this;
         }
 
-        public org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters build()
+        public   XMSSMTPrivateKeyParameters build()
         {
-            return new org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters(this);
+            return new   XMSSMTPrivateKeyParameters(this);
         }
     }
 
@@ -347,7 +347,7 @@ public final class XMSSMTPrivateKeyParameters
         return params;
     }
 
-    public org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters getNextKey()
+    public   XMSSMTPrivateKeyParameters getNextKey()
     {
         synchronized (this)
         {
@@ -355,7 +355,7 @@ public final class XMSSMTPrivateKeyParameters
         }
     }
 
-    org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters rollKey()
+      XMSSMTPrivateKeyParameters rollKey()
     {
         synchronized (this)
         {
@@ -384,7 +384,7 @@ public final class XMSSMTPrivateKeyParameters
      * @param usageCount the number of usages the key should have.
      * @return a key based on the current key that can be used usageCount times.
      */
-    public org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters extractKeyShard(int usageCount)
+    public   XMSSMTPrivateKeyParameters extractKeyShard(int usageCount)
     {
         if (usageCount < 1)
         {
@@ -395,7 +395,7 @@ public final class XMSSMTPrivateKeyParameters
             /* prepare authentication path for next leaf */
             if (usageCount <= this.getUsagesRemaining())
             {
-                org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters keyParams = new org.bouncycastle.pqc.crypto.xmss.XMSSMTPrivateKeyParameters.Builder(params)
+                  XMSSMTPrivateKeyParameters keyParams = new   XMSSMTPrivateKeyParameters.Builder(params)
                                     .withSecretKeySeed(secretKeySeed).withSecretKeyPRF(secretKeyPRF)
                                     .withPublicSeed(publicSeed).withRoot(root)
                                     .withIndex(getIndex())

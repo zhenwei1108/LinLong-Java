@@ -2,7 +2,7 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;

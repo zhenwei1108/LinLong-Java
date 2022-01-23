@@ -1,8 +1,9 @@
 package com.github.zhenwei.core.crypto.parsers;
 
- 
+
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.IOException;
 import java.io.InputStream;

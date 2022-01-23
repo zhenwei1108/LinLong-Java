@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
-import X500Name;
+
 import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
 import java.security.cert.X509Certificate;

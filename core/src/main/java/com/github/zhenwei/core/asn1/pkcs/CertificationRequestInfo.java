@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1.pkcs;
 
 
-import X500Name;
 import X509Name;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
@@ -12,6 +11,7 @@ import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
+import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.util.Enumeration;
 

@@ -54,23 +54,23 @@ public class BasicOCSPResponse
         }
     }
 
-    public static ocsp.BasicOCSPResponse getInstance(
+    public static BasicOCSPResponse getInstance(
         ASN1TaggedObject obj,
         boolean          explicit)
     {
         return getInstance(ASN1Sequence.getInstance(obj, explicit));
     }
 
-    public static ocsp.BasicOCSPResponse getInstance(
+    public static BasicOCSPResponse getInstance(
         Object  obj)
     {
-        if (obj instanceof ocsp.BasicOCSPResponse)
+        if (obj instanceof BasicOCSPResponse)
         {
-            return (ocsp.BasicOCSPResponse)obj;
+            return ( BasicOCSPResponse)obj;
         }
         else if (obj != null)
         {
-            return new ocsp.BasicOCSPResponse(ASN1Sequence.getInstance(obj));
+            return new BasicOCSPResponse(ASN1Sequence.getInstance(obj));
         }
 
         return null;

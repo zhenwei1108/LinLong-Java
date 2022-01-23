@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.tsp;
 
 import ASN1Boolean;
-import ASN1GeneralizedTime;
+
 import CMSAttributeTableGenerationException;
 import CMSAttributeTableGenerator;
 import CMSProcessableByteArray;

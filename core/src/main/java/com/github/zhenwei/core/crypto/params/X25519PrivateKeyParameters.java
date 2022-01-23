@@ -1,12 +1,13 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.math.ec.rfc7748.X25519;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.io.Streams;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
-import rfc7748.X25519;
+ 
 
 public final class X25519PrivateKeyParameters
     extends AsymmetricKeyParameter

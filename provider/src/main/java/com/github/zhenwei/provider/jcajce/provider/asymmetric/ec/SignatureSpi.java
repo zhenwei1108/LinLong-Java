@@ -6,7 +6,7 @@ import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import org.bouncycastle.crypto.DSAExt;
+ 
 import  NullDigest;
 import  RIPEMD160Digest;
 import  SHAKEDigest;

@@ -2,12 +2,12 @@ package com.github.zhenwei.pkix.pkix.jcajce;
 
 
 import CRLDistPoint;
-import CRLReason;
+
 import DistributionPoint;
 import DistributionPointName;
 import GeneralNames;
 import IssuingDistributionPoint;
-import X500Name;
+
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
