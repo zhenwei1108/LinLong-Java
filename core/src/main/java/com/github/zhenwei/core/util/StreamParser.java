@@ -2,9 +2,9 @@ package com.github.zhenwei.core.util;
 
 import java.util.Collection;
 
-public interface StreamParser
-{
-    Object read() throws StreamParsingException;
+public interface StreamParser {
 
-    Collection readAll() throws StreamParsingException;
+  Object read() throws StreamParsingException;
+
+  Collection readAll() throws StreamParsingException;
 }

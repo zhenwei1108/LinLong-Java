@@ -2,41 +2,34 @@ package com.github.zhenwei.core.math.field;
 
 import java.math.BigInteger;
 
-class PrimeField implements FiniteField
-{
-    protected final BigInteger characteristic;
+class PrimeField implements FiniteField {
 
-    PrimeField(BigInteger characteristic)
-    {
-        this.characteristic = characteristic;
-    }
+  protected final BigInteger characteristic;
 
-    public BigInteger getCharacteristic()
-    {
-        return characteristic;
-    }
+  PrimeField(BigInteger characteristic) {
+    this.characteristic = characteristic;
+  }
 
-    public int getDimension()
-    {
-        return 1;
-    }
+  public BigInteger getCharacteristic() {
+    return characteristic;
+  }
 
-    public boolean equals(Object obj)
-    {
-        if (this == obj)
-        {
-            return true;
-        }
-        if (!(obj instanceof org.bouncycastle.math.field.PrimeField))
-        {
-            return false;
-        }
-        org.bouncycastle.math.field.PrimeField other = (org.bouncycastle.math.field.PrimeField)obj;
-        return characteristic.equals(other.characteristic);
-    }
+  public int getDimension() {
+    return 1;
+  }
 
-    public int hashCode()
-    {
-        return characteristic.hashCode();
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
     }
+    if (!(obj instanceof org.bouncycastle.math.field.PrimeField)) {
+      return false;
+    }
+    org.bouncycastle.math.field.PrimeField other = (org.bouncycastle.math.field.PrimeField) obj;
+    return characteristic.equals(other.characteristic);
+  }
+
+  public int hashCode() {
+    return characteristic.hashCode();
+  }
 }

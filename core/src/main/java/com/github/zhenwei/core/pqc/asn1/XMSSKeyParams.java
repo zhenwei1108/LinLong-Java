@@ -20,58 +20,49 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  * </pre>
  */
 public class XMSSKeyParams
-    extends ASN1Object
-{
-    private final ASN1Integer version;
-    private final int height;
-    private final AlgorithmIdentifier treeDigest;
+    extends ASN1Object {
 
-    public XMSSKeyParams(int height, AlgorithmIdentifier treeDigest)
-    {
-        this.version = new ASN1Integer(0);
-        this.height = height;
-        this.treeDigest = treeDigest;
+  private final ASN1Integer version;
+  private final int height;
+  private final AlgorithmIdentifier treeDigest;
+
+  public XMSSKeyParams(int height, AlgorithmIdentifier treeDigest) {
+    this.version = new ASN1Integer(0);
+    this.height = height;
+    this.treeDigest = treeDigest;
+  }
+
+  private XMSSKeyParams(ASN1Sequence sequence) {
+    this.version = ASN1Integer.getInstance(sequence.getObjectAt(0));
+    this.height = ASN1Integer.getInstance(sequence.getObjectAt(1)).intValueExact();
+    this.treeDigest = AlgorithmIdentifier.getInstance(sequence.getObjectAt(2));
+  }
+
+  public static XMSSKeyParams getInstance(Object o) {
+    if (o instanceof XMSSKeyParams) {
+      return (XMSSKeyParams) o;
+    } else if (o != null) {
+      return new XMSSKeyParams(ASN1Sequence.getInstance(o));
     }
 
-    private XMSSKeyParams(ASN1Sequence sequence)
-    {
-        this.version = ASN1Integer.getInstance(sequence.getObjectAt(0));
-        this.height = ASN1Integer.getInstance(sequence.getObjectAt(1)).intValueExact();
-        this.treeDigest = AlgorithmIdentifier.getInstance(sequence.getObjectAt(2));
-    }
+    return null;
+  }
 
-    public static org.bouncycastle.pqc.asn1.XMSSKeyParams getInstance(Object o)
-    {
-        if (o instanceof org.bouncycastle.pqc.asn1.XMSSKeyParams)
-        {
-            return (org.bouncycastle.pqc.asn1.XMSSKeyParams)o;
-        }
-        else if (o != null)
-        {
-            return new org.bouncycastle.pqc.asn1.XMSSKeyParams(ASN1Sequence.getInstance(o));
-        }
+  public int getHeight() {
+    return height;
+  }
 
-        return null;
-    }
+  public AlgorithmIdentifier getTreeDigest() {
+    return treeDigest;
+  }
 
-    public int getHeight()
-    {
-        return height;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector();
 
-    public AlgorithmIdentifier getTreeDigest()
-    {
-        return treeDigest;
-    }
+    v.add(version);
+    v.add(new ASN1Integer(height));
+    v.add(treeDigest);
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector();
-
-        v.add(version);
-        v.add(new ASN1Integer(height));
-        v.add(treeDigest);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

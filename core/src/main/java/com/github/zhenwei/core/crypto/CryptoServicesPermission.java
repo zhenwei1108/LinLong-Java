@@ -8,74 +8,65 @@ import java.util.Set;
  * Permissions that need to be configured if a SecurityManager is used.
  */
 public class CryptoServicesPermission
-    extends Permission
-{
-    /**
-     * Enable the setting of global configuration properties. This permission implies THREAD_LOCAL_CONFIG
-     */
-    public static final String GLOBAL_CONFIG = "globalConfig";
+    extends Permission {
 
-    /**
-     * Enable the setting of thread local configuration properties.
-     */
-    public static final String THREAD_LOCAL_CONFIG = "threadLocalConfig";
+  /**
+   * Enable the setting of global configuration properties. This permission implies
+   * THREAD_LOCAL_CONFIG
+   */
+  public static final String GLOBAL_CONFIG = "globalConfig";
 
-    /**
-     * Enable the setting of the default SecureRandom.
-     */
-    public static final String DEFAULT_RANDOM = "defaultRandomConfig";
+  /**
+   * Enable the setting of thread local configuration properties.
+   */
+  public static final String THREAD_LOCAL_CONFIG = "threadLocalConfig";
 
-    private final Set<String> actions = new HashSet<String>();
+  /**
+   * Enable the setting of the default SecureRandom.
+   */
+  public static final String DEFAULT_RANDOM = "defaultRandomConfig";
 
-    public CryptoServicesPermission(String name)
-    {
-        super(name);
+  private final Set<String> actions = new HashSet<String>();
 
-        this.actions.add(name);
+  public CryptoServicesPermission(String name) {
+    super(name);
+
+    this.actions.add(name);
+  }
+
+  public boolean implies(Permission permission) {
+    if (permission instanceof org.bouncycastle.crypto.CryptoServicesPermission) {
+      org.bouncycastle.crypto.CryptoServicesPermission other = (org.bouncycastle.crypto.CryptoServicesPermission) permission;
+
+      if (this.getName().equals(other.getName())) {
+        return true;
+      }
+
+      if (this.actions.containsAll(other.actions)) {
+        return true;
+      }
     }
 
-    public boolean implies(Permission permission)
-    {
-        if (permission instanceof org.bouncycastle.crypto.CryptoServicesPermission)
-        {
-            org.bouncycastle.crypto.CryptoServicesPermission other = (org.bouncycastle.crypto.CryptoServicesPermission)permission;
+    return false;
+  }
 
-            if (this.getName().equals(other.getName()))
-            {
-                return true;
-            }
+  public boolean equals(Object obj) {
+    if (obj instanceof org.bouncycastle.crypto.CryptoServicesPermission) {
+      org.bouncycastle.crypto.CryptoServicesPermission other = (org.bouncycastle.crypto.CryptoServicesPermission) obj;
 
-            if (this.actions.containsAll(other.actions))
-            {
-                return true;
-            }
-        }
-
-        return false;
+      if (this.actions.equals(other.actions)) {
+        return true;
+      }
     }
 
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof org.bouncycastle.crypto.CryptoServicesPermission)
-        {
-            org.bouncycastle.crypto.CryptoServicesPermission other = (org.bouncycastle.crypto.CryptoServicesPermission)obj;
+    return false;
+  }
 
-            if (this.actions.equals(other.actions))
-            {
-                return true;
-            }
-        }
+  public int hashCode() {
+    return actions.hashCode();
+  }
 
-        return false;
-    }
-
-    public int hashCode()
-    {
-        return actions.hashCode();
-    }
-
-    public String getActions()
-    {
-        return actions.toString();
-    }
+  public String getActions() {
+    return actions.toString();
+  }
 }

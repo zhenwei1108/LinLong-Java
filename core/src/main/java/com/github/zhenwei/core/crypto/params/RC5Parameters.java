@@ -4,33 +4,29 @@ package com.github.zhenwei.core.crypto.params;
 import com.github.zhenwei.core.crypto.CipherParameters;
 
 public class RC5Parameters
-    implements CipherParameters
-{
-    private byte[]  key;
-    private int     rounds;
+    implements CipherParameters {
 
-    public RC5Parameters(
-        byte[]  key,
-        int     rounds)
-    {
-        if (key.length > 255)
-        {
-            throw new IllegalArgumentException("RC5 key length can be no greater than 255");
-        }
+  private byte[] key;
+  private int rounds;
 
-        this.key = new byte[key.length];
-        this.rounds = rounds;
-
-        System.arraycopy(key, 0, this.key, 0, key.length);
+  public RC5Parameters(
+      byte[] key,
+      int rounds) {
+    if (key.length > 255) {
+      throw new IllegalArgumentException("RC5 key length can be no greater than 255");
     }
 
-    public byte[] getKey()
-    {
-        return key;
-    }
+    this.key = new byte[key.length];
+    this.rounds = rounds;
 
-    public int getRounds()
-    {
-        return rounds;
-    }
+    System.arraycopy(key, 0, this.key, 0, key.length);
+  }
+
+  public byte[] getKey() {
+    return key;
+  }
+
+  public int getRounds() {
+    return rounds;
+  }
 }

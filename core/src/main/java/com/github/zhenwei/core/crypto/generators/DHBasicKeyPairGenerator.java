@@ -8,35 +8,32 @@ import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.math.BigInteger;
- 
+
 
 /**
  * a basic Diffie-Hellman key pair generator.
- *
- * This generates keys consistent for use with the basic algorithm for
- * Diffie-Hellman.
+ * <p>
+ * This generates keys consistent for use with the basic algorithm for Diffie-Hellman.
  */
 public class DHBasicKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private DHKeyGenerationParameters param;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(
-        KeyGenerationParameters param)
-    {
-        this.param = (DHKeyGenerationParameters)param;
-    }
+  private DHKeyGenerationParameters param;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        DHKeyGeneratorHelper helper = DHKeyGeneratorHelper.INSTANCE;
-        DHParameters dhp = param.getParameters();
+  public void init(
+      KeyGenerationParameters param) {
+    this.param = (DHKeyGenerationParameters) param;
+  }
 
-        BigInteger x = helper.calculatePrivate(dhp, param.getRandom()); 
-        BigInteger y = helper.calculatePublic(dhp, x);
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    DHKeyGeneratorHelper helper = DHKeyGeneratorHelper.INSTANCE;
+    DHParameters dhp = param.getParameters();
 
-        return new AsymmetricCipherKeyPair(
-            new DHPublicKeyParameters(y, dhp),
-            new DHPrivateKeyParameters(x, dhp));
-    }
+    BigInteger x = helper.calculatePrivate(dhp, param.getRandom());
+    BigInteger y = helper.calculatePublic(dhp, x);
+
+    return new AsymmetricCipherKeyPair(
+        new DHPublicKeyParameters(y, dhp),
+        new DHPrivateKeyParameters(x, dhp));
+  }
 }

@@ -18,8 +18,8 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import  SHA256Digest;
  
-import org.bouncycastle.pqc.asn1.McEliecePrivateKey;
-import org.bouncycastle.pqc.asn1.McEliecePublicKey;
+import  McEliecePrivateKey;
+import  McEliecePublicKey;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePrivateKeyParameters;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePublicKeyParameters;
  

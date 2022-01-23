@@ -5,93 +5,76 @@ import com.github.zhenwei.core.crypto.DerivationParameters;
 import com.github.zhenwei.core.util.Arrays;
 
 /**
- * Note that counter is only supported at the location presented in the
- * NIST SP 800-108 specification, not in the additional locations present
- * in the CAVP test vectors.
+ * Note that counter is only supported at the location presented in the NIST SP 800-108
+ * specification, not in the additional locations present in the CAVP test vectors.
  */
 public final class KDFFeedbackParameters
-    implements DerivationParameters
-{
+    implements DerivationParameters {
 
-    // could be any valid value, using 32, don't know why
-    private static final int UNUSED_R = -1;
+  // could be any valid value, using 32, don't know why
+  private static final int UNUSED_R = -1;
 
-    private final byte[] ki;
-    private final byte[] iv;
-    private final boolean useCounter;
-    private final int r;
-    private final byte[] fixedInputData;
+  private final byte[] ki;
+  private final byte[] iv;
+  private final boolean useCounter;
+  private final int r;
+  private final byte[] fixedInputData;
 
-    private KDFFeedbackParameters(byte[] ki, byte[] iv, byte[] fixedInputData, int r, boolean useCounter)
-    {
-        if (ki == null)
-        {
-            throw new IllegalArgumentException("A KDF requires Ki (a seed) as input");
-        }
-        this.ki = Arrays.clone(ki);
+  private KDFFeedbackParameters(byte[] ki, byte[] iv, byte[] fixedInputData, int r,
+      boolean useCounter) {
+    if (ki == null) {
+      throw new IllegalArgumentException("A KDF requires Ki (a seed) as input");
+    }
+    this.ki = Arrays.clone(ki);
 
-        if (fixedInputData == null)
-        {
-            this.fixedInputData = new byte[0];
-        }
-        else
-        {
-            this.fixedInputData = Arrays.clone(fixedInputData);
-        }
-
-        this.r = r;
-
-        if (iv == null)
-        {
-            this.iv = new byte[0];
-        }
-        else
-        {
-            this.iv = Arrays.clone(iv);
-        }
-
-        this.useCounter = useCounter;
+    if (fixedInputData == null) {
+      this.fixedInputData = new byte[0];
+    } else {
+      this.fixedInputData = Arrays.clone(fixedInputData);
     }
 
-    public static KDFFeedbackParameters createWithCounter(
-        byte[] ki, final byte[] iv, byte[] fixedInputData, int r)
-    {
-        if (r != 8 && r != 16 && r != 24 && r != 32)
-        {
-            throw new IllegalArgumentException("Length of counter should be 8, 16, 24 or 32");
-        }
+    this.r = r;
 
-        return new KDFFeedbackParameters(ki, iv, fixedInputData, r, true);
+    if (iv == null) {
+      this.iv = new byte[0];
+    } else {
+      this.iv = Arrays.clone(iv);
     }
 
-    public static KDFFeedbackParameters createWithoutCounter(
-        byte[] ki, final byte[] iv, byte[] fixedInputData)
-    {
-        return new KDFFeedbackParameters(ki, iv, fixedInputData, UNUSED_R, false);
+    this.useCounter = useCounter;
+  }
+
+  public static KDFFeedbackParameters createWithCounter(
+      byte[] ki, final byte[] iv, byte[] fixedInputData, int r) {
+    if (r != 8 && r != 16 && r != 24 && r != 32) {
+      throw new IllegalArgumentException("Length of counter should be 8, 16, 24 or 32");
     }
 
-    public byte[] getKI()
-    {
-        return ki;
-    }
+    return new KDFFeedbackParameters(ki, iv, fixedInputData, r, true);
+  }
 
-    public byte[] getIV()
-    {
-        return iv;
-    }
+  public static KDFFeedbackParameters createWithoutCounter(
+      byte[] ki, final byte[] iv, byte[] fixedInputData) {
+    return new KDFFeedbackParameters(ki, iv, fixedInputData, UNUSED_R, false);
+  }
 
-    public boolean useCounter()
-    {
-        return useCounter;
-    }
+  public byte[] getKI() {
+    return ki;
+  }
 
-    public int getR()
-    {
-        return r;
-    }
+  public byte[] getIV() {
+    return iv;
+  }
 
-    public byte[] getFixedInputData()
-    {
-        return Arrays.clone(fixedInputData);
-    }
+  public boolean useCounter() {
+    return useCounter;
+  }
+
+  public int getR() {
+    return r;
+  }
+
+  public byte[] getFixedInputData() {
+    return Arrays.clone(fixedInputData);
+  }
 }

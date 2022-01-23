@@ -1,18 +1,18 @@
 package com.github.zhenwei.core.asn1.x509;
 
-public interface NameConstraintValidator
-{
-    void checkPermitted(GeneralName name)
-        throws NameConstraintValidatorException;
+public interface NameConstraintValidator {
 
-    void checkExcluded(GeneralName name)
-            throws NameConstraintValidatorException;
+  void checkPermitted(GeneralName name)
+      throws NameConstraintValidatorException;
 
-    void intersectPermittedSubtree(GeneralSubtree permitted);
+  void checkExcluded(GeneralName name)
+      throws NameConstraintValidatorException;
 
-    void intersectPermittedSubtree(GeneralSubtree[] permitted);
+  void intersectPermittedSubtree(GeneralSubtree permitted);
 
-    void intersectEmptyPermittedSubtree(int nameType);
+  void intersectPermittedSubtree(GeneralSubtree[] permitted);
 
-    void addExcludedSubtree(GeneralSubtree subtree);
+  void intersectEmptyPermittedSubtree(int nameType);
+
+  void addExcludedSubtree(GeneralSubtree subtree);
 }

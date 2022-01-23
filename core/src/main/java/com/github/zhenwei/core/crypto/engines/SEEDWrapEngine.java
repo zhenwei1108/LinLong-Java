@@ -6,10 +6,9 @@ package com.github.zhenwei.core.crypto.engines;
  * For further details see: <a href="https://www.ietf.org/rfc/rfc4010.txt">https://www.ietf.org/rfc/rfc4010.txt</a>.
  */
 public class SEEDWrapEngine
-    extends RFC3394WrapEngine
-{
-    public SEEDWrapEngine()
-    {
-        super(new SEEDEngine());
-    }
+    extends RFC3394WrapEngine {
+
+  public SEEDWrapEngine() {
+    super(new SEEDEngine());
+  }
 }

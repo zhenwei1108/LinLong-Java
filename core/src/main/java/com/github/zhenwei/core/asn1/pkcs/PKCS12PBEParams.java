@@ -12,58 +12,49 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class PKCS12PBEParams
-    extends ASN1Object
-{
-    ASN1Integer iterations;
-    ASN1OctetString iv;
+    extends ASN1Object {
 
-    public PKCS12PBEParams(
-        byte[]      salt,
-        int         iterations)
-    {
-        this.iv = new DEROctetString(salt);
-        this.iterations = new ASN1Integer(iterations);
+  ASN1Integer iterations;
+  ASN1OctetString iv;
+
+  public PKCS12PBEParams(
+      byte[] salt,
+      int iterations) {
+    this.iv = new DEROctetString(salt);
+    this.iterations = new ASN1Integer(iterations);
+  }
+
+  private PKCS12PBEParams(
+      ASN1Sequence seq) {
+    iv = (ASN1OctetString) seq.getObjectAt(0);
+    iterations = ASN1Integer.getInstance(seq.getObjectAt(1));
+  }
+
+  public static PKCS12PBEParams getInstance(
+      Object obj) {
+    if (obj instanceof PKCS12PBEParams) {
+      return (PKCS12PBEParams) obj;
+    } else if (obj != null) {
+      return new PKCS12PBEParams(ASN1Sequence.getInstance(obj));
     }
 
-    private PKCS12PBEParams(
-        ASN1Sequence seq)
-    {
-        iv = (ASN1OctetString)seq.getObjectAt(0);
-        iterations = ASN1Integer.getInstance(seq.getObjectAt(1));
-    }
+    return null;
+  }
 
-    public static PKCS12PBEParams getInstance(
-        Object  obj)
-    {
-        if (obj instanceof PKCS12PBEParams)
-        {
-            return  (PKCS12PBEParams)obj;
-        }
-        else if (obj != null)
-        {
-            return new PKCS12PBEParams(ASN1Sequence.getInstance(obj));
-        }
+  public BigInteger getIterations() {
+    return iterations.getValue();
+  }
 
-        return null;
-    }
+  public byte[] getIV() {
+    return iv.getOctets();
+  }
 
-    public BigInteger getIterations()
-    {
-        return iterations.getValue();
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-    public byte[] getIV()
-    {
-        return iv.getOctets();
-    }
+    v.add(iv);
+    v.add(iterations);
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
-
-        v.add(iv);
-        v.add(iterations);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

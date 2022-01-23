@@ -8,55 +8,51 @@ import com.github.zhenwei.core.util.Arrays;
  * qTESLA public key
  */
 public final class QTESLAPublicKeyParameters
-    extends AsymmetricKeyParameter
-{
-    /**
-     * qTESLA Security Category
-     */
-    private int securityCategory;
+    extends AsymmetricKeyParameter {
 
-    /**
-     * Text of the qTESLA Public Key
-     */
-    private byte[] publicKey;
+  /**
+   * qTESLA Security Category
+   */
+  private int securityCategory;
 
-    /**
-     * Base constructor.
-     *
-     * @param securityCategory the security category for the passed in public key data.
-     * @param publicKey the public key data.
-     */
-    public QTESLAPublicKeyParameters(int securityCategory, byte[] publicKey)
-    {
-        super(false);
+  /**
+   * Text of the qTESLA Public Key
+   */
+  private byte[] publicKey;
 
-        if (publicKey.length != QTESLASecurityCategory.getPublicSize(securityCategory))
-        {
-            throw new IllegalArgumentException("invalid key size for security category");
-        }
+  /**
+   * Base constructor.
+   *
+   * @param securityCategory the security category for the passed in public key data.
+   * @param publicKey        the public key data.
+   */
+  public QTESLAPublicKeyParameters(int securityCategory, byte[] publicKey) {
+    super(false);
 
-        this.securityCategory = securityCategory;
-        this.publicKey = Arrays.clone(publicKey);
-
+    if (publicKey.length != QTESLASecurityCategory.getPublicSize(securityCategory)) {
+      throw new IllegalArgumentException("invalid key size for security category");
     }
 
-    /**
-     * Return the security category for this key.
-     *
-     * @return the key's security category.
-     */
-    public int getSecurityCategory()
-    {
-        return this.securityCategory;
-    }
+    this.securityCategory = securityCategory;
+    this.publicKey = Arrays.clone(publicKey);
 
-    /**
-     * Return the key's public value.
-     *
-     * @return key public data.
-     */
-    public byte[] getPublicData()
-    {
-        return Arrays.clone(publicKey);
-    }
+  }
+
+  /**
+   * Return the security category for this key.
+   *
+   * @return the key's security category.
+   */
+  public int getSecurityCategory() {
+    return this.securityCategory;
+  }
+
+  /**
+   * Return the key's public value.
+   *
+   * @return key public data.
+   */
+  public byte[] getPublicData() {
+    return Arrays.clone(publicKey);
+  }
 }

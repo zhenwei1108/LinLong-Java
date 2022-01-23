@@ -4,7 +4,7 @@ package com.github.zhenwei.pkix.util.asn1.cms;
 import ASN1SequenceParser;
 import ASN1SetParser;
 import ASN1TaggedObjectParser;
-import ASN1Util;
+ 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.BERTags;

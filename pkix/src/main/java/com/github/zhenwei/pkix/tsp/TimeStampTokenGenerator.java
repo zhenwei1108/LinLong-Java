@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.tsp;
 
-import ASN1Boolean;
+ 
 
 import CMSAttributeTableGenerationException;
 import CMSAttributeTableGenerator;

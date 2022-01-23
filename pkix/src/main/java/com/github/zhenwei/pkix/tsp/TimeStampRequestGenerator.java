@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.tsp;
 
-import ASN1Boolean;
+ 
 import ExtensionsGenerator;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Integer;

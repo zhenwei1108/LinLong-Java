@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.math.field;
 
-public interface ExtensionField extends FiniteField
-{
-    FiniteField getSubfield();
+public interface ExtensionField extends FiniteField {
 
-    int getDegree();
+  FiniteField getSubfield();
+
+  int getDegree();
 }

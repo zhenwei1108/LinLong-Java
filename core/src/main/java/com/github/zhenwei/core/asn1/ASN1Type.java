@@ -1,26 +1,22 @@
 package com.github.zhenwei.core.asn1;
 
-abstract class ASN1Type
-{
-    final Class javaClass;
+abstract class ASN1Type {
 
-    ASN1Type(Class javaClass)
-    {
-        this.javaClass = javaClass;
-    }
+  final Class javaClass;
 
-    final Class getJavaClass()
-    {
-        return javaClass;
-    }
+  ASN1Type(Class javaClass) {
+    this.javaClass = javaClass;
+  }
 
-    public final boolean equals(Object that)
-    {
-        return this == that;
-    }
+  final Class getJavaClass() {
+    return javaClass;
+  }
 
-    public final int hashCode()
-    {
-        return super.hashCode();
-    }
+  public final boolean equals(Object that) {
+    return this == that;
+  }
+
+  public final int hashCode() {
+    return super.hashCode();
+  }
 }

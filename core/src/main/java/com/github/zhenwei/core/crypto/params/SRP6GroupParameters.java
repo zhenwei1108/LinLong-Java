@@ -2,23 +2,20 @@ package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
 
-public class SRP6GroupParameters
-{
-    private BigInteger N, g;
+public class SRP6GroupParameters {
 
-    public SRP6GroupParameters(BigInteger N, BigInteger g)
-    {
-        this.N = N;
-        this.g = g;
-    }
+  private BigInteger N, g;
 
-    public BigInteger getG()
-    {
-        return g;
-    }
+  public SRP6GroupParameters(BigInteger N, BigInteger g) {
+    this.N = N;
+    this.g = g;
+  }
 
-    public BigInteger getN()
-    {
-        return N;
-    }
+  public BigInteger getG() {
+    return g;
+  }
+
+  public BigInteger getN() {
+    return N;
+  }
 }

@@ -17,81 +17,70 @@ import qualified.RFC3739QCObjectIdentifiers;
  * <pre>
  * QCStatement ::= SEQUENCE {
  *   statementId        OBJECT IDENTIFIER,
- *   statementInfo      ANY DEFINED BY statementId OPTIONAL} 
+ *   statementInfo      ANY DEFINED BY statementId OPTIONAL}
  * </pre>
  */
 
-public class QCStatement 
+public class QCStatement
     extends ASN1Object
-    implements ETSIQCObjectIdentifiers, RFC3739QCObjectIdentifiers
-{
-    ASN1ObjectIdentifier qcStatementId;
-    ASN1Encodable qcStatementInfo;
+    implements ETSIQCObjectIdentifiers, RFC3739QCObjectIdentifiers {
 
-    public static qualified.QCStatement getInstance(
-        Object obj)
-    {
-        if (obj instanceof qualified.QCStatement)
-        {
-            return (qualified.QCStatement)obj;
-        }
-        if (obj != null)
-        {
-            return new qualified.QCStatement(ASN1Sequence.getInstance(obj));
-        }
-        
-        return null;
-    }    
-    
-    private QCStatement(
-        ASN1Sequence seq)
-    {
-        Enumeration e = seq.getObjects();
+  ASN1ObjectIdentifier qcStatementId;
+  ASN1Encodable qcStatementInfo;
 
-        // qcStatementId
-        qcStatementId = ASN1ObjectIdentifier.getInstance(e.nextElement());
-        // qcstatementInfo
-        if (e.hasMoreElements())
-        {
-            qcStatementInfo = (ASN1Encodable) e.nextElement();
-        }
-    }    
-    
-    public QCStatement(
-        ASN1ObjectIdentifier qcStatementId)
-    {
-        this.qcStatementId = qcStatementId;
-        this.qcStatementInfo = null;
+  public static qualified.QCStatement getInstance(
+      Object obj) {
+    if (obj instanceof qualified.QCStatement) {
+      return (qualified.QCStatement) obj;
     }
-    
-    public QCStatement(
-        ASN1ObjectIdentifier qcStatementId,
-        ASN1Encodable       qcStatementInfo)
-    {
-        this.qcStatementId = qcStatementId;
-        this.qcStatementInfo = qcStatementInfo;
-    }    
-        
-    public ASN1ObjectIdentifier getStatementId()
-    {
-        return qcStatementId;
-    }
-    
-    public ASN1Encodable getStatementInfo()
-    {
-        return qcStatementInfo;
+    if (obj != null) {
+      return new qualified.QCStatement(ASN1Sequence.getInstance(obj));
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector seq = new ASN1EncodableVector(2);
-        seq.add(qcStatementId);       
-        
-        if (qcStatementInfo != null)
-        {
-            seq.add(qcStatementInfo);
-        }
+    return null;
+  }
 
-        return new DERSequence(seq);
+  private QCStatement(
+      ASN1Sequence seq) {
+    Enumeration e = seq.getObjects();
+
+    // qcStatementId
+    qcStatementId = ASN1ObjectIdentifier.getInstance(e.nextElement());
+    // qcstatementInfo
+    if (e.hasMoreElements()) {
+      qcStatementInfo = (ASN1Encodable) e.nextElement();
     }
+  }
+
+  public QCStatement(
+      ASN1ObjectIdentifier qcStatementId) {
+    this.qcStatementId = qcStatementId;
+    this.qcStatementInfo = null;
+  }
+
+  public QCStatement(
+      ASN1ObjectIdentifier qcStatementId,
+      ASN1Encodable qcStatementInfo) {
+    this.qcStatementId = qcStatementId;
+    this.qcStatementInfo = qcStatementInfo;
+  }
+
+  public ASN1ObjectIdentifier getStatementId() {
+    return qcStatementId;
+  }
+
+  public ASN1Encodable getStatementInfo() {
+    return qcStatementInfo;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector seq = new ASN1EncodableVector(2);
+    seq.add(qcStatementId);
+
+    if (qcStatementInfo != null) {
+      seq.add(qcStatementInfo);
+    }
+
+    return new DERSequence(seq);
+  }
 }

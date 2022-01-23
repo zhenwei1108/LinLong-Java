@@ -7,37 +7,33 @@ import com.github.zhenwei.core.crypto.CipherParameters;
  * Cipher parameters with a fixed salt value associated with them.
  */
 public class ParametersWithSalt
-    implements CipherParameters
-{
-    private byte[]              salt;
-    private CipherParameters    parameters;
+    implements CipherParameters {
 
-    public ParametersWithSalt(
-        CipherParameters    parameters,
-        byte[]              salt)
-    {
-        this(parameters, salt, 0, salt.length);
-    }
+  private byte[] salt;
+  private CipherParameters parameters;
 
-    public ParametersWithSalt(
-        CipherParameters    parameters,
-        byte[]              salt,
-        int                 saltOff,
-        int                 saltLen)
-    {
-        this.salt = new byte[saltLen];
-        this.parameters = parameters;
+  public ParametersWithSalt(
+      CipherParameters parameters,
+      byte[] salt) {
+    this(parameters, salt, 0, salt.length);
+  }
 
-        System.arraycopy(salt, saltOff, this.salt, 0, saltLen);
-    }
+  public ParametersWithSalt(
+      CipherParameters parameters,
+      byte[] salt,
+      int saltOff,
+      int saltLen) {
+    this.salt = new byte[saltLen];
+    this.parameters = parameters;
 
-    public byte[] getSalt()
-    {
-        return salt;
-    }
+    System.arraycopy(salt, saltOff, this.salt, 0, saltLen);
+  }
 
-    public CipherParameters getParameters()
-    {
-        return parameters;
-    }
+  public byte[] getSalt() {
+    return salt;
+  }
+
+  public CipherParameters getParameters() {
+    return parameters;
+  }
 }

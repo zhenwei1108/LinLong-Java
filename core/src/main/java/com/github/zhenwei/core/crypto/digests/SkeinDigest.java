@@ -5,8 +5,6 @@ import com.github.zhenwei.core.crypto.ExtendedDigest;
 import com.github.zhenwei.core.crypto.engines.ThreefishEngine;
 import com.github.zhenwei.core.crypto.params.SkeinParameters;
 import com.github.zhenwei.core.util.Memoable;
- 
- 
 
 
 /**
@@ -23,97 +21,86 @@ import com.github.zhenwei.core.util.Memoable;
  * @see SkeinParameters
  */
 public class SkeinDigest
-    implements ExtendedDigest, Memoable
-{
-    /**
-     * 256 bit block size - Skein-256
-     */
-    public static final int SKEIN_256 = SkeinEngine.SKEIN_256;
-    /**
-     * 512 bit block size - Skein-512
-     */
-    public static final int SKEIN_512 = SkeinEngine.SKEIN_512;
-    /**
-     * 1024 bit block size - Skein-1024
-     */
-    public static final int SKEIN_1024 = SkeinEngine.SKEIN_1024;
+    implements ExtendedDigest, Memoable {
 
-    private SkeinEngine engine;
+  /**
+   * 256 bit block size - Skein-256
+   */
+  public static final int SKEIN_256 = SkeinEngine.SKEIN_256;
+  /**
+   * 512 bit block size - Skein-512
+   */
+  public static final int SKEIN_512 = SkeinEngine.SKEIN_512;
+  /**
+   * 1024 bit block size - Skein-1024
+   */
+  public static final int SKEIN_1024 = SkeinEngine.SKEIN_1024;
 
-    /**
-     * Constructs a Skein digest with an internal state size and output size.
-     *
-     * @param stateSizeBits  the internal state size in bits - one of {@link #SKEIN_256}, {@link #SKEIN_512} or
-     *                       {@link #SKEIN_1024}.
-     * @param digestSizeBits the output/digest size to produce in bits, which must be an integral number of
-     *                       bytes.
-     */
-    public SkeinDigest(int stateSizeBits, int digestSizeBits)
-    {
-        this.engine = new SkeinEngine(stateSizeBits, digestSizeBits);
-        init(null);
-    }
+  private SkeinEngine engine;
 
-    public SkeinDigest( SkeinDigest digest)
-    {
-        this.engine = new SkeinEngine(digest.engine);
-    }
+  /**
+   * Constructs a Skein digest with an internal state size and output size.
+   *
+   * @param stateSizeBits  the internal state size in bits - one of {@link #SKEIN_256}, {@link
+   *                       #SKEIN_512} or {@link #SKEIN_1024}.
+   * @param digestSizeBits the output/digest size to produce in bits, which must be an integral
+   *                       number of bytes.
+   */
+  public SkeinDigest(int stateSizeBits, int digestSizeBits) {
+    this.engine = new SkeinEngine(stateSizeBits, digestSizeBits);
+    init(null);
+  }
 
-    public void reset(Memoable other)
-    {
-         SkeinDigest d = ( SkeinDigest)other;
-        engine.reset(d.engine);
-    }
+  public SkeinDigest(SkeinDigest digest) {
+    this.engine = new SkeinEngine(digest.engine);
+  }
 
-    public Memoable copy()
-    {
-        return new  SkeinDigest(this);
-    }
+  public void reset(Memoable other) {
+    SkeinDigest d = (SkeinDigest) other;
+    engine.reset(d.engine);
+  }
 
-    public String getAlgorithmName()
-    {
-        return "Skein-" + (engine.getBlockSize() * 8) + "-" + (engine.getOutputSize() * 8);
-    }
+  public Memoable copy() {
+    return new SkeinDigest(this);
+  }
 
-    public int getDigestSize()
-    {
-        return engine.getOutputSize();
-    }
+  public String getAlgorithmName() {
+    return "Skein-" + (engine.getBlockSize() * 8) + "-" + (engine.getOutputSize() * 8);
+  }
 
-    public int getByteLength()
-    {
-        return engine.getBlockSize();
-    }
+  public int getDigestSize() {
+    return engine.getOutputSize();
+  }
 
-    /**
-     * Optionally initialises the Skein digest with the provided parameters.<br>
-     * See {@link SkeinParameters} for details on the parameterisation of the Skein hash function.
-     *
-     * @param params the parameters to apply to this engine, or <code>null</code> to use no parameters.
-     */
-    public void init(SkeinParameters params)
-    {
-        engine.init(params);
-    }
+  public int getByteLength() {
+    return engine.getBlockSize();
+  }
 
-    public void reset()
-    {
-        engine.reset();
-    }
+  /**
+   * Optionally initialises the Skein digest with the provided parameters.<br> See {@link
+   * SkeinParameters} for details on the parameterisation of the Skein hash function.
+   *
+   * @param params the parameters to apply to this engine, or <code>null</code> to use no
+   *               parameters.
+   */
+  public void init(SkeinParameters params) {
+    engine.init(params);
+  }
 
-    public void update(byte in)
-    {
-        engine.update(in);
-    }
+  public void reset() {
+    engine.reset();
+  }
 
-    public void update(byte[] in, int inOff, int len)
-    {
-        engine.update(in, inOff, len);
-    }
+  public void update(byte in) {
+    engine.update(in);
+  }
 
-    public int doFinal(byte[] out, int outOff)
-    {
-        return engine.doFinal(out, outOff);
-    }
+  public void update(byte[] in, int inOff, int len) {
+    engine.update(in, inOff, len);
+  }
+
+  public int doFinal(byte[] out, int outOff) {
+    return engine.doFinal(out, outOff);
+  }
 
 }

@@ -1,33 +1,30 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
 import java.io.Serializable;
- 
+
 
 /**
  * Binary tree node.
  */
 public final class XMSSNode
-    implements Serializable
-{
-    private static final long serialVersionUID = 1L;
+    implements Serializable {
 
-    private final int height;
-    private final byte[] value;
+  private static final long serialVersionUID = 1L;
 
-    protected XMSSNode(int height, byte[] value)
-    {
-        super();
-        this.height = height;
-        this.value = value;
-    }
+  private final int height;
+  private final byte[] value;
 
-    public int getHeight()
-    {
-        return height;
-    }
+  protected XMSSNode(int height, byte[] value) {
+    super();
+    this.height = height;
+    this.value = value;
+  }
 
-    public byte[] getValue()
-    {
-        return XMSSUtil.cloneArray(value);
-    }
+  public int getHeight() {
+    return height;
+  }
+
+  public byte[] getValue() {
+    return XMSSUtil.cloneArray(value);
+  }
 }

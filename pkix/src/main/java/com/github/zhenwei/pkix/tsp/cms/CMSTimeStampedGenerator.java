@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.tsp.cms;
 
-import ASN1Boolean;
+ 
 import cms.Attributes;
 import cms.MetaData;
 import com.github.zhenwei.core.asn1.ASN1IA5String;

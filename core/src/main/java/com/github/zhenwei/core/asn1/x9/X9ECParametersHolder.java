@@ -3,19 +3,17 @@ package com.github.zhenwei.core.asn1.x9;
 /**
  * A holding class that allows for X9ECParameters to be lazily constructed.
  */
-public abstract class X9ECParametersHolder
-{
-    private X9ECParameters params;
+public abstract class X9ECParametersHolder {
 
-    public synchronized X9ECParameters getParameters()
-    {
-        if (params == null)
-        {
-            params = createParameters();
-        }
+  private X9ECParameters params;
 
-        return params;
+  public synchronized X9ECParameters getParameters() {
+    if (params == null) {
+      params = createParameters();
     }
 
-    protected abstract X9ECParameters createParameters();
+    return params;
+  }
+
+  protected abstract X9ECParameters createParameters();
 }

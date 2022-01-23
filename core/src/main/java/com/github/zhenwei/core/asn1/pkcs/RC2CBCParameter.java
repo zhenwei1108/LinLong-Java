@@ -12,82 +12,68 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import java.math.BigInteger;
 
 public class RC2CBCParameter
-    extends ASN1Object
-{
-    ASN1Integer version;
-    ASN1OctetString iv;
+    extends ASN1Object {
 
-    public static RC2CBCParameter getInstance(
-        Object  o)
-    {
-        if (o instanceof RC2CBCParameter)
-        {
-            return  (RC2CBCParameter)o;
-        }
-        if (o != null)
-        {
-            return new RC2CBCParameter(ASN1Sequence.getInstance(o));
-        }
+  ASN1Integer version;
+  ASN1OctetString iv;
 
-        return null;
+  public static RC2CBCParameter getInstance(
+      Object o) {
+    if (o instanceof RC2CBCParameter) {
+      return (RC2CBCParameter) o;
+    }
+    if (o != null) {
+      return new RC2CBCParameter(ASN1Sequence.getInstance(o));
     }
 
-    public RC2CBCParameter(
-        byte[]  iv)
-    {
-        this.version = null;
-        this.iv = new DEROctetString(iv);
+    return null;
+  }
+
+  public RC2CBCParameter(
+      byte[] iv) {
+    this.version = null;
+    this.iv = new DEROctetString(iv);
+  }
+
+  public RC2CBCParameter(
+      int parameterVersion,
+      byte[] iv) {
+    this.version = new ASN1Integer(parameterVersion);
+    this.iv = new DEROctetString(iv);
+  }
+
+  private RC2CBCParameter(
+      ASN1Sequence seq) {
+    if (seq.size() == 1) {
+      version = null;
+      iv = (ASN1OctetString) seq.getObjectAt(0);
+    } else {
+      version = (ASN1Integer) seq.getObjectAt(0);
+      iv = (ASN1OctetString) seq.getObjectAt(1);
+    }
+  }
+
+  public BigInteger getRC2ParameterVersion() {
+    if (version == null) {
+      return null;
     }
 
-    public RC2CBCParameter(
-        int     parameterVersion,
-        byte[]  iv)
-    {
-        this.version = new ASN1Integer(parameterVersion);
-        this.iv = new DEROctetString(iv);
+    return version.getValue();
+  }
+
+  public byte[] getIV() {
+    return iv.getOctets();
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+
+    if (version != null) {
+      v.add(version);
     }
 
-    private RC2CBCParameter(
-        ASN1Sequence  seq)
-    {
-        if (seq.size() == 1)
-        {
-            version = null;
-            iv = (ASN1OctetString)seq.getObjectAt(0);
-        }
-        else
-        {
-            version = (ASN1Integer)seq.getObjectAt(0);
-            iv = (ASN1OctetString)seq.getObjectAt(1);
-        }
-    }
+    v.add(iv);
 
-    public BigInteger getRC2ParameterVersion()
-    {
-        if (version == null)
-        {
-            return null;
-        }
-
-        return version.getValue();
-    }
-
-    public byte[] getIV()
-    {
-        return iv.getOctets();
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
-
-        if (version != null)
-        {
-            v.add(version);
-        }
-
-        v.add(iv);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

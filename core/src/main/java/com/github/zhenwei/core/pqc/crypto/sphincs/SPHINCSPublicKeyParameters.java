@@ -3,25 +3,22 @@ package com.github.zhenwei.core.pqc.crypto.sphincs;
 import com.github.zhenwei.core.util.Arrays;
 
 public class SPHINCSPublicKeyParameters
-    extends SPHINCSKeyParameters
-{
-    private final byte[] keyData;
+    extends SPHINCSKeyParameters {
 
-    public SPHINCSPublicKeyParameters(byte[] keyData)
-    {
-        super(false, null);
-        this.keyData = Arrays.clone(keyData);
-    }
+  private final byte[] keyData;
 
-    public SPHINCSPublicKeyParameters(byte[] keyData, String treeDigest)
-    {
+  public SPHINCSPublicKeyParameters(byte[] keyData) {
+    super(false, null);
+    this.keyData = Arrays.clone(keyData);
+  }
 
-        super(false, treeDigest);
-        this.keyData = Arrays.clone(keyData);
-    }
+  public SPHINCSPublicKeyParameters(byte[] keyData, String treeDigest) {
 
-    public byte[] getKeyData()
-    {
-        return Arrays.clone(keyData);
-    }
+    super(false, treeDigest);
+    this.keyData = Arrays.clone(keyData);
+  }
+
+  public byte[] getKeyData() {
+    return Arrays.clone(keyData);
+  }
 }

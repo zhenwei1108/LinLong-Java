@@ -1,18 +1,16 @@
 package com.github.zhenwei.core.util;
 
-public class StreamParsingException 
-    extends Exception
-{
-    Throwable _e;
+public class StreamParsingException
+    extends Exception {
 
-    public StreamParsingException(String message, Throwable e)
-    {
-        super(message);
-        _e = e;
-    }
+  Throwable _e;
 
-    public Throwable getCause()
-    {
-        return _e;
-    }
+  public StreamParsingException(String message, Throwable e) {
+    super(message);
+    _e = e;
+  }
+
+  public Throwable getCause() {
+    return _e;
+  }
 }

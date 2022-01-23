@@ -10,157 +10,148 @@ import java.io.IOException;
 import java.security.SecureRandom;
 import org.bouncycastle.crypto.util.DEROtherInfo;
 import org.bouncycastle.pqc.crypto.ExchangePair;
- 
+
 
 /**
- * OtherInfo Generator for which can be used for populating the SuppPrivInfo field used to provide shared
- * secret data used with NIST SP 800-56A agreement algorithms.
+ * OtherInfo Generator for which can be used for populating the SuppPrivInfo field used to provide
+ * shared secret data used with NIST SP 800-56A agreement algorithms.
  */
-public class NHOtherInfoGenerator
-{
-    protected final DEROtherInfo.Builder otherInfoBuilder;
-    protected final SecureRandom random;
+public class NHOtherInfoGenerator {
 
-    protected boolean used = false;
-    
+  protected final DEROtherInfo.Builder otherInfoBuilder;
+  protected final SecureRandom random;
+
+  protected boolean used = false;
+
+  /**
+   * Create a basic builder with just the compulsory fields.
+   *
+   * @param algorithmID the algorithm associated with this invocation of the KDF.
+   * @param partyUInfo  sender party info.
+   * @param partyVInfo  receiver party info.
+   * @param random      a source of randomness.
+   */
+  public NHOtherInfoGenerator(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo,
+      SecureRandom random) {
+    this.otherInfoBuilder = new DEROtherInfo.Builder(algorithmID, partyUInfo, partyVInfo);
+    this.random = random;
+  }
+
+  /**
+   * Party U (initiator) generation.
+   */
+  public static class PartyU
+      extends org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator {
+
+    private AsymmetricCipherKeyPair aKp;
+    private NHAgreement agreement = new NHAgreement();
+
+    public PartyU(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo,
+        SecureRandom random) {
+      super(algorithmID, partyUInfo, partyVInfo, random);
+
+      NHKeyPairGenerator kpGen = new NHKeyPairGenerator();
+
+      kpGen.init(new KeyGenerationParameters(random, 2048));
+
+      aKp = kpGen.generateKeyPair();
+
+      agreement.init(aKp.getPrivate());
+    }
+
     /**
-     * Create a basic builder with just the compulsory fields.
+     * Add optional supplementary public info (DER tagged, implicit, 0).
      *
-     * @param algorithmID the algorithm associated with this invocation of the KDF.
-     * @param partyUInfo  sender party info.
-     * @param partyVInfo  receiver party info.
-     * @param random a source of randomness.
+     * @param suppPubInfo supplementary public info.
+     * @return the current builder instance.
      */
-    public NHOtherInfoGenerator(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo, SecureRandom random)
-    {
-        this.otherInfoBuilder = new DEROtherInfo.Builder(algorithmID, partyUInfo, partyVInfo);
-        this.random = random;
+    public org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator withSuppPubInfo(
+        byte[] suppPubInfo) {
+      this.otherInfoBuilder.withSuppPubInfo(suppPubInfo);
+
+      return this;
+    }
+
+    public byte[] getSuppPrivInfoPartA() {
+      return getEncoded((NHPublicKeyParameters) aKp.getPublic());
+    }
+
+    public DEROtherInfo generate(byte[] suppPrivInfoPartB) {
+      if (used) {
+        throw new IllegalStateException("builder already used");
+      }
+
+      used = true;
+
+      this.otherInfoBuilder.withSuppPrivInfo(agreement.calculateAgreement(
+          org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator.getPublicKey(
+              suppPrivInfoPartB)));
+
+      return otherInfoBuilder.build();
+    }
+  }
+
+  /**
+   * Party V (responder) generation.
+   */
+  public static class PartyV
+      extends org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator {
+
+    public PartyV(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo,
+        SecureRandom random) {
+      super(algorithmID, partyUInfo, partyVInfo, random);
     }
 
     /**
-     * Party U (initiator) generation.
+     * Add optional supplementary public info (DER tagged, implicit, 0).
+     *
+     * @param suppPubInfo supplementary public info.
+     * @return the current builder instance.
      */
-    public static class PartyU
-        extends org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator
-    {
-        private AsymmetricCipherKeyPair aKp;
-        private NHAgreement agreement = new NHAgreement();
+    public org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator withSuppPubInfo(
+        byte[] suppPubInfo) {
+      this.otherInfoBuilder.withSuppPubInfo(suppPubInfo);
 
-        public PartyU(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo, SecureRandom random)
-        {
-            super(algorithmID, partyUInfo, partyVInfo, random);
-
-            NHKeyPairGenerator kpGen = new NHKeyPairGenerator();
-
-            kpGen.init(new KeyGenerationParameters(random, 2048));
-
-            aKp = kpGen.generateKeyPair();
-
-            agreement.init(aKp.getPrivate());
-        }
-
-        /**
-         * Add optional supplementary public info (DER tagged, implicit, 0).
-         *
-         * @param suppPubInfo supplementary public info.
-         * @return the current builder instance.
-         */
-        public org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator withSuppPubInfo(byte[] suppPubInfo)
-        {
-            this.otherInfoBuilder.withSuppPubInfo(suppPubInfo);
-
-            return this;
-        }
-
-        public byte[] getSuppPrivInfoPartA()
-        {
-            return getEncoded((NHPublicKeyParameters)aKp.getPublic());
-        }
-
-        public DEROtherInfo generate(byte[] suppPrivInfoPartB)
-        {
-            if (used)
-            {
-                throw new IllegalStateException("builder already used");
-            }
-
-            used = true;
-
-            this.otherInfoBuilder.withSuppPrivInfo(agreement.calculateAgreement(
-                org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator.getPublicKey(suppPrivInfoPartB)));
-
-            return otherInfoBuilder.build();
-        }
+      return this;
     }
 
-    /**
-     * Party V (responder) generation.
-     */
-    public static class PartyV
-        extends org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator
-    {
-        public PartyV(AlgorithmIdentifier algorithmID, byte[] partyUInfo, byte[] partyVInfo, SecureRandom random)
-        {
-            super(algorithmID, partyUInfo, partyVInfo, random);
-        }
+    public byte[] getSuppPrivInfoPartB(byte[] suppPrivInfoPartA) {
+      NHExchangePairGenerator exchGen = new NHExchangePairGenerator(random);
 
-        /**
-         * Add optional supplementary public info (DER tagged, implicit, 0).
-         *
-         * @param suppPubInfo supplementary public info.
-         * @return the current builder instance.
-         */
-        public org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator withSuppPubInfo(byte[] suppPubInfo)
-        {
-            this.otherInfoBuilder.withSuppPubInfo(suppPubInfo);
+      ExchangePair bEp = exchGen.generateExchange(getPublicKey(suppPrivInfoPartA));
 
-            return this;
-        }
+      this.otherInfoBuilder.withSuppPrivInfo(bEp.getSharedValue());
 
-        public byte[] getSuppPrivInfoPartB(byte[] suppPrivInfoPartA)
-        {
-            NHExchangePairGenerator exchGen = new NHExchangePairGenerator(random);
-
-            ExchangePair bEp = exchGen.generateExchange(getPublicKey(suppPrivInfoPartA));
-
-            this.otherInfoBuilder.withSuppPrivInfo(bEp.getSharedValue());
-
-            return getEncoded((NHPublicKeyParameters)bEp.getPublicKey());
-        }
-
-        public DEROtherInfo generate()
-        {
-            if (used)
-            {
-                throw new IllegalStateException("builder already used");
-            }
-
-            used = true;
-
-            return otherInfoBuilder.build();
-        }
+      return getEncoded((NHPublicKeyParameters) bEp.getPublicKey());
     }
 
-    private static byte[] getEncoded(NHPublicKeyParameters pubKey)
-    {
-        SubjectPublicKeyInfo pki;
-        try
-        {
-            AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(PQCObjectIdentifiers.newHope);
-            pki = new SubjectPublicKeyInfo(algorithmIdentifier, pubKey.getPubData());
+    public DEROtherInfo generate() {
+      if (used) {
+        throw new IllegalStateException("builder already used");
+      }
 
-            return pki.getEncoded();
-        }
-        catch (IOException e)
-        {
-            return null;
-        }
+      used = true;
+
+      return otherInfoBuilder.build();
     }
+  }
 
-    private static NHPublicKeyParameters getPublicKey(byte[] enc)
-    {
-        SubjectPublicKeyInfo pki = SubjectPublicKeyInfo.getInstance(enc);
+  private static byte[] getEncoded(NHPublicKeyParameters pubKey) {
+    SubjectPublicKeyInfo pki;
+    try {
+      AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(
+          PQCObjectIdentifiers.newHope);
+      pki = new SubjectPublicKeyInfo(algorithmIdentifier, pubKey.getPubData());
 
-        return new NHPublicKeyParameters(pki.getPublicKeyData().getOctets());
+      return pki.getEncoded();
+    } catch (IOException e) {
+      return null;
     }
+  }
+
+  private static NHPublicKeyParameters getPublicKey(byte[] enc) {
+    SubjectPublicKeyInfo pki = SubjectPublicKeyInfo.getInstance(enc);
+
+    return new NHPublicKeyParameters(pki.getPublicKeyData().getOctets());
+  }
 }

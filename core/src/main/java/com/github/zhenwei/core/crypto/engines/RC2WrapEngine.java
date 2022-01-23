@@ -16,83 +16,83 @@ import java.security.SecureRandom;
  * Wrap keys according to RFC 3217 - RC2 mechanism
  */
 public class RC2WrapEngine
-    implements Wrapper
-{
-  /** Field engine */
+    implements Wrapper {
+
+  /**
+   * Field engine
+   */
   private CBCBlockCipher engine;
 
-  /** Field param */
+  /**
+   * Field param
+   */
   private CipherParameters param;
 
-  /** Field paramPlusIV */
+  /**
+   * Field paramPlusIV
+   */
   private ParametersWithIV paramPlusIV;
 
-  /** Field iv */
+  /**
+   * Field iv
+   */
   private byte[] iv;
 
-  /** Field forWrapping */
+  /**
+   * Field forWrapping
+   */
   private boolean forWrapping;
 
   private SecureRandom sr;
 
-  /** Field IV2           */
-  private static final byte[] IV2 = { (byte) 0x4a, (byte) 0xdd, (byte) 0xa2,
+  /**
+   * Field IV2
+   */
+  private static final byte[] IV2 = {(byte) 0x4a, (byte) 0xdd, (byte) 0xa2,
       (byte) 0x2c, (byte) 0x79, (byte) 0xe8,
-      (byte) 0x21, (byte) 0x05 };
+      (byte) 0x21, (byte) 0x05};
 
   //
   // checksum digest
   //
   Digest sha1 = DigestFactory.createSHA1();
-  byte[]  digest = new byte[20];
+  byte[] digest = new byte[20];
 
   /**
    * Method init
    *
    * @param forWrapping true if for wrapping, false for unwrap.
-   * @param param parameters for wrap/unwrapping (iv required for unwrap).
+   * @param param       parameters for wrap/unwrapping (iv required for unwrap).
    */
-  public void init(boolean forWrapping, CipherParameters param)
-  {
+  public void init(boolean forWrapping, CipherParameters param) {
     this.forWrapping = forWrapping;
     this.engine = new CBCBlockCipher(new RC2Engine());
 
-    if (param instanceof ParametersWithRandom)
-    {
-      ParametersWithRandom pWithR = (ParametersWithRandom)param;
+    if (param instanceof ParametersWithRandom) {
+      ParametersWithRandom pWithR = (ParametersWithRandom) param;
       sr = pWithR.getRandom();
       param = pWithR.getParameters();
-    }
-    else
-    {
+    } else {
       sr = CryptoServicesRegistrar.getSecureRandom();
     }
 
-    if (param instanceof ParametersWithIV)
-    {
-      this.paramPlusIV = (ParametersWithIV)param;
+    if (param instanceof ParametersWithIV) {
+      this.paramPlusIV = (ParametersWithIV) param;
       this.iv = this.paramPlusIV.getIV();
       this.param = this.paramPlusIV.getParameters();
 
-      if (this.forWrapping)
-      {
-        if ((this.iv == null) || (this.iv.length != 8))
-        {
+      if (this.forWrapping) {
+        if ((this.iv == null) || (this.iv.length != 8)) {
           throw new IllegalArgumentException("IV is not 8 octets");
         }
-      }
-      else
-      {
+      } else {
         throw new IllegalArgumentException(
             "You should not supply an IV for unwrapping");
       }
-    }
-    else
-    {
+    } else {
       this.param = param;
 
-      if (this.forWrapping)
-      {
+      if (this.forWrapping) {
 
         // Hm, we have no IV but we want to wrap ?!?
         // well, then we have to create our own IV.
@@ -111,42 +111,37 @@ public class RC2WrapEngine
    *
    * @return the algorithm name "RC2".
    */
-  public String getAlgorithmName()
-  {
+  public String getAlgorithmName() {
     return "RC2";
   }
 
   /**
    * Method wrap
    *
-   * @param in byte array containing the key.
+   * @param in    byte array containing the key.
    * @param inOff offset into in array that the key data starts at.
    * @param inLen length of key data.
    * @return the wrapped bytes.
    */
-  public byte[] wrap(byte[] in, int inOff, int inLen)
-  {
+  public byte[] wrap(byte[] in, int inOff, int inLen) {
 
-    if (!forWrapping)
-    {
+    if (!forWrapping) {
       throw new IllegalStateException("Not initialized for wrapping");
     }
 
     int length = inLen + 1;
-    if ((length % 8) != 0)
-    {
+    if ((length % 8) != 0) {
       length += 8 - (length % 8);
     }
 
     byte keyToBeWrapped[] = new byte[length];
 
-    keyToBeWrapped[0] = (byte)inLen;
+    keyToBeWrapped[0] = (byte) inLen;
     System.arraycopy(in, inOff, keyToBeWrapped, 1, inLen);
 
     byte[] pad = new byte[keyToBeWrapped.length - inLen - 1];
 
-    if (pad.length > 0)
-    {
+    if (pad.length > 0) {
       sr.nextBytes(pad);
       System.arraycopy(pad, 0, keyToBeWrapped, inLen + 1, pad.length);
     }
@@ -169,15 +164,13 @@ public class RC2WrapEngine
     int noOfBlocks = WKCKS.length / engine.getBlockSize();
     int extraBytes = WKCKS.length % engine.getBlockSize();
 
-    if (extraBytes != 0)
-    {
+    if (extraBytes != 0) {
       throw new IllegalStateException("Not multiple of block length");
     }
 
     engine.init(true, paramPlusIV);
 
-    for (int i = 0; i < noOfBlocks; i++)
-    {
+    for (int i = 0; i < noOfBlocks; i++) {
       int currentBytePos = i * engine.getBlockSize();
 
       engine.processBlock(TEMP1, currentBytePos, TEMP1, currentBytePos);
@@ -192,8 +185,7 @@ public class RC2WrapEngine
     // Reverse the order of the octets in TEMP2 and call the result TEMP3.
     byte[] TEMP3 = new byte[TEMP2.length];
 
-    for (int i = 0; i < TEMP2.length; i++)
-    {
+    for (int i = 0; i < TEMP2.length; i++) {
       TEMP3[i] = TEMP2[TEMP2.length - (i + 1)];
     }
 
@@ -205,8 +197,7 @@ public class RC2WrapEngine
 
     this.engine.init(true, param2);
 
-    for (int i = 0; i < noOfBlocks + 1; i++)
-    {
+    for (int i = 0; i < noOfBlocks + 1; i++) {
       int currentBytePos = i * engine.getBlockSize();
 
       engine.processBlock(TEMP3, currentBytePos, TEMP3, currentBytePos);
@@ -218,28 +209,24 @@ public class RC2WrapEngine
   /**
    * Method unwrap
    *
-   * @param in byte array containing the wrapped key.
+   * @param in    byte array containing the wrapped key.
    * @param inOff offset into in array that the wrapped key starts at.
    * @param inLen length of wrapped key data.
    * @return the unwrapped bytes.
    * @throws InvalidCipherTextException
    */
   public byte[] unwrap(byte[] in, int inOff, int inLen)
-      throws InvalidCipherTextException
-  {
+      throws InvalidCipherTextException {
 
-    if (forWrapping)
-    {
+    if (forWrapping) {
       throw new IllegalStateException("Not set for unwrapping");
     }
 
-    if (in == null)
-    {
+    if (in == null) {
       throw new InvalidCipherTextException("Null pointer as ciphertext");
     }
 
-    if (inLen % engine.getBlockSize() != 0)
-    {
+    if (inLen % engine.getBlockSize() != 0) {
       throw new InvalidCipherTextException("Ciphertext not multiple of "
           + engine.getBlockSize());
     }
@@ -268,8 +255,7 @@ public class RC2WrapEngine
 
     System.arraycopy(in, inOff, TEMP3, 0, inLen);
 
-    for (int i = 0; i < (TEMP3.length / engine.getBlockSize()); i++)
-    {
+    for (int i = 0; i < (TEMP3.length / engine.getBlockSize()); i++) {
       int currentBytePos = i * engine.getBlockSize();
 
       engine.processBlock(TEMP3, currentBytePos, TEMP3, currentBytePos);
@@ -278,8 +264,7 @@ public class RC2WrapEngine
     // Reverse the order of the octets in TEMP3 and call the result TEMP2.
     byte[] TEMP2 = new byte[TEMP3.length];
 
-    for (int i = 0; i < TEMP3.length; i++)
-    {
+    for (int i = 0; i < TEMP3.length; i++) {
       TEMP2[i] = TEMP3[TEMP3.length - (i + 1)];
     }
 
@@ -302,8 +287,7 @@ public class RC2WrapEngine
 
     System.arraycopy(TEMP1, 0, LCEKPADICV, 0, TEMP1.length);
 
-    for (int i = 0; i < (LCEKPADICV.length / engine.getBlockSize()); i++)
-    {
+    for (int i = 0; i < (LCEKPADICV.length / engine.getBlockSize()); i++) {
       int currentBytePos = i * engine.getBlockSize();
 
       engine.processBlock(LCEKPADICV, currentBytePos, LCEKPADICV,
@@ -324,14 +308,12 @@ public class RC2WrapEngine
     // compare
     // with the CKS extracted in the above step. If they are not equal,
     // return error.
-    if (!checkCMSKeyChecksum(result, CKStoBeVerified))
-    {
+    if (!checkCMSKeyChecksum(result, CKStoBeVerified)) {
       throw new InvalidCipherTextException(
           "Checksum inside ciphertext is corrupted");
     }
 
-    if ((result.length - ((result[0] & 0xff) + 1)) > 7)
-    {
+    if ((result.length - ((result[0] & 0xff) + 1)) > 7) {
       throw new InvalidCipherTextException("too many pad bytes ("
           + (result.length - ((result[0] & 0xff) + 1)) + ")");
     }
@@ -353,9 +335,8 @@ public class RC2WrapEngine
    * For details see  https://www.w3.org/TR/xmlenc-core/#sec-CMSKeyChecksum
    */
   private byte[] calculateCMSKeyChecksum(
-      byte[] key)
-  {
-    byte[]  result = new byte[8];
+      byte[] key) {
+    byte[] result = new byte[8];
 
     sha1.update(key, 0, key.length);
     sha1.doFinal(digest, 0);
@@ -370,8 +351,7 @@ public class RC2WrapEngine
    */
   private boolean checkCMSKeyChecksum(
       byte[] key,
-      byte[] checksum)
-  {
+      byte[] checksum) {
     return Arrays.constantTimeAreEqual(calculateCMSKeyChecksum(key), checksum);
   }
 }

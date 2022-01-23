@@ -7,10 +7,10 @@ import java.math.BigInteger;
  * the group order.
  */
 public interface DSAExt
-    extends DSA
-{
-    /**
-     * Get the order of the group that the r, s values in signatures belong to.
-     */
-    public BigInteger getOrder();
+    extends DSA {
+
+  /**
+   * Get the order of the group that the r, s values in signatures belong to.
+   */
+  public BigInteger getOrder();
 }

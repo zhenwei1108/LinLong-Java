@@ -1,26 +1,23 @@
 package com.github.zhenwei.core.crypto.params;
 
 public class RC2Parameters
-    extends KeyParameter
-{
-    private int     bits;
+    extends KeyParameter {
 
-    public RC2Parameters(
-        byte[]  key)
-    {
-        this(key, (key.length > 128) ? 1024 : (key.length * 8));
-    }
+  private int bits;
 
-    public RC2Parameters(
-        byte[]  key,
-        int     bits)
-    {
-        super(key);
-        this.bits = bits;
-    }
+  public RC2Parameters(
+      byte[] key) {
+    this(key, (key.length > 128) ? 1024 : (key.length * 8));
+  }
 
-    public int getEffectiveKeyBits()
-    {
-        return bits;
-    }
+  public RC2Parameters(
+      byte[] key,
+      int bits) {
+    super(key);
+    this.bits = bits;
+  }
+
+  public int getEffectiveKeyBits() {
+    return bits;
+  }
 }

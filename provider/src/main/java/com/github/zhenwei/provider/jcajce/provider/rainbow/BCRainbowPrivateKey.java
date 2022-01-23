@@ -8,10 +8,10 @@ import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import com.github.zhenwei.core.util.Arrays;
 import java.io.IOException;
 import java.security.PrivateKey;
-import org.bouncycastle.pqc.asn1.RainbowPrivateKey;
-import org.bouncycastle.pqc.crypto.rainbow.Layer;
+import  RainbowPrivateKey;
+  
 import org.bouncycastle.pqc.crypto.rainbow.RainbowPrivateKeyParameters;
-import org.bouncycastle.pqc.crypto.rainbow.util.RainbowUtil;
+  
 import org.bouncycastle.pqc.jcajce.spec.RainbowPrivateKeySpec;
  
 

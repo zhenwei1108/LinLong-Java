@@ -9,19 +9,17 @@ import com.github.zhenwei.core.crypto.params.X448PublicKeyParameters;
 import java.security.SecureRandom;
 
 public class X448KeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private SecureRandom random;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(KeyGenerationParameters parameters)
-    {
-        this.random = parameters.getRandom();
-    }
+  private SecureRandom random;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        X448PrivateKeyParameters privateKey = new X448PrivateKeyParameters(random);
-        X448PublicKeyParameters publicKey = privateKey.generatePublicKey();
-        return new AsymmetricCipherKeyPair(publicKey, privateKey);
-    }
+  public void init(KeyGenerationParameters parameters) {
+    this.random = parameters.getRandom();
+  }
+
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    X448PrivateKeyParameters privateKey = new X448PrivateKeyParameters(random);
+    X448PublicKeyParameters publicKey = privateKey.generatePublicKey();
+    return new AsymmetricCipherKeyPair(publicKey, privateKey);
+  }
 }

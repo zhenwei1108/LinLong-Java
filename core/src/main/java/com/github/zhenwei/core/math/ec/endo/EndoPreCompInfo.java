@@ -4,29 +4,25 @@ package com.github.zhenwei.core.math.ec.endo;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.ec.PreCompInfo;
 
-public class EndoPreCompInfo implements PreCompInfo
-{
-    protected ECEndomorphism endomorphism;
+public class EndoPreCompInfo implements PreCompInfo {
 
-    protected ECPoint mappedPoint;
+  protected ECEndomorphism endomorphism;
 
-    public ECEndomorphism getEndomorphism()
-    {
-        return endomorphism;
-    }
+  protected ECPoint mappedPoint;
 
-    public void setEndomorphism(ECEndomorphism endomorphism)
-    {
-        this.endomorphism = endomorphism;
-    }
+  public ECEndomorphism getEndomorphism() {
+    return endomorphism;
+  }
 
-    public ECPoint getMappedPoint()
-    {
-        return mappedPoint;
-    }
+  public void setEndomorphism(ECEndomorphism endomorphism) {
+    this.endomorphism = endomorphism;
+  }
 
-    public void setMappedPoint(ECPoint mappedPoint)
-    {
-        this.mappedPoint = mappedPoint;
-    }
+  public ECPoint getMappedPoint() {
+    return mappedPoint;
+  }
+
+  public void setMappedPoint(ECPoint mappedPoint) {
+    this.mappedPoint = mappedPoint;
+  }
 }

@@ -4,28 +4,26 @@ package com.github.zhenwei.core.pqc.crypto.sphincs;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 public class SPHINCSKeyParameters
-    extends AsymmetricKeyParameter
-{
-    /**
-     * Use SHA512-256 for the tree generation function.
-     */
-    public static final String SHA512_256 = "SHA-512/256";
+    extends AsymmetricKeyParameter {
 
-    /**
-     * Use SHA3-256 for the tree generation function.
-     */
-    public static final String SHA3_256 = "SHA3-256";
+  /**
+   * Use SHA512-256 for the tree generation function.
+   */
+  public static final String SHA512_256 = "SHA-512/256";
 
-    private final String treeDigest;
+  /**
+   * Use SHA3-256 for the tree generation function.
+   */
+  public static final String SHA3_256 = "SHA3-256";
 
-    protected SPHINCSKeyParameters(boolean isPrivateKey, String treeDigest)
-    {
-        super(isPrivateKey);
-        this.treeDigest = treeDigest;
-    }
+  private final String treeDigest;
 
-    public String getTreeDigest()
-    {
-        return treeDigest;
-    }
+  protected SPHINCSKeyParameters(boolean isPrivateKey, String treeDigest) {
+    super(isPrivateKey);
+    this.treeDigest = treeDigest;
+  }
+
+  public String getTreeDigest() {
+    return treeDigest;
+  }
 }

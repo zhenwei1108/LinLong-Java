@@ -3,7 +3,7 @@ package com.github.zhenwei.provider.jce;
 
 import TBSCertList;
 import TBSCertificateStructure;
-import X509Name;
+  
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import java.io.IOException;
 import java.security.cert.CRLException;

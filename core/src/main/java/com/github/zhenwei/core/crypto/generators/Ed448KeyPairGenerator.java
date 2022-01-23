@@ -9,19 +9,17 @@ import com.github.zhenwei.core.crypto.params.Ed448PublicKeyParameters;
 import java.security.SecureRandom;
 
 public class Ed448KeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private SecureRandom random;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(KeyGenerationParameters parameters)
-    {
-        this.random = parameters.getRandom();
-    }
+  private SecureRandom random;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        Ed448PrivateKeyParameters privateKey = new Ed448PrivateKeyParameters(random);
-        Ed448PublicKeyParameters publicKey = privateKey.generatePublicKey();
-        return new AsymmetricCipherKeyPair(publicKey, privateKey);
-    }
+  public void init(KeyGenerationParameters parameters) {
+    this.random = parameters.getRandom();
+  }
+
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    Ed448PrivateKeyParameters privateKey = new Ed448PrivateKeyParameters(random);
+    Ed448PublicKeyParameters publicKey = privateKey.generatePublicKey();
+    return new AsymmetricCipherKeyPair(publicKey, privateKey);
+  }
 }

@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.x509;
 
 
-import ASN1Enumerated;
+ 
 import ASN1OutputStream;
 
 import IssuingDistributionPoint;

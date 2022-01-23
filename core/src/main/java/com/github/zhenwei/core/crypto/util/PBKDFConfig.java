@@ -6,17 +6,15 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 /**
  * Base class for PBKDF configs.
  */
-public abstract class PBKDFConfig
-{
-    private final ASN1ObjectIdentifier algorithm;
+public abstract class PBKDFConfig {
 
-    protected PBKDFConfig(ASN1ObjectIdentifier algorithm)
-    {
-        this.algorithm = algorithm;
-    }
+  private final ASN1ObjectIdentifier algorithm;
 
-    public ASN1ObjectIdentifier getAlgorithm()
-    {
-        return algorithm;
-    }
+  protected PBKDFConfig(ASN1ObjectIdentifier algorithm) {
+    this.algorithm = algorithm;
+  }
+
+  public ASN1ObjectIdentifier getAlgorithm() {
+    return algorithm;
+  }
 }

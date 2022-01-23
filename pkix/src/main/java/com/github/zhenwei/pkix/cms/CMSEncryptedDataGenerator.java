@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 
-import BERSet;
+ 
 import cms.AttributeTable;
 import cms.ContentInfo;
 import cms.EncryptedContentInfo;

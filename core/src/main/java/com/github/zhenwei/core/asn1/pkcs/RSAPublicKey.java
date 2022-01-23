@@ -12,84 +12,74 @@ import java.math.BigInteger;
 import java.util.Enumeration;
 
 public class RSAPublicKey
-    extends ASN1Object
-{
-    private BigInteger modulus;
-    private BigInteger publicExponent;
+    extends ASN1Object {
 
-    public static RSAPublicKey getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  private BigInteger modulus;
+  private BigInteger publicExponent;
+
+  public static RSAPublicKey getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static RSAPublicKey getInstance(
+      Object obj) {
+    if (obj instanceof RSAPublicKey) {
+      return (RSAPublicKey) obj;
     }
 
-    public static RSAPublicKey getInstance(
-        Object obj)
-    {
-        if (obj instanceof RSAPublicKey)
-        {
-            return  (RSAPublicKey)obj;
-        }
-
-        if (obj != null)
-        {
-            return new RSAPublicKey(ASN1Sequence.getInstance(obj));
-        }
-        
-        return null;
-    }
-    
-    public RSAPublicKey(
-        BigInteger modulus,
-        BigInteger publicExponent)
-    {
-        this.modulus = modulus;
-        this.publicExponent = publicExponent;
+    if (obj != null) {
+      return new RSAPublicKey(ASN1Sequence.getInstance(obj));
     }
 
-    private RSAPublicKey(
-        ASN1Sequence seq)
-    {
-        if (seq.size() != 2)
-        {
-            throw new IllegalArgumentException("Bad sequence size: "
-                    + seq.size());
-        }
+    return null;
+  }
 
-        Enumeration e = seq.getObjects();
+  public RSAPublicKey(
+      BigInteger modulus,
+      BigInteger publicExponent) {
+    this.modulus = modulus;
+    this.publicExponent = publicExponent;
+  }
 
-        modulus = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
-        publicExponent = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
+  private RSAPublicKey(
+      ASN1Sequence seq) {
+    if (seq.size() != 2) {
+      throw new IllegalArgumentException("Bad sequence size: "
+          + seq.size());
     }
 
-    public BigInteger getModulus()
-    {
-        return modulus;
-    }
+    Enumeration e = seq.getObjects();
 
-    public BigInteger getPublicExponent()
-    {
-        return publicExponent;
-    }
+    modulus = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
+    publicExponent = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
+  }
 
-    /**
-     * This outputs the key in PKCS1v2 format.
-     * <pre>
-     *      RSAPublicKey ::= SEQUENCE {
-     *                          modulus INTEGER, -- n
-     *                          publicExponent INTEGER, -- e
-     *                      }
-     * </pre>
-     * <p>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public BigInteger getModulus() {
+    return modulus;
+  }
 
-        v.add(new ASN1Integer(getModulus()));
-        v.add(new ASN1Integer(getPublicExponent()));
+  public BigInteger getPublicExponent() {
+    return publicExponent;
+  }
 
-        return new DERSequence(v);
-    }
+  /**
+   * This outputs the key in PKCS1v2 format.
+   * <pre>
+   *      RSAPublicKey ::= SEQUENCE {
+   *                          modulus INTEGER, -- n
+   *                          publicExponent INTEGER, -- e
+   *                      }
+   * </pre>
+   * <p>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+
+    v.add(new ASN1Integer(getModulus()));
+    v.add(new ASN1Integer(getPublicExponent()));
+
+    return new DERSequence(v);
+  }
 }

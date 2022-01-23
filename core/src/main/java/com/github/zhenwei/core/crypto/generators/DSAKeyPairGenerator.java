@@ -11,59 +11,53 @@ import com.github.zhenwei.core.math.ec.WNafUtil;
 import com.github.zhenwei.core.util.BigIntegers;
 import java.math.BigInteger;
 import java.security.SecureRandom;
- 
+
 
 /**
  * a DSA key pair generator.
- *
- * This generates DSA keys in line with the method described 
- * in <i>FIPS 186-3 B.1 FFC Key Pair Generation</i>.
+ * <p>
+ * This generates DSA keys in line with the method described in <i>FIPS 186-3 B.1 FFC Key Pair
+ * Generation</i>.
  */
 public class DSAKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private static final BigInteger ONE = BigInteger.valueOf(1);
+    implements AsymmetricCipherKeyPairGenerator {
 
-    private DSAKeyGenerationParameters param;
+  private static final BigInteger ONE = BigInteger.valueOf(1);
 
-    public void init(
-        KeyGenerationParameters param)
-    {
-        this.param = (DSAKeyGenerationParameters)param;
-    }
+  private DSAKeyGenerationParameters param;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        DSAParameters dsaParams = param.getParameters();
+  public void init(
+      KeyGenerationParameters param) {
+    this.param = (DSAKeyGenerationParameters) param;
+  }
 
-        BigInteger x = generatePrivateKey(dsaParams.getQ(), param.getRandom());
-        BigInteger y = calculatePublicKey(dsaParams.getP(), dsaParams.getG(), x);
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    DSAParameters dsaParams = param.getParameters();
 
-        return new AsymmetricCipherKeyPair(
-            new DSAPublicKeyParameters(y, dsaParams),
-            new DSAPrivateKeyParameters(x, dsaParams));
-    }
+    BigInteger x = generatePrivateKey(dsaParams.getQ(), param.getRandom());
+    BigInteger y = calculatePublicKey(dsaParams.getP(), dsaParams.getG(), x);
 
-    private static BigInteger generatePrivateKey(BigInteger q, SecureRandom random)
-    {
-        // B.1.2 Key Pair Generation by Testing Candidates
-        int minWeight = q.bitLength() >>> 2;
-        for (;;)
-        {
-            // TODO Prefer this method? (change test cases that used fixed random)
-            // B.1.1 Key Pair Generation Using Extra Random Bits
+    return new AsymmetricCipherKeyPair(
+        new DSAPublicKeyParameters(y, dsaParams),
+        new DSAPrivateKeyParameters(x, dsaParams));
+  }
+
+  private static BigInteger generatePrivateKey(BigInteger q, SecureRandom random) {
+    // B.1.2 Key Pair Generation by Testing Candidates
+    int minWeight = q.bitLength() >>> 2;
+    for (; ; ) {
+      // TODO Prefer this method? (change test cases that used fixed random)
+      // B.1.1 Key Pair Generation Using Extra Random Bits
 //            BigInteger x = new BigInteger(q.bitLength() + 64, random).mod(q.subtract(ONE)).add(ONE);
 
-            BigInteger x = BigIntegers.createRandomInRange(ONE, q.subtract(ONE), random);
-            if (WNafUtil.getNafWeight(x) >= minWeight)
-            {
-                return x;
-            }
-        }
+      BigInteger x = BigIntegers.createRandomInRange(ONE, q.subtract(ONE), random);
+      if (WNafUtil.getNafWeight(x) >= minWeight) {
+        return x;
+      }
     }
+  }
 
-    private static BigInteger calculatePublicKey(BigInteger p, BigInteger g, BigInteger x)
-    {
-        return g.modPow(x, p);
-    }
+  private static BigInteger calculatePublicKey(BigInteger p, BigInteger g, BigInteger x) {
+    return g.modPow(x, p);
+  }
 }

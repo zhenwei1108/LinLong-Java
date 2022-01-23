@@ -4,7 +4,7 @@ package com.github.zhenwei.provider.x509;
 import TBSCertificate;
 import Time;
 import V1TBSCertificateGenerator;
-import X509Name;
+  
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1Integer;

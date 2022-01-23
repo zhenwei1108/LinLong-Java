@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.asn1.x509;
 
 
-
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
@@ -20,112 +19,93 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
  *      signature               BIT STRING
  *  }
  * </pre>
+ *
  * @deprecated use Certificate
  */
 public class X509CertificateStructure
     extends ASN1Object
-    implements X509ObjectIdentifiers, PKCSObjectIdentifiers
-{
-    ASN1Sequence seq;
-    TBSCertificateStructure tbsCert;
-    AlgorithmIdentifier     sigAlgId;
-    DERBitString sig;
+    implements X509ObjectIdentifiers, PKCSObjectIdentifiers {
 
-    public static X509CertificateStructure getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  ASN1Sequence seq;
+  TBSCertificateStructure tbsCert;
+  AlgorithmIdentifier sigAlgId;
+  DERBitString sig;
+
+  public static X509CertificateStructure getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static X509CertificateStructure getInstance(
+      Object obj) {
+    if (obj instanceof X509CertificateStructure) {
+      return (X509CertificateStructure) obj;
+    } else if (obj != null) {
+      return new X509CertificateStructure(ASN1Sequence.getInstance(obj));
     }
 
-    public static X509CertificateStructure getInstance(
-        Object  obj)
-    {
-        if (obj instanceof X509CertificateStructure)
-        {
-            return (X509CertificateStructure)obj;
-        }
-        else if (obj != null)
-        {
-            return new X509CertificateStructure(ASN1Sequence.getInstance(obj));
-        }
+    return null;
+  }
 
-        return null;
+  public X509CertificateStructure(
+      ASN1Sequence seq) {
+    this.seq = seq;
+
+    //
+    // correct x509 certficate
+    //
+    if (seq.size() == 3) {
+      tbsCert = TBSCertificateStructure.getInstance(seq.getObjectAt(0));
+      sigAlgId = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+
+      sig = DERBitString.getInstance(seq.getObjectAt(2));
+    } else {
+      throw new IllegalArgumentException("sequence wrong size for a certificate");
     }
+  }
 
-    public X509CertificateStructure(
-        ASN1Sequence  seq)
-    {
-        this.seq = seq;
+  public TBSCertificateStructure getTBSCertificate() {
+    return tbsCert;
+  }
 
-        //
-        // correct x509 certficate
-        //
-        if (seq.size() == 3)
-        {
-            tbsCert = TBSCertificateStructure.getInstance(seq.getObjectAt(0));
-            sigAlgId = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+  public int getVersion() {
+    return tbsCert.getVersion();
+  }
 
-            sig = DERBitString.getInstance(seq.getObjectAt(2));
-        }
-        else
-        {
-            throw new IllegalArgumentException("sequence wrong size for a certificate");
-        }
-    }
+  public ASN1Integer getSerialNumber() {
+    return tbsCert.getSerialNumber();
+  }
 
-    public TBSCertificateStructure getTBSCertificate()
-    {
-        return tbsCert;
-    }
+  public X500Name getIssuer() {
+    return tbsCert.getIssuer();
+  }
 
-    public int getVersion()
-    {
-        return tbsCert.getVersion();
-    }
+  public Time getStartDate() {
+    return tbsCert.getStartDate();
+  }
 
-    public ASN1Integer getSerialNumber()
-    {
-        return tbsCert.getSerialNumber();
-    }
+  public Time getEndDate() {
+    return tbsCert.getEndDate();
+  }
 
-    public X500Name getIssuer()
-    {
-        return tbsCert.getIssuer();
-    }
+  public X500Name getSubject() {
+    return tbsCert.getSubject();
+  }
 
-    public Time getStartDate()
-    {
-        return tbsCert.getStartDate();
-    }
+  public SubjectPublicKeyInfo getSubjectPublicKeyInfo() {
+    return tbsCert.getSubjectPublicKeyInfo();
+  }
 
-    public Time getEndDate()
-    {
-        return tbsCert.getEndDate();
-    }
+  public AlgorithmIdentifier getSignatureAlgorithm() {
+    return sigAlgId;
+  }
 
-    public X500Name getSubject()
-    {
-        return tbsCert.getSubject();
-    }
+  public DERBitString getSignature() {
+    return sig;
+  }
 
-    public SubjectPublicKeyInfo getSubjectPublicKeyInfo()
-    {
-        return tbsCert.getSubjectPublicKeyInfo();
-    }
-
-    public AlgorithmIdentifier getSignatureAlgorithm()
-    {
-        return sigAlgId;
-    }
-
-    public DERBitString getSignature()
-    {
-        return sig;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return seq;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return seq;
+  }
 }

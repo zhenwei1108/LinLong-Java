@@ -1,42 +1,37 @@
 package com.github.zhenwei.core.crypto.params;
 
 import java.math.BigInteger;
- 
+
 
 public class ElGamalPublicKeyParameters
-    extends ElGamalKeyParameters
-{
-    private BigInteger      y;
+    extends ElGamalKeyParameters {
 
-    public ElGamalPublicKeyParameters(
-        BigInteger      y,
-        ElGamalParameters    params)
-    {
-        super(false, params);
+  private BigInteger y;
 
-        this.y = y;
-    }   
+  public ElGamalPublicKeyParameters(
+      BigInteger y,
+      ElGamalParameters params) {
+    super(false, params);
 
-    public BigInteger getY()
-    {
-        return y;
+    this.y = y;
+  }
+
+  public BigInteger getY() {
+    return y;
+  }
+
+  public int hashCode() {
+    return y.hashCode() ^ super.hashCode();
+  }
+
+  public boolean equals(
+      Object obj) {
+    if (!(obj instanceof ElGamalPublicKeyParameters)) {
+      return false;
     }
 
-    public int hashCode()
-    {
-        return y.hashCode() ^ super.hashCode();
-    }
+    ElGamalPublicKeyParameters other = (ElGamalPublicKeyParameters) obj;
 
-    public boolean equals(
-        Object  obj)
-    {
-        if (!(obj instanceof ElGamalPublicKeyParameters))
-        {
-            return false;
-        }
-
-        ElGamalPublicKeyParameters other =  (ElGamalPublicKeyParameters)obj;
-
-        return other.getY().equals(y) && super.equals(obj);
-    }
+    return other.getY().equals(y) && super.equals(obj);
+  }
 }

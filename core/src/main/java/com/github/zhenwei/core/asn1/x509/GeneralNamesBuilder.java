@@ -2,38 +2,33 @@ package com.github.zhenwei.core.asn1.x509;
 
 import java.util.Vector;
 
-public class GeneralNamesBuilder
-{
-    private Vector names = new Vector();
+public class GeneralNamesBuilder {
 
-    public GeneralNamesBuilder addNames(GeneralNames names)
-    {
-        GeneralName[] n = names.getNames();
+  private Vector names = new Vector();
 
-        for (int i = 0; i != n.length; i++)
-        {
-            this.names.addElement(n[i]);
-        }
+  public GeneralNamesBuilder addNames(GeneralNames names) {
+    GeneralName[] n = names.getNames();
 
-        return this;
+    for (int i = 0; i != n.length; i++) {
+      this.names.addElement(n[i]);
     }
 
-    public GeneralNamesBuilder addName(GeneralName name)
-    {
-        names.addElement(name);
+    return this;
+  }
 
-        return this;
+  public GeneralNamesBuilder addName(GeneralName name) {
+    names.addElement(name);
+
+    return this;
+  }
+
+  public GeneralNames build() {
+    GeneralName[] tmp = new GeneralName[names.size()];
+
+    for (int i = 0; i != tmp.length; i++) {
+      tmp[i] = (GeneralName) names.elementAt(i);
     }
 
-    public GeneralNames build()
-    {
-        GeneralName[] tmp = new GeneralName[names.size()];
-
-        for (int i = 0; i != tmp.length; i++)
-        {
-            tmp[i] = (GeneralName)names.elementAt(i);
-        }
-
-        return new GeneralNames(tmp);
-    }
+    return new GeneralNames(tmp);
+  }
 }

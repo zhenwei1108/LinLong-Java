@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.util.asn1.isismtt.x509;
 
-import ASN1Boolean;
+ 
 
 import com.github.zhenwei.core.asn1.ASN1Choice;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;

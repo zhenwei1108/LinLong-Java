@@ -3,60 +3,56 @@ package com.github.zhenwei.core.crypto.prng;
 import java.security.SecureRandom;
 
 /**
- * An EntropySourceProvider where entropy generation is based on a SecureRandom output using SecureRandom.generateSeed().
+ * An EntropySourceProvider where entropy generation is based on a SecureRandom output using
+ * SecureRandom.generateSeed().
  */
 public class BasicEntropySourceProvider
-    implements EntropySourceProvider
-{
-    private final SecureRandom _sr;
-    private final boolean      _predictionResistant;
+    implements EntropySourceProvider {
 
-    /**
-     * Create a entropy source provider based on the passed in SecureRandom.
-     *
-     * @param random the SecureRandom to base EntropySource construction on.
-     * @param isPredictionResistant boolean indicating if the SecureRandom is based on prediction resistant entropy or not (true if it is).
-     */
-    public BasicEntropySourceProvider(SecureRandom random, boolean isPredictionResistant)
-    {
-        _sr = random;
-        _predictionResistant = isPredictionResistant;
-    }
+  private final SecureRandom _sr;
+  private final boolean _predictionResistant;
 
-    /**
-     * Return an entropy source that will create bitsRequired bits of entropy on
-     * each invocation of getEntropy().
-     *
-     * @param bitsRequired size (in bits) of entropy to be created by the provided source.
-     * @return an EntropySource that generates bitsRequired bits of entropy on each call to its getEntropy() method.
-     */
-    public EntropySource get(final int bitsRequired)
-    {
-        return new EntropySource()
-        {
-            public boolean isPredictionResistant()
-            {
-                return _predictionResistant;
-            }
+  /**
+   * Create a entropy source provider based on the passed in SecureRandom.
+   *
+   * @param random                the SecureRandom to base EntropySource construction on.
+   * @param isPredictionResistant boolean indicating if the SecureRandom is based on prediction
+   *                              resistant entropy or not (true if it is).
+   */
+  public BasicEntropySourceProvider(SecureRandom random, boolean isPredictionResistant) {
+    _sr = random;
+    _predictionResistant = isPredictionResistant;
+  }
 
-            public byte[] getEntropy()
-            {
-                // is the RNG regarded as useful for seeding?
-                if (_sr instanceof SP800SecureRandom || _sr instanceof X931SecureRandom)
-                {
-                    byte[] rv = new byte[(bitsRequired + 7) / 8];
+  /**
+   * Return an entropy source that will create bitsRequired bits of entropy on each invocation of
+   * getEntropy().
+   *
+   * @param bitsRequired size (in bits) of entropy to be created by the provided source.
+   * @return an EntropySource that generates bitsRequired bits of entropy on each call to its
+   * getEntropy() method.
+   */
+  public EntropySource get(final int bitsRequired) {
+    return new EntropySource() {
+      public boolean isPredictionResistant() {
+        return _predictionResistant;
+      }
 
-                    _sr.nextBytes(rv);
+      public byte[] getEntropy() {
+        // is the RNG regarded as useful for seeding?
+        if (_sr instanceof SP800SecureRandom || _sr instanceof X931SecureRandom) {
+          byte[] rv = new byte[(bitsRequired + 7) / 8];
 
-                    return rv;
-                }
-                return _sr.generateSeed((bitsRequired + 7) / 8);
-            }
+          _sr.nextBytes(rv);
 
-            public int entropySize()
-            {
-                return bitsRequired;
-            }
-        };
-    }
+          return rv;
+        }
+        return _sr.generateSeed((bitsRequired + 7) / 8);
+      }
+
+      public int entropySize() {
+        return bitsRequired;
+      }
+    };
+  }
 }

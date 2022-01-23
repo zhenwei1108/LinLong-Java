@@ -3,40 +3,37 @@ package com.github.zhenwei.core.crypto;
 /**
  * General holding class for a commitment.
  */
-public class Commitment
-{
-    private final byte[] secret;
-    private final byte[] commitment;
+public class Commitment {
 
-    /**
-     * Base constructor.
-     *
-     * @param secret  an encoding of the secret required to reveal the commitment.
-     * @param commitment  an encoding of the sealed commitment.
-     */
-    public Commitment(byte[] secret, byte[] commitment)
-    {
-        this.secret = secret;
-        this.commitment = commitment;
-    }
+  private final byte[] secret;
+  private final byte[] commitment;
 
-    /**
-     * The secret required to reveal the commitment.
-     *
-     * @return an encoding of the secret associated with the commitment.
-     */
-    public byte[] getSecret()
-    {
-        return secret;
-    }
+  /**
+   * Base constructor.
+   *
+   * @param secret     an encoding of the secret required to reveal the commitment.
+   * @param commitment an encoding of the sealed commitment.
+   */
+  public Commitment(byte[] secret, byte[] commitment) {
+    this.secret = secret;
+    this.commitment = commitment;
+  }
 
-    /**
-     * The sealed commitment.
-     *
-     * @return an encoding of the sealed commitment.
-     */
-    public byte[] getCommitment()
-    {
-        return commitment;
-    }
+  /**
+   * The secret required to reveal the commitment.
+   *
+   * @return an encoding of the secret associated with the commitment.
+   */
+  public byte[] getSecret() {
+    return secret;
+  }
+
+  /**
+   * The sealed commitment.
+   *
+   * @return an encoding of the sealed commitment.
+   */
+  public byte[] getCommitment() {
+    return commitment;
+  }
 }

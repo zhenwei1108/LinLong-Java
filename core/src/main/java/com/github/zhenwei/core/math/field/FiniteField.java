@@ -2,9 +2,9 @@ package com.github.zhenwei.core.math.field;
 
 import java.math.BigInteger;
 
-public interface FiniteField
-{
-    BigInteger getCharacteristic();
+public interface FiniteField {
 
-    int getDimension();
+  BigInteger getCharacteristic();
+
+  int getDimension();
 }

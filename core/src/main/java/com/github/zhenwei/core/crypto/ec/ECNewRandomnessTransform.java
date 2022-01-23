@@ -11,98 +11,89 @@ import com.github.zhenwei.core.math.ec.ECMultiplier;
 import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import java.math.BigInteger;
 import java.security.SecureRandom;
- 
+
 
 /**
  * this transforms the original randomness used for an ElGamal encryption.
  */
 public class ECNewRandomnessTransform
-    implements ECPairFactorTransform
-{
-    private ECPublicKeyParameters key;
-    private SecureRandom          random;
+    implements ECPairFactorTransform {
 
-    private BigInteger            lastK;
+  private ECPublicKeyParameters key;
+  private SecureRandom random;
 
-    /**
-     * initialise the underlying EC ElGamal engine.
-     *
-     * @param param the necessary EC key parameters.
-     */
-    public void init(
-        CipherParameters param)
-    {
-        if (param instanceof ParametersWithRandom)
-        {
-            ParametersWithRandom    p = (ParametersWithRandom)param;
+  private BigInteger lastK;
 
-            if (!(p.getParameters() instanceof ECPublicKeyParameters))
-            {
-                throw new IllegalArgumentException("ECPublicKeyParameters are required for new randomness transform.");
-            }
+  /**
+   * initialise the underlying EC ElGamal engine.
+   *
+   * @param param the necessary EC key parameters.
+   */
+  public void init(
+      CipherParameters param) {
+    if (param instanceof ParametersWithRandom) {
+      ParametersWithRandom p = (ParametersWithRandom) param;
 
-            this.key = (ECPublicKeyParameters)p.getParameters();
-            this.random = p.getRandom();
-        }
-        else
-        {
-            if (!(param instanceof ECPublicKeyParameters))
-            {
-                throw new IllegalArgumentException("ECPublicKeyParameters are required for new randomness transform.");
-            }
+      if (!(p.getParameters() instanceof ECPublicKeyParameters)) {
+        throw new IllegalArgumentException(
+            "ECPublicKeyParameters are required for new randomness transform.");
+      }
 
-            this.key = (ECPublicKeyParameters)param;
-            this.random = CryptoServicesRegistrar.getSecureRandom();
-        }
+      this.key = (ECPublicKeyParameters) p.getParameters();
+      this.random = p.getRandom();
+    } else {
+      if (!(param instanceof ECPublicKeyParameters)) {
+        throw new IllegalArgumentException(
+            "ECPublicKeyParameters are required for new randomness transform.");
+      }
+
+      this.key = (ECPublicKeyParameters) param;
+      this.random = CryptoServicesRegistrar.getSecureRandom();
+    }
+  }
+
+  /**
+   * Transform an existing cipher test pair using the ElGamal algorithm. Note: it is assumed this
+   * transform has been initialised with the same public key that was used to create the original
+   * cipher text.
+   *
+   * @param cipherText the EC point to process.
+   * @return returns a new ECPair representing the result of the process.
+   */
+  public ECPair transform(ECPair cipherText) {
+    if (key == null) {
+      throw new IllegalStateException("ECNewRandomnessTransform not initialised");
     }
 
-    /**
-     * Transform an existing cipher test pair using the ElGamal algorithm. Note: it is assumed this
-     * transform has been initialised with the same public key that was used to create the original
-     * cipher text.
-     *
-     * @param cipherText the EC point to process.
-     * @return returns a new ECPair representing the result of the process.
-     */
-    public ECPair transform(ECPair cipherText)
-    {
-        if (key == null)
-        {
-            throw new IllegalStateException("ECNewRandomnessTransform not initialised");
-        }
+    ECDomainParameters ec = key.getParameters();
+    BigInteger n = ec.getN();
 
+    ECMultiplier basePointMultiplier = createBasePointMultiplier();
+    BigInteger k = ECUtil.generateK(n, random);
 
-        ECDomainParameters ec = key.getParameters();
-        BigInteger n = ec.getN();
+    ECPoint[] gamma_phi = new ECPoint[]{
+        basePointMultiplier.multiply(ec.getG(), k).add(
+            ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getX())),
+        key.getQ().multiply(k).add(ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getY()))
+    };
 
-        ECMultiplier basePointMultiplier = createBasePointMultiplier();
-        BigInteger k = ECUtil.generateK(n, random);
+    ec.getCurve().normalizeAll(gamma_phi);
 
-        ECPoint[] gamma_phi = new ECPoint[]{
-            basePointMultiplier.multiply(ec.getG(), k).add(
-                ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getX())),
-            key.getQ().multiply(k).add(ECAlgorithms.cleanPoint(ec.getCurve(), cipherText.getY()))
-        };
+    lastK = k;
 
-        ec.getCurve().normalizeAll(gamma_phi);
+    return new ECPair(gamma_phi[0], gamma_phi[1]);
+  }
 
-        lastK = k;
+  /**
+   * Return the last random value generated for a transform
+   *
+   * @return a BigInteger representing the last random value.
+   */
+  public BigInteger getTransformValue() {
+    return lastK;
+  }
 
-        return new ECPair(gamma_phi[0], gamma_phi[1]);
-    }
-
-    /**
-     * Return the last random value generated for a transform
-     *
-     * @return a BigInteger representing the last random value.
-     */
-    public BigInteger getTransformValue()
-    {
-        return lastK;
-    }
-
-    protected ECMultiplier createBasePointMultiplier()
-    {
-        return new FixedPointCombMultiplier();
-    }
+  protected ECMultiplier createBasePointMultiplier() {
+    return new FixedPointCombMultiplier();
+  }
 }

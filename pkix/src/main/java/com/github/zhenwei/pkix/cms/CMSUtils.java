@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 
 import BEROctetStringGenerator;
-import BERSet;
+ 
 import DLSet;
 import cms.ContentInfo;
 import com.github.zhenwei.core.asn1.ASN1Encodable;

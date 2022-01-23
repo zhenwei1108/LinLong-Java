@@ -2,21 +2,19 @@ package com.github.zhenwei.core.crypto.params;
 
 
 public class GOST3410KeyParameters
-        extends AsymmetricKeyParameter
-{
-    private GOST3410Parameters    params;
+    extends AsymmetricKeyParameter {
 
-    public GOST3410KeyParameters(
-        boolean         isPrivate,
-        GOST3410Parameters   params)
-    {
-        super(isPrivate);
+  private GOST3410Parameters params;
 
-        this.params = params;
-    }
+  public GOST3410KeyParameters(
+      boolean isPrivate,
+      GOST3410Parameters params) {
+    super(isPrivate);
 
-    public GOST3410Parameters getParameters()
-    {
-        return params;
-    }
+    this.params = params;
+  }
+
+  public GOST3410Parameters getParameters() {
+    return params;
+  }
 }

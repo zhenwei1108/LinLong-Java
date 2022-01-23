@@ -2,51 +2,41 @@ package com.github.zhenwei.core.crypto.params;
 
 
 public class CramerShoupKeyParameters
-    extends AsymmetricKeyParameter
-{
+    extends AsymmetricKeyParameter {
 
-    private CramerShoupParameters params;
+  private CramerShoupParameters params;
 
-    protected CramerShoupKeyParameters(boolean isPrivate, CramerShoupParameters params)
-    {
-        super(isPrivate);
+  protected CramerShoupKeyParameters(boolean isPrivate, CramerShoupParameters params) {
+    super(isPrivate);
 
-        this.params = params;
+    this.params = params;
+  }
+
+  public CramerShoupParameters getParameters() {
+    return params;
+  }
+
+  public boolean equals(Object obj) {
+    if (!(obj instanceof CramerShoupKeyParameters)) {
+      return false;
     }
 
-    public CramerShoupParameters getParameters()
-    {
-        return params;
+    CramerShoupKeyParameters csKey = (CramerShoupKeyParameters) obj;
+
+    if (params == null) {
+      return csKey.getParameters() == null;
+    } else {
+      return params.equals(csKey.getParameters());
+    }
+  }
+
+  public int hashCode() {
+    int code = isPrivate() ? 0 : 1;
+
+    if (params != null) {
+      code ^= params.hashCode();
     }
 
-    public boolean equals(Object obj)
-    {
-        if (!(obj instanceof CramerShoupKeyParameters))
-        {
-            return false;
-        }
-
-        CramerShoupKeyParameters csKey =  (CramerShoupKeyParameters)obj;
-
-        if (params == null)
-        {
-            return csKey.getParameters() == null;
-        }
-        else
-        {
-            return params.equals(csKey.getParameters());
-        }
-    }
-
-    public int hashCode()
-    {
-        int code = isPrivate() ? 0 : 1;
-
-        if (params != null)
-        {
-            code ^= params.hashCode();
-        }
-
-        return code;
-    }
+    return code;
+  }
 }

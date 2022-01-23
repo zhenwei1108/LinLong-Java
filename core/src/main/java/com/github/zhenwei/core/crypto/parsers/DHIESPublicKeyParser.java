@@ -7,28 +7,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
 import org.bouncycastle.crypto.KeyParser;
- 
- 
- 
 
 
 public class DHIESPublicKeyParser
-    implements KeyParser
-{
-    private DHParameters dhParams;
+    implements KeyParser {
 
-    public DHIESPublicKeyParser(DHParameters dhParams)
-    {
-        this.dhParams = dhParams;
-    }
+  private DHParameters dhParams;
 
-    public AsymmetricKeyParameter readKey(InputStream stream)
-        throws IOException
-    {
-        byte[] V = new byte[(dhParams.getP().bitLength() + 7) / 8];
+  public DHIESPublicKeyParser(DHParameters dhParams) {
+    this.dhParams = dhParams;
+  }
 
-        Streams.readFully(stream, V, 0, V.length);
+  public AsymmetricKeyParameter readKey(InputStream stream)
+      throws IOException {
+    byte[] V = new byte[(dhParams.getP().bitLength() + 7) / 8];
 
-        return new DHPublicKeyParameters(new BigInteger(1, V), dhParams);
-    }
+    Streams.readFully(stream, V, 0, V.length);
+
+    return new DHPublicKeyParameters(new BigInteger(1, V), dhParams);
+  }
 }

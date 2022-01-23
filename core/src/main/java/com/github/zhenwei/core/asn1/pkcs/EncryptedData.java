@@ -33,81 +33,70 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  * </pre>
  */
 public class EncryptedData
-    extends ASN1Object
-{
-    ASN1Sequence data;
+    extends ASN1Object {
 
-    public static EncryptedData getInstance(
-         Object  obj)
-    {
-         if (obj instanceof EncryptedData)
-         {
-             return  (EncryptedData)obj;
-         }
+  ASN1Sequence data;
 
-         if (obj != null)
-         {
-             return new EncryptedData(ASN1Sequence.getInstance(obj));
-         }
-
-         return null;
-    }
-     
-    private EncryptedData(
-        ASN1Sequence seq)
-    {
-        ASN1Integer version = (ASN1Integer)seq.getObjectAt(0);
-        if (!version.hasValue(0))
-        {
-            throw new IllegalArgumentException("sequence not version 0");
-        }
-
-        this.data = ASN1Sequence.getInstance(seq.getObjectAt(1));
+  public static EncryptedData getInstance(
+      Object obj) {
+    if (obj instanceof EncryptedData) {
+      return (EncryptedData) obj;
     }
 
-    public EncryptedData(
-        ASN1ObjectIdentifier contentType,
-        AlgorithmIdentifier encryptionAlgorithm,
-        ASN1Encodable content)
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        v.add(contentType);
-        v.add(encryptionAlgorithm.toASN1Primitive());
-        v.add(new BERTaggedObject(false, 0, content));
-
-        data = new BERSequence(v);
-    }
-        
-    public ASN1ObjectIdentifier getContentType()
-    {
-        return ASN1ObjectIdentifier.getInstance(data.getObjectAt(0));
+    if (obj != null) {
+      return new EncryptedData(ASN1Sequence.getInstance(obj));
     }
 
-    public AlgorithmIdentifier getEncryptionAlgorithm()
-    {
-        return AlgorithmIdentifier.getInstance(data.getObjectAt(1));
+    return null;
+  }
+
+  private EncryptedData(
+      ASN1Sequence seq) {
+    ASN1Integer version = (ASN1Integer) seq.getObjectAt(0);
+    if (!version.hasValue(0)) {
+      throw new IllegalArgumentException("sequence not version 0");
     }
 
-    public ASN1OctetString getContent()
-    {
-        if (data.size() == 3)
-        {
-            ASN1TaggedObject o = ASN1TaggedObject.getInstance(data.getObjectAt(2));
+    this.data = ASN1Sequence.getInstance(seq.getObjectAt(1));
+  }
 
-            return ASN1OctetString.getInstance(o, false);
-        }
+  public EncryptedData(
+      ASN1ObjectIdentifier contentType,
+      AlgorithmIdentifier encryptionAlgorithm,
+      ASN1Encodable content) {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-        return null;
+    v.add(contentType);
+    v.add(encryptionAlgorithm.toASN1Primitive());
+    v.add(new BERTaggedObject(false, 0, content));
+
+    data = new BERSequence(v);
+  }
+
+  public ASN1ObjectIdentifier getContentType() {
+    return ASN1ObjectIdentifier.getInstance(data.getObjectAt(0));
+  }
+
+  public AlgorithmIdentifier getEncryptionAlgorithm() {
+    return AlgorithmIdentifier.getInstance(data.getObjectAt(1));
+  }
+
+  public ASN1OctetString getContent() {
+    if (data.size() == 3) {
+      ASN1TaggedObject o = ASN1TaggedObject.getInstance(data.getObjectAt(2));
+
+      return ASN1OctetString.getInstance(o, false);
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+    return null;
+  }
 
-        v.add(new ASN1Integer(0));
-        v.add(data);
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        return new BERSequence(v);
-    }
+    v.add(new ASN1Integer(0));
+    v.add(data);
+
+    return new BERSequence(v);
+  }
 }

@@ -23,92 +23,79 @@ import com.github.zhenwei.core.asn1.DERBitString;
  * </pre>
  */
 public class KeyUsage
-    extends ASN1Object
-{
-    public static final int        digitalSignature = (1 << 7); 
-    public static final int        nonRepudiation   = (1 << 6);
-    public static final int        keyEncipherment  = (1 << 5);
-    public static final int        dataEncipherment = (1 << 4);
-    public static final int        keyAgreement     = (1 << 3);
-    public static final int        keyCertSign      = (1 << 2);
-    public static final int        cRLSign          = (1 << 1);
-    public static final int        encipherOnly     = (1 << 0);
-    public static final int        decipherOnly     = (1 << 15);
+    extends ASN1Object {
 
-    private DERBitString bitString;
+  public static final int digitalSignature = (1 << 7);
+  public static final int nonRepudiation = (1 << 6);
+  public static final int keyEncipherment = (1 << 5);
+  public static final int dataEncipherment = (1 << 4);
+  public static final int keyAgreement = (1 << 3);
+  public static final int keyCertSign = (1 << 2);
+  public static final int cRLSign = (1 << 1);
+  public static final int encipherOnly = (1 << 0);
+  public static final int decipherOnly = (1 << 15);
 
-    public static KeyUsage getInstance(Object obj)   // needs to be DERBitString for other VMs
-    {
-        if (obj instanceof KeyUsage)
-        {
-            return (KeyUsage)obj;
-        }
-        else if (obj != null)
-        {
-            return new KeyUsage(DERBitString.getInstance(obj));
-        }
+  private DERBitString bitString;
 
-        return null;
+  public static KeyUsage getInstance(Object obj)   // needs to be DERBitString for other VMs
+  {
+    if (obj instanceof KeyUsage) {
+      return (KeyUsage) obj;
+    } else if (obj != null) {
+      return new KeyUsage(DERBitString.getInstance(obj));
     }
 
-    public static KeyUsage fromExtensions(Extensions extensions)
-    {
-        return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.keyUsage));
-    }
+    return null;
+  }
 
-    /**
-     * Basic constructor.
-     * 
-     * @param usage - the bitwise OR of the Key Usage flags giving the
-     * allowed uses for the key.
-     * e.g. (KeyUsage.keyEncipherment | KeyUsage.dataEncipherment)
-     */
-    public KeyUsage(
-        int usage)
-    {
-        this.bitString = new DERBitString(usage);
-    }
+  public static KeyUsage fromExtensions(Extensions extensions) {
+    return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.keyUsage));
+  }
 
-    private KeyUsage(
-        DERBitString bitString)
-    {
-        this.bitString = bitString;
-    }
+  /**
+   * Basic constructor.
+   *
+   * @param usage - the bitwise OR of the Key Usage flags giving the allowed uses for the key. e.g.
+   *              (KeyUsage.keyEncipherment | KeyUsage.dataEncipherment)
+   */
+  public KeyUsage(
+      int usage) {
+    this.bitString = new DERBitString(usage);
+  }
 
-    /**
-     * Return true if a given usage bit is set, false otherwise.
-     *
-     * @param usages combination of usage flags.
-     * @return true if all bits are set, false otherwise.
-     */
-    public boolean hasUsages(int usages)
-    {
-        return (bitString.intValue() & usages) == usages;
-    }
+  private KeyUsage(
+      DERBitString bitString) {
+    this.bitString = bitString;
+  }
 
-    public byte[] getBytes()
-    {
-        return bitString.getBytes();
-    }
+  /**
+   * Return true if a given usage bit is set, false otherwise.
+   *
+   * @param usages combination of usage flags.
+   * @return true if all bits are set, false otherwise.
+   */
+  public boolean hasUsages(int usages) {
+    return (bitString.intValue() & usages) == usages;
+  }
 
-    public int getPadBits()
-    {
-        return bitString.getPadBits();
-    }
+  public byte[] getBytes() {
+    return bitString.getBytes();
+  }
 
-    public String toString()
-    {
-        byte[] data = bitString.getBytes();
+  public int getPadBits() {
+    return bitString.getPadBits();
+  }
 
-        if (data.length == 1)
-        {
-            return "KeyUsage: 0x" + Integer.toHexString(data[0] & 0xff);
-        }
-        return "KeyUsage: 0x" + Integer.toHexString((data[1] & 0xff) << 8 | (data[0] & 0xff));
-    }
+  public String toString() {
+    byte[] data = bitString.getBytes();
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return bitString;
+    if (data.length == 1) {
+      return "KeyUsage: 0x" + Integer.toHexString(data[0] & 0xff);
     }
+    return "KeyUsage: 0x" + Integer.toHexString((data[1] & 0xff) << 8 | (data[0] & 0xff));
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return bitString;
+  }
 }

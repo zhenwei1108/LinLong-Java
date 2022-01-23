@@ -1,23 +1,20 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-public class LMSParameters
-{
-    private final LMSigParameters lmSigParam;
-    private final LMOtsParameters lmOTSParam;
+public class LMSParameters {
 
-    public LMSParameters(LMSigParameters lmSigParam, LMOtsParameters lmOTSParam)
-    {
-        this.lmSigParam = lmSigParam;
-        this.lmOTSParam = lmOTSParam;
-    }
+  private final LMSigParameters lmSigParam;
+  private final LMOtsParameters lmOTSParam;
 
-    public LMSigParameters getLMSigParam()
-    {
-        return lmSigParam;
-    }
+  public LMSParameters(LMSigParameters lmSigParam, LMOtsParameters lmOTSParam) {
+    this.lmSigParam = lmSigParam;
+    this.lmOTSParam = lmOTSParam;
+  }
 
-    public LMOtsParameters getLMOTSParam()
-    {
-        return lmOTSParam;
-    }
+  public LMSigParameters getLMSigParam() {
+    return lmSigParam;
+  }
+
+  public LMOtsParameters getLMOTSParam() {
+    return lmOTSParam;
+  }
 }

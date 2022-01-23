@@ -7,89 +7,77 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 /**
  * A generic PEM reader, based on the format outlined in RFC 1421
  */
 public class PemReader
-    extends BufferedReader
-{
-    private static final String BEGIN = "-----BEGIN ";
-    private static final String END = "-----END ";
+    extends BufferedReader {
 
-    public PemReader(Reader reader)
-    {
-        super(reader);
+  private static final String BEGIN = "-----BEGIN ";
+  private static final String END = "-----END ";
+
+  public PemReader(Reader reader) {
+    super(reader);
+  }
+
+  /**
+   * Read the next PEM object as a blob of raw data with header information.
+   *
+   * @return the next object in the stream, null if no objects left.
+   * @throws IOException in case of a parse error.
+   */
+  public PemObject readPemObject()
+      throws IOException {
+    String line = readLine();
+
+    while (line != null && !line.startsWith(BEGIN)) {
+      line = readLine();
     }
 
-    /**
-     * Read the next PEM object as a blob of raw data with header information.
-     *
-     * @return the next object in the stream, null if no objects left.
-     * @throws IOException in case of a parse error.
-     */
-    public PemObject readPemObject()
-        throws IOException
-    {
-        String line = readLine();
+    if (line != null) {
+      line = line.substring(BEGIN.length());
+      int index = line.indexOf('-');
 
-        while (line != null && !line.startsWith(BEGIN))
-        {
-            line = readLine();
-        }
+      if (index > 0 && line.endsWith("-----") && (line.length() - index) == 5) {
+        String type = line.substring(0, index);
 
-        if (line != null)
-        {
-            line = line.substring(BEGIN.length());
-            int index = line.indexOf('-');
-
-            if (index > 0 && line.endsWith("-----") && (line.length() - index) == 5)
-            {
-                String type = line.substring(0, index);
-
-                return loadObject(type);
-            }
-        }
-
-        return null;
+        return loadObject(type);
+      }
     }
 
-    private PemObject loadObject(String type)
-        throws IOException
-    {
-        String          line;
-        String          endMarker = END + type;
-        StringBuffer    buf = new StringBuffer();
-        List            headers = new ArrayList();
+    return null;
+  }
 
-        while ((line = readLine()) != null)
-        {
-            int index = line.indexOf(':');
-            if (index >= 0)
-            {
-                String hdr = line.substring(0, index);
-                String value = line.substring(index + 1).trim();
+  private PemObject loadObject(String type)
+      throws IOException {
+    String line;
+    String endMarker = END + type;
+    StringBuffer buf = new StringBuffer();
+    List headers = new ArrayList();
 
-                headers.add(new PemHeader(hdr, value));
+    while ((line = readLine()) != null) {
+      int index = line.indexOf(':');
+      if (index >= 0) {
+        String hdr = line.substring(0, index);
+        String value = line.substring(index + 1).trim();
 
-                continue;
-            }
+        headers.add(new PemHeader(hdr, value));
 
-            if (line.indexOf(endMarker) != -1)
-            {
-                break;
-            }
-            
-            buf.append(line.trim());
-        }
+        continue;
+      }
 
-        if (line == null)
-        {
-            throw new IOException(endMarker + " not found");
-        }
+      if (line.indexOf(endMarker) != -1) {
+        break;
+      }
 
-        return new PemObject(type, headers, Base64.decode(buf.toString()));
+      buf.append(line.trim());
     }
+
+    if (line == null) {
+      throw new IOException(endMarker + " not found");
+    }
+
+    return new PemObject(type, headers, Base64.decode(buf.toString()));
+  }
 
 }

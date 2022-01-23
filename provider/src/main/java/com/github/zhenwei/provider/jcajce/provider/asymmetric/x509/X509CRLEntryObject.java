@@ -1,7 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 
-import ASN1Enumerated;
+ 
 
 import GeneralNames;
 import TBSCertList;

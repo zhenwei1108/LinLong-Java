@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.util.oer.its;
 
-import ASN1Enumerated;
+ 
 import java.math.BigInteger;
 
 public class SymmAlgorithm

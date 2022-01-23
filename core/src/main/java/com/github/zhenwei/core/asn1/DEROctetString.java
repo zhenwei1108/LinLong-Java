@@ -1,70 +1,61 @@
 package com.github.zhenwei.core.asn1;
 
 
-
 import java.io.IOException;
 
 /**
  * Carrier class for a DER encoding OCTET STRING
  */
 public class DEROctetString
-    extends ASN1OctetString
-{
-    /**
-     * Base constructor.
-     *
-     * @param string the octets making up the octet string.
-     */
-    public DEROctetString(
-        byte[]  string)
-    {
-        super(string);
-    }
+    extends ASN1OctetString {
 
-    /**
-     * Constructor from the encoding of an ASN.1 object.
-     *
-     * @param obj the object to be encoded.
-     */
-    public DEROctetString(
-        ASN1Encodable obj)
-        throws IOException
-    {
-        super(obj.toASN1Primitive().getEncoded(ASN1Encoding.DER));
-    }
+  /**
+   * Base constructor.
+   *
+   * @param string the octets making up the octet string.
+   */
+  public DEROctetString(
+      byte[] string) {
+    super(string);
+  }
 
-    boolean isConstructed()
-    {
-        return false;
-    }
+  /**
+   * Constructor from the encoding of an ASN.1 object.
+   *
+   * @param obj the object to be encoded.
+   */
+  public DEROctetString(
+      ASN1Encodable obj)
+      throws IOException {
+    super(obj.toASN1Primitive().getEncoded(ASN1Encoding.DER));
+  }
 
-    int encodedLength(boolean withTag)
-    {
-        return ASN1OutputStream.getLengthOfEncodingDL(withTag, string.length);
-    }
+  boolean isConstructed() {
+    return false;
+  }
 
-    void encode(ASN1OutputStream out, boolean withTag) throws IOException
-    {
-        out.writeEncodingDL(withTag, BERTags.OCTET_STRING, string);
-    }
+  int encodedLength(boolean withTag) {
+    return ASN1OutputStream.getLengthOfEncodingDL(withTag, string.length);
+  }
 
-    ASN1Primitive toDERObject()
-    {
-        return this;
-    }
+  void encode(ASN1OutputStream out, boolean withTag) throws IOException {
+    out.writeEncodingDL(withTag, BERTags.OCTET_STRING, string);
+  }
 
-    ASN1Primitive toDLObject()
-    {
-        return this;
-    }
+  ASN1Primitive toDERObject() {
+    return this;
+  }
 
-    static void encode(ASN1OutputStream out, boolean withTag, byte[] buf, int off, int len) throws IOException
-    {
-        out.writeEncodingDL(withTag, BERTags.OCTET_STRING, buf, off, len);
-    }
+  ASN1Primitive toDLObject() {
+    return this;
+  }
 
-    static int encodedLength(boolean withTag, int contentsLength)
-    {
-        return ASN1OutputStream.getLengthOfEncodingDL(withTag, contentsLength);
-    }
+  static void encode(ASN1OutputStream out, boolean withTag, byte[] buf, int off, int len)
+      throws IOException {
+    out.writeEncodingDL(withTag, BERTags.OCTET_STRING, buf, off, len);
+  }
+
+  static int encodedLength(boolean withTag, int contentsLength) {
+    return ASN1OutputStream.getLengthOfEncodingDL(withTag, contentsLength);
+  }
 }

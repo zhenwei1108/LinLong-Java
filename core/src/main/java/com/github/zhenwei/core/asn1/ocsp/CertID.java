@@ -12,95 +12,83 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public class CertID
-    extends ASN1Object
-{
-    AlgorithmIdentifier hashAlgorithm;
-    ASN1OctetString issuerNameHash;
-    ASN1OctetString        issuerKeyHash;
-    ASN1Integer serialNumber;
+    extends ASN1Object {
 
-    public CertID(
-        AlgorithmIdentifier hashAlgorithm,
-        ASN1OctetString     issuerNameHash,
-        ASN1OctetString     issuerKeyHash,
-        ASN1Integer         serialNumber)
-    {
-        this.hashAlgorithm = hashAlgorithm;
-        this.issuerNameHash = issuerNameHash;
-        this.issuerKeyHash = issuerKeyHash;
-        this.serialNumber = serialNumber;
+  AlgorithmIdentifier hashAlgorithm;
+  ASN1OctetString issuerNameHash;
+  ASN1OctetString issuerKeyHash;
+  ASN1Integer serialNumber;
+
+  public CertID(
+      AlgorithmIdentifier hashAlgorithm,
+      ASN1OctetString issuerNameHash,
+      ASN1OctetString issuerKeyHash,
+      ASN1Integer serialNumber) {
+    this.hashAlgorithm = hashAlgorithm;
+    this.issuerNameHash = issuerNameHash;
+    this.issuerKeyHash = issuerKeyHash;
+    this.serialNumber = serialNumber;
+  }
+
+  private CertID(
+      ASN1Sequence seq) {
+    hashAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
+    issuerNameHash = (ASN1OctetString) seq.getObjectAt(1);
+    issuerKeyHash = (ASN1OctetString) seq.getObjectAt(2);
+    serialNumber = (ASN1Integer) seq.getObjectAt(3);
+  }
+
+  public static CertID getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static CertID getInstance(
+      Object obj) {
+    if (obj instanceof CertID) {
+      return (CertID) obj;
+    } else if (obj != null) {
+      return new CertID(ASN1Sequence.getInstance(obj));
     }
 
-    private CertID(
-        ASN1Sequence seq)
-    {
-        hashAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-        issuerNameHash = (ASN1OctetString)seq.getObjectAt(1);
-        issuerKeyHash = (ASN1OctetString)seq.getObjectAt(2);
-        serialNumber = (ASN1Integer)seq.getObjectAt(3);
-    }
+    return null;
+  }
 
-    public static CertID getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
-    }
+  public AlgorithmIdentifier getHashAlgorithm() {
+    return hashAlgorithm;
+  }
 
-    public static CertID getInstance(
-        Object  obj)
-    {
-        if (obj instanceof CertID)
-        {
-            return  (CertID)obj;
-        }
-        else if (obj != null)
-        {
-            return new CertID(ASN1Sequence.getInstance(obj));
-        }
+  public ASN1OctetString getIssuerNameHash() {
+    return issuerNameHash;
+  }
 
-        return null;
-    }
+  public ASN1OctetString getIssuerKeyHash() {
+    return issuerKeyHash;
+  }
 
-    public AlgorithmIdentifier getHashAlgorithm()
-    {
-        return hashAlgorithm;
-    }
+  public ASN1Integer getSerialNumber() {
+    return serialNumber;
+  }
 
-    public ASN1OctetString getIssuerNameHash()
-    {
-        return issuerNameHash;
-    }
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   * <pre>
+   * CertID          ::=     SEQUENCE {
+   *     hashAlgorithm       AlgorithmIdentifier,
+   *     issuerNameHash      OCTET STRING, -- Hash of Issuer's DN
+   *     issuerKeyHash       OCTET STRING, -- Hash of Issuers public key
+   *     serialNumber        CertificateSerialNumber }
+   * </pre>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(4);
 
-    public ASN1OctetString getIssuerKeyHash()
-    {
-        return issuerKeyHash;
-    }
+    v.add(hashAlgorithm);
+    v.add(issuerNameHash);
+    v.add(issuerKeyHash);
+    v.add(serialNumber);
 
-    public ASN1Integer getSerialNumber()
-    {
-        return serialNumber;
-    }
-
-    /**
-     * Produce an object suitable for an ASN1OutputStream.
-     * <pre>
-     * CertID          ::=     SEQUENCE {
-     *     hashAlgorithm       AlgorithmIdentifier,
-     *     issuerNameHash      OCTET STRING, -- Hash of Issuer's DN
-     *     issuerKeyHash       OCTET STRING, -- Hash of Issuers public key
-     *     serialNumber        CertificateSerialNumber }
-     * </pre>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(4);
-
-        v.add(hashAlgorithm);
-        v.add(issuerNameHash);
-        v.add(issuerKeyHash);
-        v.add(serialNumber);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

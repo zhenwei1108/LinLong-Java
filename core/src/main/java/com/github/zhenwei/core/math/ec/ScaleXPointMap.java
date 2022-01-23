@@ -1,16 +1,14 @@
 package com.github.zhenwei.core.math.ec;
 
-public class ScaleXPointMap implements ECPointMap
-{
-    protected final ECFieldElement scale;
+public class ScaleXPointMap implements ECPointMap {
 
-    public ScaleXPointMap(ECFieldElement scale)
-    {
-        this.scale = scale;
-    }
+  protected final ECFieldElement scale;
 
-    public ECPoint map(ECPoint p)
-    {
-        return p.scaleX(scale);
-    }
+  public ScaleXPointMap(ECFieldElement scale) {
+    this.scale = scale;
+  }
+
+  public ECPoint map(ECPoint p) {
+    return p.scaleX(scale);
+  }
 }

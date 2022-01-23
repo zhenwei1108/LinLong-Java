@@ -7,19 +7,17 @@ import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 
 
 public class HSSKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    HSSKeyGenerationParameters param;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(KeyGenerationParameters param)
-    {
-        this.param = (HSSKeyGenerationParameters)param;
-    }
+  HSSKeyGenerationParameters param;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        HSSPrivateKeyParameters privKey = HSS.generateHSSKeyPair(param);
+  public void init(KeyGenerationParameters param) {
+    this.param = (HSSKeyGenerationParameters) param;
+  }
 
-        return new AsymmetricCipherKeyPair(privKey.getPublicKey(), privKey);
-    }
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    HSSPrivateKeyParameters privKey = HSS.generateHSSKeyPair(param);
+
+    return new AsymmetricCipherKeyPair(privKey.getPublicKey(), privKey);
+  }
 }

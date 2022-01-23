@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 
 import BERSequenceGenerator;
-import BERSet;
+ 
 import DLSet;
 import cms.AttributeTable;
 import cms.EnvelopedData;

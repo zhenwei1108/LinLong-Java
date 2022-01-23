@@ -8,7 +8,7 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
 import java.io.IOException;
 import java.security.PrivateKey;
-import org.bouncycastle.pqc.asn1.McEliecePrivateKey;
+import  McEliecePrivateKey;
 import org.bouncycastle.pqc.crypto.mceliece.McElieceKeyPairGenerator;
 import org.bouncycastle.pqc.crypto.mceliece.McEliecePrivateKeyParameters;
 import org.bouncycastle.pqc.math.linearalgebra.GF2Matrix;

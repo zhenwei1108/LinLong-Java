@@ -4,32 +4,29 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.security.SecureRandom;
 import org.bouncycastle.pqc.crypto.ExchangePair;
 import org.bouncycastle.pqc.crypto.ExchangePairGenerator;
- 
+
 
 public class NHExchangePairGenerator
-    implements ExchangePairGenerator
-{
-    private final SecureRandom random;
+    implements ExchangePairGenerator {
 
-    public NHExchangePairGenerator(SecureRandom random)
-    {
-        this.random = random;
-    }
+  private final SecureRandom random;
 
-    public ExchangePair GenerateExchange(AsymmetricKeyParameter senderPublicKey)
-    {
-        return generateExchange(senderPublicKey);
-    }
+  public NHExchangePairGenerator(SecureRandom random) {
+    this.random = random;
+  }
 
-    public ExchangePair generateExchange(AsymmetricKeyParameter senderPublicKey)
-    {
-        NHPublicKeyParameters pubKey = (NHPublicKeyParameters)senderPublicKey;
+  public ExchangePair GenerateExchange(AsymmetricKeyParameter senderPublicKey) {
+    return generateExchange(senderPublicKey);
+  }
 
-        byte[] sharedValue = new byte[NewHope.AGREEMENT_SIZE];
-        byte[] publicKeyValue = new byte[NewHope.SENDB_BYTES];
+  public ExchangePair generateExchange(AsymmetricKeyParameter senderPublicKey) {
+    NHPublicKeyParameters pubKey = (NHPublicKeyParameters) senderPublicKey;
 
-        NewHope.sharedB(random, sharedValue, publicKeyValue, pubKey.pubData);
+    byte[] sharedValue = new byte[NewHope.AGREEMENT_SIZE];
+    byte[] publicKeyValue = new byte[NewHope.SENDB_BYTES];
 
-        return new ExchangePair(new NHPublicKeyParameters(publicKeyValue), sharedValue);
-    }
+    NewHope.sharedB(random, sharedValue, publicKeyValue, pubKey.pubData);
+
+    return new ExchangePair(new NHPublicKeyParameters(publicKeyValue), sharedValue);
+  }
 }

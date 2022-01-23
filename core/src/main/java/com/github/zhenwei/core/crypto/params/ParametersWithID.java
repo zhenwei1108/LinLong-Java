@@ -4,26 +4,23 @@ package com.github.zhenwei.core.crypto.params;
 import com.github.zhenwei.core.crypto.CipherParameters;
 
 public class ParametersWithID
-    implements CipherParameters
-{
-    private CipherParameters  parameters;
-    private byte[] id;
+    implements CipherParameters {
 
-    public ParametersWithID(
-        CipherParameters parameters,
-        byte[] id)
-    {
-        this.parameters = parameters;
-        this.id = id;
-    }
+  private CipherParameters parameters;
+  private byte[] id;
 
-    public byte[] getID()
-    {
-        return id;
-    }
+  public ParametersWithID(
+      CipherParameters parameters,
+      byte[] id) {
+    this.parameters = parameters;
+    this.id = id;
+  }
 
-    public CipherParameters getParameters()
-    {
-        return parameters;
-    }
+  public byte[] getID() {
+    return id;
+  }
+
+  public CipherParameters getParameters() {
+    return parameters;
+  }
 }

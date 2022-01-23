@@ -2,36 +2,32 @@ package com.github.zhenwei.core.crypto.io;
 
 import java.io.IOException;
 import java.io.OutputStream;
- 
+
 
 public class SignerOutputStream
-    extends OutputStream
-{
-    protected Signer signer;
+    extends OutputStream {
 
-    public SignerOutputStream(
-        Signer          Signer)
-    {
-        this.signer = Signer;
-    }
+  protected Signer signer;
 
-    public void write(int b)
-        throws IOException
-    {
-        signer.update((byte)b);
-    }
+  public SignerOutputStream(
+      Signer Signer) {
+    this.signer = Signer;
+  }
 
-    public void write(
-        byte[] b,
-        int off,
-        int len)
-        throws IOException
-    {
-        signer.update(b, off, len);
-    }
+  public void write(int b)
+      throws IOException {
+    signer.update((byte) b);
+  }
 
-    public Signer getSigner()
-    {
-        return signer;
-    }
+  public void write(
+      byte[] b,
+      int off,
+      int len)
+      throws IOException {
+    signer.update(b, off, len);
+  }
+
+  public Signer getSigner() {
+    return signer;
+  }
 }

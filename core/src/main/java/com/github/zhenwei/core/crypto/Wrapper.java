@@ -1,19 +1,19 @@
 package com.github.zhenwei.core.crypto;
 
 
-public interface Wrapper
-{
-    public void init(boolean forWrapping, CipherParameters param);
+public interface Wrapper {
 
-    /**
-     * Return the name of the algorithm the wrapper implements.
-     *
-     * @return the name of the algorithm the wrapper implements.
-     */
-    public String getAlgorithmName();
+  public void init(boolean forWrapping, CipherParameters param);
 
-    public byte[] wrap(byte[] in, int inOff, int inLen);
+  /**
+   * Return the name of the algorithm the wrapper implements.
+   *
+   * @return the name of the algorithm the wrapper implements.
+   */
+  public String getAlgorithmName();
 
-    public byte[] unwrap(byte[] in, int inOff, int inLen)
-        throws InvalidCipherTextException;
+  public byte[] wrap(byte[] in, int inOff, int inLen);
+
+  public byte[] unwrap(byte[] in, int inOff, int inLen)
+      throws InvalidCipherTextException;
 }

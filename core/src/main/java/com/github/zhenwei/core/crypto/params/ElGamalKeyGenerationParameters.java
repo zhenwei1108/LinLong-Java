@@ -2,30 +2,26 @@ package com.github.zhenwei.core.crypto.params;
 
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.security.SecureRandom;
- 
- 
+
 
 public class ElGamalKeyGenerationParameters
-    extends KeyGenerationParameters
-{
-    private ElGamalParameters    params;
+    extends KeyGenerationParameters {
 
-    public ElGamalKeyGenerationParameters(
-        SecureRandom        random,
-        ElGamalParameters   params)
-    {
-        super(random, getStrength(params));
+  private ElGamalParameters params;
 
-        this.params = params;
-    }
+  public ElGamalKeyGenerationParameters(
+      SecureRandom random,
+      ElGamalParameters params) {
+    super(random, getStrength(params));
 
-    public ElGamalParameters getParameters()
-    {
-        return params;
-    }
+    this.params = params;
+  }
 
-    static int getStrength(ElGamalParameters params)
-    {
-        return params.getL() != 0 ? params.getL() : params.getP().bitLength();
-    }
+  public ElGamalParameters getParameters() {
+    return params;
+  }
+
+  static int getStrength(ElGamalParameters params) {
+    return params.getL() != 0 ? params.getL() : params.getP().bitLength();
+  }
 }

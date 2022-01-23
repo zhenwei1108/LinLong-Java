@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 
-import BERSet;
+ 
 import cms.AuthenticatedData;
 import cms.ContentInfo;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;

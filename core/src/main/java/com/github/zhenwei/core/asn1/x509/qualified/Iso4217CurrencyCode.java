@@ -19,77 +19,65 @@ import com.github.zhenwei.core.asn1.DERPrintableString;
  * -- It is recommended that the Alphabetic form is used
  * </pre>
  */
-public class Iso4217CurrencyCode 
+public class Iso4217CurrencyCode
     extends ASN1Object
-    implements ASN1Choice
-{
-    final int ALPHABETIC_MAXSIZE = 3;
-    final int NUMERIC_MINSIZE = 1;
-    final int NUMERIC_MAXSIZE = 999;
-    
-    ASN1Encodable obj;
-    int          numeric;
-    
-    public static qualified.Iso4217CurrencyCode getInstance(
-        Object obj)
-    {
-        if (obj == null || obj instanceof qualified.Iso4217CurrencyCode)
-        {
-            return (qualified.Iso4217CurrencyCode)obj;
-        }
+    implements ASN1Choice {
 
-        if (obj instanceof ASN1Integer)
-        {
-            ASN1Integer numericobj = ASN1Integer.getInstance(obj);
-            int numeric = numericobj.intValueExact();  
-            return new qualified.Iso4217CurrencyCode(numeric);
-        }
-        else
-        if (obj instanceof ASN1PrintableString)
-        {
-            ASN1PrintableString alphabetic = ASN1PrintableString.getInstance(obj);
-            return new qualified.Iso4217CurrencyCode(alphabetic.getString());
-        }
-        throw new IllegalArgumentException("unknown object in getInstance");
-    }
-            
-    public Iso4217CurrencyCode(
-        int numeric)
-    {
-        if (numeric > NUMERIC_MAXSIZE || numeric < NUMERIC_MINSIZE)
-        {
-            throw new IllegalArgumentException("wrong size in numeric code : not in (" +NUMERIC_MINSIZE +".."+ NUMERIC_MAXSIZE +")");
-        }
-        obj = new ASN1Integer(numeric);
-    }
-    
-    public Iso4217CurrencyCode(
-        String alphabetic)
-    {
-        if (alphabetic.length() > ALPHABETIC_MAXSIZE)
-        {
-            throw new IllegalArgumentException("wrong size in alphabetic code : max size is " + ALPHABETIC_MAXSIZE);
-        }
-        obj = new DERPrintableString(alphabetic);
-    }            
+  final int ALPHABETIC_MAXSIZE = 3;
+  final int NUMERIC_MINSIZE = 1;
+  final int NUMERIC_MAXSIZE = 999;
 
-    public boolean isAlphabetic()
-    {
-        return obj instanceof ASN1PrintableString;
+  ASN1Encodable obj;
+  int numeric;
+
+  public static qualified.Iso4217CurrencyCode getInstance(
+      Object obj) {
+    if (obj == null || obj instanceof qualified.Iso4217CurrencyCode) {
+      return (qualified.Iso4217CurrencyCode) obj;
     }
-    
-    public String getAlphabetic()
-    {
-        return ((ASN1PrintableString)obj).getString();
+
+    if (obj instanceof ASN1Integer) {
+      ASN1Integer numericobj = ASN1Integer.getInstance(obj);
+      int numeric = numericobj.intValueExact();
+      return new qualified.Iso4217CurrencyCode(numeric);
+    } else if (obj instanceof ASN1PrintableString) {
+      ASN1PrintableString alphabetic = ASN1PrintableString.getInstance(obj);
+      return new qualified.Iso4217CurrencyCode(alphabetic.getString());
     }
-    
-    public int getNumeric()
-    {
-        return ((ASN1Integer)obj).intValueExact();
+    throw new IllegalArgumentException("unknown object in getInstance");
+  }
+
+  public Iso4217CurrencyCode(
+      int numeric) {
+    if (numeric > NUMERIC_MAXSIZE || numeric < NUMERIC_MINSIZE) {
+      throw new IllegalArgumentException(
+          "wrong size in numeric code : not in (" + NUMERIC_MINSIZE + ".." + NUMERIC_MAXSIZE + ")");
     }
-    
-    public ASN1Primitive toASN1Primitive()
-    {    
-        return obj.toASN1Primitive();
+    obj = new ASN1Integer(numeric);
+  }
+
+  public Iso4217CurrencyCode(
+      String alphabetic) {
+    if (alphabetic.length() > ALPHABETIC_MAXSIZE) {
+      throw new IllegalArgumentException(
+          "wrong size in alphabetic code : max size is " + ALPHABETIC_MAXSIZE);
     }
+    obj = new DERPrintableString(alphabetic);
+  }
+
+  public boolean isAlphabetic() {
+    return obj instanceof ASN1PrintableString;
+  }
+
+  public String getAlphabetic() {
+    return ((ASN1PrintableString) obj).getString();
+  }
+
+  public int getNumeric() {
+    return ((ASN1Integer) obj).intValueExact();
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return obj.toASN1Primitive();
+  }
 }

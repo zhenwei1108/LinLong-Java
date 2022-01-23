@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 
 import BERSequenceGenerator;
-import BERSet;
+ 
 import cms.AuthenticatedData;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Encoding;

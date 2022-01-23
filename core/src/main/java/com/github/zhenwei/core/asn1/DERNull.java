@@ -9,28 +9,24 @@ import java.io.IOException;
  * Preferably use the constant:  DERNull.INSTANCE.
  */
 public class DERNull
-    extends ASN1Null
-{
-    public static final DERNull INSTANCE = new DERNull();
+    extends ASN1Null {
 
-    private static final byte[]  zeroBytes = new byte[0];
+  public static final DERNull INSTANCE = new DERNull();
 
-    private DERNull()
-    {
-    }
+  private static final byte[] zeroBytes = new byte[0];
 
-    boolean isConstructed()
-    {
-        return false;
-    }
+  private DERNull() {
+  }
 
-    int encodedLength(boolean withTag)
-    {
-        return ASN1OutputStream.getLengthOfEncodingDL(withTag, 0);
-    }
+  boolean isConstructed() {
+    return false;
+  }
 
-    void encode(ASN1OutputStream out, boolean withTag) throws IOException
-    {
-        out.writeEncodingDL(withTag, BERTags.NULL, zeroBytes);
-    }
+  int encodedLength(boolean withTag) {
+    return ASN1OutputStream.getLengthOfEncodingDL(withTag, 0);
+  }
+
+  void encode(ASN1OutputStream out, boolean withTag) throws IOException {
+    out.writeEncodingDL(withTag, BERTags.NULL, zeroBytes);
+  }
 }

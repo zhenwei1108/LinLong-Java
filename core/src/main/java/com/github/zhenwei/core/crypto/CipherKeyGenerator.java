@@ -5,34 +5,32 @@ import java.security.SecureRandom;
 /**
  * The base class for symmetric, or secret, cipher key generators.
  */
-public class CipherKeyGenerator
-{
-    protected SecureRandom  random;
-    protected int           strength;
+public class CipherKeyGenerator {
 
-    /**
-     * initialise the key generator.
-     *
-     * @param param the parameters to be used for key generation
-     */
-    public void init(
-        KeyGenerationParameters param)
-    {
-        this.random = param.getRandom();
-        this.strength = (param.getStrength() + 7) / 8;
-    }
+  protected SecureRandom random;
+  protected int strength;
 
-    /**
-     * generate a secret key.
-     *
-     * @return a byte array containing the key value.
-     */
-    public byte[] generateKey()
-    {
-        byte[]  key = new byte[strength];
+  /**
+   * initialise the key generator.
+   *
+   * @param param the parameters to be used for key generation
+   */
+  public void init(
+      KeyGenerationParameters param) {
+    this.random = param.getRandom();
+    this.strength = (param.getStrength() + 7) / 8;
+  }
 
-        random.nextBytes(key);
+  /**
+   * generate a secret key.
+   *
+   * @return a byte array containing the key value.
+   */
+  public byte[] generateKey() {
+    byte[] key = new byte[strength];
 
-        return key;
-    }
+    random.nextBytes(key);
+
+    return key;
+  }
 }

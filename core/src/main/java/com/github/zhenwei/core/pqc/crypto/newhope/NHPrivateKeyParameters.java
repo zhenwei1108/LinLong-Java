@@ -5,19 +5,17 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.util.Arrays;
 
 public class NHPrivateKeyParameters
-    extends AsymmetricKeyParameter
-{
-    final short[] secData;
+    extends AsymmetricKeyParameter {
 
-    public NHPrivateKeyParameters(short[] secData)
-    {
-        super(true);
+  final short[] secData;
 
-        this.secData = Arrays.clone(secData);
-    }
+  public NHPrivateKeyParameters(short[] secData) {
+    super(true);
 
-    public short[] getSecData()
-    {
-        return Arrays.clone(secData);
-    }
+    this.secData = Arrays.clone(secData);
+  }
+
+  public short[] getSecData() {
+    return Arrays.clone(secData);
+  }
 }

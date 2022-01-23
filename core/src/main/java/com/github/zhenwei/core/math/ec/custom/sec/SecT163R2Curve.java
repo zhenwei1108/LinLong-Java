@@ -1,7 +1,6 @@
 package com.github.zhenwei.core.math.ec.custom.sec;
 
 
-
 import com.github.zhenwei.core.math.ec.AbstractECLookupTable;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
@@ -12,160 +11,140 @@ import java.math.BigInteger;
 import org.bouncycastle.math.raw.Nat192;
 
 
-public class SecT163R2Curve extends AbstractF2m
-{
-    private static final int SECT163R2_DEFAULT_COORDS = COORD_LAMBDA_PROJECTIVE;
-    private static final ECFieldElement[] SECT163R2_AFFINE_ZS = new ECFieldElement[] { new SecT163FieldElement(
-        ECConstants.ONE) };
+public class SecT163R2Curve extends AbstractF2m {
 
-    protected SecT163R2Point infinity;
+  private static final int SECT163R2_DEFAULT_COORDS = COORD_LAMBDA_PROJECTIVE;
+  private static final ECFieldElement[] SECT163R2_AFFINE_ZS = new ECFieldElement[]{
+      new SecT163FieldElement(
+          ECConstants.ONE)};
 
-    public SecT163R2Curve()
-    {
-        super(163, 3, 6, 7);
+  protected SecT163R2Point infinity;
 
-        this.infinity = new SecT163R2Point(this, null, null);
+  public SecT163R2Curve() {
+    super(163, 3, 6, 7);
 
-        this.a = fromBigInteger(BigInteger.valueOf(1));
-        this.b = fromBigInteger(new BigInteger(1, Hex.decodeStrict("020A601907B8C953CA1481EB10512F78744A3205FD")));
-        this.order = new BigInteger(1, Hex.decodeStrict("040000000000000000000292FE77E70C12A4234C33"));
-        this.cofactor = BigInteger.valueOf(2);
+    this.infinity = new SecT163R2Point(this, null, null);
 
-        this.coord = SECT163R2_DEFAULT_COORDS;
-    }
+    this.a = fromBigInteger(BigInteger.valueOf(1));
+    this.b = fromBigInteger(
+        new BigInteger(1, Hex.decodeStrict("020A601907B8C953CA1481EB10512F78744A3205FD")));
+    this.order = new BigInteger(1, Hex.decodeStrict("040000000000000000000292FE77E70C12A4234C33"));
+    this.cofactor = BigInteger.valueOf(2);
 
-    protected ECCurve cloneCurve()
-    {
-        return new SecT163R2Curve();
-    }
+    this.coord = SECT163R2_DEFAULT_COORDS;
+  }
 
-    public boolean supportsCoordinateSystem(int coord)
-    {
-        switch (coord)
-        {
-        case COORD_LAMBDA_PROJECTIVE:
-            return true;
-        default:
-            return false;
-        }
-    }
+  protected ECCurve cloneCurve() {
+    return new SecT163R2Curve();
+  }
 
-    public int getFieldSize()
-    {
-        return 163;
-    }
-
-    public ECFieldElement fromBigInteger(BigInteger x)
-    {
-        return new SecT163FieldElement(x);
-    }
-
-    protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y)
-    {
-        return new SecT163R2Point(this, x, y);
-    }
-
-    protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y, ECFieldElement[] zs)
-    {
-        return new SecT163R2Point(this, x, y, zs);
-    }
-
-    public ECPoint getInfinity()
-    {
-        return infinity;
-    }
-
-    public boolean isKoblitz()
-    {
+  public boolean supportsCoordinateSystem(int coord) {
+    switch (coord) {
+      case COORD_LAMBDA_PROJECTIVE:
+        return true;
+      default:
         return false;
     }
+  }
 
-    public int getM()
+  public int getFieldSize() {
+    return 163;
+  }
+
+  public ECFieldElement fromBigInteger(BigInteger x) {
+    return new SecT163FieldElement(x);
+  }
+
+  protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y) {
+    return new SecT163R2Point(this, x, y);
+  }
+
+  protected ECPoint createRawPoint(ECFieldElement x, ECFieldElement y, ECFieldElement[] zs) {
+    return new SecT163R2Point(this, x, y, zs);
+  }
+
+  public ECPoint getInfinity() {
+    return infinity;
+  }
+
+  public boolean isKoblitz() {
+    return false;
+  }
+
+  public int getM() {
+    return 163;
+  }
+
+  public boolean isTrinomial() {
+    return false;
+  }
+
+  public int getK1() {
+    return 3;
+  }
+
+  public int getK2() {
+    return 6;
+  }
+
+  public int getK3() {
+    return 7;
+  }
+
+  public ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, final int len) {
+    final int FE_LONGS = 3;
+
+    final long[] table = new long[len * FE_LONGS * 2];
     {
-        return 163;
+      int pos = 0;
+      for (int i = 0; i < len; ++i) {
+        ECPoint p = points[off + i];
+        Nat192.copy64(((SecT163FieldElement) p.getRawXCoord()).x, 0, table, pos);
+        pos += FE_LONGS;
+        Nat192.copy64(((SecT163FieldElement) p.getRawYCoord()).x, 0, table, pos);
+        pos += FE_LONGS;
+      }
     }
 
-    public boolean isTrinomial()
-    {
-        return false;
-    }
+    return new AbstractECLookupTable() {
+      public int getSize() {
+        return len;
+      }
 
-    public int getK1()
-    {
-        return 3;
-    }
+      public ECPoint lookup(int index) {
+        long[] x = Nat192.create64(), y = Nat192.create64();
+        int pos = 0;
 
-    public int getK2()
-    {
-        return 6;
-    }
+        for (int i = 0; i < len; ++i) {
+          long MASK = ((i ^ index) - 1) >> 31;
 
-    public int getK3()
-    {
-        return 7;
-    }
+          for (int j = 0; j < FE_LONGS; ++j) {
+            x[j] ^= table[pos + j] & MASK;
+            y[j] ^= table[pos + FE_LONGS + j] & MASK;
+          }
 
-    public ECLookupTable createCacheSafeLookupTable(ECPoint[] points, int off, final int len)
-    {
-        final int FE_LONGS = 3;
-
-        final long[] table = new long[len * FE_LONGS * 2];
-        {
-            int pos = 0;
-            for (int i = 0; i < len; ++i)
-            {
-                ECPoint p = points[off + i];
-                Nat192.copy64(((SecT163FieldElement)p.getRawXCoord()).x, 0, table, pos); pos += FE_LONGS;
-                Nat192.copy64(((SecT163FieldElement)p.getRawYCoord()).x, 0, table, pos); pos += FE_LONGS;
-            }
+          pos += (FE_LONGS * 2);
         }
 
-        return new AbstractECLookupTable()
-        {
-            public int getSize()
-            {
-                return len;
-            }
+        return createPoint(x, y);
+      }
 
-            public ECPoint lookup(int index)
-            {
-                long[] x = Nat192.create64(), y = Nat192.create64();
-                int pos = 0;
+      public ECPoint lookupVar(int index) {
+        long[] x = Nat192.create64(), y = Nat192.create64();
+        int pos = index * FE_LONGS * 2;
 
-                for (int i = 0; i < len; ++i)
-                {
-                    long MASK = ((i ^ index) - 1) >> 31;
+        for (int j = 0; j < FE_LONGS; ++j) {
+          x[j] = table[pos + j];
+          y[j] = table[pos + FE_LONGS + j];
+        }
 
-                    for (int j = 0; j < FE_LONGS; ++j)
-                    {
-                        x[j] ^= table[pos + j] & MASK;
-                        y[j] ^= table[pos + FE_LONGS + j] & MASK;
-                    }
+        return createPoint(x, y);
+      }
 
-                    pos += (FE_LONGS * 2);
-                }
-
-                return createPoint(x, y);
-            }
-
-            public ECPoint lookupVar(int index)
-            {
-                long[] x = Nat192.create64(), y = Nat192.create64();
-                int pos = index * FE_LONGS * 2;
-
-                for (int j = 0; j < FE_LONGS; ++j)
-                {
-                    x[j] = table[pos + j];
-                    y[j] = table[pos + FE_LONGS + j];
-                }
-
-                return createPoint(x, y);
-            }
-
-            private ECPoint createPoint(long[] x, long[] y)
-            {
-                return createRawPoint(new SecT163FieldElement(x), new SecT163FieldElement(y), SECT163R2_AFFINE_ZS);
-            }
-        };
-    }
+      private ECPoint createPoint(long[] x, long[] y) {
+        return createRawPoint(new SecT163FieldElement(x), new SecT163FieldElement(y),
+            SECT163R2_AFFINE_ZS);
+      }
+    };
+  }
 }

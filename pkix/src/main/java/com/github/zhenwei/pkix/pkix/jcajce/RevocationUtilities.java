@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.pkix.jcajce;
 
-import ASN1Enumerated;
+ 
 import CRLDistPoint;
 
 import DistributionPoint;

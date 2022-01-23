@@ -12,8 +12,8 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.util.Arrays;
 
 /**
- * This class implements an ASN.1 encoded GMSS public key. The ASN.1 definition
- * of this structure is:
+ * This class implements an ASN.1 encoded GMSS public key. The ASN.1 definition of this structure
+ * is:
  * <pre>
  *  GMSSPublicKey        ::= SEQUENCE{
  *      version         INTEGER
@@ -22,54 +22,45 @@ import com.github.zhenwei.core.util.Arrays;
  * </pre>
  */
 public class GMSSPublicKey
-    extends ASN1Object
-{
-    private ASN1Integer version;
-    private byte[] publicKey;
+    extends ASN1Object {
 
-    private GMSSPublicKey(ASN1Sequence seq)
-    {
-        if (seq.size() != 2)
-        {
-            throw new IllegalArgumentException("size of seq = " + seq.size());
-        }
+  private ASN1Integer version;
+  private byte[] publicKey;
 
-        this.version = ASN1Integer.getInstance(seq.getObjectAt(0));
-        this.publicKey = ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets();
+  private GMSSPublicKey(ASN1Sequence seq) {
+    if (seq.size() != 2) {
+      throw new IllegalArgumentException("size of seq = " + seq.size());
     }
 
-    public GMSSPublicKey(byte[] publicKeyBytes)
-    {
-        this.version = new ASN1Integer(0);
-        this.publicKey = publicKeyBytes;
+    this.version = ASN1Integer.getInstance(seq.getObjectAt(0));
+    this.publicKey = ASN1OctetString.getInstance(seq.getObjectAt(1)).getOctets();
+  }
+
+  public GMSSPublicKey(byte[] publicKeyBytes) {
+    this.version = new ASN1Integer(0);
+    this.publicKey = publicKeyBytes;
+  }
+
+  public static GMSSPublicKey getInstance(Object o) {
+    if (o instanceof GMSSPublicKey) {
+      return (GMSSPublicKey) o;
+    } else if (o != null) {
+      return new GMSSPublicKey(ASN1Sequence.getInstance(o));
     }
 
-    public static org.bouncycastle.pqc.asn1.GMSSPublicKey getInstance(Object o)
-    {
-        if (o instanceof org.bouncycastle.pqc.asn1.GMSSPublicKey)
-        {
-            return (org.bouncycastle.pqc.asn1.GMSSPublicKey)o;
-        }
-        else if (o != null)
-        {
-            return new org.bouncycastle.pqc.asn1.GMSSPublicKey(ASN1Sequence.getInstance(o));
-        }
+    return null;
+  }
 
-        return null;
-    }
+  public byte[] getPublicKey() {
+    return Arrays.clone(publicKey);
+  }
 
-    public byte[] getPublicKey()
-    {
-        return Arrays.clone(publicKey);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector();
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector();
+    v.add(version);
+    v.add(new DEROctetString(publicKey));
 
-        v.add(version);
-        v.add(new DEROctetString(publicKey));
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

@@ -9,20 +9,17 @@ import java.io.OutputStream;
  * closed in some particular context - typically when wrapped by another {@link OutputStream} that
  * should not be forwarding its {@link OutputStream#close()} calls. Not needed in production code.
  */
-public class UncloseableOutputStream extends FilterOutputStream
-{
-    public UncloseableOutputStream(OutputStream s)
-    {
-        super(s);
-    }
+public class UncloseableOutputStream extends FilterOutputStream {
 
-    public void close()
-    {
-        throw new RuntimeException("close() called on UncloseableOutputStream");
-    }
+  public UncloseableOutputStream(OutputStream s) {
+    super(s);
+  }
 
-    public void write(byte[] b, int off, int len) throws IOException
-    {
-        out.write(b, off, len);
-    }
- }
+  public void close() {
+    throw new RuntimeException("close() called on UncloseableOutputStream");
+  }
+
+  public void write(byte[] b, int off, int len) throws IOException {
+    out.write(b, off, len);
+  }
+}

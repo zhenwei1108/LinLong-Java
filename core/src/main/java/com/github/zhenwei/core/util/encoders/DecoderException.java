@@ -4,19 +4,17 @@ package com.github.zhenwei.core.util.encoders;
  * Exception thrown if an attempt is made to decode invalid data, or some other failure occurs.
  */
 public class DecoderException
-    extends IllegalStateException
-{
-    private Throwable cause;
+    extends IllegalStateException {
 
-    DecoderException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  DecoderException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

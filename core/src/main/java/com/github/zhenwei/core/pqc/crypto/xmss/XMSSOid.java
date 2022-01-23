@@ -1,9 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-public interface XMSSOid
-{
+public interface XMSSOid {
 
-    int getOid();
+  int getOid();
 
-    String toString();
+  String toString();
 }

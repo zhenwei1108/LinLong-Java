@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.util.test;
 
-public interface Test
-{
-    String getName();
+public interface Test {
 
-    TestResult perform();
+  String getName();
+
+  TestResult perform();
 }

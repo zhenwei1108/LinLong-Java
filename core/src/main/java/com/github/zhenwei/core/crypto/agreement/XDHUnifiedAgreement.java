@@ -7,38 +7,35 @@ import com.github.zhenwei.core.crypto.CipherParameters;
 import org.bouncycastle.crypto.RawAgreement;
 
 public class XDHUnifiedAgreement
-    implements RawAgreement
-{
-    private final RawAgreement xAgreement;
+    implements RawAgreement {
 
-    private XDHUPrivateParameters privParams;
+  private final RawAgreement xAgreement;
 
-    public XDHUnifiedAgreement(RawAgreement xAgreement)
-    {
-        this.xAgreement = xAgreement;
-    }
+  private XDHUPrivateParameters privParams;
 
-    public void init(
-        CipherParameters key)
-    {
-        this.privParams = (XDHUPrivateParameters)key;
-    }
+  public XDHUnifiedAgreement(RawAgreement xAgreement) {
+    this.xAgreement = xAgreement;
+  }
 
-    public int getAgreementSize()
-    {
-        return xAgreement.getAgreementSize() * 2;
-    }
+  public void init(
+      CipherParameters key) {
+    this.privParams = (XDHUPrivateParameters) key;
+  }
 
-    public void calculateAgreement(CipherParameters publicKey, byte[] buf, int off)
-    {
-        XDHUPublicParameters pubParams = (XDHUPublicParameters)publicKey;
+  public int getAgreementSize() {
+    return xAgreement.getAgreementSize() * 2;
+  }
 
-        xAgreement.init(privParams.getEphemeralPrivateKey());
+  public void calculateAgreement(CipherParameters publicKey, byte[] buf, int off) {
+    XDHUPublicParameters pubParams = (XDHUPublicParameters) publicKey;
 
-        xAgreement.calculateAgreement(pubParams.getEphemeralPublicKey(), buf, off);
+    xAgreement.init(privParams.getEphemeralPrivateKey());
 
-        xAgreement.init(privParams.getStaticPrivateKey());
+    xAgreement.calculateAgreement(pubParams.getEphemeralPublicKey(), buf, off);
 
-        xAgreement.calculateAgreement(pubParams.getStaticPublicKey(), buf, off + xAgreement.getAgreementSize());
-    }
+    xAgreement.init(privParams.getStaticPrivateKey());
+
+    xAgreement.calculateAgreement(pubParams.getStaticPublicKey(), buf,
+        off + xAgreement.getAgreementSize());
+  }
 }

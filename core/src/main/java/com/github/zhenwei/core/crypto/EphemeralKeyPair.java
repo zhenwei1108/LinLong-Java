@@ -1,24 +1,21 @@
 package com.github.zhenwei.core.crypto;
 
 
-public class EphemeralKeyPair
-{
-    private AsymmetricCipherKeyPair keyPair;
-    private KeyEncoder publicKeyEncoder;
+public class EphemeralKeyPair {
 
-    public EphemeralKeyPair(AsymmetricCipherKeyPair keyPair, KeyEncoder publicKeyEncoder)
-    {
-        this.keyPair = keyPair;
-        this.publicKeyEncoder = publicKeyEncoder;
-    }
+  private AsymmetricCipherKeyPair keyPair;
+  private KeyEncoder publicKeyEncoder;
 
-    public AsymmetricCipherKeyPair getKeyPair()
-    {
-        return keyPair;
-    }
+  public EphemeralKeyPair(AsymmetricCipherKeyPair keyPair, KeyEncoder publicKeyEncoder) {
+    this.keyPair = keyPair;
+    this.publicKeyEncoder = publicKeyEncoder;
+  }
 
-    public byte[] getEncodedPublicKey()
-    {
-        return publicKeyEncoder.getEncoded(keyPair.getPublic());
-    }
+  public AsymmetricCipherKeyPair getKeyPair() {
+    return keyPair;
+  }
+
+  public byte[] getEncodedPublicKey() {
+    return publicKeyEncoder.getEncoded(keyPair.getPublic());
+  }
 }

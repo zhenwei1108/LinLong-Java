@@ -5,50 +5,44 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.crypto.DerivationParameters;
 
 public class DHKDFParameters
-    implements DerivationParameters
-{
-    private ASN1ObjectIdentifier algorithm;
-    private int keySize;
-    private byte[] z;
-    private byte[] extraInfo;
+    implements DerivationParameters {
 
-    public DHKDFParameters(
-        ASN1ObjectIdentifier algorithm,
-        int keySize,
-        byte[] z)
-    {
-        this(algorithm, keySize, z, null);
-    }
+  private ASN1ObjectIdentifier algorithm;
+  private int keySize;
+  private byte[] z;
+  private byte[] extraInfo;
 
-    public DHKDFParameters(
-        ASN1ObjectIdentifier algorithm,
-        int keySize,
-        byte[] z,
-        byte[] extraInfo)
-    {
-        this.algorithm = algorithm;
-        this.keySize = keySize;
-        this.z = z;
-        this.extraInfo = extraInfo;
-    }
+  public DHKDFParameters(
+      ASN1ObjectIdentifier algorithm,
+      int keySize,
+      byte[] z) {
+    this(algorithm, keySize, z, null);
+  }
 
-    public ASN1ObjectIdentifier getAlgorithm()
-    {
-        return algorithm;
-    }
+  public DHKDFParameters(
+      ASN1ObjectIdentifier algorithm,
+      int keySize,
+      byte[] z,
+      byte[] extraInfo) {
+    this.algorithm = algorithm;
+    this.keySize = keySize;
+    this.z = z;
+    this.extraInfo = extraInfo;
+  }
 
-    public int getKeySize()
-    {
-        return keySize;
-    }
+  public ASN1ObjectIdentifier getAlgorithm() {
+    return algorithm;
+  }
 
-    public byte[] getZ()
-    {
-        return z;
-    }
+  public int getKeySize() {
+    return keySize;
+  }
 
-    public byte[] getExtraInfo()
-    {
-        return extraInfo;
-    }
+  public byte[] getZ() {
+    return z;
+  }
+
+  public byte[] getExtraInfo() {
+    return extraInfo;
+  }
 }

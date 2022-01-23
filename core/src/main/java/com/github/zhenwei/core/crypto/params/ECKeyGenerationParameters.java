@@ -2,24 +2,22 @@ package com.github.zhenwei.core.crypto.params;
 
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.security.SecureRandom;
- 
+
 
 public class ECKeyGenerationParameters
-    extends KeyGenerationParameters
-{
-    private ECDomainParameters  domainParams;
+    extends KeyGenerationParameters {
 
-    public ECKeyGenerationParameters(
-        ECDomainParameters      domainParams,
-        SecureRandom            random)
-    {
-        super(random, domainParams.getN().bitLength());
+  private ECDomainParameters domainParams;
 
-        this.domainParams = domainParams;
-    }
+  public ECKeyGenerationParameters(
+      ECDomainParameters domainParams,
+      SecureRandom random) {
+    super(random, domainParams.getN().bitLength());
 
-    public ECDomainParameters getDomainParameters()
-    {
-        return domainParams;
-    }
+    this.domainParams = domainParams;
+  }
+
+  public ECDomainParameters getDomainParameters() {
+    return domainParams;
+  }
 }

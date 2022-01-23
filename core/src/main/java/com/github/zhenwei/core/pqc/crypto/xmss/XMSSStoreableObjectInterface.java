@@ -5,13 +5,12 @@ package com.github.zhenwei.core.pqc.crypto.xmss;
  *
  * @deprecated use Encodable
  */
-public interface XMSSStoreableObjectInterface
-{
+public interface XMSSStoreableObjectInterface {
 
-    /**
-     * Create byte representation of object.
-     *
-     * @return Byte representation of object.
-     */
-    public byte[] toByteArray();
+  /**
+   * Create byte representation of object.
+   *
+   * @return Byte representation of object.
+   */
+  public byte[] toByteArray();
 }

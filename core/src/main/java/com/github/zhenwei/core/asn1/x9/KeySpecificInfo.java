@@ -11,8 +11,8 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import java.util.Enumeration;
 
 /**
- * ASN.1 def for Diffie-Hellman key exchange KeySpecificInfo structure. See
- * RFC 2631, or 42, for further details.
+ * ASN.1 def for Diffie-Hellman key exchange KeySpecificInfo structure. See RFC 2631, or 42, for
+ * further details.
  * <pre>
  *  KeySpecificInfo ::= SEQUENCE {
  *      algorithm OBJECT IDENTIFIER,
@@ -21,86 +21,77 @@ import java.util.Enumeration;
  * </pre>
  */
 public class KeySpecificInfo
-    extends ASN1Object
-{
-    private ASN1ObjectIdentifier algorithm;
-    private ASN1OctetString counter;
+    extends ASN1Object {
 
-    /**
-     * Base constructor.
-     *
-     * @param algorithm  algorithm identifier for the CEK.
-     * @param counter initial counter value for key derivation.
-     */
-    public KeySpecificInfo(
-        ASN1ObjectIdentifier algorithm,
-        ASN1OctetString      counter)
-    {
-        this.algorithm = algorithm;
-        this.counter = counter;
+  private ASN1ObjectIdentifier algorithm;
+  private ASN1OctetString counter;
+
+  /**
+   * Base constructor.
+   *
+   * @param algorithm algorithm identifier for the CEK.
+   * @param counter   initial counter value for key derivation.
+   */
+  public KeySpecificInfo(
+      ASN1ObjectIdentifier algorithm,
+      ASN1OctetString counter) {
+    this.algorithm = algorithm;
+    this.counter = counter;
+  }
+
+  /**
+   * Return a KeySpecificInfo object from the passed in object.
+   *
+   * @param obj an object for conversion or a byte[].
+   * @return a KeySpecificInfo
+   */
+  public static KeySpecificInfo getInstance(Object obj) {
+    if (obj instanceof KeySpecificInfo) {
+      return (KeySpecificInfo) obj;
+    } else if (obj != null) {
+      return new KeySpecificInfo(ASN1Sequence.getInstance(obj));
     }
 
-    /**
-     * Return a KeySpecificInfo object from the passed in object.
-     *
-     * @param obj an object for conversion or a byte[].
-     * @return a KeySpecificInfo
-     */
-    public static KeySpecificInfo getInstance(Object obj)
-    {
-        if (obj instanceof KeySpecificInfo)
-        {
-            return  (KeySpecificInfo)obj;
-        }
-        else if (obj != null)
-        {
-            return new KeySpecificInfo(ASN1Sequence.getInstance(obj));
-        }
+    return null;
+  }
 
-        return null;
-    }
+  private KeySpecificInfo(
+      ASN1Sequence seq) {
+    Enumeration e = seq.getObjects();
 
-    private KeySpecificInfo(
-        ASN1Sequence  seq)
-    {
-        Enumeration e = seq.getObjects();
+    algorithm = (ASN1ObjectIdentifier) e.nextElement();
+    counter = (ASN1OctetString) e.nextElement();
+  }
 
-        algorithm = (ASN1ObjectIdentifier)e.nextElement();
-        counter = (ASN1OctetString)e.nextElement();
-    }
+  /**
+   * The object identifier for the CEK wrapping algorithm.
+   *
+   * @return CEK wrapping algorithm OID.
+   */
+  public ASN1ObjectIdentifier getAlgorithm() {
+    return algorithm;
+  }
 
-    /**
-     * The object identifier for the CEK wrapping algorithm.
-     *
-     * @return CEK wrapping algorithm OID.
-     */
-    public ASN1ObjectIdentifier getAlgorithm()
-    {
-        return algorithm;
-    }
+  /**
+   * The initial counter value for key derivation.
+   *
+   * @return initial counter value as a 4 byte octet string (big endian).
+   */
+  public ASN1OctetString getCounter() {
+    return counter;
+  }
 
-    /**
-     * The initial counter value for key derivation.
-     *
-     * @return initial counter value as a 4 byte octet string (big endian).
-     */
-    public ASN1OctetString getCounter()
-    {
-        return counter;
-    }
+  /**
+   * Return an ASN.1 primitive representation of this object.
+   *
+   * @return a DERSequence containing the KeySpecificInfo values.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-    /**
-     * Return an ASN.1 primitive representation of this object.
-     *
-     * @return a DERSequence containing the KeySpecificInfo values.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+    v.add(algorithm);
+    v.add(counter);
 
-        v.add(algorithm);
-        v.add(counter);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

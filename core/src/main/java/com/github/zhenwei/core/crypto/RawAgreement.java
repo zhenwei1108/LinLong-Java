@@ -1,12 +1,11 @@
 package com.github.zhenwei.core.crypto;
 
 
+public interface RawAgreement {
 
-public interface RawAgreement
-{
-    void init(CipherParameters parameters);
+  void init(CipherParameters parameters);
 
-    int getAgreementSize();
+  int getAgreementSize();
 
-    void calculateAgreement(CipherParameters publicKey, byte[] buf, int off);
+  void calculateAgreement(CipherParameters publicKey, byte[] buf, int off);
 }
