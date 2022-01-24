@@ -50,7 +50,6 @@
 
 
 	<modules>
-		<module>crypto</module>
 		<module>sdk</module>
 		<module>pkix</module>
 		<module>provider</module>
