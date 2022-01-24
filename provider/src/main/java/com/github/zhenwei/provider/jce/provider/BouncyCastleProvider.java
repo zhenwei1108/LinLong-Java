@@ -20,15 +20,15 @@ import com.github.zhenwei.provider.jcajce.provider.symmetric.util.ClassUtil;
 import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
-import com.github.zhenwei.core.pqc.jcajce.provider.lms.LMSKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.mceliece.McElieceCCA2KeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.mceliece.McElieceKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.newhope.NHKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.qtesla.QTESLAKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.rainbow.RainbowKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.sphincs.Sphincs256KeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.xmss.XMSSKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.lms.LMSKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.mceliece.McElieceCCA2KeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.mceliece.McElieceKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.newhope.NHKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.qtesla.QTESLAKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.rainbow.RainbowKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.sphincs.Sphincs256KeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
 
 /**
  * To add the provider at runtime use:

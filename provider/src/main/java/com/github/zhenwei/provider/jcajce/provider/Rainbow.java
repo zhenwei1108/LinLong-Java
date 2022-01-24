@@ -4,7 +4,7 @@ import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
-import com.github.zhenwei.core.pqc.jcajce.provider.rainbow.RainbowKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.rainbow.RainbowKeyFactorySpi;
 
 public class Rainbow
 {

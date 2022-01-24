@@ -17,6 +17,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import javax.crypto.interfaces.DHKey;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.DHUtil;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
 import com.github.zhenwei.core.crypto.CipherParameters;

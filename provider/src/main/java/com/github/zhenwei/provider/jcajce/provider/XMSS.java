@@ -5,8 +5,8 @@ import com.github.zhenwei.core.asn1.isara.IsaraObjectIdentifiers;
 import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
-import com.github.zhenwei.core.pqc.jcajce.provider.xmss.XMSSKeyFactorySpi;
-import com.github.zhenwei.core.pqc.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSKeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
 
 public class XMSS
 {

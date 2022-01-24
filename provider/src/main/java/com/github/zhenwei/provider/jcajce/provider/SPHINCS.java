@@ -4,7 +4,7 @@ import com.github.zhenwei.provider.jcajce.provider.config.ConfigurableProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricAlgorithmProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import com.github.zhenwei.core.pqc.asn1.PQCObjectIdentifiers;
-import com.github.zhenwei.core.pqc.jcajce.provider.sphincs.Sphincs256KeyFactorySpi;
+import com.github.zhenwei.provider.jcajce.provider.sphincs.Sphincs256KeyFactorySpi;
 
 public class SPHINCS
 {
