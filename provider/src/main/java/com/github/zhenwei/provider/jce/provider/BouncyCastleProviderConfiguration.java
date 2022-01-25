@@ -22,17 +22,17 @@ class BouncyCastleProviderConfiguration
     implements ProviderConfiguration {
 
   private static Permission BC_EC_LOCAL_PERMISSION = new ProviderConfigurationPermission(
-      BouncyCastleProvider.PROVIDER_NAME, ConfigurableProvider.THREAD_LOCAL_EC_IMPLICITLY_CA);
+      LinLongProvider.PROVIDER_NAME, ConfigurableProvider.THREAD_LOCAL_EC_IMPLICITLY_CA);
   private static Permission BC_EC_PERMISSION = new ProviderConfigurationPermission(
-      BouncyCastleProvider.PROVIDER_NAME, ConfigurableProvider.EC_IMPLICITLY_CA);
+      LinLongProvider.PROVIDER_NAME, ConfigurableProvider.EC_IMPLICITLY_CA);
   private static Permission BC_DH_LOCAL_PERMISSION = new ProviderConfigurationPermission(
-      BouncyCastleProvider.PROVIDER_NAME, ConfigurableProvider.THREAD_LOCAL_DH_DEFAULT_PARAMS);
+      LinLongProvider.PROVIDER_NAME, ConfigurableProvider.THREAD_LOCAL_DH_DEFAULT_PARAMS);
   private static Permission BC_DH_PERMISSION = new ProviderConfigurationPermission(
-      BouncyCastleProvider.PROVIDER_NAME, ConfigurableProvider.DH_DEFAULT_PARAMS);
+      LinLongProvider.PROVIDER_NAME, ConfigurableProvider.DH_DEFAULT_PARAMS);
   private static Permission BC_EC_CURVE_PERMISSION = new ProviderConfigurationPermission(
-      BouncyCastleProvider.PROVIDER_NAME, ConfigurableProvider.ACCEPTABLE_EC_CURVES);
+      LinLongProvider.PROVIDER_NAME, ConfigurableProvider.ACCEPTABLE_EC_CURVES);
   private static Permission BC_ADDITIONAL_EC_CURVE_PERMISSION = new ProviderConfigurationPermission(
-      BouncyCastleProvider.PROVIDER_NAME, ConfigurableProvider.ADDITIONAL_EC_PARAMETERS);
+      LinLongProvider.PROVIDER_NAME, ConfigurableProvider.ADDITIONAL_EC_PARAMETERS);
 
   private ThreadLocal ecThreadSpec = new ThreadLocal();
   private ThreadLocal dhThreadSpec = new ThreadLocal();

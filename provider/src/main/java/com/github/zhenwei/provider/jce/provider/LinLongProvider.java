@@ -34,9 +34,9 @@ import java.util.Map;
  * To add the provider at runtime use:
  * <pre>
  * import java.security.Security;
- * import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+ * import com.github.zhenwei.provider.jce.provider.LinLongProvider;
  *
- * Security.addProvider(new BouncyCastleProvider());
+ * Security.addProvider(new LinLongProvider());
  * </pre>
  * The provider can also be configured as part of your environment via static registration by adding
  * an entry to the java.security properties file (found in $JAVA_HOME/jre/lib/security/java.security,
@@ -44,25 +44,25 @@ import java.util.Map;
  * in the file but basically it comes down to adding a line:
  * <pre>
  * <code>
- *    security.provider.&lt;n&gt;=com.github.zhenwei.provider.jce.provider.BouncyCastleProvider
+ *    security.provider.&lt;n&gt;=com.github.zhenwei.provider.jce.provider.LinLongProvider
  * </code>
  * </pre>
  * Where &lt;n&gt; is the preference you want the provider at (1 being the most preferred).
  * <p>Note: JCE algorithm names should be upper-case only so the case insensitive
  * test for getInstance works.
  */
-public final class BouncyCastleProvider extends Provider
+public final class LinLongProvider extends Provider
     implements ConfigurableProvider {
 
-  private static String info = "BouncyCastle Security Provider v1.70";
+  private static String info = "LinLong Security Provider v1.0 from bc-v1.70";
 
-  public static final String PROVIDER_NAME = "BC";
+  public static final String PROVIDER_NAME = "LinLong";
 
   public static final ProviderConfiguration CONFIGURATION = new BouncyCastleProviderConfiguration();
 
   private static final Map keyInfoConverters = new HashMap();
 
-  private static final Class revChkClass = ClassUtil.loadClass(BouncyCastleProvider.class,
+  private static final Class revChkClass = ClassUtil.loadClass(LinLongProvider.class,
       "java.security.cert.PKIXRevocationChecker");
 
   /*
@@ -143,14 +143,12 @@ public final class BouncyCastleProvider extends Provider
    * provider using the
    * <code>Security.addProvider()</code> mechanism.
    */
-  public BouncyCastleProvider() {
-    super(PROVIDER_NAME, 1.70, info);
+  public LinLongProvider() {
+    super(PROVIDER_NAME, 1.0, info);
 
-    AccessController.doPrivileged(new PrivilegedAction() {
-      public Object run() {
-        setup();
-        return null;
-      }
+    AccessController.doPrivileged((PrivilegedAction) () -> {
+      setup();
+      return null;
     });
   }
 
@@ -251,7 +249,7 @@ public final class BouncyCastleProvider extends Provider
 
   private void loadAlgorithms(String packageName, String[] names) {
     for (int i = 0; i != names.length; i++) {
-      Class clazz = ClassUtil.loadClass(BouncyCastleProvider.class,
+      Class clazz = ClassUtil.loadClass(LinLongProvider.class,
           packageName + names[i] + "$Mappings");
 
       if (clazz != null) {

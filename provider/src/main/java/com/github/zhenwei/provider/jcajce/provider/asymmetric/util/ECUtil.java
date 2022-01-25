@@ -21,7 +21,7 @@ import com.github.zhenwei.core.util.Strings;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
 import com.github.zhenwei.provider.jce.interfaces.ECPrivateKey;
 import com.github.zhenwei.provider.jce.interfaces.ECPublicKey;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import java.lang.reflect.Method;
@@ -170,7 +170,7 @@ public class ECUtil {
           throw new InvalidKeyException("no encoding for EC public key");
         }
 
-        PublicKey publicKey = BouncyCastleProvider.getPublicKey(
+        PublicKey publicKey = LinLongProvider.getPublicKey(
             SubjectPublicKeyInfo.getInstance(bytes));
 
         if (publicKey instanceof java.security.interfaces.ECPublicKey) {
@@ -192,7 +192,7 @@ public class ECUtil {
       ECParameterSpec s = k.getParameters();
 
       if (s == null) {
-        s = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+        s = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
       }
 
       if (k.getParameters() instanceof ECNamedCurveParameterSpec) {
@@ -221,7 +221,7 @@ public class ECUtil {
           throw new InvalidKeyException("no encoding for EC private key");
         }
 
-        PrivateKey privateKey = BouncyCastleProvider.getPrivateKey(
+        PrivateKey privateKey = LinLongProvider.getPrivateKey(
             PrivateKeyInfo.getInstance(bytes));
 
         if (privateKey instanceof java.security.interfaces.ECPrivateKey) {

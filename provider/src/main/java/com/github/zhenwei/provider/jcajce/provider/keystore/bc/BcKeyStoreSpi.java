@@ -22,7 +22,7 @@ import com.github.zhenwei.provider.jcajce.io.CipherOutputStream;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import com.github.zhenwei.provider.jce.interfaces.BCKeyStore;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -393,9 +393,9 @@ public class BcKeyStoreSpi
     try {
       switch (keyType) {
         case KEY_PRIVATE:
-          return BouncyCastleProvider.getPrivateKey(PrivateKeyInfo.getInstance(enc));
+          return LinLongProvider.getPrivateKey(PrivateKeyInfo.getInstance(enc));
         case KEY_PUBLIC:
-          return BouncyCastleProvider.getPublicKey(SubjectPublicKeyInfo.getInstance(enc));
+          return LinLongProvider.getPublicKey(SubjectPublicKeyInfo.getInstance(enc));
         case KEY_SECRET:
           return helper.createSecretKeyFactory(algorithm).generateSecret(spec);
         default:

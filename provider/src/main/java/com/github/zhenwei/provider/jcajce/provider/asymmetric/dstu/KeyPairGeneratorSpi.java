@@ -14,7 +14,7 @@ import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
 import com.github.zhenwei.provider.jcajce.spec.DSTU4145ParameterSpec;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveGenParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
@@ -126,8 +126,8 @@ public class KeyPairGeneratorSpi
 
       engine.init(param);
       initialised = true;
-    } else if (params == null && BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa() != null) {
-      ECParameterSpec p = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+    } else if (params == null && LinLongProvider.CONFIGURATION.getEcImplicitlyCa() != null) {
+      ECParameterSpec p = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
       this.ecParams = params;
 
       param = new ECKeyGenerationParameters(
@@ -135,7 +135,7 @@ public class KeyPairGeneratorSpi
 
       engine.init(param);
       initialised = true;
-    } else if (params == null && BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa() == null) {
+    } else if (params == null && LinLongProvider.CONFIGURATION.getEcImplicitlyCa() == null) {
       throw new InvalidAlgorithmParameterException("null parameter passed but no implicitCA set");
     } else {
       throw new InvalidAlgorithmParameterException(

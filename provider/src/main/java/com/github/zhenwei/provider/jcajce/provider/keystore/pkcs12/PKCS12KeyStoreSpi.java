@@ -61,7 +61,7 @@ import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import com.github.zhenwei.provider.jce.interfaces.BCKeyStore;
 import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.provider.JDKPKCS12StoreParameter;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -900,7 +900,7 @@ public class PKCS12KeyStoreSpi
             } else if (b.getBagId().equals(keyBag)) {
               com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo kInfo = com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo.getInstance(
                   b.getBagValue());
-              PrivateKey privKey = BouncyCastleProvider.getPrivateKey(kInfo);
+              PrivateKey privKey = LinLongProvider.getPrivateKey(kInfo);
 
               //
               // set the attributes on the key

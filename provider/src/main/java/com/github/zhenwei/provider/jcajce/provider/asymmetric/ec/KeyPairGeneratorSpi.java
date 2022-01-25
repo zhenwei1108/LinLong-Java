@@ -14,7 +14,7 @@ import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveGenParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
@@ -63,7 +63,7 @@ public abstract class KeyPairGeneratorSpi
     public EC() {
       super("EC");
       this.algorithm = "EC";
-      this.configuration = BouncyCastleProvider.CONFIGURATION;
+      this.configuration = LinLongProvider.CONFIGURATION;
     }
 
     public EC(
@@ -208,7 +208,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECDSA() {
-      super("ECDSA", BouncyCastleProvider.CONFIGURATION);
+      super("ECDSA", LinLongProvider.CONFIGURATION);
     }
   }
 
@@ -216,7 +216,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECDH() {
-      super("ECDH", BouncyCastleProvider.CONFIGURATION);
+      super("ECDH", LinLongProvider.CONFIGURATION);
     }
   }
 
@@ -224,7 +224,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECDHC() {
-      super("ECDHC", BouncyCastleProvider.CONFIGURATION);
+      super("ECDHC", LinLongProvider.CONFIGURATION);
     }
   }
 
@@ -232,7 +232,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECMQV() {
-      super("ECMQV", BouncyCastleProvider.CONFIGURATION);
+      super("ECMQV", LinLongProvider.CONFIGURATION);
     }
   }
 }

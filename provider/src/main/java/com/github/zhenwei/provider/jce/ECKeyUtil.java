@@ -11,7 +11,7 @@ import com.github.zhenwei.core.asn1.x9.X9ECParameters;
 import com.github.zhenwei.core.asn1.x9.X9ECPoint;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import java.io.UnsupportedEncodingException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -88,10 +88,10 @@ public class ECKeyUtil {
           }
         } else if (params.isImplicitlyCA()) {
           curveParams = new X9ECParameters(
-              BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getCurve(),
-              new X9ECPoint(BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getG(), false),
-              BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getN(),
-              BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getH());
+              LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getCurve(),
+              new X9ECPoint(LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getG(), false),
+              LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getN(),
+              LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getH());
         } else {
           return key;   // already explicit
         }
@@ -176,10 +176,10 @@ public class ECKeyUtil {
           }
         } else if (params.isImplicitlyCA()) {
           curveParams = new X9ECParameters(
-              BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getCurve(),
-              new X9ECPoint(BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getG(), false),
-              BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getN(),
-              BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa().getH());
+              LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getCurve(),
+              new X9ECPoint(LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getG(), false),
+              LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getN(),
+              LinLongProvider.CONFIGURATION.getEcImplicitlyCa().getH());
         } else {
           return key;   // already explicit
         }

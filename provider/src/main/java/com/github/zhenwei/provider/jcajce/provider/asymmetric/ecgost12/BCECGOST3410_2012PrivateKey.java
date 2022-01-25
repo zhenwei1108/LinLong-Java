@@ -29,7 +29,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttr
 import com.github.zhenwei.provider.jce.ECGOST3410NamedCurveTable;
 import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
 import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import java.io.IOException;
@@ -323,11 +323,11 @@ public class BCECGOST3410_2012PrivateKey
           curveOid = new ASN1ObjectIdentifier(((ECNamedCurveSpec) ecSpec).getName());
         }
         params = new X962Parameters(curveOid);
-        orderBitLength = ECUtil.getOrderBitLength(BouncyCastleProvider.CONFIGURATION,
+        orderBitLength = ECUtil.getOrderBitLength(LinLongProvider.CONFIGURATION,
             ecSpec.getOrder(), this.getS());
       } else if (ecSpec == null) {
         params = new X962Parameters(DERNull.INSTANCE);
-        orderBitLength = ECUtil.getOrderBitLength(BouncyCastleProvider.CONFIGURATION, null,
+        orderBitLength = ECUtil.getOrderBitLength(LinLongProvider.CONFIGURATION, null,
             this.getS());
       } else {
         ECCurve curve = EC5Util.convertCurve(ecSpec.getCurve());
@@ -340,7 +340,7 @@ public class BCECGOST3410_2012PrivateKey
             ecSpec.getCurve().getSeed());
 
         params = new X962Parameters(ecP);
-        orderBitLength = ECUtil.getOrderBitLength(BouncyCastleProvider.CONFIGURATION,
+        orderBitLength = ECUtil.getOrderBitLength(LinLongProvider.CONFIGURATION,
             ecSpec.getOrder(), this.getS());
       }
 
@@ -396,7 +396,7 @@ public class BCECGOST3410_2012PrivateKey
       return EC5Util.convertSpec(ecSpec);
     }
 
-    return BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+    return LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
   }
 
   public BigInteger getS() {

@@ -144,7 +144,7 @@ public class X509LDAPCertStoreSpi
 
     try {
       CertificateFactory cf = CertificateFactory.getInstance("X.509",
-          BouncyCastleProvider.PROVIDER_NAME);
+          LinLongProvider.PROVIDER_NAME);
       while (it.hasNext()) {
         byte[] bytes = (byte[]) it.next();
         if (bytes == null || bytes.length == 0) {
@@ -315,7 +315,7 @@ public class X509LDAPCertStoreSpi
 
     try {
       CertificateFactory cf = CertificateFactory.getInstance("X.509",
-          BouncyCastleProvider.PROVIDER_NAME);
+          LinLongProvider.PROVIDER_NAME);
       while (it.hasNext()) {
         CRL crl = cf.generateCRL(new ByteArrayInputStream((byte[]) it
             .next()));

@@ -27,7 +27,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.KeyUtil;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
 import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import java.io.IOException;
@@ -327,7 +327,7 @@ public class BCDSTU4145PublicKey
       return EC5Util.convertSpec(ecSpec);
     }
 
-    return BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+    return LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
   }
 
   public String toString() {

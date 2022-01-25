@@ -188,8 +188,8 @@ public class PKIXAttrCertPathBuilderSpi
     CertPathBuilderResult builderResult = null;
 
     try {
-      cFact = CertificateFactory.getInstance("X.509", BouncyCastleProvider.PROVIDER_NAME);
-      validator = CertPathValidator.getInstance("RFC3281", BouncyCastleProvider.PROVIDER_NAME);
+      cFact = CertificateFactory.getInstance("X.509", LinLongProvider.PROVIDER_NAME);
+      validator = CertPathValidator.getInstance("RFC3281", LinLongProvider.PROVIDER_NAME);
     } catch (Exception e) {
       // cannot happen
       throw new RuntimeException(

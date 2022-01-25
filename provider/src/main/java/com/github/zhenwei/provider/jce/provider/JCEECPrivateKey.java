@@ -312,7 +312,7 @@ public class JCEECPrivateKey
       return EC5Util.convertSpec(ecSpec);
     }
 
-    return BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+    return LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
   }
 
   public BigInteger getS() {

@@ -178,7 +178,7 @@ public class X509CRLObject
     Signature sig;
 
     try {
-      sig = Signature.getInstance(getSigAlgName(), BouncyCastleProvider.PROVIDER_NAME);
+      sig = Signature.getInstance(getSigAlgName(), LinLongProvider.PROVIDER_NAME);
     } catch (Exception e) {
       sig = Signature.getInstance(getSigAlgName());
     }

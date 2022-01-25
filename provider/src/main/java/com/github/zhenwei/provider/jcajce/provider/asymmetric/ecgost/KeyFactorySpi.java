@@ -6,7 +6,7 @@ import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.BaseKeyFactorySpi;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec;
 import com.github.zhenwei.provider.jce.spec.ECPublicKeySpec;
@@ -36,7 +36,7 @@ public class KeyFactorySpi
       if (k.getParams() != null) {
         return new java.security.spec.ECPublicKeySpec(k.getW(), k.getParams());
       } else {
-        ECParameterSpec implicitSpec = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new java.security.spec.ECPublicKeySpec(k.getW(), EC5Util.convertSpec(
             EC5Util.convertCurve(implicitSpec.getCurve(), implicitSpec.getSeed()), implicitSpec));
@@ -48,7 +48,7 @@ public class KeyFactorySpi
       if (k.getParams() != null) {
         return new java.security.spec.ECPrivateKeySpec(k.getS(), k.getParams());
       } else {
-        ECParameterSpec implicitSpec = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new java.security.spec.ECPrivateKeySpec(k.getS(), EC5Util.convertSpec(
             EC5Util.convertCurve(implicitSpec.getCurve(), implicitSpec.getSeed()), implicitSpec));
@@ -60,7 +60,7 @@ public class KeyFactorySpi
         return new com.github.zhenwei.provider.jce.spec.ECPublicKeySpec(
             EC5Util.convertPoint(k.getParams(), k.getW()), EC5Util.convertSpec(k.getParams()));
       } else {
-        ECParameterSpec implicitSpec = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new com.github.zhenwei.provider.jce.spec.ECPublicKeySpec(
             EC5Util.convertPoint(k.getParams(), k.getW()), implicitSpec);
@@ -73,7 +73,7 @@ public class KeyFactorySpi
         return new com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec(k.getS(),
             EC5Util.convertSpec(k.getParams()));
       } else {
-        ECParameterSpec implicitSpec = BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec(k.getS(), implicitSpec);
       }
@@ -105,7 +105,7 @@ public class KeyFactorySpi
       throws InvalidKeySpecException {
     if (keySpec instanceof ECPublicKeySpec) {
       return new BCECGOST3410PublicKey((ECPublicKeySpec) keySpec,
-          BouncyCastleProvider.CONFIGURATION);
+          LinLongProvider.CONFIGURATION);
     } else if (keySpec instanceof java.security.spec.ECPublicKeySpec) {
       return new BCECGOST3410PublicKey((java.security.spec.ECPublicKeySpec) keySpec);
     }

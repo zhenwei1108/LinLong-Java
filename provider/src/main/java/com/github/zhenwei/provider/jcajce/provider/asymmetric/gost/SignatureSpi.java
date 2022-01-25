@@ -14,7 +14,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.GOST3410Util;
 import com.github.zhenwei.provider.jce.interfaces.ECKey;
 import com.github.zhenwei.provider.jce.interfaces.ECPublicKey;
 import com.github.zhenwei.provider.jce.interfaces.GOST3410Key;
-import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
+import com.github.zhenwei.provider.jce.provider.LinLongProvider;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
@@ -49,7 +49,7 @@ public class SignatureSpi
       try {
         byte[] bytes = publicKey.getEncoded();
 
-        publicKey = BouncyCastleProvider.getPublicKey(SubjectPublicKeyInfo.getInstance(bytes));
+        publicKey = LinLongProvider.getPublicKey(SubjectPublicKeyInfo.getInstance(bytes));
 
         if (publicKey instanceof ECPublicKey) {
           param = ECUtil.generatePublicKeyParameter(publicKey);
