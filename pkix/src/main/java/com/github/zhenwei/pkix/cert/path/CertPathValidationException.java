@@ -1,24 +1,21 @@
 package com.github.zhenwei.pkix.cert.path;
 
 public class CertPathValidationException
-    extends Exception
-{
-    private final Exception cause;
+    extends Exception {
 
-    public CertPathValidationException(String msg)
-    {
-        this(msg, null);
-    }
+  private final Exception cause;
 
-    public CertPathValidationException(String msg, Exception cause)
-    {
-        super(msg);
+  public CertPathValidationException(String msg) {
+    this(msg, null);
+  }
 
-        this.cause = cause;
-    }
+  public CertPathValidationException(String msg, Exception cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

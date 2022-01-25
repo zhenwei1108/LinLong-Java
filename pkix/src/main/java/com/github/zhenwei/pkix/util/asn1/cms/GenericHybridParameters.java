@@ -20,60 +20,50 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  * </pre>
  */
 public class GenericHybridParameters
-    extends ASN1Object
-{
-    private final AlgorithmIdentifier kem;
-    private final AlgorithmIdentifier dem;
+    extends ASN1Object {
 
-    private GenericHybridParameters(ASN1Sequence sequence)
-    {
-        if (sequence.size() != 2)
-        {
-            throw new IllegalArgumentException("ASN.1 SEQUENCE should be of length 2");
-        }
+  private final AlgorithmIdentifier kem;
+  private final AlgorithmIdentifier dem;
 
-        this.kem = AlgorithmIdentifier.getInstance(sequence.getObjectAt(0));
-        this.dem = AlgorithmIdentifier.getInstance(sequence.getObjectAt(1));
+  private GenericHybridParameters(ASN1Sequence sequence) {
+    if (sequence.size() != 2) {
+      throw new IllegalArgumentException("ASN.1 SEQUENCE should be of length 2");
     }
 
-    public static GenericHybridParameters getInstance(
-        Object  o)
-    {
-        if (o instanceof GenericHybridParameters)
-        {
-            return (GenericHybridParameters)o;
-        }
-        else if (o != null)
-        {
-            return new GenericHybridParameters(ASN1Sequence.getInstance(o));
-        }
+    this.kem = AlgorithmIdentifier.getInstance(sequence.getObjectAt(0));
+    this.dem = AlgorithmIdentifier.getInstance(sequence.getObjectAt(1));
+  }
 
-        return null;
+  public static GenericHybridParameters getInstance(
+      Object o) {
+    if (o instanceof GenericHybridParameters) {
+      return (GenericHybridParameters) o;
+    } else if (o != null) {
+      return new GenericHybridParameters(ASN1Sequence.getInstance(o));
     }
 
-    public GenericHybridParameters(AlgorithmIdentifier kem, AlgorithmIdentifier dem)
-    {
-        this.kem = kem;
-        this.dem = dem;
-    }
+    return null;
+  }
 
-    public AlgorithmIdentifier getDem()
-    {
-        return dem;
-    }
+  public GenericHybridParameters(AlgorithmIdentifier kem, AlgorithmIdentifier dem) {
+    this.kem = kem;
+    this.dem = dem;
+  }
 
-    public AlgorithmIdentifier getKem()
-    {
-        return kem;
-    }
+  public AlgorithmIdentifier getDem() {
+    return dem;
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public AlgorithmIdentifier getKem() {
+    return kem;
+  }
 
-        v.add(kem);
-        v.add(dem);
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        return new DERSequence(v);
-    }
+    v.add(kem);
+    v.add(dem);
+
+    return new DERSequence(v);
+  }
 }

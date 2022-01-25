@@ -1,48 +1,46 @@
 package com.github.zhenwei.core.crypto.agreement;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.ECDHUPrivateParameters;
 import com.github.zhenwei.core.crypto.params.ECDHUPublicParameters;
 import com.github.zhenwei.core.util.BigIntegers;
+import java.math.BigInteger;
 
 /**
- * EC Unified static/ephemeral agreement as described in NIST SP 800-56A using EC co-factor Diffie-Hellman.
+ * EC Unified static/ephemeral agreement as described in NIST SP 800-56A using EC co-factor
+ * Diffie-Hellman.
  */
-public class ECDHCUnifiedAgreement
-{
-    private ECDHUPrivateParameters privParams;
+public class ECDHCUnifiedAgreement {
 
-    public void init(
-        CipherParameters key)
-    {
-        this.privParams = (ECDHUPrivateParameters)key;
-    }
+  private ECDHUPrivateParameters privParams;
 
-    public int getFieldSize()
-    {
-        return (privParams.getStaticPrivateKey().getParameters().getCurve().getFieldSize() + 7) / 8;
-    }
+  public void init(
+      CipherParameters key) {
+    this.privParams = (ECDHUPrivateParameters) key;
+  }
 
-    public byte[] calculateAgreement(CipherParameters pubKey)
-    {
-        ECDHUPublicParameters pubParams = (ECDHUPublicParameters)pubKey;
+  public int getFieldSize() {
+    return (privParams.getStaticPrivateKey().getParameters().getCurve().getFieldSize() + 7) / 8;
+  }
 
-        ECDHCBasicAgreement sAgree = new ECDHCBasicAgreement();
-        ECDHCBasicAgreement eAgree = new ECDHCBasicAgreement();
+  public byte[] calculateAgreement(CipherParameters pubKey) {
+    ECDHUPublicParameters pubParams = (ECDHUPublicParameters) pubKey;
 
-        sAgree.init(privParams.getStaticPrivateKey());
+    ECDHCBasicAgreement sAgree = new ECDHCBasicAgreement();
+    ECDHCBasicAgreement eAgree = new ECDHCBasicAgreement();
 
-        BigInteger sComp = sAgree.calculateAgreement(pubParams.getStaticPublicKey());
+    sAgree.init(privParams.getStaticPrivateKey());
 
-        eAgree.init(privParams.getEphemeralPrivateKey());
+    BigInteger sComp = sAgree.calculateAgreement(pubParams.getStaticPublicKey());
 
-        BigInteger eComp = eAgree.calculateAgreement(pubParams.getEphemeralPublicKey());
+    eAgree.init(privParams.getEphemeralPrivateKey());
 
-        int fieldSize = getFieldSize();
-        byte[] result = new byte[fieldSize * 2];
-        BigIntegers.asUnsignedByteArray(eComp, result, 0, fieldSize);
-        BigIntegers.asUnsignedByteArray(sComp, result, fieldSize, fieldSize);
-        return result;
-    }
+    BigInteger eComp = eAgree.calculateAgreement(pubParams.getEphemeralPublicKey());
+
+    int fieldSize = getFieldSize();
+    byte[] result = new byte[fieldSize * 2];
+    BigIntegers.asUnsignedByteArray(eComp, result, 0, fieldSize);
+    BigIntegers.asUnsignedByteArray(sComp, result, fieldSize, fieldSize);
+    return result;
+  }
 }

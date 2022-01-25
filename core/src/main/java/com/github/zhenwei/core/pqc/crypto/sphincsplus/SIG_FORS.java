@@ -1,23 +1,20 @@
 package com.github.zhenwei.core.pqc.crypto.sphincsplus;
 
-class SIG_FORS
-{
-    final byte[][] authPath;
-    final byte[] sk;
+class SIG_FORS {
 
-    SIG_FORS(byte[] sk, byte[][] authPath)
-    {
-        this.authPath = authPath;
-        this.sk = sk;
-    }
+  final byte[][] authPath;
+  final byte[] sk;
 
-    byte[] getSK()
-    {
-        return sk;
-    }
+  SIG_FORS(byte[] sk, byte[][] authPath) {
+    this.authPath = authPath;
+    this.sk = sk;
+  }
 
-    public byte[][] getAuthPath()
-    {
-        return authPath;
-    }
+  byte[] getSK() {
+    return sk;
+  }
+
+  public byte[][] getAuthPath() {
+    return authPath;
+  }
 }

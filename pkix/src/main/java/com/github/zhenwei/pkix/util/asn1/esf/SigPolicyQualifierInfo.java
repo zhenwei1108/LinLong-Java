@@ -9,67 +9,58 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 
 public class SigPolicyQualifierInfo
-    extends ASN1Object
-{
-    private ASN1ObjectIdentifier  sigPolicyQualifierId;
-    private ASN1Encodable         sigQualifier;
+    extends ASN1Object {
 
-    public SigPolicyQualifierInfo(
-        ASN1ObjectIdentifier   sigPolicyQualifierId,
-        ASN1Encodable          sigQualifier)
-    {
-        this.sigPolicyQualifierId = sigPolicyQualifierId;
-        this.sigQualifier = sigQualifier;
+  private ASN1ObjectIdentifier sigPolicyQualifierId;
+  private ASN1Encodable sigQualifier;
+
+  public SigPolicyQualifierInfo(
+      ASN1ObjectIdentifier sigPolicyQualifierId,
+      ASN1Encodable sigQualifier) {
+    this.sigPolicyQualifierId = sigPolicyQualifierId;
+    this.sigQualifier = sigQualifier;
+  }
+
+  private SigPolicyQualifierInfo(
+      ASN1Sequence seq) {
+    sigPolicyQualifierId = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
+    sigQualifier = seq.getObjectAt(1);
+  }
+
+  public static SigPolicyQualifierInfo getInstance(
+      Object obj) {
+    if (obj instanceof SigPolicyQualifierInfo) {
+      return (SigPolicyQualifierInfo) obj;
+    } else if (obj != null) {
+      return new SigPolicyQualifierInfo(ASN1Sequence.getInstance(obj));
     }
 
-    private SigPolicyQualifierInfo(
-        ASN1Sequence seq)
-    {
-        sigPolicyQualifierId = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(0));
-        sigQualifier = seq.getObjectAt(1);
-    }
+    return null;
+  }
 
-    public static SigPolicyQualifierInfo getInstance(
-        Object obj)
-    {
-        if (obj instanceof SigPolicyQualifierInfo)
-        {
-            return (SigPolicyQualifierInfo) obj;
-        }
-        else if (obj != null)
-        {
-            return new SigPolicyQualifierInfo(ASN1Sequence.getInstance(obj));
-        }
+  public ASN1ObjectIdentifier getSigPolicyQualifierId() {
+    return new ASN1ObjectIdentifier(sigPolicyQualifierId.getId());
+  }
 
-        return null;
-    }
+  public ASN1Encodable getSigQualifier() {
+    return sigQualifier;
+  }
 
-    public ASN1ObjectIdentifier getSigPolicyQualifierId()
-    {
-        return new ASN1ObjectIdentifier(sigPolicyQualifierId.getId());
-    }
+  /**
+   * <pre>
+   * SigPolicyQualifierInfo ::= SEQUENCE {
+   *    sigPolicyQualifierId SigPolicyQualifierId,
+   *    sigQualifier ANY DEFINED BY sigPolicyQualifierId }
+   *
+   * SigPolicyQualifierId ::= OBJECT IDENTIFIER
+   * </pre>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-    public ASN1Encodable getSigQualifier()
-    {
-        return sigQualifier;
-    }
+    v.add(sigPolicyQualifierId);
+    v.add(sigQualifier);
 
-    /**
-     * <pre>
-     * SigPolicyQualifierInfo ::= SEQUENCE {
-     *    sigPolicyQualifierId SigPolicyQualifierId,
-     *    sigQualifier ANY DEFINED BY sigPolicyQualifierId }
-     *
-     * SigPolicyQualifierId ::= OBJECT IDENTIFIER
-     * </pre>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
-
-        v.add(sigPolicyQualifierId);
-        v.add(sigQualifier);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

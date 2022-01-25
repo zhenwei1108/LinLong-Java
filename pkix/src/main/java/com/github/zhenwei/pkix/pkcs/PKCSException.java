@@ -4,24 +4,21 @@ package com.github.zhenwei.pkix.pkcs;
  * General checked Exception thrown in the cert package and its sub-packages.
  */
 public class PKCSException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public PKCSException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public PKCSException(String msg, Throwable cause) {
+    super(msg);
 
-    public PKCSException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public PKCSException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

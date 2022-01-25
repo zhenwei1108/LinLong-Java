@@ -16,73 +16,62 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class ValidityPeriod
-    extends ASN1Object
-{
-    private final ASN1Integer time32;
-    private final Duration duration;
+    extends ASN1Object {
+
+  private final ASN1Integer time32;
+  private final Duration duration;
 
 
-    public ValidityPeriod(ASN1Integer time32, Duration duration)
-    {
-        this.time32 = time32;
-        this.duration = duration;
+  public ValidityPeriod(ASN1Integer time32, Duration duration) {
+    this.time32 = time32;
+    this.duration = duration;
+  }
+
+  public static ValidityPeriod getInstance(Object o) {
+    if (o instanceof ValidityPeriod) {
+      return (ValidityPeriod) o;
     }
 
-    public static ValidityPeriod getInstance(Object o)
-    {
-        if (o instanceof ValidityPeriod)
-        {
-            return (ValidityPeriod)o;
-        }
+    ASN1Sequence seq = ASN1Sequence.getInstance(o);
+    return new Builder()
+        .setTime32(ASN1Integer.getInstance(seq.getObjectAt(0)))
+        .setDuration(Duration.getInstance(seq.getObjectAt(1)))
+        .createValidityPeriod();
+  }
 
-        ASN1Sequence seq = ASN1Sequence.getInstance(o);
-        return new Builder()
-            .setTime32(ASN1Integer.getInstance(seq.getObjectAt(0)))
-            .setDuration(Duration.getInstance(seq.getObjectAt(1)))
-            .createValidityPeriod();
+  public static Builder builder() {
+    return new Builder();
+  }
+
+  public ASN1Integer getTime32() {
+    return time32;
+  }
+
+  public Duration getDuration() {
+    return duration;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return new DERSequence(new ASN1Encodable[]{time32, duration});
+  }
+
+  public static class Builder {
+
+    private ASN1Integer time32;
+    private Duration duration;
+
+    public Builder setTime32(ASN1Integer time32) {
+      this.time32 = time32;
+      return this;
     }
 
-    public static Builder builder()
-    {
-        return new Builder();
+    public Builder setDuration(Duration duration) {
+      this.duration = duration;
+      return this;
     }
 
-    public ASN1Integer getTime32()
-    {
-        return time32;
+    public ValidityPeriod createValidityPeriod() {
+      return new ValidityPeriod(time32, duration);
     }
-
-    public Duration getDuration()
-    {
-        return duration;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERSequence(new ASN1Encodable[]{time32, duration});
-    }
-
-    public static class Builder
-    {
-
-        private ASN1Integer time32;
-        private Duration duration;
-
-        public Builder setTime32(ASN1Integer time32)
-        {
-            this.time32 = time32;
-            return this;
-        }
-
-        public Builder setDuration(Duration duration)
-        {
-            this.duration = duration;
-            return this;
-        }
-
-        public ValidityPeriod createValidityPeriod()
-        {
-            return new ValidityPeriod(time32, duration);
-        }
-    }
+  }
 }

@@ -3,39 +3,34 @@ package com.github.zhenwei.core.crypto.params;
 import java.math.BigInteger;
 
 public class DHPrivateKeyParameters
-    extends DHKeyParameters
-{
-    private BigInteger      x;
+    extends DHKeyParameters {
 
-    public DHPrivateKeyParameters(
-        BigInteger      x,
-        DHParameters    params)
-    {
-        super(true, params);
+  private BigInteger x;
 
-        this.x = x;
-    }   
+  public DHPrivateKeyParameters(
+      BigInteger x,
+      DHParameters params) {
+    super(true, params);
 
-    public BigInteger getX()
-    {
-        return x;
+    this.x = x;
+  }
+
+  public BigInteger getX() {
+    return x;
+  }
+
+  public int hashCode() {
+    return x.hashCode() ^ super.hashCode();
+  }
+
+  public boolean equals(
+      Object obj) {
+    if (!(obj instanceof DHPrivateKeyParameters)) {
+      return false;
     }
 
-    public int hashCode()
-    {
-        return x.hashCode() ^ super.hashCode();
-    }
-    
-    public boolean equals(
-        Object  obj)
-    {
-        if (!(obj instanceof DHPrivateKeyParameters))
-        {
-            return false;
-        }
+    DHPrivateKeyParameters other = (DHPrivateKeyParameters) obj;
 
-        DHPrivateKeyParameters  other = (DHPrivateKeyParameters)obj;
-
-        return other.getX().equals(this.x) && super.equals(obj);
-    }
+    return other.getX().equals(this.x) && super.equals(obj);
+  }
 }

@@ -6,11 +6,11 @@ import java.math.BigInteger;
 /**
  * @deprecated No longer used
  */
-public interface DSAEncoder
-{
-    byte[] encode(BigInteger r, BigInteger s)
-        throws IOException;
+public interface DSAEncoder {
 
-    BigInteger[] decode(byte[] sig)
-        throws IOException;
+  byte[] encode(BigInteger r, BigInteger s)
+      throws IOException;
+
+  BigInteger[] decode(byte[] sig)
+      throws IOException;
 }

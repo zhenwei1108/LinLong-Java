@@ -18,93 +18,84 @@ import com.github.zhenwei.core.asn1.DERSequence;
  *     attrType OBJECT IDENTIFIER,
  *     attrValues SET OF AttributeValue
  * }
- * 
+ *
  * AttributeValue ::= ANY
  * </pre>
  * <p>
- * General rule on values is that same AttributeValue must not be included
- * multiple times into the set. That is, if the value is a SET OF INTEGERs,
- * then having same value repeated is wrong: (1, 1), but different values is OK: (1, 2).
- * Normally the AttributeValue syntaxes are more complicated than that.
+ * General rule on values is that same AttributeValue must not be included multiple times into the
+ * set. That is, if the value is a SET OF INTEGERs, then having same value repeated is wrong: (1,
+ * 1), but different values is OK: (1, 2). Normally the AttributeValue syntaxes are more complicated
+ * than that.
  * <p>
- * General rule of Attribute usage is that the {@link Attributes} containers
- * must not have multiple Attribute:s with same attrType (OID) there.
+ * General rule of Attribute usage is that the {@link Attributes} containers must not have multiple
+ * Attribute:s with same attrType (OID) there.
  */
 public class Attribute
-    extends ASN1Object
-{
-    private ASN1ObjectIdentifier attrType;
-    private ASN1Set             attrValues;
+    extends ASN1Object {
 
-    /**
-     * Return an Attribute object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link Attribute} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with Attribute structure inside
-     * </ul>
-     *
-     * @param o the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static Attribute getInstance(
-        Object o)
-    {
-        if (o instanceof Attribute)
-        {
-            return (Attribute)o;
-        }
-        
-        if (o != null)
-        {
-            return new Attribute(ASN1Sequence.getInstance(o));
-        }
+  private ASN1ObjectIdentifier attrType;
+  private ASN1Set attrValues;
 
-        return null;
-    }
-    
-    private Attribute(
-        ASN1Sequence seq)
-    {
-        attrType = (ASN1ObjectIdentifier)seq.getObjectAt(0);
-        attrValues = (ASN1Set)seq.getObjectAt(1);
+  /**
+   * Return an Attribute object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link Attribute} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with Attribute structure inside
+   * </ul>
+   *
+   * @param o the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static Attribute getInstance(
+      Object o) {
+    if (o instanceof Attribute) {
+      return (Attribute) o;
     }
 
-    public Attribute(
-        ASN1ObjectIdentifier attrType,
-        ASN1Set             attrValues)
-    {
-        this.attrType = attrType;
-        this.attrValues = attrValues;
+    if (o != null) {
+      return new Attribute(ASN1Sequence.getInstance(o));
     }
 
-    public ASN1ObjectIdentifier getAttrType()
-    {
-        return attrType;
-    }
-    
-    public ASN1Set getAttrValues()
-    {
-        return attrValues;
-    }
+    return null;
+  }
 
-    public ASN1Encodable[] getAttributeValues()
-    {
-        return attrValues.toArray();
-    }
+  private Attribute(
+      ASN1Sequence seq) {
+    attrType = (ASN1ObjectIdentifier) seq.getObjectAt(0);
+    attrValues = (ASN1Set) seq.getObjectAt(1);
+  }
 
-    /** 
-     * Produce an object suitable for an ASN1OutputStream.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public Attribute(
+      ASN1ObjectIdentifier attrType,
+      ASN1Set attrValues) {
+    this.attrType = attrType;
+    this.attrValues = attrValues;
+  }
 
-        v.add(attrType);
-        v.add(attrValues);
+  public ASN1ObjectIdentifier getAttrType() {
+    return attrType;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1Set getAttrValues() {
+    return attrValues;
+  }
+
+  public ASN1Encodable[] getAttributeValues() {
+    return attrValues.toArray();
+  }
+
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+
+    v.add(attrType);
+    v.add(attrValues);
+
+    return new DERSequence(v);
+  }
 }

@@ -3,58 +3,58 @@ package com.github.zhenwei.core.asn1.x509.sigi;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 
 /**
- * Object Identifiers of SigI specifciation (German Signature Law
- * Interoperability specification).
+ * Object Identifiers of SigI specifciation (German Signature Law Interoperability specification).
  */
-public interface SigIObjectIdentifiers
-{
-    /**
-     * OID: 1.3.36.8
-     */
-    public final static ASN1ObjectIdentifier id_sigi = new ASN1ObjectIdentifier("1.3.36.8");
+public interface SigIObjectIdentifiers {
 
-    /**
-     * Key purpose IDs for German SigI (Signature Interoperability
-     * Specification)
-     * <p>
-     * OID: 1.3.36.8.2
-     */
-    public final static ASN1ObjectIdentifier id_sigi_kp = new ASN1ObjectIdentifier("1.3.36.8.2");
+  /**
+   * OID: 1.3.36.8
+   */
+  public final static ASN1ObjectIdentifier id_sigi = new ASN1ObjectIdentifier("1.3.36.8");
 
-    /**
-     * Certificate policy IDs for German SigI (Signature Interoperability
-     * Specification)
-     * <p>
-     * OID: 1.3.36.8.1
-     */
-    public final static ASN1ObjectIdentifier id_sigi_cp = new ASN1ObjectIdentifier("1.3.36.8.1");
+  /**
+   * Key purpose IDs for German SigI (Signature Interoperability Specification)
+   * <p>
+   * OID: 1.3.36.8.2
+   */
+  public final static ASN1ObjectIdentifier id_sigi_kp = new ASN1ObjectIdentifier("1.3.36.8.2");
 
-    /**
-     * Other Name IDs for German SigI (Signature Interoperability Specification)
-     * <p>
-     * OID: 1.3.36.8.4
-     */
-    public final static ASN1ObjectIdentifier id_sigi_on = new ASN1ObjectIdentifier("1.3.36.8.4");
+  /**
+   * Certificate policy IDs for German SigI (Signature Interoperability Specification)
+   * <p>
+   * OID: 1.3.36.8.1
+   */
+  public final static ASN1ObjectIdentifier id_sigi_cp = new ASN1ObjectIdentifier("1.3.36.8.1");
 
-    /**
-     * To be used for for the generation of directory service certificates.
-     * <p>
-     * OID: 1.3.36.8.2.1
-     */
-    public static final ASN1ObjectIdentifier id_sigi_kp_directoryService = new ASN1ObjectIdentifier("1.3.36.8.2.1");
+  /**
+   * Other Name IDs for German SigI (Signature Interoperability Specification)
+   * <p>
+   * OID: 1.3.36.8.4
+   */
+  public final static ASN1ObjectIdentifier id_sigi_on = new ASN1ObjectIdentifier("1.3.36.8.4");
 
-    /**
-     * ID for PersonalData
-     * <p>
-     * OID: 1.3.36.8.4.1
-     */
-    public static final ASN1ObjectIdentifier id_sigi_on_personalData = new ASN1ObjectIdentifier("1.3.36.8.4.1");
+  /**
+   * To be used for for the generation of directory service certificates.
+   * <p>
+   * OID: 1.3.36.8.2.1
+   */
+  public static final ASN1ObjectIdentifier id_sigi_kp_directoryService = new ASN1ObjectIdentifier(
+      "1.3.36.8.2.1");
 
-    /**
-     * Certificate is conformant to german signature law.
-     * <p>
-     * OID: 1.3.36.8.1.1
-     */
-    public static final ASN1ObjectIdentifier id_sigi_cp_sigconform = new ASN1ObjectIdentifier("1.3.36.8.1.1");
+  /**
+   * ID for PersonalData
+   * <p>
+   * OID: 1.3.36.8.4.1
+   */
+  public static final ASN1ObjectIdentifier id_sigi_on_personalData = new ASN1ObjectIdentifier(
+      "1.3.36.8.4.1");
+
+  /**
+   * Certificate is conformant to german signature law.
+   * <p>
+   * OID: 1.3.36.8.1.1
+   */
+  public static final ASN1ObjectIdentifier id_sigi_cp_sigconform = new ASN1ObjectIdentifier(
+      "1.3.36.8.1.1");
 
 }

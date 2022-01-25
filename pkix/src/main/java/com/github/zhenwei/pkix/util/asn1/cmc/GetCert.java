@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.util.asn1.cmc;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -8,6 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
+import java.math.BigInteger;
 
 /**
  * <pre>
@@ -18,59 +18,50 @@ import com.github.zhenwei.core.asn1.x509.GeneralName;
  *           serialNumber    INTEGER }
  * </pre>
  */
-public class GetCert extends ASN1Object
-{
-    private final GeneralName issuerName;
-    private final BigInteger serialNumber;
+public class GetCert extends ASN1Object {
 
-    private GetCert(ASN1Sequence seq)
-    {
-        if (seq.size() != 2)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.issuerName = GeneralName.getInstance(seq.getObjectAt(0));
-        this.serialNumber = ASN1Integer.getInstance(seq.getObjectAt(1)).getValue();
+  private final GeneralName issuerName;
+  private final BigInteger serialNumber;
+
+  private GetCert(ASN1Sequence seq) {
+    if (seq.size() != 2) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.issuerName = GeneralName.getInstance(seq.getObjectAt(0));
+    this.serialNumber = ASN1Integer.getInstance(seq.getObjectAt(1)).getValue();
+  }
+
+  public GetCert(GeneralName issuerName, BigInteger serialNumber) {
+    this.issuerName = issuerName;
+    this.serialNumber = serialNumber;
+  }
+
+  public static GetCert getInstance(Object o) {
+    if (o instanceof GetCert) {
+      return (GetCert) o;
     }
 
-    public GetCert(GeneralName issuerName, BigInteger serialNumber)
-    {
-        this.issuerName = issuerName;
-        this.serialNumber = serialNumber;
+    if (o != null) {
+      return new GetCert(ASN1Sequence.getInstance(o));
     }
 
-    public static GetCert getInstance(Object o)
-    {
-        if (o instanceof GetCert)
-        {
-            return (GetCert)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new GetCert(ASN1Sequence.getInstance(o));
-        }
+  public GeneralName getIssuerName() {
+    return issuerName;
+  }
 
-        return null;
-    }
+  public BigInteger getSerialNumber() {
+    return serialNumber;
+  }
 
-    public GeneralName getIssuerName()
-    {
-        return issuerName;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-    public BigInteger getSerialNumber()
-    {
-        return serialNumber;
-    }
+    v.add(issuerName);
+    v.add(new ASN1Integer(serialNumber));
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
-
-        v.add(issuerName);
-        v.add(new ASN1Integer(serialNumber));
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

@@ -5,50 +5,44 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 
 public class CertConfirmContent
-    extends ASN1Object
-{
-    private ASN1Sequence content;
+    extends ASN1Object {
 
-    private CertConfirmContent(ASN1Sequence seq)
-    {
-        content = seq;
+  private ASN1Sequence content;
+
+  private CertConfirmContent(ASN1Sequence seq) {
+    content = seq;
+  }
+
+  public static CertConfirmContent getInstance(Object o) {
+    if (o instanceof CertConfirmContent) {
+      return (CertConfirmContent) o;
     }
 
-    public static CertConfirmContent getInstance(Object o)
-    {
-        if (o instanceof CertConfirmContent)
-        {
-            return (CertConfirmContent)o;
-        }
-
-        if (o != null)
-        {
-            return new CertConfirmContent(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+    if (o != null) {
+      return new CertConfirmContent(ASN1Sequence.getInstance(o));
     }
 
-    public CertStatus[] toCertStatusArray()
-    {
-        CertStatus[] result = new CertStatus[content.size()];
+    return null;
+  }
 
-        for (int i = 0; i != result.length; i++)
-        {
-            result[i] = CertStatus.getInstance(content.getObjectAt(i));
-        }
+  public CertStatus[] toCertStatusArray() {
+    CertStatus[] result = new CertStatus[content.size()];
 
-        return result;
+    for (int i = 0; i != result.length; i++) {
+      result[i] = CertStatus.getInstance(content.getObjectAt(i));
     }
-    
-    /**
-     * <pre>
-     * CertConfirmContent ::= SEQUENCE OF CertStatus
-     * </pre>
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return content;
-    }
+
+    return result;
+  }
+
+  /**
+   * <pre>
+   * CertConfirmContent ::= SEQUENCE OF CertStatus
+   * </pre>
+   *
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return content;
+  }
 }

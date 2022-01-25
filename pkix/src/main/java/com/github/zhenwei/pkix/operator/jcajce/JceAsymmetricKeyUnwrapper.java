@@ -1,5 +1,13 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.AsymmetricKeyUnwrapper;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.pkix.operator.OperatorException;
+import com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
@@ -13,153 +21,123 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.spec.SecretKeySpec;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.provider.jcajce.util.DefaultJcaJceHelper;
-import  com.github.zhenwei.provider.jcajce.util.NamedJcaJceHelper;
-import  com.github.zhenwei.provider.jcajce.util.ProviderJcaJceHelper;
-import  com.github.zhenwei.pkix.operator.AsymmetricKeyUnwrapper;
-import  com.github.zhenwei.pkix.operator.GenericKey;
-import  com.github.zhenwei.pkix.operator.OperatorException;
 
 public class JceAsymmetricKeyUnwrapper
-    extends AsymmetricKeyUnwrapper
-{
-    private OperatorHelper helper = new OperatorHelper(new DefaultJcaJceHelper());
-    private Map extraMappings = new HashMap();
-    private PrivateKey privKey;
-    private boolean unwrappedKeyMustBeEncodable;
+    extends AsymmetricKeyUnwrapper {
 
-    public JceAsymmetricKeyUnwrapper(AlgorithmIdentifier algorithmIdentifier, PrivateKey privKey)
-    {
-        super(algorithmIdentifier);
+  private OperatorHelper helper = new OperatorHelper(new DefaultJcaJceHelper());
+  private Map extraMappings = new HashMap();
+  private PrivateKey privKey;
+  private boolean unwrappedKeyMustBeEncodable;
 
-        this.privKey = privKey;
-    }
+  public JceAsymmetricKeyUnwrapper(AlgorithmIdentifier algorithmIdentifier, PrivateKey privKey) {
+    super(algorithmIdentifier);
 
-    public JceAsymmetricKeyUnwrapper setProvider(Provider provider)
-    {
-        this.helper = new OperatorHelper(new ProviderJcaJceHelper(provider));
+    this.privKey = privKey;
+  }
 
-        return this;
-    }
+  public JceAsymmetricKeyUnwrapper setProvider(Provider provider) {
+    this.helper = new OperatorHelper(new ProviderJcaJceHelper(provider));
 
-    public JceAsymmetricKeyUnwrapper setProvider(String providerName)
-    {
-        this.helper = new OperatorHelper(new NamedJcaJceHelper(providerName));
+    return this;
+  }
 
-        return this;
-    }
+  public JceAsymmetricKeyUnwrapper setProvider(String providerName) {
+    this.helper = new OperatorHelper(new NamedJcaJceHelper(providerName));
 
-    /**
-     * Flag that unwrapping must produce a key that will return a meaningful value from a call to Key.getEncoded().
-     * This is important if you are using a HSM for unwrapping and using a software based provider for
-     * with the unwrapped key. Default value: false.
-     *
-     * @param unwrappedKeyMustBeEncodable true if getEncoded() should return key bytes, false if not necessary.
-     * @return this recipient.
-     */
-    public JceAsymmetricKeyUnwrapper setMustProduceEncodableUnwrappedKey(boolean unwrappedKeyMustBeEncodable)
-    {
-        this.unwrappedKeyMustBeEncodable = unwrappedKeyMustBeEncodable;
+    return this;
+  }
 
-        return this;
-    }
+  /**
+   * Flag that unwrapping must produce a key that will return a meaningful value from a call to
+   * Key.getEncoded(). This is important if you are using a HSM for unwrapping and using a software
+   * based provider for with the unwrapped key. Default value: false.
+   *
+   * @param unwrappedKeyMustBeEncodable true if getEncoded() should return key bytes, false if not
+   *                                    necessary.
+   * @return this recipient.
+   */
+  public JceAsymmetricKeyUnwrapper setMustProduceEncodableUnwrappedKey(
+      boolean unwrappedKeyMustBeEncodable) {
+    this.unwrappedKeyMustBeEncodable = unwrappedKeyMustBeEncodable;
 
-    /**
-     * Internally algorithm ids are converted into cipher names using a lookup table. For some providers
-     * the standard lookup table won't work. Use this method to establish a specific mapping from an
-     * algorithm identifier to a specific algorithm.
-     * <p>
-     *     For example:
-     * <pre>
-     *     unwrapper.setAlgorithmMapping(PKCSObjectIdentifiers.rsaEncryption, "RSA");
-     * </pre>
-     * @param algorithm  OID of algorithm in recipient.
-     * @param algorithmName JCE algorithm name to use.
-     * @return  the current Unwrapper.
-     */
-    public JceAsymmetricKeyUnwrapper setAlgorithmMapping(ASN1ObjectIdentifier algorithm, String algorithmName)
-    {
-        extraMappings.put(algorithm, algorithmName);
+    return this;
+  }
 
-        return this;
-    }
+  /**
+   * Internally algorithm ids are converted into cipher names using a lookup table. For some
+   * providers the standard lookup table won't work. Use this method to establish a specific mapping
+   * from an algorithm identifier to a specific algorithm.
+   * <p>
+   * For example:
+   * <pre>
+   *     unwrapper.setAlgorithmMapping(PKCSObjectIdentifiers.rsaEncryption, "RSA");
+   * </pre>
+   *
+   * @param algorithm     OID of algorithm in recipient.
+   * @param algorithmName JCE algorithm name to use.
+   * @return the current Unwrapper.
+   */
+  public JceAsymmetricKeyUnwrapper setAlgorithmMapping(ASN1ObjectIdentifier algorithm,
+      String algorithmName) {
+    extraMappings.put(algorithm, algorithmName);
 
-    public GenericKey generateUnwrappedKey(AlgorithmIdentifier encryptedKeyAlgorithm, byte[] encryptedKey)
-        throws OperatorException
-    {
-        try
-        {
-            Key sKey = null;
+    return this;
+  }
 
-            Cipher keyCipher = helper.createAsymmetricWrapper(this.getAlgorithmIdentifier().getAlgorithm(), extraMappings);
-            AlgorithmParameters algParams = helper.createAlgorithmParameters(this.getAlgorithmIdentifier());
+  public GenericKey generateUnwrappedKey(AlgorithmIdentifier encryptedKeyAlgorithm,
+      byte[] encryptedKey)
+      throws OperatorException {
+    try {
+      Key sKey = null;
 
-            try
-            {
-                if (algParams != null)
-                {
-                    keyCipher.init(Cipher.UNWRAP_MODE, privKey, algParams);
-                }
-                else
-                {
-                    keyCipher.init(Cipher.UNWRAP_MODE, privKey);
-                }
+      Cipher keyCipher = helper.createAsymmetricWrapper(
+          this.getAlgorithmIdentifier().getAlgorithm(), extraMappings);
+      AlgorithmParameters algParams = helper.createAlgorithmParameters(
+          this.getAlgorithmIdentifier());
 
-                sKey = keyCipher.unwrap(encryptedKey, helper.getKeyAlgorithmName(encryptedKeyAlgorithm.getAlgorithm()), Cipher.SECRET_KEY);
-
-                // check key will work with a software provider.
-                if (unwrappedKeyMustBeEncodable)
-                {
-                    try
-                    {
-                        byte[] keyBytes = sKey.getEncoded();
-
-                        if (keyBytes == null || keyBytes.length == 0)
-                        {
-                            sKey = null;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        sKey = null; // try doing a decrypt
-                    }
-                }
-            }
-            catch (GeneralSecurityException e)
-            {   // try decrypt
-            }
-            catch (IllegalStateException e)
-            {   // try decrypt
-            }
-            catch (UnsupportedOperationException e)
-            {   // try decrypt
-            }
-            catch (ProviderException e)
-            {    // try decrypt
-            }
-
-            // some providers do not support UNWRAP (this appears to be only for asymmetric algorithms)
-            if (sKey == null)
-            {
-                keyCipher.init(Cipher.DECRYPT_MODE, privKey);
-                sKey = new SecretKeySpec(keyCipher.doFinal(encryptedKey), encryptedKeyAlgorithm.getAlgorithm().getId());
-            }
-
-            return new JceGenericKey(encryptedKeyAlgorithm, sKey);
+      try {
+        if (algParams != null) {
+          keyCipher.init(Cipher.UNWRAP_MODE, privKey, algParams);
+        } else {
+          keyCipher.init(Cipher.UNWRAP_MODE, privKey);
         }
-        catch (InvalidKeyException e)
-        {
-            throw new OperatorException("key invalid: " + e.getMessage(), e);
+
+        sKey = keyCipher.unwrap(encryptedKey,
+            helper.getKeyAlgorithmName(encryptedKeyAlgorithm.getAlgorithm()), Cipher.SECRET_KEY);
+
+        // check key will work with a software provider.
+        if (unwrappedKeyMustBeEncodable) {
+          try {
+            byte[] keyBytes = sKey.getEncoded();
+
+            if (keyBytes == null || keyBytes.length == 0) {
+              sKey = null;
+            }
+          } catch (Exception e) {
+            sKey = null; // try doing a decrypt
+          }
         }
-        catch (IllegalBlockSizeException e)
-        {
-            throw new OperatorException("illegal blocksize: " + e.getMessage(), e);
-        }
-        catch (BadPaddingException e)
-        {
-            throw new OperatorException("bad padding: " + e.getMessage(), e);
-        }
+      } catch (GeneralSecurityException e) {   // try decrypt
+      } catch (IllegalStateException e) {   // try decrypt
+      } catch (UnsupportedOperationException e) {   // try decrypt
+      } catch (ProviderException e) {    // try decrypt
+      }
+
+      // some providers do not support UNWRAP (this appears to be only for asymmetric algorithms)
+      if (sKey == null) {
+        keyCipher.init(Cipher.DECRYPT_MODE, privKey);
+        sKey = new SecretKeySpec(keyCipher.doFinal(encryptedKey),
+            encryptedKeyAlgorithm.getAlgorithm().getId());
+      }
+
+      return new JceGenericKey(encryptedKeyAlgorithm, sKey);
+    } catch (InvalidKeyException e) {
+      throw new OperatorException("key invalid: " + e.getMessage(), e);
+    } catch (IllegalBlockSizeException e) {
+      throw new OperatorException("illegal blocksize: " + e.getMessage(), e);
+    } catch (BadPaddingException e) {
+      throw new OperatorException("bad padding: " + e.getMessage(), e);
     }
+  }
 }

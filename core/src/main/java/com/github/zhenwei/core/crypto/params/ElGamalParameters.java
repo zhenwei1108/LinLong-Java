@@ -1,68 +1,60 @@
 package com.github.zhenwei.core.crypto.params;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.CipherParameters;
+import java.math.BigInteger;
 
 public class ElGamalParameters
-    implements CipherParameters
-{
-    private BigInteger              g;
-    private BigInteger              p;
-    private int                     l;
+    implements CipherParameters {
 
-    public ElGamalParameters(
-        BigInteger  p,
-        BigInteger  g)
-    {
-        this(p, g, 0);
+  private BigInteger g;
+  private BigInteger p;
+  private int l;
+
+  public ElGamalParameters(
+      BigInteger p,
+      BigInteger g) {
+    this(p, g, 0);
+  }
+
+  public ElGamalParameters(
+      BigInteger p,
+      BigInteger g,
+      int l) {
+    this.g = g;
+    this.p = p;
+    this.l = l;
+  }
+
+  public BigInteger getP() {
+    return p;
+  }
+
+  /**
+   * return the generator - g
+   */
+  public BigInteger getG() {
+    return g;
+  }
+
+  /**
+   * return private value limit - l
+   */
+  public int getL() {
+    return l;
+  }
+
+  public boolean equals(
+      Object obj) {
+    if (!(obj instanceof ElGamalParameters)) {
+      return false;
     }
 
-    public ElGamalParameters(
-        BigInteger  p,
-        BigInteger  g,
-        int         l)
-    {
-        this.g = g;
-        this.p = p;
-        this.l = l;
-    }
+    ElGamalParameters pm = (ElGamalParameters) obj;
 
-    public BigInteger getP()
-    {
-        return p;
-    }
+    return pm.getP().equals(p) && pm.getG().equals(g) && pm.getL() == l;
+  }
 
-    /**
-     * return the generator - g
-     */
-    public BigInteger getG()
-    {
-        return g;
-    }
-
-    /**
-     * return private value limit - l
-     */
-    public int getL()
-    {
-        return l;
-    }
-
-    public boolean equals(
-        Object  obj)
-    {
-        if (!(obj instanceof ElGamalParameters))
-        {
-            return false;
-        }
-
-        ElGamalParameters    pm = (ElGamalParameters)obj;
-
-        return pm.getP().equals(p) && pm.getG().equals(g) && pm.getL() == l;
-    }
-    
-    public int hashCode()
-    {
-        return (getP().hashCode() ^ getG().hashCode()) + l;
-    }
+  public int hashCode() {
+    return (getP().hashCode() ^ getG().hashCode()) + l;
+  }
 }

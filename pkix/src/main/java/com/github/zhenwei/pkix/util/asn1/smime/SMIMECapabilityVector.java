@@ -9,42 +9,38 @@ import com.github.zhenwei.core.asn1.DERSequence;
 /**
  * Handler for creating a vector S/MIME Capabilities
  */
-public class SMIMECapabilityVector
-{
-    private ASN1EncodableVector    capabilities = new ASN1EncodableVector();
+public class SMIMECapabilityVector {
 
-    public void addCapability(
-        ASN1ObjectIdentifier capability)
-    {
-        capabilities.add(new DERSequence(capability));
-    }
+  private ASN1EncodableVector capabilities = new ASN1EncodableVector();
 
-    public void addCapability(
-        ASN1ObjectIdentifier capability,
-        int                 value)
-    {
-        ASN1EncodableVector  v = new ASN1EncodableVector(2);
+  public void addCapability(
+      ASN1ObjectIdentifier capability) {
+    capabilities.add(new DERSequence(capability));
+  }
 
-        v.add(capability);
-        v.add(new ASN1Integer(value));
+  public void addCapability(
+      ASN1ObjectIdentifier capability,
+      int value) {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        capabilities.add(new DERSequence(v));
-    }
+    v.add(capability);
+    v.add(new ASN1Integer(value));
 
-    public void addCapability(
-        ASN1ObjectIdentifier capability,
-        ASN1Encodable params)
-    {
-        ASN1EncodableVector  v = new ASN1EncodableVector(2);
+    capabilities.add(new DERSequence(v));
+  }
 
-        v.add(capability);
-        v.add(params);
+  public void addCapability(
+      ASN1ObjectIdentifier capability,
+      ASN1Encodable params) {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        capabilities.add(new DERSequence(v));
-    }
+    v.add(capability);
+    v.add(params);
 
-    public ASN1EncodableVector toASN1EncodableVector()
-    {
-        return capabilities;
-    }
+    capabilities.add(new DERSequence(v));
+  }
+
+  public ASN1EncodableVector toASN1EncodableVector() {
+    return capabilities;
+  }
 }

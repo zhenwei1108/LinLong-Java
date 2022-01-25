@@ -1,23 +1,20 @@
 package com.github.zhenwei.core.pqc.crypto.sphincsplus;
 
-class SIG_XMSS
-{
-    final byte[] sig;
-    final byte[][] auth;
+class SIG_XMSS {
 
-    public SIG_XMSS(byte[] sig, byte[][] auth)
-    {
-        this.sig = sig;
-        this.auth = auth;
-    }
+  final byte[] sig;
+  final byte[][] auth;
 
-    public byte[] getWOTSSig()
-    {
-        return sig;
-    }
+  public SIG_XMSS(byte[] sig, byte[][] auth) {
+    this.sig = sig;
+    this.auth = auth;
+  }
 
-    public byte[][] getXMSSAUTH()
-    {
-        return auth;
-    }
+  public byte[] getWOTSSig() {
+    return sig;
+  }
+
+  public byte[][] getXMSSAUTH() {
+    return auth;
+  }
 }

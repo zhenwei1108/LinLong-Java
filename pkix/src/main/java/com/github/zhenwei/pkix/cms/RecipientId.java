@@ -3,29 +3,27 @@ package com.github.zhenwei.pkix.cms;
 import com.github.zhenwei.core.util.Selector;
 
 public abstract class RecipientId
-    implements Selector
-{
-    public static final int keyTrans = 0;
-    public static final int kek = 1;
-    public static final int keyAgree = 2;
-    public static final int password = 3;
+    implements Selector {
 
-    private final int type;
+  public static final int keyTrans = 0;
+  public static final int kek = 1;
+  public static final int keyAgree = 2;
+  public static final int password = 3;
 
-    protected RecipientId(int type)
-    {
-        this.type = type;
-    }
+  private final int type;
 
-    /**
-     * Return the type code for this recipient ID.
-     *
-     * @return one of keyTrans, kek, keyAgree, password
-     */
-    public int getType()
-    {
-        return type;
-    }
+  protected RecipientId(int type) {
+    this.type = type;
+  }
 
-    public abstract Object clone();
+  /**
+   * Return the type code for this recipient ID.
+   *
+   * @return one of keyTrans, kek, keyAgree, password
+   */
+  public int getType() {
+    return type;
+  }
+
+  public abstract Object clone();
 }

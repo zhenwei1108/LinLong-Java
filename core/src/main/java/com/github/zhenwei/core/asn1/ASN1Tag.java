@@ -1,28 +1,24 @@
 package com.github.zhenwei.core.asn1;
 
-final class ASN1Tag
-{
-    static ASN1Tag create(int tagClass, int tagNumber)
-    {
-        return new ASN1Tag(tagClass, tagNumber);
-    }
+final class ASN1Tag {
 
-    private final int tagClass;
-    private final int tagNumber;
+  static ASN1Tag create(int tagClass, int tagNumber) {
+    return new ASN1Tag(tagClass, tagNumber);
+  }
 
-    private ASN1Tag(int tagClass, int tagNumber)
-    {
-        this.tagClass = tagClass;
-        this.tagNumber = tagNumber;
-    }
+  private final int tagClass;
+  private final int tagNumber;
 
-    int getTagClass()
-    {
-        return tagClass;
-    }
+  private ASN1Tag(int tagClass, int tagNumber) {
+    this.tagClass = tagClass;
+    this.tagNumber = tagNumber;
+  }
 
-    int getTagNumber()
-    {
-        return tagNumber;
-    }
+  int getTagClass() {
+    return tagClass;
+  }
+
+  int getTagNumber() {
+    return tagNumber;
+  }
 }

@@ -14,91 +14,75 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class CertStoreCollectionSpi extends CertStoreSpi
-{
-    private CollectionCertStoreParameters params;
+public class CertStoreCollectionSpi extends CertStoreSpi {
 
-    public CertStoreCollectionSpi(CertStoreParameters params)
-        throws InvalidAlgorithmParameterException
-    {
-        super(params);
+  private CollectionCertStoreParameters params;
 
-        if (!(params instanceof CollectionCertStoreParameters))
-        {
-            throw new InvalidAlgorithmParameterException("com.github.zhenwei.provider.jce.provider.CertStoreCollectionSpi: parameter must be a CollectionCertStoreParameters object\n" +  params.toString());
-        }
+  public CertStoreCollectionSpi(CertStoreParameters params)
+      throws InvalidAlgorithmParameterException {
+    super(params);
 
-        this.params = (CollectionCertStoreParameters)params;
+    if (!(params instanceof CollectionCertStoreParameters)) {
+      throw new InvalidAlgorithmParameterException(
+          "com.github.zhenwei.provider.jce.provider.CertStoreCollectionSpi: parameter must be a CollectionCertStoreParameters object\n"
+              + params.toString());
     }
 
-    public Collection engineGetCertificates(
-        CertSelector selector)
-        throws CertStoreException 
-    {
-        List        col = new ArrayList();
-        Iterator    iter = params.getCollection().iterator();
+    this.params = (CollectionCertStoreParameters) params;
+  }
 
-        if (selector == null)
-        {
-            while (iter.hasNext())
-            {
-                Object obj = iter.next();
+  public Collection engineGetCertificates(
+      CertSelector selector)
+      throws CertStoreException {
+    List col = new ArrayList();
+    Iterator iter = params.getCollection().iterator();
 
-                if (obj instanceof Certificate)
-                {
-                    col.add(obj);
-                }
-            }
+    if (selector == null) {
+      while (iter.hasNext()) {
+        Object obj = iter.next();
+
+        if (obj instanceof Certificate) {
+          col.add(obj);
         }
-        else
-        {
-            while (iter.hasNext())
-            {
-                Object obj = iter.next();
+      }
+    } else {
+      while (iter.hasNext()) {
+        Object obj = iter.next();
 
-                if ((obj instanceof Certificate) && selector.match((Certificate)obj))
-                {
-                    col.add(obj);
-                }
-            }
+        if ((obj instanceof Certificate) && selector.match((Certificate) obj)) {
+          col.add(obj);
         }
-        
-        return col;
+      }
     }
-    
 
-    public Collection engineGetCRLs(
-        CRLSelector selector)
-        throws CertStoreException 
-    {
-        List        col = new ArrayList();
-        Iterator    iter = params.getCollection().iterator();
+    return col;
+  }
 
-        if (selector == null)
-        {
-            while (iter.hasNext())
-            {
-                Object obj = iter.next();
 
-                if (obj instanceof CRL)
-                {
-                    col.add(obj);
-                }
-            }
+  public Collection engineGetCRLs(
+      CRLSelector selector)
+      throws CertStoreException {
+    List col = new ArrayList();
+    Iterator iter = params.getCollection().iterator();
+
+    if (selector == null) {
+      while (iter.hasNext()) {
+        Object obj = iter.next();
+
+        if (obj instanceof CRL) {
+          col.add(obj);
         }
-        else
-        {
-            while (iter.hasNext())
-            {
-                Object obj = iter.next();
+      }
+    } else {
+      while (iter.hasNext()) {
+        Object obj = iter.next();
 
-                if ((obj instanceof CRL) && selector.match((CRL)obj))
-                {
-                    col.add(obj);
-                }
-            }
+        if ((obj instanceof CRL) && selector.match((CRL) obj)) {
+          col.add(obj);
         }
-        
-        return col;
-    }    
+      }
+    }
+
+    return col;
+  }
 }

@@ -1,61 +1,55 @@
 package com.github.zhenwei.provider.jcajce.provider.newhope;
 
-import java.security.InvalidAlgorithmParameterException;
-import java.security.KeyPair;
-import java.security.SecureRandom;
-import java.security.spec.AlgorithmParameterSpec;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import com.github.zhenwei.core.pqc.crypto.newhope.NHKeyPairGenerator;
 import com.github.zhenwei.core.pqc.crypto.newhope.NHPrivateKeyParameters;
 import com.github.zhenwei.core.pqc.crypto.newhope.NHPublicKeyParameters;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.KeyPair;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
 
 public class NHKeyPairGeneratorSpi
-    extends java.security.KeyPairGenerator
-{
-    NHKeyPairGenerator engine = new NHKeyPairGenerator();
+    extends java.security.KeyPairGenerator {
 
-    SecureRandom random = CryptoServicesRegistrar.getSecureRandom();
-    boolean initialised = false;
+  NHKeyPairGenerator engine = new NHKeyPairGenerator();
 
-    public NHKeyPairGeneratorSpi()
-    {
-        super("NH");
+  SecureRandom random = CryptoServicesRegistrar.getSecureRandom();
+  boolean initialised = false;
+
+  public NHKeyPairGeneratorSpi() {
+    super("NH");
+  }
+
+  public void initialize(
+      int strength,
+      SecureRandom random) {
+    if (strength != 1024) {
+      throw new IllegalArgumentException("strength must be 1024 bits");
+    }
+    engine.init(new KeyGenerationParameters(random, 1024));
+    initialised = true;
+  }
+
+  public void initialize(
+      AlgorithmParameterSpec params,
+      SecureRandom random)
+      throws InvalidAlgorithmParameterException {
+    throw new InvalidAlgorithmParameterException("parameter object not recognised");
+  }
+
+  public KeyPair generateKeyPair() {
+    if (!initialised) {
+      engine.init(new KeyGenerationParameters(random, 1024));
+      initialised = true;
     }
 
-    public void initialize(
-        int strength,
-        SecureRandom random)
-    {
-        if (strength != 1024)
-        {
-            throw new IllegalArgumentException("strength must be 1024 bits");
-        }
-        engine.init(new KeyGenerationParameters(random, 1024));
-        initialised = true;
-    }
+    AsymmetricCipherKeyPair pair = engine.generateKeyPair();
+    NHPublicKeyParameters pub = (NHPublicKeyParameters) pair.getPublic();
+    NHPrivateKeyParameters priv = (NHPrivateKeyParameters) pair.getPrivate();
 
-    public void initialize(
-        AlgorithmParameterSpec params,
-        SecureRandom random)
-        throws InvalidAlgorithmParameterException
-    {
-        throw new InvalidAlgorithmParameterException("parameter object not recognised");
-    }
-
-    public KeyPair generateKeyPair()
-    {
-        if (!initialised)
-        {
-            engine.init(new KeyGenerationParameters(random, 1024));
-            initialised = true;
-        }
-
-        AsymmetricCipherKeyPair pair = engine.generateKeyPair();
-        NHPublicKeyParameters pub = (NHPublicKeyParameters)pair.getPublic();
-        NHPrivateKeyParameters priv = (NHPrivateKeyParameters)pair.getPrivate();
-
-        return new KeyPair(new BCNHPublicKey(pub), new BCNHPrivateKey(priv));
-    }
+    return new KeyPair(new BCNHPublicKey(pub), new BCNHPrivateKey(priv));
+  }
 }

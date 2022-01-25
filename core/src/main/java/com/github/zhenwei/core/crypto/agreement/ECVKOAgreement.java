@@ -1,6 +1,5 @@
 package com.github.zhenwei.core.crypto.agreement;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
@@ -10,111 +9,97 @@ import com.github.zhenwei.core.crypto.params.ParametersWithUKM;
 import com.github.zhenwei.core.math.ec.ECAlgorithms;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.util.BigIntegers;
+import java.math.BigInteger;
 
 /**
  * GOST VKO key agreement class - RFC 7836 Section 4.3
  */
-public class ECVKOAgreement
-{
-    private final Digest digest;
+public class ECVKOAgreement {
 
-    private ECPrivateKeyParameters key;
-    private BigInteger ukm;
+  private final Digest digest;
 
-    public ECVKOAgreement(Digest digest)
-    {
-        this.digest = digest;
+  private ECPrivateKeyParameters key;
+  private BigInteger ukm;
+
+  public ECVKOAgreement(Digest digest) {
+    this.digest = digest;
+  }
+
+  public void init(
+      CipherParameters key) {
+    ParametersWithUKM p = (ParametersWithUKM) key;
+
+    this.key = (ECPrivateKeyParameters) p.getParameters();
+    this.ukm = toInteger(p.getUKM());
+  }
+
+  public int getFieldSize() {
+    return (key.getParameters().getCurve().getFieldSize() + 7) / 8;
+  }
+
+  public byte[] calculateAgreement(
+      CipherParameters pubKey) {
+    ECPublicKeyParameters pub = (ECPublicKeyParameters) pubKey;
+    ECDomainParameters params = key.getParameters();
+    if (!params.equals(pub.getParameters())) {
+      throw new IllegalStateException("ECVKO public key has wrong domain parameters");
     }
 
-    public void init(
-        CipherParameters key)
-    {
-        ParametersWithUKM p = (ParametersWithUKM)key;
+    BigInteger hd = params.getH().multiply(ukm).multiply(key.getD()).mod(params.getN());
 
-        this.key = (ECPrivateKeyParameters)p.getParameters();
-        this.ukm = toInteger(p.getUKM());
+    // Always perform calculations on the exact curve specified by our private key's parameters
+    ECPoint pubPoint = ECAlgorithms.cleanPoint(params.getCurve(), pub.getQ());
+    if (pubPoint.isInfinity()) {
+      throw new IllegalStateException("Infinity is not a valid public key for ECDHC");
     }
 
-    public int getFieldSize()
-    {
-        return (key.getParameters().getCurve().getFieldSize() + 7) / 8;
+    ECPoint P = pubPoint.multiply(hd).normalize();
+
+    if (P.isInfinity()) {
+      throw new IllegalStateException("Infinity is not a valid agreement value for ECVKO");
     }
 
-    public byte[] calculateAgreement(
-        CipherParameters pubKey)
-    {
-        ECPublicKeyParameters pub = (ECPublicKeyParameters)pubKey;
-        ECDomainParameters params = key.getParameters();
-        if (!params.equals(pub.getParameters()))
-        {
-            throw new IllegalStateException("ECVKO public key has wrong domain parameters");
-        }
+    return fromPoint(P);
+  }
 
-        BigInteger hd = params.getH().multiply(ukm).multiply(key.getD()).mod(params.getN());
+  private static BigInteger toInteger(byte[] ukm) {
+    byte[] v = new byte[ukm.length];
 
-        // Always perform calculations on the exact curve specified by our private key's parameters
-        ECPoint pubPoint = ECAlgorithms.cleanPoint(params.getCurve(), pub.getQ());
-        if (pubPoint.isInfinity())
-        {
-            throw new IllegalStateException("Infinity is not a valid public key for ECDHC");
-        }
-
-        ECPoint P = pubPoint.multiply(hd).normalize();
-
-        if (P.isInfinity())
-        {
-            throw new IllegalStateException("Infinity is not a valid agreement value for ECVKO");
-        }
-
-        return fromPoint(P);
+    for (int i = 0; i != v.length; i++) {
+      v[i] = ukm[ukm.length - i - 1];
     }
 
-    private static BigInteger toInteger(byte[] ukm)
-    {
-        byte[] v = new byte[ukm.length];
+    return new BigInteger(1, v);
+  }
 
-        for (int i = 0; i != v.length; i++)
-        {
-            v[i] = ukm[ukm.length - i - 1];
-        }
+  private byte[] fromPoint(ECPoint v) {
+    BigInteger bX = v.getAffineXCoord().toBigInteger();
+    BigInteger bY = v.getAffineYCoord().toBigInteger();
 
-        return new BigInteger(1, v);
+    int size;
+    if (bX.toByteArray().length > 33) {
+      size = 64;
+    } else {
+      size = 32;
     }
 
-    private byte[] fromPoint(ECPoint v)
-    {
-        BigInteger bX = v.getAffineXCoord().toBigInteger();
-        BigInteger bY = v.getAffineYCoord().toBigInteger();
+    byte[] bytes = new byte[2 * size];
+    byte[] x = BigIntegers.asUnsignedByteArray(size, bX);
+    byte[] y = BigIntegers.asUnsignedByteArray(size, bY);
 
-        int size;
-        if (bX.toByteArray().length > 33)
-        {
-            size = 64;
-        }
-        else
-        {
-            size = 32;
-        }
-
-        byte[] bytes = new byte[2 * size];
-        byte[] x = BigIntegers.asUnsignedByteArray(size, bX);
-        byte[] y = BigIntegers.asUnsignedByteArray(size, bY);
-
-        for (int i = 0; i != size; i++)
-        {
-            bytes[i] = x[size - i - 1];
-        }
-        for (int i = 0; i != size; i++)
-        {
-            bytes[size + i] = y[size - i - 1];
-        }
-
-        digest.update(bytes, 0, bytes.length);
-
-        byte[] rv = new byte[digest.getDigestSize()];
-
-        digest.doFinal(rv, 0);
-
-        return rv;
+    for (int i = 0; i != size; i++) {
+      bytes[i] = x[size - i - 1];
     }
+    for (int i = 0; i != size; i++) {
+      bytes[size + i] = y[size - i - 1];
+    }
+
+    digest.update(bytes, 0, bytes.length);
+
+    byte[] rv = new byte[digest.getDigestSize()];
+
+    digest.doFinal(rv, 0);
+
+    return rv;
+  }
 }

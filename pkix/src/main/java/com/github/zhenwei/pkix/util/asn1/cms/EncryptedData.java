@@ -21,92 +21,80 @@ import com.github.zhenwei.core.asn1.BERTaggedObject;
  * </pre>
  */
 public class EncryptedData
-    extends ASN1Object
-{
-    private ASN1Integer version;
-    private EncryptedContentInfo encryptedContentInfo;
-    private ASN1Set unprotectedAttrs;
+    extends ASN1Object {
 
-    /**
-     * Return an EncryptedData object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link EncryptedData} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats
-     * </ul>
-     *
-     * @param o the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static EncryptedData getInstance(Object o)
-    {
-        if (o instanceof EncryptedData)
-        {
-            return (EncryptedData)o;
-        }
+  private ASN1Integer version;
+  private EncryptedContentInfo encryptedContentInfo;
+  private ASN1Set unprotectedAttrs;
 
-        if (o != null)
-        {
-            return new EncryptedData(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+  /**
+   * Return an EncryptedData object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link EncryptedData} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats
+   * </ul>
+   *
+   * @param o the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static EncryptedData getInstance(Object o) {
+    if (o instanceof EncryptedData) {
+      return (EncryptedData) o;
     }
 
-    public EncryptedData(EncryptedContentInfo encInfo)
-    {
-        this(encInfo,  null);
+    if (o != null) {
+      return new EncryptedData(ASN1Sequence.getInstance(o));
     }
 
-    public EncryptedData(EncryptedContentInfo encInfo, ASN1Set unprotectedAttrs)
-    {
-        this.version = new ASN1Integer((unprotectedAttrs == null) ? 0 : 2);
-        this.encryptedContentInfo = encInfo;
-        this.unprotectedAttrs = unprotectedAttrs;
+    return null;
+  }
+
+  public EncryptedData(EncryptedContentInfo encInfo) {
+    this(encInfo, null);
+  }
+
+  public EncryptedData(EncryptedContentInfo encInfo, ASN1Set unprotectedAttrs) {
+    this.version = new ASN1Integer((unprotectedAttrs == null) ? 0 : 2);
+    this.encryptedContentInfo = encInfo;
+    this.unprotectedAttrs = unprotectedAttrs;
+  }
+
+  private EncryptedData(ASN1Sequence seq) {
+    this.version = ASN1Integer.getInstance(seq.getObjectAt(0));
+    this.encryptedContentInfo = EncryptedContentInfo.getInstance(seq.getObjectAt(1));
+
+    if (seq.size() == 3) {
+      this.unprotectedAttrs = ASN1Set.getInstance((ASN1TaggedObject) seq.getObjectAt(2), false);
+    }
+  }
+
+  public ASN1Integer getVersion() {
+    return version;
+  }
+
+  public EncryptedContentInfo getEncryptedContentInfo() {
+    return encryptedContentInfo;
+  }
+
+  public ASN1Set getUnprotectedAttrs() {
+    return unprotectedAttrs;
+  }
+
+  /**
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
+
+    v.add(version);
+    v.add(encryptedContentInfo);
+    if (unprotectedAttrs != null) {
+      v.add(new BERTaggedObject(false, 1, unprotectedAttrs));
     }
 
-    private EncryptedData(ASN1Sequence seq)
-    {
-        this.version = ASN1Integer.getInstance(seq.getObjectAt(0));
-        this.encryptedContentInfo = EncryptedContentInfo.getInstance(seq.getObjectAt(1));
-
-        if (seq.size() == 3)
-        {
-            this.unprotectedAttrs = ASN1Set.getInstance((ASN1TaggedObject)seq.getObjectAt(2), false);
-        }
-    }
-
-    public ASN1Integer getVersion()
-    {
-        return version;
-    }
-
-    public EncryptedContentInfo getEncryptedContentInfo()
-    {
-        return encryptedContentInfo;
-    }
-
-    public ASN1Set getUnprotectedAttrs()
-    {
-        return unprotectedAttrs;
-    }
-
-    /**
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        v.add(version);
-        v.add(encryptedContentInfo);
-        if (unprotectedAttrs != null)
-        {
-            v.add(new BERTaggedObject(false, 1, unprotectedAttrs));
-        }
-
-        return new BERSequence(v);
-    }
+    return new BERSequence(v);
+  }
 }

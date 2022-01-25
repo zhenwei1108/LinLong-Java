@@ -1,42 +1,37 @@
 package com.github.zhenwei.pkix.util.oer.its;
 
-import java.util.Collections;
-import java.util.List;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Collections;
+import java.util.List;
 
 public class SequenceOfIdentifiedRegion
-    extends ASN1Object
-{
+    extends ASN1Object {
 
-    private final List<IdentifiedRegion> identifiedRegions;
+  private final List<IdentifiedRegion> identifiedRegions;
 
 
-    public SequenceOfIdentifiedRegion(List<IdentifiedRegion> identifiedRegions)
-    {
-        this.identifiedRegions = Collections.unmodifiableList(identifiedRegions);
+  public SequenceOfIdentifiedRegion(List<IdentifiedRegion> identifiedRegions) {
+    this.identifiedRegions = Collections.unmodifiableList(identifiedRegions);
+  }
+
+  public static SequenceOfIdentifiedRegion getInstance(Object o) {
+    if (o instanceof SequenceOfIdentifiedRegion) {
+      return (SequenceOfIdentifiedRegion) o;
     }
 
-    public static SequenceOfIdentifiedRegion getInstance(Object o)
-    {
-        if (o instanceof SequenceOfIdentifiedRegion)
-        {
-            return (SequenceOfIdentifiedRegion)o;
-        }
+    return new SequenceOfIdentifiedRegion(
+        Utils.fillList(IdentifiedRegion.class, ASN1Sequence.getInstance(o)));
+  }
 
-        return new SequenceOfIdentifiedRegion(Utils.fillList(IdentifiedRegion.class, ASN1Sequence.getInstance(o)));
-    }
+  public List<IdentifiedRegion> getIdentifiedRegions() {
+    return identifiedRegions;
+  }
 
-    public List<IdentifiedRegion> getIdentifiedRegions()
-    {
-        return identifiedRegions;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERSequence(identifiedRegions.toArray(new ASN1Encodable[0]));
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return new DERSequence(identifiedRegions.toArray(new ASN1Encodable[0]));
+  }
 }

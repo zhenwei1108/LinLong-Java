@@ -1,32 +1,28 @@
 package com.github.zhenwei.pkix.cms;
 
 public class CMSAttributeTableGenerationException
-    extends CMSRuntimeException
-{
-    Exception   e;
+    extends CMSRuntimeException {
 
-    public CMSAttributeTableGenerationException(
-        String name)
-    {
-        super(name);
-    }
+  Exception e;
 
-    public CMSAttributeTableGenerationException(
-        String name,
-        Exception e)
-    {
-        super(name);
+  public CMSAttributeTableGenerationException(
+      String name) {
+    super(name);
+  }
 
-        this.e = e;
-    }
+  public CMSAttributeTableGenerationException(
+      String name,
+      Exception e) {
+    super(name);
 
-    public Exception getUnderlyingException()
-    {
-        return e;
-    }
-    
-    public Throwable getCause()
-    {
-        return e;
-    }
+    this.e = e;
+  }
+
+  public Exception getUnderlyingException() {
+    return e;
+  }
+
+  public Throwable getCause() {
+    return e;
+  }
 }

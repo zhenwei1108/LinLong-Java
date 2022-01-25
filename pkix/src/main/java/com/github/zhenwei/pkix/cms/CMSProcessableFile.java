@@ -1,74 +1,67 @@
 package com.github.zhenwei.pkix.cms;
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.util.io.Streams;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
-import com.github.zhenwei.core.util.io.Streams;
 
 /**
  * a holding class for a file of data to be processed.
  */
 public class CMSProcessableFile
-    implements CMSTypedData, CMSReadable
-{
-    private static final int DEFAULT_BUF_SIZE = 32 * 1024;
+    implements CMSTypedData, CMSReadable {
 
-    private final ASN1ObjectIdentifier type;
-    private final File file;
-    private final int bufSize;
+  private static final int DEFAULT_BUF_SIZE = 32 * 1024;
 
-    public CMSProcessableFile(
-        File file)
-    {
-        this(file, DEFAULT_BUF_SIZE);
-    }
-    
-    public CMSProcessableFile(
-        File file,
-        int  bufSize)
-    {
-        this(CMSObjectIdentifiers.data, file, bufSize);
-    }
+  private final ASN1ObjectIdentifier type;
+  private final File file;
+  private final int bufSize;
 
-    public CMSProcessableFile(
-        ASN1ObjectIdentifier type,
-        File file,
-        int  bufSize)
-    {
-        this.type = type;
-        this.file = file;
-        this.bufSize = bufSize;
-    }
+  public CMSProcessableFile(
+      File file) {
+    this(file, DEFAULT_BUF_SIZE);
+  }
 
-    public InputStream getInputStream()
-        throws IOException, CMSException
-    {
-        return new BufferedInputStream(new FileInputStream(file), bufSize);
-    }
+  public CMSProcessableFile(
+      File file,
+      int bufSize) {
+    this(CMSObjectIdentifiers.data, file, bufSize);
+  }
 
-    public void write(OutputStream zOut)
-        throws IOException, CMSException
-    {
-        FileInputStream fIn = new FileInputStream(file);
-        Streams.pipeAll(fIn, zOut, bufSize);
-        fIn.close();
-    }
+  public CMSProcessableFile(
+      ASN1ObjectIdentifier type,
+      File file,
+      int bufSize) {
+    this.type = type;
+    this.file = file;
+    this.bufSize = bufSize;
+  }
 
-    /**
-     * Return the file handle.
-     */
-    public Object getContent()
-    {
-        return file;
-    }
+  public InputStream getInputStream()
+      throws IOException, CMSException {
+    return new BufferedInputStream(new FileInputStream(file), bufSize);
+  }
 
-    public ASN1ObjectIdentifier getContentType()
-    {
-        return type;
-    }
+  public void write(OutputStream zOut)
+      throws IOException, CMSException {
+    FileInputStream fIn = new FileInputStream(file);
+    Streams.pipeAll(fIn, zOut, bufSize);
+    fIn.close();
+  }
+
+  /**
+   * Return the file handle.
+   */
+  public Object getContent() {
+    return file;
+  }
+
+  public ASN1ObjectIdentifier getContentType() {
+    return type;
+  }
 }

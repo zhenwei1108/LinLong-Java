@@ -4,24 +4,21 @@ package com.github.zhenwei.pkix.eac;
  * General checked Exception thrown in the cert package and its sub-packages.
  */
 public class EACException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public EACException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public EACException(String msg, Throwable cause) {
+    super(msg);
 
-    public EACException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public EACException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

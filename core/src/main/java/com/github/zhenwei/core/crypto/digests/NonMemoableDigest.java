@@ -6,59 +6,50 @@ import com.github.zhenwei.core.crypto.ExtendedDigest;
  * Wrapper removes exposure to the Memoable interface on an ExtendedDigest implementation.
  */
 public class NonMemoableDigest
-    implements ExtendedDigest
-{
-    private ExtendedDigest baseDigest;
+    implements ExtendedDigest {
 
-    /**
-     * Base constructor.
-     *
-     * @param baseDigest underlying digest to use.
-     * @exception IllegalArgumentException if baseDigest is null
-     */
-    public NonMemoableDigest(
-        ExtendedDigest baseDigest)
-    {
-        if (baseDigest == null)
-        {
-            throw new IllegalArgumentException("baseDigest must not be null");
-        }
+  private ExtendedDigest baseDigest;
 
-        this.baseDigest = baseDigest;
-    }
-    
-    public String getAlgorithmName()
-    {
-        return baseDigest.getAlgorithmName();
+  /**
+   * Base constructor.
+   *
+   * @param baseDigest underlying digest to use.
+   * @throws IllegalArgumentException if baseDigest is null
+   */
+  public NonMemoableDigest(
+      ExtendedDigest baseDigest) {
+    if (baseDigest == null) {
+      throw new IllegalArgumentException("baseDigest must not be null");
     }
 
-    public int getDigestSize()
-    {
-        return baseDigest.getDigestSize();
-    }
+    this.baseDigest = baseDigest;
+  }
 
-    public void update(byte in)
-    {
-        baseDigest.update(in);
-    }
+  public String getAlgorithmName() {
+    return baseDigest.getAlgorithmName();
+  }
 
-    public void update(byte[] in, int inOff, int len)
-    {
-        baseDigest.update(in, inOff, len);
-    }
+  public int getDigestSize() {
+    return baseDigest.getDigestSize();
+  }
 
-    public int doFinal(byte[] out, int outOff)
-    {
-        return baseDigest.doFinal(out, outOff);
-    }
+  public void update(byte in) {
+    baseDigest.update(in);
+  }
 
-    public void reset()
-    {
-        baseDigest.reset();
-    }
+  public void update(byte[] in, int inOff, int len) {
+    baseDigest.update(in, inOff, len);
+  }
 
-    public int getByteLength()
-    {
-        return baseDigest.getByteLength();
-    }
+  public int doFinal(byte[] out, int outOff) {
+    return baseDigest.doFinal(out, outOff);
+  }
+
+  public void reset() {
+    baseDigest.reset();
+  }
+
+  public int getByteLength() {
+    return baseDigest.getByteLength();
+  }
 }

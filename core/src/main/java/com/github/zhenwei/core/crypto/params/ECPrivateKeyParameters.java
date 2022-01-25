@@ -3,21 +3,19 @@ package com.github.zhenwei.core.crypto.params;
 import java.math.BigInteger;
 
 public class ECPrivateKeyParameters
-    extends ECKeyParameters
-{
-    private final BigInteger d;
+    extends ECKeyParameters {
 
-    public ECPrivateKeyParameters(
-        BigInteger          d,
-        ECDomainParameters  parameters)
-    {
-        super(true, parameters);
+  private final BigInteger d;
 
-        this.d = parameters.validatePrivateScalar(d);
-    }
+  public ECPrivateKeyParameters(
+      BigInteger d,
+      ECDomainParameters parameters) {
+    super(true, parameters);
 
-    public BigInteger getD()
-    {
-        return d;
-    }
+    this.d = parameters.validatePrivateScalar(d);
+  }
+
+  public BigInteger getD() {
+    return d;
+  }
 }

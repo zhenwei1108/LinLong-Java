@@ -1,104 +1,87 @@
 package com.github.zhenwei.pkix.util.oer.its;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
- * CountryAndRegions ::= SEQUENCE {
- * countryOnly  CountryOnly,
- * regions      SequenceOfUint8
- * }
+ * CountryAndRegions ::= SEQUENCE { countryOnly  CountryOnly, regions      SequenceOfUint8 }
  */
 public class CountryAndRegions
     extends ASN1Object
-    implements RegionInterface
-{
+    implements RegionInterface {
 
-    private final CountryOnly countryOnly;
-    private final List<Region> regions;
+  private final CountryOnly countryOnly;
+  private final List<Region> regions;
 
-    public CountryAndRegions(CountryOnly countryOnly, List<Region> regionList)
-    {
-        this.countryOnly = countryOnly;
-        this.regions = Collections.unmodifiableList(regionList);
+  public CountryAndRegions(CountryOnly countryOnly, List<Region> regionList) {
+    this.countryOnly = countryOnly;
+    this.regions = Collections.unmodifiableList(regionList);
+  }
+
+
+  public static CountryAndRegions getInstance(Object object) {
+    if (object instanceof CountryAndRegions) {
+      return (CountryAndRegions) object;
     }
 
+    ASN1Sequence sequence = ASN1Sequence.getInstance(object);
 
-    public static CountryAndRegions getInstance(Object object)
-    {
-        if (object instanceof CountryAndRegions)
-        {
-            return (CountryAndRegions)object;
-        }
+    CountryOnly countryOnly = CountryOnly.getInstance(sequence.getObjectAt(0));
+    ASN1Sequence regions = ASN1Sequence.getInstance(sequence.getObjectAt(1));
 
-        ASN1Sequence sequence = ASN1Sequence.getInstance(object);
+    return new CountryAndRegions(countryOnly, Utils.fillList(Region.class, regions));
 
-        CountryOnly countryOnly = CountryOnly.getInstance(sequence.getObjectAt(0));
-        ASN1Sequence regions = ASN1Sequence.getInstance(sequence.getObjectAt(1));
+  }
 
-        return new CountryAndRegions(countryOnly, Utils.fillList(Region.class, regions));
+  public static CountryAndRegionsBuilder builder() {
+    return new CountryAndRegionsBuilder();
+  }
 
+  public ASN1Primitive toASN1Primitive() {
+    return Utils.toSequence(countryOnly, Utils.toSequence(regions));
+  }
+
+  public CountryOnly getCountryOnly() {
+    return countryOnly;
+  }
+
+  public List<Region> getRegions() {
+    return regions;
+  }
+
+  public static class CountryAndRegionsBuilder {
+
+    private CountryOnly countryOnly;
+    private List<Region> regionList;
+
+    public CountryAndRegionsBuilder() {
+      regionList = new ArrayList<Region>();
     }
 
-    public static CountryAndRegionsBuilder builder()
-    {
-        return new CountryAndRegionsBuilder();
+    public CountryAndRegionsBuilder setCountryOnly(CountryOnly countryOnly) {
+      this.countryOnly = countryOnly;
+      return this;
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return Utils.toSequence(countryOnly, Utils.toSequence(regions));
+    public CountryAndRegionsBuilder setRegionList(List<Region> regionList) {
+      this.regionList.addAll(regionList);
+      return this;
     }
 
-    public CountryOnly getCountryOnly()
-    {
-        return countryOnly;
+    public CountryAndRegionsBuilder addRegion(Region region) {
+
+      this.regionList.add(region);
+      return this;
     }
 
-    public List<Region> getRegions()
-    {
-        return regions;
+    public CountryAndRegions build() {
+      return new CountryAndRegions(countryOnly, regionList);
     }
-
-    public static class CountryAndRegionsBuilder
-    {
-
-        private CountryOnly countryOnly;
-        private List<Region> regionList;
-
-        public CountryAndRegionsBuilder()
-        {
-            regionList = new ArrayList<Region>();
-        }
-
-        public CountryAndRegionsBuilder setCountryOnly(CountryOnly countryOnly)
-        {
-            this.countryOnly = countryOnly;
-            return this;
-        }
-
-        public CountryAndRegionsBuilder setRegionList(List<Region> regionList)
-        {
-            this.regionList.addAll(regionList);
-            return this;
-        }
-
-        public CountryAndRegionsBuilder addRegion(Region region)
-        {
-
-            this.regionList.add(region);
-            return this;
-        }
-
-        public CountryAndRegions build()
-        {
-            return new CountryAndRegions(countryOnly, regionList);
-        }
-    }
+  }
 
 
 }

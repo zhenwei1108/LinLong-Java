@@ -3,20 +3,20 @@ package com.github.zhenwei.core.asn1;
 /**
  * Supported encoding formats.
  */
-public interface ASN1Encoding
-{
-    /**
-     * DER - distinguished encoding rules.
-     */
-    static final String DER = "DER";
+public interface ASN1Encoding {
 
-    /**
-     * DL - definite length encoding.
-     */
-    static final String DL = "DL";
+  /**
+   * DER - distinguished encoding rules.
+   */
+  static final String DER = "DER";
 
-    /**
-     * BER - basic encoding rules.
-     */
-    static final String BER = "BER";
+  /**
+   * DL - definite length encoding.
+   */
+  static final String DL = "DL";
+
+  /**
+   * BER - basic encoding rules.
+   */
+  static final String BER = "BER";
 }

@@ -1,74 +1,74 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 /**
  * Key pair generator for XMSS keys.
  */
 public final class XMSSKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private XMSSParameters params;
-    private SecureRandom prng;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    /**
-     * Base constructor...
-     */
-    public XMSSKeyPairGenerator()
-    {
-    }
+  private XMSSParameters params;
+  private SecureRandom prng;
 
-    public void init(
-        KeyGenerationParameters param)
-    {
-        XMSSKeyGenerationParameters parameters = (XMSSKeyGenerationParameters)param;
+  /**
+   * Base constructor...
+   */
+  public XMSSKeyPairGenerator() {
+  }
 
-        this.prng = parameters.getRandom();
-        this.params = parameters.getParameters();
-    }
+  public void init(
+      KeyGenerationParameters param) {
+    XMSSKeyGenerationParameters parameters = (XMSSKeyGenerationParameters) param;
 
-    /**
-     * Generate a new XMSS private key / public key pair.
-     */
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        /* generate private key */
-        XMSSPrivateKeyParameters privateKey = generatePrivateKey(params, prng);
-        XMSSNode root = privateKey.getBDSState().getRoot();
+    this.prng = parameters.getRandom();
+    this.params = parameters.getParameters();
+  }
 
-        privateKey = new XMSSPrivateKeyParameters.Builder(params)
-            .withSecretKeySeed(privateKey.getSecretKeySeed()).withSecretKeyPRF(privateKey.getSecretKeyPRF())
-            .withPublicSeed(privateKey.getPublicSeed()).withRoot(root.getValue())
-            .withBDSState(privateKey.getBDSState()).build();
+  /**
+   * Generate a new XMSS private key / public key pair.
+   */
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    /* generate private key */
+    XMSSPrivateKeyParameters privateKey = generatePrivateKey(params, prng);
+    XMSSNode root = privateKey.getBDSState().getRoot();
 
-        XMSSPublicKeyParameters  publicKey = new XMSSPublicKeyParameters.Builder(params).withRoot(root.getValue())
-            .withPublicSeed(privateKey.getPublicSeed()).build();
+    privateKey = new XMSSPrivateKeyParameters.Builder(params)
+        .withSecretKeySeed(privateKey.getSecretKeySeed())
+        .withSecretKeyPRF(privateKey.getSecretKeyPRF())
+        .withPublicSeed(privateKey.getPublicSeed()).withRoot(root.getValue())
+        .withBDSState(privateKey.getBDSState()).build();
 
-        return new AsymmetricCipherKeyPair(publicKey, privateKey);
-    }
+    XMSSPublicKeyParameters publicKey = new XMSSPublicKeyParameters.Builder(params).withRoot(
+            root.getValue())
+        .withPublicSeed(privateKey.getPublicSeed()).build();
 
-    /**
-     * Generate an XMSS private key.
-     *
-     * @return XMSS private key.
-     */
-    private XMSSPrivateKeyParameters generatePrivateKey(XMSSParameters params, SecureRandom prng)
-    {
-        int n = params.getTreeDigestSize();
-        byte[] secretKeySeed = new byte[n];
-        prng.nextBytes(secretKeySeed);
-        byte[] secretKeyPRF = new byte[n];
-        prng.nextBytes(secretKeyPRF);
-        byte[] publicSeed = new byte[n];
-        prng.nextBytes(publicSeed);
+    return new AsymmetricCipherKeyPair(publicKey, privateKey);
+  }
 
-        XMSSPrivateKeyParameters privateKey = new XMSSPrivateKeyParameters.Builder(params).withSecretKeySeed(secretKeySeed)
-            .withSecretKeyPRF(secretKeyPRF).withPublicSeed(publicSeed)
-            .withBDSState(new BDS(params, publicSeed, secretKeySeed, (OTSHashAddress)new OTSHashAddress.Builder().build())).build();
+  /**
+   * Generate an XMSS private key.
+   *
+   * @return XMSS private key.
+   */
+  private XMSSPrivateKeyParameters generatePrivateKey(XMSSParameters params, SecureRandom prng) {
+    int n = params.getTreeDigestSize();
+    byte[] secretKeySeed = new byte[n];
+    prng.nextBytes(secretKeySeed);
+    byte[] secretKeyPRF = new byte[n];
+    prng.nextBytes(secretKeyPRF);
+    byte[] publicSeed = new byte[n];
+    prng.nextBytes(publicSeed);
 
-        return privateKey;
-    }
+    XMSSPrivateKeyParameters privateKey = new XMSSPrivateKeyParameters.Builder(
+        params).withSecretKeySeed(secretKeySeed)
+        .withSecretKeyPRF(secretKeyPRF).withPublicSeed(publicSeed)
+        .withBDSState(new BDS(params, publicSeed, secretKeySeed,
+            (OTSHashAddress) new OTSHashAddress.Builder().build())).build();
+
+    return privateKey;
+  }
 }

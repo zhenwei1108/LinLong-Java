@@ -23,92 +23,79 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class AuthorityInformationAccess
-    extends ASN1Object
-{
-    private AccessDescription[]    descriptions;
+    extends ASN1Object {
 
-    private static AccessDescription[] copy(AccessDescription[] descriptions)
-    {
-        AccessDescription[] result = new AccessDescription[descriptions.length];
-        System.arraycopy(descriptions, 0, result, 0, descriptions.length);
-        return result;
+  private AccessDescription[] descriptions;
+
+  private static AccessDescription[] copy(AccessDescription[] descriptions) {
+    AccessDescription[] result = new AccessDescription[descriptions.length];
+    System.arraycopy(descriptions, 0, result, 0, descriptions.length);
+    return result;
+  }
+
+  public static AuthorityInformationAccess getInstance(
+      Object obj) {
+    if (obj instanceof AuthorityInformationAccess) {
+      return (AuthorityInformationAccess) obj;
     }
 
-    public static AuthorityInformationAccess getInstance(
-        Object  obj)
-    {
-        if (obj instanceof AuthorityInformationAccess)
-        {
-            return (AuthorityInformationAccess)obj;
-        }
-
-        if (obj != null)
-        {
-            return new AuthorityInformationAccess(ASN1Sequence.getInstance(obj));
-        }
-
-        return null;
+    if (obj != null) {
+      return new AuthorityInformationAccess(ASN1Sequence.getInstance(obj));
     }
 
-    public static AuthorityInformationAccess fromExtensions(Extensions extensions)
-    {
-        return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.authorityInfoAccess));
+    return null;
+  }
+
+  public static AuthorityInformationAccess fromExtensions(Extensions extensions) {
+    return getInstance(
+        Extensions.getExtensionParsedValue(extensions, Extension.authorityInfoAccess));
+  }
+
+  private AuthorityInformationAccess(
+      ASN1Sequence seq) {
+    if (seq.size() < 1) {
+      throw new IllegalArgumentException("sequence may not be empty");
     }
 
-    private AuthorityInformationAccess(
-        ASN1Sequence   seq)
-    {
-        if (seq.size() < 1) 
-        {
-            throw new IllegalArgumentException("sequence may not be empty");
-        }
+    descriptions = new AccessDescription[seq.size()];
 
-        descriptions = new AccessDescription[seq.size()];
-
-        for (int i = 0; i != seq.size(); i++)
-        {
-            descriptions[i] = AccessDescription.getInstance(seq.getObjectAt(i));
-        }
+    for (int i = 0; i != seq.size(); i++) {
+      descriptions[i] = AccessDescription.getInstance(seq.getObjectAt(i));
     }
+  }
 
-    public AuthorityInformationAccess(
-        AccessDescription description)
-    {
-        this.descriptions = new AccessDescription[]{ description };
-    }
+  public AuthorityInformationAccess(
+      AccessDescription description) {
+    this.descriptions = new AccessDescription[]{description};
+  }
 
-    public AuthorityInformationAccess(
-        AccessDescription[] descriptions)
-    {
-        this.descriptions = copy(descriptions);
-    }
+  public AuthorityInformationAccess(
+      AccessDescription[] descriptions) {
+    this.descriptions = copy(descriptions);
+  }
 
-    /**
-     * create an AuthorityInformationAccess with the oid and location provided.
-     */
-    public AuthorityInformationAccess(
-        ASN1ObjectIdentifier oid,
-        GeneralName location)
-    {
-        this(new AccessDescription(oid, location));
-    }
+  /**
+   * create an AuthorityInformationAccess with the oid and location provided.
+   */
+  public AuthorityInformationAccess(
+      ASN1ObjectIdentifier oid,
+      GeneralName location) {
+    this(new AccessDescription(oid, location));
+  }
 
-    /**
-     * 
-     * @return the access descriptions contained in this object.
-     */
-    public AccessDescription[] getAccessDescriptions()
-    {
-        return copy(descriptions);
-    }
+  /**
+   * @return the access descriptions contained in this object.
+   */
+  public AccessDescription[] getAccessDescriptions() {
+    return copy(descriptions);
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERSequence(descriptions);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return new DERSequence(descriptions);
+  }
 
-    public String toString()
-    {
-        return ("AuthorityInformationAccess: Oid(" + this.descriptions[0].getAccessMethod().getId() + ")");
-    }
+  public String toString() {
+    return ("AuthorityInformationAccess: Oid(" + this.descriptions[0].getAccessMethod().getId()
+        + ")");
+  }
 }

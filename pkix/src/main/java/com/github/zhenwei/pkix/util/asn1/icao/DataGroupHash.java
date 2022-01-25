@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.util.asn1.icao;
 
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -8,6 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Enumeration;
 
 /**
  * The DataGroupHash object.
@@ -15,7 +15,7 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * DataGroupHash  ::=  SEQUENCE {
  *      dataGroupNumber         DataGroupNumber,
  *      dataGroupHashValue     OCTET STRING }
- * 
+ *
  * DataGroupNumber ::= INTEGER {
  *         dataGroup1    (1),
  *         dataGroup1    (2),
@@ -33,64 +33,55 @@ import com.github.zhenwei.core.asn1.DERSequence;
  *         dataGroup1    (14),
  *         dataGroup1    (15),
  *         dataGroup1    (16) }
- * 
+ *
  * </pre>
  */
-public class DataGroupHash 
-    extends ASN1Object
-{
-    ASN1Integer dataGroupNumber;    
-    ASN1OctetString    dataGroupHashValue;
-    
-    public static DataGroupHash getInstance(
-        Object obj)
-    {
-        if (obj instanceof DataGroupHash)
-        {
-            return (DataGroupHash)obj;
-        }
-        else if (obj != null)
-        {
-            return new DataGroupHash(ASN1Sequence.getInstance(obj));
-        }
+public class DataGroupHash
+    extends ASN1Object {
 
-        return null;
-    }                
-            
-    private DataGroupHash(ASN1Sequence seq)
-    {
-        Enumeration e = seq.getObjects();
+  ASN1Integer dataGroupNumber;
+  ASN1OctetString dataGroupHashValue;
 
-        // dataGroupNumber
-        dataGroupNumber = ASN1Integer.getInstance(e.nextElement());
-        // dataGroupHashValue
-        dataGroupHashValue = ASN1OctetString.getInstance(e.nextElement());   
+  public static DataGroupHash getInstance(
+      Object obj) {
+    if (obj instanceof DataGroupHash) {
+      return (DataGroupHash) obj;
+    } else if (obj != null) {
+      return new DataGroupHash(ASN1Sequence.getInstance(obj));
     }
-    
-    public DataGroupHash(
-        int dataGroupNumber,        
-        ASN1OctetString     dataGroupHashValue)
-    {
-        this.dataGroupNumber = new ASN1Integer(dataGroupNumber);
-        this.dataGroupHashValue = dataGroupHashValue; 
-    }    
 
-    public int getDataGroupNumber()
-    {
-        return dataGroupNumber.intValueExact();
-    }
-    
-    public ASN1OctetString getDataGroupHashValue()
-    {
-        return dataGroupHashValue;
-    }     
-    
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector seq = new ASN1EncodableVector(2);
-        seq.add(dataGroupNumber);
-        seq.add(dataGroupHashValue);  
+    return null;
+  }
 
-        return new DERSequence(seq);
-    }
+  private DataGroupHash(ASN1Sequence seq) {
+    Enumeration e = seq.getObjects();
+
+    // dataGroupNumber
+    dataGroupNumber = ASN1Integer.getInstance(e.nextElement());
+    // dataGroupHashValue
+    dataGroupHashValue = ASN1OctetString.getInstance(e.nextElement());
+  }
+
+  public DataGroupHash(
+      int dataGroupNumber,
+      ASN1OctetString dataGroupHashValue) {
+    this.dataGroupNumber = new ASN1Integer(dataGroupNumber);
+    this.dataGroupHashValue = dataGroupHashValue;
+  }
+
+  public int getDataGroupNumber() {
+    return dataGroupNumber.intValueExact();
+  }
+
+  public ASN1OctetString getDataGroupHashValue() {
+    return dataGroupHashValue;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector seq = new ASN1EncodableVector(2);
+    seq.add(dataGroupNumber);
+    seq.add(dataGroupHashValue);
+
+    return new DERSequence(seq);
+  }
 }

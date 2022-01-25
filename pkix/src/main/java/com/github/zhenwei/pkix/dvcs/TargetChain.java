@@ -2,17 +2,15 @@ package com.github.zhenwei.pkix.dvcs;
 
 import com.github.zhenwei.pkix.util.asn1.dvcs.TargetEtcChain;
 
-public class TargetChain
-{
-    private final TargetEtcChain certs;
+public class TargetChain {
 
-    public TargetChain(TargetEtcChain certs)
-    {
-        this.certs = certs;
-    }
+  private final TargetEtcChain certs;
 
-    public TargetEtcChain toASN1Structure()
-    {
-        return certs;
-    }
+  public TargetChain(TargetEtcChain certs) {
+    this.certs = certs;
+  }
+
+  public TargetEtcChain toASN1Structure() {
+    return certs;
+  }
 }

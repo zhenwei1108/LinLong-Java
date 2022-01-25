@@ -1,28 +1,24 @@
 package com.github.zhenwei.pkix.tsp;
 
 public class TSPException
-    extends Exception
-{
-    Throwable underlyingException;
+    extends Exception {
 
-    public TSPException(String message)
-    {
-        super(message);
-    }
+  Throwable underlyingException;
 
-    public TSPException(String message, Throwable e)
-    {
-        super(message);
-        underlyingException = e;
-    }
+  public TSPException(String message) {
+    super(message);
+  }
 
-    public Exception getUnderlyingException()
-    {
-        return (Exception)underlyingException;
-    }
+  public TSPException(String message, Throwable e) {
+    super(message);
+    underlyingException = e;
+  }
 
-    public Throwable getCause()
-    {
-        return underlyingException;
-    }
+  public Exception getUnderlyingException() {
+    return (Exception) underlyingException;
+  }
+
+  public Throwable getCause() {
+    return underlyingException;
+  }
 }

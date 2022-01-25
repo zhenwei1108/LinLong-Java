@@ -2,79 +2,65 @@ package com.github.zhenwei.pkix.cert.path;
 
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 
-public class CertPath
-{
-    private final X509CertificateHolder[] certificates;
+public class CertPath {
 
-    public CertPath(X509CertificateHolder[] certificates)
-    {
-        this.certificates = copyArray(certificates);
-    }
+  private final X509CertificateHolder[] certificates;
 
-    public X509CertificateHolder[] getCertificates()
-    {
-        return copyArray(certificates);
-    }
+  public CertPath(X509CertificateHolder[] certificates) {
+    this.certificates = copyArray(certificates);
+  }
 
-    public CertPathValidationResult validate(CertPathValidation[] ruleSet)
-    {
-        CertPathValidationContext context = new CertPathValidationContext(CertPathUtils.getCriticalExtensionsOIDs(certificates));
+  public X509CertificateHolder[] getCertificates() {
+    return copyArray(certificates);
+  }
 
-        for (int i = 0; i != ruleSet.length; i++)
-        {
-            for (int j = certificates.length - 1; j >= 0; j--)
-            {
-                try
-                {
-                    context.setIsEndEntity(j == 0);
-                    ruleSet[i].validate(context, certificates[j]);
-                }
-                catch (CertPathValidationException e)
-                {   // TODO: introduce object to hold (i and e)
-                    return new CertPathValidationResult(context, j, i, e);
-                }
-            }
+  public CertPathValidationResult validate(CertPathValidation[] ruleSet) {
+    CertPathValidationContext context = new CertPathValidationContext(
+        CertPathUtils.getCriticalExtensionsOIDs(certificates));
+
+    for (int i = 0; i != ruleSet.length; i++) {
+      for (int j = certificates.length - 1; j >= 0; j--) {
+        try {
+          context.setIsEndEntity(j == 0);
+          ruleSet[i].validate(context, certificates[j]);
+        } catch (CertPathValidationException e) {   // TODO: introduce object to hold (i and e)
+          return new CertPathValidationResult(context, j, i, e);
         }
-
-        return new CertPathValidationResult(context);
+      }
     }
 
-    public CertPathValidationResult evaluate(CertPathValidation[] ruleSet)
-    {
-        CertPathValidationContext context = new CertPathValidationContext(CertPathUtils.getCriticalExtensionsOIDs(certificates));
+    return new CertPathValidationResult(context);
+  }
 
-        CertPathValidationResultBuilder builder = new CertPathValidationResultBuilder(context);
+  public CertPathValidationResult evaluate(CertPathValidation[] ruleSet) {
+    CertPathValidationContext context = new CertPathValidationContext(
+        CertPathUtils.getCriticalExtensionsOIDs(certificates));
 
-        for (int i = 0; i != ruleSet.length; i++)
-        {
-            for (int j = certificates.length - 1; j >= 0; j--)
-            {
-                try
-                {
-                    context.setIsEndEntity(j == 0);
-                    ruleSet[i].validate(context, certificates[j]);
-                }
-                catch (CertPathValidationException e)
-                {
-                   builder.addException(j, i, e);
-                }
-            }
+    CertPathValidationResultBuilder builder = new CertPathValidationResultBuilder(context);
+
+    for (int i = 0; i != ruleSet.length; i++) {
+      for (int j = certificates.length - 1; j >= 0; j--) {
+        try {
+          context.setIsEndEntity(j == 0);
+          ruleSet[i].validate(context, certificates[j]);
+        } catch (CertPathValidationException e) {
+          builder.addException(j, i, e);
         }
-
-        return builder.build();
+      }
     }
 
-    private X509CertificateHolder[] copyArray(X509CertificateHolder[] array)
-    {
-        X509CertificateHolder[] rv = new X509CertificateHolder[array.length];
+    return builder.build();
+  }
 
-        System.arraycopy(array, 0, rv, 0, rv.length);
+  private X509CertificateHolder[] copyArray(X509CertificateHolder[] array) {
+    X509CertificateHolder[] rv = new X509CertificateHolder[array.length];
 
-        return rv;
-    }
+    System.arraycopy(array, 0, rv, 0, rv.length);
 
-    public int length()
-    {
-        return certificates.length;
-    }
+    return rv;
+  }
+
+  public int length() {
+    return certificates.length;
+  }
 }

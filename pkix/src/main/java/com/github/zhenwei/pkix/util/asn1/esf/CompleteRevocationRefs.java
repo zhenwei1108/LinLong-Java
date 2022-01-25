@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.util.asn1.esf;
 
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Enumeration;
 
 /**
  * <pre>
@@ -12,53 +12,42 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class CompleteRevocationRefs
-    extends ASN1Object
-{
+    extends ASN1Object {
 
-    private ASN1Sequence crlOcspRefs;
+  private ASN1Sequence crlOcspRefs;
 
-    public static CompleteRevocationRefs getInstance(Object obj)
-    {
-        if (obj instanceof CompleteRevocationRefs)
-        {
-            return (CompleteRevocationRefs)obj;
-        }
-        else if (obj != null)
-        {
-            return new CompleteRevocationRefs(ASN1Sequence.getInstance(obj));
-        }
-
-        return null;
+  public static CompleteRevocationRefs getInstance(Object obj) {
+    if (obj instanceof CompleteRevocationRefs) {
+      return (CompleteRevocationRefs) obj;
+    } else if (obj != null) {
+      return new CompleteRevocationRefs(ASN1Sequence.getInstance(obj));
     }
 
-    private CompleteRevocationRefs(ASN1Sequence seq)
-    {
-        Enumeration seqEnum = seq.getObjects();
-        while (seqEnum.hasMoreElements())
-        {
-            CrlOcspRef.getInstance(seqEnum.nextElement());
-        }
-        this.crlOcspRefs = seq;
-    }
+    return null;
+  }
 
-    public CompleteRevocationRefs(CrlOcspRef[] crlOcspRefs)
-    {
-        this.crlOcspRefs = new DERSequence(crlOcspRefs);
+  private CompleteRevocationRefs(ASN1Sequence seq) {
+    Enumeration seqEnum = seq.getObjects();
+    while (seqEnum.hasMoreElements()) {
+      CrlOcspRef.getInstance(seqEnum.nextElement());
     }
+    this.crlOcspRefs = seq;
+  }
 
-    public CrlOcspRef[] getCrlOcspRefs()
-    {
-        CrlOcspRef[] result = new CrlOcspRef[this.crlOcspRefs.size()];
-        for (int idx = 0; idx < result.length; idx++)
-        {
-            result[idx] = CrlOcspRef.getInstance(this.crlOcspRefs
-                .getObjectAt(idx));
-        }
-        return result;
-    }
+  public CompleteRevocationRefs(CrlOcspRef[] crlOcspRefs) {
+    this.crlOcspRefs = new DERSequence(crlOcspRefs);
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return this.crlOcspRefs;
+  public CrlOcspRef[] getCrlOcspRefs() {
+    CrlOcspRef[] result = new CrlOcspRef[this.crlOcspRefs.size()];
+    for (int idx = 0; idx < result.length; idx++) {
+      result[idx] = CrlOcspRef.getInstance(this.crlOcspRefs
+          .getObjectAt(idx));
     }
+    return result;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return this.crlOcspRefs;
+  }
 }

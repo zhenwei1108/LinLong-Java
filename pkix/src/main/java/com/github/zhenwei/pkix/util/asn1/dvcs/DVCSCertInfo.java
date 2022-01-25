@@ -10,10 +10,10 @@ import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatusInfo;
 import com.github.zhenwei.core.asn1.x509.DigestInfo;
 import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.asn1.x509.PolicyInformation;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatusInfo;
 
 /**
  * <pre>
@@ -34,266 +34,221 @@ import com.github.zhenwei.core.asn1.x509.PolicyInformation;
  */
 
 public class DVCSCertInfo
-    extends ASN1Object
-{
+    extends ASN1Object {
 
-    private int version = DEFAULT_VERSION;
-    private DVCSRequestInformation dvReqInfo;
-    private DigestInfo messageImprint;
-    private ASN1Integer serialNumber;
-    private DVCSTime responseTime;
-    private PKIStatusInfo dvStatus;
-    private PolicyInformation policy;
-    private ASN1Set reqSignature;
-    private ASN1Sequence certs;
-    private Extensions extensions;
+  private int version = DEFAULT_VERSION;
+  private DVCSRequestInformation dvReqInfo;
+  private DigestInfo messageImprint;
+  private ASN1Integer serialNumber;
+  private DVCSTime responseTime;
+  private PKIStatusInfo dvStatus;
+  private PolicyInformation policy;
+  private ASN1Set reqSignature;
+  private ASN1Sequence certs;
+  private Extensions extensions;
 
-    private static final int DEFAULT_VERSION = 1;
-    private static final int TAG_DV_STATUS = 0;
-    private static final int TAG_POLICY = 1;
-    private static final int TAG_REQ_SIGNATURE = 2;
-    private static final int TAG_CERTS = 3;
+  private static final int DEFAULT_VERSION = 1;
+  private static final int TAG_DV_STATUS = 0;
+  private static final int TAG_POLICY = 1;
+  private static final int TAG_REQ_SIGNATURE = 2;
+  private static final int TAG_CERTS = 3;
 
-    public DVCSCertInfo(
-        DVCSRequestInformation dvReqInfo,
-        DigestInfo messageImprint,
-        ASN1Integer serialNumber,
-        DVCSTime responseTime)
-    {
-        this.dvReqInfo = dvReqInfo;
-        this.messageImprint = messageImprint;
-        this.serialNumber = serialNumber;
-        this.responseTime = responseTime;
+  public DVCSCertInfo(
+      DVCSRequestInformation dvReqInfo,
+      DigestInfo messageImprint,
+      ASN1Integer serialNumber,
+      DVCSTime responseTime) {
+    this.dvReqInfo = dvReqInfo;
+    this.messageImprint = messageImprint;
+    this.serialNumber = serialNumber;
+    this.responseTime = responseTime;
+  }
+
+  private DVCSCertInfo(ASN1Sequence seq) {
+    int i = 0;
+    ASN1Encodable x = seq.getObjectAt(i++);
+    try {
+      ASN1Integer encVersion = ASN1Integer.getInstance(x);
+      this.version = encVersion.intValueExact();
+      x = seq.getObjectAt(i++);
+    } catch (IllegalArgumentException e) {
     }
 
-    private DVCSCertInfo(ASN1Sequence seq)
-    {
-        int i = 0;
-        ASN1Encodable x = seq.getObjectAt(i++);
-        try
-        {
-            ASN1Integer encVersion = ASN1Integer.getInstance(x);
-            this.version = encVersion.intValueExact();
-            x = seq.getObjectAt(i++);
-        }
-        catch (IllegalArgumentException e)
-        {
-        }
+    this.dvReqInfo = DVCSRequestInformation.getInstance(x);
+    x = seq.getObjectAt(i++);
+    this.messageImprint = DigestInfo.getInstance(x);
+    x = seq.getObjectAt(i++);
+    this.serialNumber = ASN1Integer.getInstance(x);
+    x = seq.getObjectAt(i++);
+    this.responseTime = DVCSTime.getInstance(x);
 
-        this.dvReqInfo = DVCSRequestInformation.getInstance(x);
-        x = seq.getObjectAt(i++);
-        this.messageImprint = DigestInfo.getInstance(x);
-        x = seq.getObjectAt(i++);
-        this.serialNumber = ASN1Integer.getInstance(x);
-        x = seq.getObjectAt(i++);
-        this.responseTime = DVCSTime.getInstance(x);
+    while (i < seq.size()) {
 
-        while (i < seq.size())
-        {
+      x = seq.getObjectAt(i++);
 
-            x = seq.getObjectAt(i++);
+      if (x instanceof ASN1TaggedObject) {
+        ASN1TaggedObject t = ASN1TaggedObject.getInstance(x);
+        int tagNo = t.getTagNo();
 
-            if (x instanceof ASN1TaggedObject)
-            {
-                ASN1TaggedObject t = ASN1TaggedObject.getInstance(x);
-                int tagNo = t.getTagNo();
-
-                switch (tagNo)
-                {
-                case TAG_DV_STATUS:
-                    this.dvStatus = PKIStatusInfo.getInstance(t, false);
-                    break;
-                case TAG_POLICY:
-                    this.policy = PolicyInformation.getInstance(ASN1Sequence.getInstance(t, false));
-                    break;
-                case TAG_REQ_SIGNATURE:
-                    this.reqSignature = ASN1Set.getInstance(t, false);
-                    break;
-                case TAG_CERTS:
-                    this.certs = ASN1Sequence.getInstance(t, false);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unknown tag encountered: " + tagNo);
-                }
-
-                continue;
-            }
-
-            try
-            {
-                this.extensions = Extensions.getInstance(x);
-            }
-            catch (IllegalArgumentException e)
-            {
-            }
-
+        switch (tagNo) {
+          case TAG_DV_STATUS:
+            this.dvStatus = PKIStatusInfo.getInstance(t, false);
+            break;
+          case TAG_POLICY:
+            this.policy = PolicyInformation.getInstance(ASN1Sequence.getInstance(t, false));
+            break;
+          case TAG_REQ_SIGNATURE:
+            this.reqSignature = ASN1Set.getInstance(t, false);
+            break;
+          case TAG_CERTS:
+            this.certs = ASN1Sequence.getInstance(t, false);
+            break;
+          default:
+            throw new IllegalArgumentException("Unknown tag encountered: " + tagNo);
         }
 
+        continue;
+      }
+
+      try {
+        this.extensions = Extensions.getInstance(x);
+      } catch (IllegalArgumentException e) {
+      }
+
     }
 
-    public static DVCSCertInfo getInstance(Object obj)
-    {
-        if (obj instanceof DVCSCertInfo)
-        {
-            return (DVCSCertInfo)obj;
-        }
-        else if (obj != null)
-        {
-            return new DVCSCertInfo(ASN1Sequence.getInstance(obj));
-        }
+  }
 
-        return null;
+  public static DVCSCertInfo getInstance(Object obj) {
+    if (obj instanceof DVCSCertInfo) {
+      return (DVCSCertInfo) obj;
+    } else if (obj != null) {
+      return new DVCSCertInfo(ASN1Sequence.getInstance(obj));
     }
 
-    public static DVCSCertInfo getInstance(
-        ASN1TaggedObject obj,
-        boolean explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+    return null;
+  }
+
+  public static DVCSCertInfo getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(10);
+
+    if (version != DEFAULT_VERSION) {
+      v.add(new ASN1Integer(version));
+    }
+    v.add(dvReqInfo);
+    v.add(messageImprint);
+    v.add(serialNumber);
+    v.add(responseTime);
+    if (dvStatus != null) {
+      v.add(new DERTaggedObject(false, TAG_DV_STATUS, dvStatus));
+    }
+    if (policy != null) {
+      v.add(new DERTaggedObject(false, TAG_POLICY, policy));
+    }
+    if (reqSignature != null) {
+      v.add(new DERTaggedObject(false, TAG_REQ_SIGNATURE, reqSignature));
+    }
+    if (certs != null) {
+      v.add(new DERTaggedObject(false, TAG_CERTS, certs));
+    }
+    if (extensions != null) {
+      v.add(extensions);
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(10);
+    return new DERSequence(v);
+  }
 
-        if (version != DEFAULT_VERSION)
-        {
-            v.add(new ASN1Integer(version));
-        }
-        v.add(dvReqInfo);
-        v.add(messageImprint);
-        v.add(serialNumber);
-        v.add(responseTime);
-        if (dvStatus != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_DV_STATUS, dvStatus));
-        }
-        if (policy != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_POLICY, policy));
-        }
-        if (reqSignature != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_REQ_SIGNATURE, reqSignature));
-        }
-        if (certs != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_CERTS, certs));
-        }
-        if (extensions != null)
-        {
-            v.add(extensions);
-        }
+  public String toString() {
+    StringBuffer s = new StringBuffer();
 
-        return new DERSequence(v);
+    s.append("DVCSCertInfo {\n");
+
+    if (version != DEFAULT_VERSION) {
+      s.append("version: " + version + "\n");
+    }
+    s.append("dvReqInfo: " + dvReqInfo + "\n");
+    s.append("messageImprint: " + messageImprint + "\n");
+    s.append("serialNumber: " + serialNumber + "\n");
+    s.append("responseTime: " + responseTime + "\n");
+    if (dvStatus != null) {
+      s.append("dvStatus: " + dvStatus + "\n");
+    }
+    if (policy != null) {
+      s.append("policy: " + policy + "\n");
+    }
+    if (reqSignature != null) {
+      s.append("reqSignature: " + reqSignature + "\n");
+    }
+    if (certs != null) {
+      s.append("certs: " + certs + "\n");
+    }
+    if (extensions != null) {
+      s.append("extensions: " + extensions + "\n");
     }
 
-    public String toString()
-    {
-        StringBuffer s = new StringBuffer();
+    s.append("}\n");
+    return s.toString();
+  }
 
-        s.append("DVCSCertInfo {\n");
+  public int getVersion() {
+    return version;
+  }
 
-        if (version != DEFAULT_VERSION)
-        {
-            s.append("version: " + version + "\n");
-        }
-        s.append("dvReqInfo: " + dvReqInfo + "\n");
-        s.append("messageImprint: " + messageImprint + "\n");
-        s.append("serialNumber: " + serialNumber + "\n");
-        s.append("responseTime: " + responseTime + "\n");
-        if (dvStatus != null)
-        {
-            s.append("dvStatus: " + dvStatus + "\n");
-        }
-        if (policy != null)
-        {
-            s.append("policy: " + policy + "\n");
-        }
-        if (reqSignature != null)
-        {
-            s.append("reqSignature: " + reqSignature + "\n");
-        }
-        if (certs != null)
-        {
-            s.append("certs: " + certs + "\n");
-        }
-        if (extensions != null)
-        {
-            s.append("extensions: " + extensions + "\n");
-        }
+  private void setVersion(int version) {
+    this.version = version;
+  }
 
-        s.append("}\n");
-        return s.toString();
+  public DVCSRequestInformation getDvReqInfo() {
+    return dvReqInfo;
+  }
+
+  private void setDvReqInfo(DVCSRequestInformation dvReqInfo) {
+    this.dvReqInfo = dvReqInfo;
+  }
+
+  public DigestInfo getMessageImprint() {
+    return messageImprint;
+  }
+
+  private void setMessageImprint(DigestInfo messageImprint) {
+    this.messageImprint = messageImprint;
+  }
+
+  public ASN1Integer getSerialNumber() {
+    return serialNumber;
+  }
+
+  public DVCSTime getResponseTime() {
+    return responseTime;
+  }
+
+  public PKIStatusInfo getDvStatus() {
+    return dvStatus;
+  }
+
+  public PolicyInformation getPolicy() {
+    return policy;
+  }
+
+  public ASN1Set getReqSignature() {
+    return reqSignature;
+  }
+
+  public TargetEtcChain[] getCerts() {
+    if (certs != null) {
+      return TargetEtcChain.arrayFromSequence(certs);
     }
 
-    public int getVersion()
-    {
-        return version;
-    }
+    return null;
+  }
 
-    private void setVersion(int version)
-    {
-        this.version = version;
-    }
-
-    public DVCSRequestInformation getDvReqInfo()
-    {
-        return dvReqInfo;
-    }
-
-    private void setDvReqInfo(DVCSRequestInformation dvReqInfo)
-    {
-        this.dvReqInfo = dvReqInfo;
-    }
-
-    public DigestInfo getMessageImprint()
-    {
-        return messageImprint;
-    }
-
-    private void setMessageImprint(DigestInfo messageImprint)
-    {
-        this.messageImprint = messageImprint;
-    }
-
-    public ASN1Integer getSerialNumber()
-    {
-        return serialNumber;
-    }
-
-    public DVCSTime getResponseTime()
-    {
-        return responseTime;
-    }
-
-    public PKIStatusInfo getDvStatus()
-    {
-        return dvStatus;
-    }
-
-    public PolicyInformation getPolicy()
-    {
-        return policy;
-    }
-
-    public ASN1Set getReqSignature()
-    {
-        return reqSignature;
-    }
-
-    public TargetEtcChain[] getCerts()
-    {
-        if (certs != null)
-        {
-            return TargetEtcChain.arrayFromSequence(certs);
-        }
-
-        return null;
-    }
-
-    public Extensions getExtensions()
-    {
-        return extensions;
-    }
+  public Extensions getExtensions() {
+    return extensions;
+  }
 }

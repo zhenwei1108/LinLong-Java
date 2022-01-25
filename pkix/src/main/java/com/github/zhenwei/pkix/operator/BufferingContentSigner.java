@@ -1,69 +1,64 @@
 package com.github.zhenwei.pkix.operator;
 
-import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.util.io.BufferingOutputStream;
+import java.io.OutputStream;
 
 /**
- * A class that explicitly buffers the data to be signed, sending it in one
- * block when ready for signing.
+ * A class that explicitly buffers the data to be signed, sending it in one block when ready for
+ * signing.
  */
 public class BufferingContentSigner
-    implements ContentSigner
-{
-    private final ContentSigner contentSigner;
-    private final OutputStream  output;
+    implements ContentSigner {
 
-    /**
-     * Base constructor.
-     *
-     * @param contentSigner the content signer to be wrapped.
-     */
-    public BufferingContentSigner(ContentSigner contentSigner)
-    {
-        this.contentSigner = contentSigner;
-        this.output = new BufferingOutputStream(contentSigner.getOutputStream());
-    }
+  private final ContentSigner contentSigner;
+  private final OutputStream output;
 
-    /**
-     * Base constructor.
-     *
-     * @param contentSigner the content signer to be wrapped.
-     * @param bufferSize the size of the internal buffer to use.
-     */
-    public BufferingContentSigner(ContentSigner contentSigner, int bufferSize)
-    {
-        this.contentSigner = contentSigner;
-        this.output = new BufferingOutputStream(contentSigner.getOutputStream(), bufferSize);
-    }
+  /**
+   * Base constructor.
+   *
+   * @param contentSigner the content signer to be wrapped.
+   */
+  public BufferingContentSigner(ContentSigner contentSigner) {
+    this.contentSigner = contentSigner;
+    this.output = new BufferingOutputStream(contentSigner.getOutputStream());
+  }
 
-    /**
-     * Return the algorithm identifier supported by this signer.
-     *
-     * @return algorithm identifier for the signature generated.
-     */
-    public AlgorithmIdentifier getAlgorithmIdentifier()
-    {
-        return contentSigner.getAlgorithmIdentifier();
-    }
+  /**
+   * Base constructor.
+   *
+   * @param contentSigner the content signer to be wrapped.
+   * @param bufferSize    the size of the internal buffer to use.
+   */
+  public BufferingContentSigner(ContentSigner contentSigner, int bufferSize) {
+    this.contentSigner = contentSigner;
+    this.output = new BufferingOutputStream(contentSigner.getOutputStream(), bufferSize);
+  }
 
-    /**
-     * Return the buffering stream.
-     *
-     * @return the output stream used to accumulate the data.
-     */
-    public OutputStream getOutputStream()
-    {
-        return output;
-    }
+  /**
+   * Return the algorithm identifier supported by this signer.
+   *
+   * @return algorithm identifier for the signature generated.
+   */
+  public AlgorithmIdentifier getAlgorithmIdentifier() {
+    return contentSigner.getAlgorithmIdentifier();
+  }
 
-    /**
-     * Generate signature from internally buffered data.
-     *
-     * @return the signature calculated from the bytes written to the buffering stream.
-     */
-    public byte[] getSignature()
-    {
-        return contentSigner.getSignature();
-    }
+  /**
+   * Return the buffering stream.
+   *
+   * @return the output stream used to accumulate the data.
+   */
+  public OutputStream getOutputStream() {
+    return output;
+  }
+
+  /**
+   * Generate signature from internally buffered data.
+   *
+   * @return the signature calculated from the bytes written to the buffering stream.
+   */
+  public byte[] getSignature() {
+    return contentSigner.getSignature();
+  }
 }

@@ -1,89 +1,90 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 /**
  * Key pair generator for XMSS^MT keys.
  */
 public final class XMSSMTKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private XMSSMTParameters params;
-    private XMSSParameters xmssParams;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    private SecureRandom prng;
+  private XMSSMTParameters params;
+  private XMSSParameters xmssParams;
+
+  private SecureRandom prng;
 
 
-    /**
-     * Base constructor...
-     */
-    public XMSSMTKeyPairGenerator()
-    {
-    }
+  /**
+   * Base constructor...
+   */
+  public XMSSMTKeyPairGenerator() {
+  }
 
-    public void init(
-        KeyGenerationParameters param)
-    {
-        XMSSMTKeyGenerationParameters parameters = (XMSSMTKeyGenerationParameters)param;
+  public void init(
+      KeyGenerationParameters param) {
+    XMSSMTKeyGenerationParameters parameters = (XMSSMTKeyGenerationParameters) param;
 
-        prng = parameters.getRandom();
-        this.params = parameters.getParameters();
-        this.xmssParams = params.getXMSSParameters();
-    }
+    prng = parameters.getRandom();
+    this.params = parameters.getParameters();
+    this.xmssParams = params.getXMSSParameters();
+  }
 
-    /**
-     * Generate a new XMSSMT private key / public key pair.
-     */
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        XMSSMTPrivateKeyParameters privateKey;
-        XMSSMTPublicKeyParameters publicKey;
+  /**
+   * Generate a new XMSSMT private key / public key pair.
+   */
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    XMSSMTPrivateKeyParameters privateKey;
+    XMSSMTPublicKeyParameters publicKey;
 
-            /* generate XMSSMT private key */
-        privateKey = generatePrivateKey(new XMSSMTPrivateKeyParameters.Builder(params).build().getBDSState());
+    /* generate XMSSMT private key */
+    privateKey = generatePrivateKey(
+        new XMSSMTPrivateKeyParameters.Builder(params).build().getBDSState());
 
-            /* import to xmss */
-        xmssParams.getWOTSPlus().importKeys(new byte[params.getTreeDigestSize()], privateKey.getPublicSeed());
+    /* import to xmss */
+    xmssParams.getWOTSPlus()
+        .importKeys(new byte[params.getTreeDigestSize()], privateKey.getPublicSeed());
 
-            /* get root */
-        int rootLayerIndex = params.getLayers() - 1;
-        OTSHashAddress otsHashAddress = (OTSHashAddress)new OTSHashAddress.Builder().withLayerAddress(rootLayerIndex)
-            .build();
+    /* get root */
+    int rootLayerIndex = params.getLayers() - 1;
+    OTSHashAddress otsHashAddress = (OTSHashAddress) new OTSHashAddress.Builder().withLayerAddress(
+            rootLayerIndex)
+        .build();
 
-                  /* store BDS instance of root xmss instance */
-        BDS bdsRoot = new BDS(xmssParams, privateKey.getPublicSeed(), privateKey.getSecretKeySeed(), otsHashAddress);
-        XMSSNode root = bdsRoot.getRoot();
-        privateKey.getBDSState().put(rootLayerIndex, bdsRoot);
+    /* store BDS instance of root xmss instance */
+    BDS bdsRoot = new BDS(xmssParams, privateKey.getPublicSeed(), privateKey.getSecretKeySeed(),
+        otsHashAddress);
+    XMSSNode root = bdsRoot.getRoot();
+    privateKey.getBDSState().put(rootLayerIndex, bdsRoot);
 
-            /* set XMSS^MT root / create public key */
-        privateKey = new XMSSMTPrivateKeyParameters.Builder(params).withSecretKeySeed(privateKey.getSecretKeySeed())
-            .withSecretKeyPRF(privateKey.getSecretKeyPRF()).withPublicSeed(privateKey.getPublicSeed())
-            .withRoot(root.getValue()).withBDSState(privateKey.getBDSState()).build();
-        publicKey = new XMSSMTPublicKeyParameters.Builder(params).withRoot(root.getValue())
-            .withPublicSeed(privateKey.getPublicSeed()).build();
+    /* set XMSS^MT root / create public key */
+    privateKey = new XMSSMTPrivateKeyParameters.Builder(params).withSecretKeySeed(
+            privateKey.getSecretKeySeed())
+        .withSecretKeyPRF(privateKey.getSecretKeyPRF()).withPublicSeed(privateKey.getPublicSeed())
+        .withRoot(root.getValue()).withBDSState(privateKey.getBDSState()).build();
+    publicKey = new XMSSMTPublicKeyParameters.Builder(params).withRoot(root.getValue())
+        .withPublicSeed(privateKey.getPublicSeed()).build();
 
-        return new AsymmetricCipherKeyPair(publicKey, privateKey);
-    }
+    return new AsymmetricCipherKeyPair(publicKey, privateKey);
+  }
 
-    private XMSSMTPrivateKeyParameters generatePrivateKey(BDSStateMap bdsState)
-    {
-        int n = params.getTreeDigestSize();
-        byte[] secretKeySeed = new byte[n];
-        prng.nextBytes(secretKeySeed);
-        byte[] secretKeyPRF = new byte[n];
-        prng.nextBytes(secretKeyPRF);
-        byte[] publicSeed = new byte[n];
-        prng.nextBytes(publicSeed);
+  private XMSSMTPrivateKeyParameters generatePrivateKey(BDSStateMap bdsState) {
+    int n = params.getTreeDigestSize();
+    byte[] secretKeySeed = new byte[n];
+    prng.nextBytes(secretKeySeed);
+    byte[] secretKeyPRF = new byte[n];
+    prng.nextBytes(secretKeyPRF);
+    byte[] publicSeed = new byte[n];
+    prng.nextBytes(publicSeed);
 
-        XMSSMTPrivateKeyParameters privateKey = null;
+    XMSSMTPrivateKeyParameters privateKey = null;
 
-        privateKey = new XMSSMTPrivateKeyParameters.Builder(params).withSecretKeySeed(secretKeySeed)
-                .withSecretKeyPRF(secretKeyPRF).withPublicSeed(publicSeed)
-                .withBDSState(bdsState).build();
+    privateKey = new XMSSMTPrivateKeyParameters.Builder(params).withSecretKeySeed(secretKeySeed)
+        .withSecretKeyPRF(secretKeyPRF).withPublicSeed(publicSeed)
+        .withBDSState(bdsState).build();
 
-        return privateKey;
-    }
+    return privateKey;
+  }
 }

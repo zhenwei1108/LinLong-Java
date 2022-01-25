@@ -21,68 +21,59 @@ import com.github.zhenwei.core.util.Arrays;
  * </pre>
  */
 public class PopLinkWitnessV2
-    extends ASN1Object
-{
-    private final AlgorithmIdentifier keyGenAlgorithm;
-    private final AlgorithmIdentifier macAlgorithm;
-    private final byte[] witness;
+    extends ASN1Object {
 
-    public PopLinkWitnessV2(AlgorithmIdentifier keyGenAlgorithm, AlgorithmIdentifier macAlgorithm, byte[] witness)
-    {
-        this.keyGenAlgorithm = keyGenAlgorithm;
-        this.macAlgorithm = macAlgorithm;
-        this.witness = Arrays.clone(witness);
+  private final AlgorithmIdentifier keyGenAlgorithm;
+  private final AlgorithmIdentifier macAlgorithm;
+  private final byte[] witness;
+
+  public PopLinkWitnessV2(AlgorithmIdentifier keyGenAlgorithm, AlgorithmIdentifier macAlgorithm,
+      byte[] witness) {
+    this.keyGenAlgorithm = keyGenAlgorithm;
+    this.macAlgorithm = macAlgorithm;
+    this.witness = Arrays.clone(witness);
+  }
+
+  private PopLinkWitnessV2(ASN1Sequence seq) {
+    if (seq.size() != 3) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.keyGenAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
+    this.macAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+    this.witness = Arrays.clone(ASN1OctetString.getInstance(seq.getObjectAt(2)).getOctets());
+  }
+
+  public static PopLinkWitnessV2 getInstance(Object o) {
+    if (o instanceof PopLinkWitnessV2) {
+      return (PopLinkWitnessV2) o;
     }
 
-    private PopLinkWitnessV2(ASN1Sequence seq)
-    {
-        if (seq.size() != 3)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.keyGenAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-        this.macAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
-        this.witness = Arrays.clone(ASN1OctetString.getInstance(seq.getObjectAt(2)).getOctets());
+    if (o != null) {
+      return new PopLinkWitnessV2(ASN1Sequence.getInstance(o));
     }
 
-    public static PopLinkWitnessV2 getInstance(Object o)
-    {
-        if (o instanceof PopLinkWitnessV2)
-        {
-            return (PopLinkWitnessV2)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new PopLinkWitnessV2(ASN1Sequence.getInstance(o));
-        }
+  public AlgorithmIdentifier getKeyGenAlgorithm() {
+    return keyGenAlgorithm;
+  }
 
-        return null;
-    }
+  public AlgorithmIdentifier getMacAlgorithm() {
+    return macAlgorithm;
+  }
 
-    public AlgorithmIdentifier getKeyGenAlgorithm()
-    {
-        return keyGenAlgorithm;
-    }
+  public byte[] getWitness() {
+    return Arrays.clone(witness);
+  }
 
-    public AlgorithmIdentifier getMacAlgorithm()
-    {
-        return macAlgorithm;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-    public byte[] getWitness()
-    {
-        return Arrays.clone(witness);
-    }
+    v.add(keyGenAlgorithm);
+    v.add(macAlgorithm);
+    v.add(new DEROctetString(getWitness()));
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        v.add(keyGenAlgorithm);
-        v.add(macAlgorithm);
-        v.add(new DEROctetString(getWitness()));
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

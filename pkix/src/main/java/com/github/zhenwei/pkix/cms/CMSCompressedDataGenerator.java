@@ -1,15 +1,15 @@
 package com.github.zhenwei.pkix.cms;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.OutputCompressor;
 import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.cms.CompressedData;
 import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.pkix.operator.OutputCompressor;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * General class for generating a compressed CMS message.
@@ -22,52 +22,47 @@ import  com.github.zhenwei.pkix.operator.OutputCompressor;
  *      CMSCompressedData           data = fact.generate(content, new ZlibCompressor());
  * </pre>
  */
-public class CMSCompressedDataGenerator
-{
-    public static final String  ZLIB    = "1.2.840.113549.1.9.16.3.8";
+public class CMSCompressedDataGenerator {
 
-    /**
-     * base constructor
-     */
-    public CMSCompressedDataGenerator()
-    {
+  public static final String ZLIB = "1.2.840.113549.1.9.16.3.8";
+
+  /**
+   * base constructor
+   */
+  public CMSCompressedDataGenerator() {
+  }
+
+  /**
+   * generate an object that contains an CMS Compressed Data
+   */
+  public CMSCompressedData generate(
+      CMSTypedData content,
+      OutputCompressor compressor)
+      throws CMSException {
+    AlgorithmIdentifier comAlgId;
+    ASN1OctetString comOcts;
+
+    try {
+      ByteArrayOutputStream bOut = new ByteArrayOutputStream();
+      OutputStream zOut = compressor.getOutputStream(bOut);
+
+      content.write(zOut);
+
+      zOut.close();
+
+      comAlgId = compressor.getAlgorithmIdentifier();
+      comOcts = new BEROctetString(bOut.toByteArray());
+    } catch (IOException e) {
+      throw new CMSException("exception encoding data.", e);
     }
 
-    /**
-     * generate an object that contains an CMS Compressed Data
-     */
-    public CMSCompressedData generate(
-        CMSTypedData content,
-        OutputCompressor compressor)
-        throws CMSException
-    {
-        AlgorithmIdentifier     comAlgId;
-        ASN1OctetString         comOcts;
+    ContentInfo comContent = new ContentInfo(
+        content.getContentType(), comOcts);
 
-        try
-        {
-            ByteArrayOutputStream bOut = new ByteArrayOutputStream();
-            OutputStream zOut = compressor.getOutputStream(bOut);
+    ContentInfo contentInfo = new ContentInfo(
+        CMSObjectIdentifiers.compressedData,
+        new CompressedData(comAlgId, comContent));
 
-            content.write(zOut);
-
-            zOut.close();
-
-            comAlgId = compressor.getAlgorithmIdentifier();
-            comOcts = new BEROctetString(bOut.toByteArray());
-        }
-        catch (IOException e)
-        {
-            throw new CMSException("exception encoding data.", e);
-        }
-
-        ContentInfo     comContent = new ContentInfo(
-                                    content.getContentType(), comOcts);
-
-        ContentInfo     contentInfo = new ContentInfo(
-                                    CMSObjectIdentifiers.compressedData,
-                                    new CompressedData(comAlgId, comContent));
-
-        return new CMSCompressedData(contentInfo);
-    }
+    return new CMSCompressedData(contentInfo);
+  }
 }

@@ -7,16 +7,14 @@ import java.io.OutputStream;
  * encoded accordingly, but DL or BER objects will be encoded as defined.
  */
 class BEROutputStream
-    extends ASN1OutputStream
-{
-    /**
-     * Base constructor.
-     *
-     * @param os
-     *            target output stream.
-     */
-    BEROutputStream(OutputStream os)
-    {
-        super(os);
-    }
+    extends ASN1OutputStream {
+
+  /**
+   * Base constructor.
+   *
+   * @param os target output stream.
+   */
+  BEROutputStream(OutputStream os) {
+    super(os);
+  }
 }

@@ -9,65 +9,68 @@ import java.security.SignatureException;
 import java.security.cert.Certificate;
 
 /**
- * This interface is implemented by Signature classes returned by the PQC provider where the signature
- * algorithm is one where the private key is updated for each signature generated. Examples of these
- * are algorithms such as GMSS, XMSS, and XMSS^MT.
+ * This interface is implemented by Signature classes returned by the PQC provider where the
+ * signature algorithm is one where the private key is updated for each signature generated.
+ * Examples of these are algorithms such as GMSS, XMSS, and XMSS^MT.
+ *
  * @deprecated it's better to avoid this and use extractKeyShard methods where possible.
  */
-public interface StateAwareSignature
-{
-    void initVerify(PublicKey publicKey)
-        throws InvalidKeyException;
+public interface StateAwareSignature {
 
-    void initVerify(Certificate certificate)
-        throws InvalidKeyException;
+  void initVerify(PublicKey publicKey)
+      throws InvalidKeyException;
 
-    void initSign(PrivateKey privateKey)
-        throws InvalidKeyException;
+  void initVerify(Certificate certificate)
+      throws InvalidKeyException;
 
-    void initSign(PrivateKey privateKey, SecureRandom random)
-        throws InvalidKeyException;
+  void initSign(PrivateKey privateKey)
+      throws InvalidKeyException;
 
-    byte[] sign()
-        throws SignatureException;
+  void initSign(PrivateKey privateKey, SecureRandom random)
+      throws InvalidKeyException;
 
-    int sign(byte[] outbuf, int offset, int len)
-        throws SignatureException;
+  byte[] sign()
+      throws SignatureException;
 
-    boolean verify(byte[] signature)
-        throws SignatureException;
+  int sign(byte[] outbuf, int offset, int len)
+      throws SignatureException;
 
-    boolean verify(byte[] signature, int offset, int length)
-        throws SignatureException;
+  boolean verify(byte[] signature)
+      throws SignatureException;
 
-    void update(byte b)
-        throws SignatureException;
+  boolean verify(byte[] signature, int offset, int length)
+      throws SignatureException;
 
-    void update(byte[] data)
-        throws SignatureException;
+  void update(byte b)
+      throws SignatureException;
 
-    void update(byte[] data, int off, int len)
-        throws SignatureException;
+  void update(byte[] data)
+      throws SignatureException;
 
-    void update(ByteBuffer data)
-        throws SignatureException;
+  void update(byte[] data, int off, int len)
+      throws SignatureException;
 
-    String getAlgorithm();
+  void update(ByteBuffer data)
+      throws SignatureException;
 
-    /**
-     * Return true if this Signature object can be used for signing. False otherwise.
-     *
-     * @return true if we are capable of making signatures.
-     */
-    boolean isSigningCapable();
+  String getAlgorithm();
 
-    /**
-     * Return the current version of the private key with the updated state.
-     * <p>
-     * <b>Note:</b> calling this method will effectively disable the Signature object from being used for further
-     *  signature generation without another call to initSign().
-     * </p>
-     * @return an updated private key object, which can be used for later signature generation.
-     */
-   PrivateKey getUpdatedPrivateKey();
+  /**
+   * Return true if this Signature object can be used for signing. False otherwise.
+   *
+   * @return true if we are capable of making signatures.
+   */
+  boolean isSigningCapable();
+
+  /**
+   * Return the current version of the private key with the updated state.
+   * <p>
+   * <b>Note:</b> calling this method will effectively disable the Signature object from being used
+   * for further
+   * signature generation without another call to initSign().
+   * </p>
+   *
+   * @return an updated private key object, which can be used for later signature generation.
+   */
+  PrivateKey getUpdatedPrivateKey();
 }

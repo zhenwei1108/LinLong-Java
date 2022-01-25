@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.util.asn1.dvcs;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
@@ -14,6 +13,7 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.asn1.x509.GeneralNames;
 import com.github.zhenwei.core.asn1.x509.PolicyInformation;
+import java.math.BigInteger;
 
 /**
  * <pre>
@@ -32,241 +32,199 @@ import com.github.zhenwei.core.asn1.x509.PolicyInformation;
  */
 
 public class DVCSRequestInformation
-    extends ASN1Object
-{
-    private int version = DEFAULT_VERSION;
-    private ServiceType service;
-    private BigInteger nonce;
-    private DVCSTime requestTime;
-    private GeneralNames requester;
-    private PolicyInformation requestPolicy;
-    private GeneralNames dvcs;
-    private GeneralNames dataLocations;
-    private Extensions extensions;
+    extends ASN1Object {
 
-    private static final int DEFAULT_VERSION = 1;
-    private static final int TAG_REQUESTER = 0;
-    private static final int TAG_REQUEST_POLICY = 1;
-    private static final int TAG_DVCS = 2;
-    private static final int TAG_DATA_LOCATIONS = 3;
-    private static final int TAG_EXTENSIONS = 4;
+  private int version = DEFAULT_VERSION;
+  private ServiceType service;
+  private BigInteger nonce;
+  private DVCSTime requestTime;
+  private GeneralNames requester;
+  private PolicyInformation requestPolicy;
+  private GeneralNames dvcs;
+  private GeneralNames dataLocations;
+  private Extensions extensions;
 
-    private DVCSRequestInformation(ASN1Sequence seq)
-    {
-        int i = 0;
+  private static final int DEFAULT_VERSION = 1;
+  private static final int TAG_REQUESTER = 0;
+  private static final int TAG_REQUEST_POLICY = 1;
+  private static final int TAG_DVCS = 2;
+  private static final int TAG_DATA_LOCATIONS = 3;
+  private static final int TAG_EXTENSIONS = 4;
 
-        if (seq.getObjectAt(0) instanceof ASN1Integer)
-        {
-            ASN1Integer encVersion = ASN1Integer.getInstance(seq.getObjectAt(i++));
-            this.version = encVersion.intValueExact();
-        }
-        else
-        {
-            this.version = 1;
-        }
+  private DVCSRequestInformation(ASN1Sequence seq) {
+    int i = 0;
 
-        this.service = ServiceType.getInstance(seq.getObjectAt(i++));
-
-        while (i < seq.size())
-        {
-            ASN1Encodable x = seq.getObjectAt(i);
-
-            if (x instanceof ASN1Integer)
-            {
-                this.nonce = ASN1Integer.getInstance(x).getValue();
-            }
-            else if (x instanceof ASN1GeneralizedTime)
-            {
-                this.requestTime = DVCSTime.getInstance(x);
-            }
-            else if (x instanceof ASN1TaggedObject)
-            {
-                ASN1TaggedObject t = ASN1TaggedObject.getInstance(x);
-                int tagNo = t.getTagNo();
-
-                switch (tagNo)
-                {
-                case TAG_REQUESTER:
-                    this.requester = GeneralNames.getInstance(t, false);
-                    break;
-                case TAG_REQUEST_POLICY:
-                    this.requestPolicy = PolicyInformation.getInstance(ASN1Sequence.getInstance(t, false));
-                    break;
-                case TAG_DVCS:
-                    this.dvcs = GeneralNames.getInstance(t, false);
-                    break;
-                case TAG_DATA_LOCATIONS:
-                    this.dataLocations = GeneralNames.getInstance(t, false);
-                    break;
-                case TAG_EXTENSIONS:
-                    this.extensions = Extensions.getInstance(t, false);
-                    break;
-                default:
-                    throw new IllegalArgumentException("unknown tag number encountered: " + tagNo);
-                }
-            }
-            else
-            {
-                this.requestTime = DVCSTime.getInstance(x);
-            }
-
-            i++;
-        }
+    if (seq.getObjectAt(0) instanceof ASN1Integer) {
+      ASN1Integer encVersion = ASN1Integer.getInstance(seq.getObjectAt(i++));
+      this.version = encVersion.intValueExact();
+    } else {
+      this.version = 1;
     }
 
-    public static DVCSRequestInformation getInstance(Object obj)
-    {
-        if (obj instanceof DVCSRequestInformation)
-        {
-            return (DVCSRequestInformation)obj;
-        }
-        else if (obj != null)
-        {
-            return new DVCSRequestInformation(ASN1Sequence.getInstance(obj));
-        }
+    this.service = ServiceType.getInstance(seq.getObjectAt(i++));
 
-        return null;
+    while (i < seq.size()) {
+      ASN1Encodable x = seq.getObjectAt(i);
+
+      if (x instanceof ASN1Integer) {
+        this.nonce = ASN1Integer.getInstance(x).getValue();
+      } else if (x instanceof ASN1GeneralizedTime) {
+        this.requestTime = DVCSTime.getInstance(x);
+      } else if (x instanceof ASN1TaggedObject) {
+        ASN1TaggedObject t = ASN1TaggedObject.getInstance(x);
+        int tagNo = t.getTagNo();
+
+        switch (tagNo) {
+          case TAG_REQUESTER:
+            this.requester = GeneralNames.getInstance(t, false);
+            break;
+          case TAG_REQUEST_POLICY:
+            this.requestPolicy = PolicyInformation.getInstance(ASN1Sequence.getInstance(t, false));
+            break;
+          case TAG_DVCS:
+            this.dvcs = GeneralNames.getInstance(t, false);
+            break;
+          case TAG_DATA_LOCATIONS:
+            this.dataLocations = GeneralNames.getInstance(t, false);
+            break;
+          case TAG_EXTENSIONS:
+            this.extensions = Extensions.getInstance(t, false);
+            break;
+          default:
+            throw new IllegalArgumentException("unknown tag number encountered: " + tagNo);
+        }
+      } else {
+        this.requestTime = DVCSTime.getInstance(x);
+      }
+
+      i++;
+    }
+  }
+
+  public static DVCSRequestInformation getInstance(Object obj) {
+    if (obj instanceof DVCSRequestInformation) {
+      return (DVCSRequestInformation) obj;
+    } else if (obj != null) {
+      return new DVCSRequestInformation(ASN1Sequence.getInstance(obj));
     }
 
-    public static DVCSRequestInformation getInstance(
-        ASN1TaggedObject obj,
-        boolean explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+    return null;
+  }
+
+  public static DVCSRequestInformation getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(9);
+
+    if (version != DEFAULT_VERSION) {
+      v.add(new ASN1Integer(version));
+    }
+    v.add(service);
+    if (nonce != null) {
+      v.add(new ASN1Integer(nonce));
+    }
+    if (requestTime != null) {
+      v.add(requestTime);
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(9);
-
-        if (version != DEFAULT_VERSION)
-        {
-            v.add(new ASN1Integer(version));
-        }
-        v.add(service);
-        if (nonce != null)
-        {
-            v.add(new ASN1Integer(nonce));
-        }
-        if (requestTime != null)
-        {
-            v.add(requestTime);
-        }
-
-        int[] tags = new int[]{
-            TAG_REQUESTER,
-            TAG_REQUEST_POLICY,
-            TAG_DVCS,
-            TAG_DATA_LOCATIONS,
-            TAG_EXTENSIONS
-        };
-        ASN1Encodable[] taggedObjects = new ASN1Encodable[]{
-            requester,
-            requestPolicy,
-            dvcs,
-            dataLocations,
-            extensions
-        };
-        for (int i = 0; i < tags.length; i++)
-        {
-            int tag = tags[i];
-            ASN1Encodable taggedObject = taggedObjects[i];
-            if (taggedObject != null)
-            {
-                v.add(new DERTaggedObject(false, tag, taggedObject));
-            }
-        }
-
-        return new DERSequence(v);
+    int[] tags = new int[]{
+        TAG_REQUESTER,
+        TAG_REQUEST_POLICY,
+        TAG_DVCS,
+        TAG_DATA_LOCATIONS,
+        TAG_EXTENSIONS
+    };
+    ASN1Encodable[] taggedObjects = new ASN1Encodable[]{
+        requester,
+        requestPolicy,
+        dvcs,
+        dataLocations,
+        extensions
+    };
+    for (int i = 0; i < tags.length; i++) {
+      int tag = tags[i];
+      ASN1Encodable taggedObject = taggedObjects[i];
+      if (taggedObject != null) {
+        v.add(new DERTaggedObject(false, tag, taggedObject));
+      }
     }
 
-    public String toString()
-    {
+    return new DERSequence(v);
+  }
 
-        StringBuffer s = new StringBuffer();
+  public String toString() {
 
-        s.append("DVCSRequestInformation {\n");
+    StringBuffer s = new StringBuffer();
 
-        if (version != DEFAULT_VERSION)
-        {
-            s.append("version: " + version + "\n");
-        }
-        s.append("service: " + service + "\n");
-        if (nonce != null)
-        {
-            s.append("nonce: " + nonce + "\n");
-        }
-        if (requestTime != null)
-        {
-            s.append("requestTime: " + requestTime + "\n");
-        }
-        if (requester != null)
-        {
-            s.append("requester: " + requester + "\n");
-        }
-        if (requestPolicy != null)
-        {
-            s.append("requestPolicy: " + requestPolicy + "\n");
-        }
-        if (dvcs != null)
-        {
-            s.append("dvcs: " + dvcs + "\n");
-        }
-        if (dataLocations != null)
-        {
-            s.append("dataLocations: " + dataLocations + "\n");
-        }
-        if (extensions != null)
-        {
-            s.append("extensions: " + extensions + "\n");
-        }
+    s.append("DVCSRequestInformation {\n");
 
-        s.append("}\n");
-        return s.toString();
+    if (version != DEFAULT_VERSION) {
+      s.append("version: " + version + "\n");
+    }
+    s.append("service: " + service + "\n");
+    if (nonce != null) {
+      s.append("nonce: " + nonce + "\n");
+    }
+    if (requestTime != null) {
+      s.append("requestTime: " + requestTime + "\n");
+    }
+    if (requester != null) {
+      s.append("requester: " + requester + "\n");
+    }
+    if (requestPolicy != null) {
+      s.append("requestPolicy: " + requestPolicy + "\n");
+    }
+    if (dvcs != null) {
+      s.append("dvcs: " + dvcs + "\n");
+    }
+    if (dataLocations != null) {
+      s.append("dataLocations: " + dataLocations + "\n");
+    }
+    if (extensions != null) {
+      s.append("extensions: " + extensions + "\n");
     }
 
-    public int getVersion()
-    {
-        return version;
-    }
+    s.append("}\n");
+    return s.toString();
+  }
 
-    public ServiceType getService()
-    {
-        return service;
-    }
+  public int getVersion() {
+    return version;
+  }
 
-    public BigInteger getNonce()
-    {
-        return nonce;
-    }
+  public ServiceType getService() {
+    return service;
+  }
 
-    public DVCSTime getRequestTime()
-    {
-        return requestTime;
-    }
+  public BigInteger getNonce() {
+    return nonce;
+  }
 
-    public GeneralNames getRequester()
-    {
-        return requester;
-    }
+  public DVCSTime getRequestTime() {
+    return requestTime;
+  }
 
-    public PolicyInformation getRequestPolicy()
-    {
-        return requestPolicy;
-    }
+  public GeneralNames getRequester() {
+    return requester;
+  }
 
-    public GeneralNames getDVCS()
-    {
-        return dvcs;
-    }
+  public PolicyInformation getRequestPolicy() {
+    return requestPolicy;
+  }
 
-    public GeneralNames getDataLocations()
-    {
-        return dataLocations;
-    }
+  public GeneralNames getDVCS() {
+    return dvcs;
+  }
 
-    public Extensions getExtensions()
-    {
-        return extensions;
-    }
+  public GeneralNames getDataLocations() {
+    return dataLocations;
+  }
+
+  public Extensions getExtensions() {
+    return extensions;
+  }
 }

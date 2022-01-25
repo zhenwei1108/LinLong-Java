@@ -21,29 +21,23 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class HeaderInfo
-    extends ASN1Object
-{
+    extends ASN1Object {
 
 
-    //TODO needs implementing.
-    public static HeaderInfo getInstance(Object o)
-    {
-        if (o instanceof HeaderInfo)
-        {
-            return (HeaderInfo)o;
-        }
-        else if (o != null)
-        {
-            //return new HeaderInfo(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+  //TODO needs implementing.
+  public static HeaderInfo getInstance(Object o) {
+    if (o instanceof HeaderInfo) {
+      return (HeaderInfo) o;
+    } else if (o != null) {
+      //return new HeaderInfo(ASN1Sequence.getInstance(o));
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector();
+    return null;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector();
+
+    return new DERSequence(v);
+  }
 }

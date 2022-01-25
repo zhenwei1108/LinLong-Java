@@ -10,77 +10,65 @@ import com.github.zhenwei.core.util.Memoable;
 /**
  * This class implements the GMSS signature scheme, but allows multiple signatures to be generated.
  * <p>
- *     Note:  getUpdatedPrivateKey() needs to be called to fetch the current value of the usable private key.
+ * Note:  getUpdatedPrivateKey() needs to be called to fetch the current value of the usable private
+ * key.
  * </p>
  */
 public class GMSSStateAwareSigner
-    implements StateAwareMessageSigner
-{
-    private final GMSSSigner gmssSigner;
+    implements StateAwareMessageSigner {
 
-    private GMSSPrivateKeyParameters key;
+  private final GMSSSigner gmssSigner;
 
-    public GMSSStateAwareSigner(final Digest digest)
-    {
-        if (!(digest instanceof Memoable))
-        {
-            throw new IllegalArgumentException("digest must implement Memoable");
-        }
+  private GMSSPrivateKeyParameters key;
 
-        final Memoable dig = ((Memoable)digest).copy();
-        gmssSigner = new GMSSSigner(new GMSSDigestProvider()
-        {
-            public Digest get()
-            {
-                return (Digest)dig.copy();
-            }
-        });
+  public GMSSStateAwareSigner(final Digest digest) {
+    if (!(digest instanceof Memoable)) {
+      throw new IllegalArgumentException("digest must implement Memoable");
     }
 
-    public void init(boolean forSigning, CipherParameters param)
-    {
-        if (forSigning)
-        {
-            if (param instanceof ParametersWithRandom)
-            {
-                ParametersWithRandom rParam = (ParametersWithRandom)param;
+    final Memoable dig = ((Memoable) digest).copy();
+    gmssSigner = new GMSSSigner(new GMSSDigestProvider() {
+      public Digest get() {
+        return (Digest) dig.copy();
+      }
+    });
+  }
 
-                this.key = (GMSSPrivateKeyParameters)rParam.getParameters();
-            }
-            else
-            {
-                this.key = (GMSSPrivateKeyParameters)param;
-            }
-        }
+  public void init(boolean forSigning, CipherParameters param) {
+    if (forSigning) {
+      if (param instanceof ParametersWithRandom) {
+        ParametersWithRandom rParam = (ParametersWithRandom) param;
 
-        gmssSigner.init(forSigning, param);
+        this.key = (GMSSPrivateKeyParameters) rParam.getParameters();
+      } else {
+        this.key = (GMSSPrivateKeyParameters) param;
+      }
     }
 
-    public byte[] generateSignature(byte[] message)
-    {
-        if (key == null)
-        {
-            throw new IllegalStateException("signing key no longer usable");
-        }
-        
-        byte[] sig = gmssSigner.generateSignature(message);
+    gmssSigner.init(forSigning, param);
+  }
 
-        key = key.nextKey();
-
-        return sig;
+  public byte[] generateSignature(byte[] message) {
+    if (key == null) {
+      throw new IllegalStateException("signing key no longer usable");
     }
 
-    public boolean verifySignature(byte[] message, byte[] signature)
-    {
-        return gmssSigner.verifySignature(message, signature);
-    }
+    byte[] sig = gmssSigner.generateSignature(message);
 
-    public AsymmetricKeyParameter getUpdatedPrivateKey()
-    {
-        AsymmetricKeyParameter k = key;
+    key = key.nextKey();
 
-        key = null;
+    return sig;
+  }
 
-        return k;
-    }
+  public boolean verifySignature(byte[] message, byte[] signature) {
+    return gmssSigner.verifySignature(message, signature);
+  }
+
+  public AsymmetricKeyParameter getUpdatedPrivateKey() {
+    AsymmetricKeyParameter k = key;
+
+    key = null;
+
+    return k;
+  }
 }

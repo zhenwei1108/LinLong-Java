@@ -1,44 +1,42 @@
 package com.github.zhenwei.core.crypto.generators;
 
+import com.github.zhenwei.core.crypto.params.ElGamalParameters;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import com.github.zhenwei.core.crypto.params.ElGamalParameters;
 
-public class ElGamalParametersGenerator
-{
-    private int             size;
-    private int             certainty;
-    private SecureRandom    random;
+public class ElGamalParametersGenerator {
 
-    public void init(
-        int             size,
-        int             certainty,
-        SecureRandom    random)
-    {
-        this.size = size;
-        this.certainty = certainty;
-        this.random = random;
-    }
+  private int size;
+  private int certainty;
+  private SecureRandom random;
 
-    /**
-     * which generates the p and g values from the given parameters,
-     * returning the ElGamalParameters object.
-     * <p>
-     * Note: can take a while...
-     *
-     * @return a generated ElGamal parameters object.
-     */
-    public ElGamalParameters generateParameters()
-    {
-        //
-        // find a safe prime p where p = 2*q + 1, where p and q are prime.
-        //
-        BigInteger[] safePrimes = DHParametersHelper.generateSafePrimes(size, certainty, random);
+  public void init(
+      int size,
+      int certainty,
+      SecureRandom random) {
+    this.size = size;
+    this.certainty = certainty;
+    this.random = random;
+  }
 
-        BigInteger p = safePrimes[0];
-        BigInteger q = safePrimes[1];
-        BigInteger g = DHParametersHelper.selectGenerator(p, q, random);
+  /**
+   * which generates the p and g values from the given parameters, returning the ElGamalParameters
+   * object.
+   * <p>
+   * Note: can take a while...
+   *
+   * @return a generated ElGamal parameters object.
+   */
+  public ElGamalParameters generateParameters() {
+    //
+    // find a safe prime p where p = 2*q + 1, where p and q are prime.
+    //
+    BigInteger[] safePrimes = DHParametersHelper.generateSafePrimes(size, certainty, random);
 
-        return new ElGamalParameters(p, g);
-    }
+    BigInteger p = safePrimes[0];
+    BigInteger q = safePrimes[1];
+    BigInteger g = DHParametersHelper.selectGenerator(p, q, random);
+
+    return new ElGamalParameters(p, g);
+  }
 }

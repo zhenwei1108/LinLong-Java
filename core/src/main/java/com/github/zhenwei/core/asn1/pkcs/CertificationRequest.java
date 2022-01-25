@@ -19,76 +19,66 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  * </pre>
  */
 public class CertificationRequest
-    extends ASN1Object
-{
-    protected CertificationRequestInfo reqInfo = null;
-    protected AlgorithmIdentifier sigAlgId = null;
-    protected DERBitString sigBits = null;
+    extends ASN1Object {
 
-    public static CertificationRequest getInstance(Object o)
-    {
-        if (o instanceof CertificationRequest)
-        {
-            return (CertificationRequest)o;
-        }
+  protected CertificationRequestInfo reqInfo = null;
+  protected AlgorithmIdentifier sigAlgId = null;
+  protected DERBitString sigBits = null;
 
-        if (o != null)
-        {
-            return new CertificationRequest(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+  public static CertificationRequest getInstance(Object o) {
+    if (o instanceof CertificationRequest) {
+      return (CertificationRequest) o;
     }
 
-    protected CertificationRequest()
-    {
+    if (o != null) {
+      return new CertificationRequest(ASN1Sequence.getInstance(o));
     }
 
-    public CertificationRequest(
-        CertificationRequestInfo requestInfo,
-        AlgorithmIdentifier     algorithm,
-        DERBitString            signature)
-    {
-        this.reqInfo = requestInfo;
-        this.sigAlgId = algorithm;
-        this.sigBits = signature;
-    }
+    return null;
+  }
 
-    /**
-     * @deprecated use getInstance()
-     */
-    public CertificationRequest(
-        ASN1Sequence seq)
-    {
-        reqInfo = CertificationRequestInfo.getInstance(seq.getObjectAt(0));
-        sigAlgId = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
-        sigBits = (DERBitString)seq.getObjectAt(2);
-    }
+  protected CertificationRequest() {
+  }
 
-    public CertificationRequestInfo getCertificationRequestInfo()
-    {
-        return reqInfo;
-    }
+  public CertificationRequest(
+      CertificationRequestInfo requestInfo,
+      AlgorithmIdentifier algorithm,
+      DERBitString signature) {
+    this.reqInfo = requestInfo;
+    this.sigAlgId = algorithm;
+    this.sigBits = signature;
+  }
 
-    public AlgorithmIdentifier getSignatureAlgorithm()
-    {
-        return sigAlgId;
-    }
+  /**
+   * @deprecated use getInstance()
+   */
+  public CertificationRequest(
+      ASN1Sequence seq) {
+    reqInfo = CertificationRequestInfo.getInstance(seq.getObjectAt(0));
+    sigAlgId = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+    sigBits = (DERBitString) seq.getObjectAt(2);
+  }
 
-    public DERBitString getSignature()
-    {
-        return sigBits;
-    }
+  public CertificationRequestInfo getCertificationRequestInfo() {
+    return reqInfo;
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        // Construct the CertificateRequest
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
+  public AlgorithmIdentifier getSignatureAlgorithm() {
+    return sigAlgId;
+  }
 
-        v.add(reqInfo);
-        v.add(sigAlgId);
-        v.add(sigBits);
+  public DERBitString getSignature() {
+    return sigBits;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    // Construct the CertificateRequest
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
+
+    v.add(reqInfo);
+    v.add(sigAlgId);
+    v.add(sigBits);
+
+    return new DERSequence(v);
+  }
 }

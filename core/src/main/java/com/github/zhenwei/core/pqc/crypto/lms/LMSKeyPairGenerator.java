@@ -1,32 +1,31 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 public class LMSKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    LMSKeyGenerationParameters param;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(KeyGenerationParameters param)
-    {
-        this.param = (LMSKeyGenerationParameters)param;
-    }
+  LMSKeyGenerationParameters param;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        SecureRandom source = param.getRandom();
+  public void init(KeyGenerationParameters param) {
+    this.param = (LMSKeyGenerationParameters) param;
+  }
 
-        byte[] I = new byte[16];
-        source.nextBytes(I);
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    SecureRandom source = param.getRandom();
 
-        byte[] rootSecret = new byte[32];
-        source.nextBytes(rootSecret);
+    byte[] I = new byte[16];
+    source.nextBytes(I);
 
-        LMSPrivateKeyParameters privKey = LMS.generateKeys(param.getParameters().getLMSigParam(), param.getParameters().getLMOTSParam(), 0, I, rootSecret);
+    byte[] rootSecret = new byte[32];
+    source.nextBytes(rootSecret);
 
-        return new AsymmetricCipherKeyPair(privKey.getPublicKey(), privKey);
-    }
+    LMSPrivateKeyParameters privKey = LMS.generateKeys(param.getParameters().getLMSigParam(),
+        param.getParameters().getLMOTSParam(), 0, I, rootSecret);
+
+    return new AsymmetricCipherKeyPair(privKey.getPublicKey(), privKey);
+  }
 }

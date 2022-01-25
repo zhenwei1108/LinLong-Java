@@ -1,68 +1,65 @@
 package com.github.zhenwei.provider.jcajce;
 
-import javax.crypto.interfaces.PBEKey;
 import com.github.zhenwei.core.util.Arrays;
+import javax.crypto.interfaces.PBEKey;
 
 /**
  * A password based key for use with PKCS#12 with full PBE parameters.
  */
 public class PKCS12KeyWithParameters
     extends PKCS12Key
-    implements PBEKey
-{
-    private final byte[] salt;
-    private final int iterationCount;
+    implements PBEKey {
 
-    /**
-     * Basic constructor for a password based key with generation parameters.
-     *
-     * @param password password to use.
-     * @param salt salt for generation algorithm
-     * @param iterationCount iteration count for generation algorithm.
-     */
-    public PKCS12KeyWithParameters(char[] password, byte[] salt, int iterationCount)
-    {
-        super(password);
+  private final byte[] salt;
+  private final int iterationCount;
 
-        this.salt = Arrays.clone(salt);
-        this.iterationCount = iterationCount;
-    }
+  /**
+   * Basic constructor for a password based key with generation parameters.
+   *
+   * @param password       password to use.
+   * @param salt           salt for generation algorithm
+   * @param iterationCount iteration count for generation algorithm.
+   */
+  public PKCS12KeyWithParameters(char[] password, byte[] salt, int iterationCount) {
+    super(password);
+
+    this.salt = Arrays.clone(salt);
+    this.iterationCount = iterationCount;
+  }
 
 
-    /**
-     * Basic constructor for a password based key with generation parameters, specifying the wrong conversion for
-     * zero length passwords.
-     *
-     * @param password password to use.
-     * @param salt salt for generation algorithm
-     * @param iterationCount iteration count for generation algorithm.
-     * @param useWrongZeroLengthConversion use the incorrect encoding approach (add pad bytes)
-     */
-    public PKCS12KeyWithParameters(char[] password, boolean useWrongZeroLengthConversion, byte[] salt, int iterationCount)
-    {
-        super(password, useWrongZeroLengthConversion);
+  /**
+   * Basic constructor for a password based key with generation parameters, specifying the wrong
+   * conversion for zero length passwords.
+   *
+   * @param password                     password to use.
+   * @param salt                         salt for generation algorithm
+   * @param iterationCount               iteration count for generation algorithm.
+   * @param useWrongZeroLengthConversion use the incorrect encoding approach (add pad bytes)
+   */
+  public PKCS12KeyWithParameters(char[] password, boolean useWrongZeroLengthConversion, byte[] salt,
+      int iterationCount) {
+    super(password, useWrongZeroLengthConversion);
 
-        this.salt = Arrays.clone(salt);
-        this.iterationCount = iterationCount;
-    }
+    this.salt = Arrays.clone(salt);
+    this.iterationCount = iterationCount;
+  }
 
-    /**
-     * Return the salt to use in the key derivation function.
-     *
-     * @return the salt to use in the KDF.
-     */
-    public byte[] getSalt()
-    {
-        return salt;
-    }
+  /**
+   * Return the salt to use in the key derivation function.
+   *
+   * @return the salt to use in the KDF.
+   */
+  public byte[] getSalt() {
+    return salt;
+  }
 
-    /**
-     * Return the iteration count to use in the key derivation function.
-     *
-     * @return the iteration count to use in the KDF.
-     */
-    public int getIterationCount()
-    {
-        return iterationCount;
-    }
+  /**
+   * Return the iteration count to use in the key derivation function.
+   *
+   * @return the iteration count to use in the KDF.
+   */
+  public int getIterationCount() {
+    return iterationCount;
+  }
 }

@@ -11,12 +11,10 @@ package com.github.zhenwei.pkix.util.oer.its;
  *     }
  * </pre>
  */
-public class RecipientInfo
-{
+public class RecipientInfo {
 
 
-    public static RecipientInfo getInstance(Object object)
-    {
-        return new RecipientInfo();
-    }
+  public static RecipientInfo getInstance(Object object) {
+    return new RecipientInfo();
+  }
 }

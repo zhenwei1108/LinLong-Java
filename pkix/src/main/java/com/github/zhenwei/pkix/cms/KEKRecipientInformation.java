@@ -1,37 +1,36 @@
 package com.github.zhenwei.pkix.cms;
 
-import java.io.IOException;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.util.asn1.cms.KEKIdentifier;
 import com.github.zhenwei.pkix.util.asn1.cms.KEKRecipientInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import java.io.IOException;
 
 /**
- * the RecipientInfo class for a recipient who has been sent a message
- * encrypted using a secret key known to the other side.
+ * the RecipientInfo class for a recipient who has been sent a message encrypted using a secret key
+ * known to the other side.
  */
 public class KEKRecipientInformation
-    extends RecipientInformation
-{
-    private KEKRecipientInfo      info;
+    extends RecipientInformation {
 
-    KEKRecipientInformation(
-        KEKRecipientInfo        info,
-        AlgorithmIdentifier     messageAlgorithm,
-        CMSSecureReadable       secureReadable,
-        AuthAttributesProvider  additionalData)
-    {
-        super(info.getKeyEncryptionAlgorithm(), messageAlgorithm, secureReadable, additionalData);
+  private KEKRecipientInfo info;
 
-        this.info = info;
+  KEKRecipientInformation(
+      KEKRecipientInfo info,
+      AlgorithmIdentifier messageAlgorithm,
+      CMSSecureReadable secureReadable,
+      AuthAttributesProvider additionalData) {
+    super(info.getKeyEncryptionAlgorithm(), messageAlgorithm, secureReadable, additionalData);
 
-        KEKIdentifier kekId = info.getKekid();
+    this.info = info;
 
-        this.rid = new KEKRecipientId(kekId.getKeyIdentifier().getOctets());
-    }
+    KEKIdentifier kekId = info.getKekid();
 
-    protected RecipientOperator getRecipientOperator(Recipient recipient)
-        throws CMSException, IOException
-    {
-        return ((KEKRecipient)recipient).getRecipientOperator(keyEncAlg, messageAlgorithm, info.getEncryptedKey().getOctets());
-    }
+    this.rid = new KEKRecipientId(kekId.getKeyIdentifier().getOctets());
+  }
+
+  protected RecipientOperator getRecipientOperator(Recipient recipient)
+      throws CMSException, IOException {
+    return ((KEKRecipient) recipient).getRecipientOperator(keyEncAlg, messageAlgorithm,
+        info.getEncryptedKey().getOctets());
+  }
 }

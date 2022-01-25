@@ -29,64 +29,66 @@ import javax.crypto.SecretKeyFactory;
 /**
  * Factory interface for instantiating JCA/JCE primitives.
  */
-public interface JcaJceHelper
-{
-    Cipher createCipher(
-        String algorithm)
-        throws NoSuchAlgorithmException, NoSuchPaddingException, NoSuchProviderException;
+public interface JcaJceHelper {
 
-    Mac createMac(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  Cipher createCipher(
+      String algorithm)
+      throws NoSuchAlgorithmException, NoSuchPaddingException, NoSuchProviderException;
 
-    KeyAgreement createKeyAgreement(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  Mac createMac(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    AlgorithmParameterGenerator createAlgorithmParameterGenerator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  KeyAgreement createKeyAgreement(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    AlgorithmParameters createAlgorithmParameters(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  AlgorithmParameterGenerator createAlgorithmParameterGenerator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    KeyGenerator createKeyGenerator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  AlgorithmParameters createAlgorithmParameters(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    KeyFactory createKeyFactory(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  KeyGenerator createKeyGenerator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    SecretKeyFactory createSecretKeyFactory(String algorithm)
-           throws NoSuchAlgorithmException, NoSuchProviderException;
+  KeyFactory createKeyFactory(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    KeyPairGenerator createKeyPairGenerator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  SecretKeyFactory createSecretKeyFactory(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    /** @deprecated Use createMessageDigest instead */
-    MessageDigest createDigest(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  KeyPairGenerator createKeyPairGenerator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    MessageDigest createMessageDigest(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  /**
+   * @deprecated Use createMessageDigest instead
+   */
+  MessageDigest createDigest(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    Signature createSignature(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  MessageDigest createMessageDigest(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    CertificateFactory createCertificateFactory(String algorithm)
-        throws NoSuchProviderException, CertificateException;
+  Signature createSignature(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    SecureRandom createSecureRandom(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  CertificateFactory createCertificateFactory(String algorithm)
+      throws NoSuchProviderException, CertificateException;
 
-    CertPathBuilder createCertPathBuilder(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  SecureRandom createSecureRandom(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    CertPathValidator createCertPathValidator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  CertPathBuilder createCertPathBuilder(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    CertStore createCertStore(String type, CertStoreParameters params)
-        throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException;
+  CertPathValidator createCertPathValidator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
 
-    ExemptionMechanism createExemptionMechanism(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException;
+  CertStore createCertStore(String type, CertStoreParameters params)
+      throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException;
 
-    KeyStore createKeyStore(String type)
-        throws KeyStoreException, NoSuchProviderException;
+  ExemptionMechanism createExemptionMechanism(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException;
+
+  KeyStore createKeyStore(String type)
+      throws KeyStoreException, NoSuchProviderException;
 }

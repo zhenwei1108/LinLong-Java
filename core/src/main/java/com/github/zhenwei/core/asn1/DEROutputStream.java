@@ -7,39 +7,32 @@ import java.io.OutputStream;
  * Stream that outputs encoding based on distinguished encoding rules.
  */
 class DEROutputStream
-    extends DLOutputStream
-{
-    DEROutputStream(OutputStream os)
-    {
-        super(os);
-    }
+    extends DLOutputStream {
 
-    DEROutputStream getDERSubStream()
-    {
-        return this;
-    }
+  DEROutputStream(OutputStream os) {
+    super(os);
+  }
 
-    void writeElements(ASN1Encodable[] elements)
-        throws IOException
-    {
-        for (int i = 0, count = elements.length; i < count; ++i)
-        {
-            elements[i].toASN1Primitive().toDERObject().encode(this, true);
-        }
-    }
+  DEROutputStream getDERSubStream() {
+    return this;
+  }
 
-    void writePrimitive(ASN1Primitive primitive, boolean withTag) throws IOException
-    {
-        primitive.toDERObject().encode(this, withTag);
+  void writeElements(ASN1Encodable[] elements)
+      throws IOException {
+    for (int i = 0, count = elements.length; i < count; ++i) {
+      elements[i].toASN1Primitive().toDERObject().encode(this, true);
     }
+  }
 
-    void writePrimitives(ASN1Primitive[] primitives)
-        throws IOException
-    {
-        int count = primitives.length;
-        for (int i = 0; i < count; ++i)
-        {
-            primitives[i].toDERObject().encode(this, true);
-        }
+  void writePrimitive(ASN1Primitive primitive, boolean withTag) throws IOException {
+    primitive.toDERObject().encode(this, withTag);
+  }
+
+  void writePrimitives(ASN1Primitive[] primitives)
+      throws IOException {
+    int count = primitives.length;
+    for (int i = 0; i < count; ++i) {
+      primitives[i].toDERObject().encode(this, true);
     }
+  }
 }

@@ -7,76 +7,61 @@ import java.io.OutputStream;
  * Base class for generators for indefinite-length structures.
  */
 public abstract class BERGenerator
-    extends ASN1Generator
-{
-    private boolean _tagged = false;
-    private boolean _isExplicit;
-    private int _tagNo;
+    extends ASN1Generator {
 
-    protected BERGenerator(OutputStream out)
-    {
-        super(out);
-    }
+  private boolean _tagged = false;
+  private boolean _isExplicit;
+  private int _tagNo;
 
-    protected BERGenerator(OutputStream out, int tagNo, boolean isExplicit)
-    {
-        super(out);
+  protected BERGenerator(OutputStream out) {
+    super(out);
+  }
 
-        // TODO Check proper handling of implicit tagging
-        _tagged = true;
-        _isExplicit = isExplicit;
-        _tagNo = tagNo;
-    }
+  protected BERGenerator(OutputStream out, int tagNo, boolean isExplicit) {
+    super(out);
 
-    public OutputStream getRawOutputStream()
-    {
-        return _out;
-    }
+    // TODO Check proper handling of implicit tagging
+    _tagged = true;
+    _isExplicit = isExplicit;
+    _tagNo = tagNo;
+  }
 
-    private void writeHdr(int tag) throws IOException
-    {
-        _out.write(tag);
-        _out.write(0x80);
-    }
+  public OutputStream getRawOutputStream() {
+    return _out;
+  }
 
-    protected void writeBERHeader(int tag) throws IOException
-    {
-        if (_tagged)
-        {
-            int tagNum = _tagNo | BERTags.CONTEXT_SPECIFIC;
+  private void writeHdr(int tag) throws IOException {
+    _out.write(tag);
+    _out.write(0x80);
+  }
 
-            if (_isExplicit)
-            {
-                writeHdr(tagNum | BERTags.CONSTRUCTED);
-                writeHdr(tag);
-            }
-            else
-            {
-                if ((tag & BERTags.CONSTRUCTED) != 0)
-                {
-                    writeHdr(tagNum | BERTags.CONSTRUCTED);
-                }
-                else
-                {
-                    writeHdr(tagNum);
-                }
-            }
+  protected void writeBERHeader(int tag) throws IOException {
+    if (_tagged) {
+      int tagNum = _tagNo | BERTags.CONTEXT_SPECIFIC;
+
+      if (_isExplicit) {
+        writeHdr(tagNum | BERTags.CONSTRUCTED);
+        writeHdr(tag);
+      } else {
+        if ((tag & BERTags.CONSTRUCTED) != 0) {
+          writeHdr(tagNum | BERTags.CONSTRUCTED);
+        } else {
+          writeHdr(tagNum);
         }
-        else
-        {
-            writeHdr(tag);
-        }
+      }
+    } else {
+      writeHdr(tag);
     }
+  }
 
-    protected void writeBEREnd() throws IOException
+  protected void writeBEREnd() throws IOException {
+    _out.write(0x00);
+    _out.write(0x00);
+
+    if (_tagged && _isExplicit)  // write extra end for tag header
     {
-        _out.write(0x00);
-        _out.write(0x00);
-
-        if (_tagged && _isExplicit)  // write extra end for tag header
-        {
-            _out.write(0x00);
-            _out.write(0x00);
-        }
+      _out.write(0x00);
+      _out.write(0x00);
     }
+  }
 }

@@ -1,38 +1,36 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.DigestCalculator;
 import java.util.HashMap;
 import java.util.Map;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.pkix.operator.DigestCalculator;
 
 /**
  * An ERSData object that caches hash calculations.
  */
 public abstract class ERSCachingData
-    implements ERSData
-{
-    private Map<AlgorithmIdentifier, byte[]> preCalcs = new HashMap<AlgorithmIdentifier, byte[]>();
+    implements ERSData {
 
-    /**
-     * Generates a hash for the whole DataGroup.
-     *
-     * @param digestCalculator the {@link DigestCalculator} to use for computing the hash
-     * @return a hash that is representative of the whole DataGroup
-     */
-    public byte[] getHash(DigestCalculator digestCalculator)
-    {
-        AlgorithmIdentifier digAlgID = digestCalculator.getAlgorithmIdentifier();
-        if (preCalcs.containsKey(digAlgID))
-        {
-            return (byte[])preCalcs.get(digAlgID);
-        }
+  private Map<AlgorithmIdentifier, byte[]> preCalcs = new HashMap<AlgorithmIdentifier, byte[]>();
 
-        byte[] hash = calculateHash(digestCalculator);
-
-        preCalcs.put(digAlgID, hash);
-
-        return hash;
+  /**
+   * Generates a hash for the whole DataGroup.
+   *
+   * @param digestCalculator the {@link DigestCalculator} to use for computing the hash
+   * @return a hash that is representative of the whole DataGroup
+   */
+  public byte[] getHash(DigestCalculator digestCalculator) {
+    AlgorithmIdentifier digAlgID = digestCalculator.getAlgorithmIdentifier();
+    if (preCalcs.containsKey(digAlgID)) {
+      return (byte[]) preCalcs.get(digAlgID);
     }
 
-    protected abstract byte[] calculateHash(DigestCalculator digestCalculator);
+    byte[] hash = calculateHash(digestCalculator);
+
+    preCalcs.put(digAlgID, hash);
+
+    return hash;
+  }
+
+  protected abstract byte[] calculateHash(DigestCalculator digestCalculator);
 }

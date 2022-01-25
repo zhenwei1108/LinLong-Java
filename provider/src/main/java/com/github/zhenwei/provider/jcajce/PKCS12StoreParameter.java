@@ -12,51 +12,45 @@ import java.security.KeyStore.ProtectionParameter;
  * </p>
  */
 public class PKCS12StoreParameter
-    implements LoadStoreParameter
-{
-    private final OutputStream out;
-    private final ProtectionParameter protectionParameter;
-    private final boolean forDEREncoding;
+    implements LoadStoreParameter {
 
-    public PKCS12StoreParameter(OutputStream out, char[] password)
-    {
-        this(out, password, false);
-    }
+  private final OutputStream out;
+  private final ProtectionParameter protectionParameter;
+  private final boolean forDEREncoding;
 
-    public PKCS12StoreParameter(OutputStream out, ProtectionParameter protectionParameter)
-    {
-        this(out, protectionParameter, false);
-    }
+  public PKCS12StoreParameter(OutputStream out, char[] password) {
+    this(out, password, false);
+  }
 
-    public PKCS12StoreParameter(OutputStream out, char[] password, boolean forDEREncoding)
-    {
-        this(out, new KeyStore.PasswordProtection(password), forDEREncoding);
-    }
+  public PKCS12StoreParameter(OutputStream out, ProtectionParameter protectionParameter) {
+    this(out, protectionParameter, false);
+  }
 
-    public PKCS12StoreParameter(OutputStream out, ProtectionParameter protectionParameter, boolean forDEREncoding)
-    {
-        this.out = out;
-        this.protectionParameter = protectionParameter;
-        this.forDEREncoding = forDEREncoding;
-    }
+  public PKCS12StoreParameter(OutputStream out, char[] password, boolean forDEREncoding) {
+    this(out, new KeyStore.PasswordProtection(password), forDEREncoding);
+  }
 
-    public OutputStream getOutputStream()
-    {
-        return out;
-    }
+  public PKCS12StoreParameter(OutputStream out, ProtectionParameter protectionParameter,
+      boolean forDEREncoding) {
+    this.out = out;
+    this.protectionParameter = protectionParameter;
+    this.forDEREncoding = forDEREncoding;
+  }
 
-    public ProtectionParameter getProtectionParameter()
-    {
-        return protectionParameter;
-    }
+  public OutputStream getOutputStream() {
+    return out;
+  }
 
-    /**
-     * Return whether the KeyStore used with this parameter should be DER encoded on saving.
-     *
-     * @return true for straight DER encoding, false otherwise,
-     */
-    public boolean isForDEREncoding()
-    {
-        return forDEREncoding;
-    }
+  public ProtectionParameter getProtectionParameter() {
+    return protectionParameter;
+  }
+
+  /**
+   * Return whether the KeyStore used with this parameter should be DER encoded on saving.
+   *
+   * @return true for straight DER encoding, false otherwise,
+   */
+  public boolean isForDEREncoding() {
+    return forDEREncoding;
+  }
 }

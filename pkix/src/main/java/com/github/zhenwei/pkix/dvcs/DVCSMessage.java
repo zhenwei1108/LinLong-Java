@@ -4,19 +4,17 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
 
-public abstract class DVCSMessage
-{
-    private final ContentInfo contentInfo;
+public abstract class DVCSMessage {
 
-    protected DVCSMessage(ContentInfo contentInfo)
-    {
-        this.contentInfo = contentInfo;
-    }
+  private final ContentInfo contentInfo;
 
-    public ASN1ObjectIdentifier getContentType()
-    {
-        return contentInfo.getContentType();
-    }
+  protected DVCSMessage(ContentInfo contentInfo) {
+    this.contentInfo = contentInfo;
+  }
 
-    public abstract ASN1Encodable getContent();
+  public ASN1ObjectIdentifier getContentType() {
+    return contentInfo.getContentType();
+  }
+
+  public abstract ASN1Encodable getContent();
 }

@@ -15,67 +15,57 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class TwoDLocation
-    extends ASN1Object
-{
-    private final Latitude latitude;
-    private final Longitude longitude;
+    extends ASN1Object {
 
-    public TwoDLocation(Latitude latitude, Longitude longitude)
-    {
-        this.latitude = latitude;
-        this.longitude = longitude;
+  private final Latitude latitude;
+  private final Longitude longitude;
+
+  public TwoDLocation(Latitude latitude, Longitude longitude) {
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
+
+  public static TwoDLocation getInstance(Object o) {
+    if (o instanceof TwoDLocation) {
+      return (TwoDLocation) o;
     }
 
-    public static TwoDLocation getInstance(Object o)
-    {
-        if (o instanceof TwoDLocation)
-        {
-            return (TwoDLocation)o;
-        }
+    ASN1Sequence seq = ASN1Sequence.getInstance(o);
 
-        ASN1Sequence seq = ASN1Sequence.getInstance(o);
+    return new TwoDLocation(
+        Latitude.getInstance(seq.getObjectAt(0)),
+        Longitude.getInstance(seq.getObjectAt(1)));
+  }
 
-        return new TwoDLocation(
-            Latitude.getInstance(seq.getObjectAt(0)),
-            Longitude.getInstance(seq.getObjectAt(1)));
+  public ASN1Primitive toASN1Primitive() {
+    return new DERSequence(new ASN1Encodable[]{latitude, longitude});
+  }
+
+  public Latitude getLatitude() {
+    return latitude;
+  }
+
+  public Longitude getLongitude() {
+    return longitude;
+  }
+
+  public static class Builder {
+
+    private Latitude latitude;
+    private Longitude longitude;
+
+    public Builder setLatitude(Latitude latitude) {
+      this.latitude = latitude;
+      return this;
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERSequence(new ASN1Encodable[]{latitude, longitude});
+    public Builder setLongitude(Longitude longitude) {
+      this.longitude = longitude;
+      return this;
     }
 
-    public Latitude getLatitude()
-    {
-        return latitude;
+    public TwoDLocation createTwoDLocation() {
+      return new TwoDLocation(latitude, longitude);
     }
-
-    public Longitude getLongitude()
-    {
-        return longitude;
-    }
-
-    public static class Builder
-    {
-
-        private Latitude latitude;
-        private Longitude longitude;
-
-        public Builder setLatitude(Latitude latitude)
-        {
-            this.latitude = latitude;
-            return this;
-        }
-
-        public Builder setLongitude(Longitude longitude)
-        {
-            this.longitude = longitude;
-            return this;
-        }
-
-        public TwoDLocation createTwoDLocation()
-        {
-            return new TwoDLocation(latitude, longitude);
-        }
-    }
+  }
 }

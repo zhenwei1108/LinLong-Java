@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.util.asn1.cmc;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import java.math.BigInteger;
 
 /**
  * <pre>
@@ -13,58 +13,48 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
  * </pre>
  */
 public class BodyPartID
-    extends ASN1Object
-{
-    public static final long bodyIdMax = 4294967295L;
+    extends ASN1Object {
 
-    private final long id;
+  public static final long bodyIdMax = 4294967295L;
 
-    public BodyPartID(long id)
-    {
-        if (id < 0 || id > bodyIdMax)
-        {
-            throw new IllegalArgumentException("id out of range");
-        }
+  private final long id;
 
-        this.id = id;
+  public BodyPartID(long id) {
+    if (id < 0 || id > bodyIdMax) {
+      throw new IllegalArgumentException("id out of range");
     }
 
-    private static long convert(BigInteger value)
-    {
-        if (value.bitLength() > 32)
-        {
-            throw new IllegalArgumentException("id out of range");
-        }
-        return value.longValue();
+    this.id = id;
+  }
+
+  private static long convert(BigInteger value) {
+    if (value.bitLength() > 32) {
+      throw new IllegalArgumentException("id out of range");
+    }
+    return value.longValue();
+  }
+
+  private BodyPartID(ASN1Integer id) {
+    this(convert(id.getValue()));
+  }
+
+  public static BodyPartID getInstance(Object o) {
+    if (o instanceof BodyPartID) {
+      return (BodyPartID) o;
     }
 
-    private BodyPartID(ASN1Integer id)
-    {
-        this(convert(id.getValue()));
+    if (o != null) {
+      return new BodyPartID(ASN1Integer.getInstance(o));
     }
 
-    public static BodyPartID getInstance(Object o)
-    {
-        if (o instanceof BodyPartID)
-        {
-            return (BodyPartID)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new BodyPartID(ASN1Integer.getInstance(o));
-        }
+  public long getID() {
+    return id;
+  }
 
-        return null;
-    }
-
-    public long getID()
-    {
-        return id;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new ASN1Integer(id);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return new ASN1Integer(id);
+  }
 }

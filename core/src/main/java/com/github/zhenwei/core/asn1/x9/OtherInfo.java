@@ -1,6 +1,5 @@
 package com.github.zhenwei.core.asn1.x9;
 
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
@@ -9,10 +8,11 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
+import java.util.Enumeration;
 
 /**
- * ASN.1 def for Diffie-Hellman key exchange OtherInfo structure. See
- * RFC 2631, or X9.42, for further details.
+ * ASN.1 def for Diffie-Hellman key exchange OtherInfo structure. See RFC 2631, or X9.42, for
+ * further details.
  * <pre>
  *  OtherInfo ::= SEQUENCE {
  *      keyInfo KeySpecificInfo,
@@ -22,112 +22,97 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
  * </pre>
  */
 public class OtherInfo
-    extends ASN1Object
-{
-    private KeySpecificInfo     keyInfo;
-    private ASN1OctetString     partyAInfo;
-    private ASN1OctetString     suppPubInfo;
+    extends ASN1Object {
 
-    public OtherInfo(
-        KeySpecificInfo     keyInfo,
-        ASN1OctetString     partyAInfo,
-        ASN1OctetString     suppPubInfo)
-    {
-        this.keyInfo = keyInfo;
-        this.partyAInfo = partyAInfo;
-        this.suppPubInfo = suppPubInfo;
+  private KeySpecificInfo keyInfo;
+  private ASN1OctetString partyAInfo;
+  private ASN1OctetString suppPubInfo;
+
+  public OtherInfo(
+      KeySpecificInfo keyInfo,
+      ASN1OctetString partyAInfo,
+      ASN1OctetString suppPubInfo) {
+    this.keyInfo = keyInfo;
+    this.partyAInfo = partyAInfo;
+    this.suppPubInfo = suppPubInfo;
+  }
+
+  /**
+   * Return a OtherInfo object from the passed in object.
+   *
+   * @param obj an object for conversion or a byte[].
+   * @return a OtherInfo
+   */
+  public static OtherInfo getInstance(Object obj) {
+    if (obj instanceof OtherInfo) {
+      return (OtherInfo) obj;
+    } else if (obj != null) {
+      return new OtherInfo(ASN1Sequence.getInstance(obj));
     }
 
-    /**
-     * Return a OtherInfo object from the passed in object.
-     *
-     * @param obj an object for conversion or a byte[].
-     * @return a OtherInfo
-     */
-    public static OtherInfo getInstance(Object obj)
-    {
-        if (obj instanceof OtherInfo)
-        {
-            return (OtherInfo)obj;
-        }
-        else if (obj != null)
-        {
-            return new OtherInfo(ASN1Sequence.getInstance(obj));
-        }
+    return null;
+  }
 
-        return null;
+  private OtherInfo(
+      ASN1Sequence seq) {
+    Enumeration e = seq.getObjects();
+
+    keyInfo = KeySpecificInfo.getInstance(e.nextElement());
+
+    while (e.hasMoreElements()) {
+      ASN1TaggedObject o = (ASN1TaggedObject) e.nextElement();
+
+      if (o.getTagNo() == 0) {
+        partyAInfo = (ASN1OctetString) o.getObject();
+      } else if (o.getTagNo() == 2) {
+        suppPubInfo = (ASN1OctetString) o.getObject();
+      }
+    }
+  }
+
+  /**
+   * Return the key specific info for the KEK/CEK.
+   *
+   * @return the key specific info.
+   */
+  public KeySpecificInfo getKeyInfo() {
+    return keyInfo;
+  }
+
+  /**
+   * PartyA info for key deriviation.
+   *
+   * @return PartyA info.
+   */
+  public ASN1OctetString getPartyAInfo() {
+    return partyAInfo;
+  }
+
+  /**
+   * The length of the KEK to be generated as a 4 byte big endian.
+   *
+   * @return KEK length as a 4 byte big endian in an octet string.
+   */
+  public ASN1OctetString getSuppPubInfo() {
+    return suppPubInfo;
+  }
+
+  /**
+   * Return an ASN.1 primitive representation of this object.
+   *
+   * @return a DERSequence containing the OtherInfo values.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
+
+    v.add(keyInfo);
+
+    if (partyAInfo != null) {
+      v.add(new DERTaggedObject(0, partyAInfo));
     }
 
-    private OtherInfo(
-        ASN1Sequence  seq)
-    {
-        Enumeration e = seq.getObjects();
+    v.add(new DERTaggedObject(2, suppPubInfo));
 
-        keyInfo = KeySpecificInfo.getInstance(e.nextElement());
-
-        while (e.hasMoreElements())
-        {
-            ASN1TaggedObject o = (ASN1TaggedObject)e.nextElement();
-
-            if (o.getTagNo() == 0)
-            {
-                partyAInfo = (ASN1OctetString)o.getObject();
-            }
-            else if (o.getTagNo() == 2)
-            {
-                suppPubInfo = (ASN1OctetString)o.getObject();
-            }
-        }
-    }
-
-    /**
-     * Return the key specific info for the KEK/CEK.
-     *
-     * @return the key specific info.
-     */
-    public KeySpecificInfo getKeyInfo()
-    {
-        return keyInfo;
-    }
-
-    /**
-     * PartyA info for key deriviation.
-     *
-     * @return PartyA info.
-     */
-    public ASN1OctetString getPartyAInfo()
-    {
-        return partyAInfo;
-    }
-
-    /**
-     * The length of the KEK to be generated as a 4 byte big endian.
-     *
-     * @return KEK length as a 4 byte big endian in an octet string.
-     */
-    public ASN1OctetString getSuppPubInfo()
-    {
-        return suppPubInfo;
-    }
-
-    /**
-     * Return an ASN.1 primitive representation of this object.
-     *
-     * @return a DERSequence containing the OtherInfo values.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        v.add(keyInfo);
-
-        if (partyAInfo != null)
-        {
-            v.add(new DERTaggedObject(0, partyAInfo));
-        }
-
-        v.add(new DERTaggedObject(2, suppPubInfo));
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

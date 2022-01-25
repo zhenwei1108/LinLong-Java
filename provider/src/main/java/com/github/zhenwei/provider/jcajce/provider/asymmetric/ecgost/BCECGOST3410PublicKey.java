@@ -1,14 +1,5 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ecgost;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.math.BigInteger;
-import java.security.interfaces.ECPublicKey;
-import java.security.spec.ECParameterSpec;
-import java.security.spec.ECPoint;
-import java.security.spec.ECPublicKeySpec;
-import java.security.spec.EllipticCurve;
 import com.github.zhenwei.core.asn1.ASN1BitString;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
@@ -26,6 +17,7 @@ import com.github.zhenwei.core.asn1.x9.X9ECPoint;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECGOST3410Parameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
+import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.KeyUtil;
@@ -35,378 +27,341 @@ import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
 import com.github.zhenwei.provider.jce.provider.BouncyCastleProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
-import com.github.zhenwei.core.math.ec.ECCurve;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.math.BigInteger;
+import java.security.interfaces.ECPublicKey;
+import java.security.spec.ECParameterSpec;
+import java.security.spec.ECPoint;
+import java.security.spec.ECPublicKeySpec;
+import java.security.spec.EllipticCurve;
 
 public class BCECGOST3410PublicKey
-    implements ECPublicKey, com.github.zhenwei.provider.jce.interfaces.ECPublicKey, ECPointEncoder
-{
-    static final long serialVersionUID = 7026240464295649314L;
+    implements ECPublicKey, com.github.zhenwei.provider.jce.interfaces.ECPublicKey, ECPointEncoder {
 
-    private String algorithm = "ECGOST3410";
-    private boolean withCompression;
+  static final long serialVersionUID = 7026240464295649314L;
 
-    private transient ECPublicKeyParameters   ecPublicKey;
-    private transient ECParameterSpec ecSpec;
-    private transient ASN1Encodable gostParams;
+  private String algorithm = "ECGOST3410";
+  private boolean withCompression;
 
-    public BCECGOST3410PublicKey(
-        BCECGOST3410PublicKey key)
+  private transient ECPublicKeyParameters ecPublicKey;
+  private transient ECParameterSpec ecSpec;
+  private transient ASN1Encodable gostParams;
+
+  public BCECGOST3410PublicKey(
+      BCECGOST3410PublicKey key) {
+    this.ecPublicKey = key.ecPublicKey;
+    this.ecSpec = key.ecSpec;
+    this.withCompression = key.withCompression;
+    this.gostParams = key.gostParams;
+  }
+
+  public BCECGOST3410PublicKey(
+      ECPublicKeySpec spec) {
+    this.ecSpec = spec.getParams();
+    this.ecPublicKey = new ECPublicKeyParameters(EC5Util.convertPoint(ecSpec, spec.getW()),
+        EC5Util.getDomainParameters(null, spec.getParams()));
+  }
+
+  public BCECGOST3410PublicKey(
+      com.github.zhenwei.provider.jce.spec.ECPublicKeySpec spec,
+      ProviderConfiguration configuration) {
+    if (spec.getParams() != null) // can be null if implictlyCa
     {
-        this.ecPublicKey = key.ecPublicKey;
-        this.ecSpec = key.ecSpec;
-        this.withCompression = key.withCompression;
-        this.gostParams = key.gostParams;
+      ECCurve curve = spec.getParams().getCurve();
+      EllipticCurve ellipticCurve = EC5Util.convertCurve(curve, spec.getParams().getSeed());
+
+      // this may seem a little long-winded but it's how we pick up the custom curve.
+      this.ecPublicKey = new ECPublicKeyParameters(
+          spec.getQ(), ECUtil.getDomainParameters(configuration, spec.getParams()));
+      this.ecSpec = EC5Util.convertSpec(ellipticCurve, spec.getParams());
+    } else {
+      com.github.zhenwei.provider.jce.spec.ECParameterSpec s = configuration.getEcImplicitlyCa();
+
+      this.ecPublicKey = new ECPublicKeyParameters(s.getCurve()
+          .createPoint(spec.getQ().getAffineXCoord().toBigInteger(),
+              spec.getQ().getAffineYCoord().toBigInteger()),
+          EC5Util.getDomainParameters(configuration, (ECParameterSpec) null));
+      this.ecSpec = null;
+    }
+  }
+
+  public BCECGOST3410PublicKey(
+      String algorithm,
+      ECPublicKeyParameters params,
+      ECParameterSpec spec) {
+    ECDomainParameters dp = params.getParameters();
+
+    if (dp instanceof ECGOST3410Parameters) {
+      ECGOST3410Parameters p = (ECGOST3410Parameters) dp;
+
+      this.gostParams = new GOST3410PublicKeyAlgParameters(p.getPublicKeyParamSet(),
+          p.getDigestParamSet(), p.getEncryptionParamSet());
     }
 
-    public BCECGOST3410PublicKey(
-        ECPublicKeySpec spec)
-    {
-        this.ecSpec = spec.getParams();
-        this.ecPublicKey = new ECPublicKeyParameters(EC5Util.convertPoint(ecSpec, spec.getW()), EC5Util.getDomainParameters(null, spec.getParams()));
+    this.algorithm = algorithm;
+    this.ecPublicKey = params;
+
+    if (spec == null) {
+      EllipticCurve ellipticCurve = EC5Util.convertCurve(dp.getCurve(), dp.getSeed());
+
+      this.ecSpec = createSpec(ellipticCurve, dp);
+    } else {
+      this.ecSpec = spec;
+    }
+  }
+
+  public BCECGOST3410PublicKey(
+      String algorithm,
+      ECPublicKeyParameters params,
+      com.github.zhenwei.provider.jce.spec.ECParameterSpec spec) {
+    ECDomainParameters dp = params.getParameters();
+
+    this.algorithm = algorithm;
+    this.ecPublicKey = params;
+
+    if (spec == null) {
+      EllipticCurve ellipticCurve = EC5Util.convertCurve(dp.getCurve(), dp.getSeed());
+
+      this.ecSpec = createSpec(ellipticCurve, dp);
+    } else {
+      EllipticCurve ellipticCurve = EC5Util.convertCurve(spec.getCurve(), spec.getSeed());
+
+      this.ecSpec = EC5Util.convertSpec(ellipticCurve, spec);
+    }
+  }
+
+  /*
+   * called for implicitCA
+   */
+  public BCECGOST3410PublicKey(
+      String algorithm,
+      ECPublicKeyParameters params) {
+    this.algorithm = algorithm;
+    this.ecPublicKey = params;
+    this.ecSpec = null;
+  }
+
+  private ECParameterSpec createSpec(EllipticCurve ellipticCurve, ECDomainParameters dp) {
+    return new ECParameterSpec(
+        ellipticCurve,
+        EC5Util.convertPoint(dp.getG()),
+        dp.getN(),
+        dp.getH().intValue());
+  }
+
+  public BCECGOST3410PublicKey(
+      ECPublicKey key) {
+    this.algorithm = key.getAlgorithm();
+    this.ecSpec = key.getParams();
+    this.ecPublicKey = new ECPublicKeyParameters(EC5Util.convertPoint(this.ecSpec, key.getW()),
+        EC5Util.getDomainParameters(null, key.getParams()));
+  }
+
+  BCECGOST3410PublicKey(
+      SubjectPublicKeyInfo info) {
+    populateFromPubKeyInfo(info);
+  }
+
+  private void populateFromPubKeyInfo(SubjectPublicKeyInfo info) {
+    ASN1BitString bits = info.getPublicKeyData();
+    ASN1OctetString key;
+    this.algorithm = "ECGOST3410";
+
+    try {
+      key = (ASN1OctetString) ASN1Primitive.fromByteArray(bits.getBytes());
+    } catch (IOException ex) {
+      throw new IllegalArgumentException("error recovering public key");
     }
 
-    public BCECGOST3410PublicKey(
-        com.github.zhenwei.provider.jce.spec.ECPublicKeySpec spec,
-        ProviderConfiguration configuration)
-    {
-        if (spec.getParams() != null) // can be null if implictlyCa
-        {
-            ECCurve curve = spec.getParams().getCurve();
-            EllipticCurve ellipticCurve = EC5Util.convertCurve(curve, spec.getParams().getSeed());
+    byte[] keyEnc = key.getOctets();
 
-            // this may seem a little long-winded but it's how we pick up the custom curve.
-            this.ecPublicKey = new ECPublicKeyParameters(
-                spec.getQ(), ECUtil.getDomainParameters(configuration, spec.getParams()));
-            this.ecSpec = EC5Util.convertSpec(ellipticCurve, spec.getParams());
-        }
-        else
-        {
-            com.github.zhenwei.provider.jce.spec.ECParameterSpec s = configuration.getEcImplicitlyCa();
-
-            this.ecPublicKey = new ECPublicKeyParameters(s.getCurve().createPoint(spec.getQ().getAffineXCoord().toBigInteger(), spec.getQ().getAffineYCoord().toBigInteger()), EC5Util.getDomainParameters(configuration, (ECParameterSpec)null));
-            this.ecSpec = null;
-        }
+    byte[] x9Encoding = new byte[65];
+    x9Encoding[0] = 0x04;
+    for (int i = 1; i <= 32; ++i) {
+      x9Encoding[i] = keyEnc[32 - i];
+      x9Encoding[i + 32] = keyEnc[64 - i];
     }
 
-    public BCECGOST3410PublicKey(
-        String algorithm,
-        ECPublicKeyParameters params,
-        ECParameterSpec spec)
-    {
-        ECDomainParameters      dp = params.getParameters();
+    ASN1ObjectIdentifier paramOID;
 
-        if (dp instanceof ECGOST3410Parameters)
-        {
-            ECGOST3410Parameters p = (ECGOST3410Parameters)dp;
+    if (info.getAlgorithm().getParameters() instanceof ASN1ObjectIdentifier) {
+      paramOID = ASN1ObjectIdentifier.getInstance(info.getAlgorithm().getParameters());
+      gostParams = paramOID;
+    } else {
+      GOST3410PublicKeyAlgParameters params = GOST3410PublicKeyAlgParameters.getInstance(
+          info.getAlgorithm().getParameters());
+      gostParams = params;
+      paramOID = params.getPublicKeyParamSet();
 
-            this.gostParams = new GOST3410PublicKeyAlgParameters(p.getPublicKeyParamSet(),
-                                                p.getDigestParamSet(), p.getEncryptionParamSet());
-        }
-
-        this.algorithm = algorithm;
-        this.ecPublicKey = params;
-
-        if (spec == null)
-        {
-            EllipticCurve ellipticCurve = EC5Util.convertCurve(dp.getCurve(), dp.getSeed());
-
-            this.ecSpec = createSpec(ellipticCurve, dp);
-        }
-        else
-        {
-            this.ecSpec = spec;
-        }
     }
 
-    public BCECGOST3410PublicKey(
-        String algorithm,
-        ECPublicKeyParameters params,
-        com.github.zhenwei.provider.jce.spec.ECParameterSpec spec)
-    {
-        ECDomainParameters dp = params.getParameters();
+    ECNamedCurveParameterSpec spec = ECGOST3410NamedCurveTable.getParameterSpec(
+        ECGOST3410NamedCurves.getName(paramOID));
 
-        this.algorithm = algorithm;
-        this.ecPublicKey = params;
+    ECCurve curve = spec.getCurve();
+    EllipticCurve ellipticCurve = EC5Util.convertCurve(curve, spec.getSeed());
 
-        if (spec == null)
-        {
-            EllipticCurve ellipticCurve = EC5Util.convertCurve(dp.getCurve(), dp.getSeed());
+    this.ecPublicKey = new ECPublicKeyParameters(curve.decodePoint(x9Encoding),
+        ECUtil.getDomainParameters(null, spec));
 
-            this.ecSpec = createSpec(ellipticCurve, dp);
-        }
-        else
-        {
-            EllipticCurve ellipticCurve = EC5Util.convertCurve(spec.getCurve(), spec.getSeed());
+    this.ecSpec = new ECNamedCurveSpec(
+        ECGOST3410NamedCurves.getName(paramOID),
+        ellipticCurve,
+        EC5Util.convertPoint(spec.getG()),
+        spec.getN(), spec.getH());
+  }
 
-            this.ecSpec = EC5Util.convertSpec(ellipticCurve, spec);
-        }
+  public String getAlgorithm() {
+    return algorithm;
+  }
+
+  public String getFormat() {
+    return "X.509";
+  }
+
+  public byte[] getEncoded() {
+    ASN1Encodable params;
+    SubjectPublicKeyInfo info;
+
+    params = getGostParams();
+
+    if (params == null) {
+      if (ecSpec instanceof ECNamedCurveSpec) {
+        params = new GOST3410PublicKeyAlgParameters(
+            ECGOST3410NamedCurves.getOID(((ECNamedCurveSpec) ecSpec).getName()),
+            CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet);
+      } else {   // strictly speaking this may not be applicable...
+        ECCurve curve = EC5Util.convertCurve(ecSpec.getCurve());
+
+        X9ECParameters ecP = new X9ECParameters(
+            curve,
+            new X9ECPoint(EC5Util.convertPoint(curve, ecSpec.getGenerator()), withCompression),
+            ecSpec.getOrder(),
+            BigInteger.valueOf(ecSpec.getCofactor()),
+            ecSpec.getCurve().getSeed());
+
+        params = new X962Parameters(ecP);
+      }
     }
 
-    /*
-     * called for implicitCA
-     */
-    public BCECGOST3410PublicKey(
-        String algorithm,
-        ECPublicKeyParameters params)
-    {
-        this.algorithm = algorithm;
-        this.ecPublicKey = params;
-        this.ecSpec = null;
+    BigInteger bX = this.ecPublicKey.getQ().getAffineXCoord().toBigInteger();
+    BigInteger bY = this.ecPublicKey.getQ().getAffineYCoord().toBigInteger();
+
+    byte[] encKey = new byte[64];
+    extractBytes(encKey, 0, bX);
+    extractBytes(encKey, 32, bY);
+
+    try {
+      info = new SubjectPublicKeyInfo(
+          new AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3410_2001, params),
+          new DEROctetString(encKey));
+    } catch (IOException e) {
+      return null;
     }
 
-    private ECParameterSpec createSpec(EllipticCurve ellipticCurve, ECDomainParameters dp)
-    {
-        return new ECParameterSpec(
-            ellipticCurve,
-            EC5Util.convertPoint(dp.getG()),
-            dp.getN(),
-            dp.getH().intValue());
+    return KeyUtil.getEncodedSubjectPublicKeyInfo(info);
+  }
+
+  private void extractBytes(byte[] encKey, int offSet, BigInteger bI) {
+    byte[] val = bI.toByteArray();
+    if (val.length < 32) {
+      byte[] tmp = new byte[32];
+      System.arraycopy(val, 0, tmp, tmp.length - val.length, val.length);
+      val = tmp;
     }
 
-    public BCECGOST3410PublicKey(
-        ECPublicKey key)
+    for (int i = 0; i != 32; i++) {
+      encKey[offSet + i] = val[val.length - 1 - i];
+    }
+  }
+
+  public ECParameterSpec getParams() {
+    return ecSpec;
+  }
+
+  public com.github.zhenwei.provider.jce.spec.ECParameterSpec getParameters() {
+    if (ecSpec == null)     // implictlyCA
     {
-        this.algorithm = key.getAlgorithm();
-        this.ecSpec = key.getParams();
-        this.ecPublicKey = new ECPublicKeyParameters(EC5Util.convertPoint(this.ecSpec, key.getW()), EC5Util.getDomainParameters(null, key.getParams()));
+      return null;
     }
 
-    BCECGOST3410PublicKey(
-        SubjectPublicKeyInfo info)
-    {
-        populateFromPubKeyInfo(info);
+    return EC5Util.convertSpec(ecSpec);
+  }
+
+  public ECPoint getW() {
+    return EC5Util.convertPoint(ecPublicKey.getQ());
+  }
+
+  public com.github.zhenwei.core.math.ec.ECPoint getQ() {
+    if (ecSpec == null) {
+      return ecPublicKey.getQ().getDetachedPoint();
     }
 
-    private void populateFromPubKeyInfo(SubjectPublicKeyInfo info)
-    {
-        ASN1BitString bits = info.getPublicKeyData();
-        ASN1OctetString key;
-        this.algorithm = "ECGOST3410";
+    return ecPublicKey.getQ();
+  }
 
-        try
-        {
-            key = (ASN1OctetString)ASN1Primitive.fromByteArray(bits.getBytes());
-        }
-        catch (IOException ex)
-        {
-            throw new IllegalArgumentException("error recovering public key");
-        }
+  ECPublicKeyParameters engineGetKeyParameters() {
+    return ecPublicKey;
+  }
 
-        byte[] keyEnc = key.getOctets();
-
-        byte[] x9Encoding = new byte[65];
-        x9Encoding[0] = 0x04;
-        for (int i = 1; i <= 32; ++i)
-        {
-            x9Encoding[i     ] = keyEnc[32 - i];
-            x9Encoding[i + 32] = keyEnc[64 - i];
-        }
-
-        ASN1ObjectIdentifier paramOID;
-
-        if (info.getAlgorithm().getParameters() instanceof ASN1ObjectIdentifier)
-        {
-            paramOID = ASN1ObjectIdentifier.getInstance(info.getAlgorithm().getParameters());
-            gostParams = paramOID;
-        }
-        else
-        {
-            GOST3410PublicKeyAlgParameters params = GOST3410PublicKeyAlgParameters.getInstance(info.getAlgorithm().getParameters());
-            gostParams = params;
-            paramOID = params.getPublicKeyParamSet();
-
-        }
-
-        ECNamedCurveParameterSpec spec = ECGOST3410NamedCurveTable.getParameterSpec(ECGOST3410NamedCurves.getName(paramOID));
-
-        ECCurve curve = spec.getCurve();
-        EllipticCurve ellipticCurve = EC5Util.convertCurve(curve, spec.getSeed());
-
-        this.ecPublicKey = new ECPublicKeyParameters(curve.decodePoint(x9Encoding), ECUtil.getDomainParameters(null, spec));
-
-        this.ecSpec = new ECNamedCurveSpec(
-            ECGOST3410NamedCurves.getName(paramOID),
-            ellipticCurve,
-            EC5Util.convertPoint(spec.getG()),
-            spec.getN(), spec.getH());
+  com.github.zhenwei.provider.jce.spec.ECParameterSpec engineGetSpec() {
+    if (ecSpec != null) {
+      return EC5Util.convertSpec(ecSpec);
     }
 
-    public String getAlgorithm()
-    {
-        return algorithm;
+    return BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
+  }
+
+  public String toString() {
+    return ECUtil.publicKeyToString(algorithm, ecPublicKey.getQ(), engineGetSpec());
+  }
+
+  public void setPointFormat(String style) {
+    withCompression = !("UNCOMPRESSED".equalsIgnoreCase(style));
+  }
+
+  public boolean equals(Object o) {
+    if (!(o instanceof BCECGOST3410PublicKey)) {
+      return false;
     }
 
-    public String getFormat()
-    {
-        return "X.509";
+    BCECGOST3410PublicKey other = (BCECGOST3410PublicKey) o;
+
+    return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(
+        other.engineGetSpec()));
+  }
+
+  public int hashCode() {
+    return ecPublicKey.getQ().hashCode() ^ engineGetSpec().hashCode();
+  }
+
+  private void readObject(
+      ObjectInputStream in)
+      throws IOException, ClassNotFoundException {
+    in.defaultReadObject();
+
+    byte[] enc = (byte[]) in.readObject();
+
+    populateFromPubKeyInfo(SubjectPublicKeyInfo.getInstance(ASN1Primitive.fromByteArray(enc)));
+  }
+
+  private void writeObject(
+      ObjectOutputStream out)
+      throws IOException {
+    out.defaultWriteObject();
+
+    out.writeObject(this.getEncoded());
+  }
+
+  ASN1Encodable getGostParams() {
+    if (gostParams == null && ecSpec instanceof ECNamedCurveSpec) {
+      this.gostParams = new GOST3410PublicKeyAlgParameters(
+          ECGOST3410NamedCurves.getOID(((ECNamedCurveSpec) ecSpec).getName()),
+          CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet);
     }
 
-    public byte[] getEncoded()
-    {
-        ASN1Encodable params;
-        SubjectPublicKeyInfo info;
-
-        params = getGostParams();
-
-        if (params == null)
-        {
-            if (ecSpec instanceof ECNamedCurveSpec)
-            {
-                params = new GOST3410PublicKeyAlgParameters(
-                    ECGOST3410NamedCurves.getOID(((ECNamedCurveSpec)ecSpec).getName()),
-                    CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet);
-            }
-            else
-            {   // strictly speaking this may not be applicable...
-                ECCurve curve = EC5Util.convertCurve(ecSpec.getCurve());
-
-                X9ECParameters ecP = new X9ECParameters(
-                    curve,
-                    new X9ECPoint(EC5Util.convertPoint(curve, ecSpec.getGenerator()), withCompression),
-                    ecSpec.getOrder(),
-                    BigInteger.valueOf(ecSpec.getCofactor()),
-                    ecSpec.getCurve().getSeed());
-
-                params = new X962Parameters(ecP);
-            }
-        }
-
-        BigInteger bX = this.ecPublicKey.getQ().getAffineXCoord().toBigInteger();
-        BigInteger bY = this.ecPublicKey.getQ().getAffineYCoord().toBigInteger();
-
-        byte[] encKey = new byte[64];
-        extractBytes(encKey, 0, bX);
-        extractBytes(encKey, 32, bY);
-
-        try
-        {
-            info = new SubjectPublicKeyInfo(new AlgorithmIdentifier(CryptoProObjectIdentifiers.gostR3410_2001, params), new DEROctetString(encKey));
-        }
-        catch (IOException e)
-        {
-            return null;
-        }
-
-        return KeyUtil.getEncodedSubjectPublicKeyInfo(info);
-    }
-
-    private void extractBytes(byte[] encKey, int offSet, BigInteger bI)
-    {
-        byte[] val = bI.toByteArray();
-        if (val.length < 32)
-        {
-            byte[] tmp = new byte[32];
-            System.arraycopy(val, 0, tmp, tmp.length - val.length, val.length);
-            val = tmp;
-        }
-
-        for (int i = 0; i != 32; i++)
-        {
-            encKey[offSet + i] = val[val.length - 1 - i];
-        }
-    }
-
-    public ECParameterSpec getParams()
-    {
-        return ecSpec;
-    }
-
-    public com.github.zhenwei.provider.jce.spec.ECParameterSpec getParameters()
-    {
-        if (ecSpec == null)     // implictlyCA
-        {
-            return null;
-        }
-
-        return EC5Util.convertSpec(ecSpec);
-    }
-
-    public ECPoint getW()
-    {
-        return EC5Util.convertPoint(ecPublicKey.getQ());
-    }
-
-    public com.github.zhenwei.core.math.ec.ECPoint getQ()
-    {
-        if (ecSpec == null)
-        {
-            return ecPublicKey.getQ().getDetachedPoint();
-        }
-
-        return ecPublicKey.getQ();
-    }
-
-    ECPublicKeyParameters engineGetKeyParameters()
-    {
-        return ecPublicKey;
-    }
-
-    com.github.zhenwei.provider.jce.spec.ECParameterSpec engineGetSpec()
-    {
-        if (ecSpec != null)
-        {
-            return EC5Util.convertSpec(ecSpec);
-        }
-
-        return BouncyCastleProvider.CONFIGURATION.getEcImplicitlyCa();
-    }
-
-    public String toString()
-    {
-        return ECUtil.publicKeyToString(algorithm, ecPublicKey.getQ(), engineGetSpec());
-    }
-
-    public void setPointFormat(String style)
-    {
-        withCompression = !("UNCOMPRESSED".equalsIgnoreCase(style));
-    }
-
-    public boolean equals(Object o)
-    {
-        if (!(o instanceof BCECGOST3410PublicKey))
-        {
-            return false;
-        }
-
-        BCECGOST3410PublicKey other = (BCECGOST3410PublicKey)o;
-
-        return ecPublicKey.getQ().equals(other.ecPublicKey.getQ()) && (engineGetSpec().equals(other.engineGetSpec()));
-    }
-
-    public int hashCode()
-    {
-        return ecPublicKey.getQ().hashCode() ^ engineGetSpec().hashCode();
-    }
-
-    private void readObject(
-        ObjectInputStream in)
-        throws IOException, ClassNotFoundException
-    {
-        in.defaultReadObject();
-
-        byte[] enc = (byte[])in.readObject();
-
-        populateFromPubKeyInfo(SubjectPublicKeyInfo.getInstance(ASN1Primitive.fromByteArray(enc)));
-    }
-
-    private void writeObject(
-        ObjectOutputStream out)
-        throws IOException
-    {
-        out.defaultWriteObject();
-
-        out.writeObject(this.getEncoded());
-    }
-
-    ASN1Encodable getGostParams()
-    {
-        if (gostParams == null && ecSpec instanceof ECNamedCurveSpec)
-        {
-            this.gostParams = new GOST3410PublicKeyAlgParameters(
-                ECGOST3410NamedCurves.getOID(((ECNamedCurveSpec)ecSpec).getName()),
-                CryptoProObjectIdentifiers.gostR3411_94_CryptoProParamSet);
-        }
-
-        return gostParams;
-    }
+    return gostParams;
+  }
 }

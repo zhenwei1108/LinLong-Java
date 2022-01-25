@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.util.asn1.esf;
 
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
+import java.util.Enumeration;
 
 /**
  * <pre>
@@ -14,58 +14,47 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class OcspListID
-    extends ASN1Object
-{
-    private ASN1Sequence ocspResponses;
+    extends ASN1Object {
 
-    public static OcspListID getInstance(Object obj)
-    {
-        if (obj instanceof OcspListID)
-        {
-            return (OcspListID)obj;
-        }
-        else if (obj != null)
-        {
-            return new OcspListID(ASN1Sequence.getInstance(obj));
-        }
+  private ASN1Sequence ocspResponses;
 
-        return null;
+  public static OcspListID getInstance(Object obj) {
+    if (obj instanceof OcspListID) {
+      return (OcspListID) obj;
+    } else if (obj != null) {
+      return new OcspListID(ASN1Sequence.getInstance(obj));
     }
 
-    private OcspListID(ASN1Sequence seq)
-    {
-        if (seq.size() != 1)
-        {
-            throw new IllegalArgumentException("Bad sequence size: "
-                + seq.size());
-        }
-        this.ocspResponses = (ASN1Sequence)seq.getObjectAt(0);
-        Enumeration e = this.ocspResponses.getObjects();
-        while (e.hasMoreElements())
-        {
-            OcspResponsesID.getInstance(e.nextElement());
-        }
-    }
+    return null;
+  }
 
-    public OcspListID(OcspResponsesID[] ocspResponses)
-    {
-        this.ocspResponses = new DERSequence(ocspResponses);
+  private OcspListID(ASN1Sequence seq) {
+    if (seq.size() != 1) {
+      throw new IllegalArgumentException("Bad sequence size: "
+          + seq.size());
     }
+    this.ocspResponses = (ASN1Sequence) seq.getObjectAt(0);
+    Enumeration e = this.ocspResponses.getObjects();
+    while (e.hasMoreElements()) {
+      OcspResponsesID.getInstance(e.nextElement());
+    }
+  }
 
-    public OcspResponsesID[] getOcspResponses()
-    {
-        OcspResponsesID[] result = new OcspResponsesID[this.ocspResponses
-            .size()];
-        for (int idx = 0; idx < result.length; idx++)
-        {
-            result[idx] = OcspResponsesID.getInstance(this.ocspResponses
-                .getObjectAt(idx));
-        }
-        return result;
-    }
+  public OcspListID(OcspResponsesID[] ocspResponses) {
+    this.ocspResponses = new DERSequence(ocspResponses);
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERSequence(this.ocspResponses);
+  public OcspResponsesID[] getOcspResponses() {
+    OcspResponsesID[] result = new OcspResponsesID[this.ocspResponses
+        .size()];
+    for (int idx = 0; idx < result.length; idx++) {
+      result[idx] = OcspResponsesID.getInstance(this.ocspResponses
+          .getObjectAt(idx));
     }
+    return result;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return new DERSequence(this.ocspResponses);
+  }
 }

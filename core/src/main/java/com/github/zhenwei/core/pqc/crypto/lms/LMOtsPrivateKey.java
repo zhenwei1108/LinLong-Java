@@ -6,64 +6,58 @@ import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.SEED_RANDOMISER_INDE
 
 import com.github.zhenwei.core.crypto.Digest;
 
-class LMOtsPrivateKey
-{
-    private final LMOtsParameters parameter;
-    private final byte[] I;
-    private final int q;
-    private final byte[] masterSecret;
+class LMOtsPrivateKey {
 
-    public LMOtsPrivateKey(LMOtsParameters parameter, byte[] i, int q, byte[] masterSecret)
-    {
-        this.parameter = parameter;
-        I = i;
-        this.q = q;
-        this.masterSecret = masterSecret;
-    }
+  private final LMOtsParameters parameter;
+  private final byte[] I;
+  private final int q;
+  private final byte[] masterSecret;
 
-    LMSContext getSignatureContext(LMSigParameters sigParams, byte[][] path)
-    {
-        byte[] C = new byte[SEED_LEN];
+  public LMOtsPrivateKey(LMOtsParameters parameter, byte[] i, int q, byte[] masterSecret) {
+    this.parameter = parameter;
+    I = i;
+    this.q = q;
+    this.masterSecret = masterSecret;
+  }
 
-        SeedDerive derive = getDerivationFunction();
-        derive.setJ(SEED_RANDOMISER_INDEX); // This value from reference impl.
-        derive.deriveSeed(C, false);
+  LMSContext getSignatureContext(LMSigParameters sigParams, byte[][] path) {
+    byte[] C = new byte[SEED_LEN];
 
-        Digest ctx = DigestUtil.getDigest(parameter.getDigestOID());
+    SeedDerive derive = getDerivationFunction();
+    derive.setJ(SEED_RANDOMISER_INDEX); // This value from reference impl.
+    derive.deriveSeed(C, false);
 
-        LmsUtils.byteArray(this.getI(), ctx);
-        LmsUtils.u32str(this.getQ(), ctx);
-        LmsUtils.u16str(D_MESG, ctx);
-        LmsUtils.byteArray(C, ctx);
+    Digest ctx = DigestUtil.getDigest(parameter.getDigestOID());
 
-        return new LMSContext(this, sigParams, ctx, C, path);
-    }
+    LmsUtils.byteArray(this.getI(), ctx);
+    LmsUtils.u32str(this.getQ(), ctx);
+    LmsUtils.u16str(D_MESG, ctx);
+    LmsUtils.byteArray(C, ctx);
 
-    SeedDerive getDerivationFunction()
-    {
-        SeedDerive derive = new SeedDerive(I, masterSecret, DigestUtil.getDigest(parameter.getDigestOID()));
-        derive.setQ(q);
-        return derive;
-    }
+    return new LMSContext(this, sigParams, ctx, C, path);
+  }
+
+  SeedDerive getDerivationFunction() {
+    SeedDerive derive = new SeedDerive(I, masterSecret,
+        DigestUtil.getDigest(parameter.getDigestOID()));
+    derive.setQ(q);
+    return derive;
+  }
 
 
-    public LMOtsParameters getParameter()
-    {
-        return parameter;
-    }
+  public LMOtsParameters getParameter() {
+    return parameter;
+  }
 
-    public byte[] getI()
-    {
-        return I;
-    }
+  public byte[] getI() {
+    return I;
+  }
 
-    public int getQ()
-    {
-        return q;
-    }
+  public int getQ() {
+    return q;
+  }
 
-    public byte[] getMasterSecret()
-    {
-        return masterSecret;
-    }
+  public byte[] getMasterSecret() {
+    return masterSecret;
+  }
 }

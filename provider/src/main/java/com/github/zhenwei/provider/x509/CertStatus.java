@@ -2,45 +2,41 @@ package com.github.zhenwei.provider.x509;
 
 import java.util.Date;
 
-class CertStatus
-{
-    public static final int UNREVOKED = 11;
+class CertStatus {
 
-    public static final int UNDETERMINED = 12;
+  public static final int UNREVOKED = 11;
 
-    int certStatus = UNREVOKED;
+  public static final int UNDETERMINED = 12;
 
-    Date revocationDate = null;
+  int certStatus = UNREVOKED;
 
-    /**
-     * @return Returns the revocationDate.
-     */
-    public Date getRevocationDate()
-    {
-        return revocationDate;
-    }
+  Date revocationDate = null;
 
-    /**
-     * @param revocationDate The revocationDate to set.
-     */
-    public void setRevocationDate(Date revocationDate)
-    {
-        this.revocationDate = revocationDate;
-    }
+  /**
+   * @return Returns the revocationDate.
+   */
+  public Date getRevocationDate() {
+    return revocationDate;
+  }
 
-    /**
-     * @return Returns the certStatus.
-     */
-    public int getCertStatus()
-    {
-        return certStatus;
-    }
+  /**
+   * @param revocationDate The revocationDate to set.
+   */
+  public void setRevocationDate(Date revocationDate) {
+    this.revocationDate = revocationDate;
+  }
 
-    /**
-     * @param certStatus The certStatus to set.
-     */
-    public void setCertStatus(int certStatus)
-    {
-        this.certStatus = certStatus;
-    }
+  /**
+   * @return Returns the certStatus.
+   */
+  public int getCertStatus() {
+    return certStatus;
+  }
+
+  /**
+   * @param certStatus The certStatus to set.
+   */
+  public void setCertStatus(int certStatus) {
+    this.certStatus = certStatus;
+  }
 }

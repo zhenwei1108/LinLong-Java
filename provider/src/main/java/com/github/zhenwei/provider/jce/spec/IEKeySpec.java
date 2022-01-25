@@ -1,69 +1,63 @@
 package com.github.zhenwei.provider.jce.spec;
 
+import com.github.zhenwei.provider.jce.interfaces.IESKey;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.spec.KeySpec;
-import com.github.zhenwei.provider.jce.interfaces.IESKey;
 
 /**
- * key pair for use with an integrated encryptor - together
- * they provide what's required to generate the message.
+ * key pair for use with an integrated encryptor - together they provide what's required to generate
+ * the message.
  */
 public class IEKeySpec
-    implements KeySpec, IESKey
-{
-    private PublicKey   pubKey;
-    private PrivateKey  privKey;
+    implements KeySpec, IESKey {
 
-    /**
-     * @param privKey our private key.
-     * @param pubKey the public key of the sender/recipient.
-     */
-    public IEKeySpec(
-        PrivateKey  privKey,
-        PublicKey   pubKey)
-    {
-        this.privKey = privKey;
-        this.pubKey = pubKey;
-    }
+  private PublicKey pubKey;
+  private PrivateKey privKey;
 
-    /**
-     * return the intended recipient's/sender's public key.
-     */
-    public PublicKey getPublic()
-    {
-        return pubKey;
-    }
+  /**
+   * @param privKey our private key.
+   * @param pubKey  the public key of the sender/recipient.
+   */
+  public IEKeySpec(
+      PrivateKey privKey,
+      PublicKey pubKey) {
+    this.privKey = privKey;
+    this.pubKey = pubKey;
+  }
 
-    /**
-     * return the local private key.
-     */
-    public PrivateKey getPrivate()
-    {
-        return privKey;
-    }
+  /**
+   * return the intended recipient's/sender's public key.
+   */
+  public PublicKey getPublic() {
+    return pubKey;
+  }
 
-    /**
-     * return "IES"
-     */
-    public String getAlgorithm()
-    {
-        return "IES";
-    }
+  /**
+   * return the local private key.
+   */
+  public PrivateKey getPrivate() {
+    return privKey;
+  }
 
-    /**
-     * return null
-     */
-    public String getFormat()
-    {
-        return null;
-    }
+  /**
+   * return "IES"
+   */
+  public String getAlgorithm() {
+    return "IES";
+  }
 
-    /**
-     * returns null
-     */
-    public byte[] getEncoded()
-    {
-        return null;
-    }
+  /**
+   * return null
+   */
+  public String getFormat() {
+    return null;
+  }
+
+  /**
+   * returns null
+   */
+  public byte[] getEncoded() {
+    return null;
+  }
 }

@@ -2,23 +2,21 @@ package com.github.zhenwei.core.pqc.crypto.newhope;
 
 import com.github.zhenwei.core.crypto.CipherParameters;
 
-public class NHAgreement
-{
-    private NHPrivateKeyParameters privKey;
+public class NHAgreement {
 
-    public void init(CipherParameters param)
-    {
-        privKey = (NHPrivateKeyParameters)param;
-    }
+  private NHPrivateKeyParameters privKey;
 
-    public byte[] calculateAgreement(CipherParameters otherPublicKey)
-    {
-        NHPublicKeyParameters pubKey = (NHPublicKeyParameters)otherPublicKey;
+  public void init(CipherParameters param) {
+    privKey = (NHPrivateKeyParameters) param;
+  }
 
-        byte[] sharedValue = new byte[NewHope.AGREEMENT_SIZE];
+  public byte[] calculateAgreement(CipherParameters otherPublicKey) {
+    NHPublicKeyParameters pubKey = (NHPublicKeyParameters) otherPublicKey;
 
-        NewHope.sharedA(sharedValue, privKey.secData, pubKey.pubData);
+    byte[] sharedValue = new byte[NewHope.AGREEMENT_SIZE];
 
-        return sharedValue;
-    }
+    NewHope.sharedA(sharedValue, privKey.secData, pubKey.pubData);
+
+    return sharedValue;
+  }
 }

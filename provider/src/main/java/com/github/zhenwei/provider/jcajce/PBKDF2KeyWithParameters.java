@@ -1,52 +1,50 @@
 package com.github.zhenwei.provider.jcajce;
 
-import javax.crypto.interfaces.PBEKey;
 import com.github.zhenwei.core.crypto.CharToByteConverter;
 import com.github.zhenwei.core.util.Arrays;
+import javax.crypto.interfaces.PBEKey;
 
 /**
  * A password based key for use with PBKDF2 as defined in PKCS#5 with full PBE parameters.
  */
 public class PBKDF2KeyWithParameters
     extends PBKDF2Key
-    implements PBEKey
-{
-    private final byte[] salt;
-    private final int iterationCount;
+    implements PBEKey {
 
-    /**
-     * Basic constructor for a password based key with generation parameters using FIPS PBKDF.
-     *
-     * @param password password to use.
-     * @param converter converter to use for transforming characters into bytes.
-     * @param salt salt for generation algorithm
-     * @param iterationCount iteration count for generation algorithm.
-     */
-    public PBKDF2KeyWithParameters(char[] password, CharToByteConverter converter, byte[] salt, int iterationCount)
-    {
-        super(password, converter);
+  private final byte[] salt;
+  private final int iterationCount;
 
-        this.salt = Arrays.clone(salt);
-        this.iterationCount = iterationCount;
-    }
+  /**
+   * Basic constructor for a password based key with generation parameters using FIPS PBKDF.
+   *
+   * @param password       password to use.
+   * @param converter      converter to use for transforming characters into bytes.
+   * @param salt           salt for generation algorithm
+   * @param iterationCount iteration count for generation algorithm.
+   */
+  public PBKDF2KeyWithParameters(char[] password, CharToByteConverter converter, byte[] salt,
+      int iterationCount) {
+    super(password, converter);
 
-    /**
-     * Return the salt to use in the key derivation function.
-     *
-     * @return the salt to use in the KDF.
-     */
-    public byte[] getSalt()
-    {
-        return salt;
-    }
+    this.salt = Arrays.clone(salt);
+    this.iterationCount = iterationCount;
+  }
 
-    /**
-     * Return the iteration count to use in the key derivation function.
-     *
-     * @return the iteration count to use in the KDF.
-     */
-    public int getIterationCount()
-    {
-        return iterationCount;
-    }
+  /**
+   * Return the salt to use in the key derivation function.
+   *
+   * @return the salt to use in the KDF.
+   */
+  public byte[] getSalt() {
+    return salt;
+  }
+
+  /**
+   * Return the iteration count to use in the key derivation function.
+   *
+   * @return the iteration count to use in the KDF.
+   */
+  public int getIterationCount() {
+    return iterationCount;
+  }
 }

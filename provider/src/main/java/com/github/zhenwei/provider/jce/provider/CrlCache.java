@@ -1,5 +1,9 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.core.util.Selector;
+import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.provider.jcajce.PKIXCRLStore;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,166 +29,138 @@ import javax.naming.directory.Attribute;
 import javax.naming.directory.Attributes;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
-import com.github.zhenwei.provider.jcajce.PKIXCRLStore;
-import com.github.zhenwei.core.util.CollectionStore;
-import com.github.zhenwei.core.util.Selector;
-import com.github.zhenwei.core.util.Store;
 
-class CrlCache
-{
-    private static final int DEFAULT_TIMEOUT = 15000;
+class CrlCache {
 
-    private static Map<URI, WeakReference<PKIXCRLStore>> cache =
-        Collections.synchronizedMap(new WeakHashMap<URI, WeakReference<PKIXCRLStore>>());
+  private static final int DEFAULT_TIMEOUT = 15000;
 
-    static synchronized PKIXCRLStore getCrl(CertificateFactory certFact, Date validDate, URI distributionPoint)
-        throws IOException, CRLException
-    {
-        PKIXCRLStore crlStore = null;
+  private static Map<URI, WeakReference<PKIXCRLStore>> cache =
+      Collections.synchronizedMap(new WeakHashMap<URI, WeakReference<PKIXCRLStore>>());
 
-        WeakReference<PKIXCRLStore> markerRef = (WeakReference)cache.get(distributionPoint);
-        if (markerRef != null)
-        {
-            crlStore = (PKIXCRLStore)markerRef.get();
-        }
+  static synchronized PKIXCRLStore getCrl(CertificateFactory certFact, Date validDate,
+      URI distributionPoint)
+      throws IOException, CRLException {
+    PKIXCRLStore crlStore = null;
 
-        if (crlStore != null)
-        {
-            boolean isExpired = false;
-            for (Iterator it = crlStore.getMatches(null).iterator(); it.hasNext();)
-            {
-                X509CRL crl = (X509CRL)it.next();
-
-                Date nextUpdate = crl.getNextUpdate();
-                if (nextUpdate != null && nextUpdate.before(validDate))
-                {
-                    isExpired = true;
-                    break;
-                }
-            }
-
-            if (!isExpired)
-            {
-                return crlStore;
-            }
-        }
-
-        Collection crls;
-
-        if (distributionPoint.getScheme().equals("ldap"))
-        {
-            crls = getCrlsFromLDAP(certFact, distributionPoint);
-        }
-        else
-        {
-            // http, https, ftp
-            crls = getCrls(certFact, distributionPoint);
-        }
-
-        LocalCRLStore localCRLStore = new LocalCRLStore(new CollectionStore<CRL>(crls));
-
-        cache.put(distributionPoint, new WeakReference<PKIXCRLStore>(localCRLStore));
-
-        return localCRLStore;
+    WeakReference<PKIXCRLStore> markerRef = (WeakReference) cache.get(distributionPoint);
+    if (markerRef != null) {
+      crlStore = (PKIXCRLStore) markerRef.get();
     }
 
-    private static Collection getCrlsFromLDAP(CertificateFactory certFact, URI distributionPoint)
-        throws IOException, CRLException
-    {
-        Map<String, String> env = new Hashtable<String, String>();
+    if (crlStore != null) {
+      boolean isExpired = false;
+      for (Iterator it = crlStore.getMatches(null).iterator(); it.hasNext(); ) {
+        X509CRL crl = (X509CRL) it.next();
 
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        env.put(Context.PROVIDER_URL, distributionPoint.toString());
+        Date nextUpdate = crl.getNextUpdate();
+        if (nextUpdate != null && nextUpdate.before(validDate)) {
+          isExpired = true;
+          break;
+        }
+      }
 
-        byte[] val = null;
-        try
-        {
-            DirContext ctx = new InitialDirContext((Hashtable)env);
-            Attributes avals = ctx.getAttributes("");
-            Attribute aval = avals.get("certificateRevocationList;binary");
-            val = (byte[])aval.get();
-        }
-        catch (NamingException e)
-        {
-            throw new CRLException("issue connecting to: " + distributionPoint.toString(), e);
-        }
-
-        if ((val == null) || (val.length == 0))
-        {
-            throw new CRLException("no CRL returned from: " + distributionPoint);
-        }
-        else
-        {
-            return certFact.generateCRLs(new ByteArrayInputStream(val));
-        }
+      if (!isExpired) {
+        return crlStore;
+      }
     }
 
-    private static Collection getCrls(CertificateFactory certFact, URI distributionPoint)
-        throws IOException, CRLException
-    {
-        HttpURLConnection crlCon = (HttpURLConnection)distributionPoint.toURL().openConnection();
-        crlCon.setConnectTimeout(DEFAULT_TIMEOUT);
-        crlCon.setReadTimeout(DEFAULT_TIMEOUT);
+    Collection crls;
 
-        InputStream crlIn = crlCon.getInputStream();
-
-        Collection crls = certFact.generateCRLs(crlIn);
-
-        crlIn.close();
-
-        return crls;
+    if (distributionPoint.getScheme().equals("ldap")) {
+      crls = getCrlsFromLDAP(certFact, distributionPoint);
+    } else {
+      // http, https, ftp
+      crls = getCrls(certFact, distributionPoint);
     }
 
-    private static class LocalCRLStore<T extends CRL>
-        implements PKIXCRLStore, Iterable<CRL>
-    {
-        private Collection<CRL> _local;
+    LocalCRLStore localCRLStore = new LocalCRLStore(new CollectionStore<CRL>(crls));
 
-        /**
-         * Basic constructor.
-         *
-         * @param collection - initial contents for the store, this is copied.
-         */
-        public LocalCRLStore(
-            Store<CRL> collection)
-        {
-            _local = new ArrayList<CRL>(collection.getMatches(null));
-        }
+    cache.put(distributionPoint, new WeakReference<PKIXCRLStore>(localCRLStore));
 
-        /**
-         * Return the matches in the collection for the passed in selector.
-         *
-         * @param selector the selector to match against.
-         * @return a possibly empty collection of matching objects.
-         */
-        public Collection getMatches(Selector selector)
-        {
-            if (selector == null)
-            {
-                return new ArrayList<CRL>(_local);
-            }
-            else
-            {
-                List<CRL> col = new ArrayList<CRL>();
-                Iterator<CRL> iter = _local.iterator();
+    return localCRLStore;
+  }
 
-                while (iter.hasNext())
-                {
-                    CRL obj = iter.next();
+  private static Collection getCrlsFromLDAP(CertificateFactory certFact, URI distributionPoint)
+      throws IOException, CRLException {
+    Map<String, String> env = new Hashtable<String, String>();
 
-                    if (selector.match(obj))
-                    {
-                        col.add(obj);
-                    }
-                }
+    env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+    env.put(Context.PROVIDER_URL, distributionPoint.toString());
 
-                return col;
-            }
-        }
-
-        public Iterator<CRL> iterator()
-        {
-            return getMatches(null).iterator();
-        }
+    byte[] val = null;
+    try {
+      DirContext ctx = new InitialDirContext((Hashtable) env);
+      Attributes avals = ctx.getAttributes("");
+      Attribute aval = avals.get("certificateRevocationList;binary");
+      val = (byte[]) aval.get();
+    } catch (NamingException e) {
+      throw new CRLException("issue connecting to: " + distributionPoint.toString(), e);
     }
+
+    if ((val == null) || (val.length == 0)) {
+      throw new CRLException("no CRL returned from: " + distributionPoint);
+    } else {
+      return certFact.generateCRLs(new ByteArrayInputStream(val));
+    }
+  }
+
+  private static Collection getCrls(CertificateFactory certFact, URI distributionPoint)
+      throws IOException, CRLException {
+    HttpURLConnection crlCon = (HttpURLConnection) distributionPoint.toURL().openConnection();
+    crlCon.setConnectTimeout(DEFAULT_TIMEOUT);
+    crlCon.setReadTimeout(DEFAULT_TIMEOUT);
+
+    InputStream crlIn = crlCon.getInputStream();
+
+    Collection crls = certFact.generateCRLs(crlIn);
+
+    crlIn.close();
+
+    return crls;
+  }
+
+  private static class LocalCRLStore<T extends CRL>
+      implements PKIXCRLStore, Iterable<CRL> {
+
+    private Collection<CRL> _local;
+
+    /**
+     * Basic constructor.
+     *
+     * @param collection - initial contents for the store, this is copied.
+     */
+    public LocalCRLStore(
+        Store<CRL> collection) {
+      _local = new ArrayList<CRL>(collection.getMatches(null));
+    }
+
+    /**
+     * Return the matches in the collection for the passed in selector.
+     *
+     * @param selector the selector to match against.
+     * @return a possibly empty collection of matching objects.
+     */
+    public Collection getMatches(Selector selector) {
+      if (selector == null) {
+        return new ArrayList<CRL>(_local);
+      } else {
+        List<CRL> col = new ArrayList<CRL>();
+        Iterator<CRL> iter = _local.iterator();
+
+        while (iter.hasNext()) {
+          CRL obj = iter.next();
+
+          if (selector.match(obj)) {
+            col.add(obj);
+          }
+        }
+
+        return col;
+      }
+    }
+
+    public Iterator<CRL> iterator() {
+      return getMatches(null).iterator();
+    }
+  }
 }

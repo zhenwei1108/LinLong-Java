@@ -21,98 +21,84 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
  */
 public class HashedData
     extends ASN1Object
-    implements ASN1Choice
-{
-    public static final int sha256HashedData = 0;
-    public static final int extension = 1;
-    public static final int sha384HashedData = 2;
-    public static final int reserved = 3;
+    implements ASN1Choice {
+
+  public static final int sha256HashedData = 0;
+  public static final int extension = 1;
+  public static final int sha384HashedData = 2;
+  public static final int reserved = 3;
 
 
-    private final int choice;
-    private final ASN1Encodable value;
+  private final int choice;
+  private final ASN1Encodable value;
 
-    public HashedData(int choice, ASN1Encodable sha256HashedData)
-    {
-        this.choice = choice;
-        this.value = sha256HashedData;
+  public HashedData(int choice, ASN1Encodable sha256HashedData) {
+    this.choice = choice;
+    this.value = sha256HashedData;
+  }
+
+  public static HashedData getInstance(Object o) {
+    if (o instanceof HashedData) {
+      return (HashedData) o;
     }
 
-    public static HashedData getInstance(Object o)
-    {
-        if (o instanceof HashedData)
-        {
-            return (HashedData)o;
-        }
+    ASN1TaggedObject dto = ASN1TaggedObject.getInstance(o);
 
-        ASN1TaggedObject dto = ASN1TaggedObject.getInstance(o);
+    switch (dto.getTagNo()) {
+      case sha256HashedData:
+      case extension:
+      case sha384HashedData:
+      case reserved:
+        return new HashedData(dto.getTagNo(), DEROctetString.getInstance(dto.getObject()));
+      default:
+        throw new IllegalStateException("unknown choice value " + dto.getTagNo());
+    }
+  }
 
-        switch (dto.getTagNo())
-        {
-        case sha256HashedData:
-        case extension:
-        case sha384HashedData:
-        case reserved:
-            return new HashedData(dto.getTagNo(), DEROctetString.getInstance(dto.getObject()));
-        default:
-            throw new IllegalStateException("unknown choice value " + dto.getTagNo());
-        }
+  public int getChoice() {
+    return choice;
+  }
+
+  public ASN1Encodable getValue() {
+    return value;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return new DERTaggedObject(choice, value);
+  }
+
+  public static class Builder {
+
+    private int choice;
+    private ASN1Encodable value;
+
+    public Builder setChoice(int choice) {
+      this.choice = choice;
+      return this;
     }
 
-    public int getChoice()
-    {
-        return choice;
+    public Builder setSha256HashedData(ASN1Encodable sha256HashedData) {
+      value = sha256HashedData;
+      return this;
     }
 
-    public ASN1Encodable getValue()
-    {
-        return value;
+    public Builder extension(byte[] extension) {
+      value = new DEROctetString(extension);
+      return this;
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERTaggedObject(choice, value);
+    public Builder sha384HashedData(ASN1OctetString sha384HashedData) {
+      value = sha384HashedData;
+      return this;
     }
 
-    public static class Builder
-    {
-
-        private int choice;
-        private ASN1Encodable value;
-
-        public Builder setChoice(int choice)
-        {
-            this.choice = choice;
-            return this;
-        }
-
-        public Builder setSha256HashedData(ASN1Encodable sha256HashedData)
-        {
-            value = sha256HashedData;
-            return this;
-        }
-
-        public Builder extension(byte[] extension)
-        {
-            value = new DEROctetString(extension);
-            return this;
-        }
-
-        public Builder sha384HashedData(ASN1OctetString sha384HashedData)
-        {
-            value = sha384HashedData;
-            return this;
-        }
-
-        public Builder reserved(ASN1OctetString reserved)
-        {
-            value = reserved;
-            return this;
-        }
-
-        public HashedData createHashedData()
-        {
-            return new HashedData(choice, value);
-        }
+    public Builder reserved(ASN1OctetString reserved) {
+      value = reserved;
+      return this;
     }
+
+    public HashedData createHashedData() {
+      return new HashedData(choice, value);
+    }
+  }
 }

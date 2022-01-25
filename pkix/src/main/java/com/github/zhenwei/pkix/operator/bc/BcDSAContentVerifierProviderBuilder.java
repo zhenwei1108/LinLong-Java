@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.operator.bc;
 
-import java.io.IOException;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.Digest;
@@ -9,31 +8,30 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.signers.DSADigestSigner;
 import com.github.zhenwei.core.crypto.signers.DSASigner;
 import com.github.zhenwei.core.crypto.util.PublicKeyFactory;
-import  com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
-import  com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import java.io.IOException;
 
 public class BcDSAContentVerifierProviderBuilder
-    extends BcContentVerifierProviderBuilder
-{
-    private DigestAlgorithmIdentifierFinder digestAlgorithmFinder;
+    extends BcContentVerifierProviderBuilder {
 
-    public BcDSAContentVerifierProviderBuilder(DigestAlgorithmIdentifierFinder digestAlgorithmFinder)
-    {
-        this.digestAlgorithmFinder = digestAlgorithmFinder;
-    }
+  private DigestAlgorithmIdentifierFinder digestAlgorithmFinder;
 
-    protected Signer createSigner(AlgorithmIdentifier sigAlgId)
-        throws OperatorCreationException
-    {
-        AlgorithmIdentifier digAlg = digestAlgorithmFinder.find(sigAlgId);
-        Digest dig = digestProvider.get(digAlg);
+  public BcDSAContentVerifierProviderBuilder(
+      DigestAlgorithmIdentifierFinder digestAlgorithmFinder) {
+    this.digestAlgorithmFinder = digestAlgorithmFinder;
+  }
 
-        return new DSADigestSigner(new DSASigner(), dig);
-    }
+  protected Signer createSigner(AlgorithmIdentifier sigAlgId)
+      throws OperatorCreationException {
+    AlgorithmIdentifier digAlg = digestAlgorithmFinder.find(sigAlgId);
+    Digest dig = digestProvider.get(digAlg);
 
-    protected AsymmetricKeyParameter extractKeyParameters(SubjectPublicKeyInfo publicKeyInfo)
-        throws IOException
-    {
-        return PublicKeyFactory.createKey(publicKeyInfo);
-    }
+    return new DSADigestSigner(new DSASigner(), dig);
+  }
+
+  protected AsymmetricKeyParameter extractKeyParameters(SubjectPublicKeyInfo publicKeyInfo)
+      throws IOException {
+    return PublicKeyFactory.createKey(publicKeyInfo);
+  }
 }

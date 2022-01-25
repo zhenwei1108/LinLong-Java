@@ -2,40 +2,35 @@ package com.github.zhenwei.pkix.operator;
 
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
-public class GenericKey
-{
-    private AlgorithmIdentifier algorithmIdentifier;
-    private Object representation;
+public class GenericKey {
 
-    /**
-     * @deprecated provide an AlgorithmIdentifier.
-     * @param representation key data
-     */
-    public GenericKey(Object representation)
-    {
-        this.algorithmIdentifier = null;
-        this.representation = representation;
-    }
+  private AlgorithmIdentifier algorithmIdentifier;
+  private Object representation;
 
-    public GenericKey(AlgorithmIdentifier algorithmIdentifier, byte[] representation)
-    {
-        this.algorithmIdentifier = algorithmIdentifier;
-        this.representation = representation;
-    }
+  /**
+   * @param representation key data
+   * @deprecated provide an AlgorithmIdentifier.
+   */
+  public GenericKey(Object representation) {
+    this.algorithmIdentifier = null;
+    this.representation = representation;
+  }
 
-    protected GenericKey(AlgorithmIdentifier algorithmIdentifier, Object representation)
-    {
-        this.algorithmIdentifier = algorithmIdentifier;
-        this.representation = representation;
-    }
+  public GenericKey(AlgorithmIdentifier algorithmIdentifier, byte[] representation) {
+    this.algorithmIdentifier = algorithmIdentifier;
+    this.representation = representation;
+  }
 
-    public AlgorithmIdentifier getAlgorithmIdentifier()
-    {
-        return algorithmIdentifier;
-    }
+  protected GenericKey(AlgorithmIdentifier algorithmIdentifier, Object representation) {
+    this.algorithmIdentifier = algorithmIdentifier;
+    this.representation = representation;
+  }
 
-    public Object getRepresentation()
-    {
-        return representation;
-    }
+  public AlgorithmIdentifier getAlgorithmIdentifier() {
+    return algorithmIdentifier;
+  }
+
+  public Object getRepresentation() {
+    return representation;
+  }
 }

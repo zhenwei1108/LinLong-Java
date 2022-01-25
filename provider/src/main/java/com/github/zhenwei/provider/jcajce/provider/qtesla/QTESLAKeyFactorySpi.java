@@ -1,5 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.qtesla;
 
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -10,106 +14,80 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
-import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 
 public class QTESLAKeyFactorySpi
     extends KeyFactorySpi
-    implements AsymmetricKeyInfoConverter
-{
-    public PrivateKey engineGeneratePrivate(KeySpec keySpec)
-        throws InvalidKeySpecException
-    {
-        if (keySpec instanceof PKCS8EncodedKeySpec)
-        {
-            // get the DER-encoded Key according to PKCS#8 from the spec
-            byte[] encKey = ((PKCS8EncodedKeySpec)keySpec).getEncoded();
+    implements AsymmetricKeyInfoConverter {
 
-            try
-            {
-                return generatePrivate(PrivateKeyInfo.getInstance(ASN1Primitive.fromByteArray(encKey)));
-            }
-            catch (Exception e)
-            {
-                throw new InvalidKeySpecException(e.toString());
-            }
-        }
+  public PrivateKey engineGeneratePrivate(KeySpec keySpec)
+      throws InvalidKeySpecException {
+    if (keySpec instanceof PKCS8EncodedKeySpec) {
+      // get the DER-encoded Key according to PKCS#8 from the spec
+      byte[] encKey = ((PKCS8EncodedKeySpec) keySpec).getEncoded();
 
-        throw new InvalidKeySpecException("Unsupported key specification: "
-            + keySpec.getClass() + ".");
+      try {
+        return generatePrivate(PrivateKeyInfo.getInstance(ASN1Primitive.fromByteArray(encKey)));
+      } catch (Exception e) {
+        throw new InvalidKeySpecException(e.toString());
+      }
     }
 
-    public PublicKey engineGeneratePublic(KeySpec keySpec)
-        throws InvalidKeySpecException
-    {
-        if (keySpec instanceof X509EncodedKeySpec)
-        {
-            // get the DER-encoded Key according to X.509 from the spec
-            byte[] encKey = ((X509EncodedKeySpec)keySpec).getEncoded();
+    throw new InvalidKeySpecException("Unsupported key specification: "
+        + keySpec.getClass() + ".");
+  }
 
-            // decode the SubjectPublicKeyInfo data structure to the pki object
-            try
-            {
-                return generatePublic(SubjectPublicKeyInfo.getInstance(encKey));
-            }
-            catch (Exception e)
-            {
-                throw new InvalidKeySpecException(e.toString());
-            }
-        }
+  public PublicKey engineGeneratePublic(KeySpec keySpec)
+      throws InvalidKeySpecException {
+    if (keySpec instanceof X509EncodedKeySpec) {
+      // get the DER-encoded Key according to X.509 from the spec
+      byte[] encKey = ((X509EncodedKeySpec) keySpec).getEncoded();
 
-        throw new InvalidKeySpecException("Unknown key specification: " + keySpec + ".");
+      // decode the SubjectPublicKeyInfo data structure to the pki object
+      try {
+        return generatePublic(SubjectPublicKeyInfo.getInstance(encKey));
+      } catch (Exception e) {
+        throw new InvalidKeySpecException(e.toString());
+      }
     }
 
-    public final KeySpec engineGetKeySpec(Key key, Class keySpec)
-        throws InvalidKeySpecException
-    {
-        if (key instanceof BCqTESLAPrivateKey)
-        {
-            if (PKCS8EncodedKeySpec.class.isAssignableFrom(keySpec))
-            {
-                return new PKCS8EncodedKeySpec(key.getEncoded());
-            }
-        }
-        else if (key instanceof BCqTESLAPublicKey)
-        {
-            if (X509EncodedKeySpec.class.isAssignableFrom(keySpec))
-            {
-                return new X509EncodedKeySpec(key.getEncoded());
-            }
-        }
-        else
-        {
-            throw new InvalidKeySpecException("Unsupported key type: "
-                + key.getClass() + ".");
-        }
+    throw new InvalidKeySpecException("Unknown key specification: " + keySpec + ".");
+  }
 
-        throw new InvalidKeySpecException("Unknown key specification: "
-            + keySpec + ".");
+  public final KeySpec engineGetKeySpec(Key key, Class keySpec)
+      throws InvalidKeySpecException {
+    if (key instanceof BCqTESLAPrivateKey) {
+      if (PKCS8EncodedKeySpec.class.isAssignableFrom(keySpec)) {
+        return new PKCS8EncodedKeySpec(key.getEncoded());
+      }
+    } else if (key instanceof BCqTESLAPublicKey) {
+      if (X509EncodedKeySpec.class.isAssignableFrom(keySpec)) {
+        return new X509EncodedKeySpec(key.getEncoded());
+      }
+    } else {
+      throw new InvalidKeySpecException("Unsupported key type: "
+          + key.getClass() + ".");
     }
 
-    public final Key engineTranslateKey(Key key)
-        throws InvalidKeyException
-    {
-        if (key instanceof BCqTESLAPrivateKey || key instanceof BCqTESLAPublicKey)
-        {
-            return key;
-        }
+    throw new InvalidKeySpecException("Unknown key specification: "
+        + keySpec + ".");
+  }
 
-        throw new InvalidKeyException("Unsupported key type");
+  public final Key engineTranslateKey(Key key)
+      throws InvalidKeyException {
+    if (key instanceof BCqTESLAPrivateKey || key instanceof BCqTESLAPublicKey) {
+      return key;
     }
 
-    public PrivateKey generatePrivate(PrivateKeyInfo keyInfo)
-        throws IOException
-    {
-        return new BCqTESLAPrivateKey(keyInfo);
-    }
+    throw new InvalidKeyException("Unsupported key type");
+  }
 
-    public PublicKey generatePublic(SubjectPublicKeyInfo keyInfo)
-        throws IOException
-    {
-        return new BCqTESLAPublicKey(keyInfo);
-    }
+  public PrivateKey generatePrivate(PrivateKeyInfo keyInfo)
+      throws IOException {
+    return new BCqTESLAPrivateKey(keyInfo);
+  }
+
+  public PublicKey generatePublic(SubjectPublicKeyInfo keyInfo)
+      throws IOException {
+    return new BCqTESLAPublicKey(keyInfo);
+  }
 }

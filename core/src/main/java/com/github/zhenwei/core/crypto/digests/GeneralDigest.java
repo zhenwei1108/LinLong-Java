@@ -5,156 +5,137 @@ import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.core.util.Pack;
 
 /**
- * base implementation of MD4 family style digest as outlined in
- * "Handbook of Applied Cryptography", pages 344 - 347.
+ * base implementation of MD4 family style digest as outlined in "Handbook of Applied Cryptography",
+ * pages 344 - 347.
  */
 public abstract class GeneralDigest
-    implements ExtendedDigest, Memoable
-{
-    private static final int BYTE_LENGTH = 64;
+    implements ExtendedDigest, Memoable {
 
-    private final byte[]  xBuf = new byte[4];
-    private int           xBufOff;
+  private static final int BYTE_LENGTH = 64;
 
-    private long    byteCount;
+  private final byte[] xBuf = new byte[4];
+  private int xBufOff;
 
-    /**
-     * Standard constructor
-     */
-    protected GeneralDigest()
-    {
-        xBufOff = 0;
+  private long byteCount;
+
+  /**
+   * Standard constructor
+   */
+  protected GeneralDigest() {
+    xBufOff = 0;
+  }
+
+  /**
+   * Copy constructor.  We are using copy constructors in place of the Object.clone() interface as
+   * this interface is not supported by J2ME.
+   */
+  protected GeneralDigest(GeneralDigest t) {
+    copyIn(t);
+  }
+
+  protected GeneralDigest(byte[] encodedState) {
+    System.arraycopy(encodedState, 0, xBuf, 0, xBuf.length);
+    xBufOff = Pack.bigEndianToInt(encodedState, 4);
+    byteCount = Pack.bigEndianToLong(encodedState, 8);
+  }
+
+  protected void copyIn(GeneralDigest t) {
+    System.arraycopy(t.xBuf, 0, xBuf, 0, t.xBuf.length);
+
+    xBufOff = t.xBufOff;
+    byteCount = t.byteCount;
+  }
+
+  public void update(
+      byte in) {
+    xBuf[xBufOff++] = in;
+
+    if (xBufOff == xBuf.length) {
+      processWord(xBuf, 0);
+      xBufOff = 0;
     }
 
-    /**
-     * Copy constructor.  We are using copy constructors in place
-     * of the Object.clone() interface as this interface is not
-     * supported by J2ME.
-     */
-    protected GeneralDigest(GeneralDigest t)
-    {
-        copyIn(t);
-    }
+    byteCount++;
+  }
 
-    protected GeneralDigest(byte[] encodedState)
-    {
-        System.arraycopy(encodedState, 0, xBuf, 0, xBuf.length);
-        xBufOff = Pack.bigEndianToInt(encodedState, 4);
-        byteCount = Pack.bigEndianToLong(encodedState, 8);
-    }
+  public void update(
+      byte[] in,
+      int inOff,
+      int len) {
+    len = Math.max(0, len);
 
-    protected void copyIn(GeneralDigest t)
-    {
-        System.arraycopy(t.xBuf, 0, xBuf, 0, t.xBuf.length);
-
-        xBufOff = t.xBufOff;
-        byteCount = t.byteCount;
-    }
-
-    public void update(
-        byte in)
-    {
-        xBuf[xBufOff++] = in;
-
-        if (xBufOff == xBuf.length)
-        {
-            processWord(xBuf, 0);
-            xBufOff = 0;
+    //
+    // fill the current word
+    //
+    int i = 0;
+    if (xBufOff != 0) {
+      while (i < len) {
+        xBuf[xBufOff++] = in[inOff + i++];
+        if (xBufOff == 4) {
+          processWord(xBuf, 0);
+          xBufOff = 0;
+          break;
         }
-
-        byteCount++;
+      }
     }
 
-    public void update(
-        byte[]  in,
-        int     inOff,
-        int     len)
-    {
-        len = Math.max(0,  len);
-
-        //
-        // fill the current word
-        //
-        int i = 0;
-        if (xBufOff != 0)
-        {
-            while (i < len)
-            {
-                xBuf[xBufOff++] = in[inOff + i++];
-                if (xBufOff == 4)
-                {
-                    processWord(xBuf, 0);
-                    xBufOff = 0;
-                    break;
-                }
-            }
-        }
-
-        //
-        // process whole words.
-        //
-        int limit = ((len - i) & ~3) + i;
-        for (; i < limit; i += 4)
-        {
-            processWord(in, inOff + i);
-        }
-
-        //
-        // load in the remainder.
-        //
-        while (i < len)
-        {
-            xBuf[xBufOff++] = in[inOff + i++];
-        }
-
-        byteCount += len;
+    //
+    // process whole words.
+    //
+    int limit = ((len - i) & ~3) + i;
+    for (; i < limit; i += 4) {
+      processWord(in, inOff + i);
     }
 
-    public void finish()
-    {
-        long    bitLength = (byteCount << 3);
-
-        //
-        // add the pad bytes.
-        //
-        update((byte)128);
-
-        while (xBufOff != 0)
-        {
-            update((byte)0);
-        }
-
-        processLength(bitLength);
-
-        processBlock();
+    //
+    // load in the remainder.
+    //
+    while (i < len) {
+      xBuf[xBufOff++] = in[inOff + i++];
     }
 
-    public void reset()
-    {
-        byteCount = 0;
+    byteCount += len;
+  }
 
-        xBufOff = 0;
-        for (int i = 0; i < xBuf.length; i++)
-        {
-            xBuf[i] = 0;
-        }
+  public void finish() {
+    long bitLength = (byteCount << 3);
+
+    //
+    // add the pad bytes.
+    //
+    update((byte) 128);
+
+    while (xBufOff != 0) {
+      update((byte) 0);
     }
 
-    protected void populateState(byte[] state)
-    {
-        System.arraycopy(xBuf, 0, state, 0, xBufOff);
-        Pack.intToBigEndian(xBufOff, state, 4);
-        Pack.longToBigEndian(byteCount, state, 8);
+    processLength(bitLength);
+
+    processBlock();
+  }
+
+  public void reset() {
+    byteCount = 0;
+
+    xBufOff = 0;
+    for (int i = 0; i < xBuf.length; i++) {
+      xBuf[i] = 0;
     }
+  }
 
-    public int getByteLength()
-    {
-        return BYTE_LENGTH;
-    }
-    
-    protected abstract void processWord(byte[] in, int inOff);
+  protected void populateState(byte[] state) {
+    System.arraycopy(xBuf, 0, state, 0, xBufOff);
+    Pack.intToBigEndian(xBufOff, state, 4);
+    Pack.longToBigEndian(byteCount, state, 8);
+  }
 
-    protected abstract void processLength(long bitLength);
+  public int getByteLength() {
+    return BYTE_LENGTH;
+  }
 
-    protected abstract void processBlock();
+  protected abstract void processWord(byte[] in, int inOff);
+
+  protected abstract void processLength(long bitLength);
+
+  protected abstract void processBlock();
 }

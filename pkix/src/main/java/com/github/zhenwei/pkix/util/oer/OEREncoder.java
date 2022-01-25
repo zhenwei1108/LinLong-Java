@@ -1,25 +1,21 @@
 package com.github.zhenwei.pkix.util.oer;
 
-import java.io.ByteArrayOutputStream;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
+import java.io.ByteArrayOutputStream;
 
-public class OEREncoder
-{
-    public static byte[] toByteArray(ASN1Encodable encodable, OERDefinition.Element oerElement)
-    {
-        try
-        {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            new OEROutputStream(bos).write(encodable, oerElement);
-            bos.flush();
-            bos.close();
-            return bos.toByteArray();
-        }
-        catch (Exception ex)
-        {
-            throw new IllegalStateException(ex.getMessage(), ex);
-        }
+public class OEREncoder {
+
+  public static byte[] toByteArray(ASN1Encodable encodable, OERDefinition.Element oerElement) {
+    try {
+      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+      new OEROutputStream(bos).write(encodable, oerElement);
+      bos.flush();
+      bos.close();
+      return bos.toByteArray();
+    } catch (Exception ex) {
+      throw new IllegalStateException(ex.getMessage(), ex);
     }
+  }
 
 //    public static byte[] toByteArrayLogging(ASN1Encodable encodable, OERDefinition.Element oerElement)
 //    {

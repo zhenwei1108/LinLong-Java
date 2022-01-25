@@ -1,51 +1,48 @@
 package com.github.zhenwei.pkix.dvcs;
 
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.TargetEtcChain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
-import com.github.zhenwei.pkix.util.asn1.dvcs.TargetEtcChain;
 
 /**
- * Data piece of DVCS request to VPKC service (Verify Public Key Certificates).
- * It contains VPKC-specific interface.
+ * Data piece of DVCS request to VPKC service (Verify Public Key Certificates). It contains
+ * VPKC-specific interface.
  * <p>
- * This objects are constructed internally,
- * to build DVCS request to VPKC service use VPKCRequestBuilder.
+ * This objects are constructed internally, to build DVCS request to VPKC service use
+ * VPKCRequestBuilder.
  * </p>
  */
 public class VPKCRequestData
-    extends DVCSRequestData
-{
-    private List chains;
+    extends DVCSRequestData {
 
-    VPKCRequestData(Data data)
-        throws DVCSConstructionException
-    {
-        super(data);
+  private List chains;
 
-        TargetEtcChain[] certs = data.getCerts();
+  VPKCRequestData(Data data)
+      throws DVCSConstructionException {
+    super(data);
 
-        if (certs == null)
-        {
-            throw new DVCSConstructionException("DVCSRequest.data.certs should be specified for VPKC service");
-        }
+    TargetEtcChain[] certs = data.getCerts();
 
-        chains = new ArrayList(certs.length);
-
-        for (int i = 0; i != certs.length; i++)
-        {
-            chains.add(new TargetChain(certs[i]));
-        }
+    if (certs == null) {
+      throw new DVCSConstructionException(
+          "DVCSRequest.data.certs should be specified for VPKC service");
     }
 
-    /**
-     * Get contained certs choice data..
-     *
-     * @return a list of CertChain objects.
-     */
-    public List getCerts()
-    {
-        return Collections.unmodifiableList(chains);
+    chains = new ArrayList(certs.length);
+
+    for (int i = 0; i != certs.length; i++) {
+      chains.add(new TargetChain(certs[i]));
     }
+  }
+
+  /**
+   * Get contained certs choice data..
+   *
+   * @return a list of CertChain objects.
+   */
+  public List getCerts() {
+    return Collections.unmodifiableList(chains);
+  }
 }

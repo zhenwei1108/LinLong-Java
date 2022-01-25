@@ -1,39 +1,34 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
-import java.security.spec.AlgorithmParameterSpec;
 import com.github.zhenwei.core.util.Arrays;
+import java.security.spec.AlgorithmParameterSpec;
 
 public class FPEParameterSpec
-    implements AlgorithmParameterSpec
-{
-    private final int radix;
-    private final byte[] tweak;
-    private final boolean useInverse;
+    implements AlgorithmParameterSpec {
 
-    public FPEParameterSpec(int radix, byte[] tweak)
-    {
-        this(radix, tweak, false);
-    }
+  private final int radix;
+  private final byte[] tweak;
+  private final boolean useInverse;
 
-    public FPEParameterSpec(int radix, byte[] tweak, boolean useInverse)
-    {
-        this.radix = radix;
-        this.tweak = Arrays.clone(tweak);
-        this.useInverse = useInverse;
-    }
+  public FPEParameterSpec(int radix, byte[] tweak) {
+    this(radix, tweak, false);
+  }
 
-    public int getRadix()
-    {
-        return radix;
-    }
+  public FPEParameterSpec(int radix, byte[] tweak, boolean useInverse) {
+    this.radix = radix;
+    this.tweak = Arrays.clone(tweak);
+    this.useInverse = useInverse;
+  }
 
-    public byte[] getTweak()
-    {
-        return Arrays.clone(tweak);
-    }
+  public int getRadix() {
+    return radix;
+  }
 
-    public boolean isUsingInverseFunction()
-    {
-        return useInverse;
-    }
+  public byte[] getTweak() {
+    return Arrays.clone(tweak);
+  }
+
+  public boolean isUsingInverseFunction() {
+    return useInverse;
+  }
 }

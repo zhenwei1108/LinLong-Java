@@ -1,32 +1,29 @@
 package com.github.zhenwei.pkix.operator.jcajce;
 
-import java.security.Key;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import java.security.Key;
 
 public class JceGenericKey
-    extends GenericKey
-{
-    /**
-     * Attempt to simplify the key representation if possible.
-     *
-     * @param key a provider based key
-     * @return the byte encoding if one exists, key object otherwise.
-     */
-    private static Object getRepresentation(Key key)
-    {
-        byte[] keyBytes = key.getEncoded();
+    extends GenericKey {
 
-        if (keyBytes != null)
-        {
-            return keyBytes;
-        }
+  /**
+   * Attempt to simplify the key representation if possible.
+   *
+   * @param key a provider based key
+   * @return the byte encoding if one exists, key object otherwise.
+   */
+  private static Object getRepresentation(Key key) {
+    byte[] keyBytes = key.getEncoded();
 
-        return key;
+    if (keyBytes != null) {
+      return keyBytes;
     }
 
-    public JceGenericKey(AlgorithmIdentifier algorithmIdentifier, Key representation)
-    {
-        super(algorithmIdentifier, getRepresentation(representation));
-    }
+    return key;
+  }
+
+  public JceGenericKey(AlgorithmIdentifier algorithmIdentifier, Key representation) {
+    super(algorithmIdentifier, getRepresentation(representation));
+  }
 }

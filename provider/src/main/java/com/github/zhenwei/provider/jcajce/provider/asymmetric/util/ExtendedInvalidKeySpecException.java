@@ -3,19 +3,17 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.util;
 import java.security.spec.InvalidKeySpecException;
 
 public class ExtendedInvalidKeySpecException
-    extends InvalidKeySpecException
-{
-    private Throwable cause;
+    extends InvalidKeySpecException {
 
-    public ExtendedInvalidKeySpecException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public ExtendedInvalidKeySpecException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

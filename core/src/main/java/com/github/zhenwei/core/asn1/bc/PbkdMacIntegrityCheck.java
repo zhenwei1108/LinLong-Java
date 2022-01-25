@@ -21,63 +21,54 @@ import com.github.zhenwei.core.util.Arrays;
  * </pre>
  */
 public class PbkdMacIntegrityCheck
-    extends ASN1Object
-{
-    private final AlgorithmIdentifier macAlgorithm;
-    private final KeyDerivationFunc pbkdAlgorithm;
-    private final ASN1OctetString mac;
+    extends ASN1Object {
 
-    public PbkdMacIntegrityCheck(AlgorithmIdentifier macAlgorithm, KeyDerivationFunc pbkdAlgorithm, byte[] mac)
-    {
-        this.macAlgorithm = macAlgorithm;
-        this.pbkdAlgorithm = pbkdAlgorithm;
-        this.mac = new DEROctetString(Arrays.clone(mac));
+  private final AlgorithmIdentifier macAlgorithm;
+  private final KeyDerivationFunc pbkdAlgorithm;
+  private final ASN1OctetString mac;
+
+  public PbkdMacIntegrityCheck(AlgorithmIdentifier macAlgorithm, KeyDerivationFunc pbkdAlgorithm,
+      byte[] mac) {
+    this.macAlgorithm = macAlgorithm;
+    this.pbkdAlgorithm = pbkdAlgorithm;
+    this.mac = new DEROctetString(Arrays.clone(mac));
+  }
+
+  private PbkdMacIntegrityCheck(ASN1Sequence seq) {
+    this.macAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
+    this.pbkdAlgorithm = KeyDerivationFunc.getInstance(seq.getObjectAt(1));
+    this.mac = ASN1OctetString.getInstance(seq.getObjectAt(2));
+  }
+
+  public static PbkdMacIntegrityCheck getInstance(Object o) {
+    if (o instanceof PbkdMacIntegrityCheck) {
+      return (PbkdMacIntegrityCheck) o;
+    } else if (o != null) {
+      return new PbkdMacIntegrityCheck(ASN1Sequence.getInstance(o));
     }
 
-    private PbkdMacIntegrityCheck(ASN1Sequence seq)
-    {
-        this.macAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-        this.pbkdAlgorithm = KeyDerivationFunc.getInstance(seq.getObjectAt(1));
-        this.mac = ASN1OctetString.getInstance(seq.getObjectAt(2));
-    }
+    return null;
+  }
 
-    public static PbkdMacIntegrityCheck getInstance(Object o)
-    {
-        if (o instanceof PbkdMacIntegrityCheck)
-        {
-            return (PbkdMacIntegrityCheck)o;
-        }
-        else if (o != null)
-        {
-            return new PbkdMacIntegrityCheck(ASN1Sequence.getInstance(o));
-        }
+  public AlgorithmIdentifier getMacAlgorithm() {
+    return macAlgorithm;
+  }
 
-        return null;
-    }
+  public KeyDerivationFunc getPbkdAlgorithm() {
+    return pbkdAlgorithm;
+  }
 
-    public AlgorithmIdentifier getMacAlgorithm()
-    {
-        return macAlgorithm;
-    }
+  public byte[] getMac() {
+    return Arrays.clone(mac.getOctets());
+  }
 
-    public KeyDerivationFunc getPbkdAlgorithm()
-    {
-        return pbkdAlgorithm;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-    public byte[] getMac()
-    {
-        return Arrays.clone(mac.getOctets());
-    }
+    v.add(macAlgorithm);
+    v.add(pbkdAlgorithm);
+    v.add(mac);
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        v.add(macAlgorithm);
-        v.add(pbkdAlgorithm);
-        v.add(mac);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

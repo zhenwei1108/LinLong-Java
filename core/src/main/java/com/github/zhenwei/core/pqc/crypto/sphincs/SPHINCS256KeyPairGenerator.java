@@ -1,47 +1,48 @@
 package com.github.zhenwei.core.pqc.crypto.sphincs;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 public class SPHINCS256KeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private SecureRandom random;
-    private Digest treeDigest;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(KeyGenerationParameters param)
-    {
-        random = param.getRandom();
-        treeDigest = ((SPHINCS256KeyGenerationParameters)param).getTreeDigest();
-    }
+  private SecureRandom random;
+  private Digest treeDigest;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        Tree.leafaddr a = new Tree.leafaddr();
+  public void init(KeyGenerationParameters param) {
+    random = param.getRandom();
+    treeDigest = ((SPHINCS256KeyGenerationParameters) param).getTreeDigest();
+  }
 
-        byte[] sk = new byte[SPHINCS256Config.CRYPTO_SECRETKEYBYTES];
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    Tree.leafaddr a = new Tree.leafaddr();
 
-        random.nextBytes(sk);
+    byte[] sk = new byte[SPHINCS256Config.CRYPTO_SECRETKEYBYTES];
 
-        byte[] pk = new byte[SPHINCS256Config.CRYPTO_PUBLICKEYBYTES];
+    random.nextBytes(sk);
 
-        System.arraycopy(sk, SPHINCS256Config.SEED_BYTES, pk, 0, Horst.N_MASKS * SPHINCS256Config.HASH_BYTES);
+    byte[] pk = new byte[SPHINCS256Config.CRYPTO_PUBLICKEYBYTES];
 
-        // Initialization of top-subtree address
-        a.level = SPHINCS256Config.N_LEVELS - 1;
-        a.subtree = 0;
-        a.subleaf = 0;
+    System.arraycopy(sk, SPHINCS256Config.SEED_BYTES, pk, 0,
+        Horst.N_MASKS * SPHINCS256Config.HASH_BYTES);
 
-        HashFunctions hs = new HashFunctions(treeDigest);
+    // Initialization of top-subtree address
+    a.level = SPHINCS256Config.N_LEVELS - 1;
+    a.subtree = 0;
+    a.subleaf = 0;
 
-        // Format pk: [|N_MASKS*params.HASH_BYTES| Bitmasks || root]
-        // Construct top subtree
-        Tree.treehash(hs, pk, (Horst.N_MASKS * SPHINCS256Config.HASH_BYTES), SPHINCS256Config.SUBTREE_HEIGHT, sk, a, pk, 0);
+    HashFunctions hs = new HashFunctions(treeDigest);
 
-        return new AsymmetricCipherKeyPair(new SPHINCSPublicKeyParameters(pk, treeDigest.getAlgorithmName()),
-                            new SPHINCSPrivateKeyParameters(sk, treeDigest.getAlgorithmName()));
-    }
+    // Format pk: [|N_MASKS*params.HASH_BYTES| Bitmasks || root]
+    // Construct top subtree
+    Tree.treehash(hs, pk, (Horst.N_MASKS * SPHINCS256Config.HASH_BYTES),
+        SPHINCS256Config.SUBTREE_HEIGHT, sk, a, pk, 0);
+
+    return new AsymmetricCipherKeyPair(
+        new SPHINCSPublicKeyParameters(pk, treeDigest.getAlgorithmName()),
+        new SPHINCSPrivateKeyParameters(sk, treeDigest.getAlgorithmName()));
+  }
 }

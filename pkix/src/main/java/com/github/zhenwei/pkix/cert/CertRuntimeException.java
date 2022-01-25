@@ -1,19 +1,17 @@
 package com.github.zhenwei.pkix.cert;
 
 public class CertRuntimeException
-    extends RuntimeException
-{
-    private Throwable cause;
+    extends RuntimeException {
 
-    public CertRuntimeException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public CertRuntimeException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

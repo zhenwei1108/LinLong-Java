@@ -9,72 +9,64 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 
 public class AttributeTypeAndValue
-    extends ASN1Object
-{
-    private ASN1ObjectIdentifier type;
-    private ASN1Encodable       value;
+    extends ASN1Object {
 
-    private AttributeTypeAndValue(ASN1Sequence seq)
-    {
-        type = (ASN1ObjectIdentifier)seq.getObjectAt(0);
-        value = (ASN1Encodable)seq.getObjectAt(1);
+  private ASN1ObjectIdentifier type;
+  private ASN1Encodable value;
+
+  private AttributeTypeAndValue(ASN1Sequence seq) {
+    type = (ASN1ObjectIdentifier) seq.getObjectAt(0);
+    value = (ASN1Encodable) seq.getObjectAt(1);
+  }
+
+  public static AttributeTypeAndValue getInstance(Object o) {
+    if (o instanceof AttributeTypeAndValue) {
+      return (AttributeTypeAndValue) o;
     }
 
-    public static AttributeTypeAndValue getInstance(Object o)
-    {
-        if (o instanceof AttributeTypeAndValue)
-        {
-            return (AttributeTypeAndValue)o;
-        }
-
-        if (o != null)
-        {
-            return new AttributeTypeAndValue(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+    if (o != null) {
+      return new AttributeTypeAndValue(ASN1Sequence.getInstance(o));
     }
 
-    public AttributeTypeAndValue(
-        String oid,
-        ASN1Encodable value)
-    {
-        this(new ASN1ObjectIdentifier(oid), value);
-    }
+    return null;
+  }
 
-    public AttributeTypeAndValue(
-        ASN1ObjectIdentifier type,
-        ASN1Encodable value)
-    {
-        this.type = type;
-        this.value = value;
-    }
+  public AttributeTypeAndValue(
+      String oid,
+      ASN1Encodable value) {
+    this(new ASN1ObjectIdentifier(oid), value);
+  }
 
-    public ASN1ObjectIdentifier getType()
-    {
-        return type;
-    }
+  public AttributeTypeAndValue(
+      ASN1ObjectIdentifier type,
+      ASN1Encodable value) {
+    this.type = type;
+    this.value = value;
+  }
 
-    public ASN1Encodable getValue()
-    {
-        return value;
-    }
+  public ASN1ObjectIdentifier getType() {
+    return type;
+  }
 
-    /**
-     * <pre>
-     * AttributeTypeAndValue ::= SEQUENCE {
-     *           type         OBJECT IDENTIFIER,
-     *           value        ANY DEFINED BY type }
-     * </pre>
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public ASN1Encodable getValue() {
+    return value;
+  }
 
-        v.add(type);
-        v.add(value);
+  /**
+   * <pre>
+   * AttributeTypeAndValue ::= SEQUENCE {
+   *           type         OBJECT IDENTIFIER,
+   *           value        ANY DEFINED BY type }
+   * </pre>
+   *
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        return new DERSequence(v);
-    }
+    v.add(type);
+    v.add(value);
+
+    return new DERSequence(v);
+  }
 }

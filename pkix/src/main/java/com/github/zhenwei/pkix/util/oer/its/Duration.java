@@ -22,71 +22,60 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
  */
 public class Duration
     extends ASN1Object
-    implements ASN1Choice
-{
-    public static final int microseconds = 0;
-    public static final int milliseconds = 1;
-    public static final int seconds = 2;
-    public static final int minutes = 3;
-    public static final int hours = 4;
-    public static final int sixtyHours = 5;
-    public static final int years = 6;
+    implements ASN1Choice {
 
-    private final int tag;
-    private final int value;
+  public static final int microseconds = 0;
+  public static final int milliseconds = 1;
+  public static final int seconds = 2;
+  public static final int minutes = 3;
+  public static final int hours = 4;
+  public static final int sixtyHours = 5;
+  public static final int years = 6;
 
-    public Duration(int tag, int value)
-    {
-        this.tag = tag;
-        this.value = value;
+  private final int tag;
+  private final int value;
+
+  public Duration(int tag, int value) {
+    this.tag = tag;
+    this.value = value;
+  }
+
+  public static Duration getInstance(Object o) {
+    if (o instanceof Duration) {
+      return (Duration) o;
+    } else {
+      ASN1TaggedObject taggedObject = ASN1TaggedObject.getInstance(o);
+      int choice = taggedObject.getTagNo();
+      switch (choice) {
+        case microseconds:
+        case milliseconds:
+        case seconds:
+        case minutes:
+        case hours:
+        case sixtyHours:
+        case years:
+          try {
+            return new Duration(choice,
+                ASN1Integer.getInstance(taggedObject.getObject()).getValue().intValue());
+          } catch (Exception ioex) {
+            throw new IllegalStateException(ioex.getMessage(), ioex);
+          }
+        default:
+          throw new IllegalArgumentException("invalid choice value " + choice);
+      }
     }
 
-    public static Duration getInstance(Object o)
-    {
-        if (o instanceof Duration)
-        {
-            return (Duration)o;
-        }
-        else
-        {
-            ASN1TaggedObject taggedObject = ASN1TaggedObject.getInstance(o);
-            int choice = taggedObject.getTagNo();
-            switch (choice)
-            {
-            case microseconds:
-            case milliseconds:
-            case seconds:
-            case minutes:
-            case hours:
-            case sixtyHours:
-            case years:
-                try
-                {
-                    return new Duration(choice, ASN1Integer.getInstance(taggedObject.getObject()).getValue().intValue());
-                }
-                catch (Exception ioex)
-                {
-                    throw new IllegalStateException(ioex.getMessage(), ioex);
-                }
-            default:
-                throw new IllegalArgumentException("invalid choice value " + choice);
-            }
-        }
+  }
 
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return new DERTaggedObject(tag, new ASN1Integer(value));
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERTaggedObject(tag, new ASN1Integer(value));
-    }
+  public int getTag() {
+    return tag;
+  }
 
-    public int getTag()
-    {
-        return tag;
-    }
-
-    public int getValue()
-    {
-        return value;
-    }
+  public int getValue() {
+    return value;
+  }
 }

@@ -19,59 +19,50 @@ import com.github.zhenwei.core.util.Arrays;
  * </pre>
  */
 public class PendInfo
-    extends ASN1Object
-{
-    private final byte[] pendToken;
-    private final ASN1GeneralizedTime pendTime;
+    extends ASN1Object {
 
-    public PendInfo(byte[] pendToken, ASN1GeneralizedTime pendTime)
-    {
-        this.pendToken = Arrays.clone(pendToken);
-        this.pendTime = pendTime;
+  private final byte[] pendToken;
+  private final ASN1GeneralizedTime pendTime;
+
+  public PendInfo(byte[] pendToken, ASN1GeneralizedTime pendTime) {
+    this.pendToken = Arrays.clone(pendToken);
+    this.pendTime = pendTime;
+  }
+
+  private PendInfo(ASN1Sequence seq) {
+    if (seq.size() != 2) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.pendToken = Arrays.clone(ASN1OctetString.getInstance(seq.getObjectAt(0)).getOctets());
+    this.pendTime = ASN1GeneralizedTime.getInstance(seq.getObjectAt(1));
+  }
+
+  public static PendInfo getInstance(Object o) {
+    if (o instanceof PendInfo) {
+      return (PendInfo) o;
     }
 
-    private PendInfo(ASN1Sequence seq)
-    {
-        if (seq.size() != 2)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.pendToken = Arrays.clone(ASN1OctetString.getInstance(seq.getObjectAt(0)).getOctets());
-        this.pendTime = ASN1GeneralizedTime.getInstance(seq.getObjectAt(1));
+    if (o != null) {
+      return new PendInfo(ASN1Sequence.getInstance(o));
     }
 
-    public static PendInfo getInstance(Object o)
-    {
-        if (o instanceof PendInfo)
-        {
-            return (PendInfo)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new PendInfo(ASN1Sequence.getInstance(o));
-        }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        return null;
-    }
+    v.add(new DEROctetString(pendToken));
+    v.add(pendTime);
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+    return new DERSequence(v);
+  }
 
-        v.add(new DEROctetString(pendToken));
-        v.add(pendTime);
+  public byte[] getPendToken() {
+    return Arrays.clone(pendToken);
+  }
 
-        return new DERSequence(v);
-    }
-
-    public byte[] getPendToken()
-    {
-        return Arrays.clone(pendToken);
-    }
-
-    public ASN1GeneralizedTime getPendTime()
-    {
-        return pendTime;
-    }
+  public ASN1GeneralizedTime getPendTime() {
+    return pendTime;
+  }
 }

@@ -19,72 +19,59 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
  *   (picture|handwritten-signature)
  * </pre>
  */
-public class TypeOfBiometricData  
+public class TypeOfBiometricData
     extends ASN1Object
-    implements ASN1Choice
-{
-    public static final int PICTURE                     = 0;
-    public static final int HANDWRITTEN_SIGNATURE       = 1;
+    implements ASN1Choice {
 
-    ASN1Encodable      obj;
+  public static final int PICTURE = 0;
+  public static final int HANDWRITTEN_SIGNATURE = 1;
 
-    public static TypeOfBiometricData getInstance(Object obj)
-    {
-        if (obj == null || obj instanceof TypeOfBiometricData)
-        {
-            return (TypeOfBiometricData)obj;
-        }
+  ASN1Encodable obj;
 
-        if (obj instanceof ASN1Integer)
-        {
-            ASN1Integer predefinedBiometricTypeObj = ASN1Integer.getInstance(obj);
-            int predefinedBiometricType = predefinedBiometricTypeObj.intValueExact();
+  public static TypeOfBiometricData getInstance(Object obj) {
+    if (obj == null || obj instanceof TypeOfBiometricData) {
+      return (TypeOfBiometricData) obj;
+    }
 
-            return new TypeOfBiometricData(predefinedBiometricType);
-        }
-        else if (obj instanceof ASN1ObjectIdentifier)
-        {
-            ASN1ObjectIdentifier BiometricDataID = ASN1ObjectIdentifier.getInstance(obj);
-            return new TypeOfBiometricData(BiometricDataID);
-        }
+    if (obj instanceof ASN1Integer) {
+      ASN1Integer predefinedBiometricTypeObj = ASN1Integer.getInstance(obj);
+      int predefinedBiometricType = predefinedBiometricTypeObj.intValueExact();
 
-        throw new IllegalArgumentException("unknown object in getInstance");
+      return new TypeOfBiometricData(predefinedBiometricType);
+    } else if (obj instanceof ASN1ObjectIdentifier) {
+      ASN1ObjectIdentifier BiometricDataID = ASN1ObjectIdentifier.getInstance(obj);
+      return new TypeOfBiometricData(BiometricDataID);
     }
-        
-    public TypeOfBiometricData(int predefinedBiometricType)
-    {
-        if (predefinedBiometricType == PICTURE || predefinedBiometricType == HANDWRITTEN_SIGNATURE)
-        {
-                obj = new ASN1Integer(predefinedBiometricType);
-        }
-        else
-        {
-            throw new IllegalArgumentException("unknow PredefinedBiometricType : " + predefinedBiometricType);
-        }        
+
+    throw new IllegalArgumentException("unknown object in getInstance");
+  }
+
+  public TypeOfBiometricData(int predefinedBiometricType) {
+    if (predefinedBiometricType == PICTURE || predefinedBiometricType == HANDWRITTEN_SIGNATURE) {
+      obj = new ASN1Integer(predefinedBiometricType);
+    } else {
+      throw new IllegalArgumentException(
+          "unknow PredefinedBiometricType : " + predefinedBiometricType);
     }
-    
-    public TypeOfBiometricData(ASN1ObjectIdentifier BiometricDataID)
-    {
-        obj = BiometricDataID;
-    }
-    
-    public boolean isPredefined()
-    {
-        return obj instanceof ASN1Integer;
-    }
-    
-    public int getPredefinedBiometricType()
-    {
-        return ((ASN1Integer)obj).intValueExact();
-    }
-    
-    public ASN1ObjectIdentifier getBiometricDataOid()
-    {
-        return (ASN1ObjectIdentifier)obj;
-    }
-    
-    public ASN1Primitive toASN1Primitive()
-    {        
-        return obj.toASN1Primitive();
-    }
+  }
+
+  public TypeOfBiometricData(ASN1ObjectIdentifier BiometricDataID) {
+    obj = BiometricDataID;
+  }
+
+  public boolean isPredefined() {
+    return obj instanceof ASN1Integer;
+  }
+
+  public int getPredefinedBiometricType() {
+    return ((ASN1Integer) obj).intValueExact();
+  }
+
+  public ASN1ObjectIdentifier getBiometricDataOid() {
+    return (ASN1ObjectIdentifier) obj;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    return obj.toASN1Primitive();
+  }
 }

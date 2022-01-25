@@ -6,23 +6,20 @@ import java.io.IOException;
  * Exception thrown on failure to generate a PEM object.
  */
 public class PemGenerationException
-    extends IOException
-{
-    private Throwable cause;
+    extends IOException {
 
-    public PemGenerationException(String message, Throwable cause)
-    {
-        super(message);
-        this.cause = cause;
-    }
+  private Throwable cause;
 
-    public PemGenerationException(String message)
-    {
-        super(message);
-    }
+  public PemGenerationException(String message, Throwable cause) {
+    super(message);
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public PemGenerationException(String message) {
+    super(message);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

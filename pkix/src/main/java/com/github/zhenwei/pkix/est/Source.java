@@ -10,17 +10,17 @@ import java.io.OutputStream;
  *
  * @param <T> Is the type of session that is returned. Eg For JSSE would be SSLSession.
  */
-public interface Source<T>
-{
-    InputStream getInputStream()
-        throws IOException;
+public interface Source<T> {
 
-    OutputStream getOutputStream()
-        throws IOException;
+  InputStream getInputStream()
+      throws IOException;
 
-    T getSession();
+  OutputStream getOutputStream()
+      throws IOException;
 
-    void close()
-        throws IOException;
+  T getSession();
+
+  void close()
+      throws IOException;
 
 }

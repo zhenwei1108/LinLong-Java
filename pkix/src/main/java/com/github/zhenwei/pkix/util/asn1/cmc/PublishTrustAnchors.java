@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.util.asn1.cmc;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -11,6 +10,7 @@ import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.util.Arrays;
+import java.math.BigInteger;
 
 /**
  * <pre>
@@ -23,81 +23,71 @@ import com.github.zhenwei.core.util.Arrays;
  * </pre>
  */
 public class PublishTrustAnchors
-    extends ASN1Object
-{
-    private final ASN1Integer seqNumber;
-    private final AlgorithmIdentifier hashAlgorithm;
-    private final ASN1Sequence anchorHashes;
+    extends ASN1Object {
 
-    public PublishTrustAnchors(BigInteger seqNumber, AlgorithmIdentifier hashAlgorithm, byte[][] anchorHashes)
-    {
-        this.seqNumber = new ASN1Integer(seqNumber);
-        this.hashAlgorithm = hashAlgorithm;
+  private final ASN1Integer seqNumber;
+  private final AlgorithmIdentifier hashAlgorithm;
+  private final ASN1Sequence anchorHashes;
 
-        ASN1EncodableVector v = new ASN1EncodableVector(anchorHashes.length);
-        for (int i = 0; i != anchorHashes.length; i++)
-        {
-             v.add(new DEROctetString(Arrays.clone(anchorHashes[i])));
-        }
-        this.anchorHashes = new DERSequence(v);
+  public PublishTrustAnchors(BigInteger seqNumber, AlgorithmIdentifier hashAlgorithm,
+      byte[][] anchorHashes) {
+    this.seqNumber = new ASN1Integer(seqNumber);
+    this.hashAlgorithm = hashAlgorithm;
+
+    ASN1EncodableVector v = new ASN1EncodableVector(anchorHashes.length);
+    for (int i = 0; i != anchorHashes.length; i++) {
+      v.add(new DEROctetString(Arrays.clone(anchorHashes[i])));
+    }
+    this.anchorHashes = new DERSequence(v);
+  }
+
+  private PublishTrustAnchors(ASN1Sequence seq) {
+    if (seq.size() != 3) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.seqNumber = ASN1Integer.getInstance(seq.getObjectAt(0));
+    this.hashAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+    this.anchorHashes = ASN1Sequence.getInstance(seq.getObjectAt(2));
+  }
+
+  public static PublishTrustAnchors getInstance(Object o) {
+    if (o instanceof PublishTrustAnchors) {
+      return (PublishTrustAnchors) o;
     }
 
-    private PublishTrustAnchors(ASN1Sequence seq)
-    {
-        if (seq.size() != 3)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.seqNumber = ASN1Integer.getInstance(seq.getObjectAt(0));
-        this.hashAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
-        this.anchorHashes = ASN1Sequence.getInstance(seq.getObjectAt(2));
+    if (o != null) {
+      return new PublishTrustAnchors(ASN1Sequence.getInstance(o));
     }
 
-    public static PublishTrustAnchors getInstance(Object o)
-    {
-        if (o instanceof PublishTrustAnchors)
-        {
-            return (PublishTrustAnchors)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new PublishTrustAnchors(ASN1Sequence.getInstance(o));
-        }
+  public BigInteger getSeqNumber() {
+    return seqNumber.getValue();
+  }
 
-        return null;
+  public AlgorithmIdentifier getHashAlgorithm() {
+    return hashAlgorithm;
+  }
+
+  public byte[][] getAnchorHashes() {
+    byte[][] hashes = new byte[anchorHashes.size()][];
+
+    for (int i = 0; i != hashes.length; i++) {
+      hashes[i] = Arrays.clone(
+          ASN1OctetString.getInstance(anchorHashes.getObjectAt(i)).getOctets());
     }
 
-    public BigInteger getSeqNumber()
-    {
-        return seqNumber.getValue();
-    }
+    return hashes;
+  }
 
-    public AlgorithmIdentifier getHashAlgorithm()
-    {
-        return hashAlgorithm;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-    public byte[][] getAnchorHashes()
-    {
-        byte[][] hashes = new byte[anchorHashes.size()][];
+    v.add(seqNumber);
+    v.add(hashAlgorithm);
+    v.add(anchorHashes);
 
-        for (int i = 0; i != hashes.length; i++)
-        {
-            hashes[i] = Arrays.clone(ASN1OctetString.getInstance(anchorHashes.getObjectAt(i)).getOctets());
-        }
-
-        return hashes;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        v.add(seqNumber);
-        v.add(hashAlgorithm);
-        v.add(anchorHashes);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

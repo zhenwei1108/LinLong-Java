@@ -8,44 +8,37 @@ import java.security.KeyStore.ProtectionParameter;
 /**
  * @deprecated use com.github.zhenwei.provider.jcajce.config.PKCS12StoreParameter
  */
-public class JDKPKCS12StoreParameter implements LoadStoreParameter
-{
-    private OutputStream outputStream;
-    private ProtectionParameter protectionParameter;
-    private boolean useDEREncoding;
+public class JDKPKCS12StoreParameter implements LoadStoreParameter {
 
-    public OutputStream getOutputStream()
-    {
-        return outputStream;
-    }
+  private OutputStream outputStream;
+  private ProtectionParameter protectionParameter;
+  private boolean useDEREncoding;
 
-    public ProtectionParameter getProtectionParameter()
-    {
-        return protectionParameter;
-    }
+  public OutputStream getOutputStream() {
+    return outputStream;
+  }
 
-    public boolean isUseDEREncoding()
-    {
-        return useDEREncoding;
-    }
+  public ProtectionParameter getProtectionParameter() {
+    return protectionParameter;
+  }
 
-    public void setOutputStream(OutputStream outputStream)
-    {
-        this.outputStream = outputStream;
-    }
+  public boolean isUseDEREncoding() {
+    return useDEREncoding;
+  }
 
-    public void setPassword(char[] password)
-    {
-        this.protectionParameter = new KeyStore.PasswordProtection(password);
-    }
+  public void setOutputStream(OutputStream outputStream) {
+    this.outputStream = outputStream;
+  }
 
-    public void setProtectionParameter(ProtectionParameter protectionParameter)
-    {
-        this.protectionParameter = protectionParameter;
-    }
+  public void setPassword(char[] password) {
+    this.protectionParameter = new KeyStore.PasswordProtection(password);
+  }
 
-    public void setUseDEREncoding(boolean useDEREncoding)
-    {
-        this.useDEREncoding = useDEREncoding;
-    }
+  public void setProtectionParameter(ProtectionParameter protectionParameter) {
+    this.protectionParameter = protectionParameter;
+  }
+
+  public void setUseDEREncoding(boolean useDEREncoding) {
+    this.useDEREncoding = useDEREncoding;
+  }
 }

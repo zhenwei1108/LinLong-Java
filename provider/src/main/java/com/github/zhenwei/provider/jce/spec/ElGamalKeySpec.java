@@ -3,18 +3,16 @@ package com.github.zhenwei.provider.jce.spec;
 import java.security.spec.KeySpec;
 
 public class ElGamalKeySpec
-    implements KeySpec
-{
-    private ElGamalParameterSpec  spec;
+    implements KeySpec {
 
-    public ElGamalKeySpec(
-        ElGamalParameterSpec  spec)
-    {
-        this.spec = spec;
-    }
+  private ElGamalParameterSpec spec;
 
-    public ElGamalParameterSpec getParams()
-    {
-        return spec;
-    }
+  public ElGamalKeySpec(
+      ElGamalParameterSpec spec) {
+    this.spec = spec;
+  }
+
+  public ElGamalParameterSpec getParams() {
+    return spec;
+  }
 }

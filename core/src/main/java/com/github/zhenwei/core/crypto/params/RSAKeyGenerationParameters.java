@@ -1,47 +1,42 @@
 package com.github.zhenwei.core.crypto.params;
 
+import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import com.github.zhenwei.core.crypto.KeyGenerationParameters;
 
 public class RSAKeyGenerationParameters
-    extends KeyGenerationParameters
-{
-    private BigInteger publicExponent;
-    private int certainty;
+    extends KeyGenerationParameters {
 
-    public RSAKeyGenerationParameters(
-        BigInteger      publicExponent,
-        SecureRandom    random,
-        int             strength,
-        int             certainty)
-    {
-        super(random, strength);
+  private BigInteger publicExponent;
+  private int certainty;
 
-        if (strength < 12)
-        {
-            throw new IllegalArgumentException("key strength too small");
-        }
+  public RSAKeyGenerationParameters(
+      BigInteger publicExponent,
+      SecureRandom random,
+      int strength,
+      int certainty) {
+    super(random, strength);
 
-        //
-        // public exponent cannot be even
-        //
-        if (!publicExponent.testBit(0)) 
-        {
-                throw new IllegalArgumentException("public exponent cannot be even");
-        }
-        
-        this.publicExponent = publicExponent;
-        this.certainty = certainty;
+    if (strength < 12) {
+      throw new IllegalArgumentException("key strength too small");
     }
 
-    public BigInteger getPublicExponent()
-    {
-        return publicExponent;
+    //
+    // public exponent cannot be even
+    //
+    if (!publicExponent.testBit(0)) {
+      throw new IllegalArgumentException("public exponent cannot be even");
     }
 
-    public int getCertainty()
-    {
-        return certainty;
-    }
+    this.publicExponent = publicExponent;
+    this.certainty = certainty;
+  }
+
+  public BigInteger getPublicExponent() {
+    return publicExponent;
+  }
+
+  public int getCertainty() {
+    return certainty;
+  }
 }

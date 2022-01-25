@@ -6,10 +6,9 @@ package com.github.zhenwei.pkix.tsp.ers;
  * {@see <a href="https://tools.ietf.org/html/rfc4998">RFC4998</a>}
  */
 public class ArchiveTimeStampValidationException
-    extends ERSException
-{
-    public ArchiveTimeStampValidationException(final String message)
-    {
-        super(message);
-    }
+    extends ERSException {
+
+  public ArchiveTimeStampValidationException(final String message) {
+    super(message);
+  }
 }

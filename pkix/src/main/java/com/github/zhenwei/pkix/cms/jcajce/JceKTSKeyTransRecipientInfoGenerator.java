@@ -1,114 +1,113 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.pkix.cert.jcajce.JcaX509CertificateHolder;
+import com.github.zhenwei.pkix.cms.KeyTransRecipientInfoGenerator;
+import com.github.zhenwei.pkix.operator.jcajce.JceAsymmetricKeyWrapper;
+import com.github.zhenwei.pkix.operator.jcajce.JceKTSKeyWrapper;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import java.io.IOException;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
-import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.pkix.cert.jcajce.JcaX509CertificateHolder;
-import com.github.zhenwei.pkix.cms.KeyTransRecipientInfoGenerator;
-import  com.github.zhenwei.pkix.operator.jcajce.JceAsymmetricKeyWrapper;
-import  com.github.zhenwei.pkix.operator.jcajce.JceKTSKeyWrapper;
-import com.github.zhenwei.core.util.encoders.Hex;
 
 public class JceKTSKeyTransRecipientInfoGenerator
-    extends KeyTransRecipientInfoGenerator
-{
-    private static final byte[] ANONYMOUS_SENDER = Hex.decode("0c14416e6f6e796d6f75732053656e64657220202020");   // "Anonymous Sender    "
+    extends KeyTransRecipientInfoGenerator {
 
-    private JceKTSKeyTransRecipientInfoGenerator(X509Certificate recipientCert, IssuerAndSerialNumber recipientID, String symmetricWrappingAlg, int keySizeInBits)
-        throws CertificateEncodingException
-    {
-        super(recipientID, new JceKTSKeyWrapper(recipientCert, symmetricWrappingAlg, keySizeInBits, ANONYMOUS_SENDER, getEncodedRecipID(recipientID)));
-    }
+  private static final byte[] ANONYMOUS_SENDER = Hex.decode(
+      "0c14416e6f6e796d6f75732053656e64657220202020");   // "Anonymous Sender    "
 
-    public JceKTSKeyTransRecipientInfoGenerator(X509Certificate recipientCert, String symmetricWrappingAlg, int keySizeInBits)
-        throws CertificateEncodingException
-    {
-        this(recipientCert, new IssuerAndSerialNumber(new JcaX509CertificateHolder(recipientCert).toASN1Structure()), symmetricWrappingAlg, keySizeInBits);
-    }
+  private JceKTSKeyTransRecipientInfoGenerator(X509Certificate recipientCert,
+      IssuerAndSerialNumber recipientID, String symmetricWrappingAlg, int keySizeInBits)
+      throws CertificateEncodingException {
+    super(recipientID,
+        new JceKTSKeyWrapper(recipientCert, symmetricWrappingAlg, keySizeInBits, ANONYMOUS_SENDER,
+            getEncodedRecipID(recipientID)));
+  }
 
-    public JceKTSKeyTransRecipientInfoGenerator(byte[] subjectKeyIdentifier, PublicKey publicKey, String symmetricWrappingAlg, int keySizeInBits)
-    {
-        super(subjectKeyIdentifier, new JceKTSKeyWrapper(publicKey, symmetricWrappingAlg, keySizeInBits, ANONYMOUS_SENDER, getEncodedSubKeyId(subjectKeyIdentifier)));
-    }
+  public JceKTSKeyTransRecipientInfoGenerator(X509Certificate recipientCert,
+      String symmetricWrappingAlg, int keySizeInBits)
+      throws CertificateEncodingException {
+    this(recipientCert,
+        new IssuerAndSerialNumber(new JcaX509CertificateHolder(recipientCert).toASN1Structure()),
+        symmetricWrappingAlg, keySizeInBits);
+  }
 
-    private static byte[] getEncodedRecipID(IssuerAndSerialNumber recipientID)
-        throws CertificateEncodingException
-    {
-        try
-        {
-            return recipientID.getEncoded(ASN1Encoding.DER);
+  public JceKTSKeyTransRecipientInfoGenerator(byte[] subjectKeyIdentifier, PublicKey publicKey,
+      String symmetricWrappingAlg, int keySizeInBits) {
+    super(subjectKeyIdentifier,
+        new JceKTSKeyWrapper(publicKey, symmetricWrappingAlg, keySizeInBits, ANONYMOUS_SENDER,
+            getEncodedSubKeyId(subjectKeyIdentifier)));
+  }
+
+  private static byte[] getEncodedRecipID(IssuerAndSerialNumber recipientID)
+      throws CertificateEncodingException {
+    try {
+      return recipientID.getEncoded(ASN1Encoding.DER);
+    } catch (final IOException e) {
+      throw new CertificateEncodingException(
+          "Cannot process extracted IssuerAndSerialNumber: " + e.getMessage()) {
+        public Throwable getCause() {
+          return e;
         }
-        catch (final IOException e)
-        {
-            throw new CertificateEncodingException("Cannot process extracted IssuerAndSerialNumber: " + e.getMessage())
-            {
-                public Throwable getCause()
-                {
-                    return e;
-                }
-            };
+      };
+    }
+  }
+
+  private static byte[] getEncodedSubKeyId(byte[] subjectKeyIdentifier) {
+    try {
+      return new DEROctetString(subjectKeyIdentifier).getEncoded();
+    } catch (final IOException e) {
+      throw new IllegalArgumentException(
+          "Cannot process subject key identifier: " + e.getMessage()) {
+        public Throwable getCause() {
+          return e;
         }
+      };
     }
+  }
 
-    private static byte[] getEncodedSubKeyId(byte[] subjectKeyIdentifier)
-    {
-        try
-        {
-            return new DEROctetString(subjectKeyIdentifier).getEncoded();
-        }
-        catch (final IOException e)
-        {
-            throw new IllegalArgumentException("Cannot process subject key identifier: " + e.getMessage())
-            {
-                public Throwable getCause()
-                {
-                    return e;
-                }
-            };
-        }
-    }
+  /**
+   * Create a generator overriding the algorithm type implied by the public key in the certificate
+   * passed in.
+   *
+   * @param recipientCert       certificate carrying the public key.
+   * @param algorithmIdentifier the identifier and parameters for the encryption algorithm to be
+   *                            used.
+   */
+  public JceKTSKeyTransRecipientInfoGenerator(X509Certificate recipientCert,
+      AlgorithmIdentifier algorithmIdentifier)
+      throws CertificateEncodingException {
+    super(new IssuerAndSerialNumber(new JcaX509CertificateHolder(recipientCert).toASN1Structure()),
+        new JceAsymmetricKeyWrapper(algorithmIdentifier, recipientCert.getPublicKey()));
+  }
 
-    /**
-     * Create a generator overriding the algorithm type implied by the public key in the certificate passed in.
-     *
-     * @param recipientCert       certificate carrying the public key.
-     * @param algorithmIdentifier the identifier and parameters for the encryption algorithm to be used.
-     */
-    public JceKTSKeyTransRecipientInfoGenerator(X509Certificate recipientCert, AlgorithmIdentifier algorithmIdentifier)
-        throws CertificateEncodingException
-    {
-        super(new IssuerAndSerialNumber(new JcaX509CertificateHolder(recipientCert).toASN1Structure()), new JceAsymmetricKeyWrapper(algorithmIdentifier, recipientCert.getPublicKey()));
-    }
+  /**
+   * Create a generator overriding the algorithm type implied by the public key passed in.
+   *
+   * @param subjectKeyIdentifier the subject key identifier value to associate with the public key.
+   * @param algorithmIdentifier  the identifier and parameters for the encryption algorithm to be
+   *                             used.
+   * @param publicKey            the public key to use.
+   */
+  public JceKTSKeyTransRecipientInfoGenerator(byte[] subjectKeyIdentifier,
+      AlgorithmIdentifier algorithmIdentifier, PublicKey publicKey) {
+    super(subjectKeyIdentifier, new JceAsymmetricKeyWrapper(algorithmIdentifier, publicKey));
+  }
 
-    /**
-     * Create a generator overriding the algorithm type implied by the public key passed in.
-     *
-     * @param subjectKeyIdentifier the subject key identifier value to associate with the public key.
-     * @param algorithmIdentifier  the identifier and parameters for the encryption algorithm to be used.
-     * @param publicKey            the public key to use.
-     */
-    public JceKTSKeyTransRecipientInfoGenerator(byte[] subjectKeyIdentifier, AlgorithmIdentifier algorithmIdentifier, PublicKey publicKey)
-    {
-        super(subjectKeyIdentifier, new JceAsymmetricKeyWrapper(algorithmIdentifier, publicKey));
-    }
+  public JceKTSKeyTransRecipientInfoGenerator setProvider(String providerName) {
+    ((JceKTSKeyWrapper) this.wrapper).setProvider(providerName);
 
-    public JceKTSKeyTransRecipientInfoGenerator setProvider(String providerName)
-    {
-        ((JceKTSKeyWrapper)this.wrapper).setProvider(providerName);
+    return this;
+  }
 
-        return this;
-    }
+  public JceKTSKeyTransRecipientInfoGenerator setProvider(Provider provider) {
+    ((JceKTSKeyWrapper) this.wrapper).setProvider(provider);
 
-    public JceKTSKeyTransRecipientInfoGenerator setProvider(Provider provider)
-    {
-        ((JceKTSKeyWrapper)this.wrapper).setProvider(provider);
-
-        return this;
-    }
+    return this;
+  }
 }

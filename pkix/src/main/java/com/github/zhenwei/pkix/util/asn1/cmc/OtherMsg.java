@@ -18,75 +18,65 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class OtherMsg
-    extends ASN1Object
-{
-    private final BodyPartID bodyPartID;
-    private final ASN1ObjectIdentifier otherMsgType;
-    private final ASN1Encodable otherMsgValue;
+    extends ASN1Object {
 
-    public OtherMsg(BodyPartID bodyPartID, ASN1ObjectIdentifier otherMsgType, ASN1Encodable otherMsgValue)
-    {
-        this.bodyPartID = bodyPartID;
-        this.otherMsgType = otherMsgType;
-        this.otherMsgValue = otherMsgValue;
+  private final BodyPartID bodyPartID;
+  private final ASN1ObjectIdentifier otherMsgType;
+  private final ASN1Encodable otherMsgValue;
+
+  public OtherMsg(BodyPartID bodyPartID, ASN1ObjectIdentifier otherMsgType,
+      ASN1Encodable otherMsgValue) {
+    this.bodyPartID = bodyPartID;
+    this.otherMsgType = otherMsgType;
+    this.otherMsgValue = otherMsgValue;
+  }
+
+  private OtherMsg(ASN1Sequence seq) {
+    if (seq.size() != 3) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.bodyPartID = BodyPartID.getInstance(seq.getObjectAt(0));
+    this.otherMsgType = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(1));
+    this.otherMsgValue = seq.getObjectAt(2);
+  }
+
+  public static OtherMsg getInstance(Object o) {
+    if (o instanceof OtherMsg) {
+      return (OtherMsg) o;
     }
 
-    private OtherMsg(ASN1Sequence seq)
-    {
-        if (seq.size() != 3)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.bodyPartID = BodyPartID.getInstance(seq.getObjectAt(0));
-        this.otherMsgType = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(1));
-        this.otherMsgValue = seq.getObjectAt(2);
+    if (o != null) {
+      return new OtherMsg(ASN1Sequence.getInstance(o));
     }
 
-    public static OtherMsg getInstance(Object o)
-    {
-        if (o instanceof OtherMsg)
-        {
-            return (OtherMsg)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new OtherMsg(ASN1Sequence.getInstance(o));
-        }
+  public static OtherMsg getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
 
-        return null;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-    public static OtherMsg getInstance(
-        ASN1TaggedObject obj,
-        boolean explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
-    }
+    v.add(bodyPartID);
+    v.add(otherMsgType);
+    v.add(otherMsgValue);
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
+    return new DERSequence(v);
+  }
 
-        v.add(bodyPartID);
-        v.add(otherMsgType);
-        v.add(otherMsgValue);
+  public BodyPartID getBodyPartID() {
+    return bodyPartID;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1ObjectIdentifier getOtherMsgType() {
+    return otherMsgType;
+  }
 
-    public BodyPartID getBodyPartID()
-    {
-        return bodyPartID;
-    }
-
-    public ASN1ObjectIdentifier getOtherMsgType()
-    {
-        return otherMsgType;
-    }
-
-    public ASN1Encodable getOtherMsgValue()
-    {
-        return otherMsgValue;
-    }
+  public ASN1Encodable getOtherMsgValue() {
+    return otherMsgValue;
+  }
 }

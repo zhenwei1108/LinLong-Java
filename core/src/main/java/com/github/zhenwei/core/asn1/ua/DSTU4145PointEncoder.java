@@ -1,74 +1,66 @@
 package com.github.zhenwei.core.asn1.ua;
 
-import java.math.BigInteger;
-import java.util.Random;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECPoint;
+import java.math.BigInteger;
+import java.util.Random;
 
 /**
- * DSTU4145 encodes points somewhat differently than X9.62
- * It compresses the point to the size of the field element
+ * DSTU4145 encodes points somewhat differently than X9.62 It compresses the point to the size of
+ * the field element
  */
-public abstract class DSTU4145PointEncoder
-{
-    private static ECFieldElement trace(ECFieldElement fe)
-    {
-        ECFieldElement t = fe;
-        for (int i = 1; i < fe.getFieldSize(); ++i)
-        {
-            t = t.square().add(fe);
-        }
-        return t;
+public abstract class DSTU4145PointEncoder {
+
+  private static ECFieldElement trace(ECFieldElement fe) {
+    ECFieldElement t = fe;
+    for (int i = 1; i < fe.getFieldSize(); ++i) {
+      t = t.square().add(fe);
+    }
+    return t;
+  }
+
+  /**
+   * Solves a quadratic equation <code>z<sup>2</sup> + z = beta</code>(X9.62 D.1.6) The other
+   * solution is <code>z + 1</code>.
+   *
+   * @param beta The value to solve the quadratic equation for.
+   * @return the solution for <code>z<sup>2</sup> + z = beta</code> or
+   * <code>null</code> if no solution exists.
+   */
+  private static ECFieldElement solveQuadraticEquation(ECCurve curve, ECFieldElement beta) {
+    if (beta.isZero()) {
+      return beta;
     }
 
-    /**
-     * Solves a quadratic equation <code>z<sup>2</sup> + z = beta</code>(X9.62
-     * D.1.6) The other solution is <code>z + 1</code>.
-     *
-     * @param beta The value to solve the quadratic equation for.
-     * @return the solution for <code>z<sup>2</sup> + z = beta</code> or
-     *         <code>null</code> if no solution exists.
-     */
-    private static ECFieldElement solveQuadraticEquation(ECCurve curve, ECFieldElement beta)
-    {
-        if (beta.isZero())
-        {
-            return beta;
-        }
+    ECFieldElement zeroElement = curve.fromBigInteger(ECConstants.ZERO);
 
-        ECFieldElement zeroElement = curve.fromBigInteger(ECConstants.ZERO);
+    ECFieldElement z = null;
+    ECFieldElement gamma = null;
 
-        ECFieldElement z = null;
-        ECFieldElement gamma = null;
-
-        Random rand = new Random();
-        int m = beta.getFieldSize();
-        do
-        {
-            ECFieldElement t = curve.fromBigInteger(new BigInteger(m, rand));
-            z = zeroElement;
-            ECFieldElement w = beta;
-            for (int i = 1; i <= m - 1; i++)
-            {
-                ECFieldElement w2 = w.square();
-                z = z.square().add(w2.multiply(t));
-                w = w2.add(beta);
-            }
-            if (!w.isZero())
-            {
-                return null;
-            }
-            gamma = z.square().add(z);
-        }
-        while (gamma.isZero());
-
-        return z;
+    Random rand = new Random();
+    int m = beta.getFieldSize();
+    do {
+      ECFieldElement t = curve.fromBigInteger(new BigInteger(m, rand));
+      z = zeroElement;
+      ECFieldElement w = beta;
+      for (int i = 1; i <= m - 1; i++) {
+        ECFieldElement w2 = w.square();
+        z = z.square().add(w2.multiply(t));
+        w = w2.add(beta);
+      }
+      if (!w.isZero()) {
+        return null;
+      }
+      gamma = z.square().add(z);
     }
+    while (gamma.isZero());
 
-    public static byte[] encodePoint(ECPoint Q)
-    {
+    return z;
+  }
+
+  public static byte[] encodePoint(ECPoint Q) {
         /*if (!Q.isCompressed())
               Q=new ECPoint.F2m(Q.getCurve(),Q.getX(),Q.getY(),true);
 
@@ -81,30 +73,25 @@ public abstract class DSTU4145PointEncoder
 
           return Arrays.copyOfRange(bytes, 1, bytes.length);*/
 
-        Q = Q.normalize();
+    Q = Q.normalize();
 
-        ECFieldElement x = Q.getAffineXCoord();
+    ECFieldElement x = Q.getAffineXCoord();
 
-        byte[] bytes = x.getEncoded();
+    byte[] bytes = x.getEncoded();
 
-        if (!x.isZero())
-        {
-            ECFieldElement z = Q.getAffineYCoord().divide(x);
-            if (trace(z).isOne())
-            {
-                bytes[bytes.length - 1] |= 0x01;
-            }
-            else
-            {
-                bytes[bytes.length - 1] &= 0xFE;
-            }
-        }
-
-        return bytes;
+    if (!x.isZero()) {
+      ECFieldElement z = Q.getAffineYCoord().divide(x);
+      if (trace(z).isOne()) {
+        bytes[bytes.length - 1] |= 0x01;
+      } else {
+        bytes[bytes.length - 1] &= 0xFE;
+      }
     }
 
-    public static ECPoint decodePoint(ECCurve curve, byte[] bytes)
-    {
+    return bytes;
+  }
+
+  public static ECPoint decodePoint(ECCurve curve, byte[] bytes) {
         /*byte[] bp_enc=new byte[bytes.length+1];
           if (0==(bytes[bytes.length-1]&0x1))
               bp_enc[0]=0x02;
@@ -116,38 +103,31 @@ public abstract class DSTU4145PointEncoder
 
           return curve.decodePoint(bp_enc);*/
 
-        ECFieldElement k = curve.fromBigInteger(BigInteger.valueOf(bytes[bytes.length - 1] & 0x1));
+    ECFieldElement k = curve.fromBigInteger(BigInteger.valueOf(bytes[bytes.length - 1] & 0x1));
 
-        ECFieldElement xp = curve.fromBigInteger(new BigInteger(1, bytes));
-        if (!trace(xp).equals(curve.getA()))
-        {
-            xp = xp.addOne();
-        }
-
-        ECFieldElement yp = null;
-        if (xp.isZero())
-        {
-            yp = curve.getB().sqrt();
-        }
-        else
-        {
-            ECFieldElement beta = xp.square().invert().multiply(curve.getB()).add(curve.getA()).add(xp);
-            ECFieldElement z = solveQuadraticEquation(curve, beta);
-            if (z != null)
-            {
-                if (!trace(z).equals(k))
-                {
-                    z = z.addOne();
-                }
-                yp = xp.multiply(z);
-            }
-        }
-
-        if (yp == null)
-        {
-            throw new IllegalArgumentException("Invalid point compression");
-        }
-
-        return curve.validatePoint(xp.toBigInteger(), yp.toBigInteger());
+    ECFieldElement xp = curve.fromBigInteger(new BigInteger(1, bytes));
+    if (!trace(xp).equals(curve.getA())) {
+      xp = xp.addOne();
     }
+
+    ECFieldElement yp = null;
+    if (xp.isZero()) {
+      yp = curve.getB().sqrt();
+    } else {
+      ECFieldElement beta = xp.square().invert().multiply(curve.getB()).add(curve.getA()).add(xp);
+      ECFieldElement z = solveQuadraticEquation(curve, beta);
+      if (z != null) {
+        if (!trace(z).equals(k)) {
+          z = z.addOne();
+        }
+        yp = xp.multiply(z);
+      }
+    }
+
+    if (yp == null) {
+      throw new IllegalArgumentException("Invalid point compression");
+    }
+
+    return curve.validatePoint(xp.toBigInteger(), yp.toBigInteger());
+  }
 }

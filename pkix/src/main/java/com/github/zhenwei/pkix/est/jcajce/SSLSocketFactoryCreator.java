@@ -6,10 +6,10 @@ import javax.net.ssl.SSLSocketFactory;
 /**
  * Implementations provide SSL socket factories.
  */
-public interface SSLSocketFactoryCreator
-{
-    SSLSocketFactory createFactory()
-        throws Exception;
+public interface SSLSocketFactoryCreator {
 
-    boolean isTrusted();
+  SSLSocketFactory createFactory()
+      throws Exception;
+
+  boolean isTrusted();
 }

@@ -4,29 +4,25 @@ import com.github.zhenwei.provider.jce.exception.ExtException;
 
 public class AnnotatedException
     extends Exception
-    implements ExtException
-{
-    private Throwable _underlyingException;
+    implements ExtException {
 
-    public AnnotatedException(String string, Throwable e)
-    {
-        super(string);
+  private Throwable _underlyingException;
 
-        _underlyingException = e;
-    }
+  public AnnotatedException(String string, Throwable e) {
+    super(string);
 
-    public AnnotatedException(String string)
-    {
-        this(string, null);
-    }
+    _underlyingException = e;
+  }
 
-    Throwable getUnderlyingException()
-    {
-        return _underlyingException;
-    }
+  public AnnotatedException(String string) {
+    this(string, null);
+  }
 
-    public Throwable getCause()
-    {
-        return _underlyingException;
-    }
+  Throwable getUnderlyingException() {
+    return _underlyingException;
+  }
+
+  public Throwable getCause() {
+    return _underlyingException;
+  }
 }

@@ -4,22 +4,20 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
 
 public class McElieceKeyParameters
-    extends AsymmetricKeyParameter
-{
-    private McElieceParameters params;
+    extends AsymmetricKeyParameter {
 
-    public McElieceKeyParameters(
-        boolean isPrivate,
-        McElieceParameters params)
-    {
-        super(isPrivate);
-        this.params = params;
-    }
+  private McElieceParameters params;
+
+  public McElieceKeyParameters(
+      boolean isPrivate,
+      McElieceParameters params) {
+    super(isPrivate);
+    this.params = params;
+  }
 
 
-    public McElieceParameters getParameters()
-    {
-        return params;
-    }
+  public McElieceParameters getParameters() {
+    return params;
+  }
 
 }

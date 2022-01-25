@@ -7,39 +7,35 @@ import com.github.zhenwei.core.util.Arrays;
  * parameters for using an integrated cipher in stream mode.
  */
 public class IESParameters
-    implements CipherParameters
-{
-    private byte[]  derivation;
-    private byte[]  encoding;
-    private int     macKeySize;
+    implements CipherParameters {
 
-    /**
-     * @param derivation the derivation parameter for the KDF function.
-     * @param encoding the encoding parameter for the KDF function.
-     * @param macKeySize the size of the MAC key (in bits).
-     */
-    public IESParameters(
-        byte[]  derivation,
-        byte[]  encoding,
-        int     macKeySize)
-    {
-        this.derivation = Arrays.clone(derivation);
-        this.encoding = Arrays.clone(encoding);
-        this.macKeySize = macKeySize;
-    }
+  private byte[] derivation;
+  private byte[] encoding;
+  private int macKeySize;
 
-    public byte[] getDerivationV()
-    {
-        return Arrays.clone(derivation);
-    }
+  /**
+   * @param derivation the derivation parameter for the KDF function.
+   * @param encoding   the encoding parameter for the KDF function.
+   * @param macKeySize the size of the MAC key (in bits).
+   */
+  public IESParameters(
+      byte[] derivation,
+      byte[] encoding,
+      int macKeySize) {
+    this.derivation = Arrays.clone(derivation);
+    this.encoding = Arrays.clone(encoding);
+    this.macKeySize = macKeySize;
+  }
 
-    public byte[] getEncodingV()
-    {
-        return Arrays.clone(encoding);
-    }
+  public byte[] getDerivationV() {
+    return Arrays.clone(derivation);
+  }
 
-    public int getMacKeySize()
-    {
-        return macKeySize;
-    }
+  public byte[] getEncodingV() {
+    return Arrays.clone(encoding);
+  }
+
+  public int getMacKeySize() {
+    return macKeySize;
+  }
 }

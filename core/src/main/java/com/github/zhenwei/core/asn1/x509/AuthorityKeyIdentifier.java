@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import java.math.BigInteger;
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -15,6 +13,8 @@ import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.digests.SHA1Digest;
 import com.github.zhenwei.core.util.encoders.Hex;
+import java.math.BigInteger;
+import java.util.Enumeration;
 
 /**
  * The AuthorityKeyIdentifier object.
@@ -28,197 +28,174 @@ import com.github.zhenwei.core.util.encoders.Hex;
  *
  *   KeyIdentifier ::= OCTET STRING
  * </pre>
- *
  */
 public class AuthorityKeyIdentifier
-    extends ASN1Object
-{
-    ASN1OctetString keyidentifier = null;
-    GeneralNames certissuer = null;
-    ASN1Integer certserno = null;
+    extends ASN1Object {
 
-    public static AuthorityKeyIdentifier getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  ASN1OctetString keyidentifier = null;
+  GeneralNames certissuer = null;
+  ASN1Integer certserno = null;
+
+  public static AuthorityKeyIdentifier getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static AuthorityKeyIdentifier getInstance(
+      Object obj) {
+    if (obj instanceof AuthorityKeyIdentifier) {
+      return (AuthorityKeyIdentifier) obj;
+    }
+    if (obj != null) {
+      return new AuthorityKeyIdentifier(ASN1Sequence.getInstance(obj));
     }
 
-    public static AuthorityKeyIdentifier getInstance(
-        Object  obj)
-    {
-        if (obj instanceof AuthorityKeyIdentifier)
-        {
-            return (AuthorityKeyIdentifier)obj;
-        }
-        if (obj != null)
-        {
-            return new AuthorityKeyIdentifier(ASN1Sequence.getInstance(obj));
-        }
+    return null;
+  }
 
-        return null;
+  public static AuthorityKeyIdentifier fromExtensions(Extensions extensions) {
+    return getInstance(
+        Extensions.getExtensionParsedValue(extensions, Extension.authorityKeyIdentifier));
+  }
+
+  protected AuthorityKeyIdentifier(
+      ASN1Sequence seq) {
+    Enumeration e = seq.getObjects();
+
+    while (e.hasMoreElements()) {
+      ASN1TaggedObject o = ASN1TaggedObject.getInstance(e.nextElement());
+
+      switch (o.getTagNo()) {
+        case 0:
+          this.keyidentifier = ASN1OctetString.getInstance(o, false);
+          break;
+        case 1:
+          this.certissuer = GeneralNames.getInstance(o, false);
+          break;
+        case 2:
+          this.certserno = ASN1Integer.getInstance(o, false);
+          break;
+        default:
+          throw new IllegalArgumentException("illegal tag");
+      }
+    }
+  }
+
+  /**
+   * Calulates the keyidentifier using a SHA1 hash over the BIT STRING from SubjectPublicKeyInfo as
+   * defined in RFC2459.
+   * <p>
+   * Example of making a AuthorityKeyIdentifier:
+   * <pre>
+   *   SubjectPublicKeyInfo apki = new SubjectPublicKeyInfo((ASN1Sequence)new ASN1InputStream(
+   *       publicKey.getEncoded()).readObject());
+   *   AuthorityKeyIdentifier aki = new AuthorityKeyIdentifier(apki);
+   * </pre>
+   *
+   * @deprecated create the extension using com.github.zhenwei.pkix.cert.X509ExtensionUtils
+   **/
+  public AuthorityKeyIdentifier(
+      SubjectPublicKeyInfo spki) {
+    this(spki, null, null);
+  }
+
+  /**
+   * create an AuthorityKeyIdentifier with the GeneralNames tag and the serial number provided as
+   * well.
+   *
+   * @deprecated create the extension using com.github.zhenwei.pkix.cert.X509ExtensionUtils
+   */
+  public AuthorityKeyIdentifier(
+      SubjectPublicKeyInfo spki,
+      GeneralNames name,
+      BigInteger serialNumber) {
+    Digest digest = new SHA1Digest();
+    byte[] resBuf = new byte[digest.getDigestSize()];
+
+    byte[] bytes = spki.getPublicKeyData().getBytes();
+    digest.update(bytes, 0, bytes.length);
+    digest.doFinal(resBuf, 0);
+
+    this.keyidentifier = new DEROctetString(resBuf);
+    this.certissuer = name;
+    this.certserno = (serialNumber != null) ? new ASN1Integer(serialNumber) : null;
+  }
+
+  /**
+   * create an AuthorityKeyIdentifier with the GeneralNames tag and the serial number provided.
+   */
+  public AuthorityKeyIdentifier(
+      GeneralNames name,
+      BigInteger serialNumber) {
+    this((byte[]) null, name, serialNumber);
+  }
+
+  /**
+   * create an AuthorityKeyIdentifier with a precomputed key identifier
+   */
+  public AuthorityKeyIdentifier(
+      byte[] keyIdentifier) {
+    this(keyIdentifier, null, null);
+  }
+
+  /**
+   * create an AuthorityKeyIdentifier with a precomputed key identifier and the GeneralNames tag and
+   * the serial number provided as well.
+   */
+  public AuthorityKeyIdentifier(
+      byte[] keyIdentifier,
+      GeneralNames name,
+      BigInteger serialNumber) {
+    this.keyidentifier = (keyIdentifier != null) ? new DEROctetString(keyIdentifier) : null;
+    this.certissuer = name;
+    this.certserno = (serialNumber != null) ? new ASN1Integer(serialNumber) : null;
+  }
+
+  public byte[] getKeyIdentifier() {
+    if (keyidentifier != null) {
+      return keyidentifier.getOctets();
     }
 
-    public static AuthorityKeyIdentifier fromExtensions(Extensions extensions)
-    {
-        return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.authorityKeyIdentifier));
+    return null;
+  }
+
+  public GeneralNames getAuthorityCertIssuer() {
+    return certissuer;
+  }
+
+  public BigInteger getAuthorityCertSerialNumber() {
+    if (certserno != null) {
+      return certserno.getValue();
     }
 
-    protected AuthorityKeyIdentifier(
-        ASN1Sequence   seq)
-    {
-        Enumeration     e = seq.getObjects();
+    return null;
+  }
 
-        while (e.hasMoreElements())
-        {
-            ASN1TaggedObject o = ASN1TaggedObject.getInstance(e.nextElement());
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-            switch (o.getTagNo())
-            {
-            case 0:
-                this.keyidentifier = ASN1OctetString.getInstance(o, false);
-                break;
-            case 1:
-                this.certissuer = GeneralNames.getInstance(o, false);
-                break;
-            case 2:
-                this.certserno = ASN1Integer.getInstance(o, false);
-                break;
-            default:
-                throw new IllegalArgumentException("illegal tag");
-            }
-        }
+    if (keyidentifier != null) {
+      v.add(new DERTaggedObject(false, 0, keyidentifier));
     }
 
-    /**
-     *
-     * Calulates the keyidentifier using a SHA1 hash over the BIT STRING
-     * from SubjectPublicKeyInfo as defined in RFC2459.
-     *
-     * Example of making a AuthorityKeyIdentifier:
-     * <pre>
-     *   SubjectPublicKeyInfo apki = new SubjectPublicKeyInfo((ASN1Sequence)new ASN1InputStream(
-     *       publicKey.getEncoded()).readObject());
-     *   AuthorityKeyIdentifier aki = new AuthorityKeyIdentifier(apki);
-     * </pre>
-     * @deprecated create the extension using com.github.zhenwei.pkix.cert.X509ExtensionUtils
-     **/
-    public AuthorityKeyIdentifier(
-        SubjectPublicKeyInfo    spki)
-    {
-        this(spki, null, null);
+    if (certissuer != null) {
+      v.add(new DERTaggedObject(false, 1, certissuer));
     }
 
-    /**
-     * create an AuthorityKeyIdentifier with the GeneralNames tag and
-     * the serial number provided as well.
-     * @deprecated create the extension using com.github.zhenwei.pkix.cert.X509ExtensionUtils
-     */
-    public AuthorityKeyIdentifier(
-        SubjectPublicKeyInfo    spki,
-        GeneralNames            name,
-        BigInteger              serialNumber)
-    {
-        Digest  digest = new SHA1Digest();
-        byte[]  resBuf = new byte[digest.getDigestSize()];
-
-        byte[] bytes = spki.getPublicKeyData().getBytes();
-        digest.update(bytes, 0, bytes.length);
-        digest.doFinal(resBuf, 0);
-
-        this.keyidentifier = new DEROctetString(resBuf);
-        this.certissuer = name;
-        this.certserno = (serialNumber != null) ? new ASN1Integer(serialNumber) : null;
+    if (certserno != null) {
+      v.add(new DERTaggedObject(false, 2, certserno));
     }
 
-    /**
-     * create an AuthorityKeyIdentifier with the GeneralNames tag and
-     * the serial number provided.
-     */
-    public AuthorityKeyIdentifier(
-        GeneralNames            name,
-        BigInteger              serialNumber)
-    {
-        this((byte[])null, name, serialNumber);
-    }
+    return new DERSequence(v);
+  }
 
-    /**
-      * create an AuthorityKeyIdentifier with a precomputed key identifier
-      */
-     public AuthorityKeyIdentifier(
-         byte[]                  keyIdentifier)
-     {
-         this(keyIdentifier, null, null);
-     }
+  public String toString() {
+    String keyID = (keyidentifier != null) ? Hex.toHexString(keyidentifier.getOctets()) : "null";
 
-    /**
-     * create an AuthorityKeyIdentifier with a precomputed key identifier
-     * and the GeneralNames tag and the serial number provided as well.
-     */
-    public AuthorityKeyIdentifier(
-        byte[]                  keyIdentifier,
-        GeneralNames            name,
-        BigInteger              serialNumber)
-    {
-        this.keyidentifier = (keyIdentifier != null) ? new DEROctetString(keyIdentifier) : null;
-        this.certissuer = name;
-        this.certserno = (serialNumber != null) ? new ASN1Integer(serialNumber) : null;
-    }
-    
-    public byte[] getKeyIdentifier()
-    {
-        if (keyidentifier != null)
-        {
-            return keyidentifier.getOctets();
-        }
-
-        return null;
-    }
-
-    public GeneralNames getAuthorityCertIssuer()
-    {
-        return certissuer;
-    }
-    
-    public BigInteger getAuthorityCertSerialNumber()
-    {
-        if (certserno != null)
-        {
-            return certserno.getValue();
-        }
-        
-        return null;
-    }
-    
-    /**
-     * Produce an object suitable for an ASN1OutputStream.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
-
-        if (keyidentifier != null)
-        {
-            v.add(new DERTaggedObject(false, 0, keyidentifier));
-        }
-
-        if (certissuer != null)
-        {
-            v.add(new DERTaggedObject(false, 1, certissuer));
-        }
-
-        if (certserno != null)
-        {
-            v.add(new DERTaggedObject(false, 2, certserno));
-        }
-
-        return new DERSequence(v);
-    }
-
-    public String toString()
-    {
-        String keyID = (keyidentifier != null) ? Hex.toHexString(keyidentifier.getOctets()) : "null";
-
-        return "AuthorityKeyIdentifier: KeyID(" + keyID + ")";
-    }
+    return "AuthorityKeyIdentifier: KeyID(" + keyID + ")";
+  }
 }

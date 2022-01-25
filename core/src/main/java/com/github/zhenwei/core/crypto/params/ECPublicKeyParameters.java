@@ -3,21 +3,19 @@ package com.github.zhenwei.core.crypto.params;
 import com.github.zhenwei.core.math.ec.ECPoint;
 
 public class ECPublicKeyParameters
-    extends ECKeyParameters
-{
-    private final ECPoint q;
+    extends ECKeyParameters {
 
-    public ECPublicKeyParameters(
-        ECPoint             q,
-        ECDomainParameters  parameters)
-    {
-        super(false, parameters);
+  private final ECPoint q;
 
-        this.q = parameters.validatePublicPoint(q);
-    }
+  public ECPublicKeyParameters(
+      ECPoint q,
+      ECDomainParameters parameters) {
+    super(false, parameters);
 
-    public ECPoint getQ()
-    {
-        return q;
-    }
+    this.q = parameters.validatePublicPoint(q);
+  }
+
+  public ECPoint getQ() {
+    return q;
+  }
 }

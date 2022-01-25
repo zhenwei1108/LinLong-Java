@@ -1,8 +1,8 @@
 package com.github.zhenwei.provider.jcajce.interfaces;
 
-public interface XMSSKey
-{
-    int getHeight();
+public interface XMSSKey {
 
-    String getTreeDigest();
+  int getHeight();
+
+  String getTreeDigest();
 }

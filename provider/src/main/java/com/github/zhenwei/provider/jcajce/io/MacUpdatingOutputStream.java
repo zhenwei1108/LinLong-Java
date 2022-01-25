@@ -5,30 +5,26 @@ import java.io.OutputStream;
 import javax.crypto.Mac;
 
 class MacUpdatingOutputStream
-    extends OutputStream
-{
-    private Mac mac;
+    extends OutputStream {
 
-    MacUpdatingOutputStream(Mac mac)
-    {
-        this.mac = mac;
-    }
+  private Mac mac;
 
-    public void write(byte[] bytes, int off, int len)
-        throws IOException
-    {
-        mac.update(bytes, off, len);
-    }
+  MacUpdatingOutputStream(Mac mac) {
+    this.mac = mac;
+  }
 
-    public void write(byte[] bytes)
-        throws IOException
-    {
-        mac.update(bytes);
-    }
+  public void write(byte[] bytes, int off, int len)
+      throws IOException {
+    mac.update(bytes, off, len);
+  }
 
-    public void write(int b)
-        throws IOException
-    {
-        mac.update((byte)b);
-    }
+  public void write(byte[] bytes)
+      throws IOException {
+    mac.update(bytes);
+  }
+
+  public void write(int b)
+      throws IOException {
+    mac.update((byte) b);
+  }
 }

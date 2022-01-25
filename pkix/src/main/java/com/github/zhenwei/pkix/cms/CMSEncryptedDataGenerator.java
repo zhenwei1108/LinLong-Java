@@ -1,24 +1,24 @@
 package com.github.zhenwei.pkix.cms;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collections;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.BEROctetString;
 import com.github.zhenwei.core.asn1.BERSet;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.OutputEncryptor;
 import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
 import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
 import com.github.zhenwei.pkix.util.asn1.cms.EncryptedContentInfo;
 import com.github.zhenwei.pkix.util.asn1.cms.EncryptedData;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.pkix.operator.OutputEncryptor;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Collections;
 
 /**
  * General class for generating a CMS encrypted-data message.
- *
+ * <p>
  * A simple example of usage.
  *
  * <pre>
@@ -34,75 +34,68 @@ import  com.github.zhenwei.pkix.operator.OutputEncryptor;
  * </pre>
  */
 public class CMSEncryptedDataGenerator
-    extends CMSEncryptedGenerator
-{
-    /**
-     * base constructor
-     */
-    public CMSEncryptedDataGenerator()
-    {
+    extends CMSEncryptedGenerator {
+
+  /**
+   * base constructor
+   */
+  public CMSEncryptedDataGenerator() {
+  }
+
+  private CMSEncryptedData doGenerate(
+      CMSTypedData content,
+      OutputEncryptor contentEncryptor)
+      throws CMSException {
+    AlgorithmIdentifier encAlgId;
+    ASN1OctetString encContent;
+
+    ByteArrayOutputStream bOut = new ByteArrayOutputStream();
+
+    try {
+      OutputStream cOut = contentEncryptor.getOutputStream(bOut);
+
+      content.write(cOut);
+
+      cOut.close();
+    } catch (IOException e) {
+      throw new CMSException("");
     }
 
-    private CMSEncryptedData doGenerate(
-        CMSTypedData content,
-        OutputEncryptor contentEncryptor)
-        throws CMSException
-    {
-        AlgorithmIdentifier     encAlgId;
-        ASN1OctetString         encContent;
+    byte[] encryptedContent = bOut.toByteArray();
 
-        ByteArrayOutputStream bOut = new ByteArrayOutputStream();
+    encAlgId = contentEncryptor.getAlgorithmIdentifier();
 
-        try
-        {
-            OutputStream cOut = contentEncryptor.getOutputStream(bOut);
+    encContent = new BEROctetString(encryptedContent);
 
-            content.write(cOut);
+    EncryptedContentInfo eci = new EncryptedContentInfo(
+        content.getContentType(),
+        encAlgId,
+        encContent);
 
-            cOut.close();
-        }
-        catch (IOException e)
-        {
-            throw new CMSException("");
-        }
+    ASN1Set unprotectedAttrSet = null;
+    if (unprotectedAttributeGenerator != null) {
+      AttributeTable attrTable = unprotectedAttributeGenerator.getAttributes(Collections.EMPTY_MAP);
 
-        byte[] encryptedContent = bOut.toByteArray();
-
-        encAlgId = contentEncryptor.getAlgorithmIdentifier();
-
-        encContent = new BEROctetString(encryptedContent);
-
-        EncryptedContentInfo  eci = new EncryptedContentInfo(
-                        content.getContentType(),
-                        encAlgId,
-                        encContent);
-
-        ASN1Set unprotectedAttrSet = null;
-        if (unprotectedAttributeGenerator != null)
-        {
-            AttributeTable attrTable = unprotectedAttributeGenerator.getAttributes(Collections.EMPTY_MAP);
-
-            unprotectedAttrSet = new BERSet(attrTable.toASN1EncodableVector());
-        }
-
-        ContentInfo contentInfo = new ContentInfo(
-                CMSObjectIdentifiers.encryptedData,
-                new EncryptedData(eci, unprotectedAttrSet));
-
-        return new CMSEncryptedData(contentInfo);
+      unprotectedAttrSet = new BERSet(attrTable.toASN1EncodableVector());
     }
 
-    /**
-     * generate an encrypted object that contains an CMS Encrypted Data structure.
-     *
-     * @param content the content to be encrypted
-     * @param contentEncryptor the symmetric key based encryptor to encrypt the content with.
-     */
-    public CMSEncryptedData generate(
-        CMSTypedData content,
-        OutputEncryptor contentEncryptor)
-        throws CMSException
-    {
-        return doGenerate(content, contentEncryptor);
-    }
+    ContentInfo contentInfo = new ContentInfo(
+        CMSObjectIdentifiers.encryptedData,
+        new EncryptedData(eci, unprotectedAttrSet));
+
+    return new CMSEncryptedData(contentInfo);
+  }
+
+  /**
+   * generate an encrypted object that contains an CMS Encrypted Data structure.
+   *
+   * @param content          the content to be encrypted
+   * @param contentEncryptor the symmetric key based encryptor to encrypt the content with.
+   */
+  public CMSEncryptedData generate(
+      CMSTypedData content,
+      OutputEncryptor contentEncryptor)
+      throws CMSException {
+    return doGenerate(content, contentEncryptor);
+  }
 }

@@ -7,23 +7,20 @@ package com.github.zhenwei.pkix.tsp.ers;
  */
 
 public class ERSException
-    extends Exception
-{
-    private final Throwable cause;
+    extends Exception {
 
-    public ERSException(final String message)
-    {
-        this(message, null);
-    }
+  private final Throwable cause;
 
-    public ERSException(final String message, Throwable cause)
-    {
-        super(message);
-        this.cause = cause;
-    }
+  public ERSException(final String message) {
+    this(message, null);
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public ERSException(final String message, Throwable cause) {
+    super(message);
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

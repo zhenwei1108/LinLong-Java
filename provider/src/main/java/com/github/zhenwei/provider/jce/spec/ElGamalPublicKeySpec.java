@@ -8,26 +8,24 @@ import java.math.BigInteger;
  * @see ElGamalPrivateKeySpec
  */
 public class ElGamalPublicKeySpec
-    extends ElGamalKeySpec
-{
-    private BigInteger  y;
+    extends ElGamalKeySpec {
 
-    public ElGamalPublicKeySpec(
-        BigInteger              y,
-        ElGamalParameterSpec    spec)
-    {
-        super(spec);
+  private BigInteger y;
 
-        this.y = y;
-    }
+  public ElGamalPublicKeySpec(
+      BigInteger y,
+      ElGamalParameterSpec spec) {
+    super(spec);
 
-    /**
-     * Returns the public value <code>y</code>.
-     *
-     * @return the public value <code>y</code>
-     */
-    public BigInteger getY()
-    {
-        return y;
-    }
+    this.y = y;
+  }
+
+  /**
+   * Returns the public value <code>y</code>.
+   *
+   * @return the public value <code>y</code>
+   */
+  public BigInteger getY() {
+    return y;
+  }
 }

@@ -1,11 +1,11 @@
 package com.github.zhenwei.core.crypto;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import java.io.IOException;
 import java.io.InputStream;
-import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 
-public interface KeyParser
-{
-    AsymmetricKeyParameter readKey(InputStream stream)
-        throws IOException;
+public interface KeyParser {
+
+  AsymmetricKeyParameter readKey(InputStream stream)
+      throws IOException;
 }

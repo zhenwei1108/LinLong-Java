@@ -1,27 +1,24 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
 public class OCSPException
-    extends Exception
-{
-    private Throwable   cause;
+    extends Exception {
 
-    public OCSPException(
-        String name)
-    {
-        super(name);
-    }
+  private Throwable cause;
 
-    public OCSPException(
-        String name,
-        Throwable cause)
-    {
-        super(name);
+  public OCSPException(
+      String name) {
+    super(name);
+  }
 
-        this.cause = cause;
-    }
+  public OCSPException(
+      String name,
+      Throwable cause) {
+    super(name);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

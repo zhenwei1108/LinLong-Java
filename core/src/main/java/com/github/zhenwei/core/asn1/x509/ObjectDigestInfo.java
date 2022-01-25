@@ -13,9 +13,9 @@ import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
  * ObjectDigestInfo ASN.1 structure used in v2 attribute certificates.
- * 
+ *
  * <pre>
- *  
+ *
  *    ObjectDigestInfo ::= SEQUENCE {
  *         digestedObjectType  ENUMERATED {
  *                 publicKey            (0),
@@ -27,165 +27,148 @@ import com.github.zhenwei.core.asn1.DERSequence;
  *         digestAlgorithm     AlgorithmIdentifier,
  *         objectDigest        BIT STRING
  *    }
- *   
+ *
  * </pre>
- * 
  */
 public class ObjectDigestInfo
-    extends ASN1Object
-{
-    /**
-     * The public key is hashed.
-     */
-    public final static int publicKey = 0;
+    extends ASN1Object {
 
-    /**
-     * The public key certificate is hashed.
-     */
-    public final static int publicKeyCert = 1;
+  /**
+   * The public key is hashed.
+   */
+  public final static int publicKey = 0;
 
-    /**
-     * An other object is hashed.
-     */
-    public final static int otherObjectDigest = 2;
+  /**
+   * The public key certificate is hashed.
+   */
+  public final static int publicKeyCert = 1;
 
-    ASN1Enumerated digestedObjectType;
+  /**
+   * An other object is hashed.
+   */
+  public final static int otherObjectDigest = 2;
 
-    ASN1ObjectIdentifier otherObjectTypeID;
+  ASN1Enumerated digestedObjectType;
 
-    AlgorithmIdentifier digestAlgorithm;
+  ASN1ObjectIdentifier otherObjectTypeID;
 
-    ASN1BitString objectDigest;
+  AlgorithmIdentifier digestAlgorithm;
 
-    public static ObjectDigestInfo getInstance(
-        Object obj)
-    {
-        if (obj instanceof ObjectDigestInfo)
-        {
-            return (ObjectDigestInfo)obj;
-        }
+  ASN1BitString objectDigest;
 
-        if (obj != null)
-        {
-            return new ObjectDigestInfo(ASN1Sequence.getInstance(obj));
-        }
-
-        return null;
+  public static ObjectDigestInfo getInstance(
+      Object obj) {
+    if (obj instanceof ObjectDigestInfo) {
+      return (ObjectDigestInfo) obj;
     }
 
-    public static ObjectDigestInfo getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+    if (obj != null) {
+      return new ObjectDigestInfo(ASN1Sequence.getInstance(obj));
     }
 
-    /**
-     * Constructor from given details.
-     * <p>
-     * If <code>digestedObjectType</code> is not {@link #publicKeyCert} or
-     * {@link #publicKey} <code>otherObjectTypeID</code> must be given,
-     * otherwise it is ignored.
-     * 
-     * @param digestedObjectType The digest object type.
-     * @param otherObjectTypeID The object type ID for
-     *            <code>otherObjectDigest</code>.
-     * @param digestAlgorithm The algorithm identifier for the hash.
-     * @param objectDigest The hash value.
-     */
-    public ObjectDigestInfo(
-        int digestedObjectType,
-        ASN1ObjectIdentifier otherObjectTypeID,
-        AlgorithmIdentifier digestAlgorithm,
-        byte[] objectDigest)
-    {
-        this.digestedObjectType = new ASN1Enumerated(digestedObjectType);
-        if (digestedObjectType == otherObjectDigest)
-        {
-            this.otherObjectTypeID = otherObjectTypeID;
-        }
+    return null;
+  }
 
-        this.digestAlgorithm = digestAlgorithm;
-        this.objectDigest = new DERBitString(objectDigest);
+  public static ObjectDigestInfo getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  /**
+   * Constructor from given details.
+   * <p>
+   * If <code>digestedObjectType</code> is not {@link #publicKeyCert} or {@link #publicKey}
+   * <code>otherObjectTypeID</code> must be given, otherwise it is ignored.
+   *
+   * @param digestedObjectType The digest object type.
+   * @param otherObjectTypeID  The object type ID for
+   *                           <code>otherObjectDigest</code>.
+   * @param digestAlgorithm    The algorithm identifier for the hash.
+   * @param objectDigest       The hash value.
+   */
+  public ObjectDigestInfo(
+      int digestedObjectType,
+      ASN1ObjectIdentifier otherObjectTypeID,
+      AlgorithmIdentifier digestAlgorithm,
+      byte[] objectDigest) {
+    this.digestedObjectType = new ASN1Enumerated(digestedObjectType);
+    if (digestedObjectType == otherObjectDigest) {
+      this.otherObjectTypeID = otherObjectTypeID;
     }
 
-    private ObjectDigestInfo(
-        ASN1Sequence seq)
-    {
-        if (seq.size() > 4 || seq.size() < 3)
-        {
-            throw new IllegalArgumentException("Bad sequence size: "
-                + seq.size());
-        }
+    this.digestAlgorithm = digestAlgorithm;
+    this.objectDigest = new DERBitString(objectDigest);
+  }
 
-        digestedObjectType = ASN1Enumerated.getInstance(seq.getObjectAt(0));
-
-        int offset = 0;
-
-        if (seq.size() == 4)
-        {
-            otherObjectTypeID = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(1));
-            offset++;
-        }
-
-        digestAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1 + offset));
-
-        objectDigest = DERBitString.getInstance(seq.getObjectAt(2 + offset));
+  private ObjectDigestInfo(
+      ASN1Sequence seq) {
+    if (seq.size() > 4 || seq.size() < 3) {
+      throw new IllegalArgumentException("Bad sequence size: "
+          + seq.size());
     }
 
-    public ASN1Enumerated getDigestedObjectType()
-    {
-        return digestedObjectType;
+    digestedObjectType = ASN1Enumerated.getInstance(seq.getObjectAt(0));
+
+    int offset = 0;
+
+    if (seq.size() == 4) {
+      otherObjectTypeID = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(1));
+      offset++;
     }
 
-    public ASN1ObjectIdentifier getOtherObjectTypeID()
-    {
-        return otherObjectTypeID;
+    digestAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1 + offset));
+
+    objectDigest = DERBitString.getInstance(seq.getObjectAt(2 + offset));
+  }
+
+  public ASN1Enumerated getDigestedObjectType() {
+    return digestedObjectType;
+  }
+
+  public ASN1ObjectIdentifier getOtherObjectTypeID() {
+    return otherObjectTypeID;
+  }
+
+  public AlgorithmIdentifier getDigestAlgorithm() {
+    return digestAlgorithm;
+  }
+
+  public ASN1BitString getObjectDigest() {
+    return objectDigest;
+  }
+
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   *
+   * <pre>
+   *
+   *    ObjectDigestInfo ::= SEQUENCE {
+   *         digestedObjectType  ENUMERATED {
+   *                 publicKey            (0),
+   *                 publicKeyCert        (1),
+   *                 otherObjectTypes     (2) },
+   *                         -- otherObjectTypes MUST NOT
+   *                         -- be used in this profile
+   *         otherObjectTypeID   OBJECT IDENTIFIER OPTIONAL,
+   *         digestAlgorithm     AlgorithmIdentifier,
+   *         objectDigest        BIT STRING
+   *    }
+   *
+   * </pre>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(4);
+
+    v.add(digestedObjectType);
+
+    if (otherObjectTypeID != null) {
+      v.add(otherObjectTypeID);
     }
 
-    public AlgorithmIdentifier getDigestAlgorithm()
-    {
-        return digestAlgorithm;
-    }
+    v.add(digestAlgorithm);
+    v.add(objectDigest);
 
-    public ASN1BitString getObjectDigest()
-    {
-        return objectDigest;
-    }
-
-    /**
-     * Produce an object suitable for an ASN1OutputStream.
-     * 
-     * <pre>
-     *  
-     *    ObjectDigestInfo ::= SEQUENCE {
-     *         digestedObjectType  ENUMERATED {
-     *                 publicKey            (0),
-     *                 publicKeyCert        (1),
-     *                 otherObjectTypes     (2) },
-     *                         -- otherObjectTypes MUST NOT
-     *                         -- be used in this profile
-     *         otherObjectTypeID   OBJECT IDENTIFIER OPTIONAL,
-     *         digestAlgorithm     AlgorithmIdentifier,
-     *         objectDigest        BIT STRING
-     *    }
-     *   
-     * </pre>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(4);
-
-        v.add(digestedObjectType);
-
-        if (otherObjectTypeID != null)
-        {
-            v.add(otherObjectTypeID);
-        }
-
-        v.add(digestAlgorithm);
-        v.add(objectDigest);
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

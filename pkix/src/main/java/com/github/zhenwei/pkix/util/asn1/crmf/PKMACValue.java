@@ -8,98 +8,91 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.util.asn1.cmp.CMPObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.cmp.PBMParameter;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
  * Password-based MAC value for use with POPOSigningKeyInput.
  */
 public class PKMACValue
-    extends ASN1Object
-{
-    private AlgorithmIdentifier  algId;
-    private ASN1BitString        value;
+    extends ASN1Object {
 
-    private PKMACValue(ASN1Sequence seq)
-    {
-        algId = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
-        value = ASN1BitString.getInstance(seq.getObjectAt(1));
+  private AlgorithmIdentifier algId;
+  private ASN1BitString value;
+
+  private PKMACValue(ASN1Sequence seq) {
+    algId = AlgorithmIdentifier.getInstance(seq.getObjectAt(0));
+    value = ASN1BitString.getInstance(seq.getObjectAt(1));
+  }
+
+  public static PKMACValue getInstance(Object o) {
+    if (o instanceof PKMACValue) {
+      return (PKMACValue) o;
     }
 
-    public static PKMACValue getInstance(Object o)
-    {
-        if (o instanceof PKMACValue)
-        {
-            return (PKMACValue)o;
-        }
-
-        if (o != null)
-        {
-            return new PKMACValue(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+    if (o != null) {
+      return new PKMACValue(ASN1Sequence.getInstance(o));
     }
 
-    public static PKMACValue getInstance(ASN1TaggedObject obj, boolean isExplicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, isExplicit));
-    }
+    return null;
+  }
 
-    /**
-     * Creates a new PKMACValue.
-     * @param params parameters for password-based MAC
-     * @param value MAC of the DER-encoded SubjectPublicKeyInfo
-     */
-    public PKMACValue(
-        PBMParameter params,
-        DERBitString value)
-    {
-        this(new AlgorithmIdentifier(
-                    CMPObjectIdentifiers.passwordBasedMac, params), value);
-    }
+  public static PKMACValue getInstance(ASN1TaggedObject obj, boolean isExplicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, isExplicit));
+  }
 
-    /**
-     * Creates a new PKMACValue.
-     * @param aid CMPObjectIdentifiers.passwordBasedMAC, with PBMParameter
-     * @param value MAC of the DER-encoded SubjectPublicKeyInfo
-     */
-    public PKMACValue(
-        AlgorithmIdentifier aid,
-        DERBitString value)
-    {
-        this.algId = aid;
-        this.value = value;
-    }
+  /**
+   * Creates a new PKMACValue.
+   *
+   * @param params parameters for password-based MAC
+   * @param value  MAC of the DER-encoded SubjectPublicKeyInfo
+   */
+  public PKMACValue(
+      PBMParameter params,
+      DERBitString value) {
+    this(new AlgorithmIdentifier(
+        CMPObjectIdentifiers.passwordBasedMac, params), value);
+  }
 
-    public AlgorithmIdentifier getAlgId()
-    {
-        return algId;
-    }
+  /**
+   * Creates a new PKMACValue.
+   *
+   * @param aid   CMPObjectIdentifiers.passwordBasedMAC, with PBMParameter
+   * @param value MAC of the DER-encoded SubjectPublicKeyInfo
+   */
+  public PKMACValue(
+      AlgorithmIdentifier aid,
+      DERBitString value) {
+    this.algId = aid;
+    this.value = value;
+  }
 
-    public ASN1BitString getValue()
-    {
-        return value;
-    }
+  public AlgorithmIdentifier getAlgId() {
+    return algId;
+  }
 
-    /**
-     * <pre>
-     * PKMACValue ::= SEQUENCE {
-     *      algId  AlgorithmIdentifier,
-     *      -- algorithm value shall be PasswordBasedMac 1.2.840.113533.7.66.13
-     *      -- parameter value is PBMParameter
-     *      value  BIT STRING }
-     * </pre>
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public ASN1BitString getValue() {
+    return value;
+  }
 
-        v.add(algId);
-        v.add(value);
+  /**
+   * <pre>
+   * PKMACValue ::= SEQUENCE {
+   *      algId  AlgorithmIdentifier,
+   *      -- algorithm value shall be PasswordBasedMac 1.2.840.113533.7.66.13
+   *      -- parameter value is PBMParameter
+   *      value  BIT STRING }
+   * </pre>
+   *
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        return new DERSequence(v);
-    }
+    v.add(algId);
+    v.add(value);
+
+    return new DERSequence(v);
+  }
 }

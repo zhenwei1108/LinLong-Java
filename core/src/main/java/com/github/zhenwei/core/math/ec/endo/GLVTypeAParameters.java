@@ -2,30 +2,26 @@ package com.github.zhenwei.core.math.ec.endo;
 
 import java.math.BigInteger;
 
-public class GLVTypeAParameters
-{
-    protected final BigInteger i, lambda;
-    protected final ScalarSplitParameters splitParams;
+public class GLVTypeAParameters {
 
-    public GLVTypeAParameters(BigInteger i, BigInteger lambda, ScalarSplitParameters splitParams)
-    {
-        this.i = i;
-        this.lambda = lambda;
-        this.splitParams = splitParams;
-    }
+  protected final BigInteger i, lambda;
+  protected final ScalarSplitParameters splitParams;
 
-    public BigInteger getI()
-    {
-        return i;
-    }
+  public GLVTypeAParameters(BigInteger i, BigInteger lambda, ScalarSplitParameters splitParams) {
+    this.i = i;
+    this.lambda = lambda;
+    this.splitParams = splitParams;
+  }
 
-    public BigInteger getLambda()
-    {
-        return lambda;
-    }
+  public BigInteger getI() {
+    return i;
+  }
 
-    public ScalarSplitParameters getSplitParams()
-    {
-        return splitParams;
-    }
+  public BigInteger getLambda() {
+    return lambda;
+  }
+
+  public ScalarSplitParameters getSplitParams() {
+    return splitParams;
+  }
 }

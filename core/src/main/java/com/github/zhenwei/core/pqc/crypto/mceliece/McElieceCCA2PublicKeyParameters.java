@@ -4,66 +4,60 @@ import com.github.zhenwei.core.pqc.math.linearalgebra.GF2Matrix;
 
 /**
  *
- *
- *
  */
 public class McElieceCCA2PublicKeyParameters
-    extends McElieceCCA2KeyParameters
-{
-    // the length of the code
-    private int n;
+    extends McElieceCCA2KeyParameters {
 
-    // the error correction capability of the code
-    private int t;
+  // the length of the code
+  private int n;
 
-    // the generator matrix
-    private GF2Matrix matrixG;
+  // the error correction capability of the code
+  private int t;
 
-    /**
-     * Constructor.
-     *  @param n      length of the code
-     * @param t      error correction capability
-     * @param matrix generator matrix
-     * @param digest McElieceCCA2Parameters
-     */
-    public McElieceCCA2PublicKeyParameters(int n, int t, GF2Matrix matrix, String digest)
-    {
-        super(false, digest);
+  // the generator matrix
+  private GF2Matrix matrixG;
 
-        this.n = n;
-        this.t = t;
-        this.matrixG = new GF2Matrix(matrix);
-    }
+  /**
+   * Constructor.
+   *
+   * @param n      length of the code
+   * @param t      error correction capability
+   * @param matrix generator matrix
+   * @param digest McElieceCCA2Parameters
+   */
+  public McElieceCCA2PublicKeyParameters(int n, int t, GF2Matrix matrix, String digest) {
+    super(false, digest);
 
-    /**
-     * @return the length of the code
-     */
-    public int getN()
-    {
-        return n;
-    }
+    this.n = n;
+    this.t = t;
+    this.matrixG = new GF2Matrix(matrix);
+  }
 
-    /**
-     * @return the error correction capability of the code
-     */
-    public int getT()
-    {
-        return t;
-    }
+  /**
+   * @return the length of the code
+   */
+  public int getN() {
+    return n;
+  }
 
-    /**
-     * @return the generator matrix
-     */
-    public GF2Matrix getG()
-    {
-        return matrixG;
-    }
+  /**
+   * @return the error correction capability of the code
+   */
+  public int getT() {
+    return t;
+  }
 
-    /**
-     * @return the dimension of the code
-     */
-    public int getK()
-    {
-        return matrixG.getNumRows();
-    }
+  /**
+   * @return the generator matrix
+   */
+  public GF2Matrix getG() {
+    return matrixG;
+  }
+
+  /**
+   * @return the dimension of the code
+   */
+  public int getK() {
+    return matrixG.getNumRows();
+  }
 }

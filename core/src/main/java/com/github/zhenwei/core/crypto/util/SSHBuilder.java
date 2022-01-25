@@ -1,78 +1,62 @@
 package com.github.zhenwei.core.crypto.util;
 
+import com.github.zhenwei.core.util.Strings;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import com.github.zhenwei.core.util.Strings;
 
-class SSHBuilder
-{
-    private final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+class SSHBuilder {
 
-    public void u32(int value)
-    {
-        bos.write((value >>> 24) & 0xFF);
-        bos.write((value >>> 16) & 0xFF);
-        bos.write((value >>> 8) & 0xFF);
-        bos.write(value & 0xFF);
+  private final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+
+  public void u32(int value) {
+    bos.write((value >>> 24) & 0xFF);
+    bos.write((value >>> 16) & 0xFF);
+    bos.write((value >>> 8) & 0xFF);
+    bos.write(value & 0xFF);
+  }
+
+  public void writeBigNum(BigInteger n) {
+    writeBlock(n.toByteArray());
+  }
+
+  public void writeBlock(byte[] value) {
+    u32(value.length);
+    try {
+      bos.write(value);
+    } catch (IOException e) {
+      throw new IllegalStateException(e.getMessage(), e);
     }
+  }
 
-    public void writeBigNum(BigInteger n)
-    {
-        writeBlock(n.toByteArray());
+  public void writeBytes(byte[] value) {
+    try {
+      bos.write(value);
+    } catch (IOException e) {
+      throw new IllegalStateException(e.getMessage(), e);
     }
+  }
 
-    public void writeBlock(byte[] value)
-    {
-        u32(value.length);
-        try
-        {
-            bos.write(value);
-        }
-        catch (IOException e)
-        {
-            throw new IllegalStateException(e.getMessage(), e);
-        }
-    }
+  public void writeString(String str) {
+    writeBlock(Strings.toByteArray(str));
+  }
 
-    public void writeBytes(byte[] value)
-    {
-        try
-        {
-            bos.write(value);
-        }
-        catch (IOException e)
-        {
-            throw new IllegalStateException(e.getMessage(), e);
-        }
-    }
+  public byte[] getBytes() {
+    return bos.toByteArray();
+  }
 
-    public void writeString(String str)
-    {
-        writeBlock(Strings.toByteArray(str));
-    }
+  public byte[] getPaddedBytes() {
+    return getPaddedBytes(8);
+  }
 
-    public byte[] getBytes()
-    {
-        return bos.toByteArray();
+  public byte[] getPaddedBytes(int blockSize) {
+    int align = bos.size() % blockSize;
+    if (0 != align) {
+      int padCount = blockSize - align;
+      for (int i = 1; i <= padCount; ++i) {
+        bos.write(i);
+      }
     }
-
-    public byte[] getPaddedBytes()
-    {
-        return getPaddedBytes(8);
-    }
-
-    public byte[] getPaddedBytes(int blockSize)
-    {
-        int align = bos.size() % blockSize;
-        if (0 != align)
-        {
-            int padCount = blockSize - align;
-            for (int i = 1; i <= padCount; ++i)
-            {
-                bos.write(i);
-            }
-        }
-        return bos.toByteArray();
-    }
+    return bos.toByteArray();
+  }
 }

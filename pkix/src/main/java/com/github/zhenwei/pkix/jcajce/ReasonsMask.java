@@ -3,99 +3,89 @@ package com.github.zhenwei.pkix.jcajce;
 import com.github.zhenwei.core.asn1.x509.ReasonFlags;
 
 /**
- * This class helps to handle CRL revocation reasons mask. Each CRL handles a
- * certain set of revocation reasons.
+ * This class helps to handle CRL revocation reasons mask. Each CRL handles a certain set of
+ * revocation reasons.
  */
-class ReasonsMask
-{
-    private int _reasons;
+class ReasonsMask {
 
-    /**
-     * Constructs are reason mask with the reasons.
-     * 
-     * @param reasons The reasons.
-     */
-    ReasonsMask(ReasonFlags reasons)
-    {
-        _reasons = reasons.intValue();
-    }
+  private int _reasons;
 
-    private ReasonsMask(int reasons)
-    {
-        _reasons = reasons;
-    }
+  /**
+   * Constructs are reason mask with the reasons.
+   *
+   * @param reasons The reasons.
+   */
+  ReasonsMask(ReasonFlags reasons) {
+    _reasons = reasons.intValue();
+  }
 
-    /**
-     * A reason mask with no reason.
-     * 
-     */
-    ReasonsMask()
-    {
-        this(0);
-    }
+  private ReasonsMask(int reasons) {
+    _reasons = reasons;
+  }
 
-    /**
-     * A mask with all revocation reasons.
-     */
-    static final ReasonsMask allReasons = new ReasonsMask(ReasonFlags.aACompromise
-            | ReasonFlags.affiliationChanged | ReasonFlags.cACompromise
-            | ReasonFlags.certificateHold | ReasonFlags.cessationOfOperation
-            | ReasonFlags.keyCompromise | ReasonFlags.privilegeWithdrawn
-            | ReasonFlags.unused | ReasonFlags.superseded);
+  /**
+   * A reason mask with no reason.
+   */
+  ReasonsMask() {
+    this(0);
+  }
 
-    /**
-     * Adds all reasons from the reasons mask to this mask.
-     * 
-     * @param mask The reasons mask to add.
-     */
-    void addReasons(ReasonsMask mask)
-    {
-        _reasons = _reasons | mask.getReasons();
-    }
+  /**
+   * A mask with all revocation reasons.
+   */
+  static final ReasonsMask allReasons = new ReasonsMask(ReasonFlags.aACompromise
+      | ReasonFlags.affiliationChanged | ReasonFlags.cACompromise
+      | ReasonFlags.certificateHold | ReasonFlags.cessationOfOperation
+      | ReasonFlags.keyCompromise | ReasonFlags.privilegeWithdrawn
+      | ReasonFlags.unused | ReasonFlags.superseded);
 
-    /**
-     * Returns <code>true</code> if this reasons mask contains all possible
-     * reasons.
-     * 
-     * @return <code>true</code> if this reasons mask contains all possible
-     *         reasons.
-     */
-    boolean isAllReasons()
-    {
-        return _reasons == allReasons._reasons ? true : false;
-    }
+  /**
+   * Adds all reasons from the reasons mask to this mask.
+   *
+   * @param mask The reasons mask to add.
+   */
+  void addReasons(ReasonsMask mask) {
+    _reasons = _reasons | mask.getReasons();
+  }
 
-    /**
-     * Intersects this mask with the given reasons mask.
-     * 
-     * @param mask The mask to intersect with.
-     * @return The intersection of this and teh given mask.
-     */
-    ReasonsMask intersect(ReasonsMask mask)
-    {
-        ReasonsMask _mask = new ReasonsMask();
-        _mask.addReasons(new ReasonsMask(_reasons & mask.getReasons()));
-        return _mask;
-    }
+  /**
+   * Returns <code>true</code> if this reasons mask contains all possible reasons.
+   *
+   * @return <code>true</code> if this reasons mask contains all possible
+   * reasons.
+   */
+  boolean isAllReasons() {
+    return _reasons == allReasons._reasons ? true : false;
+  }
 
-    /**
-     * Returns <code>true</code> if the passed reasons mask has new reasons.
-     * 
-     * @param mask The reasons mask which should be tested for new reasons.
-     * @return <code>true</code> if the passed reasons mask has new reasons.
-     */
-    boolean hasNewReasons(ReasonsMask mask)
-    {
-        return ((_reasons | mask.getReasons() ^ _reasons) != 0);
-    }
+  /**
+   * Intersects this mask with the given reasons mask.
+   *
+   * @param mask The mask to intersect with.
+   * @return The intersection of this and teh given mask.
+   */
+  ReasonsMask intersect(ReasonsMask mask) {
+    ReasonsMask _mask = new ReasonsMask();
+    _mask.addReasons(new ReasonsMask(_reasons & mask.getReasons()));
+    return _mask;
+  }
 
-    /**
-     * Returns the reasons in this mask.
-     * 
-     * @return Returns the reasons.
-     */
-    int getReasons()
-    {
-        return _reasons;
-    }
+  /**
+   * Returns <code>true</code> if the passed reasons mask has new reasons.
+   *
+   * @param mask The reasons mask which should be tested for new reasons.
+   * @return <code>true</code> if the passed reasons mask has new reasons.
+   */
+  boolean hasNewReasons(ReasonsMask mask) {
+    return ((_reasons | mask.getReasons() ^ _reasons) != 0);
+  }
+
+  /**
+   * Returns the reasons in this mask.
+   *
+   * @return Returns the reasons.
+   */
+  int getReasons() {
+    return _reasons;
+  }
 }

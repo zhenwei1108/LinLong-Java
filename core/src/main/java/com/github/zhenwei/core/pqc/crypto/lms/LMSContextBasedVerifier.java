@@ -1,8 +1,8 @@
 package com.github.zhenwei.core.pqc.crypto.lms;
 
-public interface LMSContextBasedVerifier
-{
-    LMSContext generateLMSContext(byte[] signature);
+public interface LMSContextBasedVerifier {
 
-    boolean verify(LMSContext context);
+  LMSContext generateLMSContext(byte[] signature);
+
+  boolean verify(LMSContext context);
 }

@@ -5,120 +5,104 @@ import static com.github.zhenwei.core.pqc.crypto.lms.LM_OTS.MAX_HASH;
 import com.github.zhenwei.core.crypto.Digest;
 
 public class LMSContext
-    implements Digest
-{
-    private final byte[] C;
-    private final LMOtsPrivateKey key;
-    private final LMSigParameters sigParams;
-    private final byte[][] path;
-    private final LMOtsPublicKey publicKey;
-    private final Object signature;
+    implements Digest {
 
-    private LMSSignedPubKey[] signedPubKeys;
-    private volatile Digest digest;
+  private final byte[] C;
+  private final LMOtsPrivateKey key;
+  private final LMSigParameters sigParams;
+  private final byte[][] path;
+  private final LMOtsPublicKey publicKey;
+  private final Object signature;
 
-    public LMSContext(LMOtsPrivateKey key, LMSigParameters sigParams, Digest digest, byte[] C, byte[][] path)
-    {
-        this.key = key;
-        this.sigParams = sigParams;
-        this.digest = digest;
-        this.C = C;
-        this.path = path;
-        this.publicKey = null;
-        this.signature = null;
-    }
+  private LMSSignedPubKey[] signedPubKeys;
+  private volatile Digest digest;
 
-    public LMSContext(LMOtsPublicKey publicKey, Object signature, Digest digest)
-    {
-        this.publicKey = publicKey;
-        this.signature = signature;
-        this.digest = digest;
-        this.C = null;
-        this.key = null;
-        this.sigParams = null;
-        this.path = null;
-    }
+  public LMSContext(LMOtsPrivateKey key, LMSigParameters sigParams, Digest digest, byte[] C,
+      byte[][] path) {
+    this.key = key;
+    this.sigParams = sigParams;
+    this.digest = digest;
+    this.C = C;
+    this.path = path;
+    this.publicKey = null;
+    this.signature = null;
+  }
 
-    byte[] getC()
-    {
-        return C;
-    }
+  public LMSContext(LMOtsPublicKey publicKey, Object signature, Digest digest) {
+    this.publicKey = publicKey;
+    this.signature = signature;
+    this.digest = digest;
+    this.C = null;
+    this.key = null;
+    this.sigParams = null;
+    this.path = null;
+  }
 
-    byte[] getQ()
-    {
-        byte[] Q = new byte[MAX_HASH + 2];
+  byte[] getC() {
+    return C;
+  }
 
-        digest.doFinal(Q, 0);
-        
-        digest = null;
+  byte[] getQ() {
+    byte[] Q = new byte[MAX_HASH + 2];
 
-        return Q;
-    }
+    digest.doFinal(Q, 0);
 
-    byte[][] getPath()
-    {
-        return path;
-    }
+    digest = null;
 
-    LMOtsPrivateKey getPrivateKey()
-    {
-        return key;
-    }
+    return Q;
+  }
 
-    public LMOtsPublicKey getPublicKey()
-    {
-        return publicKey;
-    }
+  byte[][] getPath() {
+    return path;
+  }
 
-    LMSigParameters getSigParams()
-    {
-        return sigParams;
-    }
+  LMOtsPrivateKey getPrivateKey() {
+    return key;
+  }
 
-    public Object getSignature()
-    {
-        return signature;
-    }
+  public LMOtsPublicKey getPublicKey() {
+    return publicKey;
+  }
 
-    LMSSignedPubKey[] getSignedPubKeys()
-    {
-        return signedPubKeys;
-    }
+  LMSigParameters getSigParams() {
+    return sigParams;
+  }
 
-    LMSContext withSignedPublicKeys(LMSSignedPubKey[] signedPubKeys)
-    {
-        this.signedPubKeys = signedPubKeys;
+  public Object getSignature() {
+    return signature;
+  }
 
-        return this;
-    }
+  LMSSignedPubKey[] getSignedPubKeys() {
+    return signedPubKeys;
+  }
 
-    public String getAlgorithmName()
-    {
-        return digest.getAlgorithmName();
-    }
+  LMSContext withSignedPublicKeys(LMSSignedPubKey[] signedPubKeys) {
+    this.signedPubKeys = signedPubKeys;
 
-    public int getDigestSize()
-    {
-        return digest.getDigestSize();
-    }
+    return this;
+  }
 
-    public void update(byte in)
-    {
-        digest.update(in);
-    }
+  public String getAlgorithmName() {
+    return digest.getAlgorithmName();
+  }
 
-    public void update(byte[] in, int inOff, int len)
-    {
-        digest.update(in, inOff, len);
-    }
+  public int getDigestSize() {
+    return digest.getDigestSize();
+  }
 
-    public int doFinal(byte[] out, int outOff)
-    {
-        return digest.doFinal(out, outOff);
-    }
+  public void update(byte in) {
+    digest.update(in);
+  }
 
-    public void reset()
-    {
-        digest.reset();
-    }
+  public void update(byte[] in, int inOff, int len) {
+    digest.update(in, inOff, len);
+  }
+
+  public int doFinal(byte[] out, int outOff) {
+    return digest.doFinal(out, outOff);
+  }
+
+  public void reset() {
+    digest.reset();
+  }
 }

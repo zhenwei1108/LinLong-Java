@@ -10,131 +10,116 @@ import java.util.Set;
 
 /**
  * This class contains extended parameters for PKIX certification path builders.
- * 
+ *
  * @see PKIXBuilderParameters
  */
 public class PKIXExtendedBuilderParameters
-    implements CertPathParameters
-{
-    /**
-     * Builder for a PKIXExtendedBuilderParameters object.
-     */
-    public static class Builder
-    {
-        private final PKIXExtendedParameters baseParameters;
+    implements CertPathParameters {
 
-        private int maxPathLength = 5;
-        private Set<X509Certificate> excludedCerts = new HashSet<X509Certificate>();
-
-        public Builder(PKIXBuilderParameters baseParameters)
-        {
-            this.baseParameters = new PKIXExtendedParameters.Builder(baseParameters).build();
-            this.maxPathLength = baseParameters.getMaxPathLength();
-        }
-
-        public Builder(PKIXExtendedParameters baseParameters)
-        {
-            this.baseParameters = baseParameters;
-        }
-
-        /**
-         * Adds excluded certificates which are not used for building a
-         * certification path.
-         * <p>
-         * The given set is cloned to protect it against subsequent modifications.
-         *
-         * @param excludedCerts The excluded certificates to set.
-         */
-        public Builder addExcludedCerts(Set<X509Certificate> excludedCerts)
-        {
-            this.excludedCerts.addAll(excludedCerts);
-
-            return this;
-        }
-
-        /**
-         * Sets the maximum number of intermediate non-self-issued certificates in a
-         * certification path. The PKIX <code>CertPathBuilder</code> must not
-         * build paths longer then this length.
-         * <p>
-         * A value of 0 implies that the path can only contain a single certificate.
-         * A value of -1 does not limit the length. The default length is 5.
-         *
-         * <p>
-         *
-         * The basic constraints extension of a CA certificate overrides this value
-         * if smaller.
-         *
-         * @param maxPathLength the maximum number of non-self-issued intermediate
-         *            certificates in the certification path
-         * @throws InvalidParameterException if <code>maxPathLength</code> is set
-         *             to a value less than -1
-         *
-         * @see #getMaxPathLength
-         */
-        public Builder setMaxPathLength(int maxPathLength)
-        {
-            if (maxPathLength < -1)
-            {
-                throw new InvalidParameterException("The maximum path "
-                        + "length parameter can not be less than -1.");
-            }
-            this.maxPathLength = maxPathLength;
-
-            return this;
-        }
-
-        public PKIXExtendedBuilderParameters build()
-        {
-            return new PKIXExtendedBuilderParameters(this);
-        }
-    }
+  /**
+   * Builder for a PKIXExtendedBuilderParameters object.
+   */
+  public static class Builder {
 
     private final PKIXExtendedParameters baseParameters;
-    private final Set<X509Certificate> excludedCerts;
-    private final int maxPathLength;
 
-    private PKIXExtendedBuilderParameters(Builder builder)
-    {
-        this.baseParameters = builder.baseParameters;
-        this.excludedCerts = Collections.unmodifiableSet(builder.excludedCerts);
-        this.maxPathLength = builder.maxPathLength;
+    private int maxPathLength = 5;
+    private Set<X509Certificate> excludedCerts = new HashSet<X509Certificate>();
+
+    public Builder(PKIXBuilderParameters baseParameters) {
+      this.baseParameters = new PKIXExtendedParameters.Builder(baseParameters).build();
+      this.maxPathLength = baseParameters.getMaxPathLength();
     }
 
-    public PKIXExtendedParameters getBaseParameters()
-    {
-        return baseParameters;
+    public Builder(PKIXExtendedParameters baseParameters) {
+      this.baseParameters = baseParameters;
     }
 
     /**
-     * Excluded certificates are not used for building a certification path.
+     * Adds excluded certificates which are not used for building a certification path.
      * <p>
-     * The returned set is immutable.
-     * 
-     * @return Returns the excluded certificates.
+     * The given set is cloned to protect it against subsequent modifications.
+     *
+     * @param excludedCerts The excluded certificates to set.
      */
-    public Set getExcludedCerts()
-    {
-        return excludedCerts;
+    public Builder addExcludedCerts(Set<X509Certificate> excludedCerts) {
+      this.excludedCerts.addAll(excludedCerts);
+
+      return this;
     }
 
     /**
-     * Returns the value of the maximum number of intermediate non-self-issued
-     * certificates in the certification path.
-     * 
-     * @return the maximum number of non-self-issued intermediate certificates
-     *         in the certification path, or -1 if no limit exists.
+     * Sets the maximum number of intermediate non-self-issued certificates in a certification path.
+     * The PKIX <code>CertPathBuilder</code> must not build paths longer then this length.
+     * <p>
+     * A value of 0 implies that the path can only contain a single certificate. A value of -1 does
+     * not limit the length. The default length is 5.
+     *
+     * <p>
+     * <p>
+     * The basic constraints extension of a CA certificate overrides this value if smaller.
+     *
+     * @param maxPathLength the maximum number of non-self-issued intermediate certificates in the
+     *                      certification path
+     * @throws InvalidParameterException if <code>maxPathLength</code> is set to a value less than
+     *                                   -1
+     * @see #getMaxPathLength
      */
-    public int getMaxPathLength()
-    {
-        return maxPathLength;
+    public Builder setMaxPathLength(int maxPathLength) {
+      if (maxPathLength < -1) {
+        throw new InvalidParameterException("The maximum path "
+            + "length parameter can not be less than -1.");
+      }
+      this.maxPathLength = maxPathLength;
+
+      return this;
     }
 
-    /**
-     * @return this object
-     */
-    public Object clone()
-    {
-        return this;
+    public PKIXExtendedBuilderParameters build() {
+      return new PKIXExtendedBuilderParameters(this);
     }
+  }
+
+  private final PKIXExtendedParameters baseParameters;
+  private final Set<X509Certificate> excludedCerts;
+  private final int maxPathLength;
+
+  private PKIXExtendedBuilderParameters(Builder builder) {
+    this.baseParameters = builder.baseParameters;
+    this.excludedCerts = Collections.unmodifiableSet(builder.excludedCerts);
+    this.maxPathLength = builder.maxPathLength;
+  }
+
+  public PKIXExtendedParameters getBaseParameters() {
+    return baseParameters;
+  }
+
+  /**
+   * Excluded certificates are not used for building a certification path.
+   * <p>
+   * The returned set is immutable.
+   *
+   * @return Returns the excluded certificates.
+   */
+  public Set getExcludedCerts() {
+    return excludedCerts;
+  }
+
+  /**
+   * Returns the value of the maximum number of intermediate non-self-issued certificates in the
+   * certification path.
+   *
+   * @return the maximum number of non-self-issued intermediate certificates in the certification
+   * path, or -1 if no limit exists.
+   */
+  public int getMaxPathLength() {
+    return maxPathLength;
+  }
+
+  /**
+   * @return this object
+   */
+  public Object clone() {
+    return this;
+  }
 }

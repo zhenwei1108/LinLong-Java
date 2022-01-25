@@ -3,21 +3,19 @@ package com.github.zhenwei.core.crypto.params;
 import java.math.BigInteger;
 
 public class DSAPrivateKeyParameters
-    extends DSAKeyParameters
-{
-    private BigInteger      x;
+    extends DSAKeyParameters {
 
-    public DSAPrivateKeyParameters(
-        BigInteger      x,
-        DSAParameters   params)
-    {
-        super(true, params);
+  private BigInteger x;
 
-        this.x = x;
-    }   
+  public DSAPrivateKeyParameters(
+      BigInteger x,
+      DSAParameters params) {
+    super(true, params);
 
-    public BigInteger getX()
-    {
-        return x;
-    }
+    this.x = x;
+  }
+
+  public BigInteger getX() {
+    return x;
+  }
 }

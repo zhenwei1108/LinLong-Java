@@ -17,48 +17,39 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  *  </pre>
  */
 public class SignedPublicKeyAndChallenge
-    extends ASN1Object
-{
-    private final PublicKeyAndChallenge pubKeyAndChal;
-    private final ASN1Sequence pkacSeq;
+    extends ASN1Object {
 
-    public static SignedPublicKeyAndChallenge getInstance(Object obj)
-    {
-        if (obj instanceof SignedPublicKeyAndChallenge)
-        {
-            return (SignedPublicKeyAndChallenge)obj;
-        }
-        else if (obj != null)
-        {
-            return new SignedPublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
-        }
+  private final PublicKeyAndChallenge pubKeyAndChal;
+  private final ASN1Sequence pkacSeq;
 
-        return null;
+  public static SignedPublicKeyAndChallenge getInstance(Object obj) {
+    if (obj instanceof SignedPublicKeyAndChallenge) {
+      return (SignedPublicKeyAndChallenge) obj;
+    } else if (obj != null) {
+      return new SignedPublicKeyAndChallenge(ASN1Sequence.getInstance(obj));
     }
 
-    private SignedPublicKeyAndChallenge(ASN1Sequence seq)
-    {
-        pkacSeq = seq;
-        pubKeyAndChal = PublicKeyAndChallenge.getInstance(seq.getObjectAt(0));
-    }
+    return null;
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return pkacSeq;
-    }
+  private SignedPublicKeyAndChallenge(ASN1Sequence seq) {
+    pkacSeq = seq;
+    pubKeyAndChal = PublicKeyAndChallenge.getInstance(seq.getObjectAt(0));
+  }
 
-    public PublicKeyAndChallenge getPublicKeyAndChallenge()
-    {
-        return pubKeyAndChal;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return pkacSeq;
+  }
 
-    public AlgorithmIdentifier getSignatureAlgorithm()
-    {
-        return AlgorithmIdentifier.getInstance(pkacSeq.getObjectAt(1));
-    }
+  public PublicKeyAndChallenge getPublicKeyAndChallenge() {
+    return pubKeyAndChal;
+  }
 
-    public ASN1BitString getSignature()
-    {
-        return ASN1BitString.getInstance(pkacSeq.getObjectAt(2));
-    }
+  public AlgorithmIdentifier getSignatureAlgorithm() {
+    return AlgorithmIdentifier.getInstance(pkacSeq.getObjectAt(1));
+  }
+
+  public ASN1BitString getSignature() {
+    return ASN1BitString.getInstance(pkacSeq.getObjectAt(2));
+  }
 }

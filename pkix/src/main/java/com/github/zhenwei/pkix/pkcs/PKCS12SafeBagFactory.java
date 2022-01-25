@@ -7,52 +7,45 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.SafeBag;
 import com.github.zhenwei.pkix.cms.CMSEncryptedData;
 import com.github.zhenwei.pkix.cms.CMSException;
-import  com.github.zhenwei.pkix.operator.InputDecryptorProvider;
+import com.github.zhenwei.pkix.operator.InputDecryptorProvider;
 
-public class PKCS12SafeBagFactory
-{
-    private ASN1Sequence safeBagSeq;
+public class PKCS12SafeBagFactory {
 
-    public PKCS12SafeBagFactory(ContentInfo info)
-    {
-        if (info.getContentType().equals(PKCSObjectIdentifiers.encryptedData))
-        {
-            throw new IllegalArgumentException("encryptedData requires constructor with decryptor.");
-        }
+  private ASN1Sequence safeBagSeq;
 
-        this.safeBagSeq = ASN1Sequence.getInstance(ASN1OctetString.getInstance(info.getContent()).getOctets());
+  public PKCS12SafeBagFactory(ContentInfo info) {
+    if (info.getContentType().equals(PKCSObjectIdentifiers.encryptedData)) {
+      throw new IllegalArgumentException("encryptedData requires constructor with decryptor.");
     }
 
-    public PKCS12SafeBagFactory(ContentInfo info, InputDecryptorProvider inputDecryptorProvider)
-        throws PKCSException
-    {
-        if (info.getContentType().equals(PKCSObjectIdentifiers.encryptedData))
-        {
-            CMSEncryptedData encData = new CMSEncryptedData(com.github.zhenwei.pkix.util.asn1.cms.ContentInfo.getInstance(info));
+    this.safeBagSeq = ASN1Sequence.getInstance(
+        ASN1OctetString.getInstance(info.getContent()).getOctets());
+  }
 
-            try
-            {
-                this.safeBagSeq = ASN1Sequence.getInstance(encData.getContent(inputDecryptorProvider));
-            }
-            catch (CMSException e)
-            {
-                throw new PKCSException("unable to extract data: " + e.getMessage(), e);
-            }
-            return;
-        }
+  public PKCS12SafeBagFactory(ContentInfo info, InputDecryptorProvider inputDecryptorProvider)
+      throws PKCSException {
+    if (info.getContentType().equals(PKCSObjectIdentifiers.encryptedData)) {
+      CMSEncryptedData encData = new CMSEncryptedData(
+          com.github.zhenwei.pkix.util.asn1.cms.ContentInfo.getInstance(info));
 
-        throw new IllegalArgumentException("encryptedData requires constructor with decryptor.");
+      try {
+        this.safeBagSeq = ASN1Sequence.getInstance(encData.getContent(inputDecryptorProvider));
+      } catch (CMSException e) {
+        throw new PKCSException("unable to extract data: " + e.getMessage(), e);
+      }
+      return;
     }
 
-    public PKCS12SafeBag[] getSafeBags()
-    {
-        PKCS12SafeBag[] safeBags = new PKCS12SafeBag[safeBagSeq.size()];
+    throw new IllegalArgumentException("encryptedData requires constructor with decryptor.");
+  }
 
-        for (int i = 0; i != safeBagSeq.size(); i++)
-        {
-            safeBags[i] = new PKCS12SafeBag(SafeBag.getInstance(safeBagSeq.getObjectAt(i)));
-        }
+  public PKCS12SafeBag[] getSafeBags() {
+    PKCS12SafeBag[] safeBags = new PKCS12SafeBag[safeBagSeq.size()];
 
-        return safeBags;
+    for (int i = 0; i != safeBagSeq.size(); i++) {
+      safeBags[i] = new PKCS12SafeBag(SafeBag.getInstance(safeBagSeq.getObjectAt(i)));
     }
+
+    return safeBags;
+  }
 }

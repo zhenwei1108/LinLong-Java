@@ -6,24 +6,21 @@ import java.io.IOException;
  * General IOException thrown in the mime package and its sub-packages.
  */
 public class MimeIOException
-    extends IOException
-{
-    private Throwable cause;
+    extends IOException {
 
-    public MimeIOException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public MimeIOException(String msg, Throwable cause) {
+    super(msg);
 
-    public MimeIOException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public MimeIOException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

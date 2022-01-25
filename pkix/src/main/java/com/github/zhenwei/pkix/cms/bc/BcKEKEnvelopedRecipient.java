@@ -1,48 +1,45 @@
 package com.github.zhenwei.pkix.cms.bc;
 
-import java.io.InputStream;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.pkix.cms.CMSException;
-import com.github.zhenwei.pkix.cms.RecipientOperator;
 import com.github.zhenwei.core.crypto.BufferedBlockCipher;
 import com.github.zhenwei.core.crypto.StreamCipher;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
-import  com.github.zhenwei.pkix.operator.InputDecryptor;
-import  com.github.zhenwei.pkix.operator.bc.BcSymmetricKeyUnwrapper;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.cms.RecipientOperator;
+import com.github.zhenwei.pkix.operator.InputDecryptor;
+import com.github.zhenwei.pkix.operator.bc.BcSymmetricKeyUnwrapper;
+import java.io.InputStream;
 
 public class BcKEKEnvelopedRecipient
-    extends BcKEKRecipient
-{
-    public BcKEKEnvelopedRecipient(BcSymmetricKeyUnwrapper unwrapper)
-    {
-        super(unwrapper);
-    }
+    extends BcKEKRecipient {
 
-    public RecipientOperator getRecipientOperator(AlgorithmIdentifier keyEncryptionAlgorithm, final AlgorithmIdentifier contentEncryptionAlgorithm, byte[] encryptedContentEncryptionKey)
-        throws CMSException
-    {
-        KeyParameter secretKey = (KeyParameter)extractSecretKey(keyEncryptionAlgorithm, contentEncryptionAlgorithm, encryptedContentEncryptionKey);
+  public BcKEKEnvelopedRecipient(BcSymmetricKeyUnwrapper unwrapper) {
+    super(unwrapper);
+  }
 
-        final Object dataCipher = EnvelopedDataHelper.createContentCipher(false, secretKey, contentEncryptionAlgorithm);
+  public RecipientOperator getRecipientOperator(AlgorithmIdentifier keyEncryptionAlgorithm,
+      final AlgorithmIdentifier contentEncryptionAlgorithm, byte[] encryptedContentEncryptionKey)
+      throws CMSException {
+    KeyParameter secretKey = (KeyParameter) extractSecretKey(keyEncryptionAlgorithm,
+        contentEncryptionAlgorithm, encryptedContentEncryptionKey);
 
-        return new RecipientOperator(new InputDecryptor()
-        {
-            public AlgorithmIdentifier getAlgorithmIdentifier()
-            {
-                return contentEncryptionAlgorithm;
-            }
+    final Object dataCipher = EnvelopedDataHelper.createContentCipher(false, secretKey,
+        contentEncryptionAlgorithm);
 
-            public InputStream getInputStream(InputStream dataOut)
-            {
-                if (dataCipher instanceof BufferedBlockCipher)
-                {
-                    return new com.github.zhenwei.core.crypto.io.CipherInputStream(dataOut, (BufferedBlockCipher)dataCipher);
-                }
-                else
-                {
-                    return new com.github.zhenwei.core.crypto.io.CipherInputStream(dataOut, (StreamCipher)dataCipher);
-                }
-            }
-        });
-    }
+    return new RecipientOperator(new InputDecryptor() {
+      public AlgorithmIdentifier getAlgorithmIdentifier() {
+        return contentEncryptionAlgorithm;
+      }
+
+      public InputStream getInputStream(InputStream dataOut) {
+        if (dataCipher instanceof BufferedBlockCipher) {
+          return new com.github.zhenwei.core.crypto.io.CipherInputStream(dataOut,
+              (BufferedBlockCipher) dataCipher);
+        } else {
+          return new com.github.zhenwei.core.crypto.io.CipherInputStream(dataOut,
+              (StreamCipher) dataCipher);
+        }
+      }
+    });
+  }
 }

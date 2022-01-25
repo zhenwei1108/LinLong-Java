@@ -6,10 +6,10 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatusInfo;
 import com.github.zhenwei.core.asn1.x509.DigestInfo;
 import com.github.zhenwei.core.asn1.x509.Extensions;
 import com.github.zhenwei.core.asn1.x509.PolicyInformation;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatusInfo;
 
 /**
  * <pre>
@@ -29,122 +29,103 @@ import com.github.zhenwei.core.asn1.x509.PolicyInformation;
  * </pre>
  */
 
-public class DVCSCertInfoBuilder
-{
+public class DVCSCertInfoBuilder {
 
-    private int version = DEFAULT_VERSION;
-    private DVCSRequestInformation dvReqInfo;
-    private DigestInfo messageImprint;
-    private ASN1Integer serialNumber;
-    private DVCSTime responseTime;
-    private PKIStatusInfo dvStatus;
-    private PolicyInformation policy;
-    private ASN1Set reqSignature;
-    private ASN1Sequence certs;
-    private Extensions extensions;
+  private int version = DEFAULT_VERSION;
+  private DVCSRequestInformation dvReqInfo;
+  private DigestInfo messageImprint;
+  private ASN1Integer serialNumber;
+  private DVCSTime responseTime;
+  private PKIStatusInfo dvStatus;
+  private PolicyInformation policy;
+  private ASN1Set reqSignature;
+  private ASN1Sequence certs;
+  private Extensions extensions;
 
-    private static final int DEFAULT_VERSION = 1;
-    private static final int TAG_DV_STATUS = 0;
-    private static final int TAG_POLICY = 1;
-    private static final int TAG_REQ_SIGNATURE = 2;
-    private static final int TAG_CERTS = 3;
+  private static final int DEFAULT_VERSION = 1;
+  private static final int TAG_DV_STATUS = 0;
+  private static final int TAG_POLICY = 1;
+  private static final int TAG_REQ_SIGNATURE = 2;
+  private static final int TAG_CERTS = 3;
 
-    public DVCSCertInfoBuilder(
-        DVCSRequestInformation dvReqInfo,
-        DigestInfo messageImprint,
-        ASN1Integer serialNumber,
-        DVCSTime responseTime)
-    {
-        this.dvReqInfo = dvReqInfo;
-        this.messageImprint = messageImprint;
-        this.serialNumber = serialNumber;
-        this.responseTime = responseTime;
+  public DVCSCertInfoBuilder(
+      DVCSRequestInformation dvReqInfo,
+      DigestInfo messageImprint,
+      ASN1Integer serialNumber,
+      DVCSTime responseTime) {
+    this.dvReqInfo = dvReqInfo;
+    this.messageImprint = messageImprint;
+    this.serialNumber = serialNumber;
+    this.responseTime = responseTime;
+  }
+
+  public DVCSCertInfo build() {
+    ASN1EncodableVector v = new ASN1EncodableVector(10);
+
+    if (version != DEFAULT_VERSION) {
+      v.add(new ASN1Integer(version));
+    }
+    v.add(dvReqInfo);
+    v.add(messageImprint);
+    v.add(serialNumber);
+    v.add(responseTime);
+    if (dvStatus != null) {
+      v.add(new DERTaggedObject(false, TAG_DV_STATUS, dvStatus));
+    }
+    if (policy != null) {
+      v.add(new DERTaggedObject(false, TAG_POLICY, policy));
+    }
+    if (reqSignature != null) {
+      v.add(new DERTaggedObject(false, TAG_REQ_SIGNATURE, reqSignature));
+    }
+    if (certs != null) {
+      v.add(new DERTaggedObject(false, TAG_CERTS, certs));
+    }
+    if (extensions != null) {
+      v.add(extensions);
     }
 
-    public DVCSCertInfo build()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(10);
+    return DVCSCertInfo.getInstance(new DERSequence(v));
+  }
 
-        if (version != DEFAULT_VERSION)
-        {
-            v.add(new ASN1Integer(version));
-        }
-        v.add(dvReqInfo);
-        v.add(messageImprint);
-        v.add(serialNumber);
-        v.add(responseTime);
-        if (dvStatus != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_DV_STATUS, dvStatus));
-        }
-        if (policy != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_POLICY, policy));
-        }
-        if (reqSignature != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_REQ_SIGNATURE, reqSignature));
-        }
-        if (certs != null)
-        {
-            v.add(new DERTaggedObject(false, TAG_CERTS, certs));
-        }
-        if (extensions != null)
-        {
-            v.add(extensions);
-        }
+  public void setVersion(int version) {
+    this.version = version;
+  }
 
-        return DVCSCertInfo.getInstance(new DERSequence(v));
-    }
+  public void setDvReqInfo(DVCSRequestInformation dvReqInfo) {
+    this.dvReqInfo = dvReqInfo;
+  }
 
-    public void setVersion(int version)
-    {
-        this.version = version;
-    }
+  public void setMessageImprint(DigestInfo messageImprint) {
+    this.messageImprint = messageImprint;
+  }
 
-    public void setDvReqInfo(DVCSRequestInformation dvReqInfo)
-    {
-        this.dvReqInfo = dvReqInfo;
-    }
+  public void setSerialNumber(ASN1Integer serialNumber) {
+    this.serialNumber = serialNumber;
+  }
 
-    public void setMessageImprint(DigestInfo messageImprint)
-    {
-        this.messageImprint = messageImprint;
-    }
+  public void setResponseTime(DVCSTime responseTime) {
+    this.responseTime = responseTime;
+  }
 
-    public void setSerialNumber(ASN1Integer serialNumber)
-    {
-        this.serialNumber = serialNumber;
-    }
+  public void setDvStatus(PKIStatusInfo dvStatus) {
+    this.dvStatus = dvStatus;
+  }
 
-    public void setResponseTime(DVCSTime responseTime)
-    {
-        this.responseTime = responseTime;
-    }
+  public void setPolicy(PolicyInformation policy) {
+    this.policy = policy;
+  }
 
-    public void setDvStatus(PKIStatusInfo dvStatus)
-    {
-        this.dvStatus = dvStatus;
-    }
+  public void setReqSignature(ASN1Set reqSignature) {
+    this.reqSignature = reqSignature;
+  }
 
-    public void setPolicy(PolicyInformation policy)
-    {
-        this.policy = policy;
-    }
+  public void setCerts(TargetEtcChain[] certs) {
+    this.certs = new DERSequence(certs);
+  }
 
-    public void setReqSignature(ASN1Set reqSignature)
-    {
-        this.reqSignature = reqSignature;
-    }
-
-    public void setCerts(TargetEtcChain[] certs)
-    {
-        this.certs = new DERSequence(certs);
-    }
-
-    public void setExtensions(Extensions extensions)
-    {
-        this.extensions = extensions;
-    }
+  public void setExtensions(Extensions extensions) {
+    this.extensions = extensions;
+  }
 
 }

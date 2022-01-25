@@ -1,12 +1,5 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.edec;
 
-import java.security.AlgorithmParameters;
-import java.security.InvalidKeyException;
-import java.security.InvalidParameterException;
-import java.security.Key;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SignatureException;
 import com.github.zhenwei.core.crypto.CryptoException;
 import com.github.zhenwei.core.crypto.Signer;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
@@ -16,175 +9,147 @@ import com.github.zhenwei.core.crypto.params.Ed448PrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.Ed448PublicKeyParameters;
 import com.github.zhenwei.core.crypto.signers.Ed25519Signer;
 import com.github.zhenwei.core.crypto.signers.Ed448Signer;
+import java.security.AlgorithmParameters;
+import java.security.InvalidKeyException;
+import java.security.InvalidParameterException;
+import java.security.Key;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SignatureException;
 
 public class SignatureSpi
-    extends java.security.SignatureSpi
-{
-    private static final byte[] EMPTY_CONTEXT = new byte[0];
+    extends java.security.SignatureSpi {
 
-    private final String algorithm;
+  private static final byte[] EMPTY_CONTEXT = new byte[0];
 
-    private Signer signer;
+  private final String algorithm;
 
-    SignatureSpi(String algorithm)
-    {
-        this.algorithm = algorithm;
+  private Signer signer;
+
+  SignatureSpi(String algorithm) {
+    this.algorithm = algorithm;
+  }
+
+  protected void engineInitVerify(PublicKey publicKey)
+      throws InvalidKeyException {
+    AsymmetricKeyParameter pub = getLwEdDSAKeyPublic(publicKey);
+
+    if (pub instanceof Ed25519PublicKeyParameters) {
+      signer = getSigner("Ed25519");
+    } else if (pub instanceof Ed448PublicKeyParameters) {
+      signer = getSigner("Ed448");
+    } else {
+      throw new IllegalStateException("unsupported public key type");
     }
 
-    protected void engineInitVerify(PublicKey publicKey)
-        throws InvalidKeyException
-    {
-        AsymmetricKeyParameter pub = getLwEdDSAKeyPublic(publicKey);
+    signer.init(false, pub);
+  }
 
-        if (pub instanceof Ed25519PublicKeyParameters)
-        {
-            signer = getSigner("Ed25519");
-        }
-        else if (pub instanceof Ed448PublicKeyParameters)
-        {
-            signer = getSigner("Ed448");
-        }
-        else
-        {
-            throw new IllegalStateException("unsupported public key type");
-        }
+  protected void engineInitSign(PrivateKey privateKey)
+      throws InvalidKeyException {
+    AsymmetricKeyParameter priv = getLwEdDSAKeyPrivate(privateKey);
 
-        signer.init(false, pub);
+    if (priv instanceof Ed25519PrivateKeyParameters) {
+      signer = getSigner("Ed25519");
+    } else if (priv instanceof Ed448PrivateKeyParameters) {
+      signer = getSigner("Ed448");
+    } else {
+      throw new IllegalStateException("unsupported private key type");
     }
 
-    protected void engineInitSign(PrivateKey privateKey)
-        throws InvalidKeyException
-    {
-        AsymmetricKeyParameter priv = getLwEdDSAKeyPrivate(privateKey);
+    signer.init(true, priv);
+  }
 
-        if (priv instanceof Ed25519PrivateKeyParameters)
-        {
-            signer = getSigner("Ed25519");
-        }
-        else if (priv instanceof Ed448PrivateKeyParameters)
-        {
-            signer = getSigner("Ed448");
-        }
-        else
-        {
-            throw new IllegalStateException("unsupported private key type");
-        }
-
-        signer.init(true, priv);
+  private static AsymmetricKeyParameter getLwEdDSAKeyPrivate(Key key)
+      throws InvalidKeyException {
+    if (key instanceof BCEdDSAPrivateKey) {
+      return ((BCEdDSAPrivateKey) key).engineGetKeyParameters();
     }
 
-    private static AsymmetricKeyParameter getLwEdDSAKeyPrivate(Key key)
-        throws InvalidKeyException
-    {
-        if (key instanceof BCEdDSAPrivateKey)
-        {
-            return ((BCEdDSAPrivateKey)key).engineGetKeyParameters();
-        }
+    throw new InvalidKeyException("cannot identify EdDSA private key");
+  }
 
-        throw new InvalidKeyException("cannot identify EdDSA private key");
+  private static AsymmetricKeyParameter getLwEdDSAKeyPublic(Key key)
+      throws InvalidKeyException {
+    if (key instanceof BCEdDSAPublicKey) {
+      return ((BCEdDSAPublicKey) key).engineGetKeyParameters();
     }
 
-    private static AsymmetricKeyParameter getLwEdDSAKeyPublic(Key key)
-        throws InvalidKeyException
-    {
-        if (key instanceof BCEdDSAPublicKey)
-        {
-            return ((BCEdDSAPublicKey)key).engineGetKeyParameters();
-        }
+    throw new InvalidKeyException("cannot identify EdDSA public key");
+  }
 
-        throw new InvalidKeyException("cannot identify EdDSA public key");
+  private Signer getSigner(String alg)
+      throws InvalidKeyException {
+    if (algorithm != null && !alg.equals(algorithm)) {
+      throw new InvalidKeyException("inappropriate key for " + algorithm);
     }
 
-    private Signer getSigner(String alg)
-        throws InvalidKeyException
-    {
-        if (algorithm != null && !alg.equals(algorithm))
-        {
-            throw new InvalidKeyException("inappropriate key for " + algorithm);
-        }
-
-        if (alg.equals("Ed448"))
-        {
-            return new Ed448Signer(EMPTY_CONTEXT);
-        }
-        else
-        {
-            return new Ed25519Signer();
-        }
+    if (alg.equals("Ed448")) {
+      return new Ed448Signer(EMPTY_CONTEXT);
+    } else {
+      return new Ed25519Signer();
     }
+  }
 
-    protected void engineUpdate(byte b)
-        throws SignatureException
-    {
-        signer.update(b);
-    }
+  protected void engineUpdate(byte b)
+      throws SignatureException {
+    signer.update(b);
+  }
 
-    protected void engineUpdate(byte[] bytes, int off, int len)
-        throws SignatureException
-    {
-        signer.update(bytes, off, len);
-    }
+  protected void engineUpdate(byte[] bytes, int off, int len)
+      throws SignatureException {
+    signer.update(bytes, off, len);
+  }
 
-    protected byte[] engineSign()
-        throws SignatureException
-    {
-        try
-        {
-            return signer.generateSignature();
-        }
-        catch (CryptoException e)
-        {
-            throw new SignatureException(e.getMessage());
-        }
+  protected byte[] engineSign()
+      throws SignatureException {
+    try {
+      return signer.generateSignature();
+    } catch (CryptoException e) {
+      throw new SignatureException(e.getMessage());
     }
+  }
 
-    protected boolean engineVerify(byte[] signature)
-        throws SignatureException
-    {
-        return signer.verifySignature(signature);
-    }
+  protected boolean engineVerify(byte[] signature)
+      throws SignatureException {
+    return signer.verifySignature(signature);
+  }
 
-    protected void engineSetParameter(String s, Object o)
-        throws InvalidParameterException
-    {
-        throw new UnsupportedOperationException("engineSetParameter unsupported");
-    }
+  protected void engineSetParameter(String s, Object o)
+      throws InvalidParameterException {
+    throw new UnsupportedOperationException("engineSetParameter unsupported");
+  }
 
-    protected Object engineGetParameter(String s)
-        throws InvalidParameterException
-    {
-        throw new UnsupportedOperationException("engineGetParameter unsupported");
-    }
+  protected Object engineGetParameter(String s)
+      throws InvalidParameterException {
+    throw new UnsupportedOperationException("engineGetParameter unsupported");
+  }
 
-    protected AlgorithmParameters engineGetParameters()
-    {
-        return null;
-    }
+  protected AlgorithmParameters engineGetParameters() {
+    return null;
+  }
 
-    public final static class EdDSA
-        extends SignatureSpi
-    {
-        public EdDSA()
-        {
-            super(null);
-        }
-    }
+  public final static class EdDSA
+      extends SignatureSpi {
 
-    public final static class Ed448
-        extends SignatureSpi
-    {
-        public Ed448()
-        {
-            super("Ed448");
-        }
+    public EdDSA() {
+      super(null);
     }
+  }
 
-    public final static class Ed25519
-        extends SignatureSpi
-    {
-        public Ed25519()
-        {
-            super("Ed25519");
-        }
+  public final static class Ed448
+      extends SignatureSpi {
+
+    public Ed448() {
+      super("Ed448");
     }
+  }
+
+  public final static class Ed25519
+      extends SignatureSpi {
+
+    public Ed25519() {
+      super("Ed25519");
+    }
+  }
 }

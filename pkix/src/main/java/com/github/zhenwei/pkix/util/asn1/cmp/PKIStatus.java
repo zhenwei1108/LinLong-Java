@@ -1,63 +1,56 @@
 package com.github.zhenwei.pkix.util.asn1.cmp;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
+import java.math.BigInteger;
 
 public class PKIStatus
-    extends ASN1Object
-{
-    public static final int GRANTED                 = 0;
-    public static final int GRANTED_WITH_MODS       = 1;
-    public static final int REJECTION               = 2;
-    public static final int WAITING                 = 3;
-    public static final int REVOCATION_WARNING      = 4;
-    public static final int REVOCATION_NOTIFICATION = 5;
-    public static final int KEY_UPDATE_WARNING      = 6;
+    extends ASN1Object {
 
-    public static final PKIStatus granted = new PKIStatus(GRANTED);
-    public static final PKIStatus grantedWithMods = new PKIStatus(GRANTED_WITH_MODS);
-    public static final PKIStatus rejection = new PKIStatus(REJECTION);
-    public static final PKIStatus waiting = new PKIStatus(WAITING);
-    public static final PKIStatus revocationWarning = new PKIStatus(REVOCATION_WARNING);
-    public static final PKIStatus revocationNotification = new PKIStatus(REVOCATION_NOTIFICATION);
-    public static final PKIStatus keyUpdateWaiting = new PKIStatus(KEY_UPDATE_WARNING);
+  public static final int GRANTED = 0;
+  public static final int GRANTED_WITH_MODS = 1;
+  public static final int REJECTION = 2;
+  public static final int WAITING = 3;
+  public static final int REVOCATION_WARNING = 4;
+  public static final int REVOCATION_NOTIFICATION = 5;
+  public static final int KEY_UPDATE_WARNING = 6;
 
-    private ASN1Integer value;
+  public static final PKIStatus granted = new PKIStatus(GRANTED);
+  public static final PKIStatus grantedWithMods = new PKIStatus(GRANTED_WITH_MODS);
+  public static final PKIStatus rejection = new PKIStatus(REJECTION);
+  public static final PKIStatus waiting = new PKIStatus(WAITING);
+  public static final PKIStatus revocationWarning = new PKIStatus(REVOCATION_WARNING);
+  public static final PKIStatus revocationNotification = new PKIStatus(REVOCATION_NOTIFICATION);
+  public static final PKIStatus keyUpdateWaiting = new PKIStatus(KEY_UPDATE_WARNING);
 
-    private PKIStatus(int value)
-    {
-        this(new ASN1Integer(value));
+  private ASN1Integer value;
+
+  private PKIStatus(int value) {
+    this(new ASN1Integer(value));
+  }
+
+  private PKIStatus(ASN1Integer value) {
+    this.value = value;
+  }
+
+  public static PKIStatus getInstance(Object o) {
+    if (o instanceof PKIStatus) {
+      return (PKIStatus) o;
     }
 
-    private PKIStatus(ASN1Integer value)
-    {
-        this.value = value;
+    if (o != null) {
+      return new PKIStatus(ASN1Integer.getInstance(o));
     }
 
-    public static PKIStatus getInstance(Object o)
-    {
-        if (o instanceof PKIStatus)
-        {
-            return (PKIStatus)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new PKIStatus(ASN1Integer.getInstance(o));
-        }
+  public BigInteger getValue() {
+    return value.getValue();
+  }
 
-        return null;
-    }
-
-    public BigInteger getValue()
-    {
-        return value.getValue();
-    }
-    
-    public ASN1Primitive toASN1Primitive()
-    {
-        return value;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return value;
+  }
 }

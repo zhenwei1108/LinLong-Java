@@ -18,67 +18,56 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class ControlsProcessed
-    extends ASN1Object
-{
-    private final ASN1Sequence bodyPartReferences;
+    extends ASN1Object {
 
-    /**
-     * Construct a ControlsProcessed object containing one BodyPartReference.
-     *
-     * @param bodyPartRef the BodyPartReference to be contained.
-     */
-    public ControlsProcessed(
-        BodyPartReference bodyPartRef)
-    {
-        this.bodyPartReferences = new DERSequence(bodyPartRef);
+  private final ASN1Sequence bodyPartReferences;
+
+  /**
+   * Construct a ControlsProcessed object containing one BodyPartReference.
+   *
+   * @param bodyPartRef the BodyPartReference to be contained.
+   */
+  public ControlsProcessed(
+      BodyPartReference bodyPartRef) {
+    this.bodyPartReferences = new DERSequence(bodyPartRef);
+  }
+
+
+  public ControlsProcessed(
+      BodyPartReference[] bodyList) {
+    this.bodyPartReferences = new DERSequence(bodyList);
+  }
+
+
+  public static ControlsProcessed getInstance(Object src) {
+    if (src instanceof ControlsProcessed) {
+      return (ControlsProcessed) src;
+    } else if (src != null) {
+      return new ControlsProcessed(ASN1Sequence.getInstance(src));
     }
 
+    return null;
+  }
 
-    public ControlsProcessed(
-        BodyPartReference[] bodyList)
-    {
-        this.bodyPartReferences = new DERSequence(bodyList);
+  private ControlsProcessed(
+      ASN1Sequence seq) {
+    if (seq.size() != 1) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.bodyPartReferences = ASN1Sequence.getInstance(seq.getObjectAt(0));
+  }
+
+  public BodyPartReference[] getBodyList() {
+    BodyPartReference[] tmp = new BodyPartReference[bodyPartReferences.size()];
+
+    for (int i = 0; i != bodyPartReferences.size(); i++) {
+      tmp[i] = BodyPartReference.getInstance(bodyPartReferences.getObjectAt(i));
     }
 
+    return tmp;
+  }
 
-    public static ControlsProcessed getInstance(Object src)
-    {
-        if (src instanceof ControlsProcessed)
-        {
-            return (ControlsProcessed)src;
-        }
-        else if (src != null)
-        {
-            return new ControlsProcessed(ASN1Sequence.getInstance(src));
-        }
-
-        return null;
-    }
-
-    private ControlsProcessed(
-        ASN1Sequence seq)
-    {
-        if (seq.size() != 1)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.bodyPartReferences = ASN1Sequence.getInstance(seq.getObjectAt(0));
-    }
-
-    public BodyPartReference[] getBodyList()
-    {
-        BodyPartReference[] tmp = new BodyPartReference[bodyPartReferences.size()];
-
-        for (int i = 0; i != bodyPartReferences.size(); i++)
-        {
-            tmp[i] = BodyPartReference.getInstance(bodyPartReferences.getObjectAt(i));
-        }
-
-        return tmp;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return new DERSequence(bodyPartReferences);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return new DERSequence(bodyPartReferences);
+  }
 }

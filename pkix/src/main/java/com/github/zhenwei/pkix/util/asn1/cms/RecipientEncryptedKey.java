@@ -19,91 +19,80 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class RecipientEncryptedKey
-    extends ASN1Object
-{
-    private KeyAgreeRecipientIdentifier identifier;
-    private ASN1OctetString encryptedKey;
+    extends ASN1Object {
 
-    private RecipientEncryptedKey(
-        ASN1Sequence seq)
-    {
-        identifier = KeyAgreeRecipientIdentifier.getInstance(seq.getObjectAt(0));
-        encryptedKey = (ASN1OctetString)seq.getObjectAt(1);
-    }
-    
-    /**
-     * Return an RecipientEncryptedKey object from a tagged object.
-     *
-     * @param obj the tagged object holding the object we want.
-     * @param explicit true if the object is meant to be explicitly
-     *              tagged false otherwise.
-     * @exception IllegalArgumentException if the object held by the
-     *          tagged object cannot be converted.
-     */
-    public static RecipientEncryptedKey getInstance(
-        ASN1TaggedObject    obj,
-        boolean             explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
-    }
-    
-    /**
-     * Return a RecipientEncryptedKey object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link RecipientEncryptedKey} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with RecipientEncryptedKey structure inside
-     * </ul>
-     *
-     * @param obj the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static RecipientEncryptedKey getInstance(
-        Object obj)
-    {
-        if (obj instanceof RecipientEncryptedKey)
-        {
-            return (RecipientEncryptedKey)obj;
-        }
-        
-        if (obj != null)
-        {
-            return new RecipientEncryptedKey(ASN1Sequence.getInstance(obj));
-        }
-        
-        return null;
-    } 
+  private KeyAgreeRecipientIdentifier identifier;
+  private ASN1OctetString encryptedKey;
 
-    public RecipientEncryptedKey(
-        KeyAgreeRecipientIdentifier id,
-        ASN1OctetString             encryptedKey)
-    {
-        this.identifier = id;
-        this.encryptedKey = encryptedKey;
+  private RecipientEncryptedKey(
+      ASN1Sequence seq) {
+    identifier = KeyAgreeRecipientIdentifier.getInstance(seq.getObjectAt(0));
+    encryptedKey = (ASN1OctetString) seq.getObjectAt(1);
+  }
+
+  /**
+   * Return an RecipientEncryptedKey object from a tagged object.
+   *
+   * @param obj      the tagged object holding the object we want.
+   * @param explicit true if the object is meant to be explicitly tagged false otherwise.
+   * @throws IllegalArgumentException if the object held by the tagged object cannot be converted.
+   */
+  public static RecipientEncryptedKey getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  /**
+   * Return a RecipientEncryptedKey object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link RecipientEncryptedKey} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with RecipientEncryptedKey structure inside
+   * </ul>
+   *
+   * @param obj the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static RecipientEncryptedKey getInstance(
+      Object obj) {
+    if (obj instanceof RecipientEncryptedKey) {
+      return (RecipientEncryptedKey) obj;
     }
 
-    public KeyAgreeRecipientIdentifier getIdentifier()
-    {
-        return identifier;
+    if (obj != null) {
+      return new RecipientEncryptedKey(ASN1Sequence.getInstance(obj));
     }
 
-    public ASN1OctetString getEncryptedKey()
-    {
-        return encryptedKey;
-    }
+    return null;
+  }
 
-    /** 
-     * Produce an object suitable for an ASN1OutputStream.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public RecipientEncryptedKey(
+      KeyAgreeRecipientIdentifier id,
+      ASN1OctetString encryptedKey) {
+    this.identifier = id;
+    this.encryptedKey = encryptedKey;
+  }
 
-        v.add(identifier);
-        v.add(encryptedKey);
+  public KeyAgreeRecipientIdentifier getIdentifier() {
+    return identifier;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1OctetString getEncryptedKey() {
+    return encryptedKey;
+  }
+
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+
+    v.add(identifier);
+    v.add(encryptedKey);
+
+    return new DERSequence(v);
+  }
 }

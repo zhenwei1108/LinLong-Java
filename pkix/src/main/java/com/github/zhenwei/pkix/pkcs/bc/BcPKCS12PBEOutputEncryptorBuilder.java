@@ -1,7 +1,5 @@
 package com.github.zhenwei.pkix.pkcs.bc;
 
-import java.io.OutputStream;
-import java.security.SecureRandom;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PKCS12PBEParams;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
@@ -14,69 +12,65 @@ import com.github.zhenwei.core.crypto.generators.PKCS12ParametersGenerator;
 import com.github.zhenwei.core.crypto.io.CipherOutputStream;
 import com.github.zhenwei.core.crypto.paddings.PKCS7Padding;
 import com.github.zhenwei.core.crypto.paddings.PaddedBufferedBlockCipher;
-import  com.github.zhenwei.pkix.operator.GenericKey;
-import  com.github.zhenwei.pkix.operator.OutputEncryptor;
+import com.github.zhenwei.pkix.operator.GenericKey;
+import com.github.zhenwei.pkix.operator.OutputEncryptor;
+import java.io.OutputStream;
+import java.security.SecureRandom;
 
-public class BcPKCS12PBEOutputEncryptorBuilder
-{
-    private ExtendedDigest digest;
+public class BcPKCS12PBEOutputEncryptorBuilder {
 
-    private BufferedBlockCipher engine;
-    private ASN1ObjectIdentifier algorithm;
-    private SecureRandom random;
-    private int iterationCount = 1024;
+  private ExtendedDigest digest;
 
-    public BcPKCS12PBEOutputEncryptorBuilder(ASN1ObjectIdentifier algorithm, BlockCipher engine)
-    {
-        this(algorithm, engine, new SHA1Digest());
+  private BufferedBlockCipher engine;
+  private ASN1ObjectIdentifier algorithm;
+  private SecureRandom random;
+  private int iterationCount = 1024;
+
+  public BcPKCS12PBEOutputEncryptorBuilder(ASN1ObjectIdentifier algorithm, BlockCipher engine) {
+    this(algorithm, engine, new SHA1Digest());
+  }
+
+  public BcPKCS12PBEOutputEncryptorBuilder(ASN1ObjectIdentifier algorithm, BlockCipher engine,
+      ExtendedDigest pbeDigest) {
+    this.algorithm = algorithm;
+    this.engine = new PaddedBufferedBlockCipher(engine, new PKCS7Padding());
+    this.digest = pbeDigest;
+  }
+
+  public BcPKCS12PBEOutputEncryptorBuilder setIterationCount(int iterationCount) {
+    this.iterationCount = iterationCount;
+    return this;
+  }
+
+  public OutputEncryptor build(final char[] password) {
+    if (random == null) {
+      random = new SecureRandom();
     }
 
-    public BcPKCS12PBEOutputEncryptorBuilder(ASN1ObjectIdentifier algorithm, BlockCipher engine, ExtendedDigest pbeDigest)
-    {
-        this.algorithm = algorithm;
-        this.engine = new PaddedBufferedBlockCipher(engine, new PKCS7Padding());
-        this.digest = pbeDigest;
-    }
+    final byte[] salt = new byte[20];
 
-    public BcPKCS12PBEOutputEncryptorBuilder setIterationCount(int iterationCount)
-    {
-        this.iterationCount = iterationCount;
-        return this;
-    }
+    random.nextBytes(salt);
 
-    public OutputEncryptor build(final char[] password)
-    {
-        if (random == null)
-        {
-            random = new SecureRandom();
-        }
+    final PKCS12PBEParams pbeParams = new PKCS12PBEParams(salt, iterationCount);
 
-        final byte[] salt = new byte[20];
+    CipherParameters params = PKCS12PBEUtils.createCipherParameters(algorithm, digest,
+        engine.getBlockSize(), pbeParams, password);
 
-        random.nextBytes(salt);
+    engine.init(true, params);
 
-        final PKCS12PBEParams pbeParams = new PKCS12PBEParams(salt, iterationCount);
+    return new OutputEncryptor() {
+      public AlgorithmIdentifier getAlgorithmIdentifier() {
+        return new AlgorithmIdentifier(algorithm, pbeParams);
+      }
 
-        CipherParameters params = PKCS12PBEUtils.createCipherParameters(algorithm, digest, engine.getBlockSize(), pbeParams, password);
+      public OutputStream getOutputStream(OutputStream out) {
+        return new CipherOutputStream(out, engine);
+      }
 
-        engine.init(true, params);
-
-        return new OutputEncryptor()
-        {
-            public AlgorithmIdentifier getAlgorithmIdentifier()
-            {
-                return new AlgorithmIdentifier(algorithm, pbeParams);
-            }
-
-            public OutputStream getOutputStream(OutputStream out)
-            {
-                return new CipherOutputStream(out, engine);
-            }
-
-            public GenericKey getKey()
-            {
-                return new GenericKey(new AlgorithmIdentifier(algorithm, pbeParams), PKCS12ParametersGenerator.PKCS12PasswordToBytes(password));
-            }
-        };
-    }
+      public GenericKey getKey() {
+        return new GenericKey(new AlgorithmIdentifier(algorithm, pbeParams),
+            PKCS12ParametersGenerator.PKCS12PasswordToBytes(password));
+      }
+    };
+  }
 }

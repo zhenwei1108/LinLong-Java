@@ -4,25 +4,22 @@ package com.github.zhenwei.pkix.dvcs;
  * General DVCSException.
  */
 public class DVCSException
-    extends Exception
-{
-    private static final long serialVersionUID = 389345256020131488L;
+    extends Exception {
 
-    private Throwable cause;
+  private static final long serialVersionUID = 389345256020131488L;
 
-    public DVCSException(String message)
-    {
-        super(message);
-    }
+  private Throwable cause;
 
-    public DVCSException(String message, Throwable cause)
-    {
-        super(message);
-        this.cause = cause;
-    }
+  public DVCSException(String message) {
+    super(message);
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public DVCSException(String message, Throwable cause) {
+    super(message);
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

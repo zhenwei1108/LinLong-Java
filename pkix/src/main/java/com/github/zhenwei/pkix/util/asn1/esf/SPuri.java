@@ -4,53 +4,45 @@ import com.github.zhenwei.core.asn1.ASN1IA5String;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DERIA5String;
 
-public class SPuri
-{
-    private ASN1IA5String uri;
+public class SPuri {
 
-    public static SPuri getInstance(
-        Object obj)
-    {
-        if (obj instanceof SPuri)
-        {
-            return (SPuri) obj;
-        }
-        else if (obj instanceof ASN1IA5String)
-        {
-            return new SPuri(ASN1IA5String.getInstance(obj));
-        }
+  private ASN1IA5String uri;
 
-        return null;
+  public static SPuri getInstance(
+      Object obj) {
+    if (obj instanceof SPuri) {
+      return (SPuri) obj;
+    } else if (obj instanceof ASN1IA5String) {
+      return new SPuri(ASN1IA5String.getInstance(obj));
     }
 
-    public SPuri(
-        ASN1IA5String uri)
-    {
-        this.uri = uri;
-    }
+    return null;
+  }
 
-    /**
-     * @deprecated Use {@link #getUriIA5()} instead.
-     */
-    public DERIA5String getUri()
-    {
-        return null == uri || uri instanceof DERIA5String
-            ?   (DERIA5String)uri
-            :   new DERIA5String(uri.getString(), false);
-    }
+  public SPuri(
+      ASN1IA5String uri) {
+    this.uri = uri;
+  }
 
-    public ASN1IA5String getUriIA5()
-    {
-        return uri;
-    }
+  /**
+   * @deprecated Use {@link #getUriIA5()} instead.
+   */
+  public DERIA5String getUri() {
+    return null == uri || uri instanceof DERIA5String
+        ? (DERIA5String) uri
+        : new DERIA5String(uri.getString(), false);
+  }
 
-    /**
-     * <pre>
-     * SPuri ::= IA5String
-     * </pre>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return uri.toASN1Primitive();
-    }
+  public ASN1IA5String getUriIA5() {
+    return uri;
+  }
+
+  /**
+   * <pre>
+   * SPuri ::= IA5String
+   * </pre>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return uri.toASN1Primitive();
+  }
 }

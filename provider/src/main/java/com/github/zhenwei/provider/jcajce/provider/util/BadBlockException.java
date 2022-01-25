@@ -3,19 +3,17 @@ package com.github.zhenwei.provider.jcajce.provider.util;
 import javax.crypto.BadPaddingException;
 
 public class BadBlockException
-    extends BadPaddingException
-{
-    private final Throwable cause;
+    extends BadPaddingException {
 
-    public BadBlockException(String msg, Throwable cause)
-    {
-        super(msg);
+  private final Throwable cause;
 
-        this.cause = cause;
-    }
+  public BadBlockException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

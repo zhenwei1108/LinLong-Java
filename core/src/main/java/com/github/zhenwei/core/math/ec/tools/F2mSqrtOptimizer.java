@@ -1,71 +1,62 @@
 package com.github.zhenwei.core.math.ec.tools;
 
+import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
+import com.github.zhenwei.core.asn1.x9.X9ECParameters;
+import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
+import com.github.zhenwei.core.math.ec.ECAlgorithms;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import com.github.zhenwei.core.asn1.x9.ECNamedCurveTable;
-import com.github.zhenwei.core.asn1.x9.X9ECParameters;
-import com.github.zhenwei.core.crypto.ec.CustomNamedCurves;
-import com.github.zhenwei.core.math.ec.ECAlgorithms;
-import com.github.zhenwei.core.math.ec.ECFieldElement;
 
-public class F2mSqrtOptimizer
-{
-    public static void main(String[] args)
-    {
-        SortedSet names = new TreeSet(enumToList(ECNamedCurveTable.getNames()));
-        names.addAll(enumToList(CustomNamedCurves.getNames()));
+public class F2mSqrtOptimizer {
 
-        Iterator it = names.iterator();
-        while (it.hasNext())
-        {
-            String name = (String)it.next();
-            X9ECParameters x9 = CustomNamedCurves.getByName(name);
-            if (x9 == null)
-            {
-                x9 = ECNamedCurveTable.getByName(name);
-            }
-            if (x9 != null && ECAlgorithms.isF2mCurve(x9.getCurve()))
-            {
-                System.out.print(name + ":");
-                implPrintRootZ(x9);
-            }
-        }
-    }
+  public static void main(String[] args) {
+    SortedSet names = new TreeSet(enumToList(ECNamedCurveTable.getNames()));
+    names.addAll(enumToList(CustomNamedCurves.getNames()));
 
-    public static void printRootZ(X9ECParameters x9)
-    {
-        if (!ECAlgorithms.isF2mCurve(x9.getCurve()))
-        {
-            throw new IllegalArgumentException("Sqrt optimization only defined over characteristic-2 fields");
-        }
-
+    Iterator it = names.iterator();
+    while (it.hasNext()) {
+      String name = (String) it.next();
+      X9ECParameters x9 = CustomNamedCurves.getByName(name);
+      if (x9 == null) {
+        x9 = ECNamedCurveTable.getByName(name);
+      }
+      if (x9 != null && ECAlgorithms.isF2mCurve(x9.getCurve())) {
+        System.out.print(name + ":");
         implPrintRootZ(x9);
+      }
+    }
+  }
+
+  public static void printRootZ(X9ECParameters x9) {
+    if (!ECAlgorithms.isF2mCurve(x9.getCurve())) {
+      throw new IllegalArgumentException(
+          "Sqrt optimization only defined over characteristic-2 fields");
     }
 
-    private static void implPrintRootZ(X9ECParameters x9)
-    {
-        ECFieldElement z = x9.getCurve().fromBigInteger(BigInteger.valueOf(2));
-        ECFieldElement rootZ = z.sqrt();
+    implPrintRootZ(x9);
+  }
 
-        System.out.println(rootZ.toBigInteger().toString(16).toUpperCase());
+  private static void implPrintRootZ(X9ECParameters x9) {
+    ECFieldElement z = x9.getCurve().fromBigInteger(BigInteger.valueOf(2));
+    ECFieldElement rootZ = z.sqrt();
 
-        if (!rootZ.square().equals(z))
-        {
-            throw new IllegalStateException("Optimized-sqrt sanity check failed");
-        }
+    System.out.println(rootZ.toBigInteger().toString(16).toUpperCase());
+
+    if (!rootZ.square().equals(z)) {
+      throw new IllegalStateException("Optimized-sqrt sanity check failed");
     }
+  }
 
-    private static ArrayList enumToList(Enumeration en)
-    {
-        ArrayList rv = new ArrayList();
-        while (en.hasMoreElements())
-        {
-            rv.add(en.nextElement());
-        }
-        return rv;
+  private static ArrayList enumToList(Enumeration en) {
+    ArrayList rv = new ArrayList();
+    while (en.hasMoreElements()) {
+      rv.add(en.nextElement());
     }
+    return rv;
+  }
 }

@@ -1,267 +1,230 @@
 package com.github.zhenwei.pkix.cert.selector;
 
-import java.math.BigInteger;
-import java.util.Collection;
-import java.util.Date;
 import com.github.zhenwei.core.asn1.x509.Extension;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
 import com.github.zhenwei.core.asn1.x509.Target;
 import com.github.zhenwei.core.asn1.x509.TargetInformation;
 import com.github.zhenwei.core.asn1.x509.Targets;
+import com.github.zhenwei.core.util.Selector;
 import com.github.zhenwei.pkix.cert.AttributeCertificateHolder;
 import com.github.zhenwei.pkix.cert.AttributeCertificateIssuer;
 import com.github.zhenwei.pkix.cert.X509AttributeCertificateHolder;
-import com.github.zhenwei.core.util.Selector;
+import java.math.BigInteger;
+import java.util.Collection;
+import java.util.Date;
 
 /**
- * This class is an <code>Selector</code> like implementation to select
- * attribute certificates from a given set of criteria.
+ * This class is an <code>Selector</code> like implementation to select attribute certificates from
+ * a given set of criteria.
  */
 public class X509AttributeCertificateHolderSelector
-    implements Selector
-{
+    implements Selector {
 
-    // TODO: name constraints???
+  // TODO: name constraints???
 
-    private final AttributeCertificateHolder holder;
+  private final AttributeCertificateHolder holder;
 
-    private final AttributeCertificateIssuer issuer;
+  private final AttributeCertificateIssuer issuer;
 
-    private final BigInteger serialNumber;
+  private final BigInteger serialNumber;
 
-    private final Date attributeCertificateValid;
+  private final Date attributeCertificateValid;
 
-    private final X509AttributeCertificateHolder attributeCert;
+  private final X509AttributeCertificateHolder attributeCert;
 
-    private final Collection targetNames;
+  private final Collection targetNames;
 
-    private final Collection targetGroups;
+  private final Collection targetGroups;
 
-    X509AttributeCertificateHolderSelector(
-        AttributeCertificateHolder holder,
-        AttributeCertificateIssuer issuer,
-        BigInteger serialNumber,
-        Date attributeCertificateValid,
-        X509AttributeCertificateHolder attributeCert,
-        Collection targetNames,
-        Collection targetGroups)
-    {
-        this.holder = holder;
-        this.issuer = issuer;
-        this.serialNumber = serialNumber;
-        this.attributeCertificateValid = attributeCertificateValid;
-        this.attributeCert = attributeCert;
-        this.targetNames = targetNames;
-        this.targetGroups = targetGroups;
+  X509AttributeCertificateHolderSelector(
+      AttributeCertificateHolder holder,
+      AttributeCertificateIssuer issuer,
+      BigInteger serialNumber,
+      Date attributeCertificateValid,
+      X509AttributeCertificateHolder attributeCert,
+      Collection targetNames,
+      Collection targetGroups) {
+    this.holder = holder;
+    this.issuer = issuer;
+    this.serialNumber = serialNumber;
+    this.attributeCertificateValid = attributeCertificateValid;
+    this.attributeCert = attributeCert;
+    this.targetNames = targetNames;
+    this.targetGroups = targetGroups;
+  }
+
+  /**
+   * Decides if the given attribute certificate should be selected.
+   *
+   * @param obj The X509AttributeCertificateHolder which should be checked.
+   * @return <code>true</code> if the attribute certificate is a match
+   * <code>false</code> otherwise.
+   */
+  public boolean match(Object obj) {
+    if (!(obj instanceof X509AttributeCertificateHolder)) {
+      return false;
     }
 
-    /**
-     * Decides if the given attribute certificate should be selected.
-     *
-     * @param obj The X509AttributeCertificateHolder which should be checked.
-     * @return <code>true</code> if the attribute certificate is a match
-     *         <code>false</code> otherwise.
-     */
-    public boolean match(Object obj)
-    {
-        if (!(obj instanceof X509AttributeCertificateHolder))
-        {
+    X509AttributeCertificateHolder attrCert = (X509AttributeCertificateHolder) obj;
+
+    if (this.attributeCert != null) {
+      if (!this.attributeCert.equals(attrCert)) {
+        return false;
+      }
+    }
+    if (serialNumber != null) {
+      if (!attrCert.getSerialNumber().equals(serialNumber)) {
+        return false;
+      }
+    }
+    if (holder != null) {
+      if (!attrCert.getHolder().equals(holder)) {
+        return false;
+      }
+    }
+    if (issuer != null) {
+      if (!attrCert.getIssuer().equals(issuer)) {
+        return false;
+      }
+    }
+
+    if (attributeCertificateValid != null) {
+      if (!attrCert.isValidOn(attributeCertificateValid)) {
+        return false;
+      }
+    }
+    if (!targetNames.isEmpty() || !targetGroups.isEmpty()) {
+      Extension targetInfoExt = attrCert.getExtension(Extension.targetInformation);
+      if (targetInfoExt != null) {
+        TargetInformation targetinfo;
+        try {
+          targetinfo = TargetInformation.getInstance(targetInfoExt.getParsedValue());
+        } catch (IllegalArgumentException e) {
+          return false;
+        }
+        Targets[] targetss = targetinfo.getTargetsObjects();
+        if (!targetNames.isEmpty()) {
+          boolean found = false;
+
+          for (int i = 0; i < targetss.length; i++) {
+            Targets t = targetss[i];
+            Target[] targets = t.getTargets();
+            for (int j = 0; j < targets.length; j++) {
+              if (targetNames.contains(GeneralName.getInstance(targets[j]
+                  .getTargetName()))) {
+                found = true;
+                break;
+              }
+            }
+          }
+          if (!found) {
             return false;
+          }
         }
+        if (!targetGroups.isEmpty()) {
+          boolean found = false;
 
-        X509AttributeCertificateHolder attrCert = (X509AttributeCertificateHolder)obj;
-
-        if (this.attributeCert != null)
-        {
-            if (!this.attributeCert.equals(attrCert))
-            {
-                return false;
+          for (int i = 0; i < targetss.length; i++) {
+            Targets t = targetss[i];
+            Target[] targets = t.getTargets();
+            for (int j = 0; j < targets.length; j++) {
+              if (targetGroups.contains(GeneralName.getInstance(targets[j]
+                  .getTargetGroup()))) {
+                found = true;
+                break;
+              }
             }
+          }
+          if (!found) {
+            return false;
+          }
         }
-        if (serialNumber != null)
-        {
-            if (!attrCert.getSerialNumber().equals(serialNumber))
-            {
-                return false;
-            }
-        }
-        if (holder != null)
-        {
-            if (!attrCert.getHolder().equals(holder))
-            {
-                return false;
-            }
-        }
-        if (issuer != null)
-        {
-            if (!attrCert.getIssuer().equals(issuer))
-            {
-                return false;
-            }
-        }
+      }
+    }
+    return true;
+  }
 
-        if (attributeCertificateValid != null)
-        {
-            if (!attrCert.isValidOn(attributeCertificateValid))
-            {
-                return false;
-            }
-        }
-        if (!targetNames.isEmpty() || !targetGroups.isEmpty())
-        {
-            Extension targetInfoExt = attrCert.getExtension(Extension.targetInformation);
-            if (targetInfoExt != null)
-            {
-                TargetInformation targetinfo;
-                try
-                {
-                    targetinfo = TargetInformation.getInstance(targetInfoExt.getParsedValue());
-                }
-                catch (IllegalArgumentException e)
-                {
-                    return false;
-                }
-                Targets[] targetss = targetinfo.getTargetsObjects();
-                if (!targetNames.isEmpty())
-                {
-                    boolean found = false;
+  /**
+   * Returns a clone of this object.
+   *
+   * @return the clone.
+   */
+  public Object clone() {
+    X509AttributeCertificateHolderSelector sel = new X509AttributeCertificateHolderSelector(
+        holder, issuer, serialNumber, attributeCertificateValid, attributeCert, targetNames,
+        targetGroups);
 
-                    for (int i=0; i<targetss.length; i++)
-                    {
-                        Targets t = targetss[i];
-                        Target[] targets = t.getTargets();
-                        for (int j=0; j<targets.length; j++)
-                        {
-                            if (targetNames.contains(GeneralName.getInstance(targets[j]
-                                                       .getTargetName())))
-                            {
-                                found = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (!found)
-                    {
-                        return false;
-                    }
-                }
-                if (!targetGroups.isEmpty())
-                {
-                    boolean found = false;
+    return sel;
+  }
 
-                    for (int i=0; i<targetss.length; i++)
-                    {
-                        Targets t = targetss[i];
-                        Target[] targets = t.getTargets();
-                        for (int j=0; j<targets.length; j++)
-                        {
-                            if (targetGroups.contains(GeneralName.getInstance(targets[j]
-                                                        .getTargetGroup())))
-                            {
-                                found = true;
-                                break;
-                            }
-                        }
-                    }
-                    if (!found)
-                    {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
+  /**
+   * Returns the attribute certificate holder which must be matched.
+   *
+   * @return Returns an X509AttributeCertificateHolder
+   */
+  public X509AttributeCertificateHolder getAttributeCert() {
+    return attributeCert;
+  }
+
+  /**
+   * Get the criteria for the validity.
+   *
+   * @return Returns the attributeCertificateValid.
+   */
+  public Date getAttributeCertificateValid() {
+    if (attributeCertificateValid != null) {
+      return new Date(attributeCertificateValid.getTime());
     }
 
-    /**
-     * Returns a clone of this object.
-     *
-     * @return the clone.
-     */
-    public Object clone()
-    {
-        X509AttributeCertificateHolderSelector sel = new X509AttributeCertificateHolderSelector(
-            holder, issuer, serialNumber, attributeCertificateValid, attributeCert, targetNames, targetGroups);
+    return null;
+  }
 
-        return sel;
-    }
+  /**
+   * Gets the holder.
+   *
+   * @return Returns the holder.
+   */
+  public AttributeCertificateHolder getHolder() {
+    return holder;
+  }
 
-    /**
-     * Returns the attribute certificate holder which must be matched.
-     *
-     * @return Returns an X509AttributeCertificateHolder
-     */
-    public X509AttributeCertificateHolder getAttributeCert()
-    {
-        return attributeCert;
-    }
+  /**
+   * Returns the issuer criterion.
+   *
+   * @return Returns the issuer.
+   */
+  public AttributeCertificateIssuer getIssuer() {
+    return issuer;
+  }
 
-    /**
-     * Get the criteria for the validity.
-     *
-     * @return Returns the attributeCertificateValid.
-     */
-    public Date getAttributeCertificateValid()
-    {
-        if (attributeCertificateValid != null)
-        {
-            return new Date(attributeCertificateValid.getTime());
-        }
+  /**
+   * Gets the serial number the attribute certificate must have.
+   *
+   * @return Returns the serialNumber.
+   */
+  public BigInteger getSerialNumber() {
+    return serialNumber;
+  }
 
-        return null;
-    }
+  /**
+   * Gets the target names. The collection consists of GeneralName objects.
+   * <p>
+   * The returned collection is immutable.
+   *
+   * @return The collection of target names
+   */
+  public Collection getTargetNames() {
+    return targetNames;
+  }
 
-    /**
-     * Gets the holder.
-     *
-     * @return Returns the holder.
-     */
-    public AttributeCertificateHolder getHolder()
-    {
-        return holder;
-    }
-
-    /**
-     * Returns the issuer criterion.
-     *
-     * @return Returns the issuer.
-     */
-    public AttributeCertificateIssuer getIssuer()
-    {
-        return issuer;
-    }
-
-    /**
-     * Gets the serial number the attribute certificate must have.
-     *
-     * @return Returns the serialNumber.
-     */
-    public BigInteger getSerialNumber()
-    {
-        return serialNumber;
-    }
-
-    /**
-     * Gets the target names. The collection consists of GeneralName objects.
-     * <p>
-     * The returned collection is immutable.
-     *
-     * @return The collection of target names
-     */
-    public Collection getTargetNames()
-    {
-        return targetNames;
-    }
-
-    /**
-     * Gets the target groups. The collection consists of GeneralName objects.
-     * <p>
-     * The returned collection is immutable.
-     *
-     * @return The collection of target groups.
-     */
-    public Collection getTargetGroups()
-    {
-        return targetGroups;
-    }
+  /**
+   * Gets the target groups. The collection consists of GeneralName objects.
+   * <p>
+   * The returned collection is immutable.
+   *
+   * @return The collection of target groups.
+   */
+  public Collection getTargetGroups() {
+    return targetGroups;
+  }
 }

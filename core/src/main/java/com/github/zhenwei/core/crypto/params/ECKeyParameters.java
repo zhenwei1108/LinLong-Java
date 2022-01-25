@@ -1,26 +1,23 @@
 package com.github.zhenwei.core.crypto.params;
 
 public class ECKeyParameters
-    extends AsymmetricKeyParameter
-{
-    private final ECDomainParameters parameters;
+    extends AsymmetricKeyParameter {
 
-    protected ECKeyParameters(
-        boolean             isPrivate,
-        ECDomainParameters  parameters)
-    {
-        super(isPrivate);
+  private final ECDomainParameters parameters;
 
-        if (null == parameters)
-        {
-            throw new NullPointerException("'parameters' cannot be null");
-        }
+  protected ECKeyParameters(
+      boolean isPrivate,
+      ECDomainParameters parameters) {
+    super(isPrivate);
 
-        this.parameters = parameters;
+    if (null == parameters) {
+      throw new NullPointerException("'parameters' cannot be null");
     }
 
-    public ECDomainParameters getParameters()
-    {
-        return parameters;
-    }
+    this.parameters = parameters;
+  }
+
+  public ECDomainParameters getParameters() {
+    return parameters;
+  }
 }

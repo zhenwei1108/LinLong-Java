@@ -1,11 +1,11 @@
 package com.github.zhenwei.pkix.openssl;
 
-public interface PEMEncryptor
-{
-    String getAlgorithm();
+public interface PEMEncryptor {
 
-    byte[] getIV();
+  String getAlgorithm();
 
-    byte[] encrypt(byte[] encoding)
-        throws PEMException;
+  byte[] getIV();
+
+  byte[] encrypt(byte[] encoding)
+      throws PEMException;
 }

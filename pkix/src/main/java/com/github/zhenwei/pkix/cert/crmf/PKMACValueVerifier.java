@@ -1,42 +1,37 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
-import java.io.IOException;
-import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.operator.MacCalculator;
 import com.github.zhenwei.pkix.util.asn1.cmp.PBMParameter;
 import com.github.zhenwei.pkix.util.asn1.crmf.PKMACValue;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
-import  com.github.zhenwei.pkix.operator.MacCalculator;
-import com.github.zhenwei.core.util.Arrays;
+import java.io.IOException;
+import java.io.OutputStream;
 
-class PKMACValueVerifier
-{
-    private final PKMACBuilder builder;
+class PKMACValueVerifier {
 
-    public PKMACValueVerifier(PKMACBuilder builder)
-    {
-        this.builder = builder;
+  private final PKMACBuilder builder;
+
+  public PKMACValueVerifier(PKMACBuilder builder) {
+    this.builder = builder;
+  }
+
+  public boolean isValid(PKMACValue value, char[] password, SubjectPublicKeyInfo keyInfo)
+      throws CRMFException {
+    builder.setParameters(PBMParameter.getInstance(value.getAlgId().getParameters()));
+    MacCalculator calculator = builder.build(password);
+
+    OutputStream macOut = calculator.getOutputStream();
+
+    try {
+      macOut.write(keyInfo.getEncoded(ASN1Encoding.DER));
+
+      macOut.close();
+    } catch (IOException e) {
+      throw new CRMFException("exception encoding mac input: " + e.getMessage(), e);
     }
 
-    public boolean isValid(PKMACValue value, char[] password, SubjectPublicKeyInfo keyInfo)
-        throws CRMFException
-    {
-        builder.setParameters(PBMParameter.getInstance(value.getAlgId().getParameters()));
-        MacCalculator calculator = builder.build(password);
-
-        OutputStream macOut = calculator.getOutputStream();
-
-        try
-        {
-            macOut.write(keyInfo.getEncoded(ASN1Encoding.DER));
-
-            macOut.close();
-        }
-        catch (IOException e)
-        {
-            throw new CRMFException("exception encoding mac input: " + e.getMessage(), e);
-        }
-
-        return Arrays.constantTimeAreEqual(calculator.getMac(), value.getValue().getBytes());
-    }
+    return Arrays.constantTimeAreEqual(calculator.getMac(), value.getValue().getBytes());
+  }
 }

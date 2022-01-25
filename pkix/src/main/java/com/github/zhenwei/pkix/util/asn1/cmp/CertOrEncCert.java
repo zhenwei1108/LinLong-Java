@@ -10,98 +10,80 @@ import com.github.zhenwei.pkix.util.asn1.crmf.EncryptedValue;
 
 public class CertOrEncCert
     extends ASN1Object
-    implements ASN1Choice
-{
-    private CMPCertificate certificate;
-    private EncryptedKey encryptedKey;
+    implements ASN1Choice {
 
-    private CertOrEncCert(ASN1TaggedObject tagged)
-    {
-        if (tagged.getTagNo() == 0)
-        {
-            certificate = CMPCertificate.getInstance(tagged.getObject());
-        }
-        else if (tagged.getTagNo() == 1)
-        {
-            encryptedKey = EncryptedKey.getInstance(tagged.getObject());
-        }
-        else
-        {
-            throw new IllegalArgumentException("unknown tag: " + tagged.getTagNo());
-        }
+  private CMPCertificate certificate;
+  private EncryptedKey encryptedKey;
+
+  private CertOrEncCert(ASN1TaggedObject tagged) {
+    if (tagged.getTagNo() == 0) {
+      certificate = CMPCertificate.getInstance(tagged.getObject());
+    } else if (tagged.getTagNo() == 1) {
+      encryptedKey = EncryptedKey.getInstance(tagged.getObject());
+    } else {
+      throw new IllegalArgumentException("unknown tag: " + tagged.getTagNo());
+    }
+  }
+
+  public static CertOrEncCert getInstance(Object o) {
+    if (o instanceof CertOrEncCert) {
+      return (CertOrEncCert) o;
     }
 
-    public static CertOrEncCert getInstance(Object o)
-    {
-        if (o instanceof CertOrEncCert)
-        {
-            return (CertOrEncCert)o;
-        }
-
-        if (o instanceof ASN1TaggedObject)
-        {
-            return new CertOrEncCert((ASN1TaggedObject)o);
-        }
-
-        return null;
+    if (o instanceof ASN1TaggedObject) {
+      return new CertOrEncCert((ASN1TaggedObject) o);
     }
 
-    public CertOrEncCert(CMPCertificate certificate)
-    {
-        if (certificate == null)
-        {
-            throw new IllegalArgumentException("'certificate' cannot be null");
-        }
+    return null;
+  }
 
-        this.certificate = certificate;
+  public CertOrEncCert(CMPCertificate certificate) {
+    if (certificate == null) {
+      throw new IllegalArgumentException("'certificate' cannot be null");
     }
 
-    public CertOrEncCert(EncryptedValue encryptedCert)
-    {
-        if (encryptedCert == null)
-        {
-            throw new IllegalArgumentException("'encryptedCert' cannot be null");
-        }
+    this.certificate = certificate;
+  }
 
-        this.encryptedKey = new EncryptedKey(encryptedCert);
+  public CertOrEncCert(EncryptedValue encryptedCert) {
+    if (encryptedCert == null) {
+      throw new IllegalArgumentException("'encryptedCert' cannot be null");
     }
 
-    public CertOrEncCert(EncryptedKey encryptedKey)
-    {
-        if (encryptedKey == null)
-        {
-            throw new IllegalArgumentException("'encryptedKey' cannot be null");
-        }
+    this.encryptedKey = new EncryptedKey(encryptedCert);
+  }
 
-        this.encryptedKey = encryptedKey;
+  public CertOrEncCert(EncryptedKey encryptedKey) {
+    if (encryptedKey == null) {
+      throw new IllegalArgumentException("'encryptedKey' cannot be null");
     }
 
-    public CMPCertificate getCertificate()
-    {
-        return certificate;
+    this.encryptedKey = encryptedKey;
+  }
+
+  public CMPCertificate getCertificate() {
+    return certificate;
+  }
+
+  public EncryptedKey getEncryptedCert() {
+    return encryptedKey;
+  }
+
+  /**
+   * <pre>
+   * CertOrEncCert ::= CHOICE {
+   *                      certificate     [0] CMPCertificate,
+   *                      encryptedCert   [1] EncryptedKey
+   *           }
+   * </pre>
+   *
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    if (certificate != null) {
+      return new DERTaggedObject(true, 0, certificate);
     }
 
-    public EncryptedKey getEncryptedCert()
-    {
-        return encryptedKey;
-    }
-
-    /**
-     * <pre>
-     * CertOrEncCert ::= CHOICE {
-     *                      certificate     [0] CMPCertificate,
-     *                      encryptedCert   [1] EncryptedKey
-     *           }
-     * </pre>
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        if (certificate != null)
-        {
-            return new DERTaggedObject(true, 0, certificate);
-        }
-
-        return new DERTaggedObject(true, 1, encryptedKey);
-    }
+    return new DERTaggedObject(true, 1, encryptedKey);
+  }
 }

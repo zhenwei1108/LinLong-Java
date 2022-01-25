@@ -20,68 +20,59 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class CMCUnsignedData
-    extends ASN1Object
-{
-    private final BodyPartPath bodyPartPath;
-    private final ASN1ObjectIdentifier identifier;
-    private final ASN1Encodable content;
+    extends ASN1Object {
 
-    public CMCUnsignedData(BodyPartPath bodyPartPath, ASN1ObjectIdentifier identifier, ASN1Encodable content)
-    {
-        this.bodyPartPath = bodyPartPath;
-        this.identifier = identifier;
-        this.content = content;
+  private final BodyPartPath bodyPartPath;
+  private final ASN1ObjectIdentifier identifier;
+  private final ASN1Encodable content;
+
+  public CMCUnsignedData(BodyPartPath bodyPartPath, ASN1ObjectIdentifier identifier,
+      ASN1Encodable content) {
+    this.bodyPartPath = bodyPartPath;
+    this.identifier = identifier;
+    this.content = content;
+  }
+
+  private CMCUnsignedData(ASN1Sequence seq) {
+    if (seq.size() != 3) {
+      throw new IllegalArgumentException("incorrect sequence size");
+    }
+    this.bodyPartPath = BodyPartPath.getInstance(seq.getObjectAt(0));
+    this.identifier = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(1));
+    this.content = seq.getObjectAt(2);
+  }
+
+  public static CMCUnsignedData getInstance(Object o) {
+    if (o instanceof CMCUnsignedData) {
+      return (CMCUnsignedData) o;
     }
 
-    private CMCUnsignedData(ASN1Sequence seq)
-    {
-        if (seq.size() != 3)
-        {
-            throw new IllegalArgumentException("incorrect sequence size");
-        }
-        this.bodyPartPath = BodyPartPath.getInstance(seq.getObjectAt(0));
-        this.identifier = ASN1ObjectIdentifier.getInstance(seq.getObjectAt(1));
-        this.content = seq.getObjectAt(2);
+    if (o != null) {
+      return new CMCUnsignedData(ASN1Sequence.getInstance(o));
     }
 
-    public static CMCUnsignedData getInstance(Object o)
-    {
-        if (o instanceof CMCUnsignedData)
-        {
-            return (CMCUnsignedData)o;
-        }
+    return null;
+  }
 
-        if (o != null)
-        {
-            return new CMCUnsignedData(ASN1Sequence.getInstance(o));
-        }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-        return null;
-    }
+    v.add(bodyPartPath);
+    v.add(identifier);
+    v.add(content);
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
+    return new DERSequence(v);
+  }
 
-        v.add(bodyPartPath);
-        v.add(identifier);
-        v.add(content);
+  public BodyPartPath getBodyPartPath() {
+    return bodyPartPath;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1ObjectIdentifier getIdentifier() {
+    return identifier;
+  }
 
-    public BodyPartPath getBodyPartPath()
-    {
-        return bodyPartPath;
-    }
-
-    public ASN1ObjectIdentifier getIdentifier()
-    {
-        return identifier;
-    }
-
-    public ASN1Encodable getContent()
-    {
-        return content;
-    }
+  public ASN1Encodable getContent() {
+    return content;
+  }
 }

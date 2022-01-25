@@ -1,24 +1,21 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 public class CRMFException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public CRMFException(String msg)
-    {
-        this(msg, null);
-    }
+  private Throwable cause;
 
-    public CRMFException(String msg, Throwable cause)
-    {
-        super(msg);
+  public CRMFException(String msg) {
+    this(msg, null);
+  }
 
-        this.cause = cause;
-    }
+  public CRMFException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

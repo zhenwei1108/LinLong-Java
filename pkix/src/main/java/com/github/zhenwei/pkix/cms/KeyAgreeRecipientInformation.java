@@ -1,9 +1,11 @@
 package com.github.zhenwei.pkix.cms;
 
-import java.io.IOException;
-import java.util.List;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.pkix.util.asn1.cms.KeyAgreeRecipientIdentifier;
 import com.github.zhenwei.pkix.util.asn1.cms.KeyAgreeRecipientInfo;
@@ -11,147 +13,132 @@ import com.github.zhenwei.pkix.util.asn1.cms.OriginatorIdentifierOrKey;
 import com.github.zhenwei.pkix.util.asn1.cms.OriginatorPublicKey;
 import com.github.zhenwei.pkix.util.asn1.cms.RecipientEncryptedKey;
 import com.github.zhenwei.pkix.util.asn1.cms.RecipientKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectKeyIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
-import com.github.zhenwei.core.util.Arrays;
+import java.io.IOException;
+import java.util.List;
 
 /**
- * the RecipientInfo class for a recipient who has been sent a message
- * encrypted using key agreement.
+ * the RecipientInfo class for a recipient who has been sent a message encrypted using key
+ * agreement.
  */
 public class KeyAgreeRecipientInformation
-    extends RecipientInformation
-{
-    private KeyAgreeRecipientInfo info;
-    private ASN1OctetString       encryptedKey;
+    extends RecipientInformation {
 
-    static void readRecipientInfo(List infos, KeyAgreeRecipientInfo info,
-        AlgorithmIdentifier messageAlgorithm, CMSSecureReadable secureReadable, AuthAttributesProvider additionalData)
-    {
-        ASN1Sequence s = info.getRecipientEncryptedKeys();
+  private KeyAgreeRecipientInfo info;
+  private ASN1OctetString encryptedKey;
 
-        for (int i = 0; i < s.size(); ++i)
-        {
-            RecipientEncryptedKey id = RecipientEncryptedKey.getInstance(
-                s.getObjectAt(i));
+  static void readRecipientInfo(List infos, KeyAgreeRecipientInfo info,
+      AlgorithmIdentifier messageAlgorithm, CMSSecureReadable secureReadable,
+      AuthAttributesProvider additionalData) {
+    ASN1Sequence s = info.getRecipientEncryptedKeys();
 
-            RecipientId rid;
+    for (int i = 0; i < s.size(); ++i) {
+      RecipientEncryptedKey id = RecipientEncryptedKey.getInstance(
+          s.getObjectAt(i));
 
-            KeyAgreeRecipientIdentifier karid = id.getIdentifier();
-            IssuerAndSerialNumber iAndSN = karid.getIssuerAndSerialNumber();
+      RecipientId rid;
 
-            if (iAndSN != null)
-            {
-                rid = new KeyAgreeRecipientId(iAndSN.getName(), iAndSN.getSerialNumber().getValue());
-            }
-            else
-            {
-                RecipientKeyIdentifier rKeyID = karid.getRKeyID();
+      KeyAgreeRecipientIdentifier karid = id.getIdentifier();
+      IssuerAndSerialNumber iAndSN = karid.getIssuerAndSerialNumber();
 
-                // Note: 'date' and 'other' fields of RecipientKeyIdentifier appear to be only informational
+      if (iAndSN != null) {
+        rid = new KeyAgreeRecipientId(iAndSN.getName(), iAndSN.getSerialNumber().getValue());
+      } else {
+        RecipientKeyIdentifier rKeyID = karid.getRKeyID();
 
-                rid = new KeyAgreeRecipientId(rKeyID.getSubjectKeyIdentifier().getOctets());
-            }
+        // Note: 'date' and 'other' fields of RecipientKeyIdentifier appear to be only informational
 
-            infos.add(new KeyAgreeRecipientInformation(info, rid, id.getEncryptedKey(), messageAlgorithm,
-                secureReadable, additionalData));
-        }
+        rid = new KeyAgreeRecipientId(rKeyID.getSubjectKeyIdentifier().getOctets());
+      }
+
+      infos.add(new KeyAgreeRecipientInformation(info, rid, id.getEncryptedKey(), messageAlgorithm,
+          secureReadable, additionalData));
+    }
+  }
+
+  KeyAgreeRecipientInformation(
+      KeyAgreeRecipientInfo info,
+      RecipientId rid,
+      ASN1OctetString encryptedKey,
+      AlgorithmIdentifier messageAlgorithm,
+      CMSSecureReadable secureReadable,
+      AuthAttributesProvider additionalData) {
+    super(info.getKeyEncryptionAlgorithm(), messageAlgorithm, secureReadable, additionalData);
+
+    this.info = info;
+    this.rid = rid;
+    this.encryptedKey = encryptedKey;
+  }
+
+  /**
+   * Return the originator details for this recipient.
+   *
+   * @return the originator details.
+   */
+  public OriginatorIdentifierOrKey getOriginator() {
+    return this.info.getOriginator();
+  }
+
+  /**
+   * Return the userKeyingMaterial for this agreement recipient.
+   *
+   * @return the user keying material, null if absent.
+   */
+  public byte[] getUserKeyingMaterial() {
+    ASN1OctetString ukm = this.info.getUserKeyingMaterial();
+    if (ukm != null) {
+      return Arrays.clone(ukm.getOctets());
     }
 
-    KeyAgreeRecipientInformation(
-        KeyAgreeRecipientInfo   info,
-        RecipientId             rid,
-        ASN1OctetString         encryptedKey,
-        AlgorithmIdentifier     messageAlgorithm,
-        CMSSecureReadable       secureReadable,
-        AuthAttributesProvider  additionalData)
-    {
-        super(info.getKeyEncryptionAlgorithm(), messageAlgorithm, secureReadable, additionalData);
+    return null;
+  }
 
-        this.info = info;
-        this.rid = rid;
-        this.encryptedKey = encryptedKey;
+  private SubjectPublicKeyInfo getSenderPublicKeyInfo(AlgorithmIdentifier recKeyAlgId,
+      OriginatorIdentifierOrKey originator)
+      throws CMSException, IOException {
+    OriginatorPublicKey opk = originator.getOriginatorKey();
+    if (opk != null) {
+      return getPublicKeyInfoFromOriginatorPublicKey(recKeyAlgId, opk);
     }
 
-    /**
-     * Return the originator details for this recipient.
-     *
-     * @return the originator details.
-     */
-    public OriginatorIdentifierOrKey getOriginator()
-    {
-        return this.info.getOriginator();
+    OriginatorId origID;
+
+    IssuerAndSerialNumber iAndSN = originator.getIssuerAndSerialNumber();
+    if (iAndSN != null) {
+      origID = new OriginatorId(iAndSN.getName(), iAndSN.getSerialNumber().getValue());
+    } else {
+      SubjectKeyIdentifier ski = originator.getSubjectKeyIdentifier();
+
+      origID = new OriginatorId(ski.getKeyIdentifier());
     }
 
-    /**
-     * Return the userKeyingMaterial for this agreement recipient.
-     *
-     * @return the user keying material, null if absent.
-     */
-    public byte[] getUserKeyingMaterial()
-    {
-        ASN1OctetString ukm = this.info.getUserKeyingMaterial();
-        if (ukm != null)
-        {
-            return Arrays.clone(ukm.getOctets());
-        }
+    return getPublicKeyInfoFromOriginatorId(origID);
+  }
 
-        return null;
-    }
+  private SubjectPublicKeyInfo getPublicKeyInfoFromOriginatorPublicKey(
+      AlgorithmIdentifier recKeyAlgId,
+      OriginatorPublicKey originatorPublicKey) {
+    SubjectPublicKeyInfo pubInfo = new SubjectPublicKeyInfo(
+        recKeyAlgId,
+        originatorPublicKey.getPublicKey().getBytes());
 
-    private SubjectPublicKeyInfo getSenderPublicKeyInfo(AlgorithmIdentifier recKeyAlgId,
-        OriginatorIdentifierOrKey originator)
-        throws CMSException, IOException
-    {
-        OriginatorPublicKey opk = originator.getOriginatorKey();
-        if (opk != null)
-        {
-            return getPublicKeyInfoFromOriginatorPublicKey(recKeyAlgId, opk);
-        }
+    return pubInfo;
+  }
 
-        OriginatorId origID;
+  private SubjectPublicKeyInfo getPublicKeyInfoFromOriginatorId(OriginatorId origID)
+      throws CMSException {
+    // TODO Support all alternatives for OriginatorIdentifierOrKey
+    // see RFC 3852 6.2.2
+    throw new CMSException(
+        "No support for 'originator' as IssuerAndSerialNumber or SubjectKeyIdentifier");
+  }
 
-        IssuerAndSerialNumber iAndSN = originator.getIssuerAndSerialNumber();
-        if (iAndSN != null)
-        {
-            origID = new OriginatorId(iAndSN.getName(), iAndSN.getSerialNumber().getValue());
-        }
-        else
-        {
-            SubjectKeyIdentifier ski = originator.getSubjectKeyIdentifier();
+  protected RecipientOperator getRecipientOperator(Recipient recipient)
+      throws CMSException, IOException {
+    KeyAgreeRecipient agreeRecipient = (KeyAgreeRecipient) recipient;
+    AlgorithmIdentifier recKeyAlgId = agreeRecipient.getPrivateKeyAlgorithmIdentifier();
 
-            origID = new OriginatorId(ski.getKeyIdentifier());
-        }
-
-        return getPublicKeyInfoFromOriginatorId(origID);
-    }
-
-    private SubjectPublicKeyInfo getPublicKeyInfoFromOriginatorPublicKey(AlgorithmIdentifier recKeyAlgId,
-            OriginatorPublicKey originatorPublicKey)
-    {
-        SubjectPublicKeyInfo pubInfo = new SubjectPublicKeyInfo(
-            recKeyAlgId,
-            originatorPublicKey.getPublicKey().getBytes());
-
-        return pubInfo;
-    }
-
-    private SubjectPublicKeyInfo getPublicKeyInfoFromOriginatorId(OriginatorId origID)
-            throws CMSException
-    {
-        // TODO Support all alternatives for OriginatorIdentifierOrKey
-        // see RFC 3852 6.2.2
-        throw new CMSException("No support for 'originator' as IssuerAndSerialNumber or SubjectKeyIdentifier");
-    }
-
-    protected RecipientOperator getRecipientOperator(Recipient recipient)
-        throws CMSException, IOException
-    {
-        KeyAgreeRecipient agreeRecipient = (KeyAgreeRecipient)recipient;
-        AlgorithmIdentifier    recKeyAlgId = agreeRecipient.getPrivateKeyAlgorithmIdentifier();
-
-        return ((KeyAgreeRecipient)recipient).getRecipientOperator(keyEncAlg, messageAlgorithm, getSenderPublicKeyInfo(recKeyAlgId,
-                        info.getOriginator()), info.getUserKeyingMaterial(), encryptedKey.getOctets());
-    }
+    return ((KeyAgreeRecipient) recipient).getRecipientOperator(keyEncAlg, messageAlgorithm,
+        getSenderPublicKeyInfo(recKeyAlgId,
+            info.getOriginator()), info.getUserKeyingMaterial(), encryptedKey.getOctets());
+  }
 }

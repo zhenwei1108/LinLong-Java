@@ -1,50 +1,44 @@
 package com.github.zhenwei.pkix.cert.path;
 
+import com.github.zhenwei.core.util.Integers;
 import java.util.ArrayList;
 import java.util.List;
-import com.github.zhenwei.core.util.Integers;
 
-class CertPathValidationResultBuilder
-{
-    private final CertPathValidationContext context;
-    private final List<Integer> certIndexes = new ArrayList<Integer>();
-    private final List<Integer> ruleIndexes = new ArrayList<Integer>();
-    private final List<CertPathValidationException> exceptions = new ArrayList<CertPathValidationException>();
+class CertPathValidationResultBuilder {
 
-    CertPathValidationResultBuilder(CertPathValidationContext context)
-    {
-        this.context = context;
+  private final CertPathValidationContext context;
+  private final List<Integer> certIndexes = new ArrayList<Integer>();
+  private final List<Integer> ruleIndexes = new ArrayList<Integer>();
+  private final List<CertPathValidationException> exceptions = new ArrayList<CertPathValidationException>();
+
+  CertPathValidationResultBuilder(CertPathValidationContext context) {
+    this.context = context;
+  }
+
+  public CertPathValidationResult build() {
+    if (exceptions.isEmpty()) {
+      return new CertPathValidationResult(context);
+    } else {
+      return new CertPathValidationResult(context,
+          toInts(certIndexes), toInts(ruleIndexes),
+          (CertPathValidationException[]) exceptions.toArray(
+              new CertPathValidationException[exceptions.size()]));
+    }
+  }
+
+  public void addException(int certIndex, int ruleIndex, CertPathValidationException exception) {
+    this.certIndexes.add(Integers.valueOf(certIndex));
+    this.ruleIndexes.add(Integers.valueOf(ruleIndex));
+    this.exceptions.add(exception);
+  }
+
+  private int[] toInts(List<Integer> values) {
+    int[] rv = new int[values.size()];
+
+    for (int i = 0; i != rv.length; i++) {
+      rv[i] = ((Integer) values.get(i)).intValue();
     }
 
-    public CertPathValidationResult build()
-    {
-        if (exceptions.isEmpty())
-        {
-            return new CertPathValidationResult(context);
-        }
-        else
-        {
-            return new CertPathValidationResult(context,
-                toInts(certIndexes), toInts(ruleIndexes), (CertPathValidationException[])exceptions.toArray(new CertPathValidationException[exceptions.size()]));
-        }
-    }
-
-    public void addException(int certIndex, int ruleIndex, CertPathValidationException exception)
-    {
-        this.certIndexes.add(Integers.valueOf(certIndex));
-        this.ruleIndexes.add(Integers.valueOf(ruleIndex));
-        this.exceptions.add(exception);
-    }
-
-    private int[] toInts(List<Integer> values)
-    {
-        int[] rv = new int[values.size()];
-
-        for (int i = 0; i != rv.length; i++)
-        {
-            rv[i] = ((Integer)values.get(i)).intValue();
-        }
-
-        return rv;
-    }
+    return rv;
+  }
 }

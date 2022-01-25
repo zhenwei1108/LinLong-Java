@@ -18,107 +18,94 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  *     version CMSVersion,  -- always set to 0 or 2
  *     rid RecipientIdentifier,
  *     keyEncryptionAlgorithm KeyEncryptionAlgorithmIdentifier,
- *     encryptedKey EncryptedKey 
+ *     encryptedKey EncryptedKey
  * }
  * </pre>
  */
 public class KeyTransRecipientInfo
-    extends ASN1Object
-{
-    private ASN1Integer          version;
-    private RecipientIdentifier rid;
-    private AlgorithmIdentifier keyEncryptionAlgorithm;
-    private ASN1OctetString     encryptedKey;
+    extends ASN1Object {
 
-    public KeyTransRecipientInfo(
-        RecipientIdentifier rid,
-        AlgorithmIdentifier keyEncryptionAlgorithm,
-        ASN1OctetString     encryptedKey)
-    {
-        if (rid.toASN1Primitive() instanceof ASN1TaggedObject)
-        {
-            this.version = new ASN1Integer(2);
-        }
-        else
-        {
-            this.version = new ASN1Integer(0);
-        }
+  private ASN1Integer version;
+  private RecipientIdentifier rid;
+  private AlgorithmIdentifier keyEncryptionAlgorithm;
+  private ASN1OctetString encryptedKey;
 
-        this.rid = rid;
-        this.keyEncryptionAlgorithm = keyEncryptionAlgorithm;
-        this.encryptedKey = encryptedKey;
+  public KeyTransRecipientInfo(
+      RecipientIdentifier rid,
+      AlgorithmIdentifier keyEncryptionAlgorithm,
+      ASN1OctetString encryptedKey) {
+    if (rid.toASN1Primitive() instanceof ASN1TaggedObject) {
+      this.version = new ASN1Integer(2);
+    } else {
+      this.version = new ASN1Integer(0);
     }
 
-    private KeyTransRecipientInfo(
-        ASN1Sequence seq)
-    {
-        this.version = (ASN1Integer)seq.getObjectAt(0);
-        this.rid = RecipientIdentifier.getInstance(seq.getObjectAt(1));
-        this.keyEncryptionAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(2));
-        this.encryptedKey = (ASN1OctetString)seq.getObjectAt(3);
+    this.rid = rid;
+    this.keyEncryptionAlgorithm = keyEncryptionAlgorithm;
+    this.encryptedKey = encryptedKey;
+  }
+
+  private KeyTransRecipientInfo(
+      ASN1Sequence seq) {
+    this.version = (ASN1Integer) seq.getObjectAt(0);
+    this.rid = RecipientIdentifier.getInstance(seq.getObjectAt(1));
+    this.keyEncryptionAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(2));
+    this.encryptedKey = (ASN1OctetString) seq.getObjectAt(3);
+  }
+
+  /**
+   * Return a KeyTransRecipientInfo object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link KeyTransRecipientInfo} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with KeyTransRecipientInfo structure inside
+   * </ul>
+   *
+   * @param obj the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static KeyTransRecipientInfo getInstance(
+      Object obj) {
+    if (obj instanceof KeyTransRecipientInfo) {
+      return (KeyTransRecipientInfo) obj;
     }
 
-    /**
-     * Return a KeyTransRecipientInfo object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link KeyTransRecipientInfo} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with KeyTransRecipientInfo structure inside
-     * </ul>
-     *
-     * @param obj the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static KeyTransRecipientInfo getInstance(
-        Object obj)
-    {
-        if (obj instanceof KeyTransRecipientInfo)
-        {
-            return (KeyTransRecipientInfo)obj;
-        }
-        
-        if(obj != null)
-        {
-            return new KeyTransRecipientInfo(ASN1Sequence.getInstance(obj));
-        }
-        
-        return null;
-    } 
-
-    public ASN1Integer getVersion()
-    {
-        return version;
+    if (obj != null) {
+      return new KeyTransRecipientInfo(ASN1Sequence.getInstance(obj));
     }
 
-    public RecipientIdentifier getRecipientIdentifier()
-    {
-        return rid;
-    }
+    return null;
+  }
 
-    public AlgorithmIdentifier getKeyEncryptionAlgorithm()
-    {
-        return keyEncryptionAlgorithm;
-    }
+  public ASN1Integer getVersion() {
+    return version;
+  }
 
-    public ASN1OctetString getEncryptedKey()
-    {
-        return encryptedKey;
-    }
+  public RecipientIdentifier getRecipientIdentifier() {
+    return rid;
+  }
 
-    /** 
-     * Produce an object suitable for an ASN1OutputStream.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(4);
+  public AlgorithmIdentifier getKeyEncryptionAlgorithm() {
+    return keyEncryptionAlgorithm;
+  }
 
-        v.add(version);
-        v.add(rid);
-        v.add(keyEncryptionAlgorithm);
-        v.add(encryptedKey);
+  public ASN1OctetString getEncryptedKey() {
+    return encryptedKey;
+  }
 
-        return new DERSequence(v);
-    }
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(4);
+
+    v.add(version);
+    v.add(rid);
+    v.add(keyEncryptionAlgorithm);
+    v.add(encryptedKey);
+
+    return new DERSequence(v);
+  }
 }

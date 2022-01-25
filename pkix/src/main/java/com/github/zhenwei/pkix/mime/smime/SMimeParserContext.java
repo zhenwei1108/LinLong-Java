@@ -1,27 +1,25 @@
 package com.github.zhenwei.pkix.mime.smime;
 
 import com.github.zhenwei.pkix.mime.MimeParserContext;
-import  com.github.zhenwei.pkix.operator.DigestCalculatorProvider;
+import com.github.zhenwei.pkix.operator.DigestCalculatorProvider;
 
 public class SMimeParserContext
-    implements MimeParserContext
-{
-    private final String defaultContentTransferEncoding;
-    private final DigestCalculatorProvider digestCalculatorProvider;
+    implements MimeParserContext {
 
-    public SMimeParserContext(String defaultContentTransferEncoding, DigestCalculatorProvider digestCalculatorProvider)
-    {
-        this.defaultContentTransferEncoding = defaultContentTransferEncoding;
-        this.digestCalculatorProvider = digestCalculatorProvider;
-    }
+  private final String defaultContentTransferEncoding;
+  private final DigestCalculatorProvider digestCalculatorProvider;
 
-    public String getDefaultContentTransferEncoding()
-    {
-        return defaultContentTransferEncoding;
-    }
+  public SMimeParserContext(String defaultContentTransferEncoding,
+      DigestCalculatorProvider digestCalculatorProvider) {
+    this.defaultContentTransferEncoding = defaultContentTransferEncoding;
+    this.digestCalculatorProvider = digestCalculatorProvider;
+  }
 
-    public DigestCalculatorProvider getDigestCalculatorProvider()
-    {
-        return digestCalculatorProvider;
-    }
+  public String getDefaultContentTransferEncoding() {
+    return defaultContentTransferEncoding;
+  }
+
+  public DigestCalculatorProvider getDigestCalculatorProvider() {
+    return digestCalculatorProvider;
+  }
 }

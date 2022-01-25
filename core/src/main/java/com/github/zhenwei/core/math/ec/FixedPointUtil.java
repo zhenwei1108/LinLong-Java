@@ -2,86 +2,77 @@ package com.github.zhenwei.core.math.ec;
 
 import java.math.BigInteger;
 
-public class FixedPointUtil
-{
-    public static final String PRECOMP_NAME = "bc_fixed_point";
+public class FixedPointUtil {
 
-    public static int getCombSize(ECCurve c)
-    {
-        BigInteger order = c.getOrder();
-        return order == null ? c.getFieldSize() + 1 : order.bitLength(); 
-    }
+  public static final String PRECOMP_NAME = "bc_fixed_point";
 
-    public static FixedPointPreCompInfo getFixedPointPreCompInfo(PreCompInfo preCompInfo)
-    {
-        return (preCompInfo instanceof FixedPointPreCompInfo) ? (FixedPointPreCompInfo)preCompInfo : null;
-    }
+  public static int getCombSize(ECCurve c) {
+    BigInteger order = c.getOrder();
+    return order == null ? c.getFieldSize() + 1 : order.bitLength();
+  }
 
-    public static FixedPointPreCompInfo precompute(final ECPoint p)
-    {
-        final ECCurve c = p.getCurve();
+  public static FixedPointPreCompInfo getFixedPointPreCompInfo(PreCompInfo preCompInfo) {
+    return (preCompInfo instanceof FixedPointPreCompInfo) ? (FixedPointPreCompInfo) preCompInfo
+        : null;
+  }
 
-        return (FixedPointPreCompInfo)c.precompute(p, PRECOMP_NAME, new PreCompCallback()
-        {
-            public PreCompInfo precompute(PreCompInfo existing)
-            {
-                FixedPointPreCompInfo existingFP = (existing instanceof FixedPointPreCompInfo) ? (FixedPointPreCompInfo)existing : null;
+  public static FixedPointPreCompInfo precompute(final ECPoint p) {
+    final ECCurve c = p.getCurve();
 
-                int bits = getCombSize(c);
-                int minWidth = bits > 250 ? 6 : 5;
-                int n = 1 << minWidth;
+    return (FixedPointPreCompInfo) c.precompute(p, PRECOMP_NAME, new PreCompCallback() {
+      public PreCompInfo precompute(PreCompInfo existing) {
+        FixedPointPreCompInfo existingFP =
+            (existing instanceof FixedPointPreCompInfo) ? (FixedPointPreCompInfo) existing : null;
 
-                if (checkExisting(existingFP, n))
-                {
-                    return existingFP;
-                }
+        int bits = getCombSize(c);
+        int minWidth = bits > 250 ? 6 : 5;
+        int n = 1 << minWidth;
 
-                int d = (bits + minWidth - 1) / minWidth;
+        if (checkExisting(existingFP, n)) {
+          return existingFP;
+        }
 
-                ECPoint[] pow2Table = new ECPoint[minWidth + 1];
-                pow2Table[0] = p;
-                for (int i = 1; i < minWidth; ++i)
-                {
-                    pow2Table[i] = pow2Table[i - 1].timesPow2(d);
-                }
+        int d = (bits + minWidth - 1) / minWidth;
 
-                // This will be the 'offset' value 
-                pow2Table[minWidth] = pow2Table[0].subtract(pow2Table[1]);
+        ECPoint[] pow2Table = new ECPoint[minWidth + 1];
+        pow2Table[0] = p;
+        for (int i = 1; i < minWidth; ++i) {
+          pow2Table[i] = pow2Table[i - 1].timesPow2(d);
+        }
 
-                c.normalizeAll(pow2Table);
+        // This will be the 'offset' value
+        pow2Table[minWidth] = pow2Table[0].subtract(pow2Table[1]);
 
-                ECPoint[] lookupTable = new ECPoint[n];
-                lookupTable[0] = pow2Table[0];
+        c.normalizeAll(pow2Table);
 
-                for (int bit = minWidth - 1; bit >= 0; --bit)
-                {
-                    ECPoint pow2 = pow2Table[bit];
+        ECPoint[] lookupTable = new ECPoint[n];
+        lookupTable[0] = pow2Table[0];
 
-                    int step = 1 << bit;
-                    for (int i = step; i < n; i += (step << 1))
-                    {
-                        lookupTable[i] = lookupTable[i - step].add(pow2);
-                    }
-                }
+        for (int bit = minWidth - 1; bit >= 0; --bit) {
+          ECPoint pow2 = pow2Table[bit];
 
-                c.normalizeAll(lookupTable);
+          int step = 1 << bit;
+          for (int i = step; i < n; i += (step << 1)) {
+            lookupTable[i] = lookupTable[i - step].add(pow2);
+          }
+        }
 
-                FixedPointPreCompInfo result = new FixedPointPreCompInfo();
-                result.setLookupTable(c.createCacheSafeLookupTable(lookupTable, 0, lookupTable.length));
-                result.setOffset(pow2Table[minWidth]);
-                result.setWidth(minWidth);
-                return result;
-            }
+        c.normalizeAll(lookupTable);
 
-            private boolean checkExisting(FixedPointPreCompInfo existingFP, int n)
-            {
-                return existingFP != null && checkTable(existingFP.getLookupTable(), n);
-            }
+        FixedPointPreCompInfo result = new FixedPointPreCompInfo();
+        result.setLookupTable(c.createCacheSafeLookupTable(lookupTable, 0, lookupTable.length));
+        result.setOffset(pow2Table[minWidth]);
+        result.setWidth(minWidth);
+        return result;
+      }
 
-            private boolean checkTable(ECLookupTable table, int n)
-            {
-                return table != null && table.getSize() >= n;
-            }
-        });
-    }
+      private boolean checkExisting(FixedPointPreCompInfo existingFP, int n) {
+        return existingFP != null && checkTable(existingFP.getLookupTable(), n);
+      }
+
+      private boolean checkTable(ECLookupTable table, int n) {
+        return table != null && table.getSize() >= n;
+      }
+    });
+  }
 }

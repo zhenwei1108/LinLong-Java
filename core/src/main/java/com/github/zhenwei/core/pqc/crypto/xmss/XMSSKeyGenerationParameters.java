@@ -1,30 +1,28 @@
 package com.github.zhenwei.core.pqc.crypto.xmss;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 /**
  * XMSS key-pair generation parameters.
  */
 public final class XMSSKeyGenerationParameters
-    extends KeyGenerationParameters
-{
-    private final XMSSParameters xmssParameters;
+    extends KeyGenerationParameters {
 
-    /**
-     * XMSSMT constructor...
-     *
-     * @param prng   Secure random to use.
-     */
-    public XMSSKeyGenerationParameters(XMSSParameters xmssParameters, SecureRandom prng)
-    {
-        super(prng,-1);
+  private final XMSSParameters xmssParameters;
 
-        this.xmssParameters = xmssParameters;
-    }
+  /**
+   * XMSSMT constructor...
+   *
+   * @param prng Secure random to use.
+   */
+  public XMSSKeyGenerationParameters(XMSSParameters xmssParameters, SecureRandom prng) {
+    super(prng, -1);
 
-    public XMSSParameters getParameters()
-    {
-        return xmssParameters;
-    }
+    this.xmssParameters = xmssParameters;
+  }
+
+  public XMSSParameters getParameters() {
+    return xmssParameters;
+  }
 }

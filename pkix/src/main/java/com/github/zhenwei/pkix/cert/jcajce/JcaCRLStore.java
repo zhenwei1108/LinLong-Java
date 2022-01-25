@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
 import java.io.IOException;
 import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
@@ -7,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import com.github.zhenwei.pkix.cert.X509CRLHolder;
-import com.github.zhenwei.core.util.CollectionStore;
 
 /**
  * Class for storing CRLs for later lookup.
@@ -17,46 +17,37 @@ import com.github.zhenwei.core.util.CollectionStore;
  * </p>
  */
 public class JcaCRLStore
-    extends CollectionStore
-{
-    /**
-     * Basic constructor.
-     *
-     * @param collection - initial contents for the store, this is copied.
-     */
-    public JcaCRLStore(Collection collection)
-        throws CRLException
-    {
-        super(convertCRLs(collection));
-    }
+    extends CollectionStore {
 
-    private static Collection convertCRLs(Collection collection)
-        throws CRLException
-    {
-        List list = new ArrayList(collection.size());
+  /**
+   * Basic constructor.
+   *
+   * @param collection - initial contents for the store, this is copied.
+   */
+  public JcaCRLStore(Collection collection)
+      throws CRLException {
+    super(convertCRLs(collection));
+  }
 
-        for (Iterator it = collection.iterator(); it.hasNext();)
-        {
-            Object crl = it.next();
+  private static Collection convertCRLs(Collection collection)
+      throws CRLException {
+    List list = new ArrayList(collection.size());
 
-            if (crl instanceof X509CRL)
-            {
-                try
-                {
-                    list.add(new X509CRLHolder(((X509CRL)crl).getEncoded()));
-                }
-                catch (IOException e)
-                {
-                    throw new CRLException("cannot read encoding: " + e.getMessage());
-                    
-                }
-            }
-            else
-            {
-                list.add((X509CRLHolder)crl);
-            }
+    for (Iterator it = collection.iterator(); it.hasNext(); ) {
+      Object crl = it.next();
+
+      if (crl instanceof X509CRL) {
+        try {
+          list.add(new X509CRLHolder(((X509CRL) crl).getEncoded()));
+        } catch (IOException e) {
+          throw new CRLException("cannot read encoding: " + e.getMessage());
+
         }
-
-        return list;
+      } else {
+        list.add((X509CRLHolder) crl);
+      }
     }
+
+    return list;
+  }
 }

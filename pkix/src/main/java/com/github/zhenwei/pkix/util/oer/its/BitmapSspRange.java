@@ -14,46 +14,38 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
  * </pre>
  */
 public class BitmapSspRange
-    extends ASN1Object
-{
-    private final ASN1OctetString sspValue;
-    private final ASN1OctetString sspBitmask;
+    extends ASN1Object {
 
-    public BitmapSspRange(ASN1OctetString sspValue, ASN1OctetString sspBitmask)
-    {
-        this.sspValue = sspValue;
-        this.sspBitmask = sspBitmask;
+  private final ASN1OctetString sspValue;
+  private final ASN1OctetString sspBitmask;
+
+  public BitmapSspRange(ASN1OctetString sspValue, ASN1OctetString sspBitmask) {
+    this.sspValue = sspValue;
+    this.sspBitmask = sspBitmask;
+  }
+
+  public static BitmapSspRange getInstance(Object o) {
+    if (o instanceof BitmapSspRange) {
+      return (BitmapSspRange) o;
+    } else if (o != null) {
+      ASN1Sequence seq = ASN1Sequence.getInstance(o);
+      return new BitmapSspRange(
+          ASN1OctetString.getInstance(seq.getObjectAt(0)),
+          ASN1OctetString.getInstance(seq.getObjectAt(1)));
     }
 
-    public static BitmapSspRange getInstance(Object o)
-    {
-        if (o instanceof BitmapSspRange)
-        {
-            return (BitmapSspRange)o;
-        }
-        else if (o != null)
-        {
-            ASN1Sequence seq = ASN1Sequence.getInstance(o);
-            return new BitmapSspRange(
-                ASN1OctetString.getInstance(seq.getObjectAt(0)),
-                ASN1OctetString.getInstance(seq.getObjectAt(1)));
-        }
+    return null;
+  }
 
-        return null;
-    }
+  public ASN1OctetString getSspValue() {
+    return sspValue;
+  }
 
-    public ASN1OctetString getSspValue()
-    {
-        return sspValue;
-    }
+  public ASN1OctetString getSspBitmask() {
+    return sspBitmask;
+  }
 
-    public ASN1OctetString getSspBitmask()
-    {
-        return sspBitmask;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return Utils.toSequence(sspValue, sspBitmask);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return Utils.toSequence(sspValue, sspBitmask);
+  }
 }

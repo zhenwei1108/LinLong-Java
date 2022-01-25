@@ -9,9 +9,9 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.BERSequence;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
-/** 
+/**
  * <a href="https://tools.ietf.org/html/rfc3274">RFC 3274</a>: CMS Compressed Data.
- * 
+ *
  * <pre>
  * CompressedData ::= SEQUENCE {
  *     version CMSVersion,
@@ -21,97 +21,85 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
  * </pre>
  */
 public class CompressedData
-    extends ASN1Object
-{
-    private ASN1Integer           version;
-    private AlgorithmIdentifier  compressionAlgorithm;
-    private ContentInfo          encapContentInfo;
+    extends ASN1Object {
 
-    public CompressedData(
-        AlgorithmIdentifier compressionAlgorithm,
-        ContentInfo         encapContentInfo)
-    {
-        this.version = new ASN1Integer(0);
-        this.compressionAlgorithm = compressionAlgorithm;
-        this.encapContentInfo = encapContentInfo;
-    }
-    
-    private CompressedData(
-        ASN1Sequence seq)
-    {
-        this.version = (ASN1Integer)seq.getObjectAt(0);
-        this.compressionAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
-        this.encapContentInfo = ContentInfo.getInstance(seq.getObjectAt(2));
-    }
+  private ASN1Integer version;
+  private AlgorithmIdentifier compressionAlgorithm;
+  private ContentInfo encapContentInfo;
 
-    /**
-     * Return a CompressedData object from a tagged object.
-     *
-     * @param ato the tagged object holding the object we want.
-     * @param isExplicit true if the object is meant to be explicitly
-     *              tagged false otherwise.
-     * @exception IllegalArgumentException if the object held by the
-     *          tagged object cannot be converted.
-     */
-    public static CompressedData getInstance(
-        ASN1TaggedObject ato,
-        boolean isExplicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(ato, isExplicit));
-    }
-    
-    /**
-     * Return a CompressedData object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link CompressedData} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with CompressedData structure inside
-     * </ul>
-     *
-     * @param obj the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static CompressedData getInstance(
-        Object obj)
-    {
-        if (obj instanceof CompressedData)
-        {
-            return (CompressedData)obj;
-        }
+  public CompressedData(
+      AlgorithmIdentifier compressionAlgorithm,
+      ContentInfo encapContentInfo) {
+    this.version = new ASN1Integer(0);
+    this.compressionAlgorithm = compressionAlgorithm;
+    this.encapContentInfo = encapContentInfo;
+  }
 
-        if (obj != null)
-        {
-            return new CompressedData(ASN1Sequence.getInstance(obj));
-        }
+  private CompressedData(
+      ASN1Sequence seq) {
+    this.version = (ASN1Integer) seq.getObjectAt(0);
+    this.compressionAlgorithm = AlgorithmIdentifier.getInstance(seq.getObjectAt(1));
+    this.encapContentInfo = ContentInfo.getInstance(seq.getObjectAt(2));
+  }
 
-        return null;
+  /**
+   * Return a CompressedData object from a tagged object.
+   *
+   * @param ato        the tagged object holding the object we want.
+   * @param isExplicit true if the object is meant to be explicitly tagged false otherwise.
+   * @throws IllegalArgumentException if the object held by the tagged object cannot be converted.
+   */
+  public static CompressedData getInstance(
+      ASN1TaggedObject ato,
+      boolean isExplicit) {
+    return getInstance(ASN1Sequence.getInstance(ato, isExplicit));
+  }
+
+  /**
+   * Return a CompressedData object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link CompressedData} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with CompressedData structure inside
+   * </ul>
+   *
+   * @param obj the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static CompressedData getInstance(
+      Object obj) {
+    if (obj instanceof CompressedData) {
+      return (CompressedData) obj;
     }
 
-    public ASN1Integer getVersion()
-    {
-        return version;
+    if (obj != null) {
+      return new CompressedData(ASN1Sequence.getInstance(obj));
     }
 
-    public AlgorithmIdentifier getCompressionAlgorithmIdentifier()
-    {
-        return compressionAlgorithm;
-    }
+    return null;
+  }
 
-    public ContentInfo getEncapContentInfo()
-    {
-        return encapContentInfo;
-    }
+  public ASN1Integer getVersion() {
+    return version;
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
+  public AlgorithmIdentifier getCompressionAlgorithmIdentifier() {
+    return compressionAlgorithm;
+  }
 
-        v.add(version);
-        v.add(compressionAlgorithm);
-        v.add(encapContentInfo);
+  public ContentInfo getEncapContentInfo() {
+    return encapContentInfo;
+  }
 
-        return new BERSequence(v);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
+
+    v.add(version);
+    v.add(compressionAlgorithm);
+    v.add(encapContentInfo);
+
+    return new BERSequence(v);
+  }
 }

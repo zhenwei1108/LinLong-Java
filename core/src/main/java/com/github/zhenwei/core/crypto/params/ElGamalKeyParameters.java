@@ -2,46 +2,38 @@ package com.github.zhenwei.core.crypto.params;
 
 
 public class ElGamalKeyParameters
-    extends AsymmetricKeyParameter
-{
-    private ElGamalParameters    params;
+    extends AsymmetricKeyParameter {
 
-    protected ElGamalKeyParameters(
-        boolean         isPrivate,
-        ElGamalParameters    params)
-    {
-        super(isPrivate);
+  private ElGamalParameters params;
 
-        this.params = params;
-    }   
+  protected ElGamalKeyParameters(
+      boolean isPrivate,
+      ElGamalParameters params) {
+    super(isPrivate);
 
-    public ElGamalParameters getParameters()
-    {
-        return params;
+    this.params = params;
+  }
+
+  public ElGamalParameters getParameters() {
+    return params;
+  }
+
+  public int hashCode() {
+    return (params != null) ? params.hashCode() : 0;
+  }
+
+  public boolean equals(
+      Object obj) {
+    if (!(obj instanceof ElGamalKeyParameters)) {
+      return false;
     }
 
-    public int hashCode()
-    {
-        return (params != null) ? params.hashCode() : 0;
+    ElGamalKeyParameters dhKey = (ElGamalKeyParameters) obj;
+
+    if (params == null) {
+      return dhKey.getParameters() == null;
+    } else {
+      return params.equals(dhKey.getParameters());
     }
-
-    public boolean equals(
-        Object  obj)
-    {
-        if (!(obj instanceof ElGamalKeyParameters))
-        {
-            return false;
-        }
-
-        ElGamalKeyParameters    dhKey = (ElGamalKeyParameters)obj;
-
-        if (params == null)
-        {
-            return dhKey.getParameters() == null;
-        }
-        else
-        { 
-            return params.equals(dhKey.getParameters());
-        }
-    }
+  }
 }

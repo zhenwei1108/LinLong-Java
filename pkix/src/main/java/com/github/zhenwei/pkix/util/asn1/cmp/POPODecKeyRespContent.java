@@ -6,50 +6,44 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 
 public class POPODecKeyRespContent
-    extends ASN1Object
-{
-    private ASN1Sequence content;
+    extends ASN1Object {
 
-    private POPODecKeyRespContent(ASN1Sequence seq)
-    {
-        content = seq;
+  private ASN1Sequence content;
+
+  private POPODecKeyRespContent(ASN1Sequence seq) {
+    content = seq;
+  }
+
+  public static POPODecKeyRespContent getInstance(Object o) {
+    if (o instanceof POPODecKeyRespContent) {
+      return (POPODecKeyRespContent) o;
     }
 
-    public static POPODecKeyRespContent getInstance(Object o)
-    {
-        if (o instanceof POPODecKeyRespContent)
-        {
-            return (POPODecKeyRespContent)o;
-        }
-
-        if (o != null)
-        {
-            return new POPODecKeyRespContent(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+    if (o != null) {
+      return new POPODecKeyRespContent(ASN1Sequence.getInstance(o));
     }
 
-    public ASN1Integer[] toASN1IntegerArray()
-    {
-        ASN1Integer[] result = new ASN1Integer[content.size()];
+    return null;
+  }
 
-        for (int i = 0; i != result.length; i++)
-        {
-            result[i] = ASN1Integer.getInstance(content.getObjectAt(i));
-        }
+  public ASN1Integer[] toASN1IntegerArray() {
+    ASN1Integer[] result = new ASN1Integer[content.size()];
 
-        return result;
+    for (int i = 0; i != result.length; i++) {
+      result[i] = ASN1Integer.getInstance(content.getObjectAt(i));
     }
 
-    /**
-     * <pre>
-     * POPODecKeyRespContent ::= SEQUENCE OF INTEGER
-     * </pre>
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return content;
-    }
+    return result;
+  }
+
+  /**
+   * <pre>
+   * POPODecKeyRespContent ::= SEQUENCE OF INTEGER
+   * </pre>
+   *
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return content;
+  }
 }

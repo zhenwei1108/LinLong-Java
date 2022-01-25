@@ -1,116 +1,101 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
-import java.io.IOException;
-import java.security.spec.AlgorithmParameterSpec;
-import java.security.spec.InvalidParameterSpecException;
-import javax.crypto.spec.IvParameterSpec;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.util.Arrays;
+import java.io.IOException;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.InvalidParameterSpecException;
+import javax.crypto.spec.IvParameterSpec;
 
 public class IvAlgorithmParameters
-    extends BaseAlgorithmParameters
-{
-    private byte[] iv;
+    extends BaseAlgorithmParameters {
 
-    protected byte[] engineGetEncoded()
-        throws IOException
-    {
-        return engineGetEncoded("ASN.1");
+  private byte[] iv;
+
+  protected byte[] engineGetEncoded()
+      throws IOException {
+    return engineGetEncoded("ASN.1");
+  }
+
+  protected byte[] engineGetEncoded(
+      String format)
+      throws IOException {
+    if (isASN1FormatString(format)) {
+      return new DEROctetString(engineGetEncoded("RAW")).getEncoded();
     }
 
-    protected byte[] engineGetEncoded(
-        String format)
-        throws IOException
-    {
-        if (isASN1FormatString(format))
-        {
-            return new DEROctetString(engineGetEncoded("RAW")).getEncoded();
-        }
-
-        if (format.equals("RAW"))
-        {
-            return Arrays.clone(iv);
-        }
-
-        return null;
+    if (format.equals("RAW")) {
+      return Arrays.clone(iv);
     }
 
-    protected AlgorithmParameterSpec localEngineGetParameterSpec(
-        Class paramSpec)
-        throws InvalidParameterSpecException
-    {
-        if (paramSpec == IvParameterSpec.class || paramSpec == AlgorithmParameterSpec.class)
-        {
-            return new IvParameterSpec(iv);
-        }
+    return null;
+  }
 
-        throw new InvalidParameterSpecException("unknown parameter spec passed to IV parameters object.");
+  protected AlgorithmParameterSpec localEngineGetParameterSpec(
+      Class paramSpec)
+      throws InvalidParameterSpecException {
+    if (paramSpec == IvParameterSpec.class || paramSpec == AlgorithmParameterSpec.class) {
+      return new IvParameterSpec(iv);
     }
 
-    protected void engineInit(
-        AlgorithmParameterSpec paramSpec)
-        throws InvalidParameterSpecException
-    {
-        if (!(paramSpec instanceof IvParameterSpec))
-        {
-            throw new InvalidParameterSpecException("IvParameterSpec required to initialise a IV parameters algorithm parameters object");
-        }
+    throw new InvalidParameterSpecException(
+        "unknown parameter spec passed to IV parameters object.");
+  }
 
-        this.iv = ((IvParameterSpec)paramSpec).getIV();
+  protected void engineInit(
+      AlgorithmParameterSpec paramSpec)
+      throws InvalidParameterSpecException {
+    if (!(paramSpec instanceof IvParameterSpec)) {
+      throw new InvalidParameterSpecException(
+          "IvParameterSpec required to initialise a IV parameters algorithm parameters object");
     }
 
-    protected void engineInit(
-        byte[] params)
-        throws IOException
-    {
-        //
-        // check that we don't have a DER encoded octet string
-        //
-        if ((params.length % 8) != 0
-            && params[0] == 0x04 && params[1] == params.length - 2)
-        {
-            ASN1OctetString oct = (ASN1OctetString)ASN1Primitive.fromByteArray(params);
+    this.iv = ((IvParameterSpec) paramSpec).getIV();
+  }
 
-            params = oct.getOctets();
-        }
+  protected void engineInit(
+      byte[] params)
+      throws IOException {
+    //
+    // check that we don't have a DER encoded octet string
+    //
+    if ((params.length % 8) != 0
+        && params[0] == 0x04 && params[1] == params.length - 2) {
+      ASN1OctetString oct = (ASN1OctetString) ASN1Primitive.fromByteArray(params);
 
-        this.iv = Arrays.clone(params);
+      params = oct.getOctets();
     }
 
-    protected void engineInit(
-        byte[] params,
-        String format)
-        throws IOException
-    {
-        if (isASN1FormatString(format))
-        {
-            try
-            {
-                ASN1OctetString oct = (ASN1OctetString)ASN1Primitive.fromByteArray(params);
+    this.iv = Arrays.clone(params);
+  }
 
-                engineInit(oct.getOctets());
-            }
-            catch (Exception e)
-            {
-                throw new IOException("Exception decoding: " + e);
-            }
+  protected void engineInit(
+      byte[] params,
+      String format)
+      throws IOException {
+    if (isASN1FormatString(format)) {
+      try {
+        ASN1OctetString oct = (ASN1OctetString) ASN1Primitive.fromByteArray(params);
 
-            return;
-        }
+        engineInit(oct.getOctets());
+      } catch (Exception e) {
+        throw new IOException("Exception decoding: " + e);
+      }
 
-        if (format.equals("RAW"))
-        {
-            engineInit(params);
-            return;
-        }
-
-        throw new IOException("Unknown parameters format in IV parameters object");
+      return;
     }
 
-    protected String engineToString()
-    {
-        return "IV Parameters";
+    if (format.equals("RAW")) {
+      engineInit(params);
+      return;
     }
+
+    throw new IOException("Unknown parameters format in IV parameters object");
+  }
+
+  protected String engineToString() {
+    return "IV Parameters";
+  }
 }

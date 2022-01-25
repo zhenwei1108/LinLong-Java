@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.pkcs;
 
-import java.io.IOException;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
@@ -14,7 +13,8 @@ import com.github.zhenwei.core.asn1.pkcs.Pfx;
 import com.github.zhenwei.pkix.cms.CMSEncryptedDataGenerator;
 import com.github.zhenwei.pkix.cms.CMSException;
 import com.github.zhenwei.pkix.cms.CMSProcessableByteArray;
-import  com.github.zhenwei.pkix.operator.OutputEncryptor;
+import com.github.zhenwei.pkix.operator.OutputEncryptor;
+import java.io.IOException;
 
 /**
  * A builder for the PKCS#12 Pfx key and certificate store.
@@ -62,117 +62,105 @@ import  com.github.zhenwei.pkix.operator.OutputEncryptor;
  *
  *      PKCS12PfxPdu pfx = pfxPduBuilder.build(new BcPKCS12MacCalculatorBuilder(), passwd);
  * </pre>
- *
  */
-public class PKCS12PfxPduBuilder
-{
-    private ASN1EncodableVector dataVector = new ASN1EncodableVector();
+public class PKCS12PfxPduBuilder {
 
-    /**
-     * Add a SafeBag that is to be included as is.
-     *
-     * @param data the SafeBag to add.
-     * @return this builder.
-     * @throws IOException
-     */
-    public PKCS12PfxPduBuilder addData(PKCS12SafeBag data)
-        throws IOException
-    {
-        dataVector.add(new ContentInfo(PKCSObjectIdentifiers.data, new DEROctetString(new DLSequence(data.toASN1Structure()).getEncoded())));
+  private ASN1EncodableVector dataVector = new ASN1EncodableVector();
 
-        return this;
+  /**
+   * Add a SafeBag that is to be included as is.
+   *
+   * @param data the SafeBag to add.
+   * @return this builder.
+   * @throws IOException
+   */
+  public PKCS12PfxPduBuilder addData(PKCS12SafeBag data)
+      throws IOException {
+    dataVector.add(new ContentInfo(PKCSObjectIdentifiers.data,
+        new DEROctetString(new DLSequence(data.toASN1Structure()).getEncoded())));
+
+    return this;
+  }
+
+  /**
+   * Add a SafeBag that is to be wrapped in a EncryptedData object.
+   *
+   * @param dataEncryptor the encryptor to use for encoding the data.
+   * @param data          the SafeBag to include.
+   * @return this builder.
+   * @throws IOException if a issue occurs processing the data.
+   */
+  public PKCS12PfxPduBuilder addEncryptedData(OutputEncryptor dataEncryptor, PKCS12SafeBag data)
+      throws IOException {
+    return addEncryptedData(dataEncryptor, new DERSequence(data.toASN1Structure()));
+  }
+
+  /**
+   * Add a set of SafeBags that are to be wrapped in a EncryptedData object.
+   *
+   * @param dataEncryptor the encryptor to use for encoding the data.
+   * @param data          the SafeBags to include.
+   * @return this builder.
+   * @throws IOException if a issue occurs processing the data.
+   */
+  public PKCS12PfxPduBuilder addEncryptedData(OutputEncryptor dataEncryptor, PKCS12SafeBag[] data)
+      throws IOException {
+    ASN1EncodableVector v = new ASN1EncodableVector();
+
+    for (int i = 0; i != data.length; i++) {
+      v.add(data[i].toASN1Structure());
     }
 
-    /**
-     * Add a SafeBag that is to be wrapped in a EncryptedData object.
-     *
-     * @param dataEncryptor the encryptor to use for encoding the data.
-     * @param data the SafeBag to include.
-     * @return this builder.
-     * @throws IOException if a issue occurs processing the data.
-     */
-    public PKCS12PfxPduBuilder addEncryptedData(OutputEncryptor dataEncryptor, PKCS12SafeBag data)
-        throws IOException
-    {
-        return addEncryptedData(dataEncryptor, new DERSequence(data.toASN1Structure()));
+    return addEncryptedData(dataEncryptor, new DLSequence(v));
+  }
+
+  private PKCS12PfxPduBuilder addEncryptedData(OutputEncryptor dataEncryptor, ASN1Sequence data)
+      throws IOException {
+    CMSEncryptedDataGenerator envGen = new CMSEncryptedDataGenerator();
+
+    try {
+      dataVector.add(envGen.generate(new CMSProcessableByteArray(data.getEncoded()), dataEncryptor)
+          .toASN1Structure());
+    } catch (CMSException e) {
+      throw new PKCSIOException(e.getMessage(), e.getCause());
     }
 
-    /**
-     * Add a set of SafeBags that are to be wrapped in a EncryptedData object.
-     *
-     * @param dataEncryptor the encryptor to use for encoding the data.
-     * @param data the SafeBags to include.
-     * @return this builder.
-     * @throws IOException if a issue occurs processing the data.
-     */
-    public PKCS12PfxPduBuilder addEncryptedData(OutputEncryptor dataEncryptor, PKCS12SafeBag[] data)
-        throws IOException
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector();
+    return this;
+  }
 
-        for (int i = 0; i != data.length; i++)
-        {
-            v.add(data[i].toASN1Structure());
-        }
+  /**
+   * Build the Pfx structure, protecting it with a MAC calculated against the passed in password.
+   *
+   * @param macCalcBuilder a builder for a PKCS12 mac calculator.
+   * @param password       the password to use.
+   * @return a Pfx object.
+   * @throws PKCSException on a encoding or processing error.
+   */
+  public PKCS12PfxPdu build(PKCS12MacCalculatorBuilder macCalcBuilder, char[] password)
+      throws PKCSException {
+    AuthenticatedSafe auth = AuthenticatedSafe.getInstance(new DLSequence(dataVector));
+    byte[] encAuth;
 
-        return addEncryptedData(dataEncryptor, new DLSequence(v));
+    try {
+      encAuth = auth.getEncoded();
+    } catch (IOException e) {
+      throw new PKCSException("unable to encode AuthenticatedSafe: " + e.getMessage(), e);
     }
 
-    private PKCS12PfxPduBuilder addEncryptedData(OutputEncryptor dataEncryptor, ASN1Sequence data)
-        throws IOException
-    {
-        CMSEncryptedDataGenerator envGen = new CMSEncryptedDataGenerator();
+    ContentInfo mainInfo = new ContentInfo(PKCSObjectIdentifiers.data, new DEROctetString(encAuth));
+    MacData mData = null;
 
-        try
-        {
-            dataVector.add(envGen.generate(new CMSProcessableByteArray(data.getEncoded()), dataEncryptor).toASN1Structure());
-        }
-        catch (CMSException e)
-        {
-            throw new PKCSIOException(e.getMessage(), e.getCause());
-        }
+    if (macCalcBuilder != null) {
+      MacDataGenerator mdGen = new MacDataGenerator(macCalcBuilder);
 
-        return this;
+      mData = mdGen.build(password, encAuth);
     }
 
-    /**
-     * Build the Pfx structure, protecting it with a MAC calculated against the passed in password.
-     *
-     * @param macCalcBuilder a builder for a PKCS12 mac calculator.
-     * @param password the password to use.
-     * @return a Pfx object.
-     * @throws PKCSException on a encoding or processing error.
-     */
-    public PKCS12PfxPdu build(PKCS12MacCalculatorBuilder macCalcBuilder, char[] password)
-        throws PKCSException
-    {
-        AuthenticatedSafe auth = AuthenticatedSafe.getInstance(new DLSequence(dataVector));
-        byte[]            encAuth;
+    //
+    // output the Pfx
+    //
+    Pfx pfx = new Pfx(mainInfo, mData);
 
-        try
-        {
-            encAuth = auth.getEncoded();
-        }
-        catch (IOException e)
-        {
-            throw new PKCSException("unable to encode AuthenticatedSafe: " + e.getMessage(), e);
-        }
-
-        ContentInfo       mainInfo = new ContentInfo(PKCSObjectIdentifiers.data, new DEROctetString(encAuth));
-        MacData           mData = null;
-
-        if (macCalcBuilder != null)
-        {
-            MacDataGenerator mdGen = new MacDataGenerator(macCalcBuilder);
-
-            mData = mdGen.build(password, encAuth);
-        }
-
-        //
-        // output the Pfx
-        //
-        Pfx pfx = new Pfx(mainInfo, mData);
-
-        return new PKCS12PfxPdu(pfx);
-    }
+    return new PKCS12PfxPdu(pfx);
+  }
 }

@@ -1,5 +1,7 @@
 package com.github.zhenwei.pkix.cert.jcajce;
 
+import com.github.zhenwei.core.util.CollectionStore;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import java.io.IOException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
@@ -7,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import com.github.zhenwei.pkix.cert.X509CertificateHolder;
-import com.github.zhenwei.core.util.CollectionStore;
 
 /**
  * Class for storing Certificates for later lookup.
@@ -17,47 +17,38 @@ import com.github.zhenwei.core.util.CollectionStore;
  * </p>
  */
 public class JcaCertStore
-    extends CollectionStore
-{
-    /**
-     * Basic constructor.
-     *
-     * @param collection - initial contents for the store, this is copied.
-     */
-    public JcaCertStore(Collection collection)
-        throws CertificateEncodingException
-    {
-        super(convertCerts(collection));
-    }
+    extends CollectionStore {
 
-    private static Collection convertCerts(Collection collection)
-        throws CertificateEncodingException
-    {
-        List list = new ArrayList(collection.size());
+  /**
+   * Basic constructor.
+   *
+   * @param collection - initial contents for the store, this is copied.
+   */
+  public JcaCertStore(Collection collection)
+      throws CertificateEncodingException {
+    super(convertCerts(collection));
+  }
 
-        for (Iterator it = collection.iterator(); it.hasNext();)
-        {
-            Object o = it.next();
+  private static Collection convertCerts(Collection collection)
+      throws CertificateEncodingException {
+    List list = new ArrayList(collection.size());
 
-            if (o instanceof X509Certificate)
-            {
-                X509Certificate cert = (X509Certificate)o;
+    for (Iterator it = collection.iterator(); it.hasNext(); ) {
+      Object o = it.next();
 
-                try
-                {
-                    list.add(new X509CertificateHolder(cert.getEncoded()));
-                }
-                catch (IOException e)
-                {
-                    throw new CertificateEncodingException("unable to read encoding: " + e.getMessage());
-                }
-            }
-            else
-            {
-                list.add((X509CertificateHolder)o);
-            }
+      if (o instanceof X509Certificate) {
+        X509Certificate cert = (X509Certificate) o;
+
+        try {
+          list.add(new X509CertificateHolder(cert.getEncoded()));
+        } catch (IOException e) {
+          throw new CertificateEncodingException("unable to read encoding: " + e.getMessage());
         }
-
-        return list;
+      } else {
+        list.add((X509CertificateHolder) o);
+      }
     }
+
+    return list;
+  }
 }

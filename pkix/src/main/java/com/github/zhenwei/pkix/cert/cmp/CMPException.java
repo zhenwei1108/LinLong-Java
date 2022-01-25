@@ -1,24 +1,21 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 public class CMPException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public CMPException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public CMPException(String msg, Throwable cause) {
+    super(msg);
 
-    public CMPException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public CMPException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

@@ -3,6 +3,6 @@ package com.github.zhenwei.provider.jcajce.interfaces;
 import java.security.Key;
 
 public interface EdDSAKey
-    extends Key
-{
+    extends Key {
+
 }

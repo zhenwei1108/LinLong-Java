@@ -1,27 +1,26 @@
 package com.github.zhenwei.core.pqc.crypto.newhope;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPair;
 import com.github.zhenwei.core.crypto.AsymmetricCipherKeyPairGenerator;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 public class NHKeyPairGenerator
-    implements AsymmetricCipherKeyPairGenerator
-{
-    private SecureRandom random;
+    implements AsymmetricCipherKeyPairGenerator {
 
-    public void init(KeyGenerationParameters param)
-    {
-        this.random = param.getRandom();
-    }
+  private SecureRandom random;
 
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        byte[] pubData = new byte[NewHope.SENDA_BYTES];
-        short[] secData = new short[NewHope.POLY_SIZE];
+  public void init(KeyGenerationParameters param) {
+    this.random = param.getRandom();
+  }
 
-        NewHope.keygen(random, pubData, secData);
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    byte[] pubData = new byte[NewHope.SENDA_BYTES];
+    short[] secData = new short[NewHope.POLY_SIZE];
 
-        return new AsymmetricCipherKeyPair(new NHPublicKeyParameters(pubData), new NHPrivateKeyParameters(secData));
-    }
+    NewHope.keygen(random, pubData, secData);
+
+    return new AsymmetricCipherKeyPair(new NHPublicKeyParameters(pubData),
+        new NHPrivateKeyParameters(secData));
+  }
 }

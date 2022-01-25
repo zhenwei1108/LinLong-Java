@@ -17,64 +17,55 @@ import com.github.zhenwei.core.asn1.x509.Certificate;
  * </pre>
  */
 public class EncryptedPrivateKeyData
-    extends ASN1Object
-{
-    private final EncryptedPrivateKeyInfo encryptedPrivateKeyInfo;
-    private final Certificate[] certificateChain;
+    extends ASN1Object {
 
-    public EncryptedPrivateKeyData(EncryptedPrivateKeyInfo encryptedPrivateKeyInfo, Certificate[] certificateChain)
-    {
-        this.encryptedPrivateKeyInfo = encryptedPrivateKeyInfo;
-        this.certificateChain = new Certificate[certificateChain.length];
-        System.arraycopy(certificateChain, 0, this.certificateChain, 0, certificateChain.length);
+  private final EncryptedPrivateKeyInfo encryptedPrivateKeyInfo;
+  private final Certificate[] certificateChain;
+
+  public EncryptedPrivateKeyData(EncryptedPrivateKeyInfo encryptedPrivateKeyInfo,
+      Certificate[] certificateChain) {
+    this.encryptedPrivateKeyInfo = encryptedPrivateKeyInfo;
+    this.certificateChain = new Certificate[certificateChain.length];
+    System.arraycopy(certificateChain, 0, this.certificateChain, 0, certificateChain.length);
+  }
+
+  private EncryptedPrivateKeyData(ASN1Sequence seq) {
+    encryptedPrivateKeyInfo = EncryptedPrivateKeyInfo.getInstance(seq.getObjectAt(0));
+    ASN1Sequence certSeq = ASN1Sequence.getInstance(seq.getObjectAt(1));
+    certificateChain = new Certificate[certSeq.size()];
+    for (int i = 0; i != certificateChain.length; i++) {
+      certificateChain[i] = Certificate.getInstance(certSeq.getObjectAt(i));
+    }
+  }
+
+  public static EncryptedPrivateKeyData getInstance(Object o) {
+    if (o instanceof EncryptedPrivateKeyData) {
+      return (EncryptedPrivateKeyData) o;
+    } else if (o != null) {
+      return new EncryptedPrivateKeyData(ASN1Sequence.getInstance(o));
     }
 
-    private EncryptedPrivateKeyData(ASN1Sequence seq)
-    {
-        encryptedPrivateKeyInfo = EncryptedPrivateKeyInfo.getInstance(seq.getObjectAt(0));
-        ASN1Sequence certSeq = ASN1Sequence.getInstance(seq.getObjectAt(1));
-        certificateChain = new Certificate[certSeq.size()];
-        for (int i = 0; i != certificateChain.length; i++)
-        {
-            certificateChain[i] = Certificate.getInstance(certSeq.getObjectAt(i));
-        }
-    }
+    return null;
+  }
 
-    public static EncryptedPrivateKeyData getInstance(Object o)
-    {
-        if (o instanceof EncryptedPrivateKeyData)
-        {
-            return (EncryptedPrivateKeyData)o;
-        }
-        else if (o != null)
-        {
-            return new EncryptedPrivateKeyData(ASN1Sequence.getInstance(o));
-        }
+  public Certificate[] getCertificateChain() {
+    Certificate[] tmp = new Certificate[certificateChain.length];
 
-        return null;
-    }
+    System.arraycopy(certificateChain, 0, tmp, 0, certificateChain.length);
 
-    public Certificate[] getCertificateChain()
-    {
-        Certificate[] tmp = new Certificate[certificateChain.length];
+    return tmp;
+  }
 
-        System.arraycopy(certificateChain, 0, tmp, 0, certificateChain.length);
+  public EncryptedPrivateKeyInfo getEncryptedPrivateKeyInfo() {
+    return encryptedPrivateKeyInfo;
+  }
 
-        return tmp;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-    public EncryptedPrivateKeyInfo getEncryptedPrivateKeyInfo()
-    {
-        return encryptedPrivateKeyInfo;
-    }
+    v.add(encryptedPrivateKeyInfo);
+    v.add(new DERSequence(certificateChain));
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
-
-        v.add(encryptedPrivateKeyInfo);
-        v.add(new DERSequence(certificateChain));
-
-        return new DERSequence(v);
-    }
+    return new DERSequence(v);
+  }
 }

@@ -3,19 +3,18 @@ package com.github.zhenwei.pkix.cms;
 /**
  * General class for generating a CMS encrypted-data message.
  */
-public class CMSEncryptedGenerator
-{
-    protected CMSAttributeTableGenerator unprotectedAttributeGenerator = null;
+public class CMSEncryptedGenerator {
 
-    /**
-     * base constructor
-     */
-    protected CMSEncryptedGenerator()
-    {
-    }
+  protected CMSAttributeTableGenerator unprotectedAttributeGenerator = null;
 
-    public void setUnprotectedAttributeGenerator(CMSAttributeTableGenerator unprotectedAttributeGenerator)
-    {
-        this.unprotectedAttributeGenerator = unprotectedAttributeGenerator;
-    }
+  /**
+   * base constructor
+   */
+  protected CMSEncryptedGenerator() {
+  }
+
+  public void setUnprotectedAttributeGenerator(
+      CMSAttributeTableGenerator unprotectedAttributeGenerator) {
+    this.unprotectedAttributeGenerator = unprotectedAttributeGenerator;
+  }
 }

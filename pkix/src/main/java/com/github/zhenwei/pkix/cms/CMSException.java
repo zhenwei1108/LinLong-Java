@@ -1,32 +1,28 @@
 package com.github.zhenwei.pkix.cms;
 
 public class CMSException
-    extends Exception
-{
-    Exception   e;
+    extends Exception {
 
-    public CMSException(
-        String msg)
-    {
-        super(msg);
-    }
+  Exception e;
 
-    public CMSException(
-        String msg,
-        Exception e)
-    {
-        super(msg);
+  public CMSException(
+      String msg) {
+    super(msg);
+  }
 
-        this.e = e;
-    }
+  public CMSException(
+      String msg,
+      Exception e) {
+    super(msg);
 
-    public Exception getUnderlyingException()
-    {
-        return e;
-    }
-    
-    public Throwable getCause()
-    {
-        return e;
-    }
+    this.e = e;
+  }
+
+  public Exception getUnderlyingException() {
+    return e;
+  }
+
+  public Throwable getCause() {
+    return e;
+  }
 }

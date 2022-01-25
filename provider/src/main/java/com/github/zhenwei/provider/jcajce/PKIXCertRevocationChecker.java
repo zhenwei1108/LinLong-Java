@@ -3,13 +3,13 @@ package com.github.zhenwei.provider.jcajce;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.Certificate;
 
-public interface PKIXCertRevocationChecker
-{
-    void setParameter(String name, Object value);
+public interface PKIXCertRevocationChecker {
 
-    void initialize(PKIXCertRevocationCheckerParameters params)
-        throws CertPathValidatorException;
+  void setParameter(String name, Object value);
 
-    void check(Certificate cert)
-        throws CertPathValidatorException;
+  void initialize(PKIXCertRevocationCheckerParameters params)
+      throws CertPathValidatorException;
+
+  void check(Certificate cert)
+      throws CertPathValidatorException;
 }

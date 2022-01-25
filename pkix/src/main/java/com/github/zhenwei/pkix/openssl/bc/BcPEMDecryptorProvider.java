@@ -6,29 +6,24 @@ import com.github.zhenwei.pkix.openssl.PEMException;
 import com.github.zhenwei.pkix.openssl.PasswordException;
 
 public class BcPEMDecryptorProvider
-    implements PEMDecryptorProvider
-{
-    private final char[] password;
+    implements PEMDecryptorProvider {
 
-    public BcPEMDecryptorProvider(char[] password)
-    {
-        this.password = password;
-    }
+  private final char[] password;
 
-    public PEMDecryptor get(final String dekAlgName)
-    {
-        return new PEMDecryptor()
-        {
-            public byte[] decrypt(byte[] keyBytes, byte[] iv)
-                throws PEMException
-            {
-                if (password == null)
-                {
-                    throw new PasswordException("Password is null, but a password is required");
-                }
+  public BcPEMDecryptorProvider(char[] password) {
+    this.password = password;
+  }
 
-                return PEMUtilities.crypt(false, keyBytes, password, dekAlgName, iv);
-            }
-        };
-    }
+  public PEMDecryptor get(final String dekAlgName) {
+    return new PEMDecryptor() {
+      public byte[] decrypt(byte[] keyBytes, byte[] iv)
+          throws PEMException {
+        if (password == null) {
+          throw new PasswordException("Password is null, but a password is required");
+        }
+
+        return PEMUtilities.crypt(false, keyBytes, password, dekAlgName, iv);
+      }
+    };
+  }
 }

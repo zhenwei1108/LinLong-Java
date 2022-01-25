@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.asn1.cryptopro;
 
-import java.math.BigInteger;
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -9,96 +7,86 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
+import java.math.BigInteger;
+import java.util.Enumeration;
 
 public class GOST3410ParamSetParameters
-    extends ASN1Object
-{
-    int             keySize;
-    ASN1Integer      p, q, a;
+    extends ASN1Object {
 
-    public static GOST3410ParamSetParameters getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  int keySize;
+  ASN1Integer p, q, a;
+
+  public static GOST3410ParamSetParameters getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static GOST3410ParamSetParameters getInstance(
+      Object obj) {
+    if (obj == null || obj instanceof GOST3410ParamSetParameters) {
+      return (GOST3410ParamSetParameters) obj;
     }
 
-    public static GOST3410ParamSetParameters getInstance(
-        Object obj)
-    {
-        if(obj == null || obj instanceof GOST3410ParamSetParameters)
-        {
-            return (GOST3410ParamSetParameters)obj;
-        }
-
-        if(obj instanceof ASN1Sequence)
-        {
-            return new GOST3410ParamSetParameters((ASN1Sequence)obj);
-        }
-
-        throw new IllegalArgumentException("Invalid GOST3410Parameter: " + obj.getClass().getName());
+    if (obj instanceof ASN1Sequence) {
+      return new GOST3410ParamSetParameters((ASN1Sequence) obj);
     }
 
-    public GOST3410ParamSetParameters(
-        int keySize,
-        BigInteger  p,
-        BigInteger  q,
-        BigInteger  a)
-    {
-        this.keySize = keySize;
-        this.p = new ASN1Integer(p);
-        this.q = new ASN1Integer(q);
-        this.a = new ASN1Integer(a);
-    }
+    throw new IllegalArgumentException("Invalid GOST3410Parameter: " + obj.getClass().getName());
+  }
 
-    public GOST3410ParamSetParameters(
-        ASN1Sequence  seq)
-    {
-        Enumeration     e = seq.getObjects();
+  public GOST3410ParamSetParameters(
+      int keySize,
+      BigInteger p,
+      BigInteger q,
+      BigInteger a) {
+    this.keySize = keySize;
+    this.p = new ASN1Integer(p);
+    this.q = new ASN1Integer(q);
+    this.a = new ASN1Integer(a);
+  }
 
-        keySize = ((ASN1Integer)e.nextElement()).intValueExact();
-        p = (ASN1Integer)e.nextElement();
-        q = (ASN1Integer)e.nextElement();
-        a = (ASN1Integer)e.nextElement();
-    }
+  public GOST3410ParamSetParameters(
+      ASN1Sequence seq) {
+    Enumeration e = seq.getObjects();
 
-    /**
-     * @deprecated use getKeySize
-     */
-    public int getLKeySize()
-    {
-        return keySize;
-    }
+    keySize = ((ASN1Integer) e.nextElement()).intValueExact();
+    p = (ASN1Integer) e.nextElement();
+    q = (ASN1Integer) e.nextElement();
+    a = (ASN1Integer) e.nextElement();
+  }
 
-    public int getKeySize()
-    {
-        return keySize;
-    }
-    
-    public BigInteger getP()
-    {
-        return p.getPositiveValue();
-    }
+  /**
+   * @deprecated use getKeySize
+   */
+  public int getLKeySize() {
+    return keySize;
+  }
 
-    public BigInteger getQ()
-    {
-        return q.getPositiveValue();
-    }
+  public int getKeySize() {
+    return keySize;
+  }
 
-    public BigInteger getA()
-    {
-        return a.getPositiveValue();
-    }
+  public BigInteger getP() {
+    return p.getPositiveValue();
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(4);
+  public BigInteger getQ() {
+    return q.getPositiveValue();
+  }
 
-        v.add(new ASN1Integer(keySize));
-        v.add(p);
-        v.add(q);
-        v.add(a);
+  public BigInteger getA() {
+    return a.getPositiveValue();
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(4);
+
+    v.add(new ASN1Integer(keySize));
+    v.add(p);
+    v.add(q);
+    v.add(a);
+
+    return new DERSequence(v);
+  }
 }

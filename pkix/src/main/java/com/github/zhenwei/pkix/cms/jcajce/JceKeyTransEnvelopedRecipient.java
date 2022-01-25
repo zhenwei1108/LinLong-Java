@@ -1,41 +1,39 @@
 package com.github.zhenwei.pkix.cms.jcajce;
 
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.cms.CMSException;
+import com.github.zhenwei.pkix.cms.RecipientOperator;
+import com.github.zhenwei.pkix.operator.InputDecryptor;
+import com.github.zhenwei.provider.jcajce.io.CipherInputStream;
 import java.io.InputStream;
 import java.security.Key;
 import java.security.PrivateKey;
 import javax.crypto.Cipher;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.pkix.cms.CMSException;
-import com.github.zhenwei.pkix.cms.RecipientOperator;
-import com.github.zhenwei.provider.jcajce.io.CipherInputStream;
-import  com.github.zhenwei.pkix.operator.InputDecryptor;
 
 public class JceKeyTransEnvelopedRecipient
-    extends JceKeyTransRecipient
-{
-    public JceKeyTransEnvelopedRecipient(PrivateKey recipientKey)
-    {
-        super(recipientKey);
-    }
+    extends JceKeyTransRecipient {
 
-    public RecipientOperator getRecipientOperator(AlgorithmIdentifier keyEncryptionAlgorithm, final AlgorithmIdentifier contentEncryptionAlgorithm, byte[] encryptedContentEncryptionKey)
-        throws CMSException
-    {
-        Key secretKey = extractSecretKey(keyEncryptionAlgorithm, contentEncryptionAlgorithm, encryptedContentEncryptionKey);
+  public JceKeyTransEnvelopedRecipient(PrivateKey recipientKey) {
+    super(recipientKey);
+  }
 
-        final Cipher dataCipher = contentHelper.createContentCipher(secretKey, contentEncryptionAlgorithm);
+  public RecipientOperator getRecipientOperator(AlgorithmIdentifier keyEncryptionAlgorithm,
+      final AlgorithmIdentifier contentEncryptionAlgorithm, byte[] encryptedContentEncryptionKey)
+      throws CMSException {
+    Key secretKey = extractSecretKey(keyEncryptionAlgorithm, contentEncryptionAlgorithm,
+        encryptedContentEncryptionKey);
 
-        return new RecipientOperator(new InputDecryptor()
-        {
-            public AlgorithmIdentifier getAlgorithmIdentifier()
-            {
-                return contentEncryptionAlgorithm;
-            }
+    final Cipher dataCipher = contentHelper.createContentCipher(secretKey,
+        contentEncryptionAlgorithm);
 
-            public InputStream getInputStream(InputStream dataIn)
-            {
-                return new CipherInputStream(dataIn, dataCipher);
-            }
-        });
-    }
+    return new RecipientOperator(new InputDecryptor() {
+      public AlgorithmIdentifier getAlgorithmIdentifier() {
+        return contentEncryptionAlgorithm;
+      }
+
+      public InputStream getInputStream(InputStream dataIn) {
+        return new CipherInputStream(dataIn, dataCipher);
+      }
+    });
+  }
 }

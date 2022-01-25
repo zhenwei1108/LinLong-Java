@@ -5,17 +5,16 @@ import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
 
 public class DSTU4145KeyPairGenerator
-    extends ECKeyPairGenerator
-{
-    public AsymmetricCipherKeyPair generateKeyPair()
-    {
-        AsymmetricCipherKeyPair pair = super.generateKeyPair();
+    extends ECKeyPairGenerator {
 
-        ECPublicKeyParameters pub = (ECPublicKeyParameters)pair.getPublic();
-        ECPrivateKeyParameters priv = (ECPrivateKeyParameters)pair.getPrivate();
+  public AsymmetricCipherKeyPair generateKeyPair() {
+    AsymmetricCipherKeyPair pair = super.generateKeyPair();
 
-        pub = new ECPublicKeyParameters(pub.getQ().negate(), pub.getParameters());
+    ECPublicKeyParameters pub = (ECPublicKeyParameters) pair.getPublic();
+    ECPrivateKeyParameters priv = (ECPrivateKeyParameters) pair.getPrivate();
 
-        return new AsymmetricCipherKeyPair(pub, priv);
-    }
+    pub = new ECPublicKeyParameters(pub.getQ().negate(), pub.getParameters());
+
+    return new AsymmetricCipherKeyPair(pub, priv);
+  }
 }

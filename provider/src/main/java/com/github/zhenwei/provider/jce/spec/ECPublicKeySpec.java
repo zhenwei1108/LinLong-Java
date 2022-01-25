@@ -6,37 +6,32 @@ import com.github.zhenwei.core.math.ec.ECPoint;
  * Elliptic Curve public key specification
  */
 public class ECPublicKeySpec
-    extends ECKeySpec
-{
-    private ECPoint    q;
+    extends ECKeySpec {
 
-    /**
-     * base constructor
-     *
-     * @param q the public point on the curve.
-     * @param spec the domain parameters for the curve.
-     */
-    public ECPublicKeySpec(
-        ECPoint         q,
-        ECParameterSpec spec)
-    {
-        super(spec);
+  private ECPoint q;
 
-        if (q.getCurve() != null)
-        {
-            this.q = q.normalize();
-        }
-        else
-        {
-            this.q = q;
-        }
+  /**
+   * base constructor
+   *
+   * @param q    the public point on the curve.
+   * @param spec the domain parameters for the curve.
+   */
+  public ECPublicKeySpec(
+      ECPoint q,
+      ECParameterSpec spec) {
+    super(spec);
+
+    if (q.getCurve() != null) {
+      this.q = q.normalize();
+    } else {
+      this.q = q;
     }
+  }
 
-    /**
-     * return the public point q
-     */
-    public ECPoint getQ()
-    {
-        return q;
-    }
+  /**
+   * return the public point q
+   */
+  public ECPoint getQ() {
+    return q;
+  }
 }

@@ -16,43 +16,36 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class LinkageData
-    extends ASN1Object
-{
-    private final IValue iCert;
-    private final LinkageValue linkageValue;
-    private final GroupLinkageValue groupLinkageValue;
+    extends ASN1Object {
 
-    private LinkageData(ASN1Sequence seq)
-    {
-        if (seq.size() != 2 && seq.size() != 3)
-        {
-            throw new IllegalArgumentException("sequence must be size 2 or 3");
-        }
+  private final IValue iCert;
+  private final LinkageValue linkageValue;
+  private final GroupLinkageValue groupLinkageValue;
 
-        this.iCert = IValue.getInstance(seq.getObjectAt(2));
-        this.linkageValue = LinkageValue.getInstance(seq.getObjectAt(2));
-        this.groupLinkageValue = GroupLinkageValue.getInstance(seq.getObjectAt(2));
+  private LinkageData(ASN1Sequence seq) {
+    if (seq.size() != 2 && seq.size() != 3) {
+      throw new IllegalArgumentException("sequence must be size 2 or 3");
     }
 
-    public static LinkageData getInstance(Object src)
-    {
-        if (src instanceof LinkageData)
-        {
-            return (LinkageData)src;
-        }
-        else if (src != null)
-        {
-            // TODO: need choice processing here
-            return new LinkageData(ASN1Sequence.getInstance(src));
-        }
+    this.iCert = IValue.getInstance(seq.getObjectAt(2));
+    this.linkageValue = LinkageValue.getInstance(seq.getObjectAt(2));
+    this.groupLinkageValue = GroupLinkageValue.getInstance(seq.getObjectAt(2));
+  }
 
-        return null;
+  public static LinkageData getInstance(Object src) {
+    if (src instanceof LinkageData) {
+      return (LinkageData) src;
+    } else if (src != null) {
+      // TODO: need choice processing here
+      return new LinkageData(ASN1Sequence.getInstance(src));
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector();
+    return null;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector();
+
+    return new DERSequence(v);
+  }
 }

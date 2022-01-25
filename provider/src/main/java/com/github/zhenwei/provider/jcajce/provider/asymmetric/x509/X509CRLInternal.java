@@ -1,35 +1,32 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
-import java.security.cert.CRLException;
 import com.github.zhenwei.core.asn1.x509.CertificateList;
-import  com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
+import java.security.cert.CRLException;
 
-class X509CRLInternal extends X509CRLImpl
-{
-    private final byte[] encoding;
-    private final CRLException exception;
+class X509CRLInternal extends X509CRLImpl {
 
-    X509CRLInternal(JcaJceHelper bcHelper, CertificateList c, String sigAlgName, byte[] sigAlgParams, boolean isIndirect,
-        byte[] encoding, CRLException exception)
-    {
-        super(bcHelper, c, sigAlgName, sigAlgParams, isIndirect);
+  private final byte[] encoding;
+  private final CRLException exception;
 
-        this.encoding = encoding;
-        this.exception = exception;
+  X509CRLInternal(JcaJceHelper bcHelper, CertificateList c, String sigAlgName, byte[] sigAlgParams,
+      boolean isIndirect,
+      byte[] encoding, CRLException exception) {
+    super(bcHelper, c, sigAlgName, sigAlgParams, isIndirect);
+
+    this.encoding = encoding;
+    this.exception = exception;
+  }
+
+  public byte[] getEncoded() throws CRLException {
+    if (null != exception) {
+      throw exception;
     }
 
-    public byte[] getEncoded() throws CRLException
-    {
-        if (null != exception)
-        {
-            throw exception;
-        }
-
-        if (null == encoding)
-        {
-            throw new CRLException();
-        }
-
-        return encoding;
+    if (null == encoding) {
+      throw new CRLException();
     }
+
+    return encoding;
+  }
 }

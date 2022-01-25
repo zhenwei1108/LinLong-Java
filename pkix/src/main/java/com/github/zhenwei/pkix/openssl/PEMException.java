@@ -3,32 +3,28 @@ package com.github.zhenwei.pkix.openssl;
 import java.io.IOException;
 
 public class PEMException
-    extends IOException
-{
-    Exception    underlying;
+    extends IOException {
 
-    public PEMException(
-        String    message)
-    {
-        super(message);
-    }
+  Exception underlying;
 
-    public PEMException(
-        String        message,
-        Exception    underlying)
-    {
-        super(message);
-        this.underlying = underlying;
-    }
+  public PEMException(
+      String message) {
+    super(message);
+  }
 
-    public Exception getUnderlyingException()
-    {
-        return underlying;
-    }
+  public PEMException(
+      String message,
+      Exception underlying) {
+    super(message);
+    this.underlying = underlying;
+  }
+
+  public Exception getUnderlyingException() {
+    return underlying;
+  }
 
 
-    public Throwable getCause()
-    {
-        return underlying;
-    }
+  public Throwable getCause() {
+    return underlying;
+  }
 }

@@ -1,20 +1,20 @@
 package com.github.zhenwei.provider.jcajce.provider.config;
 
+import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import java.security.spec.DSAParameterSpec;
 import java.util.Map;
 import java.util.Set;
 import javax.crypto.spec.DHParameterSpec;
-import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 
-public interface ProviderConfiguration
-{
-    ECParameterSpec getEcImplicitlyCa();
+public interface ProviderConfiguration {
 
-    DHParameterSpec getDHDefaultParameters(int keySize);
+  ECParameterSpec getEcImplicitlyCa();
 
-    DSAParameterSpec getDSADefaultParameters(int keySize);
+  DHParameterSpec getDHDefaultParameters(int keySize);
 
-    Set getAcceptableNamedCurves();
+  DSAParameterSpec getDSADefaultParameters(int keySize);
 
-    Map getAdditionalECParameters();
+  Set getAcceptableNamedCurves();
+
+  Map getAdditionalECParameters();
 }

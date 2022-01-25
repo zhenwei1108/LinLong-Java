@@ -1,10 +1,10 @@
 package com.github.zhenwei.pkix.cert.ocsp;
 
-import java.util.Date;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ocsp.ResponseData;
 import com.github.zhenwei.core.asn1.ocsp.SingleResponse;
 import com.github.zhenwei.core.asn1.x509.Extensions;
+import java.util.Date;
 
 /**
  * OCSP RFC 2560, RFC 6960
@@ -17,46 +17,39 @@ import com.github.zhenwei.core.asn1.x509.Extensions;
  *     responseExtensions   [1] EXPLICIT Extensions OPTIONAL }
  * </pre>
  */
-public class RespData
-{
-    private ResponseData    data;
+public class RespData {
 
-    public RespData(
-        ResponseData    data)
-    {
-        this.data = data;
+  private ResponseData data;
+
+  public RespData(
+      ResponseData data) {
+    this.data = data;
+  }
+
+  public int getVersion() {
+    return data.getVersion().intValueExact() + 1;
+  }
+
+  public RespID getResponderId() {
+    return new RespID(data.getResponderID());
+  }
+
+  public Date getProducedAt() {
+    return OCSPUtils.extractDate(data.getProducedAt());
+  }
+
+  public SingleResp[] getResponses() {
+    ASN1Sequence s = data.getResponses();
+    SingleResp[] rs = new SingleResp[s.size()];
+
+    for (int i = 0; i != rs.length; i++) {
+      rs[i] = new SingleResp(SingleResponse.getInstance(s.getObjectAt(i)));
     }
 
-    public int getVersion()
-    {
-        return data.getVersion().intValueExact() + 1;
-    }
+    return rs;
+  }
 
-    public RespID getResponderId()
-    {
-        return new RespID(data.getResponderID());
-    }
-
-    public Date getProducedAt()
-    {
-        return OCSPUtils.extractDate(data.getProducedAt());
-    }
-
-    public SingleResp[] getResponses()
-    {
-        ASN1Sequence    s = data.getResponses();
-        SingleResp[]    rs = new SingleResp[s.size()];
-
-        for (int i = 0; i != rs.length; i++)
-        {
-            rs[i] = new SingleResp(SingleResponse.getInstance(s.getObjectAt(i)));
-        }
-
-        return rs;
-    }
-
-    public Extensions getResponseExtensions()
-    {
-        return data.getResponseExtensions();
-    }
+  public Extensions getResponseExtensions() {
+    return data.getResponseExtensions();
+  }
 }

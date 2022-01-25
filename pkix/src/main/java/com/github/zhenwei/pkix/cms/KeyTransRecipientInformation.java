@@ -1,50 +1,45 @@
 package com.github.zhenwei.pkix.cms;
 
 import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.pkix.util.asn1.cms.KeyTransRecipientInfo;
 import com.github.zhenwei.pkix.util.asn1.cms.RecipientIdentifier;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
- * the KeyTransRecipientInformation class for a recipient who has been sent a secret
- * key encrypted using their public key that needs to be used to
- * extract the message.
+ * the KeyTransRecipientInformation class for a recipient who has been sent a secret key encrypted
+ * using their public key that needs to be used to extract the message.
  */
 public class KeyTransRecipientInformation
-    extends RecipientInformation
-{
-    private KeyTransRecipientInfo info;
+    extends RecipientInformation {
 
-    KeyTransRecipientInformation(
-        KeyTransRecipientInfo   info,
-        AlgorithmIdentifier     messageAlgorithm,
-        CMSSecureReadable       secureReadable,
-        AuthAttributesProvider  additionalData)
-    {
-        super(info.getKeyEncryptionAlgorithm(), messageAlgorithm, secureReadable, additionalData);
+  private KeyTransRecipientInfo info;
 
-        this.info = info;
+  KeyTransRecipientInformation(
+      KeyTransRecipientInfo info,
+      AlgorithmIdentifier messageAlgorithm,
+      CMSSecureReadable secureReadable,
+      AuthAttributesProvider additionalData) {
+    super(info.getKeyEncryptionAlgorithm(), messageAlgorithm, secureReadable, additionalData);
 
-        RecipientIdentifier r = info.getRecipientIdentifier();
+    this.info = info;
 
-        if (r.isTagged())
-        {
-            ASN1OctetString octs = ASN1OctetString.getInstance(r.getId());
+    RecipientIdentifier r = info.getRecipientIdentifier();
 
-            rid = new KeyTransRecipientId(octs.getOctets());
-        }
-        else
-        {
-            IssuerAndSerialNumber   iAnds = IssuerAndSerialNumber.getInstance(r.getId());
+    if (r.isTagged()) {
+      ASN1OctetString octs = ASN1OctetString.getInstance(r.getId());
 
-            rid = new KeyTransRecipientId(iAnds.getName(), iAnds.getSerialNumber().getValue());
-        }
+      rid = new KeyTransRecipientId(octs.getOctets());
+    } else {
+      IssuerAndSerialNumber iAnds = IssuerAndSerialNumber.getInstance(r.getId());
+
+      rid = new KeyTransRecipientId(iAnds.getName(), iAnds.getSerialNumber().getValue());
     }
+  }
 
-    protected RecipientOperator getRecipientOperator(Recipient recipient)
-        throws CMSException
-    {
-        return ((KeyTransRecipient)recipient).getRecipientOperator(keyEncAlg, messageAlgorithm, info.getEncryptedKey().getOctets());
-    }
+  protected RecipientOperator getRecipientOperator(Recipient recipient)
+      throws CMSException {
+    return ((KeyTransRecipient) recipient).getRecipientOperator(keyEncAlg, messageAlgorithm,
+        info.getEncryptedKey().getOctets());
+  }
 }

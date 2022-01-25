@@ -6,53 +6,42 @@ import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.Xof;
 import com.github.zhenwei.provider.jcajce.spec.XMSSParameterSpec;
 
-class DigestUtil
-{
-    public static byte[] getDigestResult(Digest digest)
-    {
-        byte[] hash = new byte[DigestUtil.getDigestSize(digest)];
+class DigestUtil {
 
-        if (digest instanceof Xof)
-        {
-            ((Xof)digest).doFinal(hash, 0, hash.length);
-        }
-        else
-        {
-            digest.doFinal(hash, 0);
-        }
+  public static byte[] getDigestResult(Digest digest) {
+    byte[] hash = new byte[DigestUtil.getDigestSize(digest)];
 
-        return hash;
+    if (digest instanceof Xof) {
+      ((Xof) digest).doFinal(hash, 0, hash.length);
+    } else {
+      digest.doFinal(hash, 0);
     }
 
-    public static int getDigestSize(Digest digest)
-    {
-        if (digest instanceof Xof)
-        {
-            return digest.getDigestSize() * 2;
-        }
+    return hash;
+  }
 
-        return digest.getDigestSize();
+  public static int getDigestSize(Digest digest) {
+    if (digest instanceof Xof) {
+      return digest.getDigestSize() * 2;
     }
 
-    public static String getXMSSDigestName(ASN1ObjectIdentifier treeDigest)
-    {
-        if (treeDigest.equals(NISTObjectIdentifiers.id_sha256))
-        {
-            return XMSSParameterSpec.SHA256;
-        }
-        if (treeDigest.equals(NISTObjectIdentifiers.id_sha512))
-        {
-            return XMSSParameterSpec.SHA512;
-        }
-        if (treeDigest.equals(NISTObjectIdentifiers.id_shake128))
-        {
-            return XMSSParameterSpec.SHAKE128;
-        }
-        if (treeDigest.equals(NISTObjectIdentifiers.id_shake256))
-        {
-            return XMSSParameterSpec.SHAKE256;
-        }
+    return digest.getDigestSize();
+  }
 
-        throw new IllegalArgumentException("unrecognized digest OID: " + treeDigest);
+  public static String getXMSSDigestName(ASN1ObjectIdentifier treeDigest) {
+    if (treeDigest.equals(NISTObjectIdentifiers.id_sha256)) {
+      return XMSSParameterSpec.SHA256;
     }
+    if (treeDigest.equals(NISTObjectIdentifiers.id_sha512)) {
+      return XMSSParameterSpec.SHA512;
+    }
+    if (treeDigest.equals(NISTObjectIdentifiers.id_shake128)) {
+      return XMSSParameterSpec.SHAKE128;
+    }
+    if (treeDigest.equals(NISTObjectIdentifiers.id_shake256)) {
+      return XMSSParameterSpec.SHAKE256;
+    }
+
+    throw new IllegalArgumentException("unrecognized digest OID: " + treeDigest);
+  }
 }

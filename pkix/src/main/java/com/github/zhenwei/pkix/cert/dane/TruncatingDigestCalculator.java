@@ -1,59 +1,54 @@
 package com.github.zhenwei.pkix.cert.dane;
 
-import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.pkix.operator.DigestCalculator;
+import com.github.zhenwei.pkix.operator.DigestCalculator;
+import java.io.OutputStream;
 
 /**
- * A calculator which produces a truncated digest from a regular one, with the truncation
- * achieved by dropping off the right most octets.
+ * A calculator which produces a truncated digest from a regular one, with the truncation achieved
+ * by dropping off the right most octets.
  */
 public class TruncatingDigestCalculator
-    implements DigestCalculator
-{
-    private final DigestCalculator baseCalculator;
-    private final int length;
+    implements DigestCalculator {
 
-    /**
-     * Default constructor - truncate to 28.
-     *
-     * @param baseCalculator actual calculator for working out the digest.
-     */
-    public TruncatingDigestCalculator(DigestCalculator baseCalculator)
-    {
-       this(baseCalculator, 28);
-    }
+  private final DigestCalculator baseCalculator;
+  private final int length;
 
-    /**
-     * Constructor specifying a length.
-     *
-     * @param baseCalculator actual calculator for working out the digest.
-     * @param length length in bytes of the final result.
-     */
-    public TruncatingDigestCalculator(DigestCalculator baseCalculator, int length)
-    {
-        this.baseCalculator = baseCalculator;
-        this.length = length;
-    }
+  /**
+   * Default constructor - truncate to 28.
+   *
+   * @param baseCalculator actual calculator for working out the digest.
+   */
+  public TruncatingDigestCalculator(DigestCalculator baseCalculator) {
+    this(baseCalculator, 28);
+  }
 
-    public AlgorithmIdentifier getAlgorithmIdentifier()
-    {
-        return baseCalculator.getAlgorithmIdentifier();
-    }
+  /**
+   * Constructor specifying a length.
+   *
+   * @param baseCalculator actual calculator for working out the digest.
+   * @param length         length in bytes of the final result.
+   */
+  public TruncatingDigestCalculator(DigestCalculator baseCalculator, int length) {
+    this.baseCalculator = baseCalculator;
+    this.length = length;
+  }
 
-    public OutputStream getOutputStream()
-    {
-        return baseCalculator.getOutputStream();
-    }
+  public AlgorithmIdentifier getAlgorithmIdentifier() {
+    return baseCalculator.getAlgorithmIdentifier();
+  }
 
-    public byte[] getDigest()
-    {
-        byte[] rv = new byte[length];
+  public OutputStream getOutputStream() {
+    return baseCalculator.getOutputStream();
+  }
 
-        byte[] dig = baseCalculator.getDigest();
+  public byte[] getDigest() {
+    byte[] rv = new byte[length];
 
-        System.arraycopy(dig, 0, rv, 0, rv.length);
+    byte[] dig = baseCalculator.getDigest();
 
-        return rv;
-    }
+    System.arraycopy(dig, 0, rv, 0, rv.length);
+
+    return rv;
+  }
 }

@@ -17,57 +17,47 @@ import com.github.zhenwei.core.asn1.ocsp.ResponderID;
  * </pre>
  */
 public class OcspIdentifier
-    extends ASN1Object
-{
-    private ResponderID ocspResponderID;
-    private ASN1GeneralizedTime producedAt;
+    extends ASN1Object {
 
-    public static OcspIdentifier getInstance(Object obj)
-    {
-        if (obj instanceof OcspIdentifier)
-        {
-            return (OcspIdentifier)obj;
-        }
-        else if (obj != null)
-        {
-            return new OcspIdentifier(ASN1Sequence.getInstance(obj));
-        }
+  private ResponderID ocspResponderID;
+  private ASN1GeneralizedTime producedAt;
 
-        return null;
+  public static OcspIdentifier getInstance(Object obj) {
+    if (obj instanceof OcspIdentifier) {
+      return (OcspIdentifier) obj;
+    } else if (obj != null) {
+      return new OcspIdentifier(ASN1Sequence.getInstance(obj));
     }
 
-    private OcspIdentifier(ASN1Sequence seq)
-    {
-        if (seq.size() != 2)
-        {
-            throw new IllegalArgumentException("Bad sequence size: "
-                + seq.size());
-        }
-        this.ocspResponderID = ResponderID.getInstance(seq.getObjectAt(0));
-        this.producedAt = (ASN1GeneralizedTime)seq.getObjectAt(1);
-    }
+    return null;
+  }
 
-    public OcspIdentifier(ResponderID ocspResponderID, ASN1GeneralizedTime producedAt)
-    {
-        this.ocspResponderID = ocspResponderID;
-        this.producedAt = producedAt;
+  private OcspIdentifier(ASN1Sequence seq) {
+    if (seq.size() != 2) {
+      throw new IllegalArgumentException("Bad sequence size: "
+          + seq.size());
     }
+    this.ocspResponderID = ResponderID.getInstance(seq.getObjectAt(0));
+    this.producedAt = (ASN1GeneralizedTime) seq.getObjectAt(1);
+  }
 
-    public ResponderID getOcspResponderID()
-    {
-        return this.ocspResponderID;
-    }
+  public OcspIdentifier(ResponderID ocspResponderID, ASN1GeneralizedTime producedAt) {
+    this.ocspResponderID = ocspResponderID;
+    this.producedAt = producedAt;
+  }
 
-    public ASN1GeneralizedTime getProducedAt()
-    {
-        return this.producedAt;
-    }
+  public ResponderID getOcspResponderID() {
+    return this.ocspResponderID;
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
-        v.add(this.ocspResponderID);
-        v.add(this.producedAt);
-        return new DERSequence(v);
-    }
+  public ASN1GeneralizedTime getProducedAt() {
+    return this.producedAt;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+    v.add(this.ocspResponderID);
+    v.add(this.producedAt);
+    return new DERSequence(v);
+  }
 }

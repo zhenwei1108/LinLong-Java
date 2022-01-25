@@ -1,6 +1,5 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import java.io.IOException;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1Integer;
@@ -10,6 +9,7 @@ import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x500.X500Name;
+import java.io.IOException;
 
 /**
  * Generator for Version 2 TBSCertList structures.
@@ -34,244 +34,204 @@ import com.github.zhenwei.core.asn1.x500.X500Name;
  *
  * <b>Note: This class may be subject to change</b>
  */
-public class V2TBSCertListGenerator
-{
-    private ASN1Integer         version = new ASN1Integer(1);
-    private AlgorithmIdentifier signature;
-    private X500Name            issuer;
-    private Time                thisUpdate, nextUpdate=null;
-    private Extensions          extensions = null;
-    private ASN1EncodableVector crlentries = new ASN1EncodableVector();
+public class V2TBSCertListGenerator {
 
-    private final static ASN1Sequence[] reasons;
+  private ASN1Integer version = new ASN1Integer(1);
+  private AlgorithmIdentifier signature;
+  private X500Name issuer;
+  private Time thisUpdate, nextUpdate = null;
+  private Extensions extensions = null;
+  private ASN1EncodableVector crlentries = new ASN1EncodableVector();
 
-    static
-    {
-       reasons = new ASN1Sequence[11];
+  private final static ASN1Sequence[] reasons;
 
-        reasons[0] = createReasonExtension(CRLReason.unspecified);
-        reasons[1] = createReasonExtension(CRLReason.keyCompromise);
-        reasons[2] = createReasonExtension(CRLReason.cACompromise);
-        reasons[3] = createReasonExtension(CRLReason.affiliationChanged);
-        reasons[4] = createReasonExtension(CRLReason.superseded);
-        reasons[5] = createReasonExtension(CRLReason.cessationOfOperation);
-        reasons[6] = createReasonExtension(CRLReason.certificateHold);
-        reasons[7] = createReasonExtension(7); // 7 -> unknown
-        reasons[8] = createReasonExtension(CRLReason.removeFromCRL);
-        reasons[9] = createReasonExtension(CRLReason.privilegeWithdrawn);
-        reasons[10] = createReasonExtension(CRLReason.aACompromise);
-    }
+  static {
+    reasons = new ASN1Sequence[11];
 
-    public V2TBSCertListGenerator()
-    {
-    }
+    reasons[0] = createReasonExtension(CRLReason.unspecified);
+    reasons[1] = createReasonExtension(CRLReason.keyCompromise);
+    reasons[2] = createReasonExtension(CRLReason.cACompromise);
+    reasons[3] = createReasonExtension(CRLReason.affiliationChanged);
+    reasons[4] = createReasonExtension(CRLReason.superseded);
+    reasons[5] = createReasonExtension(CRLReason.cessationOfOperation);
+    reasons[6] = createReasonExtension(CRLReason.certificateHold);
+    reasons[7] = createReasonExtension(7); // 7 -> unknown
+    reasons[8] = createReasonExtension(CRLReason.removeFromCRL);
+    reasons[9] = createReasonExtension(CRLReason.privilegeWithdrawn);
+    reasons[10] = createReasonExtension(CRLReason.aACompromise);
+  }
+
+  public V2TBSCertListGenerator() {
+  }
 
 
-    public void setSignature(
-        AlgorithmIdentifier    signature)
-    {
-        this.signature = signature;
-    }
+  public void setSignature(
+      AlgorithmIdentifier signature) {
+    this.signature = signature;
+  }
 
-    /**
-     * @deprecated use X500Name method
-     */
-    public void setIssuer(
-        X509Name    issuer)
-    {
-        this.issuer = X500Name.getInstance(issuer.toASN1Primitive());
-    }
+  /**
+   * @deprecated use X500Name method
+   */
+  public void setIssuer(
+      X509Name issuer) {
+    this.issuer = X500Name.getInstance(issuer.toASN1Primitive());
+  }
 
-    public void setIssuer(X500Name issuer)
-    {
-        this.issuer = issuer;
-    }
+  public void setIssuer(X500Name issuer) {
+    this.issuer = issuer;
+  }
 
-    public void setThisUpdate(
-        ASN1UTCTime thisUpdate)
-    {
-        this.thisUpdate = new Time(thisUpdate);
-    }
+  public void setThisUpdate(
+      ASN1UTCTime thisUpdate) {
+    this.thisUpdate = new Time(thisUpdate);
+  }
 
-    public void setNextUpdate(
-        ASN1UTCTime nextUpdate)
-    {
-        this.nextUpdate = new Time(nextUpdate);
-    }
+  public void setNextUpdate(
+      ASN1UTCTime nextUpdate) {
+    this.nextUpdate = new Time(nextUpdate);
+  }
 
-    public void setThisUpdate(
-        Time thisUpdate)
-    {
-        this.thisUpdate = thisUpdate;
-    }
+  public void setThisUpdate(
+      Time thisUpdate) {
+    this.thisUpdate = thisUpdate;
+  }
 
-    public void setNextUpdate(
-        Time nextUpdate)
-    {
-        this.nextUpdate = nextUpdate;
-    }
+  public void setNextUpdate(
+      Time nextUpdate) {
+    this.nextUpdate = nextUpdate;
+  }
 
-    public void addCRLEntry(
-        ASN1Sequence crlEntry)
-    {
-        crlentries.add(crlEntry);
-    }
+  public void addCRLEntry(
+      ASN1Sequence crlEntry) {
+    crlentries.add(crlEntry);
+  }
 
-    public void addCRLEntry(ASN1Integer userCertificate, ASN1UTCTime revocationDate, int reason)
-    {
-        addCRLEntry(userCertificate, new Time(revocationDate), reason);
-    }
+  public void addCRLEntry(ASN1Integer userCertificate, ASN1UTCTime revocationDate, int reason) {
+    addCRLEntry(userCertificate, new Time(revocationDate), reason);
+  }
 
-    public void addCRLEntry(ASN1Integer userCertificate, Time revocationDate, int reason)
-    {
-        addCRLEntry(userCertificate, revocationDate, reason, null);
-    }
+  public void addCRLEntry(ASN1Integer userCertificate, Time revocationDate, int reason) {
+    addCRLEntry(userCertificate, revocationDate, reason, null);
+  }
 
-    public void addCRLEntry(ASN1Integer userCertificate, Time revocationDate, int reason, ASN1GeneralizedTime invalidityDate)
-    {
-        if (reason != 0)
-        {
-            ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public void addCRLEntry(ASN1Integer userCertificate, Time revocationDate, int reason,
+      ASN1GeneralizedTime invalidityDate) {
+    if (reason != 0) {
+      ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-            if (reason < reasons.length)
-            {
-                if (reason < 0)
-                {
-                    throw new IllegalArgumentException("invalid reason value: " + reason);
-                }
-                v.add(reasons[reason]);
-            }
-            else
-            {
-                v.add(createReasonExtension(reason));
-            }
-
-            if (invalidityDate != null)
-            {
-                v.add(createInvalidityDateExtension(invalidityDate));
-            }
-
-            internalAddCRLEntry(userCertificate, revocationDate, new DERSequence(v));
+      if (reason < reasons.length) {
+        if (reason < 0) {
+          throw new IllegalArgumentException("invalid reason value: " + reason);
         }
-        else if (invalidityDate != null)
-        {
-            internalAddCRLEntry(userCertificate, revocationDate,
-                new DERSequence(createInvalidityDateExtension(invalidityDate)));
-        }
-        else
-        {
-            addCRLEntry(userCertificate, revocationDate, null);
-        }
+        v.add(reasons[reason]);
+      } else {
+        v.add(createReasonExtension(reason));
+      }
+
+      if (invalidityDate != null) {
+        v.add(createInvalidityDateExtension(invalidityDate));
+      }
+
+      internalAddCRLEntry(userCertificate, revocationDate, new DERSequence(v));
+    } else if (invalidityDate != null) {
+      internalAddCRLEntry(userCertificate, revocationDate,
+          new DERSequence(createInvalidityDateExtension(invalidityDate)));
+    } else {
+      addCRLEntry(userCertificate, revocationDate, null);
+    }
+  }
+
+  private void internalAddCRLEntry(ASN1Integer userCertificate, Time revocationDate,
+      ASN1Sequence extensions) {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
+
+    v.add(userCertificate);
+    v.add(revocationDate);
+
+    if (extensions != null) {
+      v.add(extensions);
     }
 
-    private void internalAddCRLEntry(ASN1Integer userCertificate, Time revocationDate, ASN1Sequence extensions)
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
+    addCRLEntry(new DERSequence(v));
+  }
 
-        v.add(userCertificate);
-        v.add(revocationDate);
+  public void addCRLEntry(ASN1Integer userCertificate, Time revocationDate, Extensions extensions) {
+    ASN1EncodableVector v = new ASN1EncodableVector(3);
 
-        if (extensions != null)
-        {
-            v.add(extensions);
-        }
+    v.add(userCertificate);
+    v.add(revocationDate);
 
-        addCRLEntry(new DERSequence(v));
+    if (extensions != null) {
+      v.add(extensions);
     }
 
-    public void addCRLEntry(ASN1Integer userCertificate, Time revocationDate, Extensions extensions)
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(3);
+    addCRLEntry(new DERSequence(v));
+  }
 
-        v.add(userCertificate);
-        v.add(revocationDate);
-        
-        if (extensions != null)
-        {
-            v.add(extensions);
-        }
-        
-        addCRLEntry(new DERSequence(v));
+  public void setExtensions(
+      X509Extensions extensions) {
+    setExtensions(Extensions.getInstance(extensions));
+  }
+
+  public void setExtensions(
+      Extensions extensions) {
+    this.extensions = extensions;
+  }
+
+  public TBSCertList generateTBSCertList() {
+    if ((signature == null) || (issuer == null) || (thisUpdate == null)) {
+      throw new IllegalStateException("Not all mandatory fields set in V2 TBSCertList generator.");
     }
 
-    public void setExtensions(
-        X509Extensions    extensions)
-    {
-        setExtensions(Extensions.getInstance(extensions));
+    ASN1EncodableVector v = new ASN1EncodableVector(7);
+
+    v.add(version);
+    v.add(signature);
+    v.add(issuer);
+
+    v.add(thisUpdate);
+    if (nextUpdate != null) {
+      v.add(nextUpdate);
     }
 
-    public void setExtensions(
-        Extensions    extensions)
-    {
-        this.extensions = extensions;
+    // Add CRLEntries if they exist
+    if (crlentries.size() != 0) {
+      v.add(new DERSequence(crlentries));
     }
 
-    public TBSCertList generateTBSCertList()
-    {
-        if ((signature == null) || (issuer == null) || (thisUpdate == null))
-        {
-            throw new IllegalStateException("Not all mandatory fields set in V2 TBSCertList generator.");
-        }
-
-        ASN1EncodableVector  v = new ASN1EncodableVector(7);
-
-        v.add(version);
-        v.add(signature);
-        v.add(issuer);
-
-        v.add(thisUpdate);
-        if (nextUpdate != null)
-        {
-            v.add(nextUpdate);
-        }
-
-        // Add CRLEntries if they exist
-        if (crlentries.size() != 0)
-        {
-            v.add(new DERSequence(crlentries));
-        }
-
-        if (extensions != null)
-        {
-            v.add(new DERTaggedObject(0, extensions));
-        }
-
-        return new TBSCertList(new DERSequence(v));
+    if (extensions != null) {
+      v.add(new DERTaggedObject(0, extensions));
     }
 
-    private static ASN1Sequence createReasonExtension(int reasonCode)
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+    return new TBSCertList(new DERSequence(v));
+  }
 
-        CRLReason crlReason = CRLReason.lookup(reasonCode);
+  private static ASN1Sequence createReasonExtension(int reasonCode) {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        try
-        {
-            v.add(Extension.reasonCode);
-            v.add(new DEROctetString(crlReason.getEncoded()));
-        }
-        catch (IOException e)
-        {
-            throw new IllegalArgumentException("error encoding reason: " + e);
-        }
+    CRLReason crlReason = CRLReason.lookup(reasonCode);
 
-        return new DERSequence(v);
+    try {
+      v.add(Extension.reasonCode);
+      v.add(new DEROctetString(crlReason.getEncoded()));
+    } catch (IOException e) {
+      throw new IllegalArgumentException("error encoding reason: " + e);
     }
 
-    private static ASN1Sequence createInvalidityDateExtension(ASN1GeneralizedTime invalidityDate)
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+    return new DERSequence(v);
+  }
 
-        try
-        {
-            v.add(Extension.invalidityDate);
-            v.add(new DEROctetString(invalidityDate.getEncoded()));
-        }
-        catch (IOException e)
-        {
-            throw new IllegalArgumentException("error encoding reason: " + e);
-        }
+  private static ASN1Sequence createInvalidityDateExtension(ASN1GeneralizedTime invalidityDate) {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
 
-        return new DERSequence(v);
+    try {
+      v.add(Extension.invalidityDate);
+      v.add(new DEROctetString(invalidityDate.getEncoded()));
+    } catch (IOException e) {
+      throw new IllegalArgumentException("error encoding reason: " + e);
     }
+
+    return new DERSequence(v);
+  }
 }

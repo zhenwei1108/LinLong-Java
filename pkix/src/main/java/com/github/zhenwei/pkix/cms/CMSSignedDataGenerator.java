@@ -1,5 +1,17 @@
 package com.github.zhenwei.pkix.cms;
 
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1OctetString;
+import com.github.zhenwei.core.asn1.ASN1Set;
+import com.github.zhenwei.core.asn1.BEROctetString;
+import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.SignedData;
+import com.github.zhenwei.pkix.util.asn1.cms.SignerInfo;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -8,18 +20,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import com.github.zhenwei.core.asn1.ASN1EncodableVector;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.core.asn1.BEROctetString;
-import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
-import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cms.SignedData;
-import com.github.zhenwei.pkix.util.asn1.cms.SignerInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import  com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 
 /**
  * general class for generating a pkcs7-signature message.
@@ -48,56 +48,52 @@ import  com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
  * </pre>
  */
 public class CMSSignedDataGenerator
-    extends CMSSignedGenerator
-{
-    private List signerInfs = new ArrayList();
+    extends CMSSignedGenerator {
 
-    /**
-     * base constructor
-     */
-    public CMSSignedDataGenerator()
-    {
+  private List signerInfs = new ArrayList();
+
+  /**
+   * base constructor
+   */
+  public CMSSignedDataGenerator() {
+  }
+
+  /**
+   * base constructor with a custom DigestAlgorithmIdentifierFinder
+   */
+  public CMSSignedDataGenerator(DigestAlgorithmIdentifierFinder digestAlgIdFinder) {
+    super(digestAlgIdFinder);
+  }
+
+  /**
+   * Generate a CMS Signed Data object carrying a detached CMS signature.
+   *
+   * @param content the content to be signed.
+   */
+  public CMSSignedData generate(
+      CMSTypedData content)
+      throws CMSException {
+    return generate(content, false);
+  }
+
+  /**
+   * Generate a CMS Signed Data object which can be carrying a detached CMS signature, or have
+   * encapsulated data, depending on the value of the encapsulated parameter.
+   *
+   * @param content     the content to be signed.
+   * @param encapsulate true if the content should be encapsulated in the signature, false
+   *                    otherwise.
+   */
+  public CMSSignedData generate(
+      // FIXME Avoid accessing more than once to support CMSProcessableInputStream
+      CMSTypedData content,
+      boolean encapsulate)
+      throws CMSException {
+    if (!signerInfs.isEmpty()) {
+      throw new IllegalStateException("this method can only be used with SignerInfoGenerator");
     }
 
-    /**
-     * base constructor with a custom DigestAlgorithmIdentifierFinder
-     */
-    public CMSSignedDataGenerator(DigestAlgorithmIdentifierFinder digestAlgIdFinder)
-    {
-        super(digestAlgIdFinder);
-    }
-
-    /**
-     * Generate a CMS Signed Data object carrying a detached CMS signature.
-     *
-     * @param content the content to be signed.
-     */
-    public CMSSignedData generate(
-        CMSTypedData content)
-        throws CMSException
-    {
-        return generate(content, false);
-    }
-
-    /**
-     * Generate a CMS Signed Data object which can be carrying a detached CMS signature, or have encapsulated data, depending on the value
-     * of the encapsulated parameter.
-     *
-     * @param content the content to be signed.
-     * @param encapsulate true if the content should be encapsulated in the signature, false otherwise.
-     */
-    public CMSSignedData generate(
-        // FIXME Avoid accessing more than once to support CMSProcessableInputStream
-        CMSTypedData content,
-        boolean encapsulate)
-        throws CMSException
-    {
-        if (!signerInfs.isEmpty())
-        {
-            throw new IllegalStateException("this method can only be used with SignerInfoGenerator");
-        }
-
-                // TODO
+    // TODO
 //        if (signerInfs.isEmpty())
 //        {
 //            /* RFC 3852 5.2
@@ -127,115 +123,104 @@ public class CMSSignedDataGenerator
 //            // TODO signedAttrs must be present for all signers
 //        }
 
-        Set<AlgorithmIdentifier> digestAlgs = new LinkedHashSet<AlgorithmIdentifier>();
-        ASN1EncodableVector  signerInfos = new ASN1EncodableVector();
+    Set<AlgorithmIdentifier> digestAlgs = new LinkedHashSet<AlgorithmIdentifier>();
+    ASN1EncodableVector signerInfos = new ASN1EncodableVector();
 
-        digests.clear();  // clear the current preserved digest state
+    digests.clear();  // clear the current preserved digest state
 
-        //
-        // add the precalculated SignerInfo objects.
-        //
-        for (Iterator it = _signers.iterator(); it.hasNext();)
-        {
-            SignerInformation signer = (SignerInformation)it.next();
-            CMSUtils.addDigestAlgs(digestAlgs, signer, digestAlgIdFinder);
-            // TODO Verify the content type and calculated digest match the precalculated SignerInfo
-            signerInfos.add(signer.toASN1Structure());
-        }
-
-        //
-        // add the SignerInfo objects
-        //
-        ASN1ObjectIdentifier contentTypeOID = content.getContentType();
-
-        ASN1OctetString octs = null;
-
-        if (content.getContent() != null)
-        {
-            ByteArrayOutputStream bOut = null;
-
-            if (encapsulate)
-            {
-                bOut = new ByteArrayOutputStream();
-            }
-
-            OutputStream cOut = CMSUtils.attachSignersToOutputStream(signerGens, bOut);
-
-            // Just in case it's unencapsulated and there are no signers!
-            cOut = CMSUtils.getSafeOutputStream(cOut);
-
-            try
-            {
-                content.write(cOut);
-
-                cOut.close();
-            }
-            catch (IOException e)
-            {
-                throw new CMSException("data processing exception: " + e.getMessage(), e);
-            }
-
-            if (encapsulate)
-            {
-                octs = new BEROctetString(bOut.toByteArray());
-            }
-        }
-
-        for (Iterator it = signerGens.iterator(); it.hasNext();)
-        {
-            SignerInfoGenerator sGen = (SignerInfoGenerator)it.next();
-            SignerInfo inf = sGen.generate(contentTypeOID);
-
-            digestAlgs.add(inf.getDigestAlgorithm());
-            signerInfos.add(inf);
-
-            byte[] calcDigest = sGen.getCalculatedDigest();
-
-            if (calcDigest != null)
-            {
-                digests.put(inf.getDigestAlgorithm().getAlgorithm().getId(), calcDigest);
-            }
-        }
-
-        ASN1Set certificates = null;
-
-        if (certs.size() != 0)
-        {
-            certificates = CMSUtils.createBerSetFromList(certs);
-        }
-
-        ASN1Set certrevlist = null;
-
-        if (crls.size() != 0)
-        {
-            certrevlist = CMSUtils.createBerSetFromList(crls);
-        }
-
-        ContentInfo encInfo = new ContentInfo(contentTypeOID, octs);
-
-        SignedData  sd = new SignedData(
-                                 CMSUtils.convertToBERSet(digestAlgs),
-                                 encInfo,
-                                 certificates,
-                                 certrevlist,
-                                 new DERSet(signerInfos));
-
-        ContentInfo contentInfo = new ContentInfo(
-            CMSObjectIdentifiers.signedData, sd);
-
-        return new CMSSignedData(content, contentInfo);
+    //
+    // add the precalculated SignerInfo objects.
+    //
+    for (Iterator it = _signers.iterator(); it.hasNext(); ) {
+      SignerInformation signer = (SignerInformation) it.next();
+      CMSUtils.addDigestAlgs(digestAlgs, signer, digestAlgIdFinder);
+      // TODO Verify the content type and calculated digest match the precalculated SignerInfo
+      signerInfos.add(signer.toASN1Structure());
     }
 
-    /**
-     * generate a set of one or more SignerInformation objects representing counter signatures on
-     * the passed in SignerInformation object.
-     *
-     * @param signer the signer to be countersigned
-     * @return a store containing the signers.
-     */
-    public SignerInformationStore generateCounterSigners(SignerInformation signer)
-        throws CMSException
-    {
-        return this.generate(new CMSProcessableByteArray(null, signer.getSignature()), false).getSignerInfos();
+    //
+    // add the SignerInfo objects
+    //
+    ASN1ObjectIdentifier contentTypeOID = content.getContentType();
+
+    ASN1OctetString octs = null;
+
+    if (content.getContent() != null) {
+      ByteArrayOutputStream bOut = null;
+
+      if (encapsulate) {
+        bOut = new ByteArrayOutputStream();
+      }
+
+      OutputStream cOut = CMSUtils.attachSignersToOutputStream(signerGens, bOut);
+
+      // Just in case it's unencapsulated and there are no signers!
+      cOut = CMSUtils.getSafeOutputStream(cOut);
+
+      try {
+        content.write(cOut);
+
+        cOut.close();
+      } catch (IOException e) {
+        throw new CMSException("data processing exception: " + e.getMessage(), e);
+      }
+
+      if (encapsulate) {
+        octs = new BEROctetString(bOut.toByteArray());
+      }
     }
+
+    for (Iterator it = signerGens.iterator(); it.hasNext(); ) {
+      SignerInfoGenerator sGen = (SignerInfoGenerator) it.next();
+      SignerInfo inf = sGen.generate(contentTypeOID);
+
+      digestAlgs.add(inf.getDigestAlgorithm());
+      signerInfos.add(inf);
+
+      byte[] calcDigest = sGen.getCalculatedDigest();
+
+      if (calcDigest != null) {
+        digests.put(inf.getDigestAlgorithm().getAlgorithm().getId(), calcDigest);
+      }
+    }
+
+    ASN1Set certificates = null;
+
+    if (certs.size() != 0) {
+      certificates = CMSUtils.createBerSetFromList(certs);
+    }
+
+    ASN1Set certrevlist = null;
+
+    if (crls.size() != 0) {
+      certrevlist = CMSUtils.createBerSetFromList(crls);
+    }
+
+    ContentInfo encInfo = new ContentInfo(contentTypeOID, octs);
+
+    SignedData sd = new SignedData(
+        CMSUtils.convertToBERSet(digestAlgs),
+        encInfo,
+        certificates,
+        certrevlist,
+        new DERSet(signerInfos));
+
+    ContentInfo contentInfo = new ContentInfo(
+        CMSObjectIdentifiers.signedData, sd);
+
+    return new CMSSignedData(content, contentInfo);
+  }
+
+  /**
+   * generate a set of one or more SignerInformation objects representing counter signatures on the
+   * passed in SignerInformation object.
+   *
+   * @param signer the signer to be countersigned
+   * @return a store containing the signers.
+   */
+  public SignerInformationStore generateCounterSigners(SignerInformation signer)
+      throws CMSException {
+    return this.generate(new CMSProcessableByteArray(null, signer.getSignature()), false)
+        .getSignerInfos();
+  }
 }

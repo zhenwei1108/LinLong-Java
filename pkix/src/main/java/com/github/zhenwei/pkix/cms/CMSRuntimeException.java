@@ -1,32 +1,28 @@
 package com.github.zhenwei.pkix.cms;
 
 public class CMSRuntimeException
-    extends RuntimeException
-{
-    Exception   e;
+    extends RuntimeException {
 
-    public CMSRuntimeException(
-        String name)
-    {
-        super(name);
-    }
+  Exception e;
 
-    public CMSRuntimeException(
-        String name,
-        Exception e)
-    {
-        super(name);
+  public CMSRuntimeException(
+      String name) {
+    super(name);
+  }
 
-        this.e = e;
-    }
+  public CMSRuntimeException(
+      String name,
+      Exception e) {
+    super(name);
 
-    public Exception getUnderlyingException()
-    {
-        return e;
-    }
-    
-    public Throwable getCause()
-    {
-        return e;
-    }
+    this.e = e;
+  }
+
+  public Exception getUnderlyingException() {
+    return e;
+  }
+
+  public Throwable getCause() {
+    return e;
+  }
 }

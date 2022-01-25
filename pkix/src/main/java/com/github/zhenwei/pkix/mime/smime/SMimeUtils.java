@@ -1,5 +1,8 @@
 package com.github.zhenwei.pkix.mime.smime;
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.util.Strings;
+import com.github.zhenwei.pkix.cms.CMSAlgorithm;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FilterOutputStream;
@@ -12,160 +15,135 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.cms.CMSAlgorithm;
-import com.github.zhenwei.core.util.Strings;
 
-class SMimeUtils
-{
-    private static final Map RFC5751_MICALGS;
-    private static final Map RFC3851_MICALGS;
-    private static final Map STANDARD_MICALGS;
-    private static final Map forMic;
+class SMimeUtils {
 
-    private static final byte[] nl = new byte[2];
+  private static final Map RFC5751_MICALGS;
+  private static final Map RFC3851_MICALGS;
+  private static final Map STANDARD_MICALGS;
+  private static final Map forMic;
+
+  private static final byte[] nl = new byte[2];
 
 
-    static
-    {
-        nl[0] = '\r';
-        nl[1] = '\n';
+  static {
+    nl[0] = '\r';
+    nl[1] = '\n';
 
+    Map stdMicAlgs = new HashMap();
 
-        Map stdMicAlgs = new HashMap();
+    stdMicAlgs.put(CMSAlgorithm.MD5, "md5");
+    stdMicAlgs.put(CMSAlgorithm.SHA1, "sha-1");
+    stdMicAlgs.put(CMSAlgorithm.SHA224, "sha-224");
+    stdMicAlgs.put(CMSAlgorithm.SHA256, "sha-256");
+    stdMicAlgs.put(CMSAlgorithm.SHA384, "sha-384");
+    stdMicAlgs.put(CMSAlgorithm.SHA512, "sha-512");
+    stdMicAlgs.put(CMSAlgorithm.GOST3411, "gostr3411-94");
+    stdMicAlgs.put(CMSAlgorithm.GOST3411_2012_256, "gostr3411-2012-256");
+    stdMicAlgs.put(CMSAlgorithm.GOST3411_2012_512, "gostr3411-2012-512");
 
-        stdMicAlgs.put(CMSAlgorithm.MD5, "md5");
-        stdMicAlgs.put(CMSAlgorithm.SHA1, "sha-1");
-        stdMicAlgs.put(CMSAlgorithm.SHA224, "sha-224");
-        stdMicAlgs.put(CMSAlgorithm.SHA256, "sha-256");
-        stdMicAlgs.put(CMSAlgorithm.SHA384, "sha-384");
-        stdMicAlgs.put(CMSAlgorithm.SHA512, "sha-512");
-        stdMicAlgs.put(CMSAlgorithm.GOST3411, "gostr3411-94");
-        stdMicAlgs.put(CMSAlgorithm.GOST3411_2012_256, "gostr3411-2012-256");
-        stdMicAlgs.put(CMSAlgorithm.GOST3411_2012_512, "gostr3411-2012-512");
+    RFC5751_MICALGS = Collections.unmodifiableMap(stdMicAlgs);
 
-        RFC5751_MICALGS = Collections.unmodifiableMap(stdMicAlgs);
+    Map oldMicAlgs = new HashMap();
 
-        Map oldMicAlgs = new HashMap();
+    oldMicAlgs.put(CMSAlgorithm.MD5, "md5");
+    oldMicAlgs.put(CMSAlgorithm.SHA1, "sha1");
+    oldMicAlgs.put(CMSAlgorithm.SHA224, "sha224");
+    oldMicAlgs.put(CMSAlgorithm.SHA256, "sha256");
+    oldMicAlgs.put(CMSAlgorithm.SHA384, "sha384");
+    oldMicAlgs.put(CMSAlgorithm.SHA512, "sha512");
+    oldMicAlgs.put(CMSAlgorithm.GOST3411, "gostr3411-94");
+    oldMicAlgs.put(CMSAlgorithm.GOST3411_2012_256, "gostr3411-2012-256");
+    oldMicAlgs.put(CMSAlgorithm.GOST3411_2012_512, "gostr3411-2012-512");
 
-        oldMicAlgs.put(CMSAlgorithm.MD5, "md5");
-        oldMicAlgs.put(CMSAlgorithm.SHA1, "sha1");
-        oldMicAlgs.put(CMSAlgorithm.SHA224, "sha224");
-        oldMicAlgs.put(CMSAlgorithm.SHA256, "sha256");
-        oldMicAlgs.put(CMSAlgorithm.SHA384, "sha384");
-        oldMicAlgs.put(CMSAlgorithm.SHA512, "sha512");
-        oldMicAlgs.put(CMSAlgorithm.GOST3411, "gostr3411-94");
-        oldMicAlgs.put(CMSAlgorithm.GOST3411_2012_256, "gostr3411-2012-256");
-        oldMicAlgs.put(CMSAlgorithm.GOST3411_2012_512, "gostr3411-2012-512");
+    RFC3851_MICALGS = Collections.unmodifiableMap(oldMicAlgs);
 
+    STANDARD_MICALGS = RFC5751_MICALGS;
 
-        RFC3851_MICALGS = Collections.unmodifiableMap(oldMicAlgs);
+    Map<String, ASN1ObjectIdentifier> mic = new TreeMap<String, ASN1ObjectIdentifier>(
+        String.CASE_INSENSITIVE_ORDER);
 
-        STANDARD_MICALGS = RFC5751_MICALGS;
-
-
-        Map<String, ASN1ObjectIdentifier> mic = new TreeMap<String, ASN1ObjectIdentifier>(String.CASE_INSENSITIVE_ORDER);
-
-        for (Iterator it = STANDARD_MICALGS.keySet().iterator(); it.hasNext();)
-        {
-            Object key = it.next();
-            mic.put(STANDARD_MICALGS.get(key).toString(), (ASN1ObjectIdentifier)key);
-        }
-
-        for (Iterator it = RFC3851_MICALGS.keySet().iterator(); it.hasNext();)
-        {
-            Object key = it.next();
-            mic.put(RFC3851_MICALGS.get(key).toString(), (ASN1ObjectIdentifier)key);
-        }
-
-        forMic = Collections.unmodifiableMap(mic);
-
+    for (Iterator it = STANDARD_MICALGS.keySet().iterator(); it.hasNext(); ) {
+      Object key = it.next();
+      mic.put(STANDARD_MICALGS.get(key).toString(), (ASN1ObjectIdentifier) key);
     }
 
-    static String lessQuotes(String in)
-    {
-        if (in == null || in.length() <= 1)  // make sure we have at least 2 characters
-        {
-            return in;
-        }
-
-        if (in.charAt(0) == '"' && in.charAt(in.length() - 1) == '"')
-        {
-            return in.substring(1, in.length() - 1);
-        }
-
-        return in;
+    for (Iterator it = RFC3851_MICALGS.keySet().iterator(); it.hasNext(); ) {
+      Object key = it.next();
+      mic.put(RFC3851_MICALGS.get(key).toString(), (ASN1ObjectIdentifier) key);
     }
 
-    static String getParameter(String startsWith, List<String> parameters)
+    forMic = Collections.unmodifiableMap(mic);
+
+  }
+
+  static String lessQuotes(String in) {
+    if (in == null || in.length() <= 1)  // make sure we have at least 2 characters
     {
-        for (Iterator<String> paramIt = parameters.iterator(); paramIt.hasNext(); )
-        {
-            String param = (String)paramIt.next();
-            if (param.startsWith(startsWith))
-            {
-                return param;
-            }
+      return in;
+    }
+
+    if (in.charAt(0) == '"' && in.charAt(in.length() - 1) == '"') {
+      return in.substring(1, in.length() - 1);
+    }
+
+    return in;
+  }
+
+  static String getParameter(String startsWith, List<String> parameters) {
+    for (Iterator<String> paramIt = parameters.iterator(); paramIt.hasNext(); ) {
+      String param = (String) paramIt.next();
+      if (param.startsWith(startsWith)) {
+        return param;
+      }
+    }
+
+    return null;
+  }
+
+  static ASN1ObjectIdentifier getDigestOID(String alg) {
+    ASN1ObjectIdentifier oid = (ASN1ObjectIdentifier) forMic.get(Strings.toLowerCase(alg));
+
+    if (oid == null) {
+      throw new IllegalArgumentException("unknown micalg passed: " + alg);
+    }
+
+    return oid;
+  }
+
+  static InputStream autoBuffer(InputStream input) {
+    if (input instanceof java.io.FileInputStream) {
+      return new BufferedInputStream(input);
+    }
+
+    return input;
+  }
+
+  static OutputStream autoBuffer(OutputStream output) {
+    if (output instanceof java.io.FileOutputStream) {
+      return new BufferedOutputStream(output);
+    }
+
+    return output;
+  }
+
+  static OutputStream createUnclosable(OutputStream destination) {
+    return new FilterOutputStream(destination) {
+      public void write(byte buf[], int off, int len)
+          throws IOException {
+        if (buf == null) {
+          throw new NullPointerException();
         }
-
-        return null;
-    }
-
-    static ASN1ObjectIdentifier getDigestOID(String alg)
-    {
-        ASN1ObjectIdentifier oid = (ASN1ObjectIdentifier)forMic.get(Strings.toLowerCase(alg));
-
-        if (oid == null)
-        {
-            throw new IllegalArgumentException("unknown micalg passed: " + alg);
+        if ((off | len | (buf.length - (len + off)) | (off + len)) < 0) {
+          throw new IndexOutOfBoundsException();
         }
+        out.write(buf, off, len);
+      }
 
-        return oid;
-    }
+      public void close()
+          throws IOException {
 
-    static InputStream autoBuffer(InputStream input)
-    {
-        if (input instanceof java.io.FileInputStream)
-        {
-            return new BufferedInputStream(input);
-        }
-
-        return input;
-    }
-
-    static OutputStream autoBuffer(OutputStream output)
-    {
-        if (output instanceof java.io.FileOutputStream)
-        {
-            return new BufferedOutputStream(output);
-        }
-
-        return output;
-    }
-
-    static OutputStream createUnclosable(OutputStream destination)
-    {
-        return new FilterOutputStream(destination)
-        {
-            public void write(byte buf[], int off, int len)
-                throws IOException
-            {
-                if (buf == null)
-                {
-                    throw new NullPointerException();
-                }
-                if ((off | len | (buf.length - (len + off)) | (off + len)) < 0)
-                {
-                    throw new IndexOutOfBoundsException();
-                }
-                out.write(buf, off, len);
-            }
-
-            public void close()
-                throws IOException
-            {
-
-            }
-        };
-    }
+      }
+    };
+  }
 }

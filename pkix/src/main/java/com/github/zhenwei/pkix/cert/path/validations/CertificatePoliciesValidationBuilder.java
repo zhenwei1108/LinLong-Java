@@ -2,34 +2,30 @@ package com.github.zhenwei.pkix.cert.path.validations;
 
 import com.github.zhenwei.pkix.cert.path.CertPath;
 
-public class CertificatePoliciesValidationBuilder
-{
-    private boolean isExplicitPolicyRequired;
-    private boolean isAnyPolicyInhibited;
-    private boolean isPolicyMappingInhibited;
+public class CertificatePoliciesValidationBuilder {
 
-    public void setAnyPolicyInhibited(boolean anyPolicyInhibited)
-    {
-        isAnyPolicyInhibited = anyPolicyInhibited;
-    }
+  private boolean isExplicitPolicyRequired;
+  private boolean isAnyPolicyInhibited;
+  private boolean isPolicyMappingInhibited;
 
-    public void setExplicitPolicyRequired(boolean explicitPolicyRequired)
-    {
-        isExplicitPolicyRequired = explicitPolicyRequired;
-    }
+  public void setAnyPolicyInhibited(boolean anyPolicyInhibited) {
+    isAnyPolicyInhibited = anyPolicyInhibited;
+  }
 
-    public void setPolicyMappingInhibited(boolean policyMappingInhibited)
-    {
-        isPolicyMappingInhibited = policyMappingInhibited;
-    }
+  public void setExplicitPolicyRequired(boolean explicitPolicyRequired) {
+    isExplicitPolicyRequired = explicitPolicyRequired;
+  }
 
-    public CertificatePoliciesValidation build(int pathLen)
-    {
-        return new CertificatePoliciesValidation(pathLen, isExplicitPolicyRequired, isAnyPolicyInhibited, isPolicyMappingInhibited);
-    }
+  public void setPolicyMappingInhibited(boolean policyMappingInhibited) {
+    isPolicyMappingInhibited = policyMappingInhibited;
+  }
 
-    public CertificatePoliciesValidation build(CertPath path)
-    {
-        return build(path.length());
-    }
+  public CertificatePoliciesValidation build(int pathLen) {
+    return new CertificatePoliciesValidation(pathLen, isExplicitPolicyRequired,
+        isAnyPolicyInhibited, isPolicyMappingInhibited);
+  }
+
+  public CertificatePoliciesValidation build(CertPath path) {
+    return build(path.length());
+  }
 }

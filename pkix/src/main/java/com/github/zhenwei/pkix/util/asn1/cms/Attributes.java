@@ -9,8 +9,8 @@ import com.github.zhenwei.core.asn1.DLSet;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5652">RFC 5652</a> defines
- * 5 "SET OF Attribute" entities with 5 different names.
- * This is common implementation for them all:
+ * 5 "SET OF Attribute" entities with 5 different names. This is common implementation for them
+ * all:
  * <pre>
  *   SignedAttributes      ::= SET SIZE (1..MAX) OF Attribute
  *   UnsignedAttributes    ::= SET SIZE (1..MAX) OF Attribute
@@ -23,71 +23,61 @@ import com.github.zhenwei.core.asn1.DLSet;
  * </pre>
  */
 public class Attributes
-    extends ASN1Object
-{
-    private ASN1Set attributes;
+    extends ASN1Object {
 
-    private Attributes(ASN1Set set)
-    {
-        attributes = set;
+  private ASN1Set attributes;
+
+  private Attributes(ASN1Set set) {
+    attributes = set;
+  }
+
+  public Attributes(ASN1EncodableVector v) {
+    attributes = new DLSet(v);
+  }
+
+  /**
+   * Return an Attribute set object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link Attributes} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Set#getInstance(Object) ASN1Set} input formats with Attributes structure inside
+   * </ul>
+   *
+   * @param obj the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static Attributes getInstance(Object obj) {
+    if (obj instanceof Attributes) {
+      return (Attributes) obj;
+    } else if (obj != null) {
+      return new Attributes(ASN1Set.getInstance(obj));
     }
 
-    public Attributes(ASN1EncodableVector v)
-    {
-        attributes = new DLSet(v);
+    return null;
+  }
+
+  public static Attributes getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Set.getInstance(obj, explicit));
+  }
+
+  public Attribute[] getAttributes() {
+    Attribute[] rv = new Attribute[attributes.size()];
+
+    for (int i = 0; i != rv.length; i++) {
+      rv[i] = Attribute.getInstance(attributes.getObjectAt(i));
     }
 
-    /**
-     * Return an Attribute set object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link Attributes} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Set#getInstance(Object) ASN1Set} input formats with Attributes structure inside
-     * </ul>
-     *
-     * @param obj the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static Attributes getInstance(Object obj)
-    {
-        if (obj instanceof Attributes)
-        {
-            return (Attributes)obj;
-        }
-        else if (obj != null)
-        {
-            return new Attributes(ASN1Set.getInstance(obj));
-        }
+    return rv;
+  }
 
-        return null;
-    }
-
-    public static Attributes getInstance(
-        ASN1TaggedObject obj,
-        boolean explicit)
-    {
-        return getInstance(ASN1Set.getInstance(obj, explicit));
-    }
-
-    public Attribute[] getAttributes()
-    {
-        Attribute[] rv = new Attribute[attributes.size()];
-
-        for (int i = 0; i != rv.length; i++)
-        {
-            rv[i] = Attribute.getInstance(attributes.getObjectAt(i));
-        }
-
-        return rv;
-    }
-
-    /** 
-     * Produce an object suitable for an ASN1OutputStream.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return attributes;
-    }
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return attributes;
+  }
 }

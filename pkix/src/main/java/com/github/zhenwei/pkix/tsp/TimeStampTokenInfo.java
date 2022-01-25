@@ -1,125 +1,104 @@
 package com.github.zhenwei.pkix.tsp;
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.Extensions;
+import com.github.zhenwei.core.asn1.x509.GeneralName;
+import com.github.zhenwei.pkix.util.asn1.tsp.Accuracy;
+import com.github.zhenwei.pkix.util.asn1.tsp.TSTInfo;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.util.Date;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.tsp.Accuracy;
-import com.github.zhenwei.pkix.util.asn1.tsp.TSTInfo;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.Extensions;
-import com.github.zhenwei.core.asn1.x509.GeneralName;
 
-public class TimeStampTokenInfo
-{
-    TSTInfo tstInfo;
-    Date    genTime;
-    
-    TimeStampTokenInfo(TSTInfo tstInfo)
-        throws TSPException, IOException
-    {
-        this.tstInfo = tstInfo;
+public class TimeStampTokenInfo {
 
-        try
-        {
-            this.genTime = tstInfo.getGenTime().getDate();
-        }
-        catch (ParseException e)
-        {
-            throw new TSPException("unable to parse genTime field");
-        }
+  TSTInfo tstInfo;
+  Date genTime;
+
+  TimeStampTokenInfo(TSTInfo tstInfo)
+      throws TSPException, IOException {
+    this.tstInfo = tstInfo;
+
+    try {
+      this.genTime = tstInfo.getGenTime().getDate();
+    } catch (ParseException e) {
+      throw new TSPException("unable to parse genTime field");
+    }
+  }
+
+  public boolean isOrdered() {
+    return tstInfo.getOrdering().isTrue();
+  }
+
+  public Accuracy getAccuracy() {
+    return tstInfo.getAccuracy();
+  }
+
+  public Date getGenTime() {
+    return genTime;
+  }
+
+  public GenTimeAccuracy getGenTimeAccuracy() {
+    if (this.getAccuracy() != null) {
+      return new GenTimeAccuracy(this.getAccuracy());
     }
 
-    public boolean isOrdered()
-    {
-        return tstInfo.getOrdering().isTrue();
+    return null;
+  }
+
+  public ASN1ObjectIdentifier getPolicy() {
+    return tstInfo.getPolicy();
+  }
+
+  public BigInteger getSerialNumber() {
+    return tstInfo.getSerialNumber().getValue();
+  }
+
+  public GeneralName getTsa() {
+    return tstInfo.getTsa();
+  }
+
+  public Extensions getExtensions() {
+    return tstInfo.getExtensions();
+  }
+
+  /**
+   * @return the nonce value, null if there isn't one.
+   */
+  public BigInteger getNonce() {
+    if (tstInfo.getNonce() != null) {
+      return tstInfo.getNonce().getValue();
     }
 
-    public Accuracy getAccuracy()
-    {
-        return tstInfo.getAccuracy();
-    }
+    return null;
+  }
 
-    public Date getGenTime()
-    {
-        return genTime;
-    }
+  public AlgorithmIdentifier getHashAlgorithm() {
+    return tstInfo.getMessageImprint().getHashAlgorithm();
+  }
 
-    public GenTimeAccuracy getGenTimeAccuracy()
-    {
-        if (this.getAccuracy() != null)
-        {
-            return new GenTimeAccuracy(this.getAccuracy());
-        }
-        
-        return null;
-    }
-    
-    public ASN1ObjectIdentifier getPolicy()
-    {
-        return tstInfo.getPolicy();
-    }
-    
-    public BigInteger getSerialNumber()
-    {
-        return tstInfo.getSerialNumber().getValue();
-    }
+  public ASN1ObjectIdentifier getMessageImprintAlgOID() {
+    return tstInfo.getMessageImprint().getHashAlgorithm().getAlgorithm();
+  }
 
-    public GeneralName getTsa()
-    {
-        return tstInfo.getTsa();
-    }
+  public byte[] getMessageImprintDigest() {
+    return tstInfo.getMessageImprint().getHashedMessage();
+  }
 
-    public Extensions getExtensions()
-    {
-        return tstInfo.getExtensions();
-    }
+  public byte[] getEncoded()
+      throws IOException {
+    return tstInfo.getEncoded();
+  }
 
-    /**
-     * @return the nonce value, null if there isn't one.
-     */
-    public BigInteger getNonce()
-    {
-        if (tstInfo.getNonce() != null)
-        {
-            return tstInfo.getNonce().getValue();
-        }
+  /**
+   * @deprecated use toASN1Structure
+   */
+  public TSTInfo toTSTInfo() {
+    return tstInfo;
+  }
 
-        return null;
-    }
-
-    public AlgorithmIdentifier getHashAlgorithm()
-    {
-        return tstInfo.getMessageImprint().getHashAlgorithm();
-    }
-
-    public ASN1ObjectIdentifier getMessageImprintAlgOID()
-    {
-        return tstInfo.getMessageImprint().getHashAlgorithm().getAlgorithm();
-    }
-
-    public byte[] getMessageImprintDigest()
-    {
-        return tstInfo.getMessageImprint().getHashedMessage();
-    }
-
-    public byte[] getEncoded() 
-        throws IOException
-    {
-        return tstInfo.getEncoded();
-    }
-
-    /**
-     * @deprecated use toASN1Structure
-     */
-    public TSTInfo toTSTInfo()
-    {
-        return tstInfo;
-    }
-
-    public TSTInfo toASN1Structure()
-    {
-        return tstInfo;
-    }
+  public TSTInfo toASN1Structure() {
+    return tstInfo;
+  }
 }

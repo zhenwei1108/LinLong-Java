@@ -1,7 +1,5 @@
 package com.github.zhenwei.core.asn1.x509;
 
-import java.math.BigInteger;
-import java.util.Enumeration;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -9,89 +7,82 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
+import java.math.BigInteger;
+import java.util.Enumeration;
 
 /**
  * @deprecated use com.github.zhenwei.core.asn1.pkcs.RSAPublicKey
  */
 public class RSAPublicKeyStructure
-    extends ASN1Object
-{
-    private BigInteger  modulus;
-    private BigInteger  publicExponent;
+    extends ASN1Object {
 
-    public static RSAPublicKeyStructure getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  private BigInteger modulus;
+  private BigInteger publicExponent;
+
+  public static RSAPublicKeyStructure getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static RSAPublicKeyStructure getInstance(
+      Object obj) {
+    if (obj == null || obj instanceof RSAPublicKeyStructure) {
+      return (RSAPublicKeyStructure) obj;
     }
 
-    public static RSAPublicKeyStructure getInstance(
-        Object obj)
-    {
-        if(obj == null || obj instanceof RSAPublicKeyStructure) 
-        {
-            return (RSAPublicKeyStructure)obj;
-        }
-        
-        if(obj instanceof ASN1Sequence) 
-        {
-            return new RSAPublicKeyStructure((ASN1Sequence)obj);
-        }
-        
-        throw new IllegalArgumentException("Invalid RSAPublicKeyStructure: " + obj.getClass().getName());
-    }
-    
-    public RSAPublicKeyStructure(
-        BigInteger  modulus,
-        BigInteger  publicExponent)
-    {
-        this.modulus = modulus;
-        this.publicExponent = publicExponent;
+    if (obj instanceof ASN1Sequence) {
+      return new RSAPublicKeyStructure((ASN1Sequence) obj);
     }
 
-    public RSAPublicKeyStructure(
-        ASN1Sequence  seq)
-    {
-        if (seq.size() != 2)
-        {
-            throw new IllegalArgumentException("Bad sequence size: "
-                    + seq.size());
-        }
+    throw new IllegalArgumentException(
+        "Invalid RSAPublicKeyStructure: " + obj.getClass().getName());
+  }
 
-        Enumeration e = seq.getObjects();
+  public RSAPublicKeyStructure(
+      BigInteger modulus,
+      BigInteger publicExponent) {
+    this.modulus = modulus;
+    this.publicExponent = publicExponent;
+  }
 
-        modulus = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
-        publicExponent = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
+  public RSAPublicKeyStructure(
+      ASN1Sequence seq) {
+    if (seq.size() != 2) {
+      throw new IllegalArgumentException("Bad sequence size: "
+          + seq.size());
     }
 
-    public BigInteger getModulus()
-    {
-        return modulus;
-    }
+    Enumeration e = seq.getObjects();
 
-    public BigInteger getPublicExponent()
-    {
-        return publicExponent;
-    }
+    modulus = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
+    publicExponent = ASN1Integer.getInstance(e.nextElement()).getPositiveValue();
+  }
 
-    /**
-     * This outputs the key in PKCS1v2 format.
-     * <pre>
-     *      RSAPublicKey ::= SEQUENCE {
-     *                          modulus INTEGER, -- n
-     *                          publicExponent INTEGER, -- e
-     *                      }
-     * </pre>
-     * <p>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public BigInteger getModulus() {
+    return modulus;
+  }
 
-        v.add(new ASN1Integer(getModulus()));
-        v.add(new ASN1Integer(getPublicExponent()));
+  public BigInteger getPublicExponent() {
+    return publicExponent;
+  }
 
-        return new DERSequence(v);
-    }
+  /**
+   * This outputs the key in PKCS1v2 format.
+   * <pre>
+   *      RSAPublicKey ::= SEQUENCE {
+   *                          modulus INTEGER, -- n
+   *                          publicExponent INTEGER, -- e
+   *                      }
+   * </pre>
+   * <p>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+
+    v.add(new ASN1Integer(getModulus()));
+    v.add(new ASN1Integer(getPublicExponent()));
+
+    return new DERSequence(v);
+  }
 }

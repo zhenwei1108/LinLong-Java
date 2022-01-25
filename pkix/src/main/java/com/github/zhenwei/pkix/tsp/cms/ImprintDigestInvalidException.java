@@ -3,19 +3,17 @@ package com.github.zhenwei.pkix.tsp.cms;
 import com.github.zhenwei.pkix.tsp.TimeStampToken;
 
 public class ImprintDigestInvalidException
-    extends Exception
-{
-    private TimeStampToken token;
+    extends Exception {
 
-    public ImprintDigestInvalidException(String message, TimeStampToken token)
-    {
-        super(message);
+  private TimeStampToken token;
 
-        this.token = token;
-    }
+  public ImprintDigestInvalidException(String message, TimeStampToken token) {
+    super(message);
 
-    public TimeStampToken getTimeStampToken()
-    {
-        return token;
-    }
+    this.token = token;
+  }
+
+  public TimeStampToken getTimeStampToken() {
+    return token;
+  }
 }

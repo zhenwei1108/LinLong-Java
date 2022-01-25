@@ -1,27 +1,23 @@
 package com.github.zhenwei.core.asn1;
 
-class DERFactory
-{
-    static final DERSequence EMPTY_SEQUENCE = new DERSequence();
-    static final DERSet EMPTY_SET = new DERSet();
+class DERFactory {
 
-    static DERSequence createSequence(ASN1EncodableVector v)
-    {
-        if (v.size() < 1)
-        {
-            return EMPTY_SEQUENCE;
-        }
+  static final DERSequence EMPTY_SEQUENCE = new DERSequence();
+  static final DERSet EMPTY_SET = new DERSet();
 
-        return new DERSequence(v);
+  static DERSequence createSequence(ASN1EncodableVector v) {
+    if (v.size() < 1) {
+      return EMPTY_SEQUENCE;
     }
 
-    static DERSet createSet(ASN1EncodableVector v)
-    {
-        if (v.size() < 1)
-        {
-            return EMPTY_SET;
-        }
+    return new DERSequence(v);
+  }
 
-        return new DERSet(v);
+  static DERSet createSet(ASN1EncodableVector v) {
+    if (v.size() < 1) {
+      return EMPTY_SET;
     }
+
+    return new DERSet(v);
+  }
 }

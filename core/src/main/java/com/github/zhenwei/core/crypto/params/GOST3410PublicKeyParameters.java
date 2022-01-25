@@ -3,21 +3,19 @@ package com.github.zhenwei.core.crypto.params;
 import java.math.BigInteger;
 
 public class GOST3410PublicKeyParameters
-        extends GOST3410KeyParameters
-{
-    private BigInteger      y;
+    extends GOST3410KeyParameters {
 
-    public GOST3410PublicKeyParameters(
-        BigInteger      y,
-        GOST3410Parameters   params)
-    {
-        super(false, params);
+  private BigInteger y;
 
-        this.y = y;
-    }
+  public GOST3410PublicKeyParameters(
+      BigInteger y,
+      GOST3410Parameters params) {
+    super(false, params);
 
-    public BigInteger getY()
-    {
-        return y;
-    }
+    this.y = y;
+  }
+
+  public BigInteger getY() {
+    return y;
+  }
 }

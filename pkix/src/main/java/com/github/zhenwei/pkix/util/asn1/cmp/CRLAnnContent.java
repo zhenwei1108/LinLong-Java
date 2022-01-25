@@ -7,55 +7,48 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.x509.CertificateList;
 
 public class CRLAnnContent
-    extends ASN1Object
-{
-    private ASN1Sequence content;
+    extends ASN1Object {
 
-    private CRLAnnContent(ASN1Sequence seq)
-    {
-        content = seq;
+  private ASN1Sequence content;
+
+  private CRLAnnContent(ASN1Sequence seq) {
+    content = seq;
+  }
+
+  public static CRLAnnContent getInstance(Object o) {
+    if (o instanceof CRLAnnContent) {
+      return (CRLAnnContent) o;
     }
 
-    public static CRLAnnContent getInstance(Object o)
-    {
-        if (o instanceof CRLAnnContent)
-        {
-            return (CRLAnnContent)o;
-        }
-
-        if (o != null)
-        {
-            return new CRLAnnContent(ASN1Sequence.getInstance(o));
-        }
-
-        return null;
+    if (o != null) {
+      return new CRLAnnContent(ASN1Sequence.getInstance(o));
     }
 
-    public CRLAnnContent(CertificateList crl)
-    {
-        this.content = new DERSequence(crl);
+    return null;
+  }
+
+  public CRLAnnContent(CertificateList crl) {
+    this.content = new DERSequence(crl);
+  }
+
+  public CertificateList[] getCertificateLists() {
+    CertificateList[] result = new CertificateList[content.size()];
+
+    for (int i = 0; i != result.length; i++) {
+      result[i] = CertificateList.getInstance(content.getObjectAt(i));
     }
 
-    public CertificateList[] getCertificateLists()
-    {
-        CertificateList[] result = new CertificateList[content.size()];
+    return result;
+  }
 
-        for (int i = 0; i != result.length; i++)
-        {
-            result[i] = CertificateList.getInstance(content.getObjectAt(i));
-        }
-
-        return result;
-    }
-
-    /**
-     * <pre>
-     * CRLAnnContent ::= SEQUENCE OF CertificateList
-     * </pre>
-     * @return a basic ASN.1 object representation.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return content;
-    }
+  /**
+   * <pre>
+   * CRLAnnContent ::= SEQUENCE OF CertificateList
+   * </pre>
+   *
+   * @return a basic ASN.1 object representation.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return content;
+  }
 }

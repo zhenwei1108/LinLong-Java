@@ -1,24 +1,21 @@
 package com.github.zhenwei.provider.jce.provider;
 
 public class PKIXNameConstraintValidatorException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public PKIXNameConstraintValidatorException(String msg)
-    {
-        super(msg);
-    }
+  private Throwable cause;
 
-    public PKIXNameConstraintValidatorException(String msg, Throwable e)
-    {
-        super(msg);
+  public PKIXNameConstraintValidatorException(String msg) {
+    super(msg);
+  }
 
-        this.cause = e;
-    }
+  public PKIXNameConstraintValidatorException(String msg, Throwable e) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = e;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

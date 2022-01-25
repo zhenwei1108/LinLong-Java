@@ -1,44 +1,43 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.gost;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.params.GOST3410Parameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Fingerprint;
 import com.github.zhenwei.core.util.Strings;
+import java.math.BigInteger;
 
-class GOSTUtil
-{
-    static String privateKeyToString(String algorithm, BigInteger x, GOST3410Parameters gostParams)
-    {
-        StringBuffer buf = new StringBuffer();
-        String        nl = Strings.lineSeparator();
+class GOSTUtil {
 
-        BigInteger y = gostParams.getA().modPow(x, gostParams.getP());
+  static String privateKeyToString(String algorithm, BigInteger x, GOST3410Parameters gostParams) {
+    StringBuffer buf = new StringBuffer();
+    String nl = Strings.lineSeparator();
 
-        buf.append(algorithm);
-        buf.append(" Private Key [").append(generateKeyFingerprint(y, gostParams)).append("]").append(nl);
-        buf.append("                  Y: ").append(y.toString(16)).append(nl);
+    BigInteger y = gostParams.getA().modPow(x, gostParams.getP());
 
-        return buf.toString();
-    }
+    buf.append(algorithm);
+    buf.append(" Private Key [").append(generateKeyFingerprint(y, gostParams)).append("]")
+        .append(nl);
+    buf.append("                  Y: ").append(y.toString(16)).append(nl);
 
-    static String publicKeyToString(String algorithm, BigInteger y, GOST3410Parameters gostParams)
-    {
-        StringBuffer buf = new StringBuffer();
-        String nl = Strings.lineSeparator();
+    return buf.toString();
+  }
 
-        buf.append(algorithm);
-        buf.append(" Public Key [").append(generateKeyFingerprint(y, gostParams)).append("]").append(nl);
-        buf.append("                 Y: ").append(y.toString(16)).append(nl);
+  static String publicKeyToString(String algorithm, BigInteger y, GOST3410Parameters gostParams) {
+    StringBuffer buf = new StringBuffer();
+    String nl = Strings.lineSeparator();
 
-        return buf.toString();
-    }
+    buf.append(algorithm);
+    buf.append(" Public Key [").append(generateKeyFingerprint(y, gostParams)).append("]")
+        .append(nl);
+    buf.append("                 Y: ").append(y.toString(16)).append(nl);
 
-    private static String generateKeyFingerprint(BigInteger y, GOST3410Parameters dhParams)
-    {
-            return new Fingerprint(
-                Arrays.concatenate(
-                    y.toByteArray(),
-                    dhParams.getP().toByteArray(), dhParams.getA().toByteArray())).toString();
-    }
+    return buf.toString();
+  }
+
+  private static String generateKeyFingerprint(BigInteger y, GOST3410Parameters dhParams) {
+    return new Fingerprint(
+        Arrays.concatenate(
+            y.toByteArray(),
+            dhParams.getP().toByteArray(), dhParams.getA().toByteArray())).toString();
+  }
 }

@@ -5,42 +5,34 @@ import java.util.Enumeration;
 import java.util.NoSuchElementException;
 
 class LazyConstructionEnumeration
-    implements Enumeration
-{
-    private ASN1InputStream aIn;
-    private Object          nextObj;
+    implements Enumeration {
 
-    public LazyConstructionEnumeration(byte[] encoded)
-    {
-        aIn = new ASN1InputStream(encoded, true);
-        nextObj = readObject();
-    }
+  private ASN1InputStream aIn;
+  private Object nextObj;
 
-    public boolean hasMoreElements()
-    {
-        return nextObj != null;
-    }
+  public LazyConstructionEnumeration(byte[] encoded) {
+    aIn = new ASN1InputStream(encoded, true);
+    nextObj = readObject();
+  }
 
-    public Object nextElement()
-    {
-        if (nextObj != null)
-        {
-            Object o = nextObj;
-            nextObj = readObject();
-            return o;
-        }
-        throw new NoSuchElementException();
-    }
+  public boolean hasMoreElements() {
+    return nextObj != null;
+  }
 
-    private Object readObject()
-    {
-        try
-        {
-            return aIn.readObject();
-        }
-        catch (IOException e)
-        {
-            throw new ASN1ParsingException("malformed ASN.1: " + e, e);
-        }
+  public Object nextElement() {
+    if (nextObj != null) {
+      Object o = nextObj;
+      nextObj = readObject();
+      return o;
     }
+    throw new NoSuchElementException();
+  }
+
+  private Object readObject() {
+    try {
+      return aIn.readObject();
+    } catch (IOException e) {
+      throw new ASN1ParsingException("malformed ASN.1: " + e, e);
+    }
+  }
 }

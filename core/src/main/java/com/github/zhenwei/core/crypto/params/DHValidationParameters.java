@@ -2,49 +2,42 @@ package com.github.zhenwei.core.crypto.params;
 
 import com.github.zhenwei.core.util.Arrays;
 
-public class DHValidationParameters
-{
-    private byte[]  seed;
-    private int     counter;
+public class DHValidationParameters {
 
-    public DHValidationParameters(
-        byte[]  seed,
-        int     counter)
-    {
-        this.seed = Arrays.clone(seed);
-        this.counter = counter;
+  private byte[] seed;
+  private int counter;
+
+  public DHValidationParameters(
+      byte[] seed,
+      int counter) {
+    this.seed = Arrays.clone(seed);
+    this.counter = counter;
+  }
+
+  public int getCounter() {
+    return counter;
+  }
+
+  public byte[] getSeed() {
+    return Arrays.clone(seed);
+  }
+
+  public boolean equals(
+      Object o) {
+    if (!(o instanceof DHValidationParameters)) {
+      return false;
     }
 
-    public int getCounter()
-    {
-        return counter;
+    DHValidationParameters other = (DHValidationParameters) o;
+
+    if (other.counter != this.counter) {
+      return false;
     }
 
-    public byte[] getSeed()
-    {
-        return Arrays.clone(seed);
-    }
+    return Arrays.areEqual(this.seed, other.seed);
+  }
 
-    public boolean equals(
-        Object o)
-    {
-        if (!(o instanceof DHValidationParameters))
-        {
-            return false;
-        }
-
-        DHValidationParameters  other = (DHValidationParameters)o;
-
-        if (other.counter != this.counter)
-        {
-            return false;
-        }
-
-        return Arrays.areEqual(this.seed, other.seed);
-    }
-
-    public int hashCode()
-    {
-        return counter ^ Arrays.hashCode(seed);
-    }
+  public int hashCode() {
+    return counter ^ Arrays.hashCode(seed);
+  }
 }

@@ -9,7 +9,8 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERSequence;
 
 /**
- * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.7">RFC 5652</a>: OtherKeyAttribute object.
+ * <a href="https://tools.ietf.org/html/rfc5652#section-10.2.7">RFC 5652</a>: OtherKeyAttribute
+ * object.
  * <p>
  * <pre>
  * OtherKeyAttribute ::= SEQUENCE {
@@ -19,75 +20,67 @@ import com.github.zhenwei.core.asn1.DERSequence;
  * </pre>
  */
 public class OtherKeyAttribute
-    extends ASN1Object
-{
-    private ASN1ObjectIdentifier keyAttrId;
-    private ASN1Encodable        keyAttr;
+    extends ASN1Object {
 
-    /**
-     * Return an OtherKeyAttribute object from the given object.
-     * <p>
-     * Accepted inputs:
-     * <ul>
-     * <li> null &rarr; null
-     * <li> {@link OtherKeyAttribute} object
-     * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with OtherKeyAttribute structure inside
-     * </ul>
-     *
-     * @param o the object we want converted.
-     * @exception IllegalArgumentException if the object cannot be converted.
-     */
-    public static OtherKeyAttribute getInstance(
-        Object o)
-    {
-        if (o instanceof OtherKeyAttribute)
-        {
-            return (OtherKeyAttribute)o;
-        }
-        
-        if (o != null)
-        {
-            return new OtherKeyAttribute(ASN1Sequence.getInstance(o));
-        }
+  private ASN1ObjectIdentifier keyAttrId;
+  private ASN1Encodable keyAttr;
 
-        return null;
+  /**
+   * Return an OtherKeyAttribute object from the given object.
+   * <p>
+   * Accepted inputs:
+   * <ul>
+   * <li> null &rarr; null
+   * <li> {@link OtherKeyAttribute} object
+   * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with OtherKeyAttribute structure inside
+   * </ul>
+   *
+   * @param o the object we want converted.
+   * @throws IllegalArgumentException if the object cannot be converted.
+   */
+  public static OtherKeyAttribute getInstance(
+      Object o) {
+    if (o instanceof OtherKeyAttribute) {
+      return (OtherKeyAttribute) o;
     }
 
-    private OtherKeyAttribute(
-        ASN1Sequence seq)
-    {
-        keyAttrId = (ASN1ObjectIdentifier)seq.getObjectAt(0);
-        keyAttr = seq.getObjectAt(1);
+    if (o != null) {
+      return new OtherKeyAttribute(ASN1Sequence.getInstance(o));
     }
 
-    public OtherKeyAttribute(
-        ASN1ObjectIdentifier keyAttrId,
-        ASN1Encodable        keyAttr)
-    {
-        this.keyAttrId = keyAttrId;
-        this.keyAttr = keyAttr;
-    }
+    return null;
+  }
 
-    public ASN1ObjectIdentifier getKeyAttrId()
-    {
-        return keyAttrId;
-    }
-    
-    public ASN1Encodable getKeyAttr()
-    {
-        return keyAttr;
-    }
+  private OtherKeyAttribute(
+      ASN1Sequence seq) {
+    keyAttrId = (ASN1ObjectIdentifier) seq.getObjectAt(0);
+    keyAttr = seq.getObjectAt(1);
+  }
 
-    /** 
-     * Produce an object suitable for an ASN1OutputStream.
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(2);
+  public OtherKeyAttribute(
+      ASN1ObjectIdentifier keyAttrId,
+      ASN1Encodable keyAttr) {
+    this.keyAttrId = keyAttrId;
+    this.keyAttr = keyAttr;
+  }
 
-        v.add(keyAttrId);
-        v.add(keyAttr);
+  public ASN1ObjectIdentifier getKeyAttrId() {
+    return keyAttrId;
+  }
 
-        return new DERSequence(v);
-    }
+  public ASN1Encodable getKeyAttr() {
+    return keyAttr;
+  }
+
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   */
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(2);
+
+    v.add(keyAttrId);
+    v.add(keyAttr);
+
+    return new DERSequence(v);
+  }
 }

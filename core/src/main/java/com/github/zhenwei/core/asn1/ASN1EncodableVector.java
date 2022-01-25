@@ -3,172 +3,147 @@ package com.github.zhenwei.core.asn1;
 /**
  * Mutable class for building ASN.1 constructed objects such as SETs or SEQUENCEs.
  */
-public class ASN1EncodableVector
-{
-    static final ASN1Encodable[] EMPTY_ELEMENTS = new ASN1Encodable[0];
+public class ASN1EncodableVector {
 
-    private static final int DEFAULT_CAPACITY = 10;
+  static final ASN1Encodable[] EMPTY_ELEMENTS = new ASN1Encodable[0];
 
-    private ASN1Encodable[] elements;
-    private int elementCount;
-    private boolean copyOnWrite;
+  private static final int DEFAULT_CAPACITY = 10;
 
-    public ASN1EncodableVector()
-    {
-        this(DEFAULT_CAPACITY);
+  private ASN1Encodable[] elements;
+  private int elementCount;
+  private boolean copyOnWrite;
+
+  public ASN1EncodableVector() {
+    this(DEFAULT_CAPACITY);
+  }
+
+  public ASN1EncodableVector(int initialCapacity) {
+    if (initialCapacity < 0) {
+      throw new IllegalArgumentException("'initialCapacity' must not be negative");
     }
 
-    public ASN1EncodableVector(int initialCapacity)
-    {
-        if (initialCapacity < 0)
-        {
-            throw new IllegalArgumentException("'initialCapacity' must not be negative");
-        }
+    this.elements = (initialCapacity == 0) ? EMPTY_ELEMENTS : new ASN1Encodable[initialCapacity];
+    this.elementCount = 0;
+    this.copyOnWrite = false;
+  }
 
-        this.elements = (initialCapacity == 0) ? EMPTY_ELEMENTS : new ASN1Encodable[initialCapacity];
-        this.elementCount = 0;
-        this.copyOnWrite = false;
+  public void add(ASN1Encodable element) {
+    if (null == element) {
+      throw new NullPointerException("'element' cannot be null");
     }
 
-    public void add(ASN1Encodable element)
-    {
-        if (null == element)
-        {
-            throw new NullPointerException("'element' cannot be null");
-        }
-
-        int capacity = elements.length;
-        int minCapacity = elementCount + 1;
-        if ((minCapacity > capacity) | copyOnWrite)
-        {
-            reallocate(minCapacity);
-        }
-
-        this.elements[elementCount] = element;
-        this.elementCount = minCapacity;
+    int capacity = elements.length;
+    int minCapacity = elementCount + 1;
+    if ((minCapacity > capacity) | copyOnWrite) {
+      reallocate(minCapacity);
     }
 
-    public void addAll(ASN1Encodable[] others)
-    {
-        if (null == others)
-        {
-            throw new NullPointerException("'others' cannot be null");
-        }
+    this.elements[elementCount] = element;
+    this.elementCount = minCapacity;
+  }
 
-        doAddAll(others, "'others' elements cannot be null");
+  public void addAll(ASN1Encodable[] others) {
+    if (null == others) {
+      throw new NullPointerException("'others' cannot be null");
     }
 
-    public void addAll(ASN1EncodableVector other)
-    {
-        if (null == other)
-        {
-            throw new NullPointerException("'other' cannot be null");
-        }
+    doAddAll(others, "'others' elements cannot be null");
+  }
 
-        doAddAll(other.elements, "'other' elements cannot be null");
+  public void addAll(ASN1EncodableVector other) {
+    if (null == other) {
+      throw new NullPointerException("'other' cannot be null");
     }
 
-    private void doAddAll(ASN1Encodable[] others, String nullMsg)
-    {
-        int otherElementCount = others.length;
-        if (otherElementCount < 1)
-        {
-            return;
-        }
+    doAddAll(other.elements, "'other' elements cannot be null");
+  }
 
-        int capacity = elements.length;
-        int minCapacity = elementCount + otherElementCount;
-        if ((minCapacity > capacity) | copyOnWrite)
-        {
-            reallocate(minCapacity);
-        }
-
-        int i = 0;
-        do
-        {
-            ASN1Encodable otherElement = others[i];
-            if (null == otherElement)
-            {
-                throw new NullPointerException(nullMsg);
-            }
-
-            this.elements[elementCount + i] = otherElement;
-        }
-        while (++i < otherElementCount);
-
-        this.elementCount = minCapacity;
+  private void doAddAll(ASN1Encodable[] others, String nullMsg) {
+    int otherElementCount = others.length;
+    if (otherElementCount < 1) {
+      return;
     }
 
-    /**
-     * Return the object at position i in this vector.
-     *
-     * @param i the index of the object of interest.
-     * @return the object at position i.
-     */
-    public ASN1Encodable get(int i)
-    {
-        if (i >= elementCount)
-        {
-            throw new ArrayIndexOutOfBoundsException(i + " >= " + elementCount);
-        }
-
-        return elements[i];
+    int capacity = elements.length;
+    int minCapacity = elementCount + otherElementCount;
+    if ((minCapacity > capacity) | copyOnWrite) {
+      reallocate(minCapacity);
     }
 
-    /**
-     * Return the size of the vector.
-     *
-     * @return the object count in the vector.
-     */
-    public int size()
-    {
-        return elementCount;
+    int i = 0;
+    do {
+      ASN1Encodable otherElement = others[i];
+      if (null == otherElement) {
+        throw new NullPointerException(nullMsg);
+      }
+
+      this.elements[elementCount + i] = otherElement;
+    }
+    while (++i < otherElementCount);
+
+    this.elementCount = minCapacity;
+  }
+
+  /**
+   * Return the object at position i in this vector.
+   *
+   * @param i the index of the object of interest.
+   * @return the object at position i.
+   */
+  public ASN1Encodable get(int i) {
+    if (i >= elementCount) {
+      throw new ArrayIndexOutOfBoundsException(i + " >= " + elementCount);
     }
 
-    ASN1Encodable[] copyElements()
-    {
-        if (0 == elementCount)
-        {
-            return EMPTY_ELEMENTS;
-        }
+    return elements[i];
+  }
 
-        ASN1Encodable[] copy = new ASN1Encodable[elementCount];
-        System.arraycopy(elements, 0, copy, 0, elementCount);
-        return copy;
+  /**
+   * Return the size of the vector.
+   *
+   * @return the object count in the vector.
+   */
+  public int size() {
+    return elementCount;
+  }
+
+  ASN1Encodable[] copyElements() {
+    if (0 == elementCount) {
+      return EMPTY_ELEMENTS;
     }
 
-    ASN1Encodable[] takeElements()
-    {
-        if (0 == elementCount)
-        {
-            return EMPTY_ELEMENTS;
-        }
+    ASN1Encodable[] copy = new ASN1Encodable[elementCount];
+    System.arraycopy(elements, 0, copy, 0, elementCount);
+    return copy;
+  }
 
-        if (elements.length == elementCount)
-        {
-            this.copyOnWrite = true;
-            return elements;
-        }
-
-        ASN1Encodable[] copy = new ASN1Encodable[elementCount];
-        System.arraycopy(elements, 0, copy, 0, elementCount);
-        return copy;
+  ASN1Encodable[] takeElements() {
+    if (0 == elementCount) {
+      return EMPTY_ELEMENTS;
     }
 
-    private void reallocate(int minCapacity)
-    {
-        int oldCapacity = elements.length;
-        int newCapacity = Math.max(oldCapacity, minCapacity + (minCapacity >> 1));
-
-        ASN1Encodable[] copy = new ASN1Encodable[newCapacity];
-        System.arraycopy(elements, 0, copy, 0, elementCount);
-
-        this.elements = copy;
-        this.copyOnWrite = false;
+    if (elements.length == elementCount) {
+      this.copyOnWrite = true;
+      return elements;
     }
 
-    static ASN1Encodable[] cloneElements(ASN1Encodable[] elements)
-    {
-        return elements.length < 1 ? EMPTY_ELEMENTS : (ASN1Encodable[])elements.clone();
-    }
+    ASN1Encodable[] copy = new ASN1Encodable[elementCount];
+    System.arraycopy(elements, 0, copy, 0, elementCount);
+    return copy;
+  }
+
+  private void reallocate(int minCapacity) {
+    int oldCapacity = elements.length;
+    int newCapacity = Math.max(oldCapacity, minCapacity + (minCapacity >> 1));
+
+    ASN1Encodable[] copy = new ASN1Encodable[newCapacity];
+    System.arraycopy(elements, 0, copy, 0, elementCount);
+
+    this.elements = copy;
+    this.copyOnWrite = false;
+  }
+
+  static ASN1Encodable[] cloneElements(ASN1Encodable[] elements) {
+    return elements.length < 1 ? EMPTY_ELEMENTS : (ASN1Encodable[]) elements.clone();
+  }
 }

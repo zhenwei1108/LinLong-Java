@@ -1,60 +1,53 @@
 package com.github.zhenwei.pkix.cert.path;
 
-import java.util.HashSet;
-import java.util.Set;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.util.Memoable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CertPathValidationContext
-    implements Memoable
-{
-    private Set criticalExtensions;
+    implements Memoable {
 
-    private Set handledExtensions = new HashSet();
-    private boolean endEntity;
-    private int index;
+  private Set criticalExtensions;
 
-    public CertPathValidationContext(Set criticalExtensionsOIDs)
-    {
-        this.criticalExtensions = criticalExtensionsOIDs;
-    }
+  private Set handledExtensions = new HashSet();
+  private boolean endEntity;
+  private int index;
 
-    public void addHandledExtension(ASN1ObjectIdentifier extensionIdentifier)
-    {
-        this.handledExtensions.add(extensionIdentifier);
-    }
+  public CertPathValidationContext(Set criticalExtensionsOIDs) {
+    this.criticalExtensions = criticalExtensionsOIDs;
+  }
 
-    public void setIsEndEntity(boolean isEndEntity)
-    {
-        this.endEntity = isEndEntity;
-    }
+  public void addHandledExtension(ASN1ObjectIdentifier extensionIdentifier) {
+    this.handledExtensions.add(extensionIdentifier);
+  }
 
-    public Set getUnhandledCriticalExtensionOIDs()
-    {
-        Set rv = new HashSet(criticalExtensions);
+  public void setIsEndEntity(boolean isEndEntity) {
+    this.endEntity = isEndEntity;
+  }
 
-        rv.removeAll(handledExtensions);
+  public Set getUnhandledCriticalExtensionOIDs() {
+    Set rv = new HashSet(criticalExtensions);
 
-        return rv;
-    }
+    rv.removeAll(handledExtensions);
 
-    /**
-     * Returns true if the current certificate is the end-entity certificate.
-     *
-     * @return if current cert end-entity, false otherwise.
-     */
-    public boolean isEndEntity()
-    {
-        return endEntity;
-    }
+    return rv;
+  }
 
-    public Memoable copy()
-    {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
-    }
+  /**
+   * Returns true if the current certificate is the end-entity certificate.
+   *
+   * @return if current cert end-entity, false otherwise.
+   */
+  public boolean isEndEntity() {
+    return endEntity;
+  }
 
-    public void reset(Memoable other)
-    {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
+  public Memoable copy() {
+    return null;  //To change body of implemented methods use File | Settings | File Templates.
+  }
+
+  public void reset(Memoable other) {
+    //To change body of implemented methods use File | Settings | File Templates.
+  }
 }

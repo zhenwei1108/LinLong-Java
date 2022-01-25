@@ -1,27 +1,23 @@
 package com.github.zhenwei.core.asn1;
 
-class DLFactory
-{
-    static final DLSequence EMPTY_SEQUENCE = new DLSequence();
-    static final DLSet EMPTY_SET = new DLSet();
+class DLFactory {
 
-    static DLSequence createSequence(ASN1EncodableVector v)
-    {
-        if (v.size() < 1)
-        {
-            return EMPTY_SEQUENCE;
-        }
+  static final DLSequence EMPTY_SEQUENCE = new DLSequence();
+  static final DLSet EMPTY_SET = new DLSet();
 
-        return new DLSequence(v);
+  static DLSequence createSequence(ASN1EncodableVector v) {
+    if (v.size() < 1) {
+      return EMPTY_SEQUENCE;
     }
 
-    static DLSet createSet(ASN1EncodableVector v)
-    {
-        if (v.size() < 1)
-        {
-            return EMPTY_SET;
-        }
+    return new DLSequence(v);
+  }
 
-        return new DLSet(v);
+  static DLSet createSet(ASN1EncodableVector v) {
+    if (v.size() < 1) {
+      return EMPTY_SET;
     }
+
+    return new DLSet(v);
+  }
 }

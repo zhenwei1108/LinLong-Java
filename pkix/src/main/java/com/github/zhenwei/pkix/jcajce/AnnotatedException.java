@@ -1,24 +1,21 @@
 package com.github.zhenwei.pkix.jcajce;
 
 class AnnotatedException
-    extends Exception
-{
-    private Throwable _underlyingException;
+    extends Exception {
 
-    public AnnotatedException(String string, Throwable e)
-    {
-        super(string);
+  private Throwable _underlyingException;
 
-        _underlyingException = e;
-    }
+  public AnnotatedException(String string, Throwable e) {
+    super(string);
 
-    public AnnotatedException(String string)
-    {
-        this(string, null);
-    }
+    _underlyingException = e;
+  }
 
-    public Throwable getCause()
-    {
-        return _underlyingException;
-    }
+  public AnnotatedException(String string) {
+    this(string, null);
+  }
+
+  public Throwable getCause() {
+    return _underlyingException;
+  }
 }

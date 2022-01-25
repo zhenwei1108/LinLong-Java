@@ -24,135 +24,119 @@ import com.github.zhenwei.core.asn1.DERSet;
  *       extensions           Extensions OPTIONAL
  * }
  * </pre>
- *
  */
-public class V2AttributeCertificateInfoGenerator
-{
-    private ASN1Integer version;
-    private Holder holder;
-    private AttCertIssuer issuer;
-    private AlgorithmIdentifier signature;
-    private ASN1Integer serialNumber;
-    private ASN1EncodableVector attributes;
-    private DERBitString issuerUniqueID;
-    private Extensions extensions;
+public class V2AttributeCertificateInfoGenerator {
 
-    // Note: validity period start/end dates stored directly
-    //private AttCertValidityPeriod attrCertValidityPeriod;
-    private ASN1GeneralizedTime startDate, endDate; 
+  private ASN1Integer version;
+  private Holder holder;
+  private AttCertIssuer issuer;
+  private AlgorithmIdentifier signature;
+  private ASN1Integer serialNumber;
+  private ASN1EncodableVector attributes;
+  private DERBitString issuerUniqueID;
+  private Extensions extensions;
 
-    public V2AttributeCertificateInfoGenerator()
-    {
-        this.version = new ASN1Integer(1);
-        attributes = new ASN1EncodableVector();
-    }
-    
-    public void setHolder(Holder holder)
-    {
-        this.holder = holder;
-    }
-    
-    public void addAttribute(String oid, ASN1Encodable value) 
-    {
-        attributes.add(new Attribute(new ASN1ObjectIdentifier(oid), new DERSet(value)));
-    }
+  // Note: validity period start/end dates stored directly
+  //private AttCertValidityPeriod attrCertValidityPeriod;
+  private ASN1GeneralizedTime startDate, endDate;
 
-    /**
-     * @param attribute
-     */
-    public void addAttribute(Attribute attribute)
-    {
-        attributes.add(attribute);
-    }
-    
-    public void setSerialNumber(
-        ASN1Integer  serialNumber)
-    {
-        this.serialNumber = serialNumber;
-    }
+  public V2AttributeCertificateInfoGenerator() {
+    this.version = new ASN1Integer(1);
+    attributes = new ASN1EncodableVector();
+  }
 
-    public void setSignature(
-        AlgorithmIdentifier    signature)
-    {
-        this.signature = signature;
-    }
+  public void setHolder(Holder holder) {
+    this.holder = holder;
+  }
 
-    public void setIssuer(
-        AttCertIssuer    issuer)
-    {
-        this.issuer = issuer;
-    }
+  public void addAttribute(String oid, ASN1Encodable value) {
+    attributes.add(new Attribute(new ASN1ObjectIdentifier(oid), new DERSet(value)));
+  }
 
-    public void setStartDate(
-        ASN1GeneralizedTime startDate)
-    {
-        this.startDate = startDate;
-    }
+  /**
+   * @param attribute
+   */
+  public void addAttribute(Attribute attribute) {
+    attributes.add(attribute);
+  }
 
-    public void setEndDate(
-        ASN1GeneralizedTime endDate)
-    {
-        this.endDate = endDate;
-    }
+  public void setSerialNumber(
+      ASN1Integer serialNumber) {
+    this.serialNumber = serialNumber;
+  }
 
-    public void setIssuerUniqueID(
-        DERBitString    issuerUniqueID)
-    {
-        this.issuerUniqueID = issuerUniqueID;
-    }
+  public void setSignature(
+      AlgorithmIdentifier signature) {
+    this.signature = signature;
+  }
 
-    /**
-     * @deprecated use method taking Extensions
-     * @param extensions
-     */
-    public void setExtensions(
-        X509Extensions    extensions)
-    {
-        this.extensions = Extensions.getInstance(extensions.toASN1Primitive());
-    }
+  public void setIssuer(
+      AttCertIssuer issuer) {
+    this.issuer = issuer;
+  }
 
-    public void setExtensions(
-        Extensions    extensions)
-    {
-        this.extensions = extensions;
+  public void setStartDate(
+      ASN1GeneralizedTime startDate) {
+    this.startDate = startDate;
+  }
+
+  public void setEndDate(
+      ASN1GeneralizedTime endDate) {
+    this.endDate = endDate;
+  }
+
+  public void setIssuerUniqueID(
+      DERBitString issuerUniqueID) {
+    this.issuerUniqueID = issuerUniqueID;
+  }
+
+  /**
+   * @param extensions
+   * @deprecated use method taking Extensions
+   */
+  public void setExtensions(
+      X509Extensions extensions) {
+    this.extensions = Extensions.getInstance(extensions.toASN1Primitive());
+  }
+
+  public void setExtensions(
+      Extensions extensions) {
+    this.extensions = extensions;
+  }
+
+  public AttributeCertificateInfo generateAttributeCertificateInfo() {
+    if ((serialNumber == null) || (signature == null)
+        || (issuer == null) || (startDate == null) || (endDate == null)
+        || (holder == null) || (attributes == null)) {
+      throw new IllegalStateException(
+          "not all mandatory fields set in V2 AttributeCertificateInfo generator");
     }
 
-    public AttributeCertificateInfo generateAttributeCertificateInfo()
-    {
-        if ((serialNumber == null) || (signature == null)
-            || (issuer == null) || (startDate == null) || (endDate == null)
-            || (holder == null) || (attributes == null))
-        {
-            throw new IllegalStateException("not all mandatory fields set in V2 AttributeCertificateInfo generator");
-        }
+    ASN1EncodableVector v = new ASN1EncodableVector(9);
 
-        ASN1EncodableVector  v = new ASN1EncodableVector(9);
+    v.add(version);
+    v.add(holder);
+    v.add(issuer);
+    v.add(signature);
+    v.add(serialNumber);
 
-        v.add(version);
-        v.add(holder);
-        v.add(issuer);
-        v.add(signature);
-        v.add(serialNumber);
-    
-        //
-        // before and after dates => AttCertValidityPeriod
-        //
-        AttCertValidityPeriod validity = new AttCertValidityPeriod(startDate, endDate);
-        v.add(validity);
-        
-        // Attributes
-        v.add(new DERSequence(attributes));
-        
-        if (issuerUniqueID != null)
-        {
-            v.add(issuerUniqueID);
-        }
-    
-        if (extensions != null)
-        {
-            v.add(extensions);
-        }
+    //
+    // before and after dates => AttCertValidityPeriod
+    //
+    AttCertValidityPeriod validity = new AttCertValidityPeriod(startDate, endDate);
+    v.add(validity);
 
-        return AttributeCertificateInfo.getInstance(new DERSequence(v));
+    // Attributes
+    v.add(new DERSequence(attributes));
+
+    if (issuerUniqueID != null) {
+      v.add(issuerUniqueID);
     }
+
+    if (extensions != null) {
+      v.add(extensions);
+    }
+
+    return AttributeCertificateInfo.getInstance(new DERSequence(v));
+  }
 }

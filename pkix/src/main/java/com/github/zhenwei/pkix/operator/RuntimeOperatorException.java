@@ -1,24 +1,21 @@
 package com.github.zhenwei.pkix.operator;
 
 public class RuntimeOperatorException
-    extends RuntimeException
-{
-    private Throwable cause;
+    extends RuntimeException {
 
-    public RuntimeOperatorException(String msg)
-    {
-        super(msg);
-    }
+  private Throwable cause;
 
-    public RuntimeOperatorException(String msg, Throwable cause)
-    {
-        super(msg);
+  public RuntimeOperatorException(String msg) {
+    super(msg);
+  }
 
-        this.cause = cause;
-    }
+  public RuntimeOperatorException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

@@ -1,66 +1,61 @@
 package com.github.zhenwei.provider.jcajce.provider.symmetric.util;
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.crypto.CipherParameters;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.PBEKeySpec;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.crypto.CipherParameters;
 
 public class PBESecretKeyFactory
     extends BaseSecretKeyFactory
-    implements PBE
-{
-    private boolean forCipher;
-    private int scheme;
-    private int digest;
-    private int keySize;
-    private int ivSize;
+    implements PBE {
 
-    public PBESecretKeyFactory(
-        String algorithm,
-        ASN1ObjectIdentifier oid,
-        boolean forCipher,
-        int scheme,
-        int digest,
-        int keySize,
-        int ivSize)
-    {
-        super(algorithm, oid);
+  private boolean forCipher;
+  private int scheme;
+  private int digest;
+  private int keySize;
+  private int ivSize;
 
-        this.forCipher = forCipher;
-        this.scheme = scheme;
-        this.digest = digest;
-        this.keySize = keySize;
-        this.ivSize = ivSize;
+  public PBESecretKeyFactory(
+      String algorithm,
+      ASN1ObjectIdentifier oid,
+      boolean forCipher,
+      int scheme,
+      int digest,
+      int keySize,
+      int ivSize) {
+    super(algorithm, oid);
+
+    this.forCipher = forCipher;
+    this.scheme = scheme;
+    this.digest = digest;
+    this.keySize = keySize;
+    this.ivSize = ivSize;
+  }
+
+  protected SecretKey engineGenerateSecret(
+      KeySpec keySpec)
+      throws InvalidKeySpecException {
+    if (keySpec instanceof PBEKeySpec) {
+      PBEKeySpec pbeSpec = (PBEKeySpec) keySpec;
+      CipherParameters param;
+
+      if (pbeSpec.getSalt() == null) {
+        return new BCPBEKey(this.algName, this.algOid, scheme, digest, keySize, ivSize, pbeSpec,
+            null);
+      }
+
+      if (forCipher) {
+        param = Util.makePBEParameters(pbeSpec, scheme, digest, keySize, ivSize);
+      } else {
+        param = Util.makePBEMacParameters(pbeSpec, scheme, digest, keySize);
+      }
+
+      return new BCPBEKey(this.algName, this.algOid, scheme, digest, keySize, ivSize, pbeSpec,
+          param);
     }
 
-    protected SecretKey engineGenerateSecret(
-        KeySpec keySpec)
-        throws InvalidKeySpecException
-    {
-        if (keySpec instanceof PBEKeySpec)
-        {
-            PBEKeySpec pbeSpec = (PBEKeySpec)keySpec;
-            CipherParameters param;
-
-            if (pbeSpec.getSalt() == null)
-            {
-                return new BCPBEKey(this.algName, this.algOid, scheme, digest, keySize, ivSize, pbeSpec, null);
-            }
-
-            if (forCipher)
-            {
-                param = Util.makePBEParameters(pbeSpec, scheme, digest, keySize, ivSize);
-            }
-            else
-            {
-                param = Util.makePBEMacParameters(pbeSpec, scheme, digest, keySize);
-            }
-
-            return new BCPBEKey(this.algName, this.algOid, scheme, digest, keySize, ivSize, pbeSpec, param);
-        }
-
-        throw new InvalidKeySpecException("Invalid KeySpec");
-    }
+    throw new InvalidKeySpecException("Invalid KeySpec");
+  }
 }

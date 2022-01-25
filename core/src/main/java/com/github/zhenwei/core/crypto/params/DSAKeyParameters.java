@@ -1,21 +1,19 @@
 package com.github.zhenwei.core.crypto.params;
 
 public class DSAKeyParameters
-    extends AsymmetricKeyParameter
-{
-    private DSAParameters    params;
+    extends AsymmetricKeyParameter {
 
-    public DSAKeyParameters(
-        boolean         isPrivate,
-        DSAParameters   params)
-    {
-        super(isPrivate);
+  private DSAParameters params;
 
-        this.params = params;
-    }   
+  public DSAKeyParameters(
+      boolean isPrivate,
+      DSAParameters params) {
+    super(isPrivate);
 
-    public DSAParameters getParameters()
-    {
-        return params;
-    }
+    this.params = params;
+  }
+
+  public DSAParameters getParameters() {
+    return params;
+  }
 }

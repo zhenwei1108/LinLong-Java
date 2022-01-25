@@ -8,91 +8,79 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.util.Strings;
 
 public class CRLDistPoint
-    extends ASN1Object
-{
-    ASN1Sequence  seq = null;
+    extends ASN1Object {
 
-    public static CRLDistPoint getInstance(
-        ASN1TaggedObject obj,
-        boolean          explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  ASN1Sequence seq = null;
+
+  public static CRLDistPoint getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public static CRLDistPoint getInstance(
+      Object obj) {
+    if (obj instanceof CRLDistPoint) {
+      return (CRLDistPoint) obj;
+    } else if (obj != null) {
+      return new CRLDistPoint(ASN1Sequence.getInstance(obj));
     }
 
-    public static CRLDistPoint getInstance(
-        Object  obj)
-    {
-        if (obj instanceof CRLDistPoint)
-        {
-            return (CRLDistPoint)obj;
-        }
-        else if (obj != null)
-        {
-            return new CRLDistPoint(ASN1Sequence.getInstance(obj));
-        }
+    return null;
+  }
 
-        return null;
-    }
+  public static CRLDistPoint fromExtensions(Extensions extensions) {
+    return getInstance(
+        Extensions.getExtensionParsedValue(extensions, Extension.cRLDistributionPoints));
+  }
 
-    public static CRLDistPoint fromExtensions(Extensions extensions)
-    {
-        return getInstance(Extensions.getExtensionParsedValue(extensions, Extension.cRLDistributionPoints));
-    }
+  private CRLDistPoint(
+      ASN1Sequence seq) {
+    this.seq = seq;
+  }
 
-    private CRLDistPoint(
-        ASN1Sequence seq)
-    {
-        this.seq = seq;
-    }
-    
-    public CRLDistPoint(
-        DistributionPoint[] points)
-    {
-        seq = new DERSequence(points);
+  public CRLDistPoint(
+      DistributionPoint[] points) {
+    seq = new DERSequence(points);
+  }
+
+  /**
+   * Return the distribution points making up the sequence.
+   *
+   * @return DistributionPoint[]
+   */
+  public DistributionPoint[] getDistributionPoints() {
+    DistributionPoint[] dp = new DistributionPoint[seq.size()];
+
+    for (int i = 0; i != seq.size(); i++) {
+      dp[i] = DistributionPoint.getInstance(seq.getObjectAt(i));
     }
 
-    /**
-     * Return the distribution points making up the sequence.
-     * 
-     * @return DistributionPoint[]
-     */
-    public DistributionPoint[] getDistributionPoints()
-    {
-        DistributionPoint[]    dp = new DistributionPoint[seq.size()];
-        
-        for (int i = 0; i != seq.size(); i++)
-        {
-            dp[i] = DistributionPoint.getInstance(seq.getObjectAt(i));
-        }
-        
-        return dp;
-    }
-    
-    /**
-     * Produce an object suitable for an ASN1OutputStream.
-     * <pre>
-     * CRLDistPoint ::= SEQUENCE SIZE {1..MAX} OF DistributionPoint
-     * </pre>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return seq;
-    }
+    return dp;
+  }
 
-    public String toString()
-    {
-        StringBuffer buf = new StringBuffer();
-        String       sep = Strings.lineSeparator();
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   * <pre>
+   * CRLDistPoint ::= SEQUENCE SIZE {1..MAX} OF DistributionPoint
+   * </pre>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return seq;
+  }
 
-        buf.append("CRLDistPoint:");
-        buf.append(sep);
-        DistributionPoint dp[] = getDistributionPoints();
-        for (int i = 0; i != dp.length; i++)
-        {
-            buf.append("    ");
-            buf.append(dp[i]);
-            buf.append(sep);
-        }
-        return buf.toString();
+  public String toString() {
+    StringBuffer buf = new StringBuffer();
+    String sep = Strings.lineSeparator();
+
+    buf.append("CRLDistPoint:");
+    buf.append(sep);
+    DistributionPoint dp[] = getDistributionPoints();
+    for (int i = 0; i != dp.length; i++) {
+      buf.append("    ");
+      buf.append(dp[i]);
+      buf.append(sep);
     }
+    return buf.toString();
+  }
 }

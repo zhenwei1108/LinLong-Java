@@ -3,46 +3,42 @@ package com.github.zhenwei.core.crypto;
 /**
  * the foundation class for the hard exceptions thrown by the crypto packages.
  */
-public class CryptoException 
-    extends Exception
-{
-    private Throwable cause;
+public class CryptoException
+    extends Exception {
 
-    /**
-     * base constructor.
-     */
-    public CryptoException()
-    {
-    }
+  private Throwable cause;
 
-    /**
-     * create a CryptoException with the given message.
-     *
-     * @param message the message to be carried with the exception.
-     */
-    public CryptoException(
-        String  message)
-    {
-        super(message);
-    }
+  /**
+   * base constructor.
+   */
+  public CryptoException() {
+  }
 
-    /**
-     * Create a CryptoException with the given message and underlying cause.
-     *
-     * @param message message describing exception.
-     * @param cause the throwable that was the underlying cause.
-     */
-    public CryptoException(
-        String  message,
-        Throwable cause)
-    {
-        super(message);
+  /**
+   * create a CryptoException with the given message.
+   *
+   * @param message the message to be carried with the exception.
+   */
+  public CryptoException(
+      String message) {
+    super(message);
+  }
 
-        this.cause = cause;
-    }
+  /**
+   * Create a CryptoException with the given message and underlying cause.
+   *
+   * @param message message describing exception.
+   * @param cause   the throwable that was the underlying cause.
+   */
+  public CryptoException(
+      String message,
+      Throwable cause) {
+    super(message);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

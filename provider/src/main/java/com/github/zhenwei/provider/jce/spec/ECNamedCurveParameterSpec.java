@@ -1,61 +1,56 @@
 package com.github.zhenwei.provider.jce.spec;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPoint;
+import java.math.BigInteger;
 
 /**
- * specification signifying that the curve parameters can also be
- * referred to by name.
+ * specification signifying that the curve parameters can also be referred to by name.
  * <p>
  * If you are using JDK 1.5 you should be looking at {@link ECNamedCurveSpec}.
  */
 public class ECNamedCurveParameterSpec
-    extends ECParameterSpec
-{
-    private String  name;
+    extends ECParameterSpec {
 
-    public ECNamedCurveParameterSpec(
-        String      name,
-        ECCurve     curve,
-        ECPoint     G,
-        BigInteger  n)
-    {
-        super(curve, G, n);
+  private String name;
 
-        this.name = name;
-    }
+  public ECNamedCurveParameterSpec(
+      String name,
+      ECCurve curve,
+      ECPoint G,
+      BigInteger n) {
+    super(curve, G, n);
 
-    public ECNamedCurveParameterSpec(
-        String      name,
-        ECCurve     curve,
-        ECPoint     G,
-        BigInteger  n,
-        BigInteger  h)
-    {
-        super(curve, G, n, h);
+    this.name = name;
+  }
 
-        this.name = name;
-    }
+  public ECNamedCurveParameterSpec(
+      String name,
+      ECCurve curve,
+      ECPoint G,
+      BigInteger n,
+      BigInteger h) {
+    super(curve, G, n, h);
 
-    public ECNamedCurveParameterSpec(
-        String      name,
-        ECCurve     curve,
-        ECPoint     G,
-        BigInteger  n,
-        BigInteger  h,
-        byte[]      seed)
-    {
-        super(curve, G, n, h, seed);
+    this.name = name;
+  }
 
-        this.name = name;
-    }
+  public ECNamedCurveParameterSpec(
+      String name,
+      ECCurve curve,
+      ECPoint G,
+      BigInteger n,
+      BigInteger h,
+      byte[] seed) {
+    super(curve, G, n, h, seed);
 
-    /**
-     * return the name of the curve the EC domain parameters belong to.
-     */
-    public String getName()
-    {
-        return name;
-    }
+    this.name = name;
+  }
+
+  /**
+   * return the name of the curve the EC domain parameters belong to.
+   */
+  public String getName() {
+    return name;
+  }
 }

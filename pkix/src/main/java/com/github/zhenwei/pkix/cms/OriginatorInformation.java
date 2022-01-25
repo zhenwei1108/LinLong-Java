@@ -1,94 +1,84 @@
 package com.github.zhenwei.pkix.cms;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.pkix.util.asn1.cms.OriginatorInfo;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.asn1.x509.CertificateList;
-import com.github.zhenwei.pkix.cert.X509CRLHolder;
-import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.core.util.CollectionStore;
 import com.github.zhenwei.core.util.Store;
+import com.github.zhenwei.pkix.cert.X509CRLHolder;
+import com.github.zhenwei.pkix.cert.X509CertificateHolder;
+import com.github.zhenwei.pkix.util.asn1.cms.OriginatorInfo;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 
-public class OriginatorInformation
-{
-    private OriginatorInfo originatorInfo;
+public class OriginatorInformation {
 
-    OriginatorInformation(OriginatorInfo originatorInfo)
-    {
-        this.originatorInfo = originatorInfo;
-    }
+  private OriginatorInfo originatorInfo;
 
-    /**
-     * Return the certificates stored in the underlying OriginatorInfo object.
-     *
-     * @return a Store of X509CertificateHolder objects.
-     */
-    public Store getCertificates()
-    {
-        ASN1Set certSet = originatorInfo.getCertificates();
+  OriginatorInformation(OriginatorInfo originatorInfo) {
+    this.originatorInfo = originatorInfo;
+  }
 
-        if (certSet != null)
-        {
-            List certList = new ArrayList(certSet.size());
+  /**
+   * Return the certificates stored in the underlying OriginatorInfo object.
+   *
+   * @return a Store of X509CertificateHolder objects.
+   */
+  public Store getCertificates() {
+    ASN1Set certSet = originatorInfo.getCertificates();
 
-            for (Enumeration en = certSet.getObjects(); en.hasMoreElements();)
-            {
-                ASN1Primitive obj = ((ASN1Encodable)en.nextElement()).toASN1Primitive();
+    if (certSet != null) {
+      List certList = new ArrayList(certSet.size());
 
-                if (obj instanceof ASN1Sequence)
-                {
-                    certList.add(new X509CertificateHolder(Certificate.getInstance(obj)));
-                }
-            }
+      for (Enumeration en = certSet.getObjects(); en.hasMoreElements(); ) {
+        ASN1Primitive obj = ((ASN1Encodable) en.nextElement()).toASN1Primitive();
 
-            return new CollectionStore(certList);
+        if (obj instanceof ASN1Sequence) {
+          certList.add(new X509CertificateHolder(Certificate.getInstance(obj)));
         }
+      }
 
-        return new CollectionStore(new ArrayList());
+      return new CollectionStore(certList);
     }
 
-    /**
-     * Return the CRLs stored in the underlying OriginatorInfo object.
-     *
-     * @return a Store of X509CRLHolder objects.
-     */
-    public Store getCRLs()
-    {
-        ASN1Set crlSet = originatorInfo.getCRLs();
+    return new CollectionStore(new ArrayList());
+  }
 
-        if (crlSet != null)
-        {
-            List    crlList = new ArrayList(crlSet.size());
+  /**
+   * Return the CRLs stored in the underlying OriginatorInfo object.
+   *
+   * @return a Store of X509CRLHolder objects.
+   */
+  public Store getCRLs() {
+    ASN1Set crlSet = originatorInfo.getCRLs();
 
-            for (Enumeration en = crlSet.getObjects(); en.hasMoreElements();)
-            {
-                ASN1Primitive obj = ((ASN1Encodable)en.nextElement()).toASN1Primitive();
+    if (crlSet != null) {
+      List crlList = new ArrayList(crlSet.size());
 
-                if (obj instanceof ASN1Sequence)
-                {
-                    crlList.add(new X509CRLHolder(CertificateList.getInstance(obj)));
-                }
-            }
+      for (Enumeration en = crlSet.getObjects(); en.hasMoreElements(); ) {
+        ASN1Primitive obj = ((ASN1Encodable) en.nextElement()).toASN1Primitive();
 
-            return new CollectionStore(crlList);
+        if (obj instanceof ASN1Sequence) {
+          crlList.add(new X509CRLHolder(CertificateList.getInstance(obj)));
         }
+      }
 
-        return new CollectionStore(new ArrayList());
+      return new CollectionStore(crlList);
     }
 
-    /**
-     * Return the underlying ASN.1 object defining this SignerInformation object.
-     *
-     * @return a OriginatorInfo.
-     */
-    public OriginatorInfo toASN1Structure()
-    {
-        return originatorInfo;
-    }
+    return new CollectionStore(new ArrayList());
+  }
+
+  /**
+   * Return the underlying ASN.1 object defining this SignerInformation object.
+   *
+   * @return a OriginatorInfo.
+   */
+  public OriginatorInfo toASN1Structure() {
+    return originatorInfo;
+  }
 }

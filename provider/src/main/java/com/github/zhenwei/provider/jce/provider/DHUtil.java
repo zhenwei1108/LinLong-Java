@@ -1,48 +1,44 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.DHParameters;
+import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import javax.crypto.interfaces.DHPrivateKey;
 import javax.crypto.interfaces.DHPublicKey;
-import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
-import com.github.zhenwei.core.crypto.params.DHParameters;
-import com.github.zhenwei.core.crypto.params.DHPrivateKeyParameters;
-import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 
 /**
- * utility class for converting jce/jca DH objects
- * objects into their com.github.zhenwei.core.crypto counterparts.
+ * utility class for converting jce/jca DH objects objects into their com.github.zhenwei.core.crypto
+ * counterparts.
  */
-public class DHUtil
-{
-    static public AsymmetricKeyParameter generatePublicKeyParameter(
-        PublicKey    key)
-        throws InvalidKeyException
-    {
-        if (key instanceof DHPublicKey)
-        {
-            DHPublicKey    k = (DHPublicKey)key;
+public class DHUtil {
 
-            return new DHPublicKeyParameters(k.getY(),
-                new DHParameters(k.getParams().getP(), k.getParams().getG(), null, k.getParams().getL()));
-        }
+  static public AsymmetricKeyParameter generatePublicKeyParameter(
+      PublicKey key)
+      throws InvalidKeyException {
+    if (key instanceof DHPublicKey) {
+      DHPublicKey k = (DHPublicKey) key;
 
-        throw new InvalidKeyException("can't identify DH public key.");
+      return new DHPublicKeyParameters(k.getY(),
+          new DHParameters(k.getParams().getP(), k.getParams().getG(), null, k.getParams().getL()));
     }
 
-    static public AsymmetricKeyParameter generatePrivateKeyParameter(
-        PrivateKey    key)
-        throws InvalidKeyException
-    {
-        if (key instanceof DHPrivateKey)
-        {
-            DHPrivateKey    k = (DHPrivateKey)key;
+    throw new InvalidKeyException("can't identify DH public key.");
+  }
 
-            return new DHPrivateKeyParameters(k.getX(),
-                new DHParameters(k.getParams().getP(), k.getParams().getG(), null, k.getParams().getL()));
-        }
-                        
-        throw new InvalidKeyException("can't identify DH private key.");
+  static public AsymmetricKeyParameter generatePrivateKeyParameter(
+      PrivateKey key)
+      throws InvalidKeyException {
+    if (key instanceof DHPrivateKey) {
+      DHPrivateKey k = (DHPrivateKey) key;
+
+      return new DHPrivateKeyParameters(k.getX(),
+          new DHParameters(k.getParams().getP(), k.getParams().getG(), null, k.getParams().getL()));
     }
+
+    throw new InvalidKeyException("can't identify DH private key.");
+  }
 }

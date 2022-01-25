@@ -1,18 +1,5 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.interfaces.RSAPrivateCrtKey;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.RSAPrivateCrtKeySpec;
-import java.security.spec.RSAPrivateKeySpec;
-import java.security.spec.RSAPublicKeySpec;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.RSAPrivateKey;
@@ -26,213 +13,183 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.BaseKeyFactor
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ExtendedInvalidKeySpecException;
 import com.github.zhenwei.provider.jcajce.spec.OpenSSHPrivateKeySpec;
 import com.github.zhenwei.provider.jcajce.spec.OpenSSHPublicKeySpec;
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.interfaces.RSAPrivateCrtKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.RSAPrivateCrtKeySpec;
+import java.security.spec.RSAPrivateKeySpec;
+import java.security.spec.RSAPublicKeySpec;
 
 public class KeyFactorySpi
-    extends BaseKeyFactorySpi
-{
-    public KeyFactorySpi()
-    {
+    extends BaseKeyFactorySpi {
+
+  public KeyFactorySpi() {
+  }
+
+  protected KeySpec engineGetKeySpec(
+      Key key,
+      Class spec)
+      throws InvalidKeySpecException {
+    if ((spec.isAssignableFrom(KeySpec.class) || spec.isAssignableFrom(RSAPublicKeySpec.class))
+        && key instanceof RSAPublicKey) {
+      RSAPublicKey k = (RSAPublicKey) key;
+
+      return new RSAPublicKeySpec(k.getModulus(), k.getPublicExponent());
+    } else if (
+        (spec.isAssignableFrom(KeySpec.class) || spec.isAssignableFrom(RSAPrivateCrtKeySpec.class))
+            && key instanceof RSAPrivateCrtKey) {
+      RSAPrivateCrtKey k = (RSAPrivateCrtKey) key;
+
+      return new RSAPrivateCrtKeySpec(
+          k.getModulus(), k.getPublicExponent(),
+          k.getPrivateExponent(),
+          k.getPrimeP(), k.getPrimeQ(),
+          k.getPrimeExponentP(), k.getPrimeExponentQ(),
+          k.getCrtCoefficient());
+    } else if (
+        (spec.isAssignableFrom(KeySpec.class) || spec.isAssignableFrom(RSAPrivateKeySpec.class))
+            && key instanceof java.security.interfaces.RSAPrivateKey) {
+      java.security.interfaces.RSAPrivateKey k = (java.security.interfaces.RSAPrivateKey) key;
+
+      return new RSAPrivateKeySpec(k.getModulus(), k.getPrivateExponent());
+    } else if (spec.isAssignableFrom(OpenSSHPublicKeySpec.class) && key instanceof RSAPublicKey) {
+      try {
+        return new OpenSSHPublicKeySpec(
+            OpenSSHPublicKeyUtil.encodePublicKey(
+                new RSAKeyParameters(
+                    false,
+                    ((RSAPublicKey) key).getModulus(),
+                    ((RSAPublicKey) key).getPublicExponent())
+            )
+        );
+      } catch (IOException e) {
+        throw new IllegalArgumentException("unable to produce encoding: " + e.getMessage());
+      }
+    } else if (spec.isAssignableFrom(OpenSSHPrivateKeySpec.class)
+        && key instanceof RSAPrivateCrtKey) {
+      try {
+        return new OpenSSHPrivateKeySpec(
+            OpenSSHPrivateKeyUtil.encodePrivateKey(new RSAPrivateCrtKeyParameters(
+                ((RSAPrivateCrtKey) key).getModulus(),
+                ((RSAPrivateCrtKey) key).getPublicExponent(),
+                ((RSAPrivateCrtKey) key).getPrivateExponent(),
+                ((RSAPrivateCrtKey) key).getPrimeP(),
+                ((RSAPrivateCrtKey) key).getPrimeQ(),
+                ((RSAPrivateCrtKey) key).getPrimeExponentP(),
+                ((RSAPrivateCrtKey) key).getPrimeExponentQ(),
+                ((RSAPrivateCrtKey) key).getCrtCoefficient()
+            )));
+      } catch (IOException e) {
+        throw new IllegalArgumentException("unable to produce encoding: " + e.getMessage());
+      }
     }
 
-    protected KeySpec engineGetKeySpec(
-        Key key,
-        Class spec)
-        throws InvalidKeySpecException
-    {
-        if ((spec.isAssignableFrom(KeySpec.class) || spec.isAssignableFrom(RSAPublicKeySpec.class)) && key instanceof RSAPublicKey)
-        {
-            RSAPublicKey k = (RSAPublicKey)key;
+    return super.engineGetKeySpec(key, spec);
+  }
 
-            return new RSAPublicKeySpec(k.getModulus(), k.getPublicExponent());
-        }
-        else if ((spec.isAssignableFrom(KeySpec.class) || spec.isAssignableFrom(RSAPrivateCrtKeySpec.class)) && key instanceof RSAPrivateCrtKey)
-        {
-            RSAPrivateCrtKey k = (RSAPrivateCrtKey)key;
-
-            return new RSAPrivateCrtKeySpec(
-                k.getModulus(), k.getPublicExponent(),
-                k.getPrivateExponent(),
-                k.getPrimeP(), k.getPrimeQ(),
-                k.getPrimeExponentP(), k.getPrimeExponentQ(),
-                k.getCrtCoefficient());
-        }
-        else if ((spec.isAssignableFrom(KeySpec.class) || spec.isAssignableFrom(RSAPrivateKeySpec.class)) && key instanceof java.security.interfaces.RSAPrivateKey)
-        {
-            java.security.interfaces.RSAPrivateKey k = (java.security.interfaces.RSAPrivateKey)key;
-
-            return new RSAPrivateKeySpec(k.getModulus(), k.getPrivateExponent());
-        }
-        else if (spec.isAssignableFrom(OpenSSHPublicKeySpec.class) && key instanceof RSAPublicKey)
-        {
-            try
-            {
-                return new OpenSSHPublicKeySpec(
-                    OpenSSHPublicKeyUtil.encodePublicKey(
-                        new RSAKeyParameters(
-                            false,
-                            ((RSAPublicKey)key).getModulus(),
-                            ((RSAPublicKey)key).getPublicExponent())
-                    )
-                );
-            }
-            catch (IOException e)
-            {
-                throw new IllegalArgumentException("unable to produce encoding: " + e.getMessage());
-            }
-        }
-        else if (spec.isAssignableFrom(OpenSSHPrivateKeySpec.class) && key instanceof RSAPrivateCrtKey)
-        {
-            try
-            {
-                return new OpenSSHPrivateKeySpec(OpenSSHPrivateKeyUtil.encodePrivateKey(new RSAPrivateCrtKeyParameters(
-                    ((RSAPrivateCrtKey)key).getModulus(),
-                    ((RSAPrivateCrtKey)key).getPublicExponent(),
-                    ((RSAPrivateCrtKey)key).getPrivateExponent(),
-                    ((RSAPrivateCrtKey)key).getPrimeP(),
-                    ((RSAPrivateCrtKey)key).getPrimeQ(),
-                    ((RSAPrivateCrtKey)key).getPrimeExponentP(),
-                    ((RSAPrivateCrtKey)key).getPrimeExponentQ(),
-                    ((RSAPrivateCrtKey)key).getCrtCoefficient()
-                )));
-            }
-            catch (IOException e)
-            {
-                throw new IllegalArgumentException("unable to produce encoding: " + e.getMessage());
-            }
-        }
-
-        return super.engineGetKeySpec(key, spec);
+  protected Key engineTranslateKey(
+      Key key)
+      throws InvalidKeyException {
+    if (key instanceof RSAPublicKey) {
+      return new BCRSAPublicKey((RSAPublicKey) key);
+    } else if (key instanceof RSAPrivateCrtKey) {
+      return new BCRSAPrivateCrtKey((RSAPrivateCrtKey) key);
+    } else if (key instanceof java.security.interfaces.RSAPrivateKey) {
+      return new BCRSAPrivateKey((java.security.interfaces.RSAPrivateKey) key);
     }
 
-    protected Key engineTranslateKey(
-        Key key)
-        throws InvalidKeyException
-    {
-        if (key instanceof RSAPublicKey)
-        {
-            return new BCRSAPublicKey((RSAPublicKey)key);
-        }
-        else if (key instanceof RSAPrivateCrtKey)
-        {
-            return new BCRSAPrivateCrtKey((RSAPrivateCrtKey)key);
-        }
-        else if (key instanceof java.security.interfaces.RSAPrivateKey)
-        {
-            return new BCRSAPrivateKey((java.security.interfaces.RSAPrivateKey)key);
-        }
+    throw new InvalidKeyException("key type unknown");
+  }
 
-        throw new InvalidKeyException("key type unknown");
+  protected PrivateKey engineGeneratePrivate(
+      KeySpec keySpec)
+      throws InvalidKeySpecException {
+    if (keySpec instanceof PKCS8EncodedKeySpec) {
+      try {
+        return generatePrivate(
+            PrivateKeyInfo.getInstance(((PKCS8EncodedKeySpec) keySpec).getEncoded()));
+      } catch (Exception e) {
+        //
+        // in case it's just a RSAPrivateKey object... -- openSSL produces these
+        //
+        try {
+          return new BCRSAPrivateCrtKey(
+              RSAPrivateKey.getInstance(((PKCS8EncodedKeySpec) keySpec).getEncoded()));
+        } catch (Exception ex) {
+          throw new ExtendedInvalidKeySpecException("unable to process key spec: " + e.toString(),
+              e);
+        }
+      }
+    } else if (keySpec instanceof RSAPrivateCrtKeySpec) {
+      return new BCRSAPrivateCrtKey((RSAPrivateCrtKeySpec) keySpec);
+    } else if (keySpec instanceof RSAPrivateKeySpec) {
+      return new BCRSAPrivateKey((RSAPrivateKeySpec) keySpec);
+    } else if (keySpec instanceof OpenSSHPrivateKeySpec) {
+      CipherParameters parameters = OpenSSHPrivateKeyUtil.parsePrivateKeyBlob(
+          ((OpenSSHPrivateKeySpec) keySpec).getEncoded());
+
+      if (parameters instanceof RSAPrivateCrtKeyParameters) {
+        return new BCRSAPrivateCrtKey((RSAPrivateCrtKeyParameters) parameters);
+      }
+
+      throw new InvalidKeySpecException("open SSH public key is not RSA private key");
     }
 
-    protected PrivateKey engineGeneratePrivate(
-        KeySpec keySpec)
-        throws InvalidKeySpecException
-    {
-        if (keySpec instanceof PKCS8EncodedKeySpec)
-        {
-            try
-            {
-                return generatePrivate(PrivateKeyInfo.getInstance(((PKCS8EncodedKeySpec)keySpec).getEncoded()));
-            }
-            catch (Exception e)
-            {
-                //
-                // in case it's just a RSAPrivateKey object... -- openSSL produces these
-                //
-                try
-                {
-                    return new BCRSAPrivateCrtKey(
-                        RSAPrivateKey.getInstance(((PKCS8EncodedKeySpec)keySpec).getEncoded()));
-                }
-                catch (Exception ex)
-                {
-                    throw new ExtendedInvalidKeySpecException("unable to process key spec: " + e.toString(), e);
-                }
-            }
-        }
-        else if (keySpec instanceof RSAPrivateCrtKeySpec)
-        {
-            return new BCRSAPrivateCrtKey((RSAPrivateCrtKeySpec)keySpec);
-        }
-        else if (keySpec instanceof RSAPrivateKeySpec)
-        {
-            return new BCRSAPrivateKey((RSAPrivateKeySpec)keySpec);
-        }
-        else if (keySpec instanceof OpenSSHPrivateKeySpec)
-        {
-            CipherParameters parameters = OpenSSHPrivateKeyUtil.parsePrivateKeyBlob(((OpenSSHPrivateKeySpec)keySpec).getEncoded());
+    throw new InvalidKeySpecException("unknown KeySpec type: " + keySpec.getClass().getName());
+  }
 
-            if (parameters instanceof RSAPrivateCrtKeyParameters)
-            {
-                return new BCRSAPrivateCrtKey((RSAPrivateCrtKeyParameters)parameters);
-            }
+  protected PublicKey engineGeneratePublic(
+      KeySpec keySpec)
+      throws InvalidKeySpecException {
+    if (keySpec instanceof RSAPublicKeySpec) {
+      return new BCRSAPublicKey((RSAPublicKeySpec) keySpec);
+    } else if (keySpec instanceof OpenSSHPublicKeySpec) {
 
-            throw new InvalidKeySpecException("open SSH public key is not RSA private key");
-        }
+      CipherParameters parameters = OpenSSHPublicKeyUtil.parsePublicKey(
+          ((OpenSSHPublicKeySpec) keySpec).getEncoded());
+      if (parameters instanceof RSAKeyParameters) {
+        return new BCRSAPublicKey((RSAKeyParameters) parameters);
+      }
 
-        throw new InvalidKeySpecException("unknown KeySpec type: " + keySpec.getClass().getName());
+      throw new InvalidKeySpecException("Open SSH public key is not RSA public key");
+
     }
 
-    protected PublicKey engineGeneratePublic(
-        KeySpec keySpec)
-        throws InvalidKeySpecException
-    {
-        if (keySpec instanceof RSAPublicKeySpec)
-        {
-            return new BCRSAPublicKey((RSAPublicKeySpec)keySpec);
-        }
-        else if (keySpec instanceof OpenSSHPublicKeySpec)
-        {
+    return super.engineGeneratePublic(keySpec);
+  }
 
-            CipherParameters parameters = OpenSSHPublicKeyUtil.parsePublicKey(((OpenSSHPublicKeySpec)keySpec).getEncoded());
-            if (parameters instanceof RSAKeyParameters)
-            {
-                return new BCRSAPublicKey((RSAKeyParameters)parameters);
-            }
+  public PrivateKey generatePrivate(PrivateKeyInfo keyInfo)
+      throws IOException {
+    ASN1ObjectIdentifier algOid = keyInfo.getPrivateKeyAlgorithm().getAlgorithm();
 
-            throw new InvalidKeySpecException("Open SSH public key is not RSA public key");
+    if (RSAUtil.isRsaOid(algOid)) {
+      RSAPrivateKey rsaPrivKey = RSAPrivateKey.getInstance(keyInfo.parsePrivateKey());
 
-        }
-
-        return super.engineGeneratePublic(keySpec);
+      if (rsaPrivKey.getCoefficient().intValue() == 0) {
+        return new BCRSAPrivateKey(keyInfo.getPrivateKeyAlgorithm(), rsaPrivKey);
+      } else {
+        return new BCRSAPrivateCrtKey(keyInfo);
+      }
+    } else {
+      throw new IOException("algorithm identifier " + algOid + " in key not recognised");
     }
+  }
 
-    public PrivateKey generatePrivate(PrivateKeyInfo keyInfo)
-        throws IOException
-    {
-        ASN1ObjectIdentifier algOid = keyInfo.getPrivateKeyAlgorithm().getAlgorithm();
+  public PublicKey generatePublic(SubjectPublicKeyInfo keyInfo)
+      throws IOException {
+    ASN1ObjectIdentifier algOid = keyInfo.getAlgorithm().getAlgorithm();
 
-        if (RSAUtil.isRsaOid(algOid))
-        {
-            RSAPrivateKey rsaPrivKey = RSAPrivateKey.getInstance(keyInfo.parsePrivateKey());
-
-            if (rsaPrivKey.getCoefficient().intValue() == 0)
-            {
-                return new BCRSAPrivateKey(keyInfo.getPrivateKeyAlgorithm(), rsaPrivKey);
-            }
-            else
-            {
-                return new BCRSAPrivateCrtKey(keyInfo);
-            }
-        }
-        else
-        {
-            throw new IOException("algorithm identifier " + algOid + " in key not recognised");
-        }
+    if (RSAUtil.isRsaOid(algOid)) {
+      return new BCRSAPublicKey(keyInfo);
+    } else {
+      throw new IOException("algorithm identifier " + algOid + " in key not recognised");
     }
-
-    public PublicKey generatePublic(SubjectPublicKeyInfo keyInfo)
-        throws IOException
-    {
-        ASN1ObjectIdentifier algOid = keyInfo.getAlgorithm().getAlgorithm();
-
-        if (RSAUtil.isRsaOid(algOid))
-        {
-            return new BCRSAPublicKey(keyInfo);
-        }
-        else
-        {
-            throw new IOException("algorithm identifier " + algOid + " in key not recognised");
-        }
-    }
+  }
 }

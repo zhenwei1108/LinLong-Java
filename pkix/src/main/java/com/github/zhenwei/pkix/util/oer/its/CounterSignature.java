@@ -1,67 +1,47 @@
 package com.github.zhenwei.pkix.util.oer.its;
 
-import java.util.Iterator;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
+import java.util.Iterator;
 
 /**
- * Countersignature ::= Ieee1609Dot2Data (WITH COMPONENTS {...,
- * content (WITH COMPONENTS {...,
- * signedData  (WITH COMPONENTS {...,
- * tbsData (WITH COMPONENTS {...,
- * payload (WITH COMPONENTS {...,
- * data ABSENT,
- * extDataHash PRESENT
- * }),
- * headerInfo(WITH COMPONENTS {...,
- * generationTime PRESENT,
- * expiryTime ABSENT,
- * generationLocation ABSENT,
- * p2pcdLearningRequest ABSENT,
- * missingCrlIdentifier ABSENT,
- * encryptionKey ABSENT
- * })
- * })
- * })
- * })
- * })
+ * Countersignature ::= Ieee1609Dot2Data (WITH COMPONENTS {..., content (WITH COMPONENTS {...,
+ * signedData  (WITH COMPONENTS {..., tbsData (WITH COMPONENTS {..., payload (WITH COMPONENTS {...,
+ * data ABSENT, extDataHash PRESENT }), headerInfo(WITH COMPONENTS {..., generationTime PRESENT,
+ * expiryTime ABSENT, generationLocation ABSENT, p2pcdLearningRequest ABSENT, missingCrlIdentifier
+ * ABSENT, encryptionKey ABSENT }) }) }) }) })
  */
 public class CounterSignature
-    extends ASN1Object
-{
-    private final Uint8 protocolVersion;
-    private final SignedData signedData;
+    extends ASN1Object {
 
-    public CounterSignature(Uint8 protocolVersion, SignedData signedData)
-    {
-        this.protocolVersion = protocolVersion;
-        this.signedData = signedData;
-    }
+  private final Uint8 protocolVersion;
+  private final SignedData signedData;
 
-    public CounterSignature getInstance(Object src)
-    {
-        if (src instanceof CounterSignature)
-        {
-            return (CounterSignature)src;
-        }
-        Iterator<ASN1Encodable> items = ASN1Sequence.getInstance(src).iterator();
-        return new CounterSignature(Uint8.getInstance(items.next()), SignedData.getInstance(items.next()));
-    }
+  public CounterSignature(Uint8 protocolVersion, SignedData signedData) {
+    this.protocolVersion = protocolVersion;
+    this.signedData = signedData;
+  }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        return Utils.toSequence(protocolVersion, signedData);
+  public CounterSignature getInstance(Object src) {
+    if (src instanceof CounterSignature) {
+      return (CounterSignature) src;
     }
+    Iterator<ASN1Encodable> items = ASN1Sequence.getInstance(src).iterator();
+    return new CounterSignature(Uint8.getInstance(items.next()),
+        SignedData.getInstance(items.next()));
+  }
 
-    public Uint8 getProtocolVersion()
-    {
-        return protocolVersion;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return Utils.toSequence(protocolVersion, signedData);
+  }
 
-    public SignedData getSignedData()
-    {
-        return signedData;
-    }
+  public Uint8 getProtocolVersion() {
+    return protocolVersion;
+  }
+
+  public SignedData getSignedData() {
+    return signedData;
+  }
 }

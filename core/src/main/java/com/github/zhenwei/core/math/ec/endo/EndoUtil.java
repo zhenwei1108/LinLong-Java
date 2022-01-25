@@ -1,72 +1,66 @@
 package com.github.zhenwei.core.math.ec.endo;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.math.ec.ECConstants;
 import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.ec.PreCompCallback;
 import com.github.zhenwei.core.math.ec.PreCompInfo;
+import java.math.BigInteger;
 
-public abstract class EndoUtil
-{
-    public static final String PRECOMP_NAME = "bc_endo";
+public abstract class EndoUtil {
 
-    public static BigInteger[] decomposeScalar(ScalarSplitParameters p, BigInteger k)
-    {
-        int bits = p.getBits();
-        BigInteger b1 = calculateB(k, p.getG1(), bits);
-        BigInteger b2 = calculateB(k, p.getG2(), bits);
+  public static final String PRECOMP_NAME = "bc_endo";
 
-        BigInteger a = k.subtract((b1.multiply(p.getV1A())).add(b2.multiply(p.getV2A())));
-        BigInteger b = (b1.multiply(p.getV1B())).add(b2.multiply(p.getV2B())).negate();
+  public static BigInteger[] decomposeScalar(ScalarSplitParameters p, BigInteger k) {
+    int bits = p.getBits();
+    BigInteger b1 = calculateB(k, p.getG1(), bits);
+    BigInteger b2 = calculateB(k, p.getG2(), bits);
 
-        return new BigInteger[]{ a, b };
-    }
+    BigInteger a = k.subtract((b1.multiply(p.getV1A())).add(b2.multiply(p.getV2A())));
+    BigInteger b = (b1.multiply(p.getV1B())).add(b2.multiply(p.getV2B())).negate();
 
-    public static ECPoint mapPoint(final ECEndomorphism endomorphism, final ECPoint p)
-    {
-        final ECCurve c = p.getCurve();
+    return new BigInteger[]{a, b};
+  }
 
-        EndoPreCompInfo precomp = (EndoPreCompInfo)c.precompute(p, PRECOMP_NAME, new PreCompCallback()
-        {
-            public PreCompInfo precompute(PreCompInfo existing)
-            {
-                EndoPreCompInfo existingEndo = (existing instanceof EndoPreCompInfo) ? (EndoPreCompInfo)existing : null;
+  public static ECPoint mapPoint(final ECEndomorphism endomorphism, final ECPoint p) {
+    final ECCurve c = p.getCurve();
 
-                if (checkExisting(existingEndo, endomorphism))
-                {
-                    return existingEndo;
-                }
+    EndoPreCompInfo precomp = (EndoPreCompInfo) c.precompute(p, PRECOMP_NAME,
+        new PreCompCallback() {
+          public PreCompInfo precompute(PreCompInfo existing) {
+            EndoPreCompInfo existingEndo =
+                (existing instanceof EndoPreCompInfo) ? (EndoPreCompInfo) existing : null;
 
-                ECPoint mappedPoint = endomorphism.getPointMap().map(p);
-
-                EndoPreCompInfo result = new EndoPreCompInfo();
-                result.setEndomorphism(endomorphism);
-                result.setMappedPoint(mappedPoint);
-                return result;
+            if (checkExisting(existingEndo, endomorphism)) {
+              return existingEndo;
             }
 
-            private boolean checkExisting(EndoPreCompInfo existingEndo, ECEndomorphism endomorphism)
-            {
-                return null != existingEndo
-                    && existingEndo.getEndomorphism() == endomorphism
-                    && existingEndo.getMappedPoint() != null;
-            }
+            ECPoint mappedPoint = endomorphism.getPointMap().map(p);
+
+            EndoPreCompInfo result = new EndoPreCompInfo();
+            result.setEndomorphism(endomorphism);
+            result.setMappedPoint(mappedPoint);
+            return result;
+          }
+
+          private boolean checkExisting(EndoPreCompInfo existingEndo, ECEndomorphism endomorphism) {
+            return null != existingEndo
+                && existingEndo.getEndomorphism() == endomorphism
+                && existingEndo.getMappedPoint() != null;
+          }
         });
 
-        return precomp.getMappedPoint();
-    }
+    return precomp.getMappedPoint();
+  }
 
-    private static BigInteger calculateB(BigInteger k, BigInteger g, int t)
-    {
-        boolean negative = (g.signum() < 0);
-        BigInteger b = k.multiply(g.abs());
-        boolean extra = b.testBit(t - 1);
-        b = b.shiftRight(t);
-        if (extra)
-        {
-            b = b.add(ECConstants.ONE);
-        }
-        return negative ? b.negate() : b;
+  private static BigInteger calculateB(BigInteger k, BigInteger g, int t) {
+    boolean negative = (g.signum() < 0);
+    BigInteger b = k.multiply(g.abs());
+    boolean extra = b.testBit(t - 1);
+    b = b.shiftRight(t);
+    if (extra) {
+      b = b.add(ECConstants.ONE);
     }
+    return negative ? b.negate() : b;
+  }
 }

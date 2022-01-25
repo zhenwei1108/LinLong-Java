@@ -1,24 +1,22 @@
 package com.github.zhenwei.core.crypto.params;
 
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.KeyGenerationParameters;
+import java.security.SecureRandom;
 
 public class DSAKeyGenerationParameters
-    extends KeyGenerationParameters
-{
-    private DSAParameters    params;
+    extends KeyGenerationParameters {
 
-    public DSAKeyGenerationParameters(
-        SecureRandom    random,
-        DSAParameters   params)
-    {
-        super(random, params.getP().bitLength() - 1);
+  private DSAParameters params;
 
-        this.params = params;
-    }
+  public DSAKeyGenerationParameters(
+      SecureRandom random,
+      DSAParameters params) {
+    super(random, params.getP().bitLength() - 1);
 
-    public DSAParameters getParameters()
-    {
-        return params;
-    }
+    this.params = params;
+  }
+
+  public DSAParameters getParameters() {
+    return params;
+  }
 }

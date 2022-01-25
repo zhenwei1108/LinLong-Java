@@ -6,30 +6,28 @@ import java.math.BigInteger;
  * Elliptic Curve private key specification.
  */
 public class ECPrivateKeySpec
-    extends ECKeySpec
-{
-    private BigInteger    d;
+    extends ECKeySpec {
 
-    /**
-     * base constructor
-     *
-     * @param d the private number for the key.
-     * @param spec the domain parameters for the curve being used.
-     */
-    public ECPrivateKeySpec(
-        BigInteger      d,
-        ECParameterSpec spec)
-    {
-        super(spec);
+  private BigInteger d;
 
-        this.d = d;
-    }
+  /**
+   * base constructor
+   *
+   * @param d    the private number for the key.
+   * @param spec the domain parameters for the curve being used.
+   */
+  public ECPrivateKeySpec(
+      BigInteger d,
+      ECParameterSpec spec) {
+    super(spec);
 
-    /**
-     * return the private number D
-     */
-    public BigInteger getD()
-    {
-        return d;
-    }
+    this.d = d;
+  }
+
+  /**
+   * return the private number D
+   */
+  public BigInteger getD() {
+    return d;
+  }
 }

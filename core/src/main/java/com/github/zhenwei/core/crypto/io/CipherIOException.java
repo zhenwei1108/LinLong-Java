@@ -6,21 +6,19 @@ import java.io.IOException;
  * {@link IOException} wrapper around an exception indicating a problem with the use of a cipher.
  */
 public class CipherIOException
-    extends IOException
-{
-    private static final long serialVersionUID = 1L;
+    extends IOException {
 
-    private final Throwable cause;
+  private static final long serialVersionUID = 1L;
 
-    public CipherIOException(String message, Throwable cause)
-    {
-        super(message);
+  private final Throwable cause;
 
-        this.cause = cause;
-    }
+  public CipherIOException(String message, Throwable cause) {
+    super(message);
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

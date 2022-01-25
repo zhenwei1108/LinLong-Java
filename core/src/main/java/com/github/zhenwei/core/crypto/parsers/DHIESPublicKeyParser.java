@@ -1,31 +1,29 @@
 package com.github.zhenwei.core.crypto.parsers;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.KeyParser;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import com.github.zhenwei.core.util.io.Streams;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigInteger;
 
 public class DHIESPublicKeyParser
-    implements KeyParser
-{
-    private DHParameters dhParams;
+    implements KeyParser {
 
-    public DHIESPublicKeyParser(DHParameters dhParams)
-    {
-        this.dhParams = dhParams;
-    }
+  private DHParameters dhParams;
 
-    public AsymmetricKeyParameter readKey(InputStream stream)
-        throws IOException
-    {
-        byte[] V = new byte[(dhParams.getP().bitLength() + 7) / 8];
+  public DHIESPublicKeyParser(DHParameters dhParams) {
+    this.dhParams = dhParams;
+  }
 
-        Streams.readFully(stream, V, 0, V.length);
+  public AsymmetricKeyParameter readKey(InputStream stream)
+      throws IOException {
+    byte[] V = new byte[(dhParams.getP().bitLength() + 7) / 8];
 
-        return new DHPublicKeyParameters(new BigInteger(1, V), dhParams);
-    }
+    Streams.readFully(stream, V, 0, V.length);
+
+    return new DHPublicKeyParameters(new BigInteger(1, V), dhParams);
+  }
 }

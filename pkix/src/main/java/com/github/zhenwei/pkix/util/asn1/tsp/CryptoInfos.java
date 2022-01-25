@@ -13,55 +13,45 @@ import com.github.zhenwei.pkix.util.asn1.cms.Attribute;
  * CryptoInfos ::= SEQUENCE SIZE (1..MAX) OF Attribute
  */
 public class CryptoInfos
-    extends ASN1Object
-{
-    private ASN1Sequence attributes;
+    extends ASN1Object {
 
-    public static CryptoInfos getInstance(final Object obj)
-    {
-        if (obj instanceof CryptoInfos)
-        {
-            return (CryptoInfos)obj;
-        }
-        else if (obj != null)
-        {
-            return new CryptoInfos(ASN1Sequence.getInstance(obj));
-        }
+  private ASN1Sequence attributes;
 
-        return null;
+  public static CryptoInfos getInstance(final Object obj) {
+    if (obj instanceof CryptoInfos) {
+      return (CryptoInfos) obj;
+    } else if (obj != null) {
+      return new CryptoInfos(ASN1Sequence.getInstance(obj));
     }
 
-    public static CryptoInfos getInstance(
-        ASN1TaggedObject obj,
-        boolean explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+    return null;
+  }
+
+  public static CryptoInfos getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  private CryptoInfos(final ASN1Sequence attributes) {
+    this.attributes = attributes;
+  }
+
+  public CryptoInfos(Attribute[] attrs) {
+    attributes = new DERSequence(attrs);
+  }
+
+  public Attribute[] getAttributes() {
+    Attribute[] rv = new Attribute[attributes.size()];
+
+    for (int i = 0; i != rv.length; i++) {
+      rv[i] = Attribute.getInstance(attributes.getObjectAt(i));
     }
 
-    private CryptoInfos(final ASN1Sequence attributes)
-    {
-        this.attributes = attributes;
-    }
+    return rv;
+  }
 
-    public CryptoInfos(Attribute[] attrs)
-    {
-        attributes = new DERSequence(attrs);
-    }
-
-    public Attribute[] getAttributes()
-    {
-        Attribute[] rv = new Attribute[attributes.size()];
-
-        for (int i = 0; i != rv.length; i++)
-        {
-            rv[i] = Attribute.getInstance(attributes.getObjectAt(i));
-        }
-
-        return rv;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        return attributes;
-    }
+  public ASN1Primitive toASN1Primitive() {
+    return attributes;
+  }
 }

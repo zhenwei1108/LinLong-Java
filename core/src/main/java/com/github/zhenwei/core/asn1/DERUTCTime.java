@@ -6,22 +6,19 @@ import java.util.Date;
  * DER UTC time object.
  */
 public class DERUTCTime
-    extends ASN1UTCTime
-{
-    DERUTCTime(byte[] bytes)
-    {
-        super(bytes);
-    }
+    extends ASN1UTCTime {
 
-    public DERUTCTime(Date time)
-    {
-        super(time);
-    }
+  DERUTCTime(byte[] bytes) {
+    super(bytes);
+  }
 
-    public DERUTCTime(String time)
-    {
-        super(time);
-    }
+  public DERUTCTime(Date time) {
+    super(time);
+  }
 
-    // TODO: create proper DER encoding.
+  public DERUTCTime(String time) {
+    super(time);
+  }
+
+  // TODO: create proper DER encoding.
 }

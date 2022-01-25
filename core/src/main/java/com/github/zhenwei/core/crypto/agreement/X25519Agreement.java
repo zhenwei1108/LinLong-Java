@@ -6,22 +6,19 @@ import com.github.zhenwei.core.crypto.params.X25519PrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.X25519PublicKeyParameters;
 
 public final class X25519Agreement
-    implements RawAgreement
-{
-    private X25519PrivateKeyParameters privateKey;
+    implements RawAgreement {
 
-    public void init(CipherParameters parameters)
-    {
-        this.privateKey = (X25519PrivateKeyParameters)parameters;
-    }
+  private X25519PrivateKeyParameters privateKey;
 
-    public int getAgreementSize()
-    {
-        return X25519PrivateKeyParameters.SECRET_SIZE;
-    }
+  public void init(CipherParameters parameters) {
+    this.privateKey = (X25519PrivateKeyParameters) parameters;
+  }
 
-    public void calculateAgreement(CipherParameters publicKey, byte[] buf, int off)
-    {
-        privateKey.generateSecret((X25519PublicKeyParameters)publicKey, buf, off);
-    }
+  public int getAgreementSize() {
+    return X25519PrivateKeyParameters.SECRET_SIZE;
+  }
+
+  public void calculateAgreement(CipherParameters publicKey, byte[] buf, int off) {
+    privateKey.generateSecret((X25519PublicKeyParameters) publicKey, buf, off);
+  }
 }

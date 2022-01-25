@@ -6,24 +6,21 @@ import java.io.IOException;
  * General IOException thrown in the cert package and its sub-packages.
  */
 public class EACIOException
-    extends IOException
-{
-    private Throwable cause;
+    extends IOException {
 
-    public EACIOException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public EACIOException(String msg, Throwable cause) {
+    super(msg);
 
-    public EACIOException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public EACIOException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

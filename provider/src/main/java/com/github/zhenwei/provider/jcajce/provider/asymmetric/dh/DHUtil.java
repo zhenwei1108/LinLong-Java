@@ -1,44 +1,41 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.dh;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.params.DHParameters;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Fingerprint;
 import com.github.zhenwei.core.util.Strings;
+import java.math.BigInteger;
 
-class DHUtil
-{
-    static String privateKeyToString(String algorithm, BigInteger x, DHParameters dhParams)
-    {
-        StringBuffer buf = new StringBuffer();
-        String       nl = Strings.lineSeparator();
+class DHUtil {
 
-        BigInteger y = dhParams.getG().modPow(x, dhParams.getP());
+  static String privateKeyToString(String algorithm, BigInteger x, DHParameters dhParams) {
+    StringBuffer buf = new StringBuffer();
+    String nl = Strings.lineSeparator();
 
-        buf.append(algorithm);
-        buf.append(" Private Key [").append(generateKeyFingerprint(y, dhParams)).append("]").append(nl);
-        buf.append("              Y: ").append(y.toString(16)).append(nl);
+    BigInteger y = dhParams.getG().modPow(x, dhParams.getP());
 
-        return buf.toString();
-    }
+    buf.append(algorithm);
+    buf.append(" Private Key [").append(generateKeyFingerprint(y, dhParams)).append("]").append(nl);
+    buf.append("              Y: ").append(y.toString(16)).append(nl);
 
-    static String publicKeyToString(String algorithm, BigInteger y, DHParameters dhParams)
-    {
-        StringBuffer buf = new StringBuffer();
-        String       nl = Strings.lineSeparator();
+    return buf.toString();
+  }
 
-        buf.append(algorithm);
-        buf.append(" Public Key [").append(generateKeyFingerprint(y, dhParams)).append("]").append(nl);
-        buf.append("             Y: ").append(y.toString(16)).append(nl);
+  static String publicKeyToString(String algorithm, BigInteger y, DHParameters dhParams) {
+    StringBuffer buf = new StringBuffer();
+    String nl = Strings.lineSeparator();
 
-        return buf.toString();
-    }
+    buf.append(algorithm);
+    buf.append(" Public Key [").append(generateKeyFingerprint(y, dhParams)).append("]").append(nl);
+    buf.append("             Y: ").append(y.toString(16)).append(nl);
 
-    private static String generateKeyFingerprint(BigInteger y, DHParameters dhParams)
-    {
-            return new Fingerprint(
-                Arrays.concatenate(
-                    y.toByteArray(),
-                    dhParams.getP().toByteArray(), dhParams.getG().toByteArray())).toString();
-    }
+    return buf.toString();
+  }
+
+  private static String generateKeyFingerprint(BigInteger y, DHParameters dhParams) {
+    return new Fingerprint(
+        Arrays.concatenate(
+            y.toByteArray(),
+            dhParams.getP().toByteArray(), dhParams.getG().toByteArray())).toString();
+  }
 }

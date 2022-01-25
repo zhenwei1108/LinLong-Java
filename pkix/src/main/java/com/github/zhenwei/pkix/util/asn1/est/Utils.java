@@ -1,13 +1,12 @@
 package com.github.zhenwei.pkix.util.asn1.est;
 
-class Utils
-{
-    static AttrOrOID[] clone(AttrOrOID[] ids)
-    {
-        AttrOrOID[] tmp = new AttrOrOID[ids.length];
+class Utils {
 
-        System.arraycopy(ids, 0, tmp, 0, ids.length);
+  static AttrOrOID[] clone(AttrOrOID[] ids) {
+    AttrOrOID[] tmp = new AttrOrOID[ids.length];
 
-        return tmp;
-    }
+    System.arraycopy(ids, 0, tmp, 0, ids.length);
+
+    return tmp;
+  }
 }

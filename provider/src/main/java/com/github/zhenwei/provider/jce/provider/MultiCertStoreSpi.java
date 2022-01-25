@@ -1,5 +1,6 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.provider.jce.MultiCertStoreParameters;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.cert.CRLSelector;
 import java.security.cert.CertSelector;
@@ -12,73 +13,62 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import com.github.zhenwei.provider.jce.MultiCertStoreParameters;
 
 public class MultiCertStoreSpi
-    extends CertStoreSpi
-{
-    private MultiCertStoreParameters params;
+    extends CertStoreSpi {
 
-    public MultiCertStoreSpi(CertStoreParameters params)
-        throws InvalidAlgorithmParameterException
-    {
-        super(params);
+  private MultiCertStoreParameters params;
 
-        if (!(params instanceof MultiCertStoreParameters))
-        {
-            throw new InvalidAlgorithmParameterException("com.github.zhenwei.provider.jce.provider.MultiCertStoreSpi: parameter must be a MultiCertStoreParameters object\n" +  params.toString());
-        }
+  public MultiCertStoreSpi(CertStoreParameters params)
+      throws InvalidAlgorithmParameterException {
+    super(params);
 
-        this.params = (MultiCertStoreParameters)params;
+    if (!(params instanceof MultiCertStoreParameters)) {
+      throw new InvalidAlgorithmParameterException(
+          "com.github.zhenwei.provider.jce.provider.MultiCertStoreSpi: parameter must be a MultiCertStoreParameters object\n"
+              + params.toString());
     }
 
-    public Collection engineGetCertificates(CertSelector certSelector)
-        throws CertStoreException
-    {
-        boolean searchAllStores = params.getSearchAllStores();
-        Iterator iter = params.getCertStores().iterator();
-        List allCerts = searchAllStores ? new ArrayList() : Collections.EMPTY_LIST;
+    this.params = (MultiCertStoreParameters) params;
+  }
 
-        while (iter.hasNext())
-        {
-            CertStore store = (CertStore)iter.next();
-            Collection certs = store.getCertificates(certSelector);
+  public Collection engineGetCertificates(CertSelector certSelector)
+      throws CertStoreException {
+    boolean searchAllStores = params.getSearchAllStores();
+    Iterator iter = params.getCertStores().iterator();
+    List allCerts = searchAllStores ? new ArrayList() : Collections.EMPTY_LIST;
 
-            if (searchAllStores)
-            {
-                allCerts.addAll(certs);
-            }
-            else if (!certs.isEmpty())
-            {
-                return certs;
-            }
-        }
+    while (iter.hasNext()) {
+      CertStore store = (CertStore) iter.next();
+      Collection certs = store.getCertificates(certSelector);
 
-        return allCerts;
+      if (searchAllStores) {
+        allCerts.addAll(certs);
+      } else if (!certs.isEmpty()) {
+        return certs;
+      }
     }
 
-    public Collection engineGetCRLs(CRLSelector crlSelector)
-        throws CertStoreException
-    {
-        boolean searchAllStores = params.getSearchAllStores();
-        Iterator iter = params.getCertStores().iterator();
-        List allCRLs = searchAllStores ? new ArrayList() : Collections.EMPTY_LIST;
-        
-        while (iter.hasNext())
-        {
-            CertStore store = (CertStore)iter.next();
-            Collection crls = store.getCRLs(crlSelector);
+    return allCerts;
+  }
 
-            if (searchAllStores)
-            {
-                allCRLs.addAll(crls);
-            }
-            else if (!crls.isEmpty())
-            {
-                return crls;
-            }
-        }
+  public Collection engineGetCRLs(CRLSelector crlSelector)
+      throws CertStoreException {
+    boolean searchAllStores = params.getSearchAllStores();
+    Iterator iter = params.getCertStores().iterator();
+    List allCRLs = searchAllStores ? new ArrayList() : Collections.EMPTY_LIST;
 
-        return allCRLs;
+    while (iter.hasNext()) {
+      CertStore store = (CertStore) iter.next();
+      Collection crls = store.getCRLs(crlSelector);
+
+      if (searchAllStores) {
+        allCRLs.addAll(crls);
+      } else if (!crls.isEmpty()) {
+        return crls;
+      }
     }
+
+    return allCRLs;
+  }
 }

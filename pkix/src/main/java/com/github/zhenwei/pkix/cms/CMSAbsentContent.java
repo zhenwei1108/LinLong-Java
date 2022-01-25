@@ -1,48 +1,42 @@
 package com.github.zhenwei.pkix.cms;
 
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 
 /**
  * a class representing null or absent content.
  */
 public class CMSAbsentContent
-    implements CMSTypedData, CMSReadable
-{
-    private final ASN1ObjectIdentifier type;
+    implements CMSTypedData, CMSReadable {
 
-    public CMSAbsentContent()
-    {
-        this(CMSObjectIdentifiers.data);
-    }
+  private final ASN1ObjectIdentifier type;
 
-    public CMSAbsentContent(
-        ASN1ObjectIdentifier type)
-    {
-        this.type = type;
-    }
+  public CMSAbsentContent() {
+    this(CMSObjectIdentifiers.data);
+  }
 
-    public InputStream getInputStream()
-    {
-        return null;
-    }
+  public CMSAbsentContent(
+      ASN1ObjectIdentifier type) {
+    this.type = type;
+  }
 
-    public void write(OutputStream zOut)
-        throws IOException, CMSException
-    {
-        // do nothing
-    }
+  public InputStream getInputStream() {
+    return null;
+  }
 
-    public Object getContent()
-    {
-        return null;
-    }
+  public void write(OutputStream zOut)
+      throws IOException, CMSException {
+    // do nothing
+  }
 
-    public ASN1ObjectIdentifier getContentType()
-    {
-        return type;
-    }
+  public Object getContent() {
+    return null;
+  }
+
+  public ASN1ObjectIdentifier getContentType() {
+    return type;
+  }
 }

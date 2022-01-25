@@ -1,48 +1,45 @@
 package com.github.zhenwei.core.crypto.agreement;
 
-import java.math.BigInteger;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.params.DHUPrivateParameters;
 import com.github.zhenwei.core.crypto.params.DHUPublicParameters;
 import com.github.zhenwei.core.util.BigIntegers;
+import java.math.BigInteger;
 
 /**
  * FFC Unified static/ephemeral agreement as described in NIST SP 800-56A.
  */
-public class DHUnifiedAgreement
-{
-    private DHUPrivateParameters privParams;
+public class DHUnifiedAgreement {
 
-    public void init(
-        CipherParameters key)
-    {
-        this.privParams = (DHUPrivateParameters)key;
-    }
+  private DHUPrivateParameters privParams;
 
-    public int getFieldSize()
-    {
-        return (privParams.getStaticPrivateKey().getParameters().getP().bitLength() + 7) / 8;
-    }
+  public void init(
+      CipherParameters key) {
+    this.privParams = (DHUPrivateParameters) key;
+  }
 
-    public byte[] calculateAgreement(CipherParameters pubKey)
-    {
-        DHUPublicParameters pubParams = (DHUPublicParameters)pubKey;
+  public int getFieldSize() {
+    return (privParams.getStaticPrivateKey().getParameters().getP().bitLength() + 7) / 8;
+  }
 
-        DHBasicAgreement sAgree = new DHBasicAgreement();
-        DHBasicAgreement eAgree = new DHBasicAgreement();
+  public byte[] calculateAgreement(CipherParameters pubKey) {
+    DHUPublicParameters pubParams = (DHUPublicParameters) pubKey;
 
-        sAgree.init(privParams.getStaticPrivateKey());
+    DHBasicAgreement sAgree = new DHBasicAgreement();
+    DHBasicAgreement eAgree = new DHBasicAgreement();
 
-        BigInteger sComp = sAgree.calculateAgreement(pubParams.getStaticPublicKey());
+    sAgree.init(privParams.getStaticPrivateKey());
 
-        eAgree.init(privParams.getEphemeralPrivateKey());
+    BigInteger sComp = sAgree.calculateAgreement(pubParams.getStaticPublicKey());
 
-        BigInteger eComp = eAgree.calculateAgreement(pubParams.getEphemeralPublicKey());
+    eAgree.init(privParams.getEphemeralPrivateKey());
 
-        int fieldSize = getFieldSize();
-        byte[] result = new byte[fieldSize * 2];
-        BigIntegers.asUnsignedByteArray(eComp, result, 0, fieldSize);
-        BigIntegers.asUnsignedByteArray(sComp, result, fieldSize, fieldSize);
-        return result;
-    }
+    BigInteger eComp = eAgree.calculateAgreement(pubParams.getEphemeralPublicKey());
+
+    int fieldSize = getFieldSize();
+    byte[] result = new byte[fieldSize * 2];
+    BigIntegers.asUnsignedByteArray(eComp, result, 0, fieldSize);
+    BigIntegers.asUnsignedByteArray(sComp, result, fieldSize, fieldSize);
+    return result;
+  }
 }

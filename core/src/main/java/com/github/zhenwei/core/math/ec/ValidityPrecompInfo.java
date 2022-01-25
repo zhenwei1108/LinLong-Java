@@ -1,40 +1,34 @@
 package com.github.zhenwei.core.math.ec;
 
-class ValidityPrecompInfo implements PreCompInfo
-{
-    static final String PRECOMP_NAME = "bc_validity";
+class ValidityPrecompInfo implements PreCompInfo {
 
-    private boolean failed = false;
-    private boolean curveEquationPassed = false;
-    private boolean orderPassed = false;
+  static final String PRECOMP_NAME = "bc_validity";
 
-    boolean hasFailed()
-    {
-        return failed;
-    }
+  private boolean failed = false;
+  private boolean curveEquationPassed = false;
+  private boolean orderPassed = false;
 
-    void reportFailed()
-    {
-        failed = true;
-    }
+  boolean hasFailed() {
+    return failed;
+  }
 
-    boolean hasCurveEquationPassed()
-    {
-        return curveEquationPassed;
-    }
+  void reportFailed() {
+    failed = true;
+  }
 
-    void reportCurveEquationPassed()
-    {
-        curveEquationPassed = true;
-    }
+  boolean hasCurveEquationPassed() {
+    return curveEquationPassed;
+  }
 
-    boolean hasOrderPassed()
-    {
-        return orderPassed;
-    }
+  void reportCurveEquationPassed() {
+    curveEquationPassed = true;
+  }
 
-    void reportOrderPassed()
-    {
-        orderPassed = true;
-    }
+  boolean hasOrderPassed() {
+    return orderPassed;
+  }
+
+  void reportOrderPassed() {
+    orderPassed = true;
+  }
 }

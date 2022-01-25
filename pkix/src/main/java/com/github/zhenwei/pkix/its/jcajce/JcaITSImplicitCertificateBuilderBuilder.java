@@ -1,33 +1,32 @@
 package com.github.zhenwei.pkix.its.jcajce;
 
-import java.security.Provider;
 import com.github.zhenwei.pkix.its.ITSCertificate;
 import com.github.zhenwei.pkix.its.ITSImplicitCertificateBuilder;
+import com.github.zhenwei.pkix.operator.OperatorCreationException;
+import com.github.zhenwei.pkix.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import com.github.zhenwei.pkix.util.oer.its.ToBeSignedCertificate;
-import  com.github.zhenwei.pkix.operator.OperatorCreationException;
-import  com.github.zhenwei.pkix.operator.jcajce.JcaDigestCalculatorProviderBuilder;
+import java.security.Provider;
 
-public class JcaITSImplicitCertificateBuilderBuilder
-{
-    private JcaDigestCalculatorProviderBuilder digestCalculatorProviderBuilder = new JcaDigestCalculatorProviderBuilder();
+public class JcaITSImplicitCertificateBuilderBuilder {
 
-    public JcaITSImplicitCertificateBuilderBuilder setProvider(Provider provider)
-    {
-        this.digestCalculatorProviderBuilder.setProvider(provider);
+  private JcaDigestCalculatorProviderBuilder digestCalculatorProviderBuilder = new JcaDigestCalculatorProviderBuilder();
 
-        return this;
-    }
+  public JcaITSImplicitCertificateBuilderBuilder setProvider(Provider provider) {
+    this.digestCalculatorProviderBuilder.setProvider(provider);
 
-    public JcaITSImplicitCertificateBuilderBuilder setProvider(String providerName)
-    {
-        this.digestCalculatorProviderBuilder.setProvider(providerName);
+    return this;
+  }
 
-        return this;
-    }
+  public JcaITSImplicitCertificateBuilderBuilder setProvider(String providerName) {
+    this.digestCalculatorProviderBuilder.setProvider(providerName);
 
-    public ITSImplicitCertificateBuilder build(ITSCertificate issuer, ToBeSignedCertificate.Builder tbsCertificate)
-        throws OperatorCreationException
-    {
-        return new ITSImplicitCertificateBuilder(issuer, digestCalculatorProviderBuilder.build(), tbsCertificate);
-    }
+    return this;
+  }
+
+  public ITSImplicitCertificateBuilder build(ITSCertificate issuer,
+      ToBeSignedCertificate.Builder tbsCertificate)
+      throws OperatorCreationException {
+    return new ITSImplicitCertificateBuilder(issuer, digestCalculatorProviderBuilder.build(),
+        tbsCertificate);
+  }
 }

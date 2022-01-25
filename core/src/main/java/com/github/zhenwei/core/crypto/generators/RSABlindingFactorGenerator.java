@@ -1,78 +1,69 @@
 package com.github.zhenwei.core.crypto.generators;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
 import com.github.zhenwei.core.util.BigIntegers;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 /**
- * Generate a random factor suitable for use with RSA blind signatures
- * as outlined in Chaum's blinding and unblinding as outlined in
- * "Handbook of Applied Cryptography", page 475.
+ * Generate a random factor suitable for use with RSA blind signatures as outlined in Chaum's
+ * blinding and unblinding as outlined in "Handbook of Applied Cryptography", page 475.
  */
-public class RSABlindingFactorGenerator
-{
-    private static BigInteger ZERO = BigInteger.valueOf(0);
-    private static BigInteger ONE = BigInteger.valueOf(1);
+public class RSABlindingFactorGenerator {
 
-    private RSAKeyParameters key;
-    private SecureRandom random;
+  private static BigInteger ZERO = BigInteger.valueOf(0);
+  private static BigInteger ONE = BigInteger.valueOf(1);
 
-    /**
-     * Initialise the factor generator
-     *
-     * @param param the necessary RSA key parameters.
-     */
-    public void init(
-        CipherParameters param)
-    {
-        if (param instanceof ParametersWithRandom)
-        {
-            ParametersWithRandom rParam = (ParametersWithRandom)param;
+  private RSAKeyParameters key;
+  private SecureRandom random;
 
-            key = (RSAKeyParameters)rParam.getParameters();
-            random = rParam.getRandom();
-        }
-        else
-        {
-            key = (RSAKeyParameters)param;
-            random = CryptoServicesRegistrar.getSecureRandom();
-        }
+  /**
+   * Initialise the factor generator
+   *
+   * @param param the necessary RSA key parameters.
+   */
+  public void init(
+      CipherParameters param) {
+    if (param instanceof ParametersWithRandom) {
+      ParametersWithRandom rParam = (ParametersWithRandom) param;
 
-        if (key instanceof RSAPrivateCrtKeyParameters)
-        {
-            throw new IllegalArgumentException("generator requires RSA public key");
-        }
+      key = (RSAKeyParameters) rParam.getParameters();
+      random = rParam.getRandom();
+    } else {
+      key = (RSAKeyParameters) param;
+      random = CryptoServicesRegistrar.getSecureRandom();
     }
 
-    /**
-     * Generate a suitable blind factor for the public key the generator was initialised with.
-     *
-     * @return a random blind factor
-     */
-    public BigInteger generateBlindingFactor()
-    {
-        if (key == null)
-        {
-            throw new IllegalStateException("generator not initialised");
-        }
-
-        BigInteger m = key.getModulus();
-        int length = m.bitLength() - 1; // must be less than m.bitLength()
-        BigInteger factor;
-        BigInteger gcd;
-
-        do
-        {
-            factor = BigIntegers.createRandomBigInteger(length, random);
-            gcd = factor.gcd(m);
-        }
-        while (factor.equals(ZERO) || factor.equals(ONE) || !gcd.equals(ONE));
-
-        return factor;
+    if (key instanceof RSAPrivateCrtKeyParameters) {
+      throw new IllegalArgumentException("generator requires RSA public key");
     }
+  }
+
+  /**
+   * Generate a suitable blind factor for the public key the generator was initialised with.
+   *
+   * @return a random blind factor
+   */
+  public BigInteger generateBlindingFactor() {
+    if (key == null) {
+      throw new IllegalStateException("generator not initialised");
+    }
+
+    BigInteger m = key.getModulus();
+    int length = m.bitLength() - 1; // must be less than m.bitLength()
+    BigInteger factor;
+    BigInteger gcd;
+
+    do {
+      factor = BigIntegers.createRandomBigInteger(length, random);
+      gcd = factor.gcd(m);
+    }
+    while (factor.equals(ZERO) || factor.equals(ONE) || !gcd.equals(ONE));
+
+    return factor;
+  }
 }

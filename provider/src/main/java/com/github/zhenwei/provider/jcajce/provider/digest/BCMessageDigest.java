@@ -1,66 +1,61 @@
 package com.github.zhenwei.provider.jcajce.provider.digest;
 
+import com.github.zhenwei.core.crypto.Digest;
 import java.security.DigestException;
 import java.security.MessageDigest;
-import com.github.zhenwei.core.crypto.Digest;
 
 public class BCMessageDigest
-    extends MessageDigest
-{
-    protected Digest  digest;
-    protected int     digestSize;
+    extends MessageDigest {
 
-    protected BCMessageDigest(
-        Digest digest)
-    {
-        super(digest.getAlgorithmName());
+  protected Digest digest;
+  protected int digestSize;
 
-        this.digest = digest;
-        this.digestSize = digest.getDigestSize();
+  protected BCMessageDigest(
+      Digest digest) {
+    super(digest.getAlgorithmName());
+
+    this.digest = digest;
+    this.digestSize = digest.getDigestSize();
+  }
+
+  public void engineReset() {
+    digest.reset();
+  }
+
+  public void engineUpdate(
+      byte input) {
+    digest.update(input);
+  }
+
+  public void engineUpdate(
+      byte[] input,
+      int offset,
+      int len) {
+    digest.update(input, offset, len);
+  }
+
+  public int engineGetDigestLength() {
+    return digestSize;
+  }
+
+  public byte[] engineDigest() {
+    byte[] digestBytes = new byte[digestSize];
+
+    digest.doFinal(digestBytes, 0);
+
+    return digestBytes;
+  }
+
+  public int engineDigest(byte[] buf, int off, int len) throws DigestException {
+    if (len < digestSize) {
+      throw new DigestException("partial digests not returned");
+    }
+    if (buf.length - off < digestSize) {
+      throw new DigestException("insufficient space in the output buffer to store the digest");
     }
 
-    public void engineReset() 
-    {
-        digest.reset();
-    }
+    digest.doFinal(buf, off);
 
-    public void engineUpdate(
-        byte    input) 
-    {
-        digest.update(input);
-    }
-
-    public void engineUpdate(
-        byte[]  input,
-        int     offset,
-        int     len) 
-    {
-        digest.update(input, offset, len);
-    }
-
-    public int engineGetDigestLength()
-    {
-        return digestSize;
-    }
-
-    public byte[] engineDigest() 
-    {
-        byte[]  digestBytes = new byte[digestSize];
-
-        digest.doFinal(digestBytes, 0);
-
-        return digestBytes;
-    }
-
-    public int engineDigest(byte[] buf, int off, int len) throws DigestException
-    {
-        if (len < digestSize)
-            throw new DigestException("partial digests not returned");
-        if (buf.length - off < digestSize)
-            throw new DigestException("insufficient space in the output buffer to store the digest");
-
-        digest.doFinal(buf, off);
-
-        return digestSize;
-    }
+    return digestSize;
+  }
 }

@@ -8,21 +8,19 @@ import java.security.spec.AlgorithmParameterSpec;
  * If you are using JDK 1.5 you should be looking at ECGenParameterSpec.
  */
 public class ECNamedCurveGenParameterSpec
-    implements AlgorithmParameterSpec
-{
-    private String  name;
+    implements AlgorithmParameterSpec {
 
-    public ECNamedCurveGenParameterSpec(
-        String name)
-    {
-        this.name = name;
-    }
+  private String name;
 
-    /**
-     * return the name of the curve the EC domain parameters belong to.
-     */
-    public String getName()
-    {
-        return name;
-    }
+  public ECNamedCurveGenParameterSpec(
+      String name) {
+    this.name = name;
+  }
+
+  /**
+   * return the name of the curve the EC domain parameters belong to.
+   */
+  public String getName() {
+    return name;
+  }
 }

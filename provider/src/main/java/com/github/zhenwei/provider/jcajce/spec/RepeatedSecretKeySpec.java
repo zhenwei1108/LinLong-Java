@@ -4,31 +4,26 @@ package com.github.zhenwei.provider.jcajce.spec;
 import javax.crypto.SecretKey;
 
 /**
- * A simple object to indicate that a symmetric cipher should reuse the
- * last key provided.
+ * A simple object to indicate that a symmetric cipher should reuse the last key provided.
  */
 public class RepeatedSecretKeySpec
-    implements SecretKey
-{
-    private String algorithm;
+    implements SecretKey {
 
-    public RepeatedSecretKeySpec(String algorithm)
-    {
-        this.algorithm = algorithm;
-    }
+  private String algorithm;
 
-    public String getAlgorithm()
-    {
-        return algorithm;
-    }
+  public RepeatedSecretKeySpec(String algorithm) {
+    this.algorithm = algorithm;
+  }
 
-    public String getFormat()
-    {
-        return null;
-    }
+  public String getAlgorithm() {
+    return algorithm;
+  }
 
-    public byte[] getEncoded()
-    {
-        return null;
-    }
+  public String getFormat() {
+    return null;
+  }
+
+  public byte[] getEncoded() {
+    return null;
+  }
 }

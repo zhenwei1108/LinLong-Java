@@ -12,67 +12,61 @@ import com.github.zhenwei.core.asn1.x500.DirectoryString;
  * </pre>
  */
 public class Restriction
-    extends ASN1Object
-{
-    private DirectoryString restriction;
+    extends ASN1Object {
 
-    public static Restriction getInstance(Object obj)
-    {
-        if (obj instanceof Restriction)
-        {
-            return (Restriction)obj;
-        }
+  private DirectoryString restriction;
 
-        if (obj != null)
-        {
-            return new Restriction(DirectoryString.getInstance(obj));
-        }
-
-        return null;
+  public static Restriction getInstance(Object obj) {
+    if (obj instanceof Restriction) {
+      return (Restriction) obj;
     }
 
-    /**
-     * Constructor from DirectoryString.
-     * <p>
-     * The DirectoryString is of type RestrictionSyntax:
-     * <pre>
-     *      RestrictionSyntax ::= DirectoryString (SIZE(1..1024))
-     * </pre>
-     * </p>
-     * @param restriction A DirectoryString.
-     */
-    private Restriction(DirectoryString restriction)
-    {
-        this.restriction = restriction;
+    if (obj != null) {
+      return new Restriction(DirectoryString.getInstance(obj));
     }
 
-    /**
-     * Constructor from a given details.
-     *
-     * @param restriction The describtion of the restriction.
-     */
-    public Restriction(String restriction)
-    {
-        this.restriction = new DirectoryString(restriction);
-    }
+    return null;
+  }
 
-    public DirectoryString getRestriction()
-    {
-        return restriction;
-    }
+  /**
+   * Constructor from DirectoryString.
+   * <p>
+   * The DirectoryString is of type RestrictionSyntax:
+   * <pre>
+   *      RestrictionSyntax ::= DirectoryString (SIZE(1..1024))
+   * </pre>
+   * </p>
+   *
+   * @param restriction A DirectoryString.
+   */
+  private Restriction(DirectoryString restriction) {
+    this.restriction = restriction;
+  }
 
-    /**
-     * Produce an object suitable for an ASN1OutputStream.
-     * <p>
-     * Returns:
-     * <pre>
-     *      RestrictionSyntax ::= DirectoryString (SIZE(1..1024))
-     * </pre>
-     *
-     * @return a DERObject
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        return restriction.toASN1Primitive();
-    }
+  /**
+   * Constructor from a given details.
+   *
+   * @param restriction The describtion of the restriction.
+   */
+  public Restriction(String restriction) {
+    this.restriction = new DirectoryString(restriction);
+  }
+
+  public DirectoryString getRestriction() {
+    return restriction;
+  }
+
+  /**
+   * Produce an object suitable for an ASN1OutputStream.
+   * <p>
+   * Returns:
+   * <pre>
+   *      RestrictionSyntax ::= DirectoryString (SIZE(1..1024))
+   * </pre>
+   *
+   * @return a DERObject
+   */
+  public ASN1Primitive toASN1Primitive() {
+    return restriction.toASN1Primitive();
+  }
 }

@@ -1,66 +1,58 @@
 package com.github.zhenwei.provider.jce.provider;
 
+import com.github.zhenwei.provider.jcajce.PKIXCertRevocationChecker;
+import com.github.zhenwei.provider.jcajce.PKIXCertRevocationCheckerParameters;
+import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.Date;
-import com.github.zhenwei.provider.jcajce.PKIXCertRevocationChecker;
-import com.github.zhenwei.provider.jcajce.PKIXCertRevocationCheckerParameters;
-import  com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 
 class ProvCrlRevocationChecker
-    implements PKIXCertRevocationChecker
-{
-    private final JcaJceHelper helper;
+    implements PKIXCertRevocationChecker {
 
-    private PKIXCertRevocationCheckerParameters params;
-    private Date currentDate = null;
+  private final JcaJceHelper helper;
 
-    public ProvCrlRevocationChecker(JcaJceHelper helper)
-    {
-        this.helper = helper;
+  private PKIXCertRevocationCheckerParameters params;
+  private Date currentDate = null;
+
+  public ProvCrlRevocationChecker(JcaJceHelper helper) {
+    this.helper = helper;
+  }
+
+  public void setParameter(String name, Object value) {
+
+  }
+
+  public void initialize(PKIXCertRevocationCheckerParameters params) {
+    this.params = params;
+    this.currentDate = new Date();
+  }
+
+  public void init(boolean forForward)
+      throws CertPathValidatorException {
+    if (forForward) {
+      throw new CertPathValidatorException("forward checking not supported");
     }
 
-    public void setParameter(String name, Object value)
-    {
+    this.params = null;
+    this.currentDate = new Date();
+  }
 
+  public void check(Certificate certificate)
+      throws CertPathValidatorException {
+    try {
+      RFC3280CertPathUtilities.checkCRLs(params, params.getParamsPKIX(), currentDate,
+          params.getValidDate(),
+          (X509Certificate) certificate, params.getSigningCert(), params.getWorkingPublicKey(),
+          params.getCertPath().getCertificates(), helper);
+    } catch (AnnotatedException e) {
+      Throwable cause = e;
+      if (null != e.getCause()) {
+        cause = e.getCause();
+      }
+      throw new CertPathValidatorException(e.getMessage(), cause, params.getCertPath(),
+          params.getIndex());
     }
-
-    public void initialize(PKIXCertRevocationCheckerParameters params)
-    {
-        this.params = params;
-        this.currentDate = new Date();
-    }
-
-    public void init(boolean forForward)
-        throws CertPathValidatorException
-    {
-        if (forForward)
-        {
-            throw new CertPathValidatorException("forward checking not supported");
-        }
-
-        this.params = null;
-        this.currentDate = new Date();
-    }
-
-    public void check(Certificate certificate)
-        throws CertPathValidatorException
-    {
-        try
-        {
-            RFC3280CertPathUtilities.checkCRLs(params, params.getParamsPKIX(), currentDate, params.getValidDate(),
-                (X509Certificate)certificate, params.getSigningCert(), params.getWorkingPublicKey(),
-                params.getCertPath().getCertificates(), helper);
-        }
-        catch (AnnotatedException e)
-        {
-            Throwable cause = e;
-            if (null != e.getCause())
-            {
-                cause = e.getCause();
-            }
-            throw new CertPathValidatorException(e.getMessage(), cause, params.getCertPath(), params.getIndex());
-        }
-    }
+  }
 }

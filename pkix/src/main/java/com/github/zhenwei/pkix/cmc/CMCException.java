@@ -1,23 +1,20 @@
 package com.github.zhenwei.pkix.cmc;
 
 public class CMCException
-    extends Exception
-{
-    private final Throwable cause;
+    extends Exception {
 
-    public CMCException(String msg)
-    {
-        this(msg, null);
-    }
+  private final Throwable cause;
 
-    public CMCException(String msg, Throwable cause)
-    {
-        super(msg);
-        this.cause = cause;
-    }
+  public CMCException(String msg) {
+    this(msg, null);
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public CMCException(String msg, Throwable cause) {
+    super(msg);
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

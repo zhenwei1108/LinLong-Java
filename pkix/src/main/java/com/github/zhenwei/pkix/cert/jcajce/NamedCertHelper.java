@@ -5,18 +5,16 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 
 class NamedCertHelper
-    extends CertHelper
-{
-    private final String providerName;
+    extends CertHelper {
 
-    NamedCertHelper(String providerName)
-    {
-        this.providerName = providerName;
-    }
+  private final String providerName;
 
-    protected CertificateFactory createCertificateFactory(String type)
-        throws CertificateException, NoSuchProviderException
-    {
-        return CertificateFactory.getInstance(type, providerName);
-    }
+  NamedCertHelper(String providerName) {
+    this.providerName = providerName;
+  }
+
+  protected CertificateFactory createCertificateFactory(String type)
+      throws CertificateException, NoSuchProviderException {
+    return CertificateFactory.getInstance(type, providerName);
+  }
 }

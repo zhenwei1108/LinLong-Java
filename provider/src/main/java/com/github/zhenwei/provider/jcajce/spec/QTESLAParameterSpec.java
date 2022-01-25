@@ -1,40 +1,40 @@
 package com.github.zhenwei.provider.jcajce.spec;
 
-import java.security.spec.AlgorithmParameterSpec;
 import com.github.zhenwei.core.pqc.crypto.qtesla.QTESLASecurityCategory;
+import java.security.spec.AlgorithmParameterSpec;
 
 /**
  * qTESLA parameter details. These are divided up on the basis of the security categories for each
  * individual parameter set.
  */
 public class QTESLAParameterSpec
-    implements AlgorithmParameterSpec
-{
-    /**
-     * Available security categories.
-     */
-    public static final String PROVABLY_SECURE_I = QTESLASecurityCategory.getName(QTESLASecurityCategory.PROVABLY_SECURE_I);
-    public static final String PROVABLY_SECURE_III = QTESLASecurityCategory.getName(QTESLASecurityCategory.PROVABLY_SECURE_III);
+    implements AlgorithmParameterSpec {
 
-    private String securityCategory;
+  /**
+   * Available security categories.
+   */
+  public static final String PROVABLY_SECURE_I = QTESLASecurityCategory.getName(
+      QTESLASecurityCategory.PROVABLY_SECURE_I);
+  public static final String PROVABLY_SECURE_III = QTESLASecurityCategory.getName(
+      QTESLASecurityCategory.PROVABLY_SECURE_III);
 
-    /**
-     * Base constructor.
-     *
-     * @param securityCategory the security category we want this parameterSpec to match.
-     */
-    public QTESLAParameterSpec(String securityCategory)
-    {
-        this.securityCategory = securityCategory;
-    }
+  private String securityCategory;
 
-    /**
-     * Return the security category.
-     *
-     * @return the security category.
-     */
-    public String getSecurityCategory()
-    {
-        return securityCategory;
-    }
+  /**
+   * Base constructor.
+   *
+   * @param securityCategory the security category we want this parameterSpec to match.
+   */
+  public QTESLAParameterSpec(String securityCategory) {
+    this.securityCategory = securityCategory;
+  }
+
+  /**
+   * Return the security category.
+   *
+   * @return the security category.
+   */
+  public String getSecurityCategory() {
+    return securityCategory;
+  }
 }

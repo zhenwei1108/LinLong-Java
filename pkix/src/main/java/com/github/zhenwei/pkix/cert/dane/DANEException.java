@@ -4,24 +4,21 @@ package com.github.zhenwei.pkix.cert.dane;
  * General checked Exception thrown in the DANE package.
  */
 public class DANEException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public DANEException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public DANEException(String msg, Throwable cause) {
+    super(msg);
 
-    public DANEException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public DANEException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

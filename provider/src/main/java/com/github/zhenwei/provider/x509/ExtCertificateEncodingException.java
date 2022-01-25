@@ -3,18 +3,16 @@ package com.github.zhenwei.provider.x509;
 import java.security.cert.CertificateEncodingException;
 
 class ExtCertificateEncodingException
-    extends CertificateEncodingException
-{
-    Throwable cause;
+    extends CertificateEncodingException {
 
-    ExtCertificateEncodingException(String message, Throwable cause)
-    {
-        super(message);
-        this.cause = cause;
-    }
+  Throwable cause;
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  ExtCertificateEncodingException(String message, Throwable cause) {
+    super(message);
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

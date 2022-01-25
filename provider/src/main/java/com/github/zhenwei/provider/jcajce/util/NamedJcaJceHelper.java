@@ -30,128 +30,110 @@ import javax.crypto.SecretKeyFactory;
  * {@link JcaJceHelper} that obtains all algorithms using a specific named provider.
  */
 public class NamedJcaJceHelper
-    implements JcaJceHelper
-{
-    protected final String providerName;
+    implements JcaJceHelper {
 
-    public NamedJcaJceHelper(String providerName)
-    {
-        this.providerName = providerName;
-    }
+  protected final String providerName;
 
-    public Cipher createCipher(
-        String algorithm)
-        throws NoSuchAlgorithmException, NoSuchPaddingException, NoSuchProviderException
-    {
-        return Cipher.getInstance(algorithm, providerName);
-    }
+  public NamedJcaJceHelper(String providerName) {
+    this.providerName = providerName;
+  }
 
-    public Mac createMac(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return Mac.getInstance(algorithm, providerName);
-    }
+  public Cipher createCipher(
+      String algorithm)
+      throws NoSuchAlgorithmException, NoSuchPaddingException, NoSuchProviderException {
+    return Cipher.getInstance(algorithm, providerName);
+  }
 
-    public KeyAgreement createKeyAgreement(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return KeyAgreement.getInstance(algorithm, providerName);
-    }
+  public Mac createMac(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return Mac.getInstance(algorithm, providerName);
+  }
 
-    public AlgorithmParameterGenerator createAlgorithmParameterGenerator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return AlgorithmParameterGenerator.getInstance(algorithm, providerName);
-    }
+  public KeyAgreement createKeyAgreement(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return KeyAgreement.getInstance(algorithm, providerName);
+  }
 
-    public AlgorithmParameters createAlgorithmParameters(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return AlgorithmParameters.getInstance(algorithm, providerName);
-    }
+  public AlgorithmParameterGenerator createAlgorithmParameterGenerator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return AlgorithmParameterGenerator.getInstance(algorithm, providerName);
+  }
 
-    public KeyGenerator createKeyGenerator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return KeyGenerator.getInstance(algorithm, providerName);
-    }
+  public AlgorithmParameters createAlgorithmParameters(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return AlgorithmParameters.getInstance(algorithm, providerName);
+  }
 
-    public KeyFactory createKeyFactory(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return KeyFactory.getInstance(algorithm, providerName);
-    }
+  public KeyGenerator createKeyGenerator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return KeyGenerator.getInstance(algorithm, providerName);
+  }
 
-    public SecretKeyFactory createSecretKeyFactory(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return SecretKeyFactory.getInstance(algorithm, providerName);
-    }
+  public KeyFactory createKeyFactory(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return KeyFactory.getInstance(algorithm, providerName);
+  }
 
-    public KeyPairGenerator createKeyPairGenerator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return KeyPairGenerator.getInstance(algorithm, providerName);
-    }
+  public SecretKeyFactory createSecretKeyFactory(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return SecretKeyFactory.getInstance(algorithm, providerName);
+  }
 
-    /** @deprecated Use createMessageDigest instead */
-    public MessageDigest createDigest(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return MessageDigest.getInstance(algorithm, providerName);
-    }
+  public KeyPairGenerator createKeyPairGenerator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return KeyPairGenerator.getInstance(algorithm, providerName);
+  }
 
-    public MessageDigest createMessageDigest(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return MessageDigest.getInstance(algorithm, providerName);
-    }
+  /**
+   * @deprecated Use createMessageDigest instead
+   */
+  public MessageDigest createDigest(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return MessageDigest.getInstance(algorithm, providerName);
+  }
 
-    public Signature createSignature(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return Signature.getInstance(algorithm, providerName);
-    }
+  public MessageDigest createMessageDigest(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return MessageDigest.getInstance(algorithm, providerName);
+  }
 
-    public CertificateFactory createCertificateFactory(String algorithm)
-        throws CertificateException, NoSuchProviderException
-    {
-        return CertificateFactory.getInstance(algorithm, providerName);
-    }
+  public Signature createSignature(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return Signature.getInstance(algorithm, providerName);
+  }
 
-    public SecureRandom createSecureRandom(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return SecureRandom.getInstance(algorithm, providerName);
-    }
+  public CertificateFactory createCertificateFactory(String algorithm)
+      throws CertificateException, NoSuchProviderException {
+    return CertificateFactory.getInstance(algorithm, providerName);
+  }
 
-    public CertPathBuilder createCertPathBuilder(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return CertPathBuilder.getInstance(algorithm, providerName);
-    }
+  public SecureRandom createSecureRandom(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return SecureRandom.getInstance(algorithm, providerName);
+  }
 
-    public CertPathValidator createCertPathValidator(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return CertPathValidator.getInstance(algorithm, providerName);
-    }
+  public CertPathBuilder createCertPathBuilder(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return CertPathBuilder.getInstance(algorithm, providerName);
+  }
 
-    public CertStore createCertStore(String type, CertStoreParameters params)
-        throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException
-    {
-        return CertStore.getInstance(type, params, providerName);
-    }
+  public CertPathValidator createCertPathValidator(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return CertPathValidator.getInstance(algorithm, providerName);
+  }
 
-    public ExemptionMechanism createExemptionMechanism(String algorithm)
-        throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        return ExemptionMechanism.getInstance(algorithm, providerName);
-    }
+  public CertStore createCertStore(String type, CertStoreParameters params)
+      throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException {
+    return CertStore.getInstance(type, params, providerName);
+  }
 
-    public KeyStore createKeyStore(String type)
-        throws KeyStoreException, NoSuchProviderException
-    {
-        return KeyStore.getInstance(type, providerName);
-    }
+  public ExemptionMechanism createExemptionMechanism(String algorithm)
+      throws NoSuchAlgorithmException, NoSuchProviderException {
+    return ExemptionMechanism.getInstance(algorithm, providerName);
+  }
+
+  public KeyStore createKeyStore(String type)
+      throws KeyStoreException, NoSuchProviderException {
+    return KeyStore.getInstance(type, providerName);
+  }
 }

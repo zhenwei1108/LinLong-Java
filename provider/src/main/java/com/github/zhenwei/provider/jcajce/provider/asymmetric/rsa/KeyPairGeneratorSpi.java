@@ -1,11 +1,5 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa;
 
-import java.math.BigInteger;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.KeyPair;
-import java.security.SecureRandom;
-import java.security.spec.AlgorithmParameterSpec;
-import java.security.spec.RSAKeyGenParameterSpec;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
@@ -16,81 +10,83 @@ import com.github.zhenwei.core.crypto.params.RSAKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAPrivateCrtKeyParameters;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
+import java.math.BigInteger;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.KeyPair;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.RSAKeyGenParameterSpec;
 
 public class KeyPairGeneratorSpi
-    extends java.security.KeyPairGenerator
-{
-    private static final AlgorithmIdentifier PKCS_ALGID = new AlgorithmIdentifier(PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE);
-    private static final AlgorithmIdentifier PSS_ALGID = new AlgorithmIdentifier(PKCSObjectIdentifiers.id_RSASSA_PSS);
+    extends java.security.KeyPairGenerator {
 
-    final static BigInteger defaultPublicExponent = BigInteger.valueOf(0x10001);
+  private static final AlgorithmIdentifier PKCS_ALGID = new AlgorithmIdentifier(
+      PKCSObjectIdentifiers.rsaEncryption, DERNull.INSTANCE);
+  private static final AlgorithmIdentifier PSS_ALGID = new AlgorithmIdentifier(
+      PKCSObjectIdentifiers.id_RSASSA_PSS);
 
-    RSAKeyGenerationParameters param;
-    RSAKeyPairGenerator engine;
-    AlgorithmIdentifier algId;
+  final static BigInteger defaultPublicExponent = BigInteger.valueOf(0x10001);
 
-    public KeyPairGeneratorSpi(
-        String algorithmName,
-        AlgorithmIdentifier algId)
-    {
-        super(algorithmName);
+  RSAKeyGenerationParameters param;
+  RSAKeyPairGenerator engine;
+  AlgorithmIdentifier algId;
 
-        this.algId = algId;
-        engine = new RSAKeyPairGenerator();
-        param = new RSAKeyGenerationParameters(defaultPublicExponent,
-            CryptoServicesRegistrar.getSecureRandom(), 2048, PrimeCertaintyCalculator.getDefaultCertainty(2048));
-        engine.init(param);
+  public KeyPairGeneratorSpi(
+      String algorithmName,
+      AlgorithmIdentifier algId) {
+    super(algorithmName);
+
+    this.algId = algId;
+    engine = new RSAKeyPairGenerator();
+    param = new RSAKeyGenerationParameters(defaultPublicExponent,
+        CryptoServicesRegistrar.getSecureRandom(), 2048,
+        PrimeCertaintyCalculator.getDefaultCertainty(2048));
+    engine.init(param);
+  }
+
+  public KeyPairGeneratorSpi() {
+    this("RSA", PKCS_ALGID);
+  }
+
+  public void initialize(
+      int strength,
+      SecureRandom random) {
+    param = new RSAKeyGenerationParameters(defaultPublicExponent,
+        random, strength, PrimeCertaintyCalculator.getDefaultCertainty(strength));
+
+    engine.init(param);
+  }
+
+  public void initialize(
+      AlgorithmParameterSpec params,
+      SecureRandom random)
+      throws InvalidAlgorithmParameterException {
+    if (!(params instanceof RSAKeyGenParameterSpec)) {
+      throw new InvalidAlgorithmParameterException("parameter object not a RSAKeyGenParameterSpec");
     }
+    RSAKeyGenParameterSpec rsaParams = (RSAKeyGenParameterSpec) params;
 
-    public KeyPairGeneratorSpi()
-    {
-        this("RSA", PKCS_ALGID);
+    param = new RSAKeyGenerationParameters(
+        rsaParams.getPublicExponent(),
+        random, rsaParams.getKeysize(), PrimeCertaintyCalculator.getDefaultCertainty(2048));
+
+    engine.init(param);
+  }
+
+  public KeyPair generateKeyPair() {
+    AsymmetricCipherKeyPair pair = engine.generateKeyPair();
+    RSAKeyParameters pub = (RSAKeyParameters) pair.getPublic();
+    RSAPrivateCrtKeyParameters priv = (RSAPrivateCrtKeyParameters) pair.getPrivate();
+
+    return new KeyPair(new BCRSAPublicKey(algId, pub),
+        new BCRSAPrivateCrtKey(algId, priv));
+  }
+
+  public static class PSS
+      extends KeyPairGeneratorSpi {
+
+    public PSS() {
+      super("RSASSA-PSS", PSS_ALGID);
     }
-
-    public void initialize(
-        int strength,
-        SecureRandom random)
-    {
-        param = new RSAKeyGenerationParameters(defaultPublicExponent,
-            random, strength, PrimeCertaintyCalculator.getDefaultCertainty(strength));
-
-        engine.init(param);
-    }
-
-    public void initialize(
-        AlgorithmParameterSpec params,
-        SecureRandom random)
-        throws InvalidAlgorithmParameterException
-    {
-        if (!(params instanceof RSAKeyGenParameterSpec))
-        {
-            throw new InvalidAlgorithmParameterException("parameter object not a RSAKeyGenParameterSpec");
-        }
-        RSAKeyGenParameterSpec rsaParams = (RSAKeyGenParameterSpec)params;
-
-        param = new RSAKeyGenerationParameters(
-            rsaParams.getPublicExponent(),
-            random, rsaParams.getKeysize(), PrimeCertaintyCalculator.getDefaultCertainty(2048));
-
-        engine.init(param);
-    }
-
-    public KeyPair generateKeyPair()
-    {
-        AsymmetricCipherKeyPair pair = engine.generateKeyPair();
-        RSAKeyParameters pub = (RSAKeyParameters)pair.getPublic();
-        RSAPrivateCrtKeyParameters priv = (RSAPrivateCrtKeyParameters)pair.getPrivate();
-
-        return new KeyPair(new BCRSAPublicKey(algId, pub),
-            new BCRSAPrivateCrtKey(algId, priv));
-    }
-
-    public static class PSS
-        extends KeyPairGeneratorSpi
-    {
-        public PSS()
-        {
-            super("RSASSA-PSS", PSS_ALGID);
-        }
-    }
+  }
 }

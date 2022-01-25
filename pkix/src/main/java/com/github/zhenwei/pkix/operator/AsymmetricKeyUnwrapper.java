@@ -3,17 +3,15 @@ package com.github.zhenwei.pkix.operator;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 public abstract class AsymmetricKeyUnwrapper
-    implements KeyUnwrapper
-{
-    private AlgorithmIdentifier algorithmId;
+    implements KeyUnwrapper {
 
-    protected AsymmetricKeyUnwrapper(AlgorithmIdentifier algorithmId)
-    {
-        this.algorithmId = algorithmId;
-    }
+  private AlgorithmIdentifier algorithmId;
 
-    public AlgorithmIdentifier getAlgorithmIdentifier()
-    {
-        return algorithmId;
-    }
+  protected AsymmetricKeyUnwrapper(AlgorithmIdentifier algorithmId) {
+    this.algorithmId = algorithmId;
+  }
+
+  public AlgorithmIdentifier getAlgorithmIdentifier() {
+    return algorithmId;
+  }
 }

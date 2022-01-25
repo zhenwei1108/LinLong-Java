@@ -3,28 +3,24 @@ package com.github.zhenwei.pkix.tsp;
 import java.io.IOException;
 
 public class TSPIOException
-    extends IOException
-{
-    Throwable underlyingException;
+    extends IOException {
 
-    public TSPIOException(String message)
-    {
-        super(message);
-    }
+  Throwable underlyingException;
 
-    public TSPIOException(String message, Throwable e)
-    {
-        super(message);
-        underlyingException = e;
-    }
+  public TSPIOException(String message) {
+    super(message);
+  }
 
-    public Exception getUnderlyingException()
-    {
-        return (Exception)underlyingException;
-    }
+  public TSPIOException(String message, Throwable e) {
+    super(message);
+    underlyingException = e;
+  }
 
-    public Throwable getCause()
-    {
-        return underlyingException;
-    }
+  public Exception getUnderlyingException() {
+    return (Exception) underlyingException;
+  }
+
+  public Throwable getCause() {
+    return underlyingException;
+  }
 }

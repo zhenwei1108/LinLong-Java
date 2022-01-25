@@ -1,7 +1,11 @@
 # LinLong - 玲珑
+
 基于BC做点有意思的,顺道学习巩固
+
 ## 说明
+
 参考如下进行实现
+
 ```xml
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
 		<dependency>
@@ -27,6 +31,7 @@
 ```
 
 ## 内容应包含
+
 ```
 密钥创建: 常用算法的实现原理和方式
 加解密: 常用算法加解密原理
@@ -42,6 +47,7 @@ FPE(保留格式加密format preserving encryption, FF1,FF3)
 ```
 
 多学点?
+
 ```
 
 多方安全计算
@@ -52,8 +58,11 @@ FPE(保留格式加密format preserving encryption, FF1,FF3)
 ```
 
 ## 参考
+
 * https://github.com/google/tink
 * https://github.com/cossacklabs/themis
 * https://github.com/bcgit/bc-java
-#注:
+
+# 注:
+
 1. BC使用对称加解密,有长度限制. 可以替换jre/security下面的包

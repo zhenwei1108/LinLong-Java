@@ -3,19 +3,17 @@ package com.github.zhenwei.pkix.operator;
 import java.io.IOException;
 
 public class OperatorStreamException
-    extends IOException
-{
-    private Throwable cause;
+    extends IOException {
 
-    public OperatorStreamException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public OperatorStreamException(String msg, Throwable cause) {
+    super(msg);
 
-    public Throwable getCause()
-    {
-        return cause; 
-    }
+    this.cause = cause;
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

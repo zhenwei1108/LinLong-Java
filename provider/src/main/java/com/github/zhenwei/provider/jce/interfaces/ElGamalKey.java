@@ -1,10 +1,10 @@
 package com.github.zhenwei.provider.jce.interfaces;
 
-import javax.crypto.interfaces.DHKey;
 import com.github.zhenwei.provider.jce.spec.ElGamalParameterSpec;
+import javax.crypto.interfaces.DHKey;
 
 public interface ElGamalKey
-    extends DHKey
-{
-    public ElGamalParameterSpec getParameters();
+    extends DHKey {
+
+  public ElGamalParameterSpec getParameters();
 }

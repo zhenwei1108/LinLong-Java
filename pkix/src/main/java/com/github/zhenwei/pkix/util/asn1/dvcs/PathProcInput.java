@@ -1,6 +1,5 @@
 package com.github.zhenwei.pkix.util.asn1.dvcs;
 
-import java.util.Arrays;
 import com.github.zhenwei.core.asn1.ASN1Boolean;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1Object;
@@ -10,6 +9,7 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.x509.PolicyInformation;
+import java.util.Arrays;
 
 /**
  * <pre>
@@ -23,172 +23,145 @@ import com.github.zhenwei.core.asn1.x509.PolicyInformation;
  * </pre>
  */
 public class PathProcInput
-    extends ASN1Object
-{
-    private PolicyInformation[] acceptablePolicySet;
-    private boolean inhibitPolicyMapping = false;
-    private boolean explicitPolicyReqd = false;
-    private boolean inhibitAnyPolicy = false;
+    extends ASN1Object {
 
-    public PathProcInput(PolicyInformation[] acceptablePolicySet)
-    {
-        this.acceptablePolicySet = copy(acceptablePolicySet);
+  private PolicyInformation[] acceptablePolicySet;
+  private boolean inhibitPolicyMapping = false;
+  private boolean explicitPolicyReqd = false;
+  private boolean inhibitAnyPolicy = false;
+
+  public PathProcInput(PolicyInformation[] acceptablePolicySet) {
+    this.acceptablePolicySet = copy(acceptablePolicySet);
+  }
+
+  public PathProcInput(PolicyInformation[] acceptablePolicySet, boolean inhibitPolicyMapping,
+      boolean explicitPolicyReqd, boolean inhibitAnyPolicy) {
+    this.acceptablePolicySet = copy(acceptablePolicySet);
+    this.inhibitPolicyMapping = inhibitPolicyMapping;
+    this.explicitPolicyReqd = explicitPolicyReqd;
+    this.inhibitAnyPolicy = inhibitAnyPolicy;
+  }
+
+  private static PolicyInformation[] fromSequence(ASN1Sequence seq) {
+    PolicyInformation[] tmp = new PolicyInformation[seq.size()];
+
+    for (int i = 0; i != tmp.length; i++) {
+      tmp[i] = PolicyInformation.getInstance(seq.getObjectAt(i));
     }
 
-    public PathProcInput(PolicyInformation[] acceptablePolicySet, boolean inhibitPolicyMapping, boolean explicitPolicyReqd, boolean inhibitAnyPolicy)
-    {
-        this.acceptablePolicySet = copy(acceptablePolicySet);
-        this.inhibitPolicyMapping = inhibitPolicyMapping;
-        this.explicitPolicyReqd = explicitPolicyReqd;
-        this.inhibitAnyPolicy = inhibitAnyPolicy;
-    }
+    return tmp;
+  }
 
-    private static PolicyInformation[] fromSequence(ASN1Sequence seq)
-    {
-        PolicyInformation[] tmp = new PolicyInformation[seq.size()];
+  public static PathProcInput getInstance(Object obj) {
+    if (obj instanceof PathProcInput) {
+      return (PathProcInput) obj;
+    } else if (obj != null) {
+      ASN1Sequence seq = ASN1Sequence.getInstance(obj);
+      ASN1Sequence policies = ASN1Sequence.getInstance(seq.getObjectAt(0));
+      PathProcInput result = new PathProcInput(fromSequence(policies));
 
-        for (int i = 0; i != tmp.length; i++)
-        {
-            tmp[i] = PolicyInformation.getInstance(seq.getObjectAt(i));
+      for (int i = 1; i < seq.size(); i++) {
+        Object o = seq.getObjectAt(i);
+
+        if (o instanceof ASN1Boolean) {
+          ASN1Boolean x = ASN1Boolean.getInstance(o);
+          result.setInhibitPolicyMapping(x.isTrue());
+        } else if (o instanceof ASN1TaggedObject) {
+          ASN1TaggedObject t = ASN1TaggedObject.getInstance(o);
+          ASN1Boolean x;
+          switch (t.getTagNo()) {
+            case 0:
+              x = ASN1Boolean.getInstance(t, false);
+              result.setExplicitPolicyReqd(x.isTrue());
+              break;
+            case 1:
+              x = ASN1Boolean.getInstance(t, false);
+              result.setInhibitAnyPolicy(x.isTrue());
+              break;
+            default:
+              throw new IllegalArgumentException("Unknown tag encountered: " + t.getTagNo());
+          }
         }
-
-        return tmp;
+      }
+      return result;
     }
 
-    public static PathProcInput getInstance(Object obj)
+    return null;
+  }
+
+  public static PathProcInput getInstance(
+      ASN1TaggedObject obj,
+      boolean explicit) {
+    return getInstance(ASN1Sequence.getInstance(obj, explicit));
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector v = new ASN1EncodableVector(4);
+
     {
-        if (obj instanceof PathProcInput)
-        {
-            return (PathProcInput)obj;
-        }
-        else if (obj != null)
-        {
-            ASN1Sequence seq = ASN1Sequence.getInstance(obj);
-            ASN1Sequence policies = ASN1Sequence.getInstance(seq.getObjectAt(0));
-            PathProcInput result = new PathProcInput(fromSequence(policies));
+      ASN1EncodableVector pV = new ASN1EncodableVector(acceptablePolicySet.length);
+      for (int i = 0; i != acceptablePolicySet.length; i++) {
+        pV.add(acceptablePolicySet[i]);
+      }
 
-            for (int i = 1; i < seq.size(); i++)
-            {
-                Object o = seq.getObjectAt(i);
-
-                if (o instanceof ASN1Boolean)
-                {
-                    ASN1Boolean x = ASN1Boolean.getInstance(o);
-                    result.setInhibitPolicyMapping(x.isTrue());
-                }
-                else if (o instanceof ASN1TaggedObject)
-                {
-                    ASN1TaggedObject t = ASN1TaggedObject.getInstance(o);
-                    ASN1Boolean x;
-                    switch (t.getTagNo())
-                    {
-                    case 0:
-                        x = ASN1Boolean.getInstance(t, false);
-                        result.setExplicitPolicyReqd(x.isTrue());
-                        break;
-                    case 1:
-                        x = ASN1Boolean.getInstance(t, false);
-                        result.setInhibitAnyPolicy(x.isTrue());
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown tag encountered: " + t.getTagNo());
-                    }
-                }
-            }
-            return result;
-        }
-
-        return null;
+      v.add(new DERSequence(pV));
     }
 
-    public static PathProcInput getInstance(
-        ASN1TaggedObject obj,
-        boolean explicit)
-    {
-        return getInstance(ASN1Sequence.getInstance(obj, explicit));
+    if (inhibitPolicyMapping) {
+      v.add(ASN1Boolean.getInstance(inhibitPolicyMapping));
+    }
+    if (explicitPolicyReqd) {
+      v.add(new DERTaggedObject(false, 0, ASN1Boolean.getInstance(explicitPolicyReqd)));
+    }
+    if (inhibitAnyPolicy) {
+      v.add(new DERTaggedObject(false, 1, ASN1Boolean.getInstance(inhibitAnyPolicy)));
     }
 
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector v = new ASN1EncodableVector(4);
+    return new DERSequence(v);
+  }
 
-        {
-            ASN1EncodableVector pV = new ASN1EncodableVector(acceptablePolicySet.length);
-            for (int i = 0; i != acceptablePolicySet.length; i++)
-            {
-                pV.add(acceptablePolicySet[i]);
-            }
-    
-            v.add(new DERSequence(pV));
-        }
+  public String toString() {
+    return "PathProcInput: {\n" +
+        "acceptablePolicySet: " + Arrays.asList(acceptablePolicySet) + "\n" +
+        "inhibitPolicyMapping: " + inhibitPolicyMapping + "\n" +
+        "explicitPolicyReqd: " + explicitPolicyReqd + "\n" +
+        "inhibitAnyPolicy: " + inhibitAnyPolicy + "\n" +
+        "}\n";
+  }
 
-        if (inhibitPolicyMapping)
-        {
-            v.add(ASN1Boolean.getInstance(inhibitPolicyMapping));
-        }
-        if (explicitPolicyReqd)
-        {
-            v.add(new DERTaggedObject(false, 0, ASN1Boolean.getInstance(explicitPolicyReqd)));
-        }
-        if (inhibitAnyPolicy)
-        {
-            v.add(new DERTaggedObject(false, 1, ASN1Boolean.getInstance(inhibitAnyPolicy)));
-        }
+  public PolicyInformation[] getAcceptablePolicySet() {
+    return copy(acceptablePolicySet);
+  }
 
-        return new DERSequence(v);
-    }
+  public boolean isInhibitPolicyMapping() {
+    return inhibitPolicyMapping;
+  }
 
-    public String toString()
-    {
-        return "PathProcInput: {\n" +
-            "acceptablePolicySet: " + Arrays.asList(acceptablePolicySet) + "\n" +
-            "inhibitPolicyMapping: " + inhibitPolicyMapping + "\n" +
-            "explicitPolicyReqd: " + explicitPolicyReqd + "\n" +
-            "inhibitAnyPolicy: " + inhibitAnyPolicy + "\n" +
-            "}\n";
-    }
+  private void setInhibitPolicyMapping(boolean inhibitPolicyMapping) {
+    this.inhibitPolicyMapping = inhibitPolicyMapping;
+  }
 
-    public PolicyInformation[] getAcceptablePolicySet()
-    {
-        return copy(acceptablePolicySet);
-    }
+  public boolean isExplicitPolicyReqd() {
+    return explicitPolicyReqd;
+  }
 
-    public boolean isInhibitPolicyMapping()
-    {
-        return inhibitPolicyMapping;
-    }
+  private void setExplicitPolicyReqd(boolean explicitPolicyReqd) {
+    this.explicitPolicyReqd = explicitPolicyReqd;
+  }
 
-    private void setInhibitPolicyMapping(boolean inhibitPolicyMapping)
-    {
-        this.inhibitPolicyMapping = inhibitPolicyMapping;
-    }
+  public boolean isInhibitAnyPolicy() {
+    return inhibitAnyPolicy;
+  }
 
-    public boolean isExplicitPolicyReqd()
-    {
-        return explicitPolicyReqd;
-    }
+  private void setInhibitAnyPolicy(boolean inhibitAnyPolicy) {
+    this.inhibitAnyPolicy = inhibitAnyPolicy;
+  }
 
-    private void setExplicitPolicyReqd(boolean explicitPolicyReqd)
-    {
-        this.explicitPolicyReqd = explicitPolicyReqd;
-    }
+  private PolicyInformation[] copy(PolicyInformation[] policySet) {
+    PolicyInformation[] rv = new PolicyInformation[policySet.length];
 
-    public boolean isInhibitAnyPolicy()
-    {
-        return inhibitAnyPolicy;
-    }
+    System.arraycopy(policySet, 0, rv, 0, rv.length);
 
-    private void setInhibitAnyPolicy(boolean inhibitAnyPolicy)
-    {
-        this.inhibitAnyPolicy = inhibitAnyPolicy;
-    }
-
-    private PolicyInformation[] copy(PolicyInformation[] policySet)
-    {
-        PolicyInformation[] rv = new PolicyInformation[policySet.length];
-
-        System.arraycopy(policySet, 0, rv, 0, rv.length);
-
-        return rv;
-    }
+    return rv;
+  }
 }

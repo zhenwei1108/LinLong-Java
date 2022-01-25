@@ -1,24 +1,21 @@
 package com.github.zhenwei.pkix.operator;
 
 public class OperatorException
-    extends Exception
-{
-    private Throwable cause;
+    extends Exception {
 
-    public OperatorException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public OperatorException(String msg, Throwable cause) {
+    super(msg);
 
-    public OperatorException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public OperatorException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

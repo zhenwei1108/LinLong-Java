@@ -5,30 +5,26 @@ import java.io.OutputStream;
 import java.security.MessageDigest;
 
 class DigestUpdatingOutputStream
-    extends OutputStream
-{
-    private MessageDigest digest;
+    extends OutputStream {
 
-    DigestUpdatingOutputStream(MessageDigest digest)
-    {
-        this.digest = digest;
-    }
+  private MessageDigest digest;
 
-    public void write(byte[] bytes, int off, int len)
-        throws IOException
-    {
-        digest.update(bytes, off, len);
-    }
+  DigestUpdatingOutputStream(MessageDigest digest) {
+    this.digest = digest;
+  }
 
-    public void write(byte[] bytes)
-        throws IOException
-    {
-        digest.update(bytes);
-    }
+  public void write(byte[] bytes, int off, int len)
+      throws IOException {
+    digest.update(bytes, off, len);
+  }
 
-    public void write(int b)
-        throws IOException
-    {
-        digest.update((byte)b);
-    }
+  public void write(byte[] bytes)
+      throws IOException {
+    digest.update(bytes);
+  }
+
+  public void write(int b)
+      throws IOException {
+    digest.update((byte) b);
+  }
 }

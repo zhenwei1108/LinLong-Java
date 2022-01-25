@@ -6,24 +6,21 @@ import java.io.IOException;
  * General IOException thrown in the cert package and its sub-packages.
  */
 public class PKCSIOException
-    extends IOException
-{
-    private Throwable cause;
+    extends IOException {
 
-    public PKCSIOException(String msg, Throwable cause)
-    {
-        super(msg);
+  private Throwable cause;
 
-        this.cause = cause;
-    }
+  public PKCSIOException(String msg, Throwable cause) {
+    super(msg);
 
-    public PKCSIOException(String msg)
-    {
-        super(msg);
-    }
+    this.cause = cause;
+  }
 
-    public Throwable getCause()
-    {
-        return cause;
-    }
+  public PKCSIOException(String msg) {
+    super(msg);
+  }
+
+  public Throwable getCause() {
+    return cause;
+  }
 }

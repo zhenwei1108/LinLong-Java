@@ -1,5 +1,17 @@
 package com.github.zhenwei.provider.jce.netscape;
 
+import com.github.zhenwei.core.asn1.ASN1EncodableVector;
+import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1IA5String;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.ASN1Object;
+import com.github.zhenwei.core.asn1.ASN1Primitive;
+import com.github.zhenwei.core.asn1.ASN1Sequence;
+import com.github.zhenwei.core.asn1.DERBitString;
+import com.github.zhenwei.core.asn1.DERIA5String;
+import com.github.zhenwei.core.asn1.DERSequence;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
+import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,22 +26,8 @@ import java.security.Signature;
 import java.security.SignatureException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-import com.github.zhenwei.core.asn1.ASN1EncodableVector;
-import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.ASN1IA5String;
-import com.github.zhenwei.core.asn1.ASN1InputStream;
-import com.github.zhenwei.core.asn1.ASN1Object;
-import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.core.asn1.DERBitString;
-import com.github.zhenwei.core.asn1.DERIA5String;
-import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
-import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 
 /**
- *
- * 
  * Handles NetScape certificate request (KEYGEN), these are constructed as:
  * <pre>
  *   SignedPublicKeyAndChallenge ::= SEQUENCE {
@@ -38,264 +36,225 @@ import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
  *     signature                BIT STRING
  *   }
  * </pre>
- *
+ * <p>
  * PublicKey's encoded-format has to be X.509.
- *
  **/
 public class NetscapeCertRequest
-    extends ASN1Object
-{
-    AlgorithmIdentifier    sigAlg;
-    AlgorithmIdentifier    keyAlg;
-    byte        sigBits [];
-    String challenge;
-    DERBitString content;
-    PublicKey pubkey ;
-    
-    private static ASN1Sequence getReq(
-        byte[]  r)
-        throws IOException
-    {
-        ASN1InputStream aIn = new ASN1InputStream(new ByteArrayInputStream(r));
+    extends ASN1Object {
 
-        return ASN1Sequence.getInstance(aIn.readObject());
+  AlgorithmIdentifier sigAlg;
+  AlgorithmIdentifier keyAlg;
+  byte sigBits[];
+  String challenge;
+  DERBitString content;
+  PublicKey pubkey;
+
+  private static ASN1Sequence getReq(
+      byte[] r)
+      throws IOException {
+    ASN1InputStream aIn = new ASN1InputStream(new ByteArrayInputStream(r));
+
+    return ASN1Sequence.getInstance(aIn.readObject());
+  }
+
+  public NetscapeCertRequest(
+      byte[] req)
+      throws IOException {
+    this(getReq(req));
+  }
+
+  public NetscapeCertRequest(ASN1Sequence spkac) {
+    try {
+
+      //
+      // SignedPublicKeyAndChallenge ::= SEQUENCE {
+      //    publicKeyAndChallenge    PublicKeyAndChallenge,
+      //    signatureAlgorithm    AlgorithmIdentifier,
+      //    signature        BIT STRING
+      // }
+      //
+      if (spkac.size() != 3) {
+        throw new IllegalArgumentException("invalid SPKAC (size):"
+            + spkac.size());
+      }
+
+      sigAlg = AlgorithmIdentifier.getInstance(spkac.getObjectAt(1));
+      sigBits = ((DERBitString) spkac.getObjectAt(2)).getOctets();
+
+      //
+      // PublicKeyAndChallenge ::= SEQUENCE {
+      //    spki            SubjectPublicKeyInfo,
+      //    challenge        IA5STRING
+      // }
+      //
+      ASN1Sequence pkac = (ASN1Sequence) spkac.getObjectAt(0);
+
+      if (pkac.size() != 2) {
+        throw new IllegalArgumentException("invalid PKAC (len): "
+            + pkac.size());
+      }
+
+      challenge = ((ASN1IA5String) pkac.getObjectAt(1)).getString();
+
+      //this could be dangerous, as ASN.1 decoding/encoding
+      //could potentially alter the bytes
+      content = new DERBitString(pkac);
+
+      SubjectPublicKeyInfo pubkeyinfo = SubjectPublicKeyInfo.getInstance(pkac.getObjectAt(0));
+
+      X509EncodedKeySpec xspec = new X509EncodedKeySpec(new DERBitString(
+          pubkeyinfo).getBytes());
+
+      keyAlg = pubkeyinfo.getAlgorithm();
+      pubkey = KeyFactory.getInstance(keyAlg.getAlgorithm().getId(), "BC")
+          .generatePublic(xspec);
+
+    } catch (Exception e) {
+      throw new IllegalArgumentException(e.toString());
+    }
+  }
+
+  public NetscapeCertRequest(
+      String challenge,
+      AlgorithmIdentifier signing_alg,
+      PublicKey pub_key) throws NoSuchAlgorithmException,
+      InvalidKeySpecException, NoSuchProviderException {
+
+    this.challenge = challenge;
+    sigAlg = signing_alg;
+    pubkey = pub_key;
+
+    ASN1EncodableVector content_der = new ASN1EncodableVector();
+    content_der.add(getKeySpec());
+    //content_der.add(new SubjectPublicKeyInfo(sigAlg, new RSAPublicKeyStructure(pubkey.getModulus(), pubkey.getPublicExponent()).getDERObject()));
+    content_der.add(new DERIA5String(challenge));
+
+    try {
+      content = new DERBitString(new DERSequence(content_der));
+    } catch (IOException e) {
+      throw new InvalidKeySpecException("exception encoding key: " + e.toString());
+    }
+  }
+
+  public String getChallenge() {
+    return challenge;
+  }
+
+  public void setChallenge(String value) {
+    challenge = value;
+  }
+
+  public AlgorithmIdentifier getSigningAlgorithm() {
+    return sigAlg;
+  }
+
+  public void setSigningAlgorithm(AlgorithmIdentifier value) {
+    sigAlg = value;
+  }
+
+  public AlgorithmIdentifier getKeyAlgorithm() {
+    return keyAlg;
+  }
+
+  public void setKeyAlgorithm(AlgorithmIdentifier value) {
+    keyAlg = value;
+  }
+
+  public PublicKey getPublicKey() {
+    return pubkey;
+  }
+
+  public void setPublicKey(PublicKey value) {
+    pubkey = value;
+  }
+
+  public boolean verify(String challenge) throws NoSuchAlgorithmException,
+      InvalidKeyException, SignatureException, NoSuchProviderException {
+    if (!challenge.equals(this.challenge)) {
+      return false;
     }
 
-    public NetscapeCertRequest(
-        byte[]  req)
-        throws IOException
-    {
-        this(getReq(req));
+    //
+    // Verify the signature .. shows the response was generated
+    // by someone who knew the associated private key
+    //
+    Signature sig = Signature.getInstance(sigAlg.getAlgorithm().getId(),
+        "BC");
+    sig.initVerify(pubkey);
+    sig.update(content.getBytes());
+
+    return sig.verify(sigBits);
+  }
+
+  public void sign(PrivateKey priv_key) throws NoSuchAlgorithmException,
+      InvalidKeyException, SignatureException, NoSuchProviderException,
+      InvalidKeySpecException {
+    sign(priv_key, null);
+  }
+
+  public void sign(PrivateKey priv_key, SecureRandom rand)
+      throws NoSuchAlgorithmException, InvalidKeyException,
+      SignatureException, NoSuchProviderException,
+      InvalidKeySpecException {
+    Signature sig = Signature.getInstance(sigAlg.getAlgorithm().getId(),
+        "BC");
+
+    if (rand != null) {
+      sig.initSign(priv_key, rand);
+    } else {
+      sig.initSign(priv_key);
     }
 
-    public NetscapeCertRequest (ASN1Sequence spkac)
-    {
-        try
-        {
+    ASN1EncodableVector pkac = new ASN1EncodableVector();
 
-            //
-            // SignedPublicKeyAndChallenge ::= SEQUENCE {
-            //    publicKeyAndChallenge    PublicKeyAndChallenge,
-            //    signatureAlgorithm    AlgorithmIdentifier,
-            //    signature        BIT STRING
-            // }
-            //
-            if (spkac.size() != 3)
-            {
-                throw new IllegalArgumentException("invalid SPKAC (size):"
-                        + spkac.size());
-            }
+    pkac.add(getKeySpec());
+    pkac.add(new DERIA5String(challenge));
 
-            sigAlg = AlgorithmIdentifier.getInstance(spkac.getObjectAt(1));
-            sigBits = ((DERBitString)spkac.getObjectAt(2)).getOctets();
-
-            //
-            // PublicKeyAndChallenge ::= SEQUENCE {
-            //    spki            SubjectPublicKeyInfo,
-            //    challenge        IA5STRING
-            // }
-            //
-            ASN1Sequence pkac = (ASN1Sequence)spkac.getObjectAt(0);
-
-            if (pkac.size() != 2)
-            {
-                throw new IllegalArgumentException("invalid PKAC (len): "
-                        + pkac.size());
-            }
-
-            challenge = ((ASN1IA5String)pkac.getObjectAt(1)).getString();
-
-            //this could be dangerous, as ASN.1 decoding/encoding
-            //could potentially alter the bytes
-            content = new DERBitString(pkac);
-
-            SubjectPublicKeyInfo pubkeyinfo = SubjectPublicKeyInfo.getInstance(pkac.getObjectAt(0));
-
-            X509EncodedKeySpec xspec = new X509EncodedKeySpec(new DERBitString(
-                    pubkeyinfo).getBytes());
-
-            keyAlg = pubkeyinfo.getAlgorithm();
-            pubkey = KeyFactory.getInstance(keyAlg.getAlgorithm().getId(), "BC")
-                    .generatePublic(xspec);
-
-        }
-        catch (Exception e)
-        {
-            throw new IllegalArgumentException(e.toString());
-        }
+    try {
+      sig.update(new DERSequence(pkac).getEncoded(ASN1Encoding.DER));
+    } catch (IOException ioe) {
+      throw new SignatureException(ioe.getMessage());
     }
 
-    public NetscapeCertRequest(
-        String challenge,
-        AlgorithmIdentifier signing_alg,
-        PublicKey pub_key) throws NoSuchAlgorithmException,
-            InvalidKeySpecException, NoSuchProviderException
-    {
+    sigBits = sig.sign();
+  }
 
-        this.challenge = challenge;
-        sigAlg = signing_alg;
-        pubkey = pub_key;
+  private ASN1Primitive getKeySpec() throws NoSuchAlgorithmException,
+      InvalidKeySpecException, NoSuchProviderException {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        ASN1EncodableVector content_der = new ASN1EncodableVector();
-        content_der.add(getKeySpec());
-        //content_der.add(new SubjectPublicKeyInfo(sigAlg, new RSAPublicKeyStructure(pubkey.getModulus(), pubkey.getPublicExponent()).getDERObject()));
-        content_der.add(new DERIA5String(challenge));
+    ASN1Primitive obj = null;
+    try {
 
-        try
-        {
-            content = new DERBitString(new DERSequence(content_der));
-        }
-        catch (IOException e)
-        {
-            throw new InvalidKeySpecException("exception encoding key: " + e.toString());
-        }
+      baos.write(pubkey.getEncoded());
+      baos.close();
+
+      ASN1InputStream derin = new ASN1InputStream(
+          new ByteArrayInputStream(baos.toByteArray()));
+
+      obj = derin.readObject();
+    } catch (IOException ioe) {
+      throw new InvalidKeySpecException(ioe.getMessage());
+    }
+    return obj;
+  }
+
+  public ASN1Primitive toASN1Primitive() {
+    ASN1EncodableVector spkac = new ASN1EncodableVector();
+    ASN1EncodableVector pkac = new ASN1EncodableVector();
+
+    try {
+      pkac.add(getKeySpec());
+    } catch (Exception e) {
+      //ignore
     }
 
-    public String getChallenge()
-    {
-        return challenge;
-    }
+    pkac.add(new DERIA5String(challenge));
 
-    public void setChallenge(String value)
-    {
-        challenge = value;
-    }
+    spkac.add(new DERSequence(pkac));
+    spkac.add(sigAlg);
+    spkac.add(new DERBitString(sigBits));
 
-    public AlgorithmIdentifier getSigningAlgorithm()
-    {
-        return sigAlg;
-    }
-
-    public void setSigningAlgorithm(AlgorithmIdentifier value)
-    {
-        sigAlg = value;
-    }
-
-    public AlgorithmIdentifier getKeyAlgorithm()
-    {
-        return keyAlg;
-    }
-
-    public void setKeyAlgorithm(AlgorithmIdentifier value)
-    {
-        keyAlg = value;
-    }
-
-    public PublicKey getPublicKey()
-    {
-        return pubkey;
-    }
-
-    public void setPublicKey(PublicKey value)
-    {
-        pubkey = value;
-    }
-
-    public boolean verify(String challenge) throws NoSuchAlgorithmException,
-            InvalidKeyException, SignatureException, NoSuchProviderException
-    {
-        if (!challenge.equals(this.challenge))
-        {
-            return false;
-        }
-
-        //
-        // Verify the signature .. shows the response was generated
-        // by someone who knew the associated private key
-        //
-        Signature sig = Signature.getInstance(sigAlg.getAlgorithm().getId(),
-                "BC");
-        sig.initVerify(pubkey);
-        sig.update(content.getBytes());
-
-        return sig.verify(sigBits);
-    }
-
-    public void sign(PrivateKey priv_key) throws NoSuchAlgorithmException,
-            InvalidKeyException, SignatureException, NoSuchProviderException,
-            InvalidKeySpecException
-    {
-        sign(priv_key, null);
-    }
-
-    public void sign(PrivateKey priv_key, SecureRandom rand)
-            throws NoSuchAlgorithmException, InvalidKeyException,
-            SignatureException, NoSuchProviderException,
-            InvalidKeySpecException
-    {
-        Signature sig = Signature.getInstance(sigAlg.getAlgorithm().getId(),
-                "BC");
-
-        if (rand != null)
-        {
-            sig.initSign(priv_key, rand);
-        }
-        else
-        {
-            sig.initSign(priv_key);
-        }
-
-        ASN1EncodableVector pkac = new ASN1EncodableVector();
-
-        pkac.add(getKeySpec());
-        pkac.add(new DERIA5String(challenge));
-
-        try
-        {
-            sig.update(new DERSequence(pkac).getEncoded(ASN1Encoding.DER));
-        }
-        catch (IOException ioe)
-        {
-            throw new SignatureException(ioe.getMessage());
-        }
-
-        sigBits = sig.sign();
-    }
-
-    private ASN1Primitive getKeySpec() throws NoSuchAlgorithmException,
-            InvalidKeySpecException, NoSuchProviderException
-    {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-        ASN1Primitive obj = null;
-        try
-        {
-
-            baos.write(pubkey.getEncoded());
-            baos.close();
-
-            ASN1InputStream derin = new ASN1InputStream(
-                    new ByteArrayInputStream(baos.toByteArray()));
-
-            obj = derin.readObject();
-        }
-        catch (IOException ioe)
-        {
-            throw new InvalidKeySpecException(ioe.getMessage());
-        }
-        return obj;
-    }
-
-    public ASN1Primitive toASN1Primitive()
-    {
-        ASN1EncodableVector spkac = new ASN1EncodableVector();
-        ASN1EncodableVector pkac = new ASN1EncodableVector();
-
-        try
-        {
-            pkac.add(getKeySpec());
-        }
-        catch (Exception e)
-        {
-            //ignore
-        }
-
-        pkac.add(new DERIA5String(challenge));
-
-        spkac.add(new DERSequence(pkac));
-        spkac.add(sigAlg);
-        spkac.add(new DERBitString(sigBits));
-
-        return new DERSequence(spkac);
-    }
+    return new DERSequence(spkac);
+  }
 }

@@ -4,9 +4,9 @@ import java.math.BigInteger;
 import java.security.PublicKey;
 
 public interface XDHPublicKey
-    extends XDHKey, PublicKey
-{
-    BigInteger getU();
+    extends XDHKey, PublicKey {
 
-    byte[] getUEncoding();
+  BigInteger getU();
+
+  byte[] getUEncoding();
 }

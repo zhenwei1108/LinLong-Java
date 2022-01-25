@@ -7,70 +7,56 @@ import com.github.zhenwei.core.asn1.BERTags;
 import com.github.zhenwei.core.asn1.DERNull;
 
 public class SignaturePolicyIdentifier
-    extends ASN1Object
-{
-    private SignaturePolicyId   signaturePolicyId;
-    private boolean             isSignaturePolicyImplied;
+    extends ASN1Object {
 
-    public static SignaturePolicyIdentifier getInstance(
-        Object  obj)
-    {
-        if (obj instanceof SignaturePolicyIdentifier)
-        {
-            return (SignaturePolicyIdentifier)obj;
-        }
-        else if (obj instanceof ASN1Null || hasEncodedTagValue(obj, BERTags.NULL))
-        {
-            return new SignaturePolicyIdentifier();
-        }
-        else if (obj != null)
-        {
-            return new SignaturePolicyIdentifier(SignaturePolicyId.getInstance(obj));
-        }
+  private SignaturePolicyId signaturePolicyId;
+  private boolean isSignaturePolicyImplied;
 
-        return null;
+  public static SignaturePolicyIdentifier getInstance(
+      Object obj) {
+    if (obj instanceof SignaturePolicyIdentifier) {
+      return (SignaturePolicyIdentifier) obj;
+    } else if (obj instanceof ASN1Null || hasEncodedTagValue(obj, BERTags.NULL)) {
+      return new SignaturePolicyIdentifier();
+    } else if (obj != null) {
+      return new SignaturePolicyIdentifier(SignaturePolicyId.getInstance(obj));
     }
 
-    public SignaturePolicyIdentifier()
-    {
-        this.isSignaturePolicyImplied = true;
-    }
+    return null;
+  }
 
-    public SignaturePolicyIdentifier(
-        SignaturePolicyId signaturePolicyId)
-    {
-        this.signaturePolicyId = signaturePolicyId;
-        this.isSignaturePolicyImplied = false;
-    }
+  public SignaturePolicyIdentifier() {
+    this.isSignaturePolicyImplied = true;
+  }
 
-    public SignaturePolicyId getSignaturePolicyId()
-    {
-        return signaturePolicyId;
-    }
+  public SignaturePolicyIdentifier(
+      SignaturePolicyId signaturePolicyId) {
+    this.signaturePolicyId = signaturePolicyId;
+    this.isSignaturePolicyImplied = false;
+  }
 
-    public boolean isSignaturePolicyImplied()
-    {
-        return isSignaturePolicyImplied;
-    }
+  public SignaturePolicyId getSignaturePolicyId() {
+    return signaturePolicyId;
+  }
 
-    /**
-     * <pre>
-     * SignaturePolicyIdentifier ::= CHOICE{
-     *     SignaturePolicyId         SignaturePolicyId,
-     *     SignaturePolicyImplied    SignaturePolicyImplied }
-     *
-     * SignaturePolicyImplied ::= NULL
-     * </pre>
-     */
-    public ASN1Primitive toASN1Primitive()
-    {
-        if (isSignaturePolicyImplied)
-        {
-            return DERNull.INSTANCE;
-        }
-        else
-        {
-            return signaturePolicyId.toASN1Primitive();
-        }
+  public boolean isSignaturePolicyImplied() {
+    return isSignaturePolicyImplied;
+  }
+
+  /**
+   * <pre>
+   * SignaturePolicyIdentifier ::= CHOICE{
+   *     SignaturePolicyId         SignaturePolicyId,
+   *     SignaturePolicyImplied    SignaturePolicyImplied }
+   *
+   * SignaturePolicyImplied ::= NULL
+   * </pre>
+   */
+  public ASN1Primitive toASN1Primitive() {
+    if (isSignaturePolicyImplied) {
+      return DERNull.INSTANCE;
+    } else {
+      return signaturePolicyId.toASN1Primitive();
     }
+  }
 }
