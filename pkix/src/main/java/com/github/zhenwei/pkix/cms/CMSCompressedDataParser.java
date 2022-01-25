@@ -6,8 +6,8 @@ import java.io.InputStream;
 import com.github.zhenwei.core.asn1.ASN1OctetStringParser;
 import com.github.zhenwei.core.asn1.ASN1SequenceParser;
 import com.github.zhenwei.core.asn1.BERTags;
-import com.github.zhenwei.pkix.util.asn1.cmsCompressedDataParser;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfoParser;
+import com.github.zhenwei.pkix.util.asn1.cms.CompressedDataParser;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfoParser;
 import  com.github.zhenwei.pkix.operator.InputExpander;
 import  com.github.zhenwei.pkix.operator.InputExpanderProvider;
 

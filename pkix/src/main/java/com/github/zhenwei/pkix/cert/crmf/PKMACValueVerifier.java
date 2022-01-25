@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cert.crmf;
 import java.io.IOException;
 import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.core.asn1.cmp.PBMParameter;
+import com.github.zhenwei.pkix.util.asn1.cmp.PBMParameter;
 import com.github.zhenwei.pkix.util.asn1.crmf.PKMACValue;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import  com.github.zhenwei.pkix.operator.MacCalculator;

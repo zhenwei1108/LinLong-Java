@@ -7,10 +7,10 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributes;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsSignedData;
+import com.github.zhenwei.pkix.util.asn1.cms.Attributes;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.SignedData;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 

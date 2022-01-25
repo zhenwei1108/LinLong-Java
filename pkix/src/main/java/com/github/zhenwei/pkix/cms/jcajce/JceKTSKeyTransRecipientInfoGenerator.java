@@ -7,7 +7,7 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.cert.jcajce.JcaX509CertificateHolder;
 import com.github.zhenwei.pkix.cms.KeyTransRecipientInfoGenerator;

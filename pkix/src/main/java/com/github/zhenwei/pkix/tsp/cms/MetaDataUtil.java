@@ -3,8 +3,8 @@ package com.github.zhenwei.pkix.tsp.cms;
 import java.io.IOException;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1String;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributes;
-import com.github.zhenwei.pkix.util.asn1.cmsMetaData;
+import com.github.zhenwei.pkix.util.asn1.cms.Attributes;
+import com.github.zhenwei.pkix.util.asn1.cms.MetaData;
 import com.github.zhenwei.pkix.cms.CMSException;
 import  com.github.zhenwei.pkix.operator.DigestCalculator;
 

@@ -9,7 +9,7 @@ import java.util.Map;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.cms.CMSException;
 import com.github.zhenwei.pkix.cms.KeyTransRecipient;

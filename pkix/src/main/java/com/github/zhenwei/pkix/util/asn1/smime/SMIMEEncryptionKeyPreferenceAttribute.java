@@ -3,9 +3,9 @@ package com.github.zhenwei.pkix.util.asn1.smime;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.DERSet;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmsAttribute;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
-import com.github.zhenwei.pkix.util.asn1.cmsRecipientKeyIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.Attribute;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.RecipientKeyIdentifier;
 
 /**
  * The SMIMEEncryptionKeyPreference object.

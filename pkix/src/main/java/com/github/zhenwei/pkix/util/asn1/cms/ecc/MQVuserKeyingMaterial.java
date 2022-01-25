@@ -8,7 +8,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmsOriginatorPublicKey;
+import com.github.zhenwei.pkix.util.asn1.cms.OriginatorPublicKey;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5753">RFC 5753/3278</a>: MQVuserKeyingMaterial object.

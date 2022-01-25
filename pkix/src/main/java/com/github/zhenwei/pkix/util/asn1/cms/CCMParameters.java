@@ -31,7 +31,7 @@ public class CCMParameters
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link com.github.zhenwei.pkix.util.asn1.cmsCCMParameters} object
+     * <li> {@link com.github.zhenwei.pkix.util.asn1.cms.CCMParameters} object
      * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with CCMParameters structure inside
      * </ul>
      *

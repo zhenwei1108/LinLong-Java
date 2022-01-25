@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.BEROctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
-import com.github.zhenwei.pkix.util.asn1.cmsCompressedData;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.CompressedData;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import  com.github.zhenwei.pkix.operator.OutputCompressor;
 

@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.cms.bc;
 
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.cms.KeyTransRecipientInfoGenerator;
 import  com.github.zhenwei.pkix.operator.bc.BcAsymmetricKeyWrapper;

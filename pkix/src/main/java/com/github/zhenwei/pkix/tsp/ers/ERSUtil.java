@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-importcom.github.zhenwei.pkix.util.asn1.tsp.PartialHashtree;
+import com.github.zhenwei.pkix.util.asn1.tsp.PartialHashtree;
 import  com.github.zhenwei.pkix.operator.DigestCalculator;
 import com.github.zhenwei.core.util.io.Streams;
 

@@ -3,8 +3,8 @@ package com.github.zhenwei.pkix.dvcs;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.github.zhenwei.core.asn1.dvcs.Data;
-import com.github.zhenwei.core.asn1.dvcs.TargetEtcChain;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.TargetEtcChain;
 
 /**
  * Data piece of DVCS request to VPKC service (Verify Public Key Certificates).

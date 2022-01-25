@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cms;
 
 import java.io.IOException;
-import com.github.zhenwei.pkix.util.asn1.cmsKEKIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cmsKEKRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.KEKIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.KEKRecipientInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**

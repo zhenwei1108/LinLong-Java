@@ -31,7 +31,7 @@ public class GCMParameters
      * Accepted inputs:
      * <ul>
      * <li> null &rarr; null
-     * <li> {@link com.github.zhenwei.pkix.util.asn1.cmsGCMParameters} object
+     * <li> {@link com.github.zhenwei.pkix.util.asn1.cms.GCMParameters} object
      * <li> {@link com.github.zhenwei.core.asn1.ASN1Sequence#getInstance(Object) ASN1Sequence} input formats with GCMParameters structure inside
      * </ul>
      *

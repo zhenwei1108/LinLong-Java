@@ -2,9 +2,9 @@ package com.github.zhenwei.pkix.cms;
 
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsKEKIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cmsKEKRecipientInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.KEKIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.KEKRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.RecipientInfo;
 import  com.github.zhenwei.pkix.operator.GenericKey;
 import  com.github.zhenwei.pkix.operator.OperatorException;
 import  com.github.zhenwei.pkix.operator.SymmetricKeyWrapper;

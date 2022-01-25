@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import com.github.zhenwei.core.asn1.dvcs.DVCSRequestInformationBuilder;
-import com.github.zhenwei.core.asn1.dvcs.Data;
-import com.github.zhenwei.core.asn1.dvcs.ServiceType;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequestInformationBuilder;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.ServiceType;
 
 /**
  * Builder of CCPD requests (Certify Claim of Possession of Data).

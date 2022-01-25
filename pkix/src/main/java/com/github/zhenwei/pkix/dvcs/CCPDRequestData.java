@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import com.github.zhenwei.core.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
 
 /**
  * Data piece of DVCRequest for CCPD service (Certify Claim of Possession of Data).

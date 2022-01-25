@@ -15,7 +15,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERNull;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
 import com.github.zhenwei.core.asn1.pkcs.EncryptedPrivateKeyInfo;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;

@@ -2,10 +2,10 @@ package com.github.zhenwei.pkix.dvcs;
 
 import java.io.IOException;
 import java.util.Date;
-import com.github.zhenwei.core.asn1.dvcs.DVCSRequestInformationBuilder;
-import com.github.zhenwei.core.asn1.dvcs.DVCSTime;
-import com.github.zhenwei.core.asn1.dvcs.Data;
-import com.github.zhenwei.core.asn1.dvcs.ServiceType;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequestInformationBuilder;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSTime;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.ServiceType;
 import com.github.zhenwei.pkix.cms.CMSSignedData;
 
 /**

@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.crmf;
 
 import java.io.IOException;
-import com.github.zhenwei.pkix.util.asn1.cmsEnvelopedData;
+import com.github.zhenwei.pkix.util.asn1.cms.EnvelopedData;
 import com.github.zhenwei.pkix.util.asn1.crmf.CRMFObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.crmf.EncKeyWithID;
 import com.github.zhenwei.pkix.util.asn1.crmf.EncryptedKey;

@@ -8,7 +8,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERBitString;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmsEnvelopedData;
+import com.github.zhenwei.pkix.util.asn1.cms.EnvelopedData;
 
 public class POPOPrivKey
     extends ASN1Object

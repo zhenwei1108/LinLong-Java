@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 import java.math.BigInteger;
-import com.github.zhenwei.core.asn1.cmp.CertStatus;
-import com.github.zhenwei.core.asn1.cmp.PKIStatusInfo;
+import com.github.zhenwei.pkix.util.asn1.cmp.CertStatus;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatusInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import  com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;

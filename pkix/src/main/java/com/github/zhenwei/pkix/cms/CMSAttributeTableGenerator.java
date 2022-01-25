@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cms;
 
 import java.util.Map;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributeTable;
+import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
 
 /**
  * Note: The SIGNATURE parameter is only available when generating unsigned attributes.

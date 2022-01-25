@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.core.asn1.dvcs.DVCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.dvcs.DVCSRequestInformationBuilder;
-import com.github.zhenwei.core.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequestInformationBuilder;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
 import com.github.zhenwei.core.asn1.x509.ExtensionsGenerator;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
 import com.github.zhenwei.core.asn1.x509.GeneralNames;
@@ -122,7 +122,7 @@ public abstract class DVCSRequestBuilder
             requestInformationBuilder.setExtensions(extGenerator.generate());
         }
 
-        com.github.zhenwei.core.asn1.dvcs.DVCSRequest request = new com.github.zhenwei.core.asn1.dvcs.DVCSRequest(requestInformationBuilder.build(), data);
+        com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequest request = new com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequest(requestInformationBuilder.build(), data);
 
         return new DVCSRequest(new ContentInfo(DVCSObjectIdentifiers.id_ct_DVCSRequestData, request));
     }

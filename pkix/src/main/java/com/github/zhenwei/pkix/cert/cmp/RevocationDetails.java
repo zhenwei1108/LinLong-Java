@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
 import java.math.BigInteger;
-import com.github.zhenwei.core.asn1.cmp.RevDetails;
+import com.github.zhenwei.pkix.util.asn1.cmp.RevDetails;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 
 public class RevocationDetails

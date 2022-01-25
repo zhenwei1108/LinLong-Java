@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.tsp.ers;
 
 import java.util.ArrayList;
 import java.util.List;
-importcom.github.zhenwei.pkix.util.asn1.tsp.PartialHashtree;
+import com.github.zhenwei.pkix.util.asn1.tsp.PartialHashtree;
 import  com.github.zhenwei.pkix.operator.DigestCalculator;
 
 /**

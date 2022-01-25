@@ -6,7 +6,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.cmp.PKIStatusInfo;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatusInfo;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
 
 /**

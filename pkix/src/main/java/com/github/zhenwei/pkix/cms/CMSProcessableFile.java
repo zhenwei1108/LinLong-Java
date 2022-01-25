@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 import com.github.zhenwei.core.util.io.Streams;
 
 /**

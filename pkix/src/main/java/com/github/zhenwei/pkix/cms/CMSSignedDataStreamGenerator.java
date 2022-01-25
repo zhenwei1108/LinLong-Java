@@ -15,8 +15,8 @@ import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.BERSequenceGenerator;
 import com.github.zhenwei.core.asn1.BERTaggedObject;
 import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
-import com.github.zhenwei.pkix.util.asn1.cmsSignerInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.SignerInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import  com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 

@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.util.Arrays;
 
 /**

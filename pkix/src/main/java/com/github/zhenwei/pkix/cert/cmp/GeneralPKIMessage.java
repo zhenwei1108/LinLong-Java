@@ -2,9 +2,9 @@ package com.github.zhenwei.pkix.cert.cmp;
 
 import java.io.IOException;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
-import com.github.zhenwei.core.asn1.cmp.PKIBody;
-import com.github.zhenwei.core.asn1.cmp.PKIHeader;
-import com.github.zhenwei.core.asn1.cmp.PKIMessage;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIBody;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIHeader;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIMessage;
 import com.github.zhenwei.pkix.cert.CertIOException;
 
 /**

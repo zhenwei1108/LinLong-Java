@@ -2,9 +2,9 @@ package com.github.zhenwei.pkix.cert.crmf;
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEnvelopedData;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EnvelopedData;
 import com.github.zhenwei.pkix.util.asn1.crmf.CRMFObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.crmf.EncryptedKey;
 import com.github.zhenwei.pkix.util.asn1.crmf.PKIArchiveOptions;

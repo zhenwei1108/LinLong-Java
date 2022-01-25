@@ -1,8 +1,8 @@
 package com.github.zhenwei.pkix.cms;
 
 import com.github.zhenwei.core.asn1.DEROctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
-import com.github.zhenwei.pkix.util.asn1.cmsSignerIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.SignerIdentifier;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import  com.github.zhenwei.pkix.operator.ContentSigner;

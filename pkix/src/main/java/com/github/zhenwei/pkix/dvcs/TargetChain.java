@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import com.github.zhenwei.core.asn1.dvcs.TargetEtcChain;
+import com.github.zhenwei.pkix.util.asn1.dvcs.TargetEtcChain;
 
 public class TargetChain
 {

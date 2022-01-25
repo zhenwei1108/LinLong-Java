@@ -6,7 +6,7 @@ import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.pkix.util.asn1.cmsAttribute;
+import com.github.zhenwei.pkix.util.asn1.cms.Attribute;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 

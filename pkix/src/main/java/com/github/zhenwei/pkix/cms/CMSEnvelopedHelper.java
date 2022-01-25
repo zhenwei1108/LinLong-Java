@@ -8,11 +8,11 @@ import java.util.List;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.pkix.util.asn1.cmsKEKRecipientInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsKeyAgreeRecipientInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsKeyTransRecipientInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsPasswordRecipientInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.KEKRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.KeyAgreeRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.KeyTransRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.PasswordRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.RecipientInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import  com.github.zhenwei.pkix.operator.DigestCalculator;
 

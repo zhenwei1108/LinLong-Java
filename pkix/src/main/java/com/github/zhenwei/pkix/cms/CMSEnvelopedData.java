@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributeTable;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEncryptedContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEnvelopedData;
+import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EncryptedContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EnvelopedData;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.util.Encodable;
 

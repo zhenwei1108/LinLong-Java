@@ -2,9 +2,9 @@ package com.github.zhenwei.pkix.cms;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEncryptedContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEncryptedData;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EncryptedContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EncryptedData;
 import  com.github.zhenwei.pkix.operator.InputDecryptor;
 import  com.github.zhenwei.pkix.operator.InputDecryptorProvider;
 

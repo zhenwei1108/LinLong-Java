@@ -12,7 +12,7 @@ import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERNull;
-import com.github.zhenwei.pkix.util.asn1.cmsOtherRevocationInfoFormat;
+import com.github.zhenwei.pkix.util.asn1.cms.OtherRevocationInfoFormat;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.eac.EACObjectIdentifiers;
 import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;

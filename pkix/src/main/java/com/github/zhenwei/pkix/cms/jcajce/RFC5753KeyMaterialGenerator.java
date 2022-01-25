@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms.jcajce;
 
 import java.io.IOException;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.pkix.util.asn1.cmsecc.ECCCMSSharedInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.ecc.ECCCMSSharedInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.util.Pack;
 

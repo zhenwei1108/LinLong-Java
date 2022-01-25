@@ -1,27 +1,27 @@
 package com.github.zhenwei.pkix.tsp;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.DLSequence;
-import com.github.zhenwei.core.asn1.cmp.PKIFailureInfo;
-import com.github.zhenwei.core.asn1.cmp.PKIFreeText;
-import com.github.zhenwei.core.asn1.cmp.PKIStatus;
-import com.github.zhenwei.pkix.util.asn1.cmsAttribute;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
-importcom.github.zhenwei.pkix.util.asn1.tsp.TimeStampResp;
 import com.github.zhenwei.core.util.Arrays;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIFailureInfo;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIFreeText;
+import com.github.zhenwei.pkix.util.asn1.cmp.PKIStatus;
+import com.github.zhenwei.pkix.util.asn1.cms.Attribute;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.tsp.TimeStampResp;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Base class for an RFC 3161 Time Stamp Response object.
  */
 public class TimeStampResponse
 {
-    TimeStampResp   resp;
+    TimeStampResp resp;
     TimeStampToken  timeStampToken;
 
     public TimeStampResponse(TimeStampResp resp)

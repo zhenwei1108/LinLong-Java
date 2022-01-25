@@ -3,12 +3,12 @@ package com.github.zhenwei.pkix.dvcs;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import com.github.zhenwei.core.asn1.dvcs.CertEtcToken;
-import com.github.zhenwei.core.asn1.dvcs.DVCSRequestInformationBuilder;
-import com.github.zhenwei.core.asn1.dvcs.DVCSTime;
-import com.github.zhenwei.core.asn1.dvcs.Data;
-import com.github.zhenwei.core.asn1.dvcs.ServiceType;
-import com.github.zhenwei.core.asn1.dvcs.TargetEtcChain;
+import com.github.zhenwei.pkix.util.asn1.dvcs.CertEtcToken;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequestInformationBuilder;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSTime;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.ServiceType;
+import com.github.zhenwei.pkix.util.asn1.dvcs.TargetEtcChain;
 import com.github.zhenwei.core.asn1.x509.Extension;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 

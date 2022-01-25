@@ -8,11 +8,11 @@ import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.BEROctetString;
 import com.github.zhenwei.core.asn1.BERSet;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributeTable;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEncryptedContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsEncryptedData;
+import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EncryptedContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.EncryptedData;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import  com.github.zhenwei.pkix.operator.OutputEncryptor;
 

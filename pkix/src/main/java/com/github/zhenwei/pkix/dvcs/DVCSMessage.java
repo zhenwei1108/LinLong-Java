@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.dvcs;
 
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
 
 public abstract class DVCSMessage
 {

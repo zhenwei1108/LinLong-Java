@@ -7,7 +7,7 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.pkix.util.asn1.cmsOriginatorInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.OriginatorInfo;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.asn1.x509.CertificateList;
 import com.github.zhenwei.pkix.cert.X509CRLHolder;

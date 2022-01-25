@@ -30,7 +30,7 @@ import com.github.zhenwei.core.asn1.x500.DirectoryString;
  *               }
  * </pre>
  * 
- * @see com.github.zhenwei.core.asn1.isismtt.x509.AdmissionSyntax
+ * @see com.github.zhenwei.pkix.util.asn1.isismtt.x509.AdmissionSyntax
  */
 public class ProfessionInfo 
     extends ASN1Object

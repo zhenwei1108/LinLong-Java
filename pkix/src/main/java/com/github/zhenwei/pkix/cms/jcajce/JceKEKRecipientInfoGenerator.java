@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.cms.jcajce;
 import java.security.Provider;
 import java.security.SecureRandom;
 import javax.crypto.SecretKey;
-import com.github.zhenwei.pkix.util.asn1.cmsKEKIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.KEKIdentifier;
 import com.github.zhenwei.pkix.cms.KEKRecipientInfoGenerator;
 import  com.github.zhenwei.pkix.operator.jcajce.JceSymmetricKeyWrapper;
 

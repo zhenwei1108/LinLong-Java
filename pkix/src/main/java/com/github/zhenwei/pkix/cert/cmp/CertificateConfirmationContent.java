@@ -1,7 +1,7 @@
 package com.github.zhenwei.pkix.cert.cmp;
 
-import com.github.zhenwei.core.asn1.cmp.CertConfirmContent;
-import com.github.zhenwei.core.asn1.cmp.CertStatus;
+import com.github.zhenwei.pkix.util.asn1.cmp.CertConfirmContent;
+import com.github.zhenwei.pkix.util.asn1.cmp.CertStatus;
 import  com.github.zhenwei.pkix.operator.DefaultDigestAlgorithmIdentifierFinder;
 import  com.github.zhenwei.pkix.operator.DigestAlgorithmIdentifierFinder;
 

@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.zhenwei.pkix.util.asn1.cmsOriginatorInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.OriginatorInfo;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.core.util.Store;
 

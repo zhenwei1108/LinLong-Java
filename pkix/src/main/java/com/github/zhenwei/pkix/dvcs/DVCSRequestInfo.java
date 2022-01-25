@@ -2,8 +2,8 @@ package com.github.zhenwei.pkix.dvcs;
 
 import java.math.BigInteger;
 import java.util.Date;
-import com.github.zhenwei.core.asn1.dvcs.DVCSRequestInformation;
-import com.github.zhenwei.core.asn1.dvcs.DVCSTime;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequestInformation;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSTime;
 import com.github.zhenwei.core.asn1.x509.GeneralNames;
 import com.github.zhenwei.core.asn1.x509.PolicyInformation;
 import com.github.zhenwei.pkix.tsp.TimeStampToken;

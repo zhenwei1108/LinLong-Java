@@ -22,9 +22,9 @@ import com.github.zhenwei.core.asn1.x509.GeneralName;
  *            }
  * </pre>
  *
- * @see com.github.zhenwei.core.asn1.isismtt.x509.AdmissionSyntax
- * @see com.github.zhenwei.core.asn1.isismtt.x509.ProfessionInfo
- * @see com.github.zhenwei.core.asn1.isismtt.x509.NamingAuthority
+ * @see com.github.zhenwei.pkix.util.asn1.isismtt.x509.AdmissionSyntax
+ * @see com.github.zhenwei.pkix.util.asn1.isismtt.x509.ProfessionInfo
+ * @see com.github.zhenwei.pkix.util.asn1.isismtt.x509.NamingAuthority
  */
 public class Admissions 
     extends ASN1Object

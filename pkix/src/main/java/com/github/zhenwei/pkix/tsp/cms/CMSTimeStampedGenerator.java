@@ -6,8 +6,8 @@ import com.github.zhenwei.core.asn1.ASN1IA5String;
 import com.github.zhenwei.core.asn1.ASN1UTF8String;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERUTF8String;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributes;
-import com.github.zhenwei.pkix.util.asn1.cmsMetaData;
+import com.github.zhenwei.pkix.util.asn1.cms.Attributes;
+import com.github.zhenwei.pkix.util.asn1.cms.MetaData;
 import com.github.zhenwei.pkix.cms.CMSException;
 import  com.github.zhenwei.pkix.operator.DigestCalculator;
 

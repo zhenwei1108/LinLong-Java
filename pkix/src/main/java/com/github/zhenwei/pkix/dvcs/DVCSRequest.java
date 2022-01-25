@@ -3,10 +3,10 @@ package com.github.zhenwei.pkix.dvcs;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsSignedData;
-import com.github.zhenwei.core.asn1.dvcs.DVCSObjectIdentifiers;
-import com.github.zhenwei.core.asn1.dvcs.ServiceType;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.SignedData;
+import com.github.zhenwei.pkix.util.asn1.dvcs.DVCSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.dvcs.ServiceType;
 import com.github.zhenwei.core.asn1.x509.GeneralName;
 import com.github.zhenwei.pkix.cms.CMSSignedData;
 
@@ -18,7 +18,7 @@ import com.github.zhenwei.pkix.cms.CMSSignedData;
 public class DVCSRequest
     extends DVCSMessage
 {
-    private com.github.zhenwei.core.asn1.dvcs.DVCSRequest asn1;
+    private com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequest asn1;
     private DVCSRequestInfo reqInfo;
     private DVCSRequestData data;
 
@@ -54,11 +54,11 @@ public class DVCSRequest
         {
             if (contentInfo.getContent().toASN1Primitive() instanceof ASN1Sequence)
             {
-                this.asn1 = com.github.zhenwei.core.asn1.dvcs.DVCSRequest.getInstance(contentInfo.getContent());
+                this.asn1 = com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequest.getInstance(contentInfo.getContent());
             }
             else
             {
-                this.asn1 = com.github.zhenwei.core.asn1.dvcs.DVCSRequest.getInstance(ASN1OctetString.getInstance(contentInfo.getContent()).getOctets());
+                this.asn1 = com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequest.getInstance(ASN1OctetString.getInstance(contentInfo.getContent()).getOctets());
             }
         }
         catch (Exception e)
@@ -94,7 +94,7 @@ public class DVCSRequest
     /**
      * Return the ASN.1 DVCSRequest structure making up the body of this request.
      *
-     * @return an com.github.zhenwei.core.asn1.dvcs.DVCSRequest object.
+     * @return an com.github.zhenwei.pkix.util.asn1.dvcs.DVCSRequest object.
      */
     public ASN1Encodable getContent()
     {

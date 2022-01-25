@@ -7,11 +7,11 @@ import java.util.Map;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.pkix.util.asn1.cmsAttribute;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributeTable;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSAlgorithmProtection;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSAttributes;
-import com.github.zhenwei.pkix.util.asn1.cmsTime;
+import com.github.zhenwei.pkix.util.asn1.cms.Attribute;
+import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSAlgorithmProtection;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSAttributes;
+import com.github.zhenwei.pkix.util.asn1.cms.Time;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**

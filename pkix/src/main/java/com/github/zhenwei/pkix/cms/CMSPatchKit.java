@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 import java.io.IOException;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
-import com.github.zhenwei.pkix.util.asn1.cmsSignerInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.SignerInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**

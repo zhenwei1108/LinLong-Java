@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.dvcs;
 
-import com.github.zhenwei.core.asn1.dvcs.Data;
+import com.github.zhenwei.pkix.util.asn1.dvcs.Data;
 import com.github.zhenwei.pkix.cms.CMSException;
 import com.github.zhenwei.pkix.cms.CMSSignedData;
 

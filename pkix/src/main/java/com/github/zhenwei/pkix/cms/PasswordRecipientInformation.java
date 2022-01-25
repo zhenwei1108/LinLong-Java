@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.pkix.util.asn1.cmsPasswordRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.PasswordRecipientInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.util.Integers;
 

@@ -6,7 +6,7 @@ import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
-importcom.github.zhenwei.pkix.util.asn1.tsp.EvidenceRecord;
+import com.github.zhenwei.pkix.util.asn1.tsp.EvidenceRecord;
 
 /**
  * <a href="https://tools.ietf.org/html/rfc5544">RFC 5544</a>:

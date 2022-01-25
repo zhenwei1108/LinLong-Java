@@ -13,7 +13,7 @@ import javax.crypto.SecretKey;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
-import com.github.zhenwei.pkix.util.asn1.cmsGCMParameters;
+import com.github.zhenwei.pkix.util.asn1.cms.GCMParameters;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;

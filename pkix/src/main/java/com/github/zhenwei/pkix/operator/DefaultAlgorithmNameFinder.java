@@ -3,7 +3,7 @@ package com.github.zhenwei.pkix.operator;
 import java.util.HashMap;
 import java.util.Map;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.bsi.BSIObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.bsi.BSIObjectIdentifiers;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.pkix.util.asn1.eac.EACObjectIdentifiers;
 import com.github.zhenwei.core.asn1.gnu.GNUObjectIdentifiers;

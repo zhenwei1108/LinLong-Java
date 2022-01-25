@@ -11,7 +11,7 @@ import java.util.Set;
 import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.cryptopro.CryptoProObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.rosstandart.RosstandartObjectIdentifiers;

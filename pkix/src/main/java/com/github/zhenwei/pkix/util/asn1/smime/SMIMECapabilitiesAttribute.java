@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.util.asn1.smime;
 
 import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.pkix.util.asn1.cmsAttribute;
+import com.github.zhenwei.pkix.util.asn1.cms.Attribute;
 
 public class SMIMECapabilitiesAttribute
     extends Attribute

@@ -1,6 +1,6 @@
 package com.github.zhenwei.pkix.tsp.ers;
 
-importcom.github.zhenwei.pkix.util.asn1.tsp.PartialHashtree;
+import com.github.zhenwei.pkix.util.asn1.tsp.PartialHashtree;
 import  com.github.zhenwei.pkix.operator.DigestCalculator;
 
 /**

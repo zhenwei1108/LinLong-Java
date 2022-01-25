@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cert.selector;
 
 import java.math.BigInteger;
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.Extension;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;

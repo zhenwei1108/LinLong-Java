@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.BERSequenceGenerator;
-import com.github.zhenwei.pkix.util.asn1.cmsCMSObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.cms.CMSObjectIdentifiers;
 import  com.github.zhenwei.pkix.operator.OutputCompressor;
 
 /**

@@ -28,7 +28,7 @@ public class PKCS12SafeBagFactory
     {
         if (info.getContentType().equals(PKCSObjectIdentifiers.encryptedData))
         {
-            CMSEncryptedData encData = new CMSEncryptedData(com.github.zhenwei.pkix.util.asn1.cmsContentInfo.getInstance(info));
+            CMSEncryptedData encData = new CMSEncryptedData(com.github.zhenwei.pkix.util.asn1.cms.ContentInfo.getInstance(info));
 
             try
             {

@@ -4,7 +4,7 @@ import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributeTable;
+import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.cert.jcajce.JcaX509CertificateHolder;

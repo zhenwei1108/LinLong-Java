@@ -1,9 +1,9 @@
 package com.github.zhenwei.pkix.cms;
 
 import com.github.zhenwei.core.asn1.ASN1OctetString;
-import com.github.zhenwei.pkix.util.asn1.cmsIssuerAndSerialNumber;
-import com.github.zhenwei.pkix.util.asn1.cmsKeyTransRecipientInfo;
-import com.github.zhenwei.pkix.util.asn1.cmsRecipientIdentifier;
+import com.github.zhenwei.pkix.util.asn1.cms.IssuerAndSerialNumber;
+import com.github.zhenwei.pkix.util.asn1.cms.KeyTransRecipientInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.RecipientIdentifier;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**

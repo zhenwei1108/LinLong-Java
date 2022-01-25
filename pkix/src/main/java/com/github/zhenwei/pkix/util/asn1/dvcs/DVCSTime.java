@@ -6,7 +6,7 @@ import com.github.zhenwei.core.asn1.ASN1GeneralizedTime;
 import com.github.zhenwei.core.asn1.ASN1Object;
 import com.github.zhenwei.core.asn1.ASN1Primitive;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
-import com.github.zhenwei.pkix.util.asn1.cmsContentInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.ContentInfo;
 
 /**
  * <pre>

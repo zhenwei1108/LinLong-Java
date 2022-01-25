@@ -12,7 +12,7 @@ import com.github.zhenwei.core.asn1.ASN1String;
 import com.github.zhenwei.core.asn1.ASN1TaggedObject;
 import com.github.zhenwei.core.asn1.DERIA5String;
 import com.github.zhenwei.core.asn1.DERSequence;
-import com.github.zhenwei.core.asn1.isismtt.ISISMTTObjectIdentifiers;
+import com.github.zhenwei.pkix.util.asn1.isismtt.ISISMTTObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x500.DirectoryString;
 
 /**
@@ -27,7 +27,7 @@ import com.github.zhenwei.core.asn1.x500.DirectoryString;
  *               namingAuthorityText DirectoryString(SIZE(1..128)) OPTIONAL
  *             }
  * </pre>
- * @see com.github.zhenwei.core.asn1.isismtt.x509.AdmissionSyntax
+ * @see com.github.zhenwei.pkix.util.asn1.isismtt.x509.AdmissionSyntax
  * 
  */
 public class NamingAuthority

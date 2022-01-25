@@ -2,7 +2,7 @@ package com.github.zhenwei.pkix.cms;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.zhenwei.pkix.util.asn1.cmsOriginatorInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.OriginatorInfo;
 
 /**
  * General class for generating a CMS enveloped-data message.

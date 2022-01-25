@@ -11,10 +11,10 @@ import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.ASN1SetParser;
 import com.github.zhenwei.core.asn1.BERTags;
 import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.pkix.util.asn1.cmsAttributeTable;
-import com.github.zhenwei.pkix.util.asn1.cmsEncryptedContentInfoParser;
-import com.github.zhenwei.pkix.util.asn1.cmsEnvelopedDataParser;
-import com.github.zhenwei.pkix.util.asn1.cmsOriginatorInfo;
+import com.github.zhenwei.pkix.util.asn1.cms.AttributeTable;
+import com.github.zhenwei.pkix.util.asn1.cms.EncryptedContentInfoParser;
+import com.github.zhenwei.pkix.util.asn1.cms.EnvelopedDataParser;
+import com.github.zhenwei.pkix.util.asn1.cms.OriginatorInfo;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 
 /**
