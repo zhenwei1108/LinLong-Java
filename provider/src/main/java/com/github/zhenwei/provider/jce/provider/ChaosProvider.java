@@ -61,8 +61,6 @@ public final class ChaosProvider extends Provider
    */
   public static final String PROVIDER_NAME = "CHAOS";
 
-  public static final Provider provider = new ChaosProvider();
-
   public static final ProviderConfiguration CONFIGURATION = new BouncyCastleProviderConfiguration();
 
   private static final Map keyInfoConverters = new HashMap();
@@ -176,7 +174,6 @@ public final class ChaosProvider extends Provider
 
     loadPQCKeys();  // so we can handle certificates containing them.
 
-    addProvider(); //add Provider default
     //
     // X509Store
     //
@@ -269,11 +266,6 @@ public final class ChaosProvider extends Provider
     }
   }
 
-  private static void addProvider(){
-//    if (Security.getProvider(PROVIDER_NAME) == null) {
-//      Security.addProvider(provider);
-//    }
-  }
 
   private void loadPQCKeys() {
     addKeyInfoConverter(PQCObjectIdentifiers.sphincs256, new Sphincs256KeyFactorySpi());
@@ -366,9 +358,6 @@ public final class ChaosProvider extends Provider
     }
 
     return converter.generatePrivate(privateKeyInfo);
-  }
-  static {
-    addProvider(); //add Provider default
   }
 
 }

@@ -16,7 +16,7 @@ public class KeyPairButilder {
 
 
   public void build(KeyAlgEnum keyAlgEnum)
-      throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException {
+      throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException {
     //SM2 算法曲线
     String name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
     ECGenParameterSpec sm2Spec = new ECGenParameterSpec(name);
@@ -27,10 +27,5 @@ public class KeyPairButilder {
     System.out.println(keyPair);
 
   }
-
-  public static void main(String[] args) throws Exception {
-    new KeyPairButilder().build(KeyAlgEnum.SM2_256);
-  }
-
 
 }
