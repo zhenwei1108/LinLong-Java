@@ -299,7 +299,7 @@ public class AttributeCertificateHolder
       if (holder.getObjectDigestInfo() != null) {
         MessageDigest md = null;
         try {
-          md = MessageDigest.getInstance(getDigestAlgorithm(), "LL");
+          md = MessageDigest.getInstance(getDigestAlgorithm(), "CHAOS");
 
         } catch (Exception e) {
           return false;

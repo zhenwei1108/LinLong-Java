@@ -15,7 +15,7 @@ import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import com.github.zhenwei.provider.jcajce.spec.OpenSSHPrivateKeySpec;
 import com.github.zhenwei.provider.jcajce.spec.OpenSSHPublicKeySpec;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec;
 import com.github.zhenwei.provider.jce.spec.ECPublicKeySpec;
@@ -65,7 +65,7 @@ public class KeyFactorySpi
       if (k.getParams() != null) {
         return new java.security.spec.ECPublicKeySpec(k.getW(), k.getParams());
       } else {
-        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new java.security.spec.ECPublicKeySpec(k.getW(), EC5Util.convertSpec(
             EC5Util.convertCurve(implicitSpec.getCurve(), implicitSpec.getSeed()), implicitSpec));
@@ -77,7 +77,7 @@ public class KeyFactorySpi
       if (k.getParams() != null) {
         return new java.security.spec.ECPrivateKeySpec(k.getS(), k.getParams());
       } else {
-        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new java.security.spec.ECPrivateKeySpec(k.getS(), EC5Util.convertSpec(
             EC5Util.convertCurve(implicitSpec.getCurve(), implicitSpec.getSeed()), implicitSpec));
@@ -89,7 +89,7 @@ public class KeyFactorySpi
         return new com.github.zhenwei.provider.jce.spec.ECPublicKeySpec(
             EC5Util.convertPoint(k.getParams(), k.getW()), EC5Util.convertSpec(k.getParams()));
       } else {
-        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new com.github.zhenwei.provider.jce.spec.ECPublicKeySpec(
             EC5Util.convertPoint(k.getParams(), k.getW()), implicitSpec);
@@ -102,7 +102,7 @@ public class KeyFactorySpi
         return new com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec(k.getS(),
             EC5Util.convertSpec(k.getParams()));
       } else {
-        ECParameterSpec implicitSpec = LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
+        ECParameterSpec implicitSpec = ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
 
         return new com.github.zhenwei.provider.jce.spec.ECPrivateKeySpec(k.getS(), implicitSpec);
       }
@@ -223,7 +223,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public EC() {
-      super("EC", LinLongProvider.CONFIGURATION);
+      super("EC", ChaosProvider.CONFIGURATION);
     }
   }
 
@@ -231,7 +231,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public ECDSA() {
-      super("ECDSA", LinLongProvider.CONFIGURATION);
+      super("ECDSA", ChaosProvider.CONFIGURATION);
     }
   }
 
@@ -239,7 +239,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public ECGOST3410() {
-      super("ECGOST3410", LinLongProvider.CONFIGURATION);
+      super("ECGOST3410", ChaosProvider.CONFIGURATION);
     }
   }
 
@@ -247,7 +247,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public ECGOST3410_2012() {
-      super("ECGOST3410-2012", LinLongProvider.CONFIGURATION);
+      super("ECGOST3410-2012", ChaosProvider.CONFIGURATION);
     }
   }
 
@@ -255,7 +255,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public ECDH() {
-      super("ECDH", LinLongProvider.CONFIGURATION);
+      super("ECDH", ChaosProvider.CONFIGURATION);
     }
   }
 
@@ -263,7 +263,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public ECDHC() {
-      super("ECDHC", LinLongProvider.CONFIGURATION);
+      super("ECDHC", ChaosProvider.CONFIGURATION);
     }
   }
 
@@ -271,7 +271,7 @@ public class KeyFactorySpi
       extends KeyFactorySpi {
 
     public ECMQV() {
-      super("ECMQV", LinLongProvider.CONFIGURATION);
+      super("ECMQV", ChaosProvider.CONFIGURATION);
     }
   }
 }

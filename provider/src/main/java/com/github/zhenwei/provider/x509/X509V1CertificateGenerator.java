@@ -165,7 +165,7 @@ public class X509V1CertificateGenerator {
       PrivateKey key)
       throws SecurityException, SignatureException, InvalidKeyException {
     try {
-      return generateX509Certificate(key, "LL", null);
+      return generateX509Certificate(key, "CHAOS", null);
     } catch (NoSuchProviderException e) {
       throw new SecurityException("BC provider not installed!");
     }
@@ -182,7 +182,7 @@ public class X509V1CertificateGenerator {
       SecureRandom random)
       throws SecurityException, SignatureException, InvalidKeyException {
     try {
-      return generateX509Certificate(key, "LL", random);
+      return generateX509Certificate(key, "CHAOS", random);
     } catch (NoSuchProviderException e) {
       throw new SecurityException("BC provider not installed!");
     }

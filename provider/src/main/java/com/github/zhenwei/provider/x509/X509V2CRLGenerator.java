@@ -222,7 +222,7 @@ public class X509V2CRLGenerator {
       PrivateKey key)
       throws SecurityException, SignatureException, InvalidKeyException {
     try {
-      return generateX509CRL(key, "LL", null);
+      return generateX509CRL(key, "CHAOS", null);
     } catch (NoSuchProviderException e) {
       throw new SecurityException("BC provider not installed!");
     }
@@ -239,7 +239,7 @@ public class X509V2CRLGenerator {
       SecureRandom random)
       throws SecurityException, SignatureException, InvalidKeyException {
     try {
-      return generateX509CRL(key, "LL", random);
+      return generateX509CRL(key, "CHAOS", random);
     } catch (NoSuchProviderException e) {
       throw new SecurityException("BC provider not installed!");
     }

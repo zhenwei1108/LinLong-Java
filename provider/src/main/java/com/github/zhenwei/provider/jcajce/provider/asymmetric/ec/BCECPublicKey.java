@@ -19,7 +19,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.KeyUtil;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
 import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -295,7 +295,7 @@ public class BCECPublicKey
 
     byte[] enc = (byte[]) in.readObject();
 
-    this.configuration = LinLongProvider.CONFIGURATION;
+    this.configuration = ChaosProvider.CONFIGURATION;
 
     populateFromPubKeyInfo(SubjectPublicKeyInfo.getInstance(ASN1Primitive.fromByteArray(enc)));
   }

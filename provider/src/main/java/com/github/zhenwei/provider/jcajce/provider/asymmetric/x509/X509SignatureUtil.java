@@ -14,7 +14,7 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.provider.jcajce.util.MessageDigestUtils;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -112,7 +112,7 @@ class X509SignatureUtil {
   }
 
   private static String findAlgName(ASN1ObjectIdentifier algOid) {
-    Provider prov = Security.getProvider(LinLongProvider.PROVIDER_NAME);
+    Provider prov = Security.getProvider(ChaosProvider.PROVIDER_NAME);
 
     if (prov != null) {
       String algName = lookupAlg(prov, algOid);

@@ -29,7 +29,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttributeCarrierImpl;
 import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
 import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import java.io.IOException;
@@ -304,11 +304,11 @@ public class BCDSTU4145PrivateKey
         curveOid = new ASN1ObjectIdentifier(((ECNamedCurveSpec) ecSpec).getName());
       }
       params = new X962Parameters(curveOid);
-      orderBitLength = ECUtil.getOrderBitLength(LinLongProvider.CONFIGURATION,
+      orderBitLength = ECUtil.getOrderBitLength(ChaosProvider.CONFIGURATION,
           ecSpec.getOrder(), this.getS());
     } else if (ecSpec == null) {
       params = new X962Parameters(DERNull.INSTANCE);
-      orderBitLength = ECUtil.getOrderBitLength(LinLongProvider.CONFIGURATION, null,
+      orderBitLength = ECUtil.getOrderBitLength(ChaosProvider.CONFIGURATION, null,
           this.getS());
     } else {
       ECCurve curve = EC5Util.convertCurve(ecSpec.getCurve());
@@ -321,7 +321,7 @@ public class BCDSTU4145PrivateKey
           ecSpec.getCurve().getSeed());
 
       params = new X962Parameters(ecP);
-      orderBitLength = ECUtil.getOrderBitLength(LinLongProvider.CONFIGURATION,
+      orderBitLength = ECUtil.getOrderBitLength(ChaosProvider.CONFIGURATION,
           ecSpec.getOrder(), this.getS());
     }
 
@@ -371,7 +371,7 @@ public class BCDSTU4145PrivateKey
       return EC5Util.convertSpec(ecSpec);
     }
 
-    return LinLongProvider.CONFIGURATION.getEcImplicitlyCa();
+    return ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
   }
 
   public BigInteger getS() {

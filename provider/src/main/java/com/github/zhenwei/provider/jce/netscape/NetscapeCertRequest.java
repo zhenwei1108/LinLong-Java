@@ -106,7 +106,7 @@ public class NetscapeCertRequest
           pubkeyinfo).getBytes());
 
       keyAlg = pubkeyinfo.getAlgorithm();
-      pubkey = KeyFactory.getInstance(keyAlg.getAlgorithm().getId(), "LL")
+      pubkey = KeyFactory.getInstance(keyAlg.getAlgorithm().getId(), "CHAOS")
           .generatePublic(xspec);
 
     } catch (Exception e) {
@@ -179,7 +179,7 @@ public class NetscapeCertRequest
     // by someone who knew the associated private key
     //
     Signature sig = Signature.getInstance(sigAlg.getAlgorithm().getId(),
-        "LL");
+        "CHAOS");
     sig.initVerify(pubkey);
     sig.update(content.getBytes());
 
@@ -197,7 +197,7 @@ public class NetscapeCertRequest
       SignatureException, NoSuchProviderException,
       InvalidKeySpecException {
     Signature sig = Signature.getInstance(sigAlg.getAlgorithm().getId(),
-        "LL");
+        "CHAOS");
 
     if (rand != null) {
       sig.initSign(priv_key, rand);

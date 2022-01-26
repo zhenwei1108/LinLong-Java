@@ -115,7 +115,7 @@ public class BrokenJCEBlockCipher
         }
 
         try {
-          engineParams = AlgorithmParameters.getInstance(name, LinLongProvider.PROVIDER_NAME);
+          engineParams = AlgorithmParameters.getInstance(name, ChaosProvider.PROVIDER_NAME);
           engineParams.init(ivParam.getIV());
         } catch (Exception e) {
           throw new RuntimeException(e.toString());
@@ -413,7 +413,7 @@ public class BrokenJCEBlockCipher
     } else {
       try {
         KeyFactory kf = KeyFactory.getInstance(wrappedKeyAlgorithm,
-            LinLongProvider.PROVIDER_NAME);
+            ChaosProvider.PROVIDER_NAME);
 
         if (wrappedKeyType == Cipher.PUBLIC_KEY) {
           return kf.generatePublic(new X509EncodedKeySpec(encoded));

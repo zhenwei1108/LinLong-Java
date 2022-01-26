@@ -13,7 +13,7 @@ import com.github.zhenwei.core.crypto.params.DSAPublicKeyParameters;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.core.util.Properties;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidParameterException;
 import java.security.KeyPair;
@@ -47,7 +47,7 @@ public class KeyPairGeneratorSpi
           "strength must be from 512 - 4096 and a multiple of 1024 above 1024");
     }
 
-    DSAParameterSpec spec = LinLongProvider.CONFIGURATION.getDSADefaultParameters(strength);
+    DSAParameterSpec spec = ChaosProvider.CONFIGURATION.getDSADefaultParameters(strength);
 
     if (spec != null) {
       param = new DSAKeyGenerationParameters(random,

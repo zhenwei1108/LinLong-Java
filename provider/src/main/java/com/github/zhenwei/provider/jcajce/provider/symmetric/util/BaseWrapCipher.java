@@ -13,7 +13,7 @@ import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.provider.jcajce.spec.GOST28147WrapParameterSpec;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import java.io.ByteArrayOutputStream;
 import java.security.AlgorithmParameters;
 import java.security.InvalidAlgorithmParameterException;
@@ -409,7 +409,7 @@ public abstract class BaseWrapCipher
       try {
         PrivateKeyInfo in = PrivateKeyInfo.getInstance(encoded);
 
-        PrivateKey privKey = LinLongProvider.getPrivateKey(in);
+        PrivateKey privKey = ChaosProvider.getPrivateKey(in);
 
         if (privKey != null) {
           return privKey;

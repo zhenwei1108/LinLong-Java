@@ -190,7 +190,7 @@ public class X509CertificateObject
    * return a more "meaningful" representation for the signature algorithm used in the certficate.
    */
   public String getSigAlgName() {
-    Provider prov = Security.getProvider(LinLongProvider.PROVIDER_NAME);
+    Provider prov = Security.getProvider(ChaosProvider.PROVIDER_NAME);
 
     if (prov != null) {
       String algName = prov.getProperty("Alg.Alias.Signature." + this.getSigAlgOID());
@@ -443,7 +443,7 @@ public class X509CertificateObject
 
   public PublicKey getPublicKey() {
     try {
-      return LinLongProvider.getPublicKey(c.getSubjectPublicKeyInfo());
+      return ChaosProvider.getPublicKey(c.getSubjectPublicKeyInfo());
     } catch (IOException e) {
       return null;   // should never happen...
     }
@@ -597,7 +597,7 @@ public class X509CertificateObject
     String sigName = X509SignatureUtil.getSignatureName(c.getSignatureAlgorithm());
 
     try {
-      signature = Signature.getInstance(sigName, LinLongProvider.PROVIDER_NAME);
+      signature = Signature.getInstance(sigName, ChaosProvider.PROVIDER_NAME);
     } catch (Exception e) {
       signature = Signature.getInstance(sigName);
     }

@@ -17,7 +17,7 @@ import com.github.zhenwei.core.math.field.PolynomialExtensionField;
 import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
 import com.github.zhenwei.provider.jce.ECGOST3410NamedCurveTable;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import java.math.BigInteger;
@@ -129,7 +129,7 @@ public class EC5Util {
       ASN1ObjectIdentifier oid = (ASN1ObjectIdentifier) params.getParameters();
       X9ECParameters ecP = ECUtil.getNamedCurveByOid(oid);
       if (ecP == null) {
-        Map additionalECParameters = LinLongProvider.CONFIGURATION.getAdditionalECParameters();
+        Map additionalECParameters = ChaosProvider.CONFIGURATION.getAdditionalECParameters();
         if (!additionalECParameters.isEmpty()) {
           ecP = (X9ECParameters) additionalECParameters.get(oid);
         }

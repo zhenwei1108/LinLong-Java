@@ -2,7 +2,7 @@ package com.github.zhenwei.provider.jcajce.provider.asymmetric.x509;
 
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
-import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+import com.github.zhenwei.provider.jce.provider.ChaosProvider;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.KeyFactorySpi;
@@ -23,7 +23,7 @@ public class KeyFactory
       try {
         PrivateKeyInfo info = PrivateKeyInfo.getInstance(
             ((PKCS8EncodedKeySpec) keySpec).getEncoded());
-        PrivateKey key = LinLongProvider.getPrivateKey(info);
+        PrivateKey key = ChaosProvider.getPrivateKey(info);
 
         if (key != null) {
           return key;
@@ -46,7 +46,7 @@ public class KeyFactory
       try {
         SubjectPublicKeyInfo info = SubjectPublicKeyInfo.getInstance(
             ((X509EncodedKeySpec) keySpec).getEncoded());
-        PublicKey key = LinLongProvider.getPublicKey(info);
+        PublicKey key = ChaosProvider.getPublicKey(info);
 
         if (key != null) {
           return key;

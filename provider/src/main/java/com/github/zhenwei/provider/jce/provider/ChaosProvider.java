@@ -34,9 +34,9 @@ import java.util.Map;
  * To add the provider at runtime use:
  * <pre>
  * import java.security.Security;
- * import com.github.zhenwei.provider.jce.provider.LinLongProvider;
+ * import com.github.zhenwei.provider.jce.provider.ChaosProvider;
  *
- * Security.addProvider(new LinLongProvider());
+ * Security.addProvider(new ChaosProvider());
  * </pre>
  * The provider can also be configured as part of your environment via static registration by adding
  * an entry to the java.security properties file (found in $JAVA_HOME/jre/lib/security/java.security,
@@ -44,30 +44,30 @@ import java.util.Map;
  * in the file but basically it comes down to adding a line:
  * <pre>
  * <code>
- *    security.provider.&lt;n&gt;=com.github.zhenwei.provider.jce.provider.LinLongProvider
+ *    security.provider.&lt;n&gt;=com.github.zhenwei.provider.jce.provider.ChaosProvider
  * </code>
  * </pre>
  * Where &lt;n&gt; is the preference you want the provider at (1 being the most preferred).
  * <p>Note: JCE algorithm names should be upper-case only so the case insensitive
  * test for getInstance works.
  */
-public final class LinLongProvider extends Provider
+public final class ChaosProvider extends Provider
     implements ConfigurableProvider {
 
-  private static String info = "LinLong Security Provider v1.0 from bc-v1.70";
+  private static String info = "Chaos Security Provider v1.0 from bc-v1.70";
 
   /**
-   * LinLongProvider
+   * ChaosProvider
    */
-  public static final String PROVIDER_NAME = "LL";
+  public static final String PROVIDER_NAME = "CHAOS";
 
-  public static final Provider provider = new LinLongProvider();
+  public static final Provider provider = new ChaosProvider();
 
   public static final ProviderConfiguration CONFIGURATION = new BouncyCastleProviderConfiguration();
 
   private static final Map keyInfoConverters = new HashMap();
 
-  private static final Class revChkClass = ClassUtil.loadClass(LinLongProvider.class,
+  private static final Class revChkClass = ClassUtil.loadClass(ChaosProvider.class,
       "java.security.cert.PKIXRevocationChecker");
 
   /*
@@ -131,7 +131,7 @@ public final class LinLongProvider extends Provider
   private static final String KEYSTORE_PACKAGE = "com.github.zhenwei.provider.jcajce.provider.keystore.";
   private static final String[] KEYSTORES =
       {
-          "BC", "BCFKS", "PKCS12", "LL"
+          "BC", "BCFKS", "PKCS12", "CHAOS"
       };
 
   /*
@@ -148,7 +148,7 @@ public final class LinLongProvider extends Provider
    * provider using the
    * <code>Security.addProvider()</code> mechanism.
    */
-  public LinLongProvider() {
+  public ChaosProvider() {
     super(PROVIDER_NAME, 1.0, info);
 
     AccessController.doPrivileged((PrivilegedAction) () -> {
@@ -255,7 +255,7 @@ public final class LinLongProvider extends Provider
 
   private void loadAlgorithms(String packageName, String[] names) {
     for (int i = 0; i != names.length; i++) {
-      Class clazz = ClassUtil.loadClass(LinLongProvider.class,
+      Class clazz = ClassUtil.loadClass(ChaosProvider.class,
           packageName + names[i] + "$Mappings");
 
       if (clazz != null) {

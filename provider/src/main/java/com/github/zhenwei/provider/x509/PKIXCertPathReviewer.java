@@ -1848,7 +1848,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
 
       if (workingPublicKey != null) {
         try {
-          crl.verify(workingPublicKey, "LL");
+          crl.verify(workingPublicKey, "CHAOS");
         } catch (Exception e) {
           ErrorBundle msg = new ErrorBundle(RESOURCE_NAME, "CertPathReviewer.crlVerifyFailed");
           throw new CertPathReviewerException(msg, e);
@@ -2065,7 +2065,7 @@ public class PKIXCertPathReviewer extends CertPathValidatorUtilities {
         conn.setDoInput(true);
         conn.connect();
         if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
-          CertificateFactory cf = CertificateFactory.getInstance("X.509", "LL");
+          CertificateFactory cf = CertificateFactory.getInstance("X.509", "CHAOS");
           result = (X509CRL) cf.generateCRL(conn.getInputStream());
         } else {
           throw new Exception(conn.getResponseMessage());
