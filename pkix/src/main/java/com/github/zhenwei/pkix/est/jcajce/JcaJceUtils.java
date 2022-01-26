@@ -77,9 +77,9 @@ public class JcaJceUtils {
           throws CertificateException {
         try {
           CertStore certStore = CertStore.getInstance("Collection",
-              new CollectionCertStoreParameters(Arrays.asList(x509Certificates)), "BC");
+              new CollectionCertStoreParameters(Arrays.asList(x509Certificates)), "LL");
 
-          CertPathBuilder pathBuilder = CertPathBuilder.getInstance("PKIX", "BC");
+          CertPathBuilder pathBuilder = CertPathBuilder.getInstance("PKIX", "LL");
 
           X509CertSelector constraints = new X509CertSelector();
 

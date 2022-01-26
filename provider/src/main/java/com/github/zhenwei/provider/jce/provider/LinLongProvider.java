@@ -26,6 +26,7 @@ import java.security.PrivateKey;
 import java.security.PrivilegedAction;
 import java.security.Provider;
 import java.security.PublicKey;
+import java.security.Security;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -56,7 +57,10 @@ public final class LinLongProvider extends Provider
 
   private static String info = "LinLong Security Provider v1.0 from bc-v1.70";
 
-  public static final String PROVIDER_NAME = "LinLong";
+  /**
+   * LinLongProvider
+   */
+  public static final String PROVIDER_NAME = "LL";
 
   public static final ProviderConfiguration CONFIGURATION = new BouncyCastleProviderConfiguration();
 
@@ -126,7 +130,7 @@ public final class LinLongProvider extends Provider
   private static final String KEYSTORE_PACKAGE = "com.github.zhenwei.provider.jcajce.provider.keystore.";
   private static final String[] KEYSTORES =
       {
-          "BC", "BCFKS", "PKCS12"
+          "BC", "BCFKS", "PKCS12", "LL"
       };
 
   /*
@@ -171,6 +175,7 @@ public final class LinLongProvider extends Provider
 
     loadPQCKeys();  // so we can handle certificates containing them.
 
+    addProvider(); //add Provider default
     //
     // X509Store
     //
@@ -260,6 +265,12 @@ public final class LinLongProvider extends Provider
               + packageName + names[i] + "$Mappings : " + e);
         }
       }
+    }
+  }
+
+  private void addProvider(){
+    if (Security.getProvider(PROVIDER_NAME) == null) {
+      Security.addProvider(this);
     }
   }
 
