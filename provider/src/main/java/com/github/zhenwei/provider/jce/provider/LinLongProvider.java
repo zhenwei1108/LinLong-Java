@@ -26,7 +26,6 @@ import java.security.PrivateKey;
 import java.security.PrivilegedAction;
 import java.security.Provider;
 import java.security.PublicKey;
-import java.security.Security;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -61,6 +60,8 @@ public final class LinLongProvider extends Provider
    * LinLongProvider
    */
   public static final String PROVIDER_NAME = "LL";
+
+  public static final Provider provider = new LinLongProvider();
 
   public static final ProviderConfiguration CONFIGURATION = new BouncyCastleProviderConfiguration();
 
@@ -268,10 +269,10 @@ public final class LinLongProvider extends Provider
     }
   }
 
-  private void addProvider(){
-    if (Security.getProvider(PROVIDER_NAME) == null) {
-      Security.addProvider(this);
-    }
+  private static void addProvider(){
+//    if (Security.getProvider(PROVIDER_NAME) == null) {
+//      Security.addProvider(provider);
+//    }
   }
 
   private void loadPQCKeys() {
@@ -366,4 +367,8 @@ public final class LinLongProvider extends Provider
 
     return converter.generatePrivate(privateKeyInfo);
   }
+  static {
+    addProvider(); //add Provider default
+  }
+
 }
