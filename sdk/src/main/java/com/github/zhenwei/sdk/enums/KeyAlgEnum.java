@@ -6,7 +6,7 @@ package com.github.zhenwei.sdk.enums;
  * @date: 2022/1/25 22:57
  */
 public enum KeyAlgEnum {
-  SM2_256("SM2",256),
+  SM2_256("EC",256),
   RSA_1024("RSA",1024),
   RSA_2048("RSA",2048),
 

@@ -22,15 +22,20 @@ public class KeyPairBuilder {
 
   public void build(KeyAlgEnum keyAlgEnum)
       throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException {
-    //SM2 算法曲线
-    String name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
-    ECGenParameterSpec sm2Spec = new ECGenParameterSpec(name);
 
-    KeyPairGenerator generator = KeyPairGenerator.getInstance("EC", provider);
-    generator.initialize(sm2Spec,new SecureRandom());
+    KeyPairGenerator generator = KeyPairGenerator.getInstance(keyAlgEnum.getAlg(), provider);
+    if (keyAlgEnum == KeyAlgEnum.SM2_256) {
+      //SM2 算法曲线
+      String name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
+      ECGenParameterSpec sm2Spec = new ECGenParameterSpec(name);
+      generator.initialize(sm2Spec, new SecureRandom());
+    } else {
+      generator.initialize(keyAlgEnum.getKeyLen());
+    }
     KeyPair keyPair = generator.generateKeyPair();
     System.out.println(keyPair);
 
   }
+
 
 }
