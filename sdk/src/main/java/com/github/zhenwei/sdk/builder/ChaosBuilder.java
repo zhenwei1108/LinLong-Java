@@ -7,7 +7,7 @@ import java.security.Security;
 public class ChaosBuilder {
 
 
-  private final Provider provider = new ChaosProvider();
+  private static final Provider provider = new ChaosProvider();
 
 
 
@@ -26,7 +26,7 @@ public class ChaosBuilder {
     }
   }
 
-  public Provider getProvider() {
+  public static Provider getProvider() {
     return provider;
   }
 

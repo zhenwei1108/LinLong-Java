@@ -12,10 +12,11 @@ import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.security.spec.ECGenParameterSpec;
 
-public class KeyPairButilder {
+public class KeyPairBuilder {
 
 
-  public void build(KeyAlgEnum keyAlgEnum)
+
+  public static void build(KeyAlgEnum keyAlgEnum)
       throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchProviderException {
     //SM2 算法曲线
     String name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
