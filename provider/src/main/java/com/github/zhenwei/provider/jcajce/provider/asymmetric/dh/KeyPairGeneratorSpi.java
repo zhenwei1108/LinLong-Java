@@ -11,7 +11,7 @@ import com.github.zhenwei.core.crypto.params.DHPublicKeyParameters;
 import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PrimeCertaintyCalculator;
 import com.github.zhenwei.provider.jcajce.spec.DHDomainParameterSpec;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
@@ -78,7 +78,7 @@ public class KeyPairGeneratorSpi
       if (params.containsKey(paramStrength)) {
         param = (DHKeyGenerationParameters) params.get(paramStrength);
       } else {
-        DHParameterSpec dhParams = ChaosProvider.CONFIGURATION.getDHDefaultParameters(
+        DHParameterSpec dhParams = WeGooProvider.CONFIGURATION.getDHDefaultParameters(
             strength);
 
         if (dhParams != null) {

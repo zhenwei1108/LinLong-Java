@@ -322,7 +322,7 @@ class RFC3281CertPathUtilities {
       throws CertPathValidatorException {
     CertPathValidator validator = null;
     try {
-      validator = CertPathValidator.getInstance("PKIX", ChaosProvider.PROVIDER_NAME);
+      validator = CertPathValidator.getInstance("PKIX", WeGooProvider.PROVIDER_NAME);
     } catch (NoSuchProviderException e) {
       throw new ExtCertPathValidatorException(
           "Support class could not be created.", e);
@@ -427,7 +427,7 @@ class RFC3281CertPathUtilities {
       paramsBldr.setTargetConstraints(new PKIXCertStoreSelector.Builder(selector).build());
       CertPathBuilder builder = null;
       try {
-        builder = CertPathBuilder.getInstance("PKIX", ChaosProvider.PROVIDER_NAME);
+        builder = CertPathBuilder.getInstance("PKIX", WeGooProvider.PROVIDER_NAME);
       } catch (NoSuchProviderException e) {
         throw new ExtCertPathValidatorException(
             "Support class could not be created.", e);

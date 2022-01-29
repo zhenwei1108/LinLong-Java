@@ -14,7 +14,7 @@ import com.github.zhenwei.core.util.Integers;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveGenParameterSpec;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
@@ -63,7 +63,7 @@ public abstract class KeyPairGeneratorSpi
     public EC() {
       super("EC");
       this.algorithm = "EC";
-      this.configuration = ChaosProvider.CONFIGURATION;
+      this.configuration = WeGooProvider.CONFIGURATION;
     }
 
     public EC(
@@ -208,7 +208,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECDSA() {
-      super("ECDSA", ChaosProvider.CONFIGURATION);
+      super("ECDSA", WeGooProvider.CONFIGURATION);
     }
   }
 
@@ -216,7 +216,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECDH() {
-      super("ECDH", ChaosProvider.CONFIGURATION);
+      super("ECDH", WeGooProvider.CONFIGURATION);
     }
   }
 
@@ -224,7 +224,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECDHC() {
-      super("ECDHC", ChaosProvider.CONFIGURATION);
+      super("ECDHC", WeGooProvider.CONFIGURATION);
     }
   }
 
@@ -232,7 +232,7 @@ public abstract class KeyPairGeneratorSpi
       extends EC {
 
     public ECMQV() {
-      super("ECMQV", ChaosProvider.CONFIGURATION);
+      super("ECMQV", WeGooProvider.CONFIGURATION);
     }
   }
 }

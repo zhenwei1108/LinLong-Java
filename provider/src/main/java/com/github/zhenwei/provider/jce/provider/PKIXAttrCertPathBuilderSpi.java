@@ -188,8 +188,8 @@ public class PKIXAttrCertPathBuilderSpi
     CertPathBuilderResult builderResult = null;
 
     try {
-      cFact = CertificateFactory.getInstance("X.509", ChaosProvider.PROVIDER_NAME);
-      validator = CertPathValidator.getInstance("RFC3281", ChaosProvider.PROVIDER_NAME);
+      cFact = CertificateFactory.getInstance("X.509", WeGooProvider.PROVIDER_NAME);
+      validator = CertPathValidator.getInstance("RFC3281", WeGooProvider.PROVIDER_NAME);
     } catch (Exception e) {
       // cannot happen
       throw new RuntimeException(

@@ -20,7 +20,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.PKCS12BagAttr
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
 import com.github.zhenwei.provider.jce.interfaces.ECPointEncoder;
 import com.github.zhenwei.provider.jce.interfaces.PKCS12BagAttributeCarrier;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -337,7 +337,7 @@ public class BCECPrivateKey
 
     byte[] enc = (byte[]) in.readObject();
 
-    this.configuration = ChaosProvider.CONFIGURATION;
+    this.configuration = WeGooProvider.CONFIGURATION;
 
     populateFromPrivKeyInfo(PrivateKeyInfo.getInstance(ASN1Primitive.fromByteArray(enc)));
 

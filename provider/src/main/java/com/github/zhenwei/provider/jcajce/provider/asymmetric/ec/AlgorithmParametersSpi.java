@@ -10,7 +10,7 @@ import com.github.zhenwei.core.math.ec.ECCurve;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.EC5Util;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jcajce.provider.config.ProviderConfiguration;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.provider.jce.spec.ECNamedCurveSpec;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -34,7 +34,7 @@ public class AlgorithmParametersSpi
       throws InvalidParameterSpecException {
     if (algorithmParameterSpec instanceof ECGenParameterSpec) {
       ECGenParameterSpec ecGenParameterSpec = (ECGenParameterSpec) algorithmParameterSpec;
-      ProviderConfiguration configuration = ChaosProvider.CONFIGURATION;
+      ProviderConfiguration configuration = WeGooProvider.CONFIGURATION;
 
       X9ECParameters params = ECUtils.getDomainParametersFromGenSpec(ecGenParameterSpec,
           configuration);
@@ -74,7 +74,7 @@ public class AlgorithmParametersSpi
     if (isASN1FormatString(format)) {
       X962Parameters params = X962Parameters.getInstance(bytes);
 
-      ECCurve curve = EC5Util.getCurve(ChaosProvider.CONFIGURATION, params);
+      ECCurve curve = EC5Util.getCurve(WeGooProvider.CONFIGURATION, params);
 
       if (params.isNamedCurve()) {
         ASN1ObjectIdentifier curveId = ASN1ObjectIdentifier.getInstance(params.getParameters());

@@ -4,8 +4,8 @@ import com.github.zhenwei.core.asn1.gm.GMNamedCurves;
 import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.sdk.enums.KeyAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.KeyExceptionMessageEnum;
-import com.github.zhenwei.sdk.exception.BaseChaosException;
-import com.github.zhenwei.sdk.exception.ChaosKeyException;
+import com.github.zhenwei.sdk.exception.BaseWeGooException;
+import com.github.zhenwei.sdk.exception.WeGooKeyException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.Provider;
@@ -20,7 +20,7 @@ public class KeyPairBuilder {
     this.provider = provider;
   }
 
-  public KeyPair build(KeyAlgEnum keyAlgEnum) throws BaseChaosException {
+  public KeyPair build(KeyAlgEnum keyAlgEnum) throws BaseWeGooException {
 
     try {
       KeyPairGenerator generator = KeyPairGenerator.getInstance(keyAlgEnum.getAlg(), provider);
@@ -34,7 +34,7 @@ public class KeyPairBuilder {
       }
       return generator.generateKeyPair();
     } catch (Exception e) {
-      throw new ChaosKeyException(KeyExceptionMessageEnum.generate_key_err, e);
+      throw new WeGooKeyException(KeyExceptionMessageEnum.generate_key_err, e);
     }
 
 

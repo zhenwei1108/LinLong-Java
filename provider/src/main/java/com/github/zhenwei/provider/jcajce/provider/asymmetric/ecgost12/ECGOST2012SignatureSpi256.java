@@ -13,7 +13,7 @@ import com.github.zhenwei.core.crypto.signers.ECGOST3410_2012Signer;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.util.ECUtil;
 import com.github.zhenwei.provider.jce.interfaces.ECKey;
 import com.github.zhenwei.provider.jce.interfaces.ECPublicKey;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import java.math.BigInteger;
 import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
@@ -50,7 +50,7 @@ public class ECGOST2012SignatureSpi256
       try {
         byte[] bytes = publicKey.getEncoded();
 
-        publicKey = ChaosProvider.getPublicKey(SubjectPublicKeyInfo.getInstance(bytes));
+        publicKey = WeGooProvider.getPublicKey(SubjectPublicKeyInfo.getInstance(bytes));
 
         param = (ECKeyParameters) ECUtil.generatePublicKeyParameter(publicKey);
       } catch (Exception e) {

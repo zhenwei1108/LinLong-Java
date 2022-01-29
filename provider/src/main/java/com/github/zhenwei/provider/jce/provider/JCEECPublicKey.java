@@ -79,7 +79,7 @@ public class JCEECPublicKey
       this.ecSpec = EC5Util.convertSpec(ellipticCurve, spec.getParams());
     } else {
       if (q.getCurve() == null) {
-        com.github.zhenwei.provider.jce.spec.ECParameterSpec s = ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
+        com.github.zhenwei.provider.jce.spec.ECParameterSpec s = WeGooProvider.CONFIGURATION.getEcImplicitlyCa();
 
         q = s.getCurve()
             .createPoint(q.getAffineXCoord().toBigInteger(), q.getAffineYCoord().toBigInteger());
@@ -216,7 +216,7 @@ public class JCEECPublicKey
             ecP.getH());
       } else if (params.isImplicitlyCA()) {
         ecSpec = null;
-        curve = ChaosProvider.CONFIGURATION.getEcImplicitlyCa().getCurve();
+        curve = WeGooProvider.CONFIGURATION.getEcImplicitlyCa().getCurve();
       } else {
         X9ECParameters ecP = X9ECParameters.getInstance(params.getParameters());
 
@@ -382,7 +382,7 @@ public class JCEECPublicKey
       return EC5Util.convertSpec(ecSpec);
     }
 
-    return ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
+    return WeGooProvider.CONFIGURATION.getEcImplicitlyCa();
   }
 
   public String toString() {

@@ -178,7 +178,7 @@ public class X509CRLObject
     Signature sig;
 
     try {
-      sig = Signature.getInstance(getSigAlgName(), ChaosProvider.PROVIDER_NAME);
+      sig = Signature.getInstance(getSigAlgName(), WeGooProvider.PROVIDER_NAME);
     } catch (Exception e) {
       sig = Signature.getInstance(getSigAlgName());
     }

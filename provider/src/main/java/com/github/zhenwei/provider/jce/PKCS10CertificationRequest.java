@@ -23,7 +23,7 @@ import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.asn1.x509.X509Name;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
 import com.github.zhenwei.core.util.Strings;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import java.io.IOException;
 import java.security.AlgorithmParameters;
 import java.security.GeneralSecurityException;
@@ -249,7 +249,7 @@ public class PKCS10CertificationRequest
       throws NoSuchAlgorithmException, NoSuchProviderException,
       InvalidKeyException, SignatureException {
     this(signatureAlgorithm, subject, key, attributes, signingKey,
-        ChaosProvider.PROVIDER_NAME);
+        WeGooProvider.PROVIDER_NAME);
   }
 
   private static X509Name convertName(
@@ -273,7 +273,7 @@ public class PKCS10CertificationRequest
       throws NoSuchAlgorithmException, NoSuchProviderException,
       InvalidKeyException, SignatureException {
     this(signatureAlgorithm, convertName(subject), key, attributes, signingKey,
-        ChaosProvider.PROVIDER_NAME);
+        WeGooProvider.PROVIDER_NAME);
   }
 
   /**
@@ -362,7 +362,7 @@ public class PKCS10CertificationRequest
    */
   public PublicKey getPublicKey()
       throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException {
-    return getPublicKey(ChaosProvider.PROVIDER_NAME);
+    return getPublicKey(WeGooProvider.PROVIDER_NAME);
   }
 
   public PublicKey getPublicKey(
@@ -411,7 +411,7 @@ public class PKCS10CertificationRequest
   public boolean verify()
       throws NoSuchAlgorithmException, NoSuchProviderException,
       InvalidKeyException, SignatureException {
-    return verify(ChaosProvider.PROVIDER_NAME);
+    return verify(WeGooProvider.PROVIDER_NAME);
   }
 
   /**

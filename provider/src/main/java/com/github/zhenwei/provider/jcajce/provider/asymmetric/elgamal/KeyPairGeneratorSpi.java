@@ -8,7 +8,7 @@ import com.github.zhenwei.core.crypto.params.ElGamalKeyGenerationParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.ElGamalPublicKeyParameters;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.provider.jce.spec.ElGamalParameterSpec;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyPair;
@@ -64,7 +64,7 @@ public class KeyPairGeneratorSpi
 
   public KeyPair generateKeyPair() {
     if (!initialised) {
-      DHParameterSpec dhParams = ChaosProvider.CONFIGURATION.getDHDefaultParameters(
+      DHParameterSpec dhParams = WeGooProvider.CONFIGURATION.getDHDefaultParameters(
           strength);
 
       if (dhParams != null) {

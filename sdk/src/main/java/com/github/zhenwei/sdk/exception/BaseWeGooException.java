@@ -2,32 +2,32 @@ package com.github.zhenwei.sdk.exception;
 
 import com.github.zhenwei.sdk.enums.exception.IExceptionEnum;
 
-public abstract class BaseChaosException extends Exception{
+public abstract class BaseWeGooException extends Exception{
 
   String message;
   String desc;
 
-  public BaseChaosException() {
+  public BaseWeGooException() {
   }
 
-  public BaseChaosException(IExceptionEnum iExceptionEnum) {
+  public BaseWeGooException(IExceptionEnum iExceptionEnum) {
     super(iExceptionEnum.getMessage());
     this.message = iExceptionEnum.getMessage();
     this.desc = iExceptionEnum.getDesc();
   }
 
-  public BaseChaosException(IExceptionEnum iExceptionEnum, Throwable cause) {
+  public BaseWeGooException(IExceptionEnum iExceptionEnum, Throwable cause) {
     super(iExceptionEnum.getMessage(), cause);
     this.message = cause.getMessage();
     this.desc = iExceptionEnum.getDesc();
   }
 
-  public BaseChaosException(Throwable cause) {
+  public BaseWeGooException(Throwable cause) {
     super(cause);
     this.message = cause.getMessage();
   }
 
-  public BaseChaosException(String message) {
+  public BaseWeGooException(String message) {
     super(message);
     this.message = message;
   }

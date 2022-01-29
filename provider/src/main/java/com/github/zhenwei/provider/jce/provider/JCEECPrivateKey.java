@@ -312,7 +312,7 @@ public class JCEECPrivateKey
       return EC5Util.convertSpec(ecSpec);
     }
 
-    return ChaosProvider.CONFIGURATION.getEcImplicitlyCa();
+    return WeGooProvider.CONFIGURATION.getEcImplicitlyCa();
   }
 
   public BigInteger getS() {

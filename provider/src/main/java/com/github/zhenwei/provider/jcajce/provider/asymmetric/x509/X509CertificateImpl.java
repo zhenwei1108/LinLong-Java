@@ -36,7 +36,7 @@ import com.github.zhenwei.provider.jcajce.interfaces.BCX509Certificate;
 import com.github.zhenwei.provider.jcajce.io.OutputStreamFactory;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import com.github.zhenwei.provider.jce.X509Principal;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -381,7 +381,7 @@ abstract class X509CertificateImpl
 
   public PublicKey getPublicKey() {
     try {
-      return ChaosProvider.getPublicKey(c.getSubjectPublicKeyInfo());
+      return WeGooProvider.getPublicKey(c.getSubjectPublicKeyInfo());
     } catch (IOException e) {
       return null;   // should never happen...
     }

@@ -34,9 +34,9 @@ import java.util.Map;
  * To add the provider at runtime use:
  * <pre>
  * import java.security.Security;
- * import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+ * import com.github.zhenwei.provider.jce.provider.WeGooProvider;
  *
- * Security.addProvider(new ChaosProvider());
+ * Security.addProvider(new WeGooProvider());
  * </pre>
  * The provider can also be configured as part of your environment via static registration by adding
  * an entry to the java.security properties file (found in $JAVA_HOME/jre/lib/security/java.security,
@@ -44,28 +44,28 @@ import java.util.Map;
  * in the file but basically it comes down to adding a line:
  * <pre>
  * <code>
- *    security.provider.&lt;n&gt;=com.github.zhenwei.provider.jce.provider.ChaosProvider
+ *    security.provider.&lt;n&gt;=com.github.zhenwei.provider.jce.provider.WeGooProvider
  * </code>
  * </pre>
  * Where &lt;n&gt; is the preference you want the provider at (1 being the most preferred).
  * <p>Note: JCE algorithm names should be upper-case only so the case insensitive
  * test for getInstance works.
  */
-public final class ChaosProvider extends Provider
+public final class WeGooProvider extends Provider
     implements ConfigurableProvider {
 
-  private static String info = "Chaos Security Provider v1.0 from bc-v1.70";
+  private static String info = "WeGoo Security Provider v1.0 from bc-v1.70";
 
   /**
-   * ChaosProvider
+   * WeGooProvider
    */
-  public static final String PROVIDER_NAME = "CHAOS";
+  public static final String PROVIDER_NAME = "WeGoo";
 
   public static final ProviderConfiguration CONFIGURATION = new BouncyCastleProviderConfiguration();
 
   private static final Map keyInfoConverters = new HashMap();
 
-  private static final Class revChkClass = ClassUtil.loadClass(ChaosProvider.class,
+  private static final Class revChkClass = ClassUtil.loadClass(WeGooProvider.class,
       "java.security.cert.PKIXRevocationChecker");
 
   /*
@@ -129,7 +129,7 @@ public final class ChaosProvider extends Provider
   private static final String KEYSTORE_PACKAGE = "com.github.zhenwei.provider.jcajce.provider.keystore.";
   private static final String[] KEYSTORES =
       {
-          "BC", "BCFKS", "PKCS12", "CHAOS"
+          "BC", "BCFKS", "PKCS12", "WeGoo"
       };
 
   /*
@@ -146,7 +146,7 @@ public final class ChaosProvider extends Provider
    * provider using the
    * <code>Security.addProvider()</code> mechanism.
    */
-  public ChaosProvider() {
+  public WeGooProvider() {
     super(PROVIDER_NAME, 1.0, info);
 
     AccessController.doPrivileged((PrivilegedAction) () -> {
@@ -252,7 +252,7 @@ public final class ChaosProvider extends Provider
 
   private void loadAlgorithms(String packageName, String[] names) {
     for (int i = 0; i != names.length; i++) {
-      Class clazz = ClassUtil.loadClass(ChaosProvider.class,
+      Class clazz = ClassUtil.loadClass(WeGooProvider.class,
           packageName + names[i] + "$Mappings");
 
       if (clazz != null) {

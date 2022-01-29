@@ -23,7 +23,7 @@ import com.github.zhenwei.core.util.StoreException;
 import com.github.zhenwei.provider.jcajce.PKIXCertStoreSelector;
 import com.github.zhenwei.provider.jce.exception.ExtCertPathValidatorException;
 import com.github.zhenwei.provider.jce.provider.AnnotatedException;
-import com.github.zhenwei.provider.jce.provider.ChaosProvider;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.provider.jce.provider.PKIXPolicyNode;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -656,7 +656,7 @@ class CertPathValidatorUtilities {
       DSAPublicKeySpec dsaPubKeySpec = new DSAPublicKeySpec(
           dsaPubKey.getY(), dsaParams.getP(), dsaParams.getQ(), dsaParams.getG());
       try {
-        KeyFactory keyFactory = KeyFactory.getInstance("DSA", ChaosProvider.PROVIDER_NAME);
+        KeyFactory keyFactory = KeyFactory.getInstance("DSA", WeGooProvider.PROVIDER_NAME);
         return keyFactory.generatePublic(dsaPubKeySpec);
       } catch (Exception exception) {
         throw new RuntimeException(exception.getMessage());
