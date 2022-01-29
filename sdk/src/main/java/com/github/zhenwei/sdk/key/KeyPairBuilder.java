@@ -5,7 +5,7 @@ import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.sdk.enums.KeyAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.KeyExceptionMessageEnum;
 import com.github.zhenwei.sdk.exception.BaseChaosException;
-import com.github.zhenwei.sdk.exception.ChaosCryptoException;
+import com.github.zhenwei.sdk.exception.ChaosKeyException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.Provider;
@@ -34,7 +34,7 @@ public class KeyPairBuilder {
       }
       return generator.generateKeyPair();
     } catch (Exception e) {
-      throw new ChaosCryptoException(KeyExceptionMessageEnum.generate_key_err, e);
+      throw new ChaosKeyException(KeyExceptionMessageEnum.generate_key_err, e);
     }
 
 
