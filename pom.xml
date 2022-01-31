@@ -16,36 +16,16 @@
     <bouncycastle.bcprov.verion>1.69</bouncycastle.bcprov.verion>
     <bouncycastle.bcprov.jdk16.verion>1.46</bouncycastle.bcprov.jdk16.verion>
     <java.version>1.8</java.version>
+    <lombok.version>1.18.22</lombok.version>
   </properties>
 
   <dependencies>
-    <!-- bc jar start -->
-    <!--
-
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on &ndash;&gt;
-        <dependency>
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcprov-jdk15on</artifactId>
-          <version>${bouncycastle.bcprov.verion}</version>
-        </dependency>
-
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on &ndash;&gt;
-        <dependency>
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcpkix-jdk15on</artifactId>
-          <version>${bouncycastle.bcpkix.verion}</version>
-        </dependency>
-
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 &ndash;&gt;
-        <dependency>
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcprov-jdk16</artifactId>
-          <version>${bouncycastle.bcprov.jdk16.verion}</version>
-        </dependency>
-    -->
-
-    <!-- bc jar end -->
-
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
 
