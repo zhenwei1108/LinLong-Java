@@ -6,7 +6,8 @@ package com.github.zhenwei.sdk.enums.exception;
  * @date: 2022/1/28 22:53
  */
 public enum KeyExceptionMessageEnum implements IExceptionEnum {
-  generate_key_err("generate key error","生成密钥失败")
+  generate_keypair_err("generate key pair error","生成密钥对失败"),
+  generate_key_err("generate key error","生成密钥失败"),
   ;
 
 
