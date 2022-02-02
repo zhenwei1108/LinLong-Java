@@ -20,10 +20,16 @@
 
 
   <dependencies>
-    <dependency>
+  <!--  <dependency>
       <groupId>com.github.zhenwei</groupId>
       <artifactId>pkix</artifactId>
       <version>${project.version}</version>
+    </dependency>-->
+
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcpkix-jdk15on</artifactId>
+      <version>1.69</version>
     </dependency>
 
     <dependency>
