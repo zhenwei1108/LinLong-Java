@@ -1,8 +1,5 @@
 package com.github.zhenwei.sdk.key;
 
-import com.github.zhenwei.core.asn1.gm.GMNamedCurves;
-import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
-import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.enums.KeyEnum;
 import com.github.zhenwei.sdk.enums.KeyPairEnum;
 import com.github.zhenwei.sdk.enums.exception.KeyExceptionMessageEnum;
@@ -17,14 +14,12 @@ import java.security.spec.ECGenParameterSpec;
 import javax.crypto.KeyGenerator;
 import lombok.val;
 import lombok.var;
+import org.bouncycastle.asn1.gm.GMNamedCurves;
+import org.bouncycastle.asn1.gm.GMObjectIdentifiers;
 
 public class KeyBuilder {
 
   private Provider provider;
-
-  public KeyBuilder() {
-    provider = new WeGooProvider();
-  }
 
   public KeyBuilder(Provider provider) {
     this.provider = provider;
