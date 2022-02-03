@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.util;
 
+import com.github.zhenwei.core.util.encoders.Base64;
 import java.nio.charset.StandardCharsets;
-import org.bouncycastle.util.encoders.Base64;
 
 public class Base64Util {
 

@@ -2,7 +2,7 @@ package com.github.zhenwei.sdk.exception;
 
 import com.github.zhenwei.sdk.enums.exception.IExceptionEnum;
 
-public class WeGooEnvelopException extends BaseWeGooException {
+public class WeGooEnvelopException extends WeGooCryptoException {
 
   public WeGooEnvelopException() {
   }

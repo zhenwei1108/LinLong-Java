@@ -4,7 +4,7 @@ import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.enums.KeyEnum;
 import com.github.zhenwei.sdk.enums.KeyPairEnum;
 import com.github.zhenwei.sdk.exception.BaseWeGooException;
-import com.github.zhenwei.sdk.key.KeyBuilder;
+import com.github.zhenwei.sdk.builder.key.KeyBuilder;
 import com.github.zhenwei.sdk.util.Base64Util;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
