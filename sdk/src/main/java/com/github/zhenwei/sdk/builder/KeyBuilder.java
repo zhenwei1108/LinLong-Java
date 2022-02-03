@@ -1,9 +1,9 @@
-package com.github.zhenwei.sdk.builder.key;
+package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.gm.GMNamedCurves;
 import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.sdk.enums.KeyEnum;
-import com.github.zhenwei.sdk.enums.KeyPairEnum;
+import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.KeyExceptionMessageEnum;
 import com.github.zhenwei.sdk.exception.BaseWeGooException;
 import com.github.zhenwei.sdk.exception.WeGooKeyException;
@@ -25,10 +25,10 @@ public final class KeyBuilder {
     this.provider = provider;
   }
 
-  public KeyPair buildKeyPair(KeyPairEnum keyPairEnum) throws BaseWeGooException {
+  public KeyPair buildKeyPair(KeyPairAlgEnum keyPairEnum) throws BaseWeGooException {
     try {
       var generator = KeyPairGenerator.getInstance(keyPairEnum.getAlg(), provider);
-      if (keyPairEnum == KeyPairEnum.SM2_256) {
+      if (keyPairEnum == KeyPairAlgEnum.SM2_256) {
         //SM2 算法曲线
         var name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
         var sm2Spec = new ECGenParameterSpec(name);

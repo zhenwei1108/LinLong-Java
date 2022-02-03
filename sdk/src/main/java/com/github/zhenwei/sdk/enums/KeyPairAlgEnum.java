@@ -5,7 +5,7 @@ package com.github.zhenwei.sdk.enums;
  * @author: zhangzhenwei
  * @date: 2022/1/25 22:57
  */
-public enum KeyPairEnum implements BaseKeyEnum{
+public enum KeyPairAlgEnum implements BaseKeyEnum{
   /**
    * asymmetrical key
    */
@@ -19,7 +19,7 @@ public enum KeyPairEnum implements BaseKeyEnum{
   private String alg;
   private int keyLen;
 
-  KeyPairEnum(String alg, int keyLen) {
+  KeyPairAlgEnum(String alg, int keyLen) {
     this.alg = alg;
     this.keyLen = keyLen;
   }

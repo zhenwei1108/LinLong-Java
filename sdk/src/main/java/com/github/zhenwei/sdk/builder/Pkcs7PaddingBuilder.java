@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.builder.padding;
+package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.util.Arrays;
 

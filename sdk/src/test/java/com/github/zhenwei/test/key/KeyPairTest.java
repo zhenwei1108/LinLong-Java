@@ -2,9 +2,9 @@ package com.github.zhenwei.test.key;
 
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.enums.KeyEnum;
-import com.github.zhenwei.sdk.enums.KeyPairEnum;
+import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
 import com.github.zhenwei.sdk.exception.BaseWeGooException;
-import com.github.zhenwei.sdk.builder.key.KeyBuilder;
+import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.util.Base64Util;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -21,7 +21,7 @@ public class KeyPairTest {
   @Test
   public void genRsa1024Key() throws BaseWeGooException {
     KeyBuilder builder = new KeyBuilder(new WeGooProvider());
-    KeyPair keyPair = builder.buildKeyPair(KeyPairEnum.RSA_1024);
+    KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
     System.out.println(Base64Util.encode(keyPair.getPrivate().getEncoded()));
     System.out.println(Base64Util.encode(keyPair.getPublic().getEncoded()));
   }
@@ -31,7 +31,7 @@ public class KeyPairTest {
   @Test
   public void genSM2Key() throws BaseWeGooException {
     KeyBuilder builder = new KeyBuilder(new WeGooProvider());
-    KeyPair keyPair = builder.buildKeyPair(KeyPairEnum.SM2_256);
+    KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     System.out.println(Base64Util.encode(keyPair.getPrivate().getEncoded()));
     System.out.println(Base64Util.encode(keyPair.getPublic().getEncoded()));
   }
