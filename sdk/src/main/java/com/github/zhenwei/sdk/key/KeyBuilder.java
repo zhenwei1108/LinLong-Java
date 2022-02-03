@@ -44,7 +44,9 @@ public class KeyBuilder {
 
   public Key buildKey(KeyEnum keyEnum) throws BaseWeGooException {
     try {
-      val generator = KeyGenerator.getInstance(keyEnum.getAlg(), provider);
+      val generator = KeyGenerator.getInstance(keyEnum.getAlg(), "WeGoo");
+      generator.init(keyEnum.getKeyLen(), new SecureRandom());
+      KeyGenerator.getInstance(keyEnum.getAlg(), provider);
       generator.init(keyEnum.getKeyLen(), new SecureRandom());
       return generator.generateKey();
     } catch (Exception e) {
