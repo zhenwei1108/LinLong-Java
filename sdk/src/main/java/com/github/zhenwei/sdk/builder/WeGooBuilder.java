@@ -11,6 +11,13 @@ import java.util.Map;
 
 public class WeGooBuilder {
 
+
+
+
+
+
+
+
   /**
    * @param []
    * @return void
@@ -39,6 +46,15 @@ public class WeGooBuilder {
   }
 
 
+  /**
+   * @param [provider]
+   * @return void
+   * @author zhangzhenwei
+   * @description 强制认证, 自定义provider需要使用
+   * CN=JCE Code Signing CA, OU=Java Software Code Signing, O=Oracle Corporation
+   * 签名.
+   * @date 2022/2/6 21:40
+   */
   private void forceAuth(Provider provider) throws WeGooCryptoException {
     try {
       Map<Provider, Object> verificationResults = new IdentityHashMap<>();
