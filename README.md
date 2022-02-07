@@ -67,4 +67,5 @@ FPE(保留格式加密format preserving encryption, FF1,FF3)
 
 # 注:
 
-1. BC使用对称加解密,有长度限制. 可以替换jre/security下面的包
+1. BC使用对称加解密,有长度限制. 可以替换 jre/security 下面的包
+2. JCE默认会对Provider进行代码签名验签.
