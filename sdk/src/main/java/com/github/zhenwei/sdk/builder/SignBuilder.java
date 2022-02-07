@@ -7,6 +7,7 @@ import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.Signature;
+import lombok.var;
 
 public class SignBuilder {
 
@@ -26,7 +27,7 @@ public class SignBuilder {
   public byte[] signatureSourceData(SignAlgEnum signAlgEnum, PrivateKey privateKey, byte[] source)
       throws WeGooSignerException {
     try {
-      Signature signature = Signature.getInstance(signAlgEnum.getAlg(), provider);
+      var signature = Signature.getInstance(signAlgEnum.getAlg(), provider);
       signature.initSign(privateKey);
       signature.update(source);
       return signature.sign();
@@ -37,7 +38,7 @@ public class SignBuilder {
 
 
   /**
-   * @param [signedData, ssirce, publicKey]
+   * @param [signedData, source, publicKey]
    * @return boolean
    * @author zhangzhenwei
    * @description 原文验签.  签名值, 原文, 公钥
@@ -46,7 +47,7 @@ public class SignBuilder {
   public boolean verifySourceData(SignAlgEnum signAlgEnum, byte[] signedData, byte[] source,
       PublicKey publicKey) throws WeGooSignerException {
     try {
-      Signature signature = Signature.getInstance(signAlgEnum.getAlg(), provider);
+      var signature = Signature.getInstance(signAlgEnum.getAlg(), provider);
       signature.initVerify(publicKey);
       signature.update(source);
       return signature.verify(signedData);

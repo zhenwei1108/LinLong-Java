@@ -17,6 +17,7 @@ public enum KeyPairAlgEnum implements BaseKeyEnum{
 
 
   private String alg;
+
   private int keyLen;
 
   KeyPairAlgEnum(String alg, int keyLen) {

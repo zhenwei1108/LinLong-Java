@@ -2,18 +2,13 @@ package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.security.Provider;
 import java.security.Security;
 import java.util.IdentityHashMap;
-import java.util.Map;
+import lombok.var;
 
 public class WeGooBuilder {
-
-
-
-
 
 
 
@@ -57,12 +52,12 @@ public class WeGooBuilder {
    */
   private void forceAuth(Provider provider) throws WeGooCryptoException {
     try {
-      Map<Provider, Object> verificationResults = new IdentityHashMap<>();
+      var verificationResults = new IdentityHashMap<>();
       verificationResults.put(provider, true);
-      Field field = Class.forName("javax.crypto.JceSecurity")
+      var field = Class.forName("javax.crypto.JceSecurity")
           .getDeclaredField("verificationResults");
       field.setAccessible(true);
-      Field modifiers = field.getClass().getDeclaredField("modifiers");
+      var modifiers = field.getClass().getDeclaredField("modifiers");
       modifiers.setAccessible(true);
       modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
       field.set(verificationResults, verificationResults);
