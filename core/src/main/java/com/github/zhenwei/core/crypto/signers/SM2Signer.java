@@ -84,6 +84,7 @@ public class SM2Signer
         ecParams = ecKey.getParameters();
         kCalculator.init(ecParams.getN(), CryptoServicesRegistrar.getSecureRandom());
       }
+      //使用私钥计算公钥
       pubPoint = createBasePointMultiplier().multiply(ecParams.getG(),
           ((ECPrivateKeyParameters) ecKey).getD()).normalize();
     } else {

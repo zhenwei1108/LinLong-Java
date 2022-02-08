@@ -8,8 +8,7 @@ public class ECPublicKeyParameters
   private final ECPoint q;
 
   public ECPublicKeyParameters(
-      ECPoint q,
-      ECDomainParameters parameters) {
+      ECPoint q, ECDomainParameters parameters) {
     super(false, parameters);
 
     this.q = parameters.validatePublicPoint(q);

@@ -8,8 +8,7 @@ import com.github.zhenwei.core.util.Pack;
  * base implementation of MD4 family style digest as outlined in "Handbook of Applied Cryptography",
  * pages 344 - 347.
  */
-public abstract class GeneralDigest
-    implements ExtendedDigest, Memoable {
+public abstract class GeneralDigest implements ExtendedDigest, Memoable {
 
   private static final int BYTE_LENGTH = 64;
 

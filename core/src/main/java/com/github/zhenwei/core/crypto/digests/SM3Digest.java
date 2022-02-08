@@ -1,7 +1,13 @@
 package com.github.zhenwei.core.crypto.digests;
 
+import com.github.zhenwei.core.math.ec.ECCurve;
+import com.github.zhenwei.core.math.ec.ECFieldElement;
+import com.github.zhenwei.core.math.ec.ECMultiplier;
+import com.github.zhenwei.core.math.ec.ECPoint;
+import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
 import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.core.util.Pack;
+import com.github.zhenwei.core.util.encoders.Hex;
 
 /**
  * Implementation of Chinese SM3 digest as described at https://tools.ietf.org/html/draft-shen-sm3-hash-01
@@ -11,8 +17,7 @@ import com.github.zhenwei.core.util.Pack;
  * 4, meaning this will process 32-bit word groups. But so do also most other digest specifications,
  * including the SHA-256 which was a origin for this specification.
  */
-public class SM3Digest
-    extends GeneralDigest {
+public class SM3Digest extends GeneralDigest {
 
   private static final int DIGEST_LENGTH = 32;   // bytes
   private static final int BLOCK_SIZE = 64 / 4; // of 32 bit ints (16 ints)
@@ -288,4 +293,59 @@ ROLL 23 :  ((x << 23) | (x >>> (32-23)))
 
     this.xOff = 0;
   }
+
+
+  public void init( ECCurve curve, ECPoint g, ECPoint q) {
+    // 1234567812345678
+    byte[] userID = Hex.decodeStrict("31323334353637383132333435363738");
+    init(userID, curve, g, q);
+  }
+
+  public void init(byte[] userID, ECCurve curve, ECPoint g, ECPoint q) {
+    if (userID.length >= 8192) {
+      throw new IllegalArgumentException("SM2 user ID must be less than 2^16 bits long");
+    }
+    //公钥参与运算
+    byte[] z = getZ(userID, curve, g, q);
+
+    update(z, 0, z.length);
+  }
+
+
+  private byte[] getZ(byte[] userID, ECCurve ecCurve, ECPoint G, ECPoint Q) {
+    reset();
+
+    addUserID(userID);
+
+    addFieldElement(ecCurve.getA());
+    addFieldElement(ecCurve.getB());
+    addFieldElement(G.getAffineXCoord());
+    addFieldElement(G.getAffineYCoord());
+    addFieldElement(Q.getAffineXCoord());
+    addFieldElement(Q.getAffineYCoord());
+
+    byte[] result = new byte[getDigestSize()];
+
+    doFinal(result, 0);
+
+    return result;
+  }
+
+  private void addUserID(byte[] userID) {
+    int len = userID.length * 8;
+    update((byte) (len >> 8 & 0xFF));
+    update((byte) (len & 0xFF));
+    update(userID, 0, userID.length);
+  }
+
+  private void addFieldElement(ECFieldElement v) {
+    byte[] p = v.getEncoded();
+    update(p, 0, p.length);
+  }
+
+  protected ECMultiplier createBasePointMultiplier() {
+    return new FixedPointCombMultiplier();
+  }
+
+
 }
