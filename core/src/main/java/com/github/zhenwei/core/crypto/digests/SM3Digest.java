@@ -295,7 +295,7 @@ ROLL 23 :  ((x << 23) | (x >>> (32-23)))
   }
 
 
-  public void init( ECCurve curve, ECPoint g, ECPoint q) {
+  public void init(ECCurve curve, ECPoint g, ECPoint q) {
     // 1234567812345678
     byte[] userID = Hex.decodeStrict("31323334353637383132333435363738");
     init(userID, curve, g, q);
@@ -329,16 +329,16 @@ ROLL 23 :  ((x << 23) | (x >>> (32-23)))
     return result;
   }
 
-  private void addUserID(SM3Digest digest,byte[] userID) {
+  private void addUserID(SM3Digest digest, byte[] userID) {
     int len = userID.length * 8;
     digest.update((byte) (len >> 8 & 0xFF));
     digest.update((byte) (len & 0xFF));
     digest.update(userID, 0, userID.length);
   }
 
-  private void addFieldElement(SM3Digest digest,ECFieldElement v) {
+  private void addFieldElement(SM3Digest digest, ECFieldElement v) {
     byte[] p = v.getEncoded();
-    digest. update(p, 0, p.length);
+    digest.update(p, 0, p.length);
   }
 
   protected ECMultiplier createBasePointMultiplier() {

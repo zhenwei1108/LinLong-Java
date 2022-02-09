@@ -1,10 +1,7 @@
 package com.github.zhenwei.sdk.enums;
 
-public interface BaseKeyEnum {
+public interface BaseKeyEnum extends BaseAlgEnum{
 
-  String getAlg();
   int getKeyLen();
-
-
 
 }
