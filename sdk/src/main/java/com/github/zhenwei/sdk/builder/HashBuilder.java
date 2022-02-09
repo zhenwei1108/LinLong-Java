@@ -6,9 +6,9 @@ import java.security.PublicKey;
 
 public class HashBuilder {
 
-  public byte[] sm3Digest(PublicKey publicKey, byte[] source) {
+  public static byte[] sm3Digest(PublicKey publicKey, byte[] source) {
     SM3Digest digest = new SM3Digest();
-    ;
+
     if (publicKey instanceof BCECPublicKey) {
       BCECPublicKey key = (BCECPublicKey) publicKey;
       digest.init(key.getParameters().getCurve(), key.getParameters().getG(), key.getQ());
@@ -18,6 +18,5 @@ public class HashBuilder {
     digest.doFinal(hash, 0);
     return hash;
   }
-
 
 }

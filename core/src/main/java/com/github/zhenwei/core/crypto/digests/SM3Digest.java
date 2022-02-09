@@ -307,40 +307,38 @@ ROLL 23 :  ((x << 23) | (x >>> (32-23)))
     }
     //公钥参与运算
     byte[] z = getZ(userID, curve, g, q);
-
     update(z, 0, z.length);
   }
 
 
   private byte[] getZ(byte[] userID, ECCurve ecCurve, ECPoint G, ECPoint Q) {
-    reset();
+    SM3Digest digest = new SM3Digest();
+    addUserID(digest, userID);
 
-    addUserID(userID);
-
-    addFieldElement(ecCurve.getA());
-    addFieldElement(ecCurve.getB());
-    addFieldElement(G.getAffineXCoord());
-    addFieldElement(G.getAffineYCoord());
-    addFieldElement(Q.getAffineXCoord());
-    addFieldElement(Q.getAffineYCoord());
+    addFieldElement(digest, ecCurve.getA());
+    addFieldElement(digest, ecCurve.getB());
+    addFieldElement(digest, G.getAffineXCoord());
+    addFieldElement(digest, G.getAffineYCoord());
+    addFieldElement(digest, Q.getAffineXCoord());
+    addFieldElement(digest, Q.getAffineYCoord());
 
     byte[] result = new byte[getDigestSize()];
 
-    doFinal(result, 0);
+    digest.doFinal(result, 0);
 
     return result;
   }
 
-  private void addUserID(byte[] userID) {
+  private void addUserID(SM3Digest digest,byte[] userID) {
     int len = userID.length * 8;
-    update((byte) (len >> 8 & 0xFF));
-    update((byte) (len & 0xFF));
-    update(userID, 0, userID.length);
+    digest.update((byte) (len >> 8 & 0xFF));
+    digest.update((byte) (len & 0xFF));
+    digest.update(userID, 0, userID.length);
   }
 
-  private void addFieldElement(ECFieldElement v) {
+  private void addFieldElement(SM3Digest digest,ECFieldElement v) {
     byte[] p = v.getEncoded();
-    update(p, 0, p.length);
+    digest. update(p, 0, p.length);
   }
 
   protected ECMultiplier createBasePointMultiplier() {
