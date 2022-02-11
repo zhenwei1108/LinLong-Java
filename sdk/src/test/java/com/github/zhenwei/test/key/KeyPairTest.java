@@ -1,5 +1,6 @@
 package com.github.zhenwei.test.key;
 
+import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.builder.SignBuilder;
@@ -13,7 +14,9 @@ import java.lang.reflect.Modifier;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.KeyPair;
+import java.security.PrivateKey;
 import java.security.Provider;
+import java.security.PublicKey;
 import java.security.Security;
 import java.util.IdentityHashMap;
 import java.util.Map;
@@ -48,6 +51,18 @@ public class KeyPairTest {
     Key key = new KeyBuilder(weGooProvider).buildKey(KeyEnum.SM4_128);
     System.out.println(Base64Util.encode(key.getEncoded()));
     System.out.println("key len :" + key.getEncoded().length);
+  }
+
+  @Test
+  public void covertKeyPair() throws Exception {
+    KeyBuilder builder = new KeyBuilder(new WeGooProvider());
+    KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.RSA_2048);
+    System.out.println("公钥:" + Hex.toHexString(keyPair.getPublic().getEncoded()));
+    System.out.println("私钥:" + Hex.toHexString(keyPair.getPrivate().getEncoded()));
+    PublicKey publicKey = builder.covertPublicKey(keyPair.getPublic().getEncoded());
+    PrivateKey privateKey = builder.covertPrivateKey(keyPair.getPrivate().getEncoded());
+    System.out.println("公钥:" + Hex.toHexString(publicKey.getEncoded()));
+    System.out.println("私钥:" + Hex.toHexString(privateKey.getEncoded()));
   }
 
 

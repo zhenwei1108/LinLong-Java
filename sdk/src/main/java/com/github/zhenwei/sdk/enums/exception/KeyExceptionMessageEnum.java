@@ -9,6 +9,7 @@ public enum KeyExceptionMessageEnum implements IExceptionEnum {
   generate_keypair_err("generate key pair error","生成密钥对失败"),
   generate_key_err("generate key error","生成密钥失败"),
   structure_public_key_err("structure public key error", "构造公钥失败"),
+  structure_private_key_err("structure private key error", "构造私钥失败"),
   ;
 
 

@@ -2,6 +2,7 @@ package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.gm.GMNamedCurves;
 import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.enums.KeyEnum;
@@ -9,15 +10,18 @@ import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.IExceptionEnum;
 import com.github.zhenwei.sdk.enums.exception.KeyExceptionMessageEnum;
 import com.github.zhenwei.sdk.exception.BaseWeGooException;
+import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 import com.github.zhenwei.sdk.exception.WeGooKeyException;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.ECGenParameterSpec;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.KeyGenerator;
 import lombok.val;
@@ -58,7 +62,7 @@ public final class KeyBuilder {
     }
   }
 
-  public PublicKey covertSm2PublicKey(byte[] publicKey) throws WeGooKeyException {
+  public PublicKey covertPublicKey(byte[] publicKey) throws WeGooKeyException {
     try {
       SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey);
       if (keyInfo != null) {
@@ -70,9 +74,30 @@ public final class KeyBuilder {
       } else {
         throw new WeGooKeyException(IExceptionEnum.params_err);
       }
+    } catch (WeGooCryptoException e) {
+      throw e;
     } catch (Exception e) {
       throw new WeGooKeyException(KeyExceptionMessageEnum.structure_public_key_err, e);
     }
+  }
+
+  public PrivateKey covertPrivateKey(byte[] privateKey) throws Exception {
+    try {
+      PrivateKeyInfo info = PrivateKeyInfo.getInstance(privateKey);
+      if (info != null) {
+        KeyPairAlgEnum algEnum = KeyPairAlgEnum.match(info.getPrivateKeyAlgorithm().getAlgorithm());
+        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(privateKey);
+        KeyFactory factory = KeyFactory.getInstance(algEnum.getAlg(), new WeGooProvider());
+        return factory.generatePrivate(spec);
+      } else {
+        throw new WeGooKeyException(IExceptionEnum.params_err);
+      }
+    } catch (WeGooCryptoException e) {
+      throw e;
+    } catch (Exception e) {
+      throw new WeGooKeyException(KeyExceptionMessageEnum.structure_private_key_err, e);
+    }
+
   }
 
 }
