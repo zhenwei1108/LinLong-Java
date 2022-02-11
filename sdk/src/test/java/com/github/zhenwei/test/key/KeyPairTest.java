@@ -65,6 +65,22 @@ public class KeyPairTest {
     System.out.println("私钥:" + Hex.toHexString(privateKey.getEncoded()));
   }
 
+  @Test
+  public void getRealKey() throws BaseWeGooException {
+    KeyBuilder builder = new KeyBuilder(new WeGooProvider());
+    KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
+    System.out.println("公钥:" + Hex.toHexString(keyPair.getPublic().getEncoded()));
+    System.out.println("私钥:" + Hex.toHexString(keyPair.getPrivate().getEncoded()));
+    //获取裸公钥
+    byte[] realPublicKey = builder.getRealPublicKey(keyPair.getPublic());
+    System.out.println(Hex.toHexString(realPublicKey));
+    //获取裸私钥
+    byte[] realPrivateKey = builder.getRealPrivateKey(keyPair.getPrivate());
+    System.out.println(Hex.toHexString(realPrivateKey));
+
+
+  }
+
 
   public void forceAuth(Provider provider) {
     try {
