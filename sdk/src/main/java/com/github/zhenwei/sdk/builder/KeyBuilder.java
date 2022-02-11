@@ -25,9 +25,15 @@ import java.security.spec.ECGenParameterSpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.KeyGenerator;
+import javax.crypto.spec.SecretKeySpec;
 import lombok.val;
 import lombok.var;
 
+/**
+ * @description: 密钥构造者
+ * @author: zhangzhenwei
+ * @date: 2022/2/11 23:33
+ */
 public final class KeyBuilder {
 
   private Provider provider;
@@ -186,6 +192,10 @@ public final class KeyBuilder {
 
   public byte[] getRealPrivateKey(PrivateKey privateKey) throws WeGooCryptoException {
     return getRealPrivateKey(privateKey.getEncoded());
+  }
+
+  public Key convertKey(byte[] key, KeyEnum keyEnum) {
+    return new SecretKeySpec(key, keyEnum.getAlg());
   }
 
 }
