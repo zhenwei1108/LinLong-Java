@@ -24,4 +24,6 @@ public class WeGooCryptoException extends BaseWeGooException {
     super(message);
   }
 
+
+
 }

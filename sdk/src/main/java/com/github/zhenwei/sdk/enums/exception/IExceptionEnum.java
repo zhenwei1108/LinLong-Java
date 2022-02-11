@@ -3,6 +3,20 @@ package com.github.zhenwei.sdk.enums.exception;
 public interface IExceptionEnum {
 
   /**
+   * @author zhangzhenwei
+   * @description 参数错误
+   * @date 2022/2/11 21:55
+   */
+  String params_err = "params error";
+
+  /**
+   * @author zhangzhenwei
+   * @description 系统内部错误
+   * @date 2022/2/11 21:55
+   */
+  String system_err = "system error";
+
+  /**
    * @return java.lang.String
    * @author zhangzhenwei
    * @description 获取异常信息
