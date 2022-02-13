@@ -2,11 +2,11 @@ package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.crypto.digests.SM3Digest;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.ec.BCECPublicKey;
-import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.enums.DigestAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.DigestExceptionMessageEnum;
 import com.github.zhenwei.sdk.exception.WeGooDigestException;
 import java.security.MessageDigest;
+import java.security.Provider;
 import java.security.PublicKey;
 
 /**
@@ -15,6 +15,12 @@ import java.security.PublicKey;
  * @date: 2022/2/9 22:47
  */
 public class HashBuilder {
+
+  private Provider provider;
+
+  public HashBuilder(Provider provider) {
+    this.provider = provider;
+  }
 
   /**
    * @param [publicKey, source]
@@ -44,7 +50,7 @@ public class HashBuilder {
       if (digestAlgEnum == DigestAlgEnum.SM3 && digestParams != null) {
         return sm3Digest(digestParams, source);
       }
-      MessageDigest digest = MessageDigest.getInstance(digestAlgEnum.name(), new WeGooProvider());
+      MessageDigest digest = MessageDigest.getInstance(digestAlgEnum.name(), provider);
       digest.update(source);
       return digest.digest();
     } catch (Exception e) {
@@ -55,5 +61,6 @@ public class HashBuilder {
   public byte[] digest(DigestAlgEnum digestAlgEnum, byte[] source) throws WeGooDigestException {
     return digest(digestAlgEnum, source, null);
   }
+
 
 }
