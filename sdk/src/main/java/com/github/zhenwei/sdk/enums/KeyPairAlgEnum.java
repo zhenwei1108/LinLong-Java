@@ -14,6 +14,7 @@ import java.util.Arrays;
 public enum KeyPairAlgEnum implements BaseKeyEnum {
   /**
    * asymmetrical key
+   * EC 曲线标识符: X9ObjectIdentifiers.id_ecPublicKey
    * SM2算法标识符 {@link com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers#sm2p256v1}
    */
   SM2_256("EC", 256, X9ObjectIdentifiers.id_ecPublicKey),

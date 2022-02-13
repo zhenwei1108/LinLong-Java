@@ -56,7 +56,7 @@ public class KeyPairTest {
   @Test
   public void covertKeyPair() throws Exception {
     KeyBuilder builder = new KeyBuilder(new WeGooProvider());
-    KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.RSA_2048);
+    KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     System.out.println("公钥:" + Hex.toHexString(keyPair.getPublic().getEncoded()));
     System.out.println("私钥:" + Hex.toHexString(keyPair.getPrivate().getEncoded()));
     PublicKey publicKey = builder.covertPublicKey(keyPair.getPublic().getEncoded());

@@ -3,6 +3,7 @@ package com.github.zhenwei.sdk.builder;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DLSequence;
 import com.github.zhenwei.core.asn1.gm.GMNamedCurves;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
@@ -55,7 +56,7 @@ public final class KeyBuilder {
       var generator = KeyPairGenerator.getInstance(keyPairEnum.getAlg(), provider);
       if (keyPairEnum == KeyPairAlgEnum.SM2_256) {
         //SM2 算法曲线
-        var name = GMNamedCurves.getName(keyPairEnum.getOid());
+        var name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
         var sm2Spec = new ECGenParameterSpec(name);
         generator.initialize(sm2Spec, new SecureRandom());
       } else {
