@@ -85,7 +85,7 @@ public class KeyPairTest {
   public void forceAuth(Provider provider) {
     try {
       Class<?> aClass = Class.forName("javax.crypto.JceSecurity");
-      Map<Provider, Object> verificationResults = new IdentityHashMap();
+      Map<Provider, Object> verificationResults = new IdentityHashMap<>();
       verificationResults.put(provider, true);
       Field field = aClass.getDeclaredField("verificationResults");
       field.setAccessible(true);
