@@ -5,6 +5,7 @@ import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECMultiplier;
 import com.github.zhenwei.core.math.ec.ECPoint;
 import com.github.zhenwei.core.math.ec.FixedPointCombMultiplier;
+import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.core.util.Pack;
 import com.github.zhenwei.core.util.encoders.Hex;
@@ -45,12 +46,10 @@ public class SM3Digest extends GeneralDigest {
   }
 
 
-  /**
-   * Standard constructor
-   */
   public SM3Digest() {
     reset();
   }
+
 
   /**
    * Copy constructor.  This will copy the state of the provided message digest.
@@ -296,12 +295,14 @@ ROLL 23 :  ((x << 23) | (x >>> (32-23)))
 
 
   public void init(ECCurve curve, ECPoint g, ECPoint q) {
-    // 1234567812345678
-    byte[] userID = Hex.decodeStrict("31323334353637383132333435363738");
-    init(userID, curve, g, q);
+    init(null, curve, g, q);
   }
 
   public void init(byte[] userID, ECCurve curve, ECPoint g, ECPoint q) {
+    if (Arrays.isNullOrEmpty(userID)){
+      // 1234567812345678
+      userID = Hex.decodeStrict("31323334353637383132333435363738");
+    }
     if (userID.length >= 8192) {
       throw new IllegalArgumentException("SM2 user ID must be less than 2^16 bits long");
     }
