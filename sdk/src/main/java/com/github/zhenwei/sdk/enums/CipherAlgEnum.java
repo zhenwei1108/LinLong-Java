@@ -3,6 +3,7 @@ package com.github.zhenwei.sdk.enums;
 public enum CipherAlgEnum {
   SM2("SM2"),
   RSA("RSA/ECB/PKCS1Padding"),
+  RSA_NONE_NOPADDING("RSA/ECB/PKCS1Padding"),
   SM4_ECB_PKCS7Padding("SM4/ECB/PKCS7Padding"),
   SM4_CBC_PKCS7Padding("SM4/CBC/PKCS7Padding", true),
 
