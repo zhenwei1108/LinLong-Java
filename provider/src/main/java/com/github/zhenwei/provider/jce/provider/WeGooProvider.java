@@ -21,14 +21,17 @@ import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConvert
 import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSKeyFactorySpi;
 import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
 import java.io.IOException;
+import java.lang.reflect.Modifier;
 import java.security.AccessController;
 import java.security.PrivateKey;
 import java.security.PrivilegedAction;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.util.HashMap;
+import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
+import lombok.var;
 
 /**
  * To add the provider at runtime use:
@@ -55,7 +58,7 @@ public final class WeGooProvider extends Provider
     implements ConfigurableProvider {
 
   private static String info = "WeGoo Security Provider v1.0 from bc-v1.70";
-
+  private static Map<Provider, Object> verificationResults = new IdentityHashMap<>(2);
   /**
    * WeGooProvider
    */
@@ -148,6 +151,7 @@ public final class WeGooProvider extends Provider
    */
   public WeGooProvider() {
     super(PROVIDER_NAME, 1.0, info);
+    forceAuth(this);
 
     AccessController.doPrivileged((PrivilegedAction) () -> {
       setup();
@@ -359,5 +363,31 @@ public final class WeGooProvider extends Provider
 
     return converter.generatePrivate(privateKeyInfo);
   }
+
+  /**
+   * @param [provider]
+   * @return void
+   * @author zhangzhenwei
+   * @description 强制认证, 自定义provider需要使用
+   * CN=JCE Code Signing CA, OU=Java Software Code Signing, O=Oracle Corporation
+   * 签名.
+   * 或参考[auth jce](https://www.oracle.com/java/technologies/javase/getcodesigningcertificate.html)
+   * @date 2022/2/6 21:40
+   */
+  private void forceAuth(Provider provider){
+    try {
+      verificationResults.put(provider, true);
+      var field = Class.forName("javax.crypto.JceSecurity")
+          .getDeclaredField("verificationResults");
+      field.setAccessible(true);
+      var modifiers = field.getClass().getDeclaredField("modifiers");
+      modifiers.setAccessible(true);
+      modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+      field.set(verificationResults, verificationResults);
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+  }
+
 
 }
