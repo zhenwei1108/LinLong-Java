@@ -9,6 +9,7 @@ import com.github.zhenwei.sdk.exception.BaseWeGooException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
+import javax.crypto.spec.IvParameterSpec;
 import org.junit.Test;
 
 public class CipherTest {
@@ -21,14 +22,15 @@ public class CipherTest {
     //SM2加解密
     KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     byte[] data = "this is my encrypt data test".getBytes(StandardCharsets.UTF_8);
-    byte[] encryptedData = builder.cipher(CipherAlgEnum.SM2, keyPair.getPublic(), data, true);
-    data = builder.cipher(CipherAlgEnum.SM2, keyPair.getPrivate(), encryptedData, false);
+    IvParameterSpec spec = new IvParameterSpec(new byte[16]);
+    byte[] encryptedData = builder.cipher(CipherAlgEnum.SM2, keyPair.getPublic(), data, spec, true);
+    data = builder.cipher(CipherAlgEnum.SM2, keyPair.getPrivate(), encryptedData, spec, false);
     System.out.println("解密结果: " + new String(data));
 
     //RSA加解密
     keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_2048);
-    encryptedData = builder.cipher(CipherAlgEnum.RSA, keyPair.getPublic(), data, true);
-    data = builder.cipher(CipherAlgEnum.RSA, keyPair.getPrivate(), encryptedData, false);
+    encryptedData = builder.cipher(CipherAlgEnum.RSA, keyPair.getPublic(), data, spec, true);
+    data = builder.cipher(CipherAlgEnum.RSA, keyPair.getPrivate(), encryptedData, spec, false);
     System.out.println("解密结果: " + new String(data));
 
 
@@ -39,7 +41,7 @@ public class CipherTest {
     BigInteger five = BigInteger.valueOf(5);
     BigInteger three = BigInteger.valueOf(3);
     System.out.println(five.mod(three));
-    System.out.println(five.modPow(three,three));
+    System.out.println(five.modPow(three, three));
   }
 
 
