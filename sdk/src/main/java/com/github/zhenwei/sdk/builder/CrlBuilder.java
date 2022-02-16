@@ -9,6 +9,7 @@ import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 import java.io.InputStream;
 import java.math.BigInteger;
+import java.security.cert.CRL;
 import java.security.cert.CRLReason;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
@@ -28,19 +29,19 @@ public class CrlBuilder {
   private X509CRL crl;
 
   public static CrlBuilder getInstance(Object obj) throws WeGooCryptoException {
-    X509CRL crl;
+    CRL crl;
     try {
       CertificateFactory factory = CertificateFactory.getInstance("X.509", new WeGooProvider());
       if (obj instanceof X509CRL) {
         crl = (X509CRL) obj;
       } else if (obj instanceof InputStream) {
-        crl = (X509CRL) factory.generateCRL(new ASN1InputStream((InputStream) obj));
+        crl = factory.generateCRL(new ASN1InputStream((InputStream) obj));
       } else if (obj instanceof byte[]) {
-        crl = (X509CRL) factory.generateCRL(new ASN1InputStream((byte[]) obj));
+        crl = factory.generateCRL(new ASN1InputStream((byte[]) obj));
       } else {
         throw new WeGooCryptoException(CryptoExceptionMassageEnum.params_err);
       }
-      return new CrlBuilder(crl);
+      return new CrlBuilder((X509CRL) crl);
     } catch (WeGooCryptoException e) {
       throw e;
     } catch (Exception e) {
@@ -48,6 +49,9 @@ public class CrlBuilder {
     }
   }
 
+  public CRL getCrl() {
+    return crl;
+  }
 
   /**
    * @param [certBytes]
@@ -59,7 +63,7 @@ public class CrlBuilder {
    */
   public boolean verifyCrl(byte[] certBytes) {
     try {
-      Certificate certificate = CertBuilder.getInstance(certBytes);
+      Certificate certificate = CertBuilder.getInstance(certBytes).getCert();
       crl.verify(certificate.getPublicKey());
       return true;
     } catch (Exception e) {
