@@ -21,11 +21,11 @@ public class CipherBuilder {
       throws WeGooCipherException {
     try {
       Cipher cipher = Cipher.getInstance(cipherAlgEnum.getAlg(), provider);
-      if (cipherAlgEnum.isNeedIv()) {
+      //如果
+      if (cipherAlgEnum.getModeEnum().isNeedIV()) {
         if (ivParameterSpec == null) {
           throw new WeGooCipherException(CipherExceptionMessageEnum.iv_param_empty_err);
         }
-
         cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, key, ivParameterSpec);
       } else {
         cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, key);

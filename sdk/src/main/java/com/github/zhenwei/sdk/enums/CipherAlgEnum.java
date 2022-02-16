@@ -1,11 +1,11 @@
 package com.github.zhenwei.sdk.enums;
 
-public enum CipherAlgEnum {
-  SM2("SM2"),
-  RSA("RSA/ECB/PKCS1Padding"),
-  RSA_NONE_NOPADDING("RSA/ECB/PKCS1Padding"),
-  SM4_ECB_PKCS7Padding("SM4/ECB/PKCS7Padding"),
-  SM4_CBC_PKCS7Padding("SM4/CBC/PKCS7Padding", true),
+public enum CipherAlgEnum implements BaseAlgEnum {
+  SM2("SM2", ModeEnum.NONE),
+  RSA("RSA/ECB/PKCS1Padding", ModeEnum.ECB),
+  RSA_NONE_NOPADDING("RSA/ECB/PKCS1Padding", ModeEnum.ECB),
+  SM4_ECB_PKCS7Padding("SM4/ECB/PKCS7Padding", ModeEnum.ECB),
+  SM4_CBC_PKCS7Padding("SM4/CBC/PKCS7Padding", ModeEnum.CBC),
 
   ;
 
@@ -13,24 +13,19 @@ public enum CipherAlgEnum {
   /**
    * 是否需要初始化向量
    */
-  private boolean isNeedIv;
+  private ModeEnum modeEnum;
 
-  CipherAlgEnum(String alg, boolean isNeedIv) {
+  CipherAlgEnum(String alg, ModeEnum modeEnum) {
     this.alg = alg;
-    this.isNeedIv = isNeedIv;
+    this.modeEnum = modeEnum;
   }
 
-
-  CipherAlgEnum(String alg) {
-    this.alg = alg;
-    this.isNeedIv = false;
-  }
 
   public String getAlg() {
     return alg;
   }
 
-  public boolean isNeedIv() {
-    return isNeedIv;
+  public ModeEnum getModeEnum() {
+    return modeEnum;
   }
 }
