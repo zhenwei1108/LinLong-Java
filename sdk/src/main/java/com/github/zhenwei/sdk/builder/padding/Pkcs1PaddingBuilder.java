@@ -3,8 +3,6 @@ package com.github.zhenwei.sdk.builder.padding;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.DERNull;
-import com.github.zhenwei.core.asn1.nist.NISTObjectIdentifiers;
-import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.DigestInfo;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
@@ -26,7 +24,7 @@ public class Pkcs1PaddingBuilder {
    * T(数据摘要)
    */
   public static byte[] encodePkcs1Padding(byte[] data, boolean isPrivate, int modulusLength,
-      String policyType) throws WeGooCryptoException {
+      DigestAlgEnum digestAlg) throws WeGooCryptoException {
     try {
       if (modulusLength % 1024 == 0) {
         modulusLength = modulusLength / 8;
@@ -34,21 +32,9 @@ public class Pkcs1PaddingBuilder {
       if (modulusLength % 128 != 0) {
         throw new WeGooCryptoException(CryptoExceptionMassageEnum.params_err);
       }
-      ASN1ObjectIdentifier hashOid = null;
-      if (DigestAlgEnum.SHA256.equals(policyType)) {
-        hashOid = NISTObjectIdentifiers.id_sha256;
-      } else if (DigestAlgEnum.SHA1.equals(policyType)) {
-        hashOid = OIWObjectIdentifiers.idSHA1;
-      } else if (DigestAlgEnum.SHA224.equals(policyType)) {
-        hashOid = NISTObjectIdentifiers.id_sha224;
-      } else if (DigestAlgEnum.SHA384.equals(policyType)) {
-        hashOid = NISTObjectIdentifiers.id_sha384;
-      } else if (DigestAlgEnum.SHA512.equals(policyType)) {
-        hashOid = NISTObjectIdentifiers.id_sha512;
-      }
-
+      ASN1ObjectIdentifier hashOid = digestAlg.getOid();
       //组装摘要值
-      MessageDigest digest = MessageDigest.getInstance(policyType);
+      MessageDigest digest = MessageDigest.getInstance(digestAlg.name());
       digest.update(data);
       byte[] hash = digest.digest();
       int T = hash.length;
