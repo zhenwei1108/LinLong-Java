@@ -3,6 +3,9 @@ package com.github.zhenwei.sdk.enums.exception;
 public enum CryptoExceptionMassageEnum implements IExceptionEnum{
   params_err("params error", "参数错误"),
   params_short_err("params is too short", "参数太短"),
+  parse_crl_err("parse crl error", "解析CRL失败"),
+  build_err("build error", "构造失败"),
+
 
   ;
 

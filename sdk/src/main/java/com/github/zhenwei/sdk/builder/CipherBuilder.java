@@ -8,17 +8,22 @@ import java.security.Provider;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 
+/**
+ * @description: 加解密实现
+ * @author: zhangzhenwei
+ * @since 1.0.0
+ * @date: 2022/2/16 22:41
+ */
 public class CipherBuilder {
 
-  private Provider provider;
+  private final Provider provider;
 
   public CipherBuilder(Provider provider) {
     this.provider = provider;
   }
 
   public byte[] cipher(CipherAlgEnum cipherAlgEnum, Key key, byte[] sourceData,
-      IvParameterSpec ivParameterSpec, boolean encrypt)
-      throws WeGooCipherException {
+      IvParameterSpec ivParameterSpec, boolean encrypt) throws WeGooCipherException {
     try {
       Cipher cipher = Cipher.getInstance(cipherAlgEnum.getAlg(), provider);
       //如果

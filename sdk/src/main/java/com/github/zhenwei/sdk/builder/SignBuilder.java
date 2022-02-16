@@ -9,6 +9,12 @@ import java.security.PublicKey;
 import java.security.Signature;
 import lombok.var;
 
+/**
+ * @description: 签名验签
+ * @author: zhangzhenwei
+ * @since 1.0.0
+ * @date: 2022/2/16 22:08
+ */
 public class SignBuilder {
 
   private Provider provider;
