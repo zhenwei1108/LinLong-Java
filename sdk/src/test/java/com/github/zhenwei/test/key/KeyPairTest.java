@@ -1,6 +1,7 @@
 package com.github.zhenwei.test.key;
 
 import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa.BCRSAPublicKey;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.builder.SignBuilder;
@@ -11,6 +12,7 @@ import com.github.zhenwei.sdk.exception.BaseWeGooException;
 import com.github.zhenwei.sdk.util.Base64Util;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.KeyPair;
@@ -30,6 +32,14 @@ public class KeyPairTest {
     KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
     System.out.println(Base64Util.encode(keyPair.getPrivate().getEncoded()));
     System.out.println(Base64Util.encode(keyPair.getPublic().getEncoded()));
+
+    BCRSAPublicKey aPublic = (BCRSAPublicKey) keyPair.getPublic();
+    //大素数
+    System.out.println("modulus:" + aPublic.getModulus().toString());
+    BigInteger mod = aPublic.getModulus().mod(BigInteger.valueOf(128));
+    System.out.println(mod);
+    //指数
+    System.out.println("exponent:" + aPublic.getPublicExponent().intValue());
   }
 
   @Test
