@@ -10,7 +10,7 @@ import com.github.zhenwei.core.crypto.digests.SM3Digest;
 import com.github.zhenwei.core.crypto.macs.HMac;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.sdk.enums.DigestAlgEnum;
-import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.sdk.enums.exception.IExceptionEnum;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 import java.security.Key;
 
@@ -37,7 +37,7 @@ public class Mac {
   }
 
   public void cmac() throws WeGooCryptoException {
-    throw new WeGooCryptoException(CryptoExceptionMassageEnum.not_support_now);
+    throw new WeGooCryptoException(IExceptionEnum.not_support_now);
   }
 
 }

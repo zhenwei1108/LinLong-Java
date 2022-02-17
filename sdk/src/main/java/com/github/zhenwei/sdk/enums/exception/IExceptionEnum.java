@@ -17,6 +17,10 @@ public interface IExceptionEnum {
   String system_err = "system error";
 
   /**
+   * 暂不支持
+   */
+  String not_support_now = "not support now";
+  /**
    * @return java.lang.String
    * @author zhangzhenwei
    * @description 获取异常信息
