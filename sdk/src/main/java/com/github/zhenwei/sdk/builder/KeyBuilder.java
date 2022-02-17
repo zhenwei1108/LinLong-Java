@@ -51,7 +51,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:35
    * @since 1.0
    */
-  public KeyPair buildKeyPair(KeyPairAlgEnum keyPairEnum) throws BaseWeGooException {
+  public KeyPair buildKeyPair(KeyPairAlgEnum keyPairEnum) throws WeGooKeyException {
     try {
       var generator = KeyPairGenerator.getInstance(keyPairEnum.getAlg(), provider);
       if (keyPairEnum == KeyPairAlgEnum.SM2_256) {

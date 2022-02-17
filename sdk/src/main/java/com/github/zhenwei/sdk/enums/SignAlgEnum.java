@@ -12,12 +12,12 @@ import java.util.Arrays;
  * @date: 2022/2/3 20:57
  */
 public enum SignAlgEnum implements BaseAlgEnum {
-  SM3_WITH_SM2("SM3WithSM2", GMObjectIdentifiers.sm2sign_with_sm3),
-  SHA1_WITH_RSA("SHA1WithRSA", PKCSObjectIdentifiers.sha1WithRSAEncryption),
-  SHA224_WITH_RSA("SHA224WithRSA", PKCSObjectIdentifiers.sha224WithRSAEncryption),
-  SHA256_WITH_RSA("SHA256WithRSA", PKCSObjectIdentifiers.sha256WithRSAEncryption),
-  SHA384_WITH_RSA("SHA384WithRSA", PKCSObjectIdentifiers.sha384WithRSAEncryption),
-  SHA512_WITH_RSA("SHA512WithRSA", PKCSObjectIdentifiers.sha512WithRSAEncryption),
+  SM3_WITH_SM2("SM3WITHSM2", GMObjectIdentifiers.sm2sign_with_sm3),
+  SHA1_WITH_RSA("SHA1WITHRSA", PKCSObjectIdentifiers.sha1WithRSAEncryption),
+  SHA224_WITH_RSA("SHA224WITHRSA", PKCSObjectIdentifiers.sha224WithRSAEncryption),
+  SHA256_WITH_RSA("SHA256WITHRSA", PKCSObjectIdentifiers.sha256WithRSAEncryption),
+  SHA384_WITH_RSA("SHA384WITHRSA", PKCSObjectIdentifiers.sha384WithRSAEncryption),
+  SHA512_WITH_RSA("SHA512WITHRSA", PKCSObjectIdentifiers.sha512WithRSAEncryption),
 
   ;
 

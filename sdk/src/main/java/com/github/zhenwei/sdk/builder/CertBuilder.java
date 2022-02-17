@@ -7,9 +7,11 @@ import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 import java.io.InputStream;
 import java.math.BigInteger;
+import java.security.PublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.util.Date;
 
 /**
  * @description: 证书构造
@@ -51,6 +53,31 @@ public class CertBuilder {
   public String getCertSn() {
     BigInteger serialNumber = this.cert.getSerialNumber();
     return Hex.toHexString(serialNumber.toByteArray());
+  }
+
+  public Date getNotBefore(){
+    return this.cert.getNotBefore();
+  }
+
+  public Date getNotAfter(){
+    return this.cert.getNotAfter();
+  }
+
+  public String getIssuerDN(){
+    return this.cert.getIssuerDN().getName();
+  }
+
+
+  public String getSubjectDN(){
+    return this.cert.getSubjectDN().getName();
+  }
+
+  public PublicKey getPublicKey(){
+    return this.cert.getPublicKey();
+  }
+
+  public String getSigAlgName(){
+    return this.cert.getSigAlgName();
   }
 
 

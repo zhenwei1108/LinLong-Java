@@ -6,6 +6,7 @@ import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Sequence;
 import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.edec.EdECObjectIdentifiers;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.core.asn1.misc.MiscObjectIdentifiers;
 import com.github.zhenwei.core.asn1.oiw.OIWObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
@@ -37,6 +38,7 @@ class X509SignatureUtil {
     algNames.put(EdECObjectIdentifiers.id_Ed448, "Ed448");
     algNames.put(OIWObjectIdentifiers.dsaWithSHA1, "SHA1withDSA");
     algNames.put(X9ObjectIdentifiers.id_dsa_with_sha1, "SHA1withDSA");
+    algNames.put(GMObjectIdentifiers.sm2sign_with_sm3, "SM3WITHSM2");
   }
 
   private static final ASN1Null derNull = DERNull.INSTANCE;
