@@ -2,7 +2,7 @@ package com.github.zhenwei.test.key.real;
 
 import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
-import com.github.zhenwei.sdk.builder.DigestParams;
+import com.github.zhenwei.sdk.builder.params.DigestParams;
 import com.github.zhenwei.sdk.builder.HashBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.enums.DigestAlgEnum;

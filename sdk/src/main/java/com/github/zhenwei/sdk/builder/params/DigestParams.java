@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.builder;
+package com.github.zhenwei.sdk.builder.params;
 
 import com.github.zhenwei.core.util.encoders.Hex;
 import java.security.PublicKey;
