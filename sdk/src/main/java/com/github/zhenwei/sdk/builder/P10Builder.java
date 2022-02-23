@@ -19,6 +19,7 @@ import com.github.zhenwei.pkix.pkcs.PKCS10CertificationRequestBuilder;
 import com.github.zhenwei.sdk.builder.params.CertExtension;
 import com.github.zhenwei.sdk.builder.params.CodingType;
 import com.github.zhenwei.sdk.enums.DigestAlgEnum;
+import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
 import com.github.zhenwei.sdk.enums.SignAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
@@ -83,7 +84,8 @@ public class P10Builder {
         PKCS10CertificationRequestBuilder builder = new PKCS10CertificationRequestBuilder(name, keyInfo);
         String algorithm = publicKey.getAlgorithm();
         BcContentSignerBuilder signerBuilder;
-        if (algorithm.equals("SM2")) {
+        //todo 算法标识
+        if (algorithm.equals(KeyPairAlgEnum.SM2_256.getAlg())) {
             AlgorithmIdentifier signAlg = new AlgorithmIdentifier(SignAlgEnum.SM3_WITH_SM2.getOid());
             AlgorithmIdentifier digAlg = new AlgorithmIdentifier(DigestAlgEnum.SM3.getOid());
             signerBuilder = new BcECContentSignerBuilder(signAlg, digAlg);
