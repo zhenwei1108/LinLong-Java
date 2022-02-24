@@ -24,6 +24,8 @@ public class P10Test {
         CertExtension certExtension = new CertExtension("1.2.3", "demo1111".getBytes(StandardCharsets.UTF_8), CodingType.DEROCTETSTRING);
         list.add(certExtension);
         P10Builder p10Builder = new P10Builder("C=CN,CN=TEST", keyPair.getPublic(), keyPair.getPrivate(), list);
+        String p10 = p10Builder.getP10();
+        System.out.println(p10);
 
     }
 

@@ -1,9 +1,6 @@
 package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
-import com.github.zhenwei.core.asn1.ASN1Set;
-import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.core.asn1.pkcs.CertificationRequestInfo;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
@@ -11,7 +8,6 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
-import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import com.github.zhenwei.pkix.operator.bc.BcContentSignerBuilder;
 import com.github.zhenwei.pkix.operator.bc.BcECContentSignerBuilder;
@@ -82,10 +78,7 @@ public class P10Builder {
 
         X500Name name = new X500Name(dn);
 
-        ASN1Set set = new DERSet();
         SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey.getEncoded());
-        // 主题, 公钥, 扩展项
-        CertificationRequestInfo requestInfo = new CertificationRequestInfo(name, keyInfo, set);
 
         PKCS10CertificationRequestBuilder builder = new PKCS10CertificationRequestBuilder(name, keyInfo);
         parseExtension(list, builder);
@@ -112,8 +105,6 @@ public class P10Builder {
         }
 
         request = builder.build(signerBuilder.build(parameter));
-        System.out.println(Hex.toHexString(request.getEncoded()));
-
     }
 
     /**
@@ -125,20 +116,13 @@ public class P10Builder {
      * @date 2022/2/21 10:33 下午
      */
     private void parseExtension(List<CertExtension> list, PKCS10CertificationRequestBuilder builder) throws WeGooCryptoException {
-//        ASN1EncodableVector vector = new ASN1EncodableVector();
         if (list != null) {
             for (CertExtension certExtension : list) {
-//                DERSet valueSet = new DERSet(CodingType.encode(certExtension.getCodingType(), certExtension.getValue()));
                 ASN1ObjectIdentifier oid = new ASN1ObjectIdentifier(certExtension.getKey());
-//                Attribute attribute = new Attribute(oid, valueSet);
-//                vector.add(attribute);
                 builder.addAttribute(oid, CodingType.encode(certExtension.getCodingType(), certExtension.getValue()));
             }
         }
-//        return vector;
     }
-
-
 
 
 }
