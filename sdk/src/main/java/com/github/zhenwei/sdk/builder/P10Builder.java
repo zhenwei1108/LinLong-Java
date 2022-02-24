@@ -1,21 +1,26 @@
 package com.github.zhenwei.sdk.builder;
 
-import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.DERSet;
-import com.github.zhenwei.core.asn1.pkcs.Attribute;
 import com.github.zhenwei.core.asn1.pkcs.CertificationRequestInfo;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.SubjectPublicKeyInfo;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
+import com.github.zhenwei.core.crypto.params.ECDomainParameters;
+import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
+import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import com.github.zhenwei.pkix.operator.bc.BcContentSignerBuilder;
 import com.github.zhenwei.pkix.operator.bc.BcECContentSignerBuilder;
 import com.github.zhenwei.pkix.operator.bc.BcRSAContentSignerBuilder;
 import com.github.zhenwei.pkix.pkcs.PKCS10CertificationRequest;
 import com.github.zhenwei.pkix.pkcs.PKCS10CertificationRequestBuilder;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa.BCRSAPrivateKey;
+import com.github.zhenwei.provider.jce.interfaces.ECPrivateKey;
+import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import com.github.zhenwei.sdk.builder.params.CertExtension;
 import com.github.zhenwei.sdk.builder.params.CodingType;
 import com.github.zhenwei.sdk.enums.DigestAlgEnum;
@@ -73,29 +78,41 @@ public class P10Builder {
      * @since: 1.0.0
      * @date 2022/2/21 10:28 下午
      */
-    public P10Builder(String dn, PublicKey publicKey, PrivateKey privateKey, List<CertExtension> list) throws WeGooCryptoException, OperatorCreationException {
+    public P10Builder(String dn, PublicKey publicKey, PrivateKey privateKey, List<CertExtension> list) throws WeGooCryptoException, OperatorCreationException, IOException {
 
         X500Name name = new X500Name(dn);
-        ASN1Set set = ASN1Set.getInstance(parseExtension(list));
-        SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey);
+
+        ASN1Set set = new DERSet();
+        SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey.getEncoded());
         // 主题, 公钥, 扩展项
         CertificationRequestInfo requestInfo = new CertificationRequestInfo(name, keyInfo, set);
 
         PKCS10CertificationRequestBuilder builder = new PKCS10CertificationRequestBuilder(name, keyInfo);
+        parseExtension(list, builder);
         String algorithm = publicKey.getAlgorithm();
         BcContentSignerBuilder signerBuilder;
+        AsymmetricKeyParameter parameter;
         //todo 算法标识
         if (algorithm.equals(KeyPairAlgEnum.SM2_256.getAlg())) {
             AlgorithmIdentifier signAlg = new AlgorithmIdentifier(SignAlgEnum.SM3_WITH_SM2.getOid());
             AlgorithmIdentifier digAlg = new AlgorithmIdentifier(DigestAlgEnum.SM3.getOid());
             signerBuilder = new BcECContentSignerBuilder(signAlg, digAlg);
+            ECPrivateKey key = (ECPrivateKey) privateKey;
+            ECParameterSpec parameters = key.getParameters();
+            ECDomainParameters ecDomainParameters = new ECDomainParameters(parameters.getCurve(), parameters.getG(),
+                    parameters.getN(), parameters.getH(), parameters.getSeed());
+            parameter = new ECPrivateKeyParameters(key.getD(), ecDomainParameters);
         } else {
             AlgorithmIdentifier signAlg = new AlgorithmIdentifier(SignAlgEnum.SHA256_WITH_RSA.getOid());
             AlgorithmIdentifier digAlg = new AlgorithmIdentifier(DigestAlgEnum.SHA256.getOid());
             signerBuilder = new BcRSAContentSignerBuilder(signAlg, digAlg);
+            BCRSAPrivateKey key = (BCRSAPrivateKey) privateKey;
+            parameter = new RSAKeyParameters(true, key.getModulus(), key.getPrivateExponent());
+
         }
-        AsymmetricKeyParameter parameter = new AsymmetricKeyParameter(true);
-        builder.build(signerBuilder.build(parameter));
+
+        request = builder.build(signerBuilder.build(parameter));
+        System.out.println(Hex.toHexString(request.getEncoded()));
 
     }
 
@@ -107,16 +124,21 @@ public class P10Builder {
      * @since: 1.0.0
      * @date 2022/2/21 10:33 下午
      */
-    private ASN1EncodableVector parseExtension(List<CertExtension> list) throws WeGooCryptoException {
-        ASN1EncodableVector vector = new ASN1EncodableVector();
-        for (CertExtension certExtension : list) {
-            DERSet valueSet = new DERSet(CodingType.encode(certExtension.getCodingType(), certExtension.getValue()));
-            ASN1ObjectIdentifier oid = new ASN1ObjectIdentifier(certExtension.getKey());
-            Attribute attribute = new Attribute(oid, valueSet);
-            vector.add(attribute);
+    private void parseExtension(List<CertExtension> list, PKCS10CertificationRequestBuilder builder) throws WeGooCryptoException {
+//        ASN1EncodableVector vector = new ASN1EncodableVector();
+        if (list != null) {
+            for (CertExtension certExtension : list) {
+//                DERSet valueSet = new DERSet(CodingType.encode(certExtension.getCodingType(), certExtension.getValue()));
+                ASN1ObjectIdentifier oid = new ASN1ObjectIdentifier(certExtension.getKey());
+//                Attribute attribute = new Attribute(oid, valueSet);
+//                vector.add(attribute);
+                builder.addAttribute(oid, CodingType.encode(certExtension.getCodingType(), certExtension.getValue()));
+            }
         }
-        return vector;
+//        return vector;
     }
+
+
 
 
 }

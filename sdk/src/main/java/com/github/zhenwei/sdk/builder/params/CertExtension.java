@@ -1,6 +1,8 @@
 package com.github.zhenwei.sdk.builder.params;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author: zhangzhenwei
@@ -9,6 +11,8 @@ import lombok.Data;
  * @date: 2022/2/21 10:28 下午
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CertExtension {
 
     private String key;

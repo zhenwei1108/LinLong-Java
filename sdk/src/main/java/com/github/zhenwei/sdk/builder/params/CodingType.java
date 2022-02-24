@@ -4,6 +4,8 @@ import com.github.zhenwei.core.asn1.*;
 import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * @author: zhangzhenwei
  * @description: CodingType
@@ -17,10 +19,9 @@ public enum CodingType {
     DERUTF8STRING,
     DERUNIVERSALSTRING,
     DERGRAPHICSTRING,
-    DERVISIBLESTRING
+    DERVISIBLESTRING,
 
     ;
-
 
     /**
      * @param [codingType, value]
@@ -30,16 +31,16 @@ public enum CodingType {
      * @since: 1.0.0
      * @date 2022/2/21 10:48 下午
      */
-    public static ASN1Primitive encode(CodingType codingType, byte[] value) throws WeGooCryptoException {
+    public static <T> ASN1Primitive encode(CodingType codingType, byte[] value) throws WeGooCryptoException {
         ASN1Primitive oidValue = null;
         try {
             switch (codingType) {
-                case DERBITSTRING: oidValue = DERBitString.fromByteArray(value);break;
-                case DERUTF8STRING: oidValue = DERUTF8String.fromByteArray(value);break;
-                case DEROCTETSTRING: oidValue = DEROctetString.fromByteArray(value);break;
-                case DERGRAPHICSTRING: oidValue = DERGraphicString.fromByteArray(value);break;
-                case DERVISIBLESTRING: oidValue = DERVisibleString.fromByteArray(value);break;
-                case DERPRINTABLESTRING: oidValue = DERPrintableString.fromByteArray(value);break;
+                case DERBITSTRING: oidValue = new DERBitString(value);break;
+                case DERUTF8STRING: oidValue = new DERUTF8String(new String(value, StandardCharsets.UTF_8));break;
+                case DEROCTETSTRING: oidValue = new DEROctetString(value); break;
+                case DERGRAPHICSTRING: oidValue = new DERGraphicString(value);break;
+                case DERVISIBLESTRING: oidValue = new DERVisibleString(new String(value, StandardCharsets.UTF_8));break;
+                case DERPRINTABLESTRING: oidValue = new DERPrintableString(new String(value, StandardCharsets.UTF_8));break;
                 //DERUniversalString:
                 default: oidValue = DERUniversalString.fromByteArray(value);break;
             }
