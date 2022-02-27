@@ -1,17 +1,17 @@
 package com.github.zhenwei.sdk.builder;
 
+import com.github.zhenwei.core.crypto.BlockCipher;
 import com.github.zhenwei.core.crypto.Digest;
-import com.github.zhenwei.core.crypto.digests.SHA1Digest;
-import com.github.zhenwei.core.crypto.digests.SHA224Digest;
-import com.github.zhenwei.core.crypto.digests.SHA256Digest;
-import com.github.zhenwei.core.crypto.digests.SHA384Digest;
-import com.github.zhenwei.core.crypto.digests.SHA512Digest;
-import com.github.zhenwei.core.crypto.digests.SM3Digest;
+import com.github.zhenwei.core.crypto.digests.*;
+import com.github.zhenwei.core.crypto.engines.AESEngine;
+import com.github.zhenwei.core.crypto.engines.SM4Engine;
+import com.github.zhenwei.core.crypto.macs.CMac;
 import com.github.zhenwei.core.crypto.macs.HMac;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
 import com.github.zhenwei.sdk.enums.DigestAlgEnum;
-import com.github.zhenwei.sdk.enums.exception.IExceptionEnum;
+import com.github.zhenwei.sdk.enums.KeyEnum;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+
 import java.security.Key;
 
 public class Mac {
@@ -36,8 +36,20 @@ public class Mac {
     return result;
   }
 
-  public void cmac() throws WeGooCryptoException {
-    throw new WeGooCryptoException(IExceptionEnum.not_support_now);
+  public byte[] cmac(KeyEnum alg, byte[] key, byte[] source) throws WeGooCryptoException {
+    BlockCipher engine;
+    switch (alg){
+      case AES_128:
+      case AES_256:
+        engine = new AESEngine();break;
+      default: engine = new SM4Engine();
+    }
+    CMac cMac = new CMac(engine);
+    cMac.init(new KeyParameter(key));
+    cMac.update(source, 0 , source.length);
+    byte[] result = new byte[cMac.getMacSize()];
+    cMac.doFinal(result,0);
+    return result;
   }
 
 }
