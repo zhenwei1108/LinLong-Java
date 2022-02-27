@@ -3,11 +3,12 @@ package com.github.zhenwei.sdk.builder;
 import com.github.zhenwei.sdk.enums.SignAlgEnum;
 import com.github.zhenwei.sdk.enums.exception.SignatureExceptionMessageEnum;
 import com.github.zhenwei.sdk.exception.WeGooSignerException;
+import lombok.var;
+
 import java.security.PrivateKey;
 import java.security.Provider;
 import java.security.PublicKey;
 import java.security.Signature;
-import lombok.var;
 
 /**
  * @description: 签名验签
@@ -41,6 +42,27 @@ public class SignBuilder {
       throw new WeGooSignerException(SignatureExceptionMessageEnum.sign_data_err, e);
     }
   }
+
+
+  /**
+   * @param [signature, source]
+   * @return byte[]
+   * @author zhangzhenwei
+   * @description signatureSourceData 使用保护私钥进行签名
+   * @since: 1.0.0
+   * @date 2022/2/27 9:40 上午
+   */
+  public byte[] signatureSourceData(Signature signature, byte[] source)
+          throws WeGooSignerException {
+    try {
+      signature.update(source);
+      return signature.sign();
+    } catch (Exception e) {
+      throw new WeGooSignerException(SignatureExceptionMessageEnum.sign_data_err, e);
+    }
+  }
+
+
 
 
   /**
