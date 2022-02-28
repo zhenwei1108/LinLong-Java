@@ -52,8 +52,7 @@ public class SignBuilder {
    * @since: 1.0.0
    * @date 2022/2/27 9:40 上午
    */
-  public byte[] signatureSourceData(Signature signature, byte[] source)
-          throws WeGooSignerException {
+  public byte[] signatureSourceData(Signature signature, byte[] source) throws WeGooSignerException {
     try {
       signature.update(source);
       return signature.sign();
@@ -61,8 +60,6 @@ public class SignBuilder {
       throw new WeGooSignerException(SignatureExceptionMessageEnum.sign_data_err, e);
     }
   }
-
-
 
 
   /**
