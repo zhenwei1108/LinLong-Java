@@ -60,10 +60,11 @@ FPE(保留格式加密format preserving encryption, FF1,FF3)
 ```
 
 ## 参考
+* [各种标准规范汇总](https://github.com/zhenwei1108/GM-AND-GB.git)
+* [BC 源代码](https://github.com/bcgit/bc-java)
+* [一种多语言加密库-tink](https://github.com/google/tink)
+* [多语言加密库-themis](https://github.com/cossacklabs/themis)
 
-* https://github.com/google/tink
-* https://github.com/cossacklabs/themis
-* https://github.com/bcgit/bc-java
 
 # 注:
 
