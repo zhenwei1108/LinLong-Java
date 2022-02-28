@@ -14,21 +14,15 @@ import com.github.zhenwei.sdk.enums.exception.KeyExceptionMessageEnum;
 import com.github.zhenwei.sdk.exception.BaseWeGooException;
 import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 import com.github.zhenwei.sdk.exception.WeGooKeyException;
-import java.security.Key;
-import java.security.KeyFactory;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.PrivateKey;
-import java.security.Provider;
-import java.security.PublicKey;
-import java.security.SecureRandom;
+import lombok.val;
+import lombok.var;
+
+import javax.crypto.KeyGenerator;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.*;
 import java.security.spec.ECGenParameterSpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.KeyGenerator;
-import javax.crypto.spec.SecretKeySpec;
-import lombok.val;
-import lombok.var;
 
 /**
  * @description: 密钥构造者
@@ -94,7 +88,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:34
    * @since 1.0
    */
-  public PublicKey covertPublicKey(byte[] publicKey) throws WeGooKeyException {
+  public PublicKey convertPublicKey(byte[] publicKey) throws WeGooKeyException {
     try {
       SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey);
       if (keyInfo == null) {
@@ -119,7 +113,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:34
    * @since 1.0
    */
-  public PrivateKey covertPrivateKey(byte[] privateKey) throws Exception {
+  public PrivateKey convertPrivateKey(byte[] privateKey) throws Exception {
     try {
       PrivateKeyInfo info = PrivateKeyInfo.getInstance(privateKey);
       if (info == null) {

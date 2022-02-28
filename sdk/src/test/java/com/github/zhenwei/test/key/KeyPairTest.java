@@ -10,19 +10,15 @@ import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
 import com.github.zhenwei.sdk.enums.SignAlgEnum;
 import com.github.zhenwei.sdk.exception.BaseWeGooException;
 import com.github.zhenwei.sdk.util.Base64Util;
+import org.junit.Test;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
-import java.security.Key;
-import java.security.KeyPair;
-import java.security.PrivateKey;
-import java.security.Provider;
-import java.security.PublicKey;
-import java.security.Security;
+import java.security.*;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import org.junit.Test;
 
 public class KeyPairTest {
 
@@ -69,8 +65,8 @@ public class KeyPairTest {
     KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     System.out.println("公钥:" + Hex.toHexString(keyPair.getPublic().getEncoded()));
     System.out.println("私钥:" + Hex.toHexString(keyPair.getPrivate().getEncoded()));
-    PublicKey publicKey = builder.covertPublicKey(keyPair.getPublic().getEncoded());
-    PrivateKey privateKey = builder.covertPrivateKey(keyPair.getPrivate().getEncoded());
+    PublicKey publicKey = builder.convertPublicKey(keyPair.getPublic().getEncoded());
+    PrivateKey privateKey = builder.convertPrivateKey(keyPair.getPrivate().getEncoded());
     System.out.println("公钥:" + Hex.toHexString(publicKey.getEncoded()));
     System.out.println("私钥:" + Hex.toHexString(privateKey.getEncoded()));
   }
