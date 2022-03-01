@@ -25,4 +25,8 @@ public enum Pkcs7ContentInfoTypeEnum {
     Pkcs7ContentInfoTypeEnum(ASN1ObjectIdentifier oid) {
         this.oid = oid;
     }
+
+    public ASN1ObjectIdentifier getOid() {
+        return oid;
+    }
 }
