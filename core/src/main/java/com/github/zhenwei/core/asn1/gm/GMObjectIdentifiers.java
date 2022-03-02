@@ -81,4 +81,15 @@ public interface GMObjectIdentifiers {
   ASN1ObjectIdentifier sm2sign_with_whirlpool = sm_scheme.branch("520");
   ASN1ObjectIdentifier sm2sign_with_blake2b512 = sm_scheme.branch("521");
   ASN1ObjectIdentifier sm2sign_with_blake2s256 = sm_scheme.branch("522");
+
+  ASN1ObjectIdentifier sm2_p7 = new ASN1ObjectIdentifier("1.2.156.10197.6.1.4.2");
+  ASN1ObjectIdentifier data = sm2_p7.branch(".1");
+  ASN1ObjectIdentifier signed_data = sm2_p7.branch(".2");
+  ASN1ObjectIdentifier enveloped_data = sm2_p7.branch(".3");
+  ASN1ObjectIdentifier signed_and_enveloped_data = sm2_p7.branch(".4");
+  ASN1ObjectIdentifier encrypted_data = sm2_p7.branch(".5");
+  ASN1ObjectIdentifier key_agreement_info_data = sm2_p7.branch(".6");
+
+
+
 }
