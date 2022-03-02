@@ -11,7 +11,7 @@ import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
  * @since: 1.0.0
  * @date: 2022/3/1  7:08 下午
  */
-public enum GmPkcs7ContentInfoTypeEnum {
+public enum GmPkcs7ContentInfoTypeEnum implements BasePkcs7TypeEnum{
     DATA(GMObjectIdentifiers.data),
     SIGNED_DATA(GMObjectIdentifiers.signed_data),
     ENVELOPED_DATA(GMObjectIdentifiers.enveloped_data),

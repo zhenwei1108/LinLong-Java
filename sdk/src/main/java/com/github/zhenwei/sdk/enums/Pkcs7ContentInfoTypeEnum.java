@@ -11,7 +11,7 @@ import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
  * @since: 1.0.0
  * @date: 2022/3/1  7:08 下午
  */
-public enum Pkcs7ContentInfoTypeEnum {
+public enum Pkcs7ContentInfoTypeEnum implements BasePkcs7TypeEnum{
     DATA(PKCSObjectIdentifiers.data),
     SIGNED_DATA(PKCSObjectIdentifiers.signedData),
     ENVELOPED_DATA(PKCSObjectIdentifiers.envelopedData),
