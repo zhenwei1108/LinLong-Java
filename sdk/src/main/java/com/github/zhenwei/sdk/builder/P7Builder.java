@@ -30,8 +30,7 @@ public class P7Builder {
      * 参考 RFC-2315 / GMT-0010
      * ContentInfo ::= SEQUENCE {
      * contentType ContentType,
-     * content
-     * [0] EXPLICIT ANY DEFINED BY contentType OPTIONAL }
+     * content [0] EXPLICIT ANY DEFINED BY contentType OPTIONAL }
      * @date 2022/3/1  7:27 下午
      * @since: 1.0.0
      */
@@ -99,5 +98,30 @@ public class P7Builder {
         return new DEROctetString(data);
     }
 
-
+    /**
+     * @param []
+     * @return com.github.zhenwei.core.asn1.DEROctetString
+     * @author zhangzhenwei
+     * @description 
+     *     SignedData ::= SEQUENCE {
+     *        version Version,
+     *        digestAlgorithms DigestAlgorithmIdentifiers,
+     *        contentInfo ContentInfo,
+     *        certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL,
+     *        crls [1] IMPLICIT CertificateRevocationLists OPTIONAL,
+     *        signerInfos SignerInfos
+     *        }
+     * @date 2022/3/3  9:46 下午
+     * @since: 
+     */
+//    private DEROctetString genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature,){
+//        ASN1Integer version = new ASN1Integer(1);
+//        DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
+//        DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
+//        ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
+//        SignedData signedData = new SignedData(version,digestAlgorithms,contentInfo,);
+//
+//    }
+//
+    
 }
