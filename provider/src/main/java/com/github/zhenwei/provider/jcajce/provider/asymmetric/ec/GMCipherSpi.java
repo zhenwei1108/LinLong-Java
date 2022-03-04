@@ -1,16 +1,7 @@
 package com.github.zhenwei.provider.jcajce.provider.asymmetric.ec;
 
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
-import com.github.zhenwei.core.crypto.digests.Blake2bDigest;
-import com.github.zhenwei.core.crypto.digests.Blake2sDigest;
-import com.github.zhenwei.core.crypto.digests.MD5Digest;
-import com.github.zhenwei.core.crypto.digests.RIPEMD160Digest;
-import com.github.zhenwei.core.crypto.digests.SHA1Digest;
-import com.github.zhenwei.core.crypto.digests.SHA224Digest;
-import com.github.zhenwei.core.crypto.digests.SHA256Digest;
-import com.github.zhenwei.core.crypto.digests.SHA384Digest;
-import com.github.zhenwei.core.crypto.digests.SHA512Digest;
-import com.github.zhenwei.core.crypto.digests.WhirlpoolDigest;
+import com.github.zhenwei.core.crypto.digests.*;
 import com.github.zhenwei.core.crypto.engines.SM2Engine;
 import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
@@ -21,22 +12,11 @@ import com.github.zhenwei.provider.jcajce.provider.util.BadBlockException;
 import com.github.zhenwei.provider.jcajce.util.BCJcaJceHelper;
 import com.github.zhenwei.provider.jcajce.util.JcaJceHelper;
 import com.github.zhenwei.provider.jce.interfaces.ECKey;
+
+import javax.crypto.*;
 import java.io.ByteArrayOutputStream;
-import java.security.AlgorithmParameters;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SecureRandom;
+import java.security.*;
 import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.CipherSpi;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.ShortBufferException;
 
 
 public class GMCipherSpi
@@ -206,7 +186,7 @@ public class GMCipherSpi
         try {
           engine.init(true, new ParametersWithRandom(key, random));
 
-          return engine.processBlock(buffer.getBuf(), 0, buffer.size());
+          return engine.processBlockGm(buffer.getBuf(), 0, buffer.size());
         } catch (final Exception e) {
           throw new BadBlockException("unable to process block", e);
         }
@@ -215,7 +195,7 @@ public class GMCipherSpi
         try {
           engine.init(false, key);
 
-          return engine.processBlock(buffer.getBuf(), 0, buffer.size());
+          return engine.processBlockGm(buffer.getBuf(), 0, buffer.size());
         } catch (final Exception e) {
           throw new BadBlockException("unable to process block", e);
         }
