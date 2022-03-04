@@ -1,14 +1,11 @@
 package com.github.zhenwei.core.crypto.engines;
 
+import com.github.zhenwei.core.asn1.*;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
 import com.github.zhenwei.core.crypto.digests.SM3Digest;
-import com.github.zhenwei.core.crypto.params.ECDomainParameters;
-import com.github.zhenwei.core.crypto.params.ECKeyParameters;
-import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
-import com.github.zhenwei.core.crypto.params.ECPublicKeyParameters;
-import com.github.zhenwei.core.crypto.params.ParametersWithRandom;
+import com.github.zhenwei.core.crypto.params.*;
 import com.github.zhenwei.core.math.ec.ECFieldElement;
 import com.github.zhenwei.core.math.ec.ECMultiplier;
 import com.github.zhenwei.core.math.ec.ECPoint;
@@ -17,6 +14,8 @@ import com.github.zhenwei.core.util.Arrays;
 import com.github.zhenwei.core.util.BigIntegers;
 import com.github.zhenwei.core.util.Memoable;
 import com.github.zhenwei.core.util.Pack;
+
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
@@ -47,7 +46,7 @@ public class SM2Engine {
   }
 
   public SM2Engine(Digest digest) {
-    this(digest, Mode.C1C2C3);
+    this(digest, Mode.C1C3C2);
   }
 
   public SM2Engine(Digest digest, Mode mode) {
@@ -92,6 +91,20 @@ public class SM2Engine {
       return decrypt(in, inOff, inLen);
     }
   }
+
+
+  public byte[] processBlockGm(
+          byte[] in,
+          int inOff,
+          int inLen)
+          throws InvalidCipherTextException, IOException {
+    if (forEncryption) {
+      return encryptGm(in, inOff, inLen);
+    } else {
+      return decryptGm(in, inOff, inLen);
+    }
+  }
+
 
   public int getOutputSize(int inputLen) {
     return (1 + 2 * curveLength) + inputLen + digest.getDigestSize();
@@ -139,6 +152,53 @@ public class SM2Engine {
         return Arrays.concatenate(c1, c2, c3);
     }
   }
+
+//todo 实现SM2Cipher
+  private byte[] encryptGm(byte[] in, int inOff, int inLen)
+          throws IOException {
+    byte[] c2 = new byte[inLen];
+
+    System.arraycopy(in, inOff, c2, 0, c2.length);
+
+    ECMultiplier multiplier = createBasePointMultiplier();
+
+    byte[] c1;
+    ECPoint kPB;
+    ASN1EncodableVector vector = new ASN1EncodableVector();
+    do {
+      BigInteger k = nextK();
+      ECPoint c1P = multiplier.multiply(ecParams.getG(), k).normalize();
+      c1 = c1P.getEncoded(false);
+      //x , y
+      vector.add(new ASN1Integer(c1P.getAffineXCoord().toBigInteger()));
+      vector.add(new ASN1Integer(c1P.getAffineYCoord().toBigInteger()));
+      kPB = ((ECPublicKeyParameters) ecKey).getQ().multiply(k).normalize();
+
+      kdf(digest, kPB, c2);
+    }
+    while (notEncrypted(c2, in, inOff));
+
+    byte[] c3 = new byte[digest.getDigestSize()];
+
+    addFieldElement(digest, kPB.getAffineXCoord());
+    digest.update(in, inOff, inLen);
+    addFieldElement(digest, kPB.getAffineYCoord());
+
+    digest.doFinal(c3, 0);
+    ASN1OctetString octetStringC2 = DEROctetString.getInstance(c2);
+    ASN1OctetString octetStringC3 = DEROctetString.getInstance(c3);
+    switch (mode) {
+      case C1C2C3:
+        vector.add(octetStringC2);
+        vector.add(octetStringC3);
+      default: //  国标默认 C1C3C2
+        vector.add(octetStringC3);
+        vector.add(octetStringC2);
+    }
+    //  国标规范结构不一样
+    return new DERSequence(vector).getEncoded(ASN1Encoding.DER);
+  }
+
 
   private byte[] decrypt(byte[] in, int inOff, int inLen)
       throws InvalidCipherTextException {
@@ -195,6 +255,69 @@ public class SM2Engine {
 
     return c2;
   }
+
+
+
+
+  private byte[] decryptGm(byte[] in, int inOff, int inLen)
+          throws InvalidCipherTextException {
+    //todo 解析ASN1
+    byte[] c1 = new byte[curveLength * 2 + 1];
+
+    System.arraycopy(in, inOff, c1, 0, c1.length);
+
+    ECPoint c1P = ecParams.getCurve().decodePoint(c1);
+
+    ECPoint s = c1P.multiply(ecParams.getH());
+    if (s.isInfinity()) {
+      throw new InvalidCipherTextException("[h]C1 at infinity");
+    }
+
+    c1P = c1P.multiply(((ECPrivateKeyParameters) ecKey).getD()).normalize();
+
+    int digestSize = this.digest.getDigestSize();
+    byte[] c2 = new byte[inLen - c1.length - digestSize];
+
+    if (mode == Mode.C1C3C2) {
+      System.arraycopy(in, inOff + c1.length + digestSize, c2, 0, c2.length);
+    } else {
+      System.arraycopy(in, inOff + c1.length, c2, 0, c2.length);
+    }
+
+    kdf(digest, c1P, c2);
+
+    byte[] c3 = new byte[digest.getDigestSize()];
+
+    addFieldElement(digest, c1P.getAffineXCoord());
+    digest.update(c2, 0, c2.length);
+    addFieldElement(digest, c1P.getAffineYCoord());
+
+    digest.doFinal(c3, 0);
+
+    int check = 0;
+    if (mode == Mode.C1C3C2) {
+      for (int i = 0; i != c3.length; i++) {
+        check |= c3[i] ^ in[inOff + c1.length + i];
+      }
+    } else {
+      for (int i = 0; i != c3.length; i++) {
+        check |= c3[i] ^ in[inOff + c1.length + c2.length + i];
+      }
+    }
+
+    Arrays.fill(c1, (byte) 0);
+    Arrays.fill(c3, (byte) 0);
+
+    if (check != 0) {
+      Arrays.fill(c2, (byte) 0);
+      throw new InvalidCipherTextException("invalid cipher text");
+    }
+
+    return c2;
+  }
+
+
+
 
   private boolean notEncrypted(byte[] encData, byte[] in, int inOff) {
     for (int i = 0; i != encData.length; i++) {
