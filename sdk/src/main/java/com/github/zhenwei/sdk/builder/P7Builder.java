@@ -18,7 +18,8 @@ import com.github.zhenwei.sdk.exception.WeGooCipherException;
  */
 public class P7Builder {
 
-    public void getInstance(Object obj) {
+    public P7Builder getInstance(Object obj) {
+        return null;
     }
 
 
