@@ -45,11 +45,17 @@ public class Sm2Cipher extends ASN1Object {
         this.cipher = (ASN1OctetString) sequence.getObjectAt(3);
     }
 
+
+    public Sm2Cipher(ASN1Integer x, ASN1Integer y, ASN1OctetString hash, ASN1OctetString cipher) {
+        this.x = x;
+        this.y = y;
+        this.hash = hash;
+        this.cipher = cipher;
+    }
+
     public Sm2Cipher(byte[] xData, byte[] yData, byte[] hashData, byte[] cipherData) {
-        this.x = ASN1Integer.getInstance(xData);
-        this.y = ASN1Integer.getInstance(yData);
-        this.hash = ASN1OctetString.getInstance(hashData);
-        this.cipher = ASN1OctetString.getInstance(cipherData);
+        this(ASN1Integer.getInstance(xData), ASN1Integer.getInstance(yData), ASN1OctetString.getInstance(hashData),
+                ASN1OctetString.getInstance(cipherData));
     }
 
     @Override
