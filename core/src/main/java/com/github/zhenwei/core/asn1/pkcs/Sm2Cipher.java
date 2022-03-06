@@ -3,6 +3,8 @@ package com.github.zhenwei.core.asn1.pkcs;
 import com.github.zhenwei.core.asn1.*;
 import com.github.zhenwei.core.crypto.engines.SM2Engine;
 
+import java.math.BigInteger;
+
 /**
  * @description: Sm2Cipher
  * 参考 GMT-0009
@@ -58,6 +60,11 @@ public class Sm2Cipher extends ASN1Object {
                 ASN1OctetString.getInstance(cipherData));
     }
 
+    public Sm2Cipher(BigInteger xData, BigInteger yData, byte[] hashData, byte[] cipherData) {
+        this(new ASN1Integer(xData), new ASN1Integer(yData),  ASN1OctetString.getInstance(hashData),
+                ASN1OctetString.getInstance(cipherData));
+    }
+
     @Override
     public ASN1Primitive toASN1Primitive() {
         ASN1EncodableVector vector = new ASN1EncodableVector();
@@ -74,12 +81,14 @@ public class Sm2Cipher extends ASN1Object {
     }
 
 
+
     public SM2Engine.Mode getMode() {
         return mode;
     }
 
-    public void setMode(SM2Engine.Mode mode) {
+    public Sm2Cipher setMode(SM2Engine.Mode mode) {
         this.mode = mode;
+        return this;
     }
 
     public ASN1Integer getX() {
