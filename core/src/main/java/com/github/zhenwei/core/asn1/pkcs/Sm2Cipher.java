@@ -45,6 +45,11 @@ public class Sm2Cipher extends ASN1Object {
         this.y = (ASN1Integer) sequence.getObjectAt(1);
         this.hash = (ASN1OctetString) sequence.getObjectAt(2);
         this.cipher = (ASN1OctetString) sequence.getObjectAt(3);
+        if (this.mode == SM2Engine.Mode.C1C2C3){
+            this.cipher = (ASN1OctetString) sequence.getObjectAt(2);
+            this.hash = (ASN1OctetString) sequence.getObjectAt(3);
+        }
+
     }
 
 
