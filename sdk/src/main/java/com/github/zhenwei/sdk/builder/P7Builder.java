@@ -1,12 +1,16 @@
 package com.github.zhenwei.sdk.builder;
 
-import com.github.zhenwei.core.asn1.ASN1Encodable;
-import com.github.zhenwei.core.asn1.DEROctetString;
+import com.github.zhenwei.core.asn1.*;
 import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
-import com.github.zhenwei.sdk.enums.BasePkcs7TypeEnum;
-import com.github.zhenwei.sdk.enums.GmPkcs7ContentInfoTypeEnum;
-import com.github.zhenwei.sdk.enums.Pkcs7ContentInfoTypeEnum;
+import com.github.zhenwei.core.asn1.pkcs.SignedData;
+import com.github.zhenwei.core.asn1.pkcs.Sm2Signature;
+import com.github.zhenwei.core.asn1.x509.Certificate;
+import com.github.zhenwei.sdk.enums.*;
 import com.github.zhenwei.sdk.exception.WeGooCipherException;
+
+import java.io.IOException;
+import java.security.cert.CRL;
+import java.security.cert.X509CRL;
 
 /**
  * @description: P7Builder
@@ -103,7 +107,7 @@ public class P7Builder {
      * @param []
      * @return com.github.zhenwei.core.asn1.DEROctetString
      * @author zhangzhenwei
-     * @description 
+     * @description
      *     SignedData ::= SEQUENCE {
      *        version Version,
      *        digestAlgorithms DigestAlgorithmIdentifiers,
@@ -113,16 +117,22 @@ public class P7Builder {
      *        signerInfos SignerInfos
      *        }
      * @date 2022/3/3  9:46 下午
-     * @since: 
+     * @since: 1.0.0
      */
-//    private DEROctetString genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature,){
-//        ASN1Integer version = new ASN1Integer(1);
-//        DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
-//        DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
-//        ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
-//        SignedData signedData = new SignedData(version,digestAlgorithms,contentInfo,);
-//
-//    }
-//
-    
+    private DEROctetString genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, CRL[] crls) throws IOException {
+        ASN1Integer version = new ASN1Integer(1);
+        DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
+        DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
+        ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
+        DERSet derSet = new DERSet(certificates);
+        DERTaggedObject taggedObject = new DERTaggedObject(0, derSet);
+        for (CRL crl : crls) {
+            X509CRL x509CRL = (X509CRL) crl;
+
+        }
+        SignedData signedData = new SignedData(version,digestAlgorithms,contentInfo,taggedObject,);
+
+    }
+
+
 }
