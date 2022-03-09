@@ -1,16 +1,16 @@
 package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.*;
-import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
-import com.github.zhenwei.core.asn1.pkcs.SignedData;
-import com.github.zhenwei.core.asn1.pkcs.Sm2Signature;
+import com.github.zhenwei.core.asn1.pkcs.*;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.sdk.enums.*;
 import com.github.zhenwei.sdk.exception.WeGooCipherException;
 
 import java.io.IOException;
 import java.security.cert.CRL;
+import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
+import java.util.Arrays;
 
 /**
  * @description: P7Builder
@@ -110,29 +110,33 @@ public class P7Builder {
      * @description
      *     SignedData ::= SEQUENCE {
      *        version Version,
-     *        digestAlgorithms DigestAlgorithmIdentifiers,
+     *        digestAlgorithms DigestAlgorithmIdentifiers, -- set of DigestAlgorithmIdentifier
      *        contentInfo ContentInfo,
-     *        certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL,
+     *        certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL, --set of ExtendedCertificateOrCertificate
      *        crls [1] IMPLICIT CertificateRevocationLists OPTIONAL,
      *        signerInfos SignerInfos
      *        }
      * @date 2022/3/3  9:46 下午
      * @since: 1.0.0
      */
-    private DEROctetString genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, CRL[] crls) throws IOException {
-        ASN1Integer version = new ASN1Integer(1);
+    private DEROctetString genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, X509CRL[] crls) throws IOException {
+        Version version = new Version(1);
         DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
         DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
         ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
-        DERSet derSet = new DERSet(certificates);
-        DERTaggedObject taggedObject = new DERTaggedObject(0, derSet);
-        for (CRL crl : crls) {
-            X509CRL x509CRL = (X509CRL) crl;
-
+        DERSet setOfCerts = new DERSet(certificates);
+        ASN1EncodableVector crlVector = new ASN1EncodableVector();
+        for (X509CRL crl : crls) {
+            crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
         }
-        SignedData signedData = new SignedData(version,digestAlgorithms,contentInfo,taggedObject,);
+        DERSet setOfCrls = new DERSet(crlVector);
+        SignerInfo signerInfo = SignerInfo.getInstance(null);
+        ASN1EncodableVector signerInfosVector = new ASN1EncodableVector();
+        DERSet setOfSignerInfo = new DERSet(signerInfosVector);
+        SignedData signedData = new SignedData(version,digestAlgorithms,contentInfo,setOfCerts,setOfCrls,setOfSignerInfo);
 
     }
+
 
 
 }
