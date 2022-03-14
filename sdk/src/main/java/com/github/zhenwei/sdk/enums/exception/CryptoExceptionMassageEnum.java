@@ -6,6 +6,7 @@ public enum CryptoExceptionMassageEnum implements IExceptionEnum {
   parse_p10_err("parse p10 error", "解析P10失败"),
   build_err("build error", "构造失败"),
   encode_err("encode error", "编码失败"),
+  generate_signed_data_err("generate signed data error", "构造Pkcs7 签名数据失败"),
 
   ;
 

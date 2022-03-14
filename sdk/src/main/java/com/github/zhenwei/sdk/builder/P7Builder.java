@@ -4,13 +4,11 @@ import com.github.zhenwei.core.asn1.*;
 import com.github.zhenwei.core.asn1.pkcs.*;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.sdk.enums.*;
+import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.sdk.exception.WeGooCipherException;
+import com.github.zhenwei.sdk.exception.WeGooCryptoException;
 
-import java.io.IOException;
-import java.security.cert.CRL;
-import java.security.cert.CRLException;
 import java.security.cert.X509CRL;
-import java.util.Arrays;
 
 /**
  * @description: P7Builder
@@ -39,7 +37,7 @@ public class P7Builder {
      * @date 2022/3/1  7:27 下午
      * @since: 1.0.0
      */
-    public ContentInfo build(BasePkcs7TypeEnum typeEnum, byte[] data) throws WeGooCipherException {
+    public ContentInfo build(BasePkcs7TypeEnum typeEnum, byte[] data) throws WeGooCryptoException {
         ContentInfo contentInfo;
         //根据枚举类型判断是否为国密类型。国密类型OID 有另定义
         if (typeEnum instanceof Pkcs7ContentInfoTypeEnum) {
@@ -47,7 +45,7 @@ public class P7Builder {
             contentInfo = genPkcs7ContentInfo(infoTypeEnum, data);
         } else if (typeEnum instanceof GmPkcs7ContentInfoTypeEnum) {
             GmPkcs7ContentInfoTypeEnum infoTypeEnum = (GmPkcs7ContentInfoTypeEnum) typeEnum;
-            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data);
+            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data,null,null,null,null);
         } else {
             throw new WeGooCipherException("");
         }
@@ -78,13 +76,16 @@ public class P7Builder {
     }
 
 
-    private ContentInfo genGmPkcs7ContentInfo(GmPkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data) {
+    private ContentInfo genGmPkcs7ContentInfo(GmPkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data,
+            SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, X509CRL[] crls)
+            throws WeGooCryptoException {
         ASN1Encodable asn1Encodable = null;
         switch (infoTypeEnum) {
             case DATA:
                 asn1Encodable = genData(data);
                 break;
             case SIGNED_DATA:
+                asn1Encodable = genSm2SignedData(signAlgEnum, signature, certificates, crls);
                 break;
             case KEY_AGREEMENT_INFO_DATA:
                 break;
@@ -107,36 +108,38 @@ public class P7Builder {
      * @param []
      * @return com.github.zhenwei.core.asn1.DEROctetString
      * @author zhangzhenwei
-     * @description
-     *     SignedData ::= SEQUENCE {
-     *        version Version,
-     *        digestAlgorithms DigestAlgorithmIdentifiers, -- set of DigestAlgorithmIdentifier
-     *        contentInfo ContentInfo,
-     *        certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL, --set of ExtendedCertificateOrCertificate
-     *        crls [1] IMPLICIT CertificateRevocationLists OPTIONAL,
-     *        signerInfos SignerInfos
-     *        }
+     * @description SignedData ::= SEQUENCE {
+     * version Version,
+     * digestAlgorithms DigestAlgorithmIdentifiers, -- set of DigestAlgorithmIdentifier
+     * contentInfo ContentInfo,
+     * certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL, --set of ExtendedCertificateOrCertificate
+     * crls [1] IMPLICIT CertificateRevocationLists OPTIONAL,
+     * signerInfos SignerInfos
+     * }
      * @date 2022/3/3  9:46 下午
      * @since: 1.0.0
      */
-    private DEROctetString genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, X509CRL[] crls) throws IOException {
-        Version version = new Version(1);
-        DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
-        DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
-        ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
-        DERSet setOfCerts = new DERSet(certificates);
-        ASN1EncodableVector crlVector = new ASN1EncodableVector();
-        for (X509CRL crl : crls) {
-            crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
+    private ASN1Encodable genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates,
+                                           X509CRL[] crls) throws WeGooCryptoException {
+        try {
+            Version version = new Version(1);
+            DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
+            DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
+            ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
+            DERSet setOfCerts = new DERSet(certificates);
+            ASN1EncodableVector crlVector = new ASN1EncodableVector();
+            for (X509CRL crl : crls) {
+                crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
+            }
+            DERSet setOfCrls = new DERSet(crlVector);
+            SignerInfo signerInfo = SignerInfo.getInstance(null);
+            ASN1EncodableVector signerInfosVector = new ASN1EncodableVector();
+            DERSet setOfSignerInfo = new DERSet(signerInfosVector);
+            return new SignedData(version, digestAlgorithms, contentInfo, setOfCerts, setOfCrls, setOfSignerInfo);
+        } catch (Exception e) {
+            throw new WeGooCryptoException(CryptoExceptionMassageEnum.generate_signed_data_err, e);
         }
-        DERSet setOfCrls = new DERSet(crlVector);
-        SignerInfo signerInfo = SignerInfo.getInstance(null);
-        ASN1EncodableVector signerInfosVector = new ASN1EncodableVector();
-        DERSet setOfSignerInfo = new DERSet(signerInfosVector);
-        SignedData signedData = new SignedData(version,digestAlgorithms,contentInfo,setOfCerts,setOfCrls,setOfSignerInfo);
-
     }
-
 
 
 }
