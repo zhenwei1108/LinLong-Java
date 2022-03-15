@@ -81,6 +81,14 @@ public class CertBuilder {
     }
 
 
+    /**
+     * @param [dn, publicKey, privateKey]
+     * @return java.security.cert.Certificate
+     * @author zhangzhenwei
+     * @description 生成证书
+     * @date 2022/3/15  9:09 下午
+     * @since: 1.0.0
+     */
     public static Certificate generateCertificate(String dn, PublicKey publicKey, PrivateKey privateKey) throws OperatorCreationException, IOException, WeGooCryptoException {
         SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey.getEncoded());
         X500Name issuer = new X500Name(dn);
@@ -93,7 +101,6 @@ public class CertBuilder {
         String algorithm = publicKey.getAlgorithm();
         BcContentSignerBuilder signerBuilder;
         AsymmetricKeyParameter parameter;
-        //todo 算法标识
         if (algorithm.equals(KeyPairAlgEnum.SM2_256.getAlg())) {
             AlgorithmIdentifier signAlg = new AlgorithmIdentifier(SignAlgEnum.SM3_WITH_SM2.getOid());
             AlgorithmIdentifier digAlg = new AlgorithmIdentifier(DigestAlgEnum.SM3.getOid());
