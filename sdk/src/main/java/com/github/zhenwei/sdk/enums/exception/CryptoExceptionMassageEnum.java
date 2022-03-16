@@ -7,6 +7,7 @@ public enum CryptoExceptionMassageEnum implements IExceptionEnum {
   build_err("build error", "构造失败"),
   encode_err("encode error", "编码失败"),
   generate_signed_data_err("generate signed data error", "构造Pkcs7 签名数据失败"),
+  generate_jks_err("generate jks error", "构造 jks 失败"),
 
   ;
 
