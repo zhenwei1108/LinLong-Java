@@ -1,13 +1,15 @@
 package com.github.zhenwei.provider.jcajce.provider.keystore.jks;
 
+import com.github.zhenwei.core.asn1.pkcs.PrivateKeyInfo;
+import com.github.zhenwei.core.enums.KeyPairAlgEnum;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import sun.security.pkcs.EncryptedPrivateKeyInfo;
-import sun.security.pkcs.PKCS8Key;
-import sun.security.util.DerValue;
 import sun.security.util.ObjectIdentifier;
 import sun.security.x509.AlgorithmId;
 
 import java.io.IOException;
 import java.security.*;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Arrays;
 
 public class WeGooKeyProtector {
@@ -29,7 +31,7 @@ public class WeGooKeyProtector {
 
     protected void finalize() {
         if (this.passwdBytes != null) {
-            Arrays.fill(this.passwdBytes, (byte)0);
+            Arrays.fill(this.passwdBytes, (byte) 0);
             this.passwdBytes = null;
         }
 
@@ -59,7 +61,7 @@ public class WeGooKeyProtector {
                 int var5 = 0;
 
                 byte[] var4;
-                for(var4 = var8; var2 < var3; var5 += 20) {
+                for (var4 = var8; var2 < var3; var5 += 20) {
                     this.md.update(this.passwdBytes);
                     this.md.update(var4);
                     var4 = this.md.digest();
@@ -75,8 +77,8 @@ public class WeGooKeyProtector {
 
                 byte[] var11 = new byte[var7.length];
 
-                for(var2 = 0; var2 < var11.length; ++var2) {
-                    var11[var2] = (byte)(var7[var2] ^ var10[var2]);
+                for (var2 = 0; var2 < var11.length; ++var2) {
+                    var11[var2] = (byte) (var7[var2] ^ var10[var2]);
                 }
 
                 byte[] var12 = new byte[var8.length + var11.length + 20];
@@ -85,7 +87,7 @@ public class WeGooKeyProtector {
                 System.arraycopy(var11, 0, var12, var16, var11.length);
                 var16 += var11.length;
                 this.md.update(this.passwdBytes);
-                Arrays.fill(this.passwdBytes, (byte)0);
+                Arrays.fill(this.passwdBytes, (byte) 0);
                 this.passwdBytes = null;
                 this.md.update(var7);
                 var4 = this.md.digest();
@@ -123,7 +125,7 @@ public class WeGooKeyProtector {
             int var5 = 0;
 
             byte[] var3;
-            for(var3 = var9; var2 < var4; var5 += 20) {
+            for (var3 = var9; var2 < var4; var5 += 20) {
                 this.md.update(this.passwdBytes);
                 this.md.update(var3);
                 var3 = this.md.digest();
@@ -139,26 +141,36 @@ public class WeGooKeyProtector {
 
             byte[] var12 = new byte[var10.length];
 
-            for(var2 = 0; var2 < var12.length; ++var2) {
-                var12[var2] = (byte)(var10[var2] ^ var11[var2]);
+            for (var2 = 0; var2 < var12.length; ++var2) {
+                var12[var2] = (byte) (var10[var2] ^ var11[var2]);
             }
 
             this.md.update(this.passwdBytes);
-            Arrays.fill(this.passwdBytes, (byte)0);
+            Arrays.fill(this.passwdBytes, (byte) 0);
             this.passwdBytes = null;
             this.md.update(var12);
             var3 = this.md.digest();
             this.md.reset();
 
-            for(var2 = 0; var2 < var3.length; ++var2) {
+            for (var2 = 0; var2 < var3.length; ++var2) {
                 if (var3[var2] != var8[20 + var6 + var2]) {
                     throw new UnrecoverableKeyException("Cannot recover key");
                 }
             }
 
             try {
-                return PKCS8Key.parseKey(new DerValue(var12));
-            } catch (IOException var14) {
+//                return PKCS8Key.parseKey(new DerValue(var12));
+
+                PrivateKeyInfo info = PrivateKeyInfo.getInstance(var12);
+                if (info == null) {
+                    throw new UnrecoverableKeyException("Recover key can not null");
+                }
+                KeyPairAlgEnum algEnum = KeyPairAlgEnum.match(info.getPrivateKeyAlgorithm().getAlgorithm());
+                PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(var12);
+                KeyFactory factory = KeyFactory.getInstance(algEnum.getAlg(), new WeGooProvider());
+                return factory.generatePrivate(spec);
+
+            } catch (Exception var14) {
                 throw new UnrecoverableKeyException(var14.getMessage());
             }
         }

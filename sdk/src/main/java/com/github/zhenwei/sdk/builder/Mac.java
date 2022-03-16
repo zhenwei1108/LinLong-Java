@@ -8,9 +8,9 @@ import com.github.zhenwei.core.crypto.engines.SM4Engine;
 import com.github.zhenwei.core.crypto.macs.CMac;
 import com.github.zhenwei.core.crypto.macs.HMac;
 import com.github.zhenwei.core.crypto.params.KeyParameter;
-import com.github.zhenwei.sdk.enums.DigestAlgEnum;
-import com.github.zhenwei.sdk.enums.KeyEnum;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.enums.DigestAlgEnum;
+import com.github.zhenwei.core.enums.KeyEnum;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 
 import java.security.Key;
 

@@ -19,11 +19,11 @@ import com.github.zhenwei.provider.jce.interfaces.ECPrivateKey;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import com.github.zhenwei.sdk.builder.params.CertExtension;
 import com.github.zhenwei.sdk.builder.params.CodingType;
-import com.github.zhenwei.sdk.enums.DigestAlgEnum;
-import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
-import com.github.zhenwei.sdk.enums.SignAlgEnum;
-import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.enums.DigestAlgEnum;
+import com.github.zhenwei.core.enums.KeyPairAlgEnum;
+import com.github.zhenwei.core.enums.SignAlgEnum;
+import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.sdk.util.Base64Util;
 
 import java.io.IOException;

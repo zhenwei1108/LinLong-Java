@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums;
+package com.github.zhenwei.core.enums;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;

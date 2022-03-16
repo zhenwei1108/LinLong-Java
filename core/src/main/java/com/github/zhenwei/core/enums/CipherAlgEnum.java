@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums;
+package com.github.zhenwei.core.enums;
 
 public enum CipherAlgEnum implements BaseAlgEnum {
   SM2("SM2", ModeEnum.NONE),

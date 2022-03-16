@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums.exception;
+package com.github.zhenwei.core.enums.exception;
 
 public interface IExceptionEnum {
 

@@ -3,7 +3,7 @@ package com.github.zhenwei.test.key;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.CertBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
-import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
+import com.github.zhenwei.core.enums.KeyPairAlgEnum;
 import org.junit.Test;
 
 import java.security.KeyPair;

@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums.exception;
+package com.github.zhenwei.core.enums.exception;
 
 public enum SignatureExceptionMessageEnum implements IExceptionEnum {
   sign_data_err("sign data error","签名失败"),

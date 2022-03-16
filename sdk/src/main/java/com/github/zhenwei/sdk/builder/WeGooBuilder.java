@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 import java.lang.reflect.Modifier;
 import java.security.Provider;
 import java.security.Security;

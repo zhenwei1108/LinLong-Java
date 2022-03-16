@@ -1,8 +1,8 @@
 package com.github.zhenwei.sdk.builder.params;
 
 import com.github.zhenwei.core.asn1.*;
-import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 
 import java.nio.charset.StandardCharsets;
 

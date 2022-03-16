@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums.exception;
+package com.github.zhenwei.core.enums.exception;
 
 public enum DigestExceptionMessageEnum implements IExceptionEnum{
   digest_data_err("digest data error","计算摘要失败"),

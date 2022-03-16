@@ -1,6 +1,6 @@
-package com.github.zhenwei.sdk.exception;
+package com.github.zhenwei.core.exception;
 
-import com.github.zhenwei.sdk.enums.exception.IExceptionEnum;
+import com.github.zhenwei.core.enums.exception.IExceptionEnum;
 
 public class WeGooCryptoException extends BaseWeGooException {
 

@@ -5,7 +5,7 @@ import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.builder.P10Builder;
 import com.github.zhenwei.sdk.builder.params.CertExtension;
 import com.github.zhenwei.sdk.builder.params.CodingType;
-import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
+import com.github.zhenwei.core.enums.KeyPairAlgEnum;
 import org.junit.Test;
 
 import java.nio.charset.StandardCharsets;

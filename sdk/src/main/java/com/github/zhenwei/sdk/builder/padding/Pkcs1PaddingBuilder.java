@@ -6,9 +6,9 @@ import com.github.zhenwei.core.asn1.DERNull;
 import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.DigestInfo;
 import com.github.zhenwei.core.crypto.CryptoServicesRegistrar;
-import com.github.zhenwei.sdk.enums.DigestAlgEnum;
-import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.enums.DigestAlgEnum;
+import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 

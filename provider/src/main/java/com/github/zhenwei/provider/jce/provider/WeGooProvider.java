@@ -127,7 +127,7 @@ public final class WeGooProvider extends Provider
   private static final String KEYSTORE_PACKAGE = "com.github.zhenwei.provider.jcajce.provider.keystore.";
   private static final String[] KEYSTORES =
       {
-          "BC", "BCFKS", "PKCS12", "WeGoo"
+          "BC", "BCFKS", "PKCS12", "JKS"
       };
 
   /*

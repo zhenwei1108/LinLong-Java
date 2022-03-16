@@ -3,10 +3,10 @@ package com.github.zhenwei.sdk.builder;
 import com.github.zhenwei.core.asn1.*;
 import com.github.zhenwei.core.asn1.pkcs.*;
 import com.github.zhenwei.core.asn1.x509.Certificate;
-import com.github.zhenwei.sdk.enums.*;
-import com.github.zhenwei.sdk.enums.exception.CryptoExceptionMassageEnum;
-import com.github.zhenwei.sdk.exception.WeGooCipherException;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.enums.*;
+import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.WeGooCipherException;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 
 import java.security.cert.X509CRL;
 
@@ -77,7 +77,7 @@ public class P7Builder {
 
 
     private ContentInfo genGmPkcs7ContentInfo(GmPkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data,
-            SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, X509CRL[] crls)
+                                              SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, X509CRL[] crls)
             throws WeGooCryptoException {
         ASN1Encodable asn1Encodable = null;
         switch (infoTypeEnum) {

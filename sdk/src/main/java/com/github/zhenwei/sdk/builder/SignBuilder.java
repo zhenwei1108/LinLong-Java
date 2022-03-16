@@ -1,8 +1,8 @@
 package com.github.zhenwei.sdk.builder;
 
-import com.github.zhenwei.sdk.enums.SignAlgEnum;
-import com.github.zhenwei.sdk.enums.exception.SignatureExceptionMessageEnum;
-import com.github.zhenwei.sdk.exception.WeGooSignerException;
+import com.github.zhenwei.core.enums.SignAlgEnum;
+import com.github.zhenwei.core.enums.exception.SignatureExceptionMessageEnum;
+import com.github.zhenwei.core.exception.WeGooSignerException;
 import lombok.var;
 
 import java.security.PrivateKey;

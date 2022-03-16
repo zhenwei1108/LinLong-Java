@@ -1,9 +1,9 @@
-package com.github.zhenwei.sdk.enums;
+package com.github.zhenwei.core.enums;
 
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
 import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x9.X9ObjectIdentifiers;
-import com.github.zhenwei.sdk.exception.WeGooCryptoException;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 import java.util.Arrays;
 
 /**

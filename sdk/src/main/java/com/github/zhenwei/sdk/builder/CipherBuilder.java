@@ -1,8 +1,8 @@
 package com.github.zhenwei.sdk.builder;
 
-import com.github.zhenwei.sdk.enums.CipherAlgEnum;
-import com.github.zhenwei.sdk.enums.exception.CipherExceptionMessageEnum;
-import com.github.zhenwei.sdk.exception.WeGooCipherException;
+import com.github.zhenwei.core.enums.CipherAlgEnum;
+import com.github.zhenwei.core.enums.exception.CipherExceptionMessageEnum;
+import com.github.zhenwei.core.exception.WeGooCipherException;
 import java.security.Key;
 import java.security.Provider;
 import javax.crypto.Cipher;

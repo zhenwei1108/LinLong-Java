@@ -5,10 +5,10 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa.BCRSAPublicKey
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.builder.SignBuilder;
-import com.github.zhenwei.sdk.enums.KeyEnum;
-import com.github.zhenwei.sdk.enums.KeyPairAlgEnum;
-import com.github.zhenwei.sdk.enums.SignAlgEnum;
-import com.github.zhenwei.sdk.exception.BaseWeGooException;
+import com.github.zhenwei.core.enums.KeyEnum;
+import com.github.zhenwei.core.enums.KeyPairAlgEnum;
+import com.github.zhenwei.core.enums.SignAlgEnum;
+import com.github.zhenwei.core.exception.BaseWeGooException;
 import com.github.zhenwei.sdk.util.Base64Util;
 import org.junit.Test;
 

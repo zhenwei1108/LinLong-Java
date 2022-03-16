@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums.exception;
+package com.github.zhenwei.core.enums.exception;
 
 /**
  * @description: 密钥相关异常信息

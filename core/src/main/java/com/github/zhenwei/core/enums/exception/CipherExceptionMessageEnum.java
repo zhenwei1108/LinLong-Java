@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums.exception;
+package com.github.zhenwei.core.enums.exception;
 
 public enum CipherExceptionMessageEnum implements IExceptionEnum {
   cipher_data_err("cipher data error","秘密处理失败"),

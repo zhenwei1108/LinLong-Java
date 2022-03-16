@@ -1,4 +1,4 @@
-package com.github.zhenwei.sdk.enums;
+package com.github.zhenwei.core.enums;
 
 public interface BaseAlgEnum extends BaseEnum{
 
