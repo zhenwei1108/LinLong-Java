@@ -20,7 +20,7 @@ public class SignedData
 
   private ASN1Integer version;
   private ASN1Set digestAlgorithms;
-  private ContentInfo contentInfo;
+  private ASN1Object contentInfo;
   private ASN1Set certificates;
   private ASN1Set crls;
   private ASN1Set signerInfos;
@@ -39,7 +39,7 @@ public class SignedData
   public SignedData(
       ASN1Integer _version,
       ASN1Set _digestAlgorithms,
-      ContentInfo _contentInfo,
+      ASN1Object _contentInfo,
       ASN1Set _certificates,
       ASN1Set _crls,
       ASN1Set _signerInfos) {
@@ -57,7 +57,14 @@ public class SignedData
 
     version = (ASN1Integer) e.nextElement();
     digestAlgorithms = ((ASN1Set) e.nextElement());
-    contentInfo = ContentInfo.getInstance(e.nextElement());
+    Object contentInfo = e.nextElement();
+    if (contentInfo instanceof ContentInfo) {
+      this.contentInfo = ContentInfo.getInstance(contentInfo);
+    } else if (contentInfo instanceof Sm2Signature){
+      this.contentInfo = Sm2Signature.getInstance(contentInfo);
+    } else {
+      throw new IllegalArgumentException("contentInfo broken " + contentInfo);
+    }
 
     while (e.hasMoreElements()) {
       ASN1Primitive o = (ASN1Primitive) e.nextElement();
@@ -93,7 +100,7 @@ public class SignedData
     return digestAlgorithms;
   }
 
-  public ContentInfo getContentInfo() {
+  public ASN1Object getContentInfo() {
     return contentInfo;
   }
 
