@@ -33,8 +33,9 @@ public class CertTest {
     public Certificate genCert() throws Exception {
         KeyBuilder keyBuilder = new KeyBuilder(new WeGooProvider());
         KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
-        Certificate certificate = CertBuilder.generateCertificate("O=zhenwei,CN=wegoo,C=CN", keyPair.getPublic(), keyPair.getPrivate());
-        return certificate;
+        byte[] certificate = CertBuilder.generateCertificate("","O=zhenwei,CN=wegoo,C=CN", keyPair.getPublic(), keyPair.getPrivate());
+        CertBuilder builder = CertBuilder.getInstance(certificate);
+        return builder.getCert();
 
     }
 

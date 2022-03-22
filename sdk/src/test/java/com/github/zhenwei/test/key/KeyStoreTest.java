@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.security.KeyPair;
 import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
 
 public class KeyStoreTest {
 
@@ -19,10 +20,11 @@ public class KeyStoreTest {
         KeyStoreBuilder builder = new KeyStoreBuilder();
         KeyBuilder keyBuilder = new KeyBuilder(new WeGooProvider());
         KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
-        Certificate certificate = CertBuilder.generateCertificate("C=CN,CN=demo", keyPair.getPublic(), keyPair.getPrivate());
-        System.out.println("证书："+ Base64Util.encode(certificate.getEncoded()));
+        byte[] certificate = CertBuilder.generateCertificate("","C=CN,CN=demo", keyPair.getPublic(), keyPair.getPrivate());
+        System.out.println("证书："+ Base64Util.encode(certificate));
         System.out.println(Hex.toHexString(keyPair.getPrivate().getEncoded()));
-        byte[] jks = builder.genJks(keyPair.getPrivate(), "test", "123123", new Certificate[]{certificate});
+        X509Certificate cert = CertBuilder.getInstance(certificate).getCert();
+        byte[] jks = builder.genJks(keyPair.getPrivate(), "test", "123123", new Certificate[]{cert});
         System.out.println(Hex.toHexString(jks));
 
 
