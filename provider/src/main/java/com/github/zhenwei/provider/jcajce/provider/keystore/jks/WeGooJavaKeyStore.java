@@ -1,9 +1,9 @@
 package com.github.zhenwei.provider.jcajce.provider.keystore.jks;
 
+import com.github.zhenwei.provider.jcajce.provider.keystore.pkcs12.PKCS12KeyStoreSpi;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import sun.misc.IOUtils;
 import sun.security.pkcs.EncryptedPrivateKeyInfo;
-import sun.security.pkcs12.PKCS12KeyStore;
 
 import java.io.*;
 import java.security.*;
@@ -406,11 +406,11 @@ public abstract class WeGooJavaKeyStore extends KeyStoreSpi {
 
         public static final class DualFormatJKS extends WeGooKeyStoreDelegator {
             public DualFormatJKS() {
-                super("JKS", JKS.class, "PKCS12", PKCS12KeyStore.class);
+                super("JKS", JKS.class, "PKCS12", PKCS12KeyStoreSpi.class);
             }
         }
 
-        public static final class CaseExactJKS extends  WeGooJavaKeyStore {
+        public static final class CaseExactJKS extends WeGooJavaKeyStore {
             public CaseExactJKS() {
             }
 
