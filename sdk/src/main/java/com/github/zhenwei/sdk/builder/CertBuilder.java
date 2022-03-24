@@ -2,8 +2,6 @@ package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
-import com.github.zhenwei.core.asn1.pkcs.CertificationRequest;
-import com.github.zhenwei.core.asn1.pkcs.CertificationRequestInfo;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.*;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
@@ -83,13 +81,11 @@ public class CertBuilder {
      * @date 2022/3/15  9:09 下午
      * @since: 1.0.0
      */
-    public static byte[] generateCertificate(String p10, String dn, PublicKey publicKey, PrivateKey privateKey) throws WeGooCryptoException {
+    public static byte[] generateCertificate(String subjectDn, String issuerDn, PublicKey publicKey, PrivateKey privateKey) throws WeGooCryptoException {
         try {
-            CertificationRequest request = CertificationRequest.getInstance(p10);
-            CertificationRequestInfo requestInfo = request.getCertificationRequestInfo();
-            X500Name subject = requestInfo.getSubject();
-            SubjectPublicKeyInfo publicKeyInfo = requestInfo.getSubjectPublicKeyInfo();
-            X500Name issuer = new X500Name(dn);
+            SubjectPublicKeyInfo publicKeyInfo = (SubjectPublicKeyInfo)publicKey;
+            X500Name subject = new X500Name(subjectDn);
+            X500Name issuer = new X500Name(issuerDn);
             byte[] bytes = new byte[15];
             Random random = new Random();
             random.nextBytes(bytes);
@@ -109,8 +105,6 @@ public class CertBuilder {
             if (subject.toString().equals(subject.toString())){
                 //根证书有效期，长长长长长长长
                 notAfter = DateUtil.nowPlusDays(365000);
-                //根证书DN
-                issuer = new X500Name(dn);
                 //根证书 颁发者标识符
                 authorityKeyIdentifier = x509ExtensionUtils.createAuthorityKeyIdentifier(publicKeyInfo);
                 //补充证书签名用途
