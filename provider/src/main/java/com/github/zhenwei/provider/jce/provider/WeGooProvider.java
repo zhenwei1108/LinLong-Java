@@ -20,8 +20,10 @@ import com.github.zhenwei.provider.jcajce.provider.util.AlgorithmProvider;
 import com.github.zhenwei.provider.jcajce.provider.util.AsymmetricKeyInfoConverter;
 import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSKeyFactorySpi;
 import com.github.zhenwei.provider.jcajce.provider.xmss.XMSSMTKeyFactorySpi;
+import lombok.var;
 
 import java.io.IOException;
+import java.lang.reflect.Modifier;
 import java.security.*;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
@@ -371,14 +373,14 @@ public final class WeGooProvider extends Provider
    */
   private void forceAuth(Provider provider){
     try {
-//      verificationResults.put(provider, true);
-//      var field = Class.forName("javax.crypto.JceSecurity")
-//          .getDeclaredField("verificationResults");
-//      field.setAccessible(true);
-//      var modifiers = field.getClass().getDeclaredField("modifiers");
-//      modifiers.setAccessible(true);
-//      modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-//      field.set(verificationResults, verificationResults);
+      verificationResults.put(provider, true);
+      var field = Class.forName("javax.crypto.JceSecurity")
+          .getDeclaredField("verificationResults");
+      field.setAccessible(true);
+      var modifiers = field.getClass().getDeclaredField("modifiers");
+      modifiers.setAccessible(true);
+      modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+      field.set(verificationResults, verificationResults);
     } catch (Exception e) {
       throw new RuntimeException(e);
     }
