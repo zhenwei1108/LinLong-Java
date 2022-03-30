@@ -23,13 +23,6 @@
 			<version>${bouncycastle.bcpkix.verion}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk16</artifactId>
-			<version>${bouncycastle.bcprov.jdk16.verion}</version>
-		</dependency>
-
 ```
 
 ## 内容应包含
