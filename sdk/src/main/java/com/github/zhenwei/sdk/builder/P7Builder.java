@@ -1,19 +1,28 @@
 package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.*;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.*;
+import com.github.zhenwei.core.asn1.x500.X500Name;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.enums.*;
 import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.BaseWeGooException;
 import com.github.zhenwei.core.exception.WeGooCipherException;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
+import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 
+import java.io.IOException;
+import java.security.Key;
+import java.security.PublicKey;
 import java.security.cert.X509CRL;
+import java.security.cert.X509Certificate;
 
 /**
  * @description: P7Builder
  * pkcs 7 构造者， 包含： 签名，信封
- * 参考 RFC-2315(p7) RFC-3852(CMS)
+ * 参考 RFC-2315(p7) RFC-3852(CMS) / GMT-0010
  * @author: zhangzhenwei
  * @since: 1.0.0
  * @date: 2022/2/28  10:32 下午
@@ -45,7 +54,7 @@ public class P7Builder {
             contentInfo = genPkcs7ContentInfo(infoTypeEnum, data);
         } else if (typeEnum instanceof GmPkcs7ContentInfoTypeEnum) {
             GmPkcs7ContentInfoTypeEnum infoTypeEnum = (GmPkcs7ContentInfoTypeEnum) typeEnum;
-            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data,null,null,null,null);
+            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data, null, null, null, null);
         } else {
             throw new WeGooCipherException("");
         }
@@ -77,7 +86,7 @@ public class P7Builder {
 
 
     private ContentInfo genGmPkcs7ContentInfo(GmPkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data,
-                                              SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates, X509CRL[] crls)
+                                              SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls)
             throws WeGooCryptoException {
         ASN1Encodable asn1Encodable = null;
         switch (infoTypeEnum) {
@@ -85,7 +94,7 @@ public class P7Builder {
                 asn1Encodable = genData(data);
                 break;
             case SIGNED_DATA:
-                asn1Encodable = genSm2SignedData(signAlgEnum, signature, certificates, crls);
+                asn1Encodable = genSignedData(signAlgEnum, signature, certificates, crls);
                 break;
             case KEY_AGREEMENT_INFO_DATA:
                 break;
@@ -119,21 +128,31 @@ public class P7Builder {
      * @date 2022/3/3  9:46 下午
      * @since: 1.0.0
      */
-    private ASN1Encodable genSm2SignedData(SignAlgEnum signAlgEnum, Sm2Signature signature, Certificate[] certificates,
+    private ASN1Encodable genSignedData(SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates,
                                            X509CRL[] crls) throws WeGooCryptoException {
         try {
             Version version = new Version(1);
-            DigestAlgEnum digestAlgEnum = signAlgEnum.getDigestAlgEnum();
-            DERSet digestAlgorithms = new DERSet(digestAlgEnum.getOid());
-            ContentInfo contentInfo = ContentInfo.getInstance(signature.getEncoded());
+            DERSet digestAlgorithms = new DERSet(signAlgEnum.getDigestAlgEnum().getOid());
+            ContentInfo contentInfo = ContentInfo.getInstance(signature);
             DERSet setOfCerts = new DERSet(certificates);
             ASN1EncodableVector crlVector = new ASN1EncodableVector();
             for (X509CRL crl : crls) {
                 crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
             }
             DERSet setOfCrls = new DERSet(crlVector);
+            /**
+             * SignerInfo ::= SEQUENCE {
+             *      version Version,
+             *      issuerAndSerialNumber IssuerAndSerialNumber,
+             *      digestAlgorithm DigestAlgorithmIdentifier,
+             *      authenticatedAttributes [0] IMPLICIT Attributes OPTIONAL,
+             *      digestEncryptionAlgorithm DigestEncryptionAlgorithmIdentifier,
+             *      encryptedDigest EncryptedDigest,
+             *      unauthenticatedAttributes [1] IMPLICIT Attributes OPTIONAL }
+             */
             SignerInfo signerInfo = SignerInfo.getInstance(null);
             ASN1EncodableVector signerInfosVector = new ASN1EncodableVector();
+            signerInfosVector.add(signerInfo);
             DERSet setOfSignerInfo = new DERSet(signerInfosVector);
             return new SignedData(version, digestAlgorithms, contentInfo, setOfCerts, setOfCrls, setOfSignerInfo);
         } catch (Exception e) {
@@ -141,5 +160,65 @@ public class P7Builder {
         }
     }
 
+    public byte[] enveloped(X509Certificate certificate, byte[] data) throws BaseWeGooException, IOException {
+        ASN1EncodableVector envelopedDataVector = new ASN1EncodableVector();
+        ASN1EncodableVector recipientInfosVector = new ASN1EncodableVector();
+        ASN1EncodableVector recipientInfoVector = new ASN1EncodableVector();
+        ASN1EncodableVector encryptedContentInfoVector = new ASN1EncodableVector();
+        ASN1Integer version = new ASN1Integer(0);
+        envelopedDataVector.add(version);
+        //版本
+        recipientInfoVector.add(version);
+        IssuerAndSerialNumber issuerAndSerialNumber = new IssuerAndSerialNumber(new X500Name(certificate.getSubjectDN().getName()), certificate.getSerialNumber());
+        //序列号
+        recipientInfoVector.add(issuerAndSerialNumber);
+        //匹配算法标识
+        PublicKey publicKey = certificate.getPublicKey();
+        String algorithm = publicKey.getAlgorithm();
+        //todo 算法oid
+        ASN1ObjectIdentifier identifier = GMObjectIdentifiers.sms4_cbc;
+        boolean isEc = algorithm.equalsIgnoreCase("EC");
+        ASN1ObjectIdentifier p7Oid = isEc ? new ASN1ObjectIdentifier("1.2.156.10197.6.1.4.2.3") : ContentInfo.envelopedData;
+        //RSA/SM2加解密算法
+        AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(identifier);
+        recipientInfoVector.add(algorithmIdentifier);
+        WeGooProvider provider = new WeGooProvider();
+        KeyBuilder keyBuilder = new KeyBuilder(provider);
+        Key key = keyBuilder.buildKey(KeyEnum.SM4_128);
+        CipherBuilder cipherBuilder = new CipherBuilder(provider);
+        //加密
+        byte[] encData = cipherBuilder.cipher(CipherAlgEnum.SM2, publicKey, key.getEncoded(), null, true);
+        recipientInfoVector.add(new DEROctetString(encData));
+
+        DERSequence recipientInfo = new DERSequence(recipientInfoVector);
+        recipientInfosVector.add(recipientInfo);
+
+        DERSet recipientInfos = new DERSet(recipientInfosVector);
+        //recipientInfos
+        envelopedDataVector.add(recipientInfos);
+        //ContentType
+        encryptedContentInfoVector.add(isEc ? new ASN1ObjectIdentifier("1.2.156.10197.6.1.4.2.1") : ContentInfo.data);
+        //contentEncryptionAlgorithm
+        CipherAlgEnum encAlg = CipherAlgEnum.SM4_ECB_PKCS7Padding;
+        ASN1ObjectIdentifier sms4_ecb = GMObjectIdentifiers.sms4_ecb;
+        if (encAlg.getModeEnum().isNeedIV()) {
+            //todo
+            encryptedContentInfoVector.add(new AlgorithmIdentifier(sms4_ecb, new DEROctetString(new byte[16])));
+        } else {
+            encryptedContentInfoVector.add(new AlgorithmIdentifier(sms4_ecb));
+        }
+        //todo iv
+        byte[] symEncData = cipherBuilder.cipher(encAlg, key, data, null, true);
+        // encryptedContent
+        encryptedContentInfoVector.add(new DERTaggedObject(false, 0, new DEROctetString(symEncData)));
+
+
+        DERSequence encryptedContentInfo = new DERSequence(encryptedContentInfoVector);
+        //encryptedContentInfo
+        envelopedDataVector.add(encryptedContentInfo);
+        //envelopedData
+        DERSequence envelopedData = new DERSequence(envelopedDataVector);
+        return new ContentInfo(p7Oid, envelopedData).getEncoded();
+    }
 
 }
