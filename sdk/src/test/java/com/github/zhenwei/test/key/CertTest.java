@@ -27,13 +27,15 @@ public class CertTest {
         System.out.println(notAfter);
         String sigAlgName = builder.getSigAlgName();
         System.out.println(sigAlgName);
+        String algorithm = builder.getPublicKey().getAlgorithm();
+        System.out.println(algorithm);
     }
 
 
     public Certificate genCert() throws Exception {
         KeyBuilder keyBuilder = new KeyBuilder(new WeGooProvider());
-        KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
-        byte[] certificate = CertBuilder.generateCertificate(null,"O=zhenwei,CN=wegoo,C=CN", keyPair.getPublic(), keyPair.getPrivate());
+        KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
+        byte[] certificate = CertBuilder.generateCertificate("O=zhenwei,CN=wegoo,C=CN","O=zhenwei,CN=wegoo,C=CN", keyPair.getPublic(), keyPair.getPrivate());
         CertBuilder builder = CertBuilder.getInstance(certificate);
         return builder.getCert();
 
