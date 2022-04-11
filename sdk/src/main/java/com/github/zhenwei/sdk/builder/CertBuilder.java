@@ -1,19 +1,24 @@
 package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.asn1.ASN1InputStream;
-import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.*;
+import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
+import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
+import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.pkix.cert.X509CertificateHolder;
 import com.github.zhenwei.pkix.cert.X509v3CertificateBuilder;
 import com.github.zhenwei.pkix.cert.bc.BcX509ExtensionUtils;
+import com.github.zhenwei.pkix.operator.bc.BcContentSignerBuilder;
 import com.github.zhenwei.pkix.operator.bc.BcECContentSignerBuilder;
+import com.github.zhenwei.pkix.operator.bc.BcRSAContentSignerBuilder;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.ec.BCECPrivateKey;
+import com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa.BCRSAPrivateKey;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import com.github.zhenwei.sdk.util.ByteArrayUtil;
@@ -78,12 +83,14 @@ public class CertBuilder {
      * @return java.security.cert.Certificate
      * @author zhangzhenwei
      * @description 生成证书
+     * todo just support sm2
      * @date 2022/3/15  9:09 下午
      * @since: 1.0.0
      */
-    public static byte[] generateCertificate(String subjectDn, String issuerDn, PublicKey publicKey, PrivateKey privateKey) throws WeGooCryptoException {
+    public static byte[] generateCertificate(String subjectDn, String issuerDn, PublicKey publicKey, PrivateKey privateKey, SignAlgEnum signAlgEnum) throws WeGooCryptoException {
         try {
-            SubjectPublicKeyInfo publicKeyInfo = (SubjectPublicKeyInfo)publicKey;
+            SubjectPublicKeyInfo publicKeyInfo = SubjectPublicKeyInfo.getInstance(publicKey.getEncoded());
+//            SubjectPublicKeyInfo publicKeyInfo = (SubjectPublicKeyInfo)publicKey;
             X500Name subject = new X500Name(subjectDn);
             X500Name issuer = new X500Name(issuerDn);
             byte[] bytes = new byte[15];
@@ -95,40 +102,49 @@ public class CertBuilder {
             Date notAfter = DateUtil.nowPlusDays(2);
             BcX509ExtensionUtils x509ExtensionUtils = new BcX509ExtensionUtils();
             //密钥用途：  签名和不可抵赖
-            int usage = KeyUsage.digitalSignature | KeyUsage.nonRepudiation ;
+            int usage = KeyUsage.digitalSignature | KeyUsage.nonRepudiation;
             //使用者标识符
             SubjectKeyIdentifier subjectKeyIdentifier = x509ExtensionUtils.createSubjectKeyIdentifier(publicKeyInfo);
 //        授权者标识符
             AuthorityKeyIdentifier authorityKeyIdentifier = x509ExtensionUtils.createAuthorityKeyIdentifier(publicKeyInfo);
 
             //判断是否签发根证书
-            if (subject.toString().equals(subject.toString())){
+            if (subject.toString().equals(subject.toString())) {
                 //根证书有效期，长长长长长长长
                 notAfter = DateUtil.nowPlusDays(365000);
                 //根证书 颁发者标识符
                 authorityKeyIdentifier = x509ExtensionUtils.createAuthorityKeyIdentifier(publicKeyInfo);
                 //补充证书签名用途
-                usage = usage| KeyUsage.keyCertSign;
+                usage = usage | KeyUsage.keyCertSign;
             }
-            BCECPrivateKey key = (BCECPrivateKey) privateKey;
-            ECParameterSpec parameters = key.getParameters();
-            ECDomainParameters params = new ECDomainParameters(parameters.getCurve(), parameters.getG(), parameters.getN());
-            ECPrivateKeyParameters keyParameters = new ECPrivateKeyParameters(key.getD(),
-                    params);
             X509v3CertificateBuilder builder = new X509v3CertificateBuilder(issuer, sn, notBefore, notAfter, subject, publicKeyInfo);
 
-            AlgorithmIdentifier signAlg = new AlgorithmIdentifier(GMObjectIdentifiers.sm2sign_with_sm3);
-            AlgorithmIdentifier hashAlg = new AlgorithmIdentifier(GMObjectIdentifiers.sm3);
-            BcECContentSignerBuilder signerBuilder = new BcECContentSignerBuilder(signAlg, hashAlg);
             //增加扩展项
             Extension keyUsage = new Extension(Extension.keyUsage, false, new KeyUsage(usage).getEncoded());
             Extension subjectKeyId = new Extension(Extension.subjectKeyIdentifier, false, subjectKeyIdentifier.getEncoded());
             Extension authorityKeyId = new Extension(Extension.authorityKeyIdentifier, false, authorityKeyIdentifier.getEncoded());
-
+            AlgorithmIdentifier sigAlgId = new AlgorithmIdentifier(signAlgEnum.getOid());
+            AlgorithmIdentifier digAlgId = new AlgorithmIdentifier(signAlgEnum.getDigestAlgEnum().getOid());
             builder.addExtension(keyUsage);
             builder.addExtension(subjectKeyId);
             builder.addExtension(authorityKeyId);
-            X509CertificateHolder holder = builder.build(signerBuilder.build(keyParameters));
+            X509CertificateHolder holder;
+            BcContentSignerBuilder signerBuilder;
+            AsymmetricKeyParameter keyParameters;
+            if (publicKey.getAlgorithm().equals("EC")) {
+                signerBuilder = new BcECContentSignerBuilder(sigAlgId, digAlgId);
+                BCECPrivateKey key = (BCECPrivateKey) privateKey;
+                ECParameterSpec parameters = key.getParameters();
+                ECDomainParameters params = new ECDomainParameters(parameters.getCurve(), parameters.getG(), parameters.getN());
+                keyParameters = new ECPrivateKeyParameters(key.getD(), params);
+                holder = builder.build(signerBuilder.build(keyParameters));
+            } else {
+                BCRSAPrivateKey key = (BCRSAPrivateKey) privateKey;
+                signerBuilder = new BcRSAContentSignerBuilder(sigAlgId, digAlgId);
+                keyParameters = new RSAKeyParameters(true, key.getModulus(), key.getPrivateExponent());
+                holder = builder.build(signerBuilder.build(keyParameters));
+            }
+
             return holder.toASN1Structure().getEncoded();
         } catch (Exception e) {
             throw new WeGooCryptoException(CryptoExceptionMassageEnum.generate_cert_err, e);
