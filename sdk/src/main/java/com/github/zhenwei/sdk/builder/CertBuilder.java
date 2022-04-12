@@ -34,6 +34,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description: 证书构造
@@ -87,7 +88,8 @@ public class CertBuilder {
      * @date 2022/3/15  9:09 下午
      * @since: 1.0.0
      */
-    public static byte[] generateCertificate(String subjectDn, String issuerDn, PublicKey publicKey, PrivateKey privateKey, SignAlgEnum signAlgEnum) throws WeGooCryptoException {
+    public static byte[] generateCertificate(String subjectDn, String issuerDn, PublicKey publicKey,
+                                             PrivateKey privateKey, SignAlgEnum signAlgEnum, int time, TimeUnit timeUnit) throws WeGooCryptoException {
         try {
             SubjectPublicKeyInfo publicKeyInfo = SubjectPublicKeyInfo.getInstance(publicKey.getEncoded());
 //            SubjectPublicKeyInfo publicKeyInfo = (SubjectPublicKeyInfo)publicKey;
@@ -99,7 +101,8 @@ public class CertBuilder {
             byte[] bytes1 = ByteArrayUtil.mergeBytes("9".getBytes(StandardCharsets.UTF_8), bytes);
             BigInteger sn = new BigInteger(bytes1);
             Date notBefore = DateUtil.now();
-            Date notAfter = DateUtil.nowPlusDays(2);
+            int max = Math.max(1, (int)timeUnit.toDays(time));
+            Date notAfter = DateUtil.nowPlusDays(max);
             BcX509ExtensionUtils x509ExtensionUtils = new BcX509ExtensionUtils();
             //密钥用途：  签名和不可抵赖
             int usage = KeyUsage.digitalSignature | KeyUsage.nonRepudiation;
@@ -110,8 +113,6 @@ public class CertBuilder {
 
             //判断是否签发根证书
             if (subject.toString().equals(subject.toString())) {
-                //根证书有效期，长长长长长长长
-                notAfter = DateUtil.nowPlusDays(365000);
                 //根证书 颁发者标识符
                 authorityKeyIdentifier = x509ExtensionUtils.createAuthorityKeyIdentifier(publicKeyInfo);
                 //补充证书签名用途
@@ -150,6 +151,7 @@ public class CertBuilder {
             throw new WeGooCryptoException(CryptoExceptionMassageEnum.generate_cert_err, e);
         }
     }
+
 
 
     public Date getNotBefore() {
