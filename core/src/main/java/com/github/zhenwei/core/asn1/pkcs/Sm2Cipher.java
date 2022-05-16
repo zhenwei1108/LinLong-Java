@@ -61,13 +61,13 @@ public class Sm2Cipher extends ASN1Object {
     }
 
     public Sm2Cipher(byte[] xData, byte[] yData, byte[] hashData, byte[] cipherData) {
-        this(ASN1Integer.getInstance(xData), ASN1Integer.getInstance(yData), ASN1OctetString.getInstance(hashData),
-                ASN1OctetString.getInstance(cipherData));
+        this(ASN1Integer.getInstance(xData), ASN1Integer.getInstance(yData),
+                new DEROctetString(hashData), new DEROctetString(cipherData));
     }
 
     public Sm2Cipher(BigInteger xData, BigInteger yData, byte[] hashData, byte[] cipherData) {
-        this(new ASN1Integer(xData), new ASN1Integer(yData),  ASN1OctetString.getInstance(hashData),
-                ASN1OctetString.getInstance(cipherData));
+        this(new ASN1Integer(xData), new ASN1Integer(yData),  new DEROctetString(hashData),
+                new DEROctetString(cipherData));
     }
 
     @Override
