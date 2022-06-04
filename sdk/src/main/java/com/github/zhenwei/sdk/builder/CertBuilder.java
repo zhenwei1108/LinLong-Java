@@ -1,5 +1,6 @@
 package com.github.zhenwei.sdk.builder;
 
+import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.x500.X500Name;
 import com.github.zhenwei.core.asn1.x509.*;
@@ -60,6 +61,9 @@ public class CertBuilder {
                 cert = factory.generateCertificate((InputStream) obj);
             } else if (obj instanceof byte[]) {
                 cert = factory.generateCertificate(new ASN1InputStream((byte[]) obj));
+            } else if (obj instanceof ASN1Encodable) {
+                cert = factory.generateCertificate(
+                        new ASN1InputStream(((ASN1Encodable) obj).toASN1Primitive().getEncoded()));
             } else {
                 throw new WeGooCryptoException(CryptoExceptionMassageEnum.params_err);
             }
@@ -101,7 +105,7 @@ public class CertBuilder {
             byte[] bytes1 = ByteArrayUtil.mergeBytes("9".getBytes(StandardCharsets.UTF_8), bytes);
             BigInteger sn = new BigInteger(bytes1);
             Date notBefore = DateUtil.now();
-            int max = Math.max(1, (int)timeUnit.toDays(time));
+            int max = Math.max(1, (int) timeUnit.toDays(time));
             Date notAfter = DateUtil.nowPlusDays(max);
             BcX509ExtensionUtils x509ExtensionUtils = new BcX509ExtensionUtils();
             //密钥用途：  签名和不可抵赖
@@ -151,7 +155,6 @@ public class CertBuilder {
             throw new WeGooCryptoException(CryptoExceptionMassageEnum.generate_cert_err, e);
         }
     }
-
 
 
     public Date getNotBefore() {
