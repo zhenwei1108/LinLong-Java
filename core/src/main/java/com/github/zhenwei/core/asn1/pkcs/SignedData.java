@@ -13,10 +13,9 @@ import java.util.Enumeration;
 
 /**
  * a PKCS#7 signed data object.
+ * RFC-2315(p7) RFC-3852(CMS) / GMT-0010
  */
-public class SignedData
-    extends ASN1Object
-    implements PKCSObjectIdentifiers {
+public class SignedData extends ASN1Object implements PKCSObjectIdentifiers {
 
   private ASN1Integer version;
   private ASN1Set digestAlgorithms;
