@@ -6,8 +6,7 @@ import java.security.SecureRandom;
 /**
  * A padder that adds PKCS7/PKCS5 padding to a block.
  */
-public class PKCS7Padding
-    implements BlockCipherPadding {
+public class PKCS7Padding  implements BlockCipherPadding {
 
   /**
    * Initialise the padder.
@@ -31,9 +30,7 @@ public class PKCS7Padding
   /**
    * add the pad bytes to the passed in block, returning the number of bytes added.
    */
-  public int addPadding(
-      byte[] in,
-      int inOff) {
+  public int addPadding(byte[] in, int inOff) {
     byte code = (byte) (in.length - inOff);
 
     while (inOff < in.length) {
@@ -47,8 +44,7 @@ public class PKCS7Padding
   /**
    * return the number of pad bytes present in the block.
    */
-  public int padCount(byte[] in)
-      throws InvalidCipherTextException {
+  public int padCount(byte[] in) throws InvalidCipherTextException {
     int count = in[in.length - 1] & 0xff;
     byte countAsbyte = (byte) count;
 
