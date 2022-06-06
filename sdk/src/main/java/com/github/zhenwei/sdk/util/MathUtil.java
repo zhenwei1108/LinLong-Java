@@ -3,6 +3,7 @@ package com.github.zhenwei.sdk.util;
 import com.github.zhenwei.core.util.encoders.Hex;
 
 import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 /**
  * @author: zhangzhenwei
@@ -21,19 +22,19 @@ public class MathUtil {
     }
 
     public static int byteToInt(byte[] data){
-        return ByteBuffer.allocate(Integer.BYTES).put(data).getInt();
+        return ByteBuffer.allocate(Integer.BYTES).order(ByteOrder.nativeOrder()).put(data).getInt();
     }
 
     public static byte[] intToByte(int data){
-        return ByteBuffer.allocate(Integer.BYTES).putInt(data).array();
+        return ByteBuffer.allocate(Integer.BYTES).order(ByteOrder.nativeOrder()).putInt(data).array();
     }
 
     public static long byteToLang(byte[] data){
-        return ByteBuffer.allocate(Long.BYTES).put(data).getLong();
+        return ByteBuffer.allocate(Long.BYTES).order(ByteOrder.nativeOrder()).put(data).getLong();
     }
 
     public static byte[] longToByte(long data){
-        return ByteBuffer.allocate(Long.BYTES).putLong(data).array();
+        return ByteBuffer.allocate(Long.BYTES).order(ByteOrder.nativeOrder()).putLong(data).array();
     }
 
 
