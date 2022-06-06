@@ -16,6 +16,9 @@ public class SignedDataBuilder {
         return Sm2Signature.getInstance(rs);
     }
 
+    public static Sm2Signature buildSm2SignedData(byte[] r, byte[] s){
+        return new Sm2Signature(r, s);
+    }
 
     public static byte[] formatSm2SignedData(Sm2Signature signature) {
         return ByteArrayUtil.mergeBytes(signature.getR().getValue().toByteArray(), signature.getS().getValue().toByteArray());
