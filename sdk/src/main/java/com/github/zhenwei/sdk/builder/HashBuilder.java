@@ -27,7 +27,8 @@ public class HashBuilder {
    * @param [publicKey, source]
    * @return byte[]
    * @author zhangzhenwei
-   * @description SM3公钥参与运算
+   * @description SM3公钥参与运算，
+   * 公钥在init操作中，由userid 参与计算摘要后，先update并入原文。
    * @date 2022/2/9 22:48
    */
   private byte[] sm3Digest(DigestParams digestParams, byte[] source) {
