@@ -23,6 +23,7 @@ import java.security.cert.X509Certificate;
  * @description: P7Builder
  * pkcs 7 构造者， 包含： 签名，信封
  * 参考 RFC-2315(p7) RFC-3852(CMS) / GMT-0010
+ * todo 设计大文件编码问题
  * @author: zhangzhenwei
  * @since: 1.0.0
  * @date: 2022/2/28  10:32 下午
@@ -160,6 +161,7 @@ public class P7Builder {
         }
     }
 
+
     public byte[] enveloped(X509Certificate certificate, byte[] data) throws BaseWeGooException, IOException {
         ASN1EncodableVector envelopedDataVector = new ASN1EncodableVector();
         ASN1EncodableVector recipientInfosVector = new ASN1EncodableVector();
@@ -210,15 +212,16 @@ public class P7Builder {
         //todo iv
         byte[] symEncData = cipherBuilder.cipher(encAlg, key, data, null, true);
         // encryptedContent
-        encryptedContentInfoVector.add(new DERTaggedObject(false, 0, new DEROctetString(symEncData)));
+        encryptedContentInfoVector.add(new DERTaggedObject(false, 0, new BEROctetString(symEncData)));
 
 
-        DERSequence encryptedContentInfo = new DERSequence(encryptedContentInfoVector);
+//        DERSequence encryptedContentInfo = new DERSequence(encryptedContentInfoVector);
+        BERSequence encryptedContentInfo = new BERSequence(encryptedContentInfoVector);
         //encryptedContentInfo
         envelopedDataVector.add(encryptedContentInfo);
         //envelopedData
         DERSequence envelopedData = new DERSequence(envelopedDataVector);
-        return new ContentInfo(p7Oid, envelopedData).getEncoded();
+        return new ContentInfo(p7Oid, envelopedData).getEncoded(ASN1Encoding.BER);
     }
 
 }
