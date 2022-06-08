@@ -13,7 +13,14 @@ import com.github.zhenwei.core.enums.KeyEnum;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
 
 import java.security.Key;
-
+/**
+ * @description: Mac
+ *  Mac运算
+ *  Mac为 Hmac Cmac
+ * @author: zhangzhenwei
+ * @since: 1.0.0
+ * @date: 2022/6/8  23:08
+ */
 public class Mac {
 
 
