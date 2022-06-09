@@ -28,9 +28,9 @@ import java.security.cert.X509Certificate;
  * @since: 1.0.0
  * @date: 2022/2/28  10:32 下午
  */
-public class P7Builder {
+public class PKCS7Builder {
 
-    public P7Builder getInstance(Object obj) {
+    public PKCS7Builder getInstance(Object obj) {
         return null;
     }
 
