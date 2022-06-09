@@ -5,16 +5,14 @@ import java.io.IOException;
 /**
  * Carrier class for a DER encoding OCTET STRING
  */
-public class DEROctetString
-    extends ASN1OctetString {
+public class DEROctetString extends ASN1OctetString {
 
   /**
    * Base constructor.
    *
    * @param string the octets making up the octet string.
    */
-  public DEROctetString(
-      byte[] string) {
+  public DEROctetString(byte[] string) {
     super(string);
   }
 
@@ -23,9 +21,7 @@ public class DEROctetString
    *
    * @param obj the object to be encoded.
    */
-  public DEROctetString(
-      ASN1Encodable obj)
-      throws IOException {
+  public DEROctetString(ASN1Encodable obj) throws IOException {
     super(obj.toASN1Primitive().getEncoded(ASN1Encoding.DER));
   }
 

@@ -53,11 +53,7 @@ public class ASN1Dump {
    *
    * @param obj the ASN1Primitive to be dumped out.
    */
-  static void _dumpAsString(
-      String indent,
-      boolean verbose,
-      ASN1Primitive obj,
-      StringBuffer buf) {
+  static void _dumpAsString(String indent, boolean verbose, ASN1Primitive obj, StringBuffer buf) {
     String nl = Strings.lineSeparator();
     if (obj instanceof ASN1Null) {
       buf.append(indent);
@@ -228,9 +224,7 @@ public class ASN1Dump {
    * @param verbose if true, dump out the contents of octet and bit strings.
    * @return the resulting string.
    */
-  public static String dumpAsString(
-      Object obj,
-      boolean verbose) {
+  public static String dumpAsString(Object obj, boolean verbose) {
     ASN1Primitive primitive;
     if (obj instanceof ASN1Primitive) {
       primitive = (ASN1Primitive) obj;
