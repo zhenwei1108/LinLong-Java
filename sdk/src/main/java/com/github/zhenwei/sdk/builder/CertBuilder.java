@@ -22,7 +22,7 @@ import com.github.zhenwei.provider.jcajce.provider.asymmetric.ec.BCECPrivateKey;
 import com.github.zhenwei.provider.jcajce.provider.asymmetric.rsa.BCRSAPrivateKey;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
-import com.github.zhenwei.sdk.util.ByteArrayUtil;
+import com.github.zhenwei.sdk.util.BytesUtil;
 import com.github.zhenwei.sdk.util.DateUtil;
 
 import java.io.InputStream;
@@ -102,7 +102,7 @@ public class CertBuilder {
             byte[] bytes = new byte[15];
             Random random = new Random();
             random.nextBytes(bytes);
-            byte[] bytes1 = ByteArrayUtil.mergeBytes("9".getBytes(StandardCharsets.UTF_8), bytes);
+            byte[] bytes1 = BytesUtil.mergeBytes("9".getBytes(StandardCharsets.UTF_8), bytes);
             BigInteger sn = new BigInteger(bytes1);
             Date notBefore = DateUtil.now();
             int max = Math.max(1, (int) timeUnit.toDays(time));
