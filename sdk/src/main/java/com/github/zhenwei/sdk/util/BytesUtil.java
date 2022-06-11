@@ -39,6 +39,10 @@ public class BytesUtil {
         return data == null || data.length == 0;
     }
 
+    public static boolean notEmpty(byte[] data){
+           return !isEmpty(data);
+    }
+
     public static boolean isBlank(byte[] data){
         return isEmpty(data) || new BigInteger(data).equals(BigInteger.ZERO);
     }

@@ -9,9 +9,9 @@ import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.enums.*;
 import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.core.exception.BaseWeGooException;
-import com.github.zhenwei.core.exception.WeGooCipherException;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
+import com.github.zhenwei.sdk.util.BytesUtil;
 
 import java.io.IOException;
 import java.security.Key;
@@ -53,11 +53,9 @@ public class PKCS7Builder {
         if (typeEnum instanceof Pkcs7ContentInfoTypeEnum) {
             Pkcs7ContentInfoTypeEnum infoTypeEnum = (Pkcs7ContentInfoTypeEnum) typeEnum;
             contentInfo = genPkcs7ContentInfo(infoTypeEnum, data);
-        } else if (typeEnum instanceof GmPkcs7ContentInfoTypeEnum) {
+        } else {//国密相关
             GmPkcs7ContentInfoTypeEnum infoTypeEnum = (GmPkcs7ContentInfoTypeEnum) typeEnum;
             contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data, null, null, null, null);
-        } else {
-            throw new WeGooCipherException("");
         }
         return contentInfo;
 
@@ -95,7 +93,7 @@ public class PKCS7Builder {
                 asn1Encodable = genData(data);
                 break;
             case SIGNED_DATA:
-                asn1Encodable = genSignedData(signAlgEnum, signature, certificates, crls);
+                asn1Encodable = genSignedData(data, signAlgEnum, signature, certificates, crls);
                 break;
             case KEY_AGREEMENT_INFO_DATA:
                 break;
@@ -111,47 +109,60 @@ public class PKCS7Builder {
 
 
     private DEROctetString genData(byte[] data) {
-        return new DEROctetString(data);
+        return BytesUtil.isBlank(data) ? null : new DEROctetString(data);
     }
 
     /**
      * @param []
      * @return com.github.zhenwei.core.asn1.DEROctetString
      * @author zhangzhenwei
-     * @description SignedData ::= SEQUENCE {
-     * version Version,
-     * digestAlgorithms DigestAlgorithmIdentifiers, -- set of DigestAlgorithmIdentifier
-     * contentInfo ContentInfo,
-     * certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL, --set of ExtendedCertificateOrCertificate
-     * crls [1] IMPLICIT CertificateRevocationLists OPTIONAL,
-     * signerInfos SignerInfos
-     * }
+     * @description
+     * SignedData ::= SEQUENCE {
+     *       version Version, --版本
+     *       digestAlgorithms DigestAlgorithmIdentifiers, -- set of DigestAlgorithmIdentifier 摘要算法
+     *       contentInfo ContentInfo, -- 被签名的数据，原文，同 Data类型
+     *       certificates [0] IMPLICIT ExtendedCertificatesAndCertificates OPTIONAL,
+     *              --set of ExtendedCertificateOrCertificate ，证书
+     *       crls [1] IMPLICIT CertificateRevocationLists OPTIONAL, -- crl
+     *       signerInfos SignerInfos  --签名数据
+     *       }
      * @date 2022/3/3  9:46 下午
      * @since: 1.0.0
      */
-    private ASN1Encodable genSignedData(SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates,
-                                           X509CRL[] crls) throws WeGooCryptoException {
+    private ASN1Encodable genSignedData(byte[] data, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates,
+                                        X509CRL[] crls) throws WeGooCryptoException {
         try {
             Version version = new Version(1);
             DERSet digestAlgorithms = new DERSet(signAlgEnum.getDigestAlgEnum().getOid());
-            ContentInfo contentInfo = ContentInfo.getInstance(signature);
+            //若包含原文则填充原文
+            ContentInfo contentInfo = build(GmPkcs7ContentInfoTypeEnum.DATA, data);
             DERSet setOfCerts = new DERSet(certificates);
             ASN1EncodableVector crlVector = new ASN1EncodableVector();
             for (X509CRL crl : crls) {
                 crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
             }
             DERSet setOfCrls = new DERSet(crlVector);
+
             /**
              * SignerInfo ::= SEQUENCE {
-             *      version Version,
-             *      issuerAndSerialNumber IssuerAndSerialNumber,
-             *      digestAlgorithm DigestAlgorithmIdentifier,
-             *      authenticatedAttributes [0] IMPLICIT Attributes OPTIONAL,
-             *      digestEncryptionAlgorithm DigestEncryptionAlgorithmIdentifier,
-             *      encryptedDigest EncryptedDigest,
-             *      unauthenticatedAttributes [1] IMPLICIT Attributes OPTIONAL }
+             *      version Version, --版本
+             *      issuerAndSerialNumber IssuerAndSerialNumber, --签名者，含 certSn，subjectDn
+             *      digestAlgorithm DigestAlgorithmIdentifier, --摘要算法
+             *      authenticatedAttributes [0] IMPLICIT Attributes OPTIONAL, -- 可选，签名者信息集合
+             *      digestEncryptionAlgorithm DigestEncryptionAlgorithmIdentifier, -- 签名算法标识符
+             *      encryptedDigest EncryptedDigest, -- 签名数据
+             *      unauthenticatedAttributes [1] IMPLICIT Attributes OPTIONAL --可选，扩展信息，可以填充时间戳标记签名时间
+             *      }
              */
-            SignerInfo signerInfo = SignerInfo.getInstance(null);
+
+            // 构造signerInfo
+            IssuerAndSerialNumber issuerAndSerialNumber = new IssuerAndSerialNumber(certificates[0].getSubject(),
+                    certificates[0].getSerialNumber().getPositiveValue());
+            AlgorithmIdentifier hashId = new AlgorithmIdentifier(signAlgEnum.getDigestAlgEnum().getOid());
+            AlgorithmIdentifier signId = new AlgorithmIdentifier(signAlgEnum.getOid());
+            //没有填充 authenticatedAttributes，unauthenticatedAttributes
+            SignerInfo signerInfo = new SignerInfo(version, issuerAndSerialNumber, hashId, null,
+                    signId, new DEROctetString(signature), null);
             ASN1EncodableVector signerInfosVector = new ASN1EncodableVector();
             signerInfosVector.add(signerInfo);
             DERSet setOfSignerInfo = new DERSet(signerInfosVector);
