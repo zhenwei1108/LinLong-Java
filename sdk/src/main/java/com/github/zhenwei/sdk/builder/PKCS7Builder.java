@@ -47,7 +47,7 @@ public class PKCS7Builder {
      * @date 2022/3/1  7:27 下午
      * @since: 1.0.0
      */
-    public ContentInfo build(BasePkcs7TypeEnum typeEnum, byte[] data) throws WeGooCryptoException {
+    public ContentInfo build(BasePkcs7TypeEnum typeEnum, byte[] data, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls) throws WeGooCryptoException {
         ContentInfo contentInfo;
         //根据枚举类型判断是否为国密类型。国密类型OID 有另定义
         if (typeEnum instanceof Pkcs7ContentInfoTypeEnum) {
@@ -55,10 +55,9 @@ public class PKCS7Builder {
             contentInfo = genPkcs7ContentInfo(infoTypeEnum, data);
         } else {//国密相关
             GmPkcs7ContentInfoTypeEnum infoTypeEnum = (GmPkcs7ContentInfoTypeEnum) typeEnum;
-            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data, null, null, null, null);
+            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data, signAlgEnum, signature, certificates, crls);
         }
         return contentInfo;
-
 
     }
 
@@ -132,10 +131,12 @@ public class PKCS7Builder {
     private ASN1Encodable genSignedData(byte[] data, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates,
                                         X509CRL[] crls) throws WeGooCryptoException {
         try {
+            certificates = certificates == null ? new Certificate[0] : certificates;
+            crls = crls == null ? new X509CRL[0] : crls;
             Version version = new Version(1);
             DERSet digestAlgorithms = new DERSet(signAlgEnum.getDigestAlgEnum().getOid());
             //若包含原文则填充原文
-            ContentInfo contentInfo = build(GmPkcs7ContentInfoTypeEnum.DATA, data);
+            ContentInfo contentInfo = build(GmPkcs7ContentInfoTypeEnum.DATA, data, signAlgEnum, null, null, null);
             DERSet setOfCerts = new DERSet(certificates);
             ASN1EncodableVector crlVector = new ASN1EncodableVector();
             for (X509CRL crl : crls) {
