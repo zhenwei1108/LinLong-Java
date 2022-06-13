@@ -77,6 +77,17 @@ public class CertBuilder {
         return this.cert;
     }
 
+    public com.github.zhenwei.core.asn1.x509.Certificate getCert0() throws WeGooCryptoException {
+        try {
+            return com.github.zhenwei.core.asn1.x509.Certificate.getInstance(this.cert.getEncoded());
+        } catch (Exception e) {
+            throw new WeGooCryptoException(CryptoExceptionMassageEnum.build_err, e);
+        }
+    }
+
+
+
+
     public String getCertSn() {
         BigInteger serialNumber = this.cert.getSerialNumber();
         return Hex.toHexString(serialNumber.toByteArray());
