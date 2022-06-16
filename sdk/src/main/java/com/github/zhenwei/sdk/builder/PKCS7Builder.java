@@ -14,6 +14,7 @@ import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.util.BytesUtil;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.Key;
 import java.security.PublicKey;
 import java.security.cert.X509CRL;
@@ -61,8 +62,18 @@ public class PKCS7Builder {
 
     }
 
+    public ContentInfo build(BasePkcs7TypeEnum typeEnum, InputStream inputStream, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls) throws WeGooCryptoException {
+        try {
+            byte[] data = new byte[inputStream.available()];
+            inputStream.read(data);
+            return build(typeEnum, data, signAlgEnum, signature, certificates, crls);
+        } catch (Exception e) {
+            throw new WeGooCryptoException(CryptoExceptionMassageEnum.gen_pkcs7_err, e);
+        }
+    }
 
-    private ContentInfo genPkcs7ContentInfo(Pkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data) {
+
+    private ContentInfo genPkcs7ContentInfo(Pkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data) throws WeGooCryptoException {
         ASN1Encodable asn1Encodable = null;
         switch (infoTypeEnum) {
             case DATA:
@@ -107,7 +118,7 @@ public class PKCS7Builder {
     }
 
 
-    private DEROctetString genData(byte[] data) {
+    private ASN1OctetString genData(byte[] data) {
         return BytesUtil.isBlank(data) ? null : new DEROctetString(data);
     }
 
