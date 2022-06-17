@@ -1,15 +1,23 @@
 package com.github.zhenwei.test.key;
 
 import com.github.zhenwei.core.asn1.ASN1Encoding;
+import com.github.zhenwei.core.asn1.ASN1InputStream;
+import com.github.zhenwei.core.asn1.BEROctetString;
 import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.enums.GmPkcs7ContentInfoTypeEnum;
 import com.github.zhenwei.core.enums.SignAlgEnum;
+import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.sdk.builder.CertBuilder;
 import com.github.zhenwei.sdk.builder.PKCS7Builder;
 import com.github.zhenwei.sdk.util.Base64Util;
 import org.junit.Test;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class Pkcs7Test {
@@ -28,5 +36,25 @@ public class Pkcs7Test {
         System.out.println(Base64Util.encode(encoded));
 
     }
+
+
+    @Test
+    public void bigFileData() throws WeGooCryptoException {
+        try {
+            File file = new File("/Users/zhangzhenwei/jmeter.log");
+            FileInputStream inputStream = new FileInputStream(file);
+            ASN1InputStream asn1InputStream = new ASN1InputStream(inputStream);
+            byte[] data = new byte[asn1InputStream.available()];
+            inputStream.read(data);
+            BEROctetString berOctetString = new BEROctetString(data,256);
+            byte[] encoded = berOctetString.getEncoded(ASN1Encoding.BER);
+            File file1 = new File("/Users/zhangzhenwei/encodeber.txt");
+            FileOutputStream fileOutputStream = new FileOutputStream(file1);
+            fileOutputStream.write(encoded);
+        } catch (IOException e) {
+            throw new WeGooCryptoException(CryptoExceptionMassageEnum.gen_pkcs7_data_err, e);
+        }
+    }
+
 
 }
