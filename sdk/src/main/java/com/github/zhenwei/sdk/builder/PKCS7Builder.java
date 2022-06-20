@@ -48,7 +48,7 @@ public class PKCS7Builder {
      * @date 2022/3/1  7:27 下午
      * @since: 1.0.0
      */
-    public ContentInfo build(BasePkcs7TypeEnum typeEnum, byte[] data, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls) throws WeGooCryptoException {
+    public ContentInfo build(BasePkcs7TypeEnum typeEnum, byte[] data, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls, boolean isAttach) throws WeGooCryptoException {
         ContentInfo contentInfo;
         //根据枚举类型判断是否为国密类型。国密类型OID 有另定义
         if (typeEnum instanceof Pkcs7ContentInfoTypeEnum) {
@@ -56,17 +56,17 @@ public class PKCS7Builder {
             contentInfo = genPkcs7ContentInfo(infoTypeEnum, data);
         } else {//国密相关
             GmPkcs7ContentInfoTypeEnum infoTypeEnum = (GmPkcs7ContentInfoTypeEnum) typeEnum;
-            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data, signAlgEnum, signature, certificates, crls);
+            contentInfo = genGmPkcs7ContentInfo(infoTypeEnum, data, signAlgEnum, signature, certificates, crls, isAttach);
         }
         return contentInfo;
 
     }
 
-    public ContentInfo build(BasePkcs7TypeEnum typeEnum, InputStream inputStream, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls) throws WeGooCryptoException {
+    public ContentInfo build(BasePkcs7TypeEnum typeEnum, InputStream inputStream, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls, boolean isAttach) throws WeGooCryptoException {
         try {
             byte[] data = new byte[inputStream.available()];
             inputStream.read(data);
-            return build(typeEnum, data, signAlgEnum, signature, certificates, crls);
+            return build(typeEnum, data, signAlgEnum, signature, certificates, crls, isAttach);
         } catch (Exception e) {
             throw new WeGooCryptoException(CryptoExceptionMassageEnum.gen_pkcs7_err, e);
         }
@@ -95,7 +95,7 @@ public class PKCS7Builder {
 
 
     private ContentInfo genGmPkcs7ContentInfo(GmPkcs7ContentInfoTypeEnum infoTypeEnum, byte[] data,
-                                              SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls)
+                                              SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls, boolean isAttach)
             throws WeGooCryptoException {
         ASN1Encodable asn1Encodable = null;
         switch (infoTypeEnum) {
@@ -103,7 +103,7 @@ public class PKCS7Builder {
                 asn1Encodable = genData(data);
                 break;
             case SIGNED_DATA:
-                asn1Encodable = genSignedData(data, signAlgEnum, signature, certificates, crls);
+                asn1Encodable = genSignedData(data, signAlgEnum, signature, certificates, crls, isAttach);
                 break;
             case KEY_AGREEMENT_INFO_DATA:
                 break;
@@ -140,14 +140,17 @@ public class PKCS7Builder {
      * @since: 1.0.0
      */
     private ASN1Encodable genSignedData(byte[] data, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates,
-                                        X509CRL[] crls) throws WeGooCryptoException {
+                                        X509CRL[] crls, boolean isAttach) throws WeGooCryptoException {
         try {
             certificates = certificates == null ? new Certificate[0] : certificates;
             crls = crls == null ? new X509CRL[0] : crls;
             Version version = new Version(1);
             DERSet digestAlgorithms = new DERSet(signAlgEnum.getDigestAlgEnum().getOid());
+            if (!isAttach) {
+                data = null;
+            }
             //若包含原文则填充原文
-            ContentInfo contentInfo = build(GmPkcs7ContentInfoTypeEnum.DATA, data, signAlgEnum, null, null, null);
+            ContentInfo contentInfo = build(GmPkcs7ContentInfoTypeEnum.DATA, data, signAlgEnum, null, null, null, isAttach);
             DERSet setOfCerts = new DERSet(certificates);
             ASN1EncodableVector crlVector = new ASN1EncodableVector();
             for (X509CRL crl : crls) {
