@@ -1,5 +1,6 @@
 package com.github.zhenwei.test.key;
 
+import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.CertBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
@@ -9,6 +10,7 @@ import org.junit.Test;
 import java.security.KeyPair;
 import java.security.cert.Certificate;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class CertTest {
 
@@ -16,7 +18,8 @@ public class CertTest {
     @Test
     public void parseCert() throws Exception {
 //        CertBuilder builder = CertBuilder.getInstance(new FileInputStream(new File("")));
-        CertBuilder builder = CertBuilder.getInstance(genCert().getEncoded());
+        Certificate cert = genCert();
+        CertBuilder builder = CertBuilder.getInstance(cert.getEncoded());
         String certSn = builder.getCertSn();
         System.out.println(certSn);
         String issuerDN = builder.getIssuerDN();
@@ -34,8 +37,9 @@ public class CertTest {
 
     public Certificate genCert() throws Exception {
         KeyBuilder keyBuilder = new KeyBuilder(new WeGooProvider());
-        KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
-        byte[] certificate = CertBuilder.generateCertificate("O=zhenwei,CN=wegoo,C=CN","O=zhenwei,CN=wegoo,C=CN", keyPair.getPublic(), keyPair.getPrivate());
+        KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
+        SignAlgEnum signAlgEnum = SignAlgEnum.SM3_WITH_SM2;
+        byte[] certificate = CertBuilder.generateCertificate("O=zhenwei,CN=wegoo,C=CN","O=zhenwei,CN=wegoo,C=CN", keyPair.getPublic(), keyPair.getPrivate(),signAlgEnum,1, TimeUnit.DAYS);
         CertBuilder builder = CertBuilder.getInstance(certificate);
         return builder.getCert();
 
