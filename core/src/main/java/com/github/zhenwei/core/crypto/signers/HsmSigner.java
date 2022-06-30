@@ -6,10 +6,7 @@ import com.github.zhenwei.core.crypto.DataLengthException;
 import com.github.zhenwei.core.crypto.Signer;
 import com.github.zhenwei.core.crypto.params.KeyParameters;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.Provider;
-import java.security.Signature;
+import java.security.*;
 
 public class HsmSigner implements Signer {
 
@@ -45,26 +42,42 @@ public class HsmSigner implements Signer {
 
     @Override
     public void update(byte b) {
-
+        try {
+            signature.update(b);
+        } catch (Exception e) {
+            throw new RuntimeException("hsm siner update error ", e);
+        }
     }
 
     @Override
     public void update(byte[] in, int off, int len) {
-
+        try {
+            signature.update(in, off, len);
+        } catch (Exception e) {
+            throw new RuntimeException("hsm siner update error ", e);
+        }
     }
 
     @Override
     public byte[] generateSignature() throws CryptoException, DataLengthException {
-        return new byte[0];
+        try {
+            return signature.sign();
+        } catch (Exception e) {
+            throw new CryptoException(e.getMessage());
+        }
     }
 
     @Override
-    public boolean verifySignature(byte[] signature) {
-        return false;
+    public boolean verifySignature(byte[] data) {
+        try {
+            return signature.verify(data);
+        } catch (SignatureException e) {
+            throw new RuntimeException("hsm signer verify error ", e);
+        }
+
     }
 
     @Override
     public void reset() {
-
     }
 }
