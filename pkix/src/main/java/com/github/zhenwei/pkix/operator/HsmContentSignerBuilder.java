@@ -9,6 +9,12 @@ import java.io.OutputStream;
 import java.security.Provider;
 import java.security.Signature;
 
+/**
+ * @description: HsmContentSignerBuilder
+ *  提供给密码机实现
+ * @author: zhangzhenwei
+ * @date: 2022/7/3  22:54
+ */
 public class HsmContentSignerBuilder implements ContentSigner {
 
     private SignAlgEnum sigAlg;
