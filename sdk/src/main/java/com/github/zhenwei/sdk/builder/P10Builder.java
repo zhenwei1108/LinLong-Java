@@ -8,6 +8,12 @@ import com.github.zhenwei.core.crypto.params.AsymmetricKeyParameter;
 import com.github.zhenwei.core.crypto.params.ECDomainParameters;
 import com.github.zhenwei.core.crypto.params.ECPrivateKeyParameters;
 import com.github.zhenwei.core.crypto.params.RSAKeyParameters;
+import com.github.zhenwei.core.enums.DigestAlgEnum;
+import com.github.zhenwei.core.enums.KeyPairAlgEnum;
+import com.github.zhenwei.core.enums.SignAlgEnum;
+import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
+import com.github.zhenwei.core.exception.WeGooCryptoException;
+import com.github.zhenwei.pkix.operator.ContentSigner;
 import com.github.zhenwei.pkix.operator.OperatorCreationException;
 import com.github.zhenwei.pkix.operator.bc.BcContentSignerBuilder;
 import com.github.zhenwei.pkix.operator.bc.BcECContentSignerBuilder;
@@ -19,11 +25,6 @@ import com.github.zhenwei.provider.jce.interfaces.ECPrivateKey;
 import com.github.zhenwei.provider.jce.spec.ECParameterSpec;
 import com.github.zhenwei.sdk.builder.params.CertExtension;
 import com.github.zhenwei.sdk.builder.params.CodingType;
-import com.github.zhenwei.core.enums.DigestAlgEnum;
-import com.github.zhenwei.core.enums.KeyPairAlgEnum;
-import com.github.zhenwei.core.enums.SignAlgEnum;
-import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
-import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.sdk.util.Base64Util;
 
 import java.io.IOException;
@@ -101,10 +102,9 @@ public class P10Builder {
             signerBuilder = new BcRSAContentSignerBuilder(signAlg, digAlg);
             BCRSAPrivateKey key = (BCRSAPrivateKey) privateKey;
             parameter = new RSAKeyParameters(true, key.getModulus(), key.getPrivateExponent());
-
         }
-
-        request = builder.build(signerBuilder.build(parameter));
+        ContentSigner contentSigner = signerBuilder.build(parameter);
+        request = builder.build(contentSigner);
     }
 
     /**
