@@ -30,10 +30,10 @@
 
 
   <modules>
-    <module>sdk</module>
-    <module>pkix</module>
-    <module>provider</module>
-    <module>core</module>
+    <module>crypto-sdk</module>
+    <module>crypto-pkix</module>
+    <module>crypto-provider</module>
+    <module>crypto-core</module>
   </modules>
 
   <build>

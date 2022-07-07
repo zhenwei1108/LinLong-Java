@@ -11,7 +11,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>sdk</artifactId>
+  <artifactId>crypto-sdk</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
@@ -22,7 +22,7 @@
   <dependencies>
     <dependency>
       <groupId>com.github.zhenwei</groupId>
-      <artifactId>pkix</artifactId>
+      <artifactId>crypto-pkix</artifactId>
       <version>${project.version}</version>
     </dependency>
 
