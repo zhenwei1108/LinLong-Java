@@ -37,6 +37,9 @@
   </modules>
 
   <build>
+
+
+
     <plugins>
       <plugin>
         <!-- https://mvnrepository.com/artifact/com.github.wvengen/proguard-maven-plugin -->
@@ -77,5 +80,13 @@
     </plugins>
 
   </build>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/zhenwei1108/LinLong-Java</url>
+    </repository>
+  </distributionManagement>
 
 </project>
