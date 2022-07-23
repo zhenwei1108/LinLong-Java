@@ -3,10 +3,11 @@ package com.github.zhenwei.sdk.builder;
 import com.github.zhenwei.core.enums.CipherAlgEnum;
 import com.github.zhenwei.core.enums.exception.CipherExceptionMessageEnum;
 import com.github.zhenwei.core.exception.WeGooCipherException;
-import java.security.Key;
-import java.security.Provider;
+import com.github.zhenwei.sdk.init.ProviderEngine;
+
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
+import java.security.Key;
 
 /**
  * @description: 加解密实现
@@ -16,16 +17,10 @@ import javax.crypto.spec.IvParameterSpec;
  */
 public class CipherBuilder {
 
-  private final Provider provider;
-
-  public CipherBuilder(Provider provider) {
-    this.provider = provider;
-  }
-
-  public byte[] cipher(CipherAlgEnum cipherAlgEnum, Key key, byte[] sourceData,
+  public static byte[] cipher(CipherAlgEnum cipherAlgEnum, Key key, byte[] sourceData,
       IvParameterSpec ivParameterSpec, boolean encrypt) throws WeGooCipherException {
     try {
-      Cipher cipher = Cipher.getInstance(cipherAlgEnum.getAlg(), provider);
+      Cipher cipher = Cipher.getInstance(cipherAlgEnum.getAlg(), ProviderEngine.getProvider());
       //如果
       if (cipherAlgEnum.getModeEnum().isNeedIV()) {
         if (ivParameterSpec == null) {
