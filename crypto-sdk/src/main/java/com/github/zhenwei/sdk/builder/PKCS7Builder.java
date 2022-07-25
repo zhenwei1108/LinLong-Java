@@ -213,9 +213,8 @@ public class PKCS7Builder {
         WeGooProvider provider = new WeGooProvider();
         KeyBuilder keyBuilder = new KeyBuilder(provider);
         Key key = keyBuilder.buildKey(KeyEnum.SM4_128);
-        CipherBuilder cipherBuilder = new CipherBuilder(provider);
         //加密
-        byte[] encData = cipherBuilder.cipher(CipherAlgEnum.SM2, publicKey, key.getEncoded(), null, true);
+        byte[] encData = CipherBuilder.cipher(CipherAlgEnum.SM2, publicKey, key.getEncoded(), null, true);
         recipientInfoVector.add(new DEROctetString(encData));
 
         DERSequence recipientInfo = new DERSequence(recipientInfoVector);
@@ -236,7 +235,7 @@ public class PKCS7Builder {
             encryptedContentInfoVector.add(new AlgorithmIdentifier(sms4_ecb));
         }
         //todo iv
-        byte[] symEncData = cipherBuilder.cipher(encAlg, key, data, null, true);
+        byte[] symEncData = CipherBuilder.cipher(encAlg, key, data, null, true);
         // encryptedContent
         encryptedContentInfoVector.add(new DERTaggedObject(false, 0, new BEROctetString(symEncData)));
 
