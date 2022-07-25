@@ -40,44 +40,44 @@
 
 
 
-    <plugins>
-      <plugin>
-        <!-- https://mvnrepository.com/artifact/com.github.wvengen/proguard-maven-plugin -->
-        <groupId>com.github.wvengen</groupId>
-        <artifactId>proguard-maven-plugin</artifactId>
-        <version>2.5.3</version>
-        <executions>
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.github.wvengen/proguard-maven-plugin &ndash;&gt;-->
+<!--        <groupId>com.github.wvengen</groupId>-->
+<!--        <artifactId>proguard-maven-plugin</artifactId>-->
+<!--        <version>2.5.3</version>-->
+<!--        <executions>-->
 
-          <execution>
-            <!-- 混淆时刻，这里是打包的时候混淆-->
-            <phase>install</phase>
-            <goals>
-              <goal>proguard</goal>
-            </goals>
-          </execution>
+<!--          <execution>-->
+<!--            &lt;!&ndash; 混淆时刻，这里是打包的时候混淆&ndash;&gt;-->
+<!--            <phase>install</phase>-->
+<!--            <goals>-->
+<!--              <goal>proguard</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
 
-        </executions>
-        <configuration>
-          <!-- 是否将生成的PG文件安装部署-->
-          <attach>true</attach>
-          <!-- 是否混淆-->
-          <obfuscate>true</obfuscate>
-          <!-- 指定生成文件分类 -->
-          <attachArtifactClassifier>pg</attachArtifactClassifier>
-          <proguardInclude>${basedir}/proguard.conf</proguardInclude>
-          <libs>
-            <lib>${java.home}/lib/rt.jar</lib>
-            <lib>${java.home}/lib/jce.jar</lib>
-          </libs>
-          <!-- 对什么东西进行加载，这里仅有classes成功，不可能对配置文件及JSP混淆吧-->
-          <injar>classes</injar>
-          <outjar>${project.artifactId}-${project.version}.jar</outjar>
-          <!-- 输出目录-->
-          <outputDirectory>${project.build.directory}</outputDirectory>
-        </configuration>
-      </plugin>
+<!--        </executions>-->
+<!--        <configuration>-->
+<!--          &lt;!&ndash; 是否将生成的PG文件安装部署&ndash;&gt;-->
+<!--          <attach>true</attach>-->
+<!--          &lt;!&ndash; 是否混淆&ndash;&gt;-->
+<!--          <obfuscate>true</obfuscate>-->
+<!--          &lt;!&ndash; 指定生成文件分类 &ndash;&gt;-->
+<!--          <attachArtifactClassifier>pg</attachArtifactClassifier>-->
+<!--          <proguardInclude>${basedir}/proguard.conf</proguardInclude>-->
+<!--          <libs>-->
+<!--            <lib>${java.home}/lib/rt.jar</lib>-->
+<!--            <lib>${java.home}/lib/jce.jar</lib>-->
+<!--          </libs>-->
+<!--          &lt;!&ndash; 对什么东西进行加载，这里仅有classes成功，不可能对配置文件及JSP混淆吧&ndash;&gt;-->
+<!--          <injar>classes</injar>-->
+<!--          <outjar>${project.artifactId}-${project.version}.jar</outjar>-->
+<!--          &lt;!&ndash; 输出目录&ndash;&gt;-->
+<!--          <outputDirectory>${project.build.directory}</outputDirectory>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
 
-    </plugins>
+<!--    </plugins>-->
 
   </build>
 
