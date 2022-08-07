@@ -1,93 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <packaging>pom</packaging>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
 
 
-  <groupId>com.github.zhenwei</groupId>
-  <artifactId>LinLong-Java</artifactId>
-  <version>${project.version}</version>
-  <name>LinLong-Java</name>
+    <groupId>com.github.zhenwei</groupId>
+    <artifactId>LinLong-Java</artifactId>
+    <version>${project.version}</version>
+    <name>LinLong-Java</name>
 
-  <properties>
-    <project.version>1.0.0</project.version>
-    <bouncycastle.bcpkix.verion>1.69</bouncycastle.bcpkix.verion>
-    <bouncycastle.bcprov.verion>1.69</bouncycastle.bcprov.verion>
-    <bouncycastle.bcprov.jdk16.verion>1.46</bouncycastle.bcprov.jdk16.verion>
-    <java.version>1.8</java.version>
-    <lombok.version>1.18.22</lombok.version>
-  </properties>
+    <properties>
+        <project.version>1.0.0</project.version>
+        <bouncycastle.bcpkix.verion>1.69</bouncycastle.bcpkix.verion>
+        <bouncycastle.bcprov.verion>1.69</bouncycastle.bcprov.verion>
+        <bouncycastle.bcprov.jdk16.verion>1.46</bouncycastle.bcprov.jdk16.verion>
+        <java.version>1.8</java.version>
+        <lombok.version>1.18.22</lombok.version>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
-
-
-  <modules>
-    <module>crypto-sdk</module>
-    <module>crypto-pkix</module>
-    <module>crypto-provider</module>
-    <module>crypto-core</module>
-  </modules>
-
-  <build>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 
+    <modules>
+        <module>crypto-sdk</module>
+        <module>crypto-pkix</module>
+        <module>crypto-provider</module>
+        <module>crypto-core</module>
+    </modules>
 
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.github.wvengen/proguard-maven-plugin &ndash;&gt;-->
-<!--        <groupId>com.github.wvengen</groupId>-->
-<!--        <artifactId>proguard-maven-plugin</artifactId>-->
-<!--        <version>2.5.3</version>-->
-<!--        <executions>-->
+    <build>
 
-<!--          <execution>-->
-<!--            &lt;!&ndash; 混淆时刻，这里是打包的时候混淆&ndash;&gt;-->
-<!--            <phase>install</phase>-->
-<!--            <goals>-->
-<!--              <goal>proguard</goal>-->
-<!--            </goals>-->
-<!--          </execution>-->
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.2.2</version>
+                <configuration>
+                    <flattenMode>minimum</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-<!--        </executions>-->
-<!--        <configuration>-->
-<!--          &lt;!&ndash; 是否将生成的PG文件安装部署&ndash;&gt;-->
-<!--          <attach>true</attach>-->
-<!--          &lt;!&ndash; 是否混淆&ndash;&gt;-->
-<!--          <obfuscate>true</obfuscate>-->
-<!--          &lt;!&ndash; 指定生成文件分类 &ndash;&gt;-->
-<!--          <attachArtifactClassifier>pg</attachArtifactClassifier>-->
-<!--          <proguardInclude>${basedir}/proguard.conf</proguardInclude>-->
-<!--          <libs>-->
-<!--            <lib>${java.home}/lib/rt.jar</lib>-->
-<!--            <lib>${java.home}/lib/jce.jar</lib>-->
-<!--          </libs>-->
-<!--          &lt;!&ndash; 对什么东西进行加载，这里仅有classes成功，不可能对配置文件及JSP混淆吧&ndash;&gt;-->
-<!--          <injar>classes</injar>-->
-<!--          <outjar>${project.artifactId}-${project.version}.jar</outjar>-->
-<!--          &lt;!&ndash; 输出目录&ndash;&gt;-->
-<!--          <outputDirectory>${project.build.directory}</outputDirectory>-->
-<!--        </configuration>-->
-<!--      </plugin>-->
 
-<!--    </plugins>-->
+            <!--      <plugin>-->
+            <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.github.wvengen/proguard-maven-plugin &ndash;&gt;-->
+            <!--        <groupId>com.github.wvengen</groupId>-->
+            <!--        <artifactId>proguard-maven-plugin</artifactId>-->
+            <!--        <version>2.5.3</version>-->
+            <!--        <executions>-->
 
-  </build>
+            <!--          <execution>-->
+            <!--            &lt;!&ndash; 混淆时刻，这里是打包的时候混淆&ndash;&gt;-->
+            <!--            <phase>install</phase>-->
+            <!--            <goals>-->
+            <!--              <goal>proguard</goal>-->
+            <!--            </goals>-->
+            <!--          </execution>-->
 
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/zhenwei1108/LinLong-Java</url>
-    </repository>
-  </distributionManagement>
+            <!--        </executions>-->
+            <!--        <configuration>-->
+            <!--          &lt;!&ndash; 是否将生成的PG文件安装部署&ndash;&gt;-->
+            <!--          <attach>true</attach>-->
+            <!--          &lt;!&ndash; 是否混淆&ndash;&gt;-->
+            <!--          <obfuscate>true</obfuscate>-->
+            <!--          &lt;!&ndash; 指定生成文件分类 &ndash;&gt;-->
+            <!--          <attachArtifactClassifier>pg</attachArtifactClassifier>-->
+            <!--          <proguardInclude>${basedir}/proguard.conf</proguardInclude>-->
+            <!--          <libs>-->
+            <!--            <lib>${java.home}/lib/rt.jar</lib>-->
+            <!--            <lib>${java.home}/lib/jce.jar</lib>-->
+            <!--          </libs>-->
+            <!--          &lt;!&ndash; 对什么东西进行加载，这里仅有classes成功，不可能对配置文件及JSP混淆吧&ndash;&gt;-->
+            <!--          <injar>classes</injar>-->
+            <!--          <outjar>${project.artifactId}-${project.version}.jar</outjar>-->
+            <!--          &lt;!&ndash; 输出目录&ndash;&gt;-->
+            <!--          <outputDirectory>${project.build.directory}</outputDirectory>-->
+            <!--        </configuration>-->
+            <!--      </plugin>-->
+
+        </plugins>
+
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/zhenwei1108/LinLong-Java</url>
+        </repository>
+    </distributionManagement>
 
 </project>
