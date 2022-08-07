@@ -8,10 +8,11 @@
 
   <groupId>com.github.zhenwei</groupId>
   <artifactId>LinLong-Java</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${project.version}</version>
   <name>LinLong-Java</name>
 
   <properties>
+    <project.version>1.0.0</project.version>
     <bouncycastle.bcpkix.verion>1.69</bouncycastle.bcpkix.verion>
     <bouncycastle.bcprov.verion>1.69</bouncycastle.bcprov.verion>
     <bouncycastle.bcprov.jdk16.verion>1.46</bouncycastle.bcprov.jdk16.verion>
