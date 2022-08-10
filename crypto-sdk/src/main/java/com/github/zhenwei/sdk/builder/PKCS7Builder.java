@@ -65,7 +65,7 @@ public class PKCS7Builder {
     public ContentInfo build(BasePkcs7TypeEnum typeEnum, InputStream inputStream, SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls, boolean isAttach) throws WeGooCryptoException {
         try {
             byte[] data = new byte[inputStream.available()];
-            inputStream.read(data);
+            int read = inputStream.read(data);
             return build(typeEnum, data, signAlgEnum, signature, certificates, crls, isAttach);
         } catch (Exception e) {
             throw new WeGooCryptoException(CryptoExceptionMassageEnum.gen_pkcs7_err, e);
