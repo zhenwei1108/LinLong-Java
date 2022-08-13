@@ -18,6 +18,7 @@ import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.CipherBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 
+import com.github.zhenwei.sdk.builder.RandomBuilder;
 import java.security.Key;
 import java.security.PublicKey;
 import java.security.cert.X509CRL;
@@ -116,14 +117,17 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
             //contentEncryptionAlgorithm
             CipherAlgEnum encAlg = CipherAlgEnum.SM4_ECB_PKCS7Padding;
             ASN1ObjectIdentifier sms4_ecb = GMObjectIdentifiers.sms4_ecb;
+            byte[] iv = null;
             if (encAlg.getModeEnum().isNeedIV()) {
                 //todo
-                encryptedContentInfoVector.add(new AlgorithmIdentifier(sms4_ecb, new DEROctetString(new byte[16])));
+                iv = RandomBuilder.genRandom(16);
+                encryptedContentInfoVector.add(new AlgorithmIdentifier(sms4_ecb, new DEROctetString(
+                    iv)));
             } else {
                 encryptedContentInfoVector.add(new AlgorithmIdentifier(sms4_ecb));
             }
             //todo iv
-            byte[] symEncData = CipherBuilder.cipher(encAlg, key, data, null, true);
+            byte[] symEncData = CipherBuilder.cipher(encAlg, key, data, iv, true);
             // encryptedContent
             encryptedContentInfoVector.add(new DERTaggedObject(false, 0, new BEROctetString(symEncData)));
 
