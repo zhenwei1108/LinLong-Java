@@ -4,7 +4,7 @@ import com.github.zhenwei.core.enums.CipherAlgEnum;
 import com.github.zhenwei.core.enums.exception.CipherExceptionMessageEnum;
 import com.github.zhenwei.core.exception.WeGooCipherException;
 import com.github.zhenwei.sdk.init.ProviderEngine;
-import com.github.zhenwei.sdk.util.BytesUtil;
+import com.github.zhenwei.sdk.util.ArrayUtils;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -25,7 +25,7 @@ public class CipherBuilder {
 
             //判断是否需要初始化向量
             if (cipherAlgEnum.getModeEnum().isNeedIV()) {
-                if (BytesUtil.isEmpty(iv)) {
+                if (ArrayUtils.isEmpty(iv)) {
                     throw new WeGooCipherException(CipherExceptionMessageEnum.iv_param_empty_err);
                 }
                 cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, key, new IvParameterSpec(iv));

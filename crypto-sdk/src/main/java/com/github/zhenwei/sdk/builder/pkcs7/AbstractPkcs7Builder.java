@@ -8,7 +8,7 @@ import com.github.zhenwei.core.enums.BasePkcs7TypeEnum;
 import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.core.exception.WeGooEnvelopException;
-import com.github.zhenwei.sdk.util.BytesUtil;
+import com.github.zhenwei.sdk.util.ArrayUtils;
 
 import java.security.cert.X509CRL;
 import java.security.cert.X509Certificate;
@@ -41,7 +41,7 @@ public abstract class AbstractPkcs7Builder {
     }
 
     ASN1Encodable genData(byte[] data) {
-        return BytesUtil.isBlank(data) ? null : new DEROctetString(data);
+        return ArrayUtils.isEmpty(data) ? null : new DEROctetString(data);
     }
 
     abstract ASN1Encodable genSignedData(byte[] data, SignAlgEnum signAlgEnum, byte[] signature,

@@ -8,7 +8,6 @@ import com.github.zhenwei.sdk.builder.CipherBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 import org.junit.Test;
 
-import javax.crypto.spec.IvParameterSpec;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
@@ -22,15 +21,15 @@ public class CipherTest {
     //SM2加解密
     KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     byte[] data = "this is my encrypt data test".getBytes(StandardCharsets.UTF_8);
-    IvParameterSpec spec = new IvParameterSpec(new byte[16]);
-    byte[] encryptedData = CipherBuilder.cipher(CipherAlgEnum.SM2, keyPair.getPublic(), data, spec, true);
-    data = CipherBuilder.cipher(CipherAlgEnum.SM2, keyPair.getPrivate(), encryptedData, spec, false);
+    byte[] iv = new byte[16];
+    byte[] encryptedData = CipherBuilder.cipher(CipherAlgEnum.SM2, keyPair.getPublic(), data, iv, true);
+    data = CipherBuilder.cipher(CipherAlgEnum.SM2, keyPair.getPrivate(), encryptedData, iv, false);
     System.out.println("解密结果: " + new String(data));
 
     //RSA加解密
     keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_2048);
-    encryptedData = CipherBuilder.cipher(CipherAlgEnum.RSA, keyPair.getPublic(), data, spec, true);
-    data = CipherBuilder.cipher(CipherAlgEnum.RSA, keyPair.getPrivate(), encryptedData, spec, false);
+    encryptedData = CipherBuilder.cipher(CipherAlgEnum.RSA, keyPair.getPublic(), data, iv, true);
+    data = CipherBuilder.cipher(CipherAlgEnum.RSA, keyPair.getPrivate(), encryptedData, iv, false);
     System.out.println("解密结果: " + new String(data));
 
 

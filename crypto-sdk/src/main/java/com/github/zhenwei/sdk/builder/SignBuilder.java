@@ -3,12 +3,11 @@ package com.github.zhenwei.sdk.builder;
 import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.core.enums.exception.SignatureExceptionMessageEnum;
 import com.github.zhenwei.core.exception.WeGooSignerException;
-import lombok.var;
-
+import com.github.zhenwei.sdk.init.ProviderEngine;
 import java.security.PrivateKey;
-import java.security.Provider;
 import java.security.PublicKey;
 import java.security.Signature;
+import lombok.var;
 
 /**
  * @description: 签名验签
@@ -18,11 +17,6 @@ import java.security.Signature;
  */
 public class SignBuilder {
 
-  private Provider provider;
-
-  public SignBuilder(Provider provider) {
-    this.provider = provider;
-  }
 
   /**
    * @param [signAlgEnum, privateKey, source]
@@ -34,7 +28,7 @@ public class SignBuilder {
   public byte[] signatureSourceData(SignAlgEnum signAlgEnum, PrivateKey privateKey, byte[] source)
       throws WeGooSignerException {
     try {
-      var signature = Signature.getInstance(signAlgEnum.getAlg(), provider);
+      var signature = Signature.getInstance(signAlgEnum.getAlg(), ProviderEngine.getProvider());
       signature.initSign(privateKey);
       signature.update(source);
       return signature.sign();
@@ -72,7 +66,7 @@ public class SignBuilder {
   public boolean verifySourceData(SignAlgEnum signAlgEnum, byte[] signedData, byte[] source,
       PublicKey publicKey) throws WeGooSignerException {
     try {
-      var signature = Signature.getInstance(signAlgEnum.getAlg(), provider);
+      var signature = Signature.getInstance(signAlgEnum.getAlg(), ProviderEngine.getProvider());
       signature.initVerify(publicKey);
       signature.update(source);
       return signature.verify(signedData);

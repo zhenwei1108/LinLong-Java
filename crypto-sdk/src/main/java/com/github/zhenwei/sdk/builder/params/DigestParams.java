@@ -1,6 +1,8 @@
 package com.github.zhenwei.sdk.builder.params;
 
+import com.github.zhenwei.core.exception.WeGooKeyException;
 import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.sdk.builder.KeyBuilder;
 import java.security.PublicKey;
 
 public class DigestParams {
@@ -34,4 +36,15 @@ public class DigestParams {
     this.publicKey = publicKey;
     this.userID = userID;
   }
+
+  public static DigestParams getInstance(Object data) throws WeGooKeyException {
+    PublicKey publicKey = null;
+    if (data instanceof PublicKey) {
+      publicKey = (PublicKey) data;
+    } else if (data instanceof byte[]) {
+      publicKey = KeyBuilder.convertPublicKey((byte[]) data);
+    }
+    return new DigestParams(publicKey);
+  }
+
 }

@@ -1,7 +1,7 @@
 package com.github.zhenwei.sdk.structure;
 
 import com.github.zhenwei.core.asn1.pkcs.Sm2Signature;
-import com.github.zhenwei.sdk.util.BytesUtil;
+import com.github.zhenwei.sdk.util.ArrayUtils;
 
 /**
  * @description: SignedDataBuilder
@@ -21,7 +21,7 @@ public class SignedDataBuilder {
     }
 
     public static byte[] formatSm2SignedData(Sm2Signature signature) {
-        return BytesUtil.mergeBytes(signature.getR().getValue().toByteArray(), signature.getS().getValue().toByteArray());
+        return ArrayUtils.mergeBytes(signature.getR().getValue().toByteArray(), signature.getS().getValue().toByteArray());
     }
 
 

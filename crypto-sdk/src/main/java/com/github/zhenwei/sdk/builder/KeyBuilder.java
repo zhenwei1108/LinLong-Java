@@ -88,7 +88,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:34
    * @since 1.0
    */
-  public PublicKey convertPublicKey(byte[] publicKey) throws WeGooKeyException {
+  public static PublicKey convertPublicKey(byte[] publicKey) throws WeGooKeyException {
     try {
       SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey);
       if (keyInfo == null) {
