@@ -24,7 +24,7 @@ public class KeyPairTest {
 
   @Test
   public void genRsa1024Key() throws BaseWeGooException {
-    KeyBuilder builder = new KeyBuilder(new WeGooProvider());
+    KeyBuilder builder = new KeyBuilder();
     KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
     System.out.println(Base64Util.encode(keyPair.getPrivate().getEncoded()));
     System.out.println(Base64Util.encode(keyPair.getPublic().getEncoded()));
@@ -40,11 +40,11 @@ public class KeyPairTest {
 
   @Test
   public void genSM2Key() throws BaseWeGooException {
-    KeyBuilder builder = new KeyBuilder(new WeGooProvider());
+    KeyBuilder builder = new KeyBuilder();
     KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     System.out.println(Base64Util.encode(keyPair.getPrivate().getEncoded()));
     System.out.println(Base64Util.encode(keyPair.getPublic().getEncoded()));
-    SignBuilder signBuilder = new SignBuilder(new WeGooProvider());
+    SignBuilder signBuilder = new SignBuilder();
     byte[] signatureSourceData = signBuilder.signatureSourceData(SignAlgEnum.SM3_WITH_SM2,
         keyPair.getPrivate(), "sadfadf".getBytes(StandardCharsets.UTF_8));
     System.out.println(Base64Util.encode(signatureSourceData));
@@ -54,14 +54,14 @@ public class KeyPairTest {
   @Test
   public void genSm4Key() throws BaseWeGooException {
     WeGooProvider weGooProvider = new WeGooProvider();
-    Key key = new KeyBuilder(weGooProvider).buildKey(KeyEnum.SM4_128);
+    Key key = new KeyBuilder().buildKey(KeyEnum.SM4_128);
     System.out.println(Base64Util.encode(key.getEncoded()));
     System.out.println("key len :" + key.getEncoded().length);
   }
 
   @Test
   public void covertKeyPair() throws Exception {
-    KeyBuilder builder = new KeyBuilder(new WeGooProvider());
+    KeyBuilder builder = new KeyBuilder();
     KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     System.out.println("公钥:" + Hex.toHexString(keyPair.getPublic().getEncoded()));
     System.out.println("私钥:" + Hex.toHexString(keyPair.getPrivate().getEncoded()));
@@ -73,7 +73,7 @@ public class KeyPairTest {
 
   @Test
   public void getRealKey() throws BaseWeGooException {
-    KeyBuilder builder = new KeyBuilder(new WeGooProvider());
+    KeyBuilder builder = new KeyBuilder();
     KeyPair keyPair = builder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     System.out.println("公钥:" + Hex.toHexString(keyPair.getPublic().getEncoded()));
     System.out.println("私钥:" + Hex.toHexString(keyPair.getPrivate().getEncoded()));

@@ -28,7 +28,6 @@ import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.core.exception.BaseWeGooException;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.core.exception.WeGooEnvelopException;
-import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.CipherBuilder;
 import com.github.zhenwei.sdk.builder.HashBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
@@ -157,8 +156,7 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
       //RSA/SM2加解密算法
       AlgorithmIdentifier algorithmIdentifier = new AlgorithmIdentifier(identifier);
       recipientInfoVector.add(algorithmIdentifier);
-      WeGooProvider provider = new WeGooProvider();
-      KeyBuilder keyBuilder = new KeyBuilder(provider);
+      KeyBuilder keyBuilder = new KeyBuilder();
       Key key = keyBuilder.buildKey(KeyEnum.SM4_128);
       //加密
       byte[] encData = CipherBuilder.cipher(CipherAlgEnum.SM2, publicKey, key.getEncoded(), null,

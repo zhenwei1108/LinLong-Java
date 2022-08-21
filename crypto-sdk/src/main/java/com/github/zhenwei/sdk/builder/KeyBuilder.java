@@ -14,6 +14,7 @@ import com.github.zhenwei.core.enums.exception.KeyExceptionMessageEnum;
 import com.github.zhenwei.core.exception.BaseWeGooException;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
 import com.github.zhenwei.core.exception.WeGooKeyException;
+import com.github.zhenwei.sdk.init.ProviderEngine;
 import lombok.val;
 import lombok.var;
 
@@ -31,11 +32,6 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public final class KeyBuilder {
 
-  private Provider provider;
-
-  public KeyBuilder(Provider provider) {
-    this.provider = provider;
-  }
 
   /**
    * @param [keyPairEnum]
@@ -47,7 +43,7 @@ public final class KeyBuilder {
    */
   public KeyPair buildKeyPair(KeyPairAlgEnum keyPairEnum) throws WeGooKeyException {
     try {
-      var generator = KeyPairGenerator.getInstance(keyPairEnum.getAlg(), provider);
+      var generator = KeyPairGenerator.getInstance(keyPairEnum.getAlg(), ProviderEngine.getProvider());
       if (keyPairEnum == KeyPairAlgEnum.SM2_256) {
         //SM2 算法曲线
         var name = GMNamedCurves.getName(GMObjectIdentifiers.sm2p256v1);
@@ -72,7 +68,7 @@ public final class KeyBuilder {
    */
   public Key buildKey(KeyEnum keyEnum) throws BaseWeGooException {
     try {
-      val generator = KeyGenerator.getInstance(keyEnum.getAlg(), provider);
+      val generator = KeyGenerator.getInstance(keyEnum.getAlg(), ProviderEngine.getProvider());
       generator.init(keyEnum.getKeyLen(), new SecureRandom());
       return generator.generateKey();
     } catch (Exception e) {

@@ -1,12 +1,11 @@
 package com.github.zhenwei.test.key.real;
 
-import com.github.zhenwei.core.util.encoders.Hex;
-import com.github.zhenwei.provider.jce.provider.WeGooProvider;
-import com.github.zhenwei.sdk.builder.KeyBuilder;
-import com.github.zhenwei.sdk.builder.SignBuilder;
 import com.github.zhenwei.core.enums.KeyPairAlgEnum;
 import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.core.exception.BaseWeGooException;
+import com.github.zhenwei.core.util.encoders.Hex;
+import com.github.zhenwei.sdk.builder.KeyBuilder;
+import com.github.zhenwei.sdk.builder.SignBuilder;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
 import org.junit.Test;
@@ -20,9 +19,8 @@ public class RealSignerTest {
 
   @Test
   public void readSigner() throws BaseWeGooException {
-    WeGooProvider weGooProvider = new WeGooProvider();
-    SignBuilder signBuilder = new SignBuilder(weGooProvider);
-    KeyBuilder keyBuilder = new KeyBuilder(weGooProvider);
+    SignBuilder signBuilder = new SignBuilder();
+    KeyBuilder keyBuilder = new KeyBuilder();
     KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
     byte[] data = signBuilder.signatureSourceData(SignAlgEnum.SHA256_WITH_RSA, keyPair.getPrivate(),
         "asdfa".getBytes(  StandardCharsets.UTF_8));

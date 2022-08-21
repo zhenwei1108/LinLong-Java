@@ -3,21 +3,18 @@ package com.github.zhenwei.test.key.real;
 import com.github.zhenwei.core.enums.CipherAlgEnum;
 import com.github.zhenwei.core.enums.KeyPairAlgEnum;
 import com.github.zhenwei.core.exception.BaseWeGooException;
-import com.github.zhenwei.provider.jce.provider.WeGooProvider;
 import com.github.zhenwei.sdk.builder.CipherBuilder;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
-import org.junit.Test;
-
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
+import org.junit.Test;
 
 public class CipherTest {
 
   @Test
   public void encDecDataTest() throws BaseWeGooException {
-    WeGooProvider provider = new WeGooProvider();
-    KeyBuilder keyBuilder = new KeyBuilder(provider);
+    KeyBuilder keyBuilder = new KeyBuilder();
     //SM2加解密
     KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     byte[] data = "this is my encrypt data test".getBytes(StandardCharsets.UTF_8);

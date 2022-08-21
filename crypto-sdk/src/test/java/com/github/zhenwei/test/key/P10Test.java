@@ -18,7 +18,7 @@ public class P10Test {
     @Test
     public void genP10() throws Exception {
         WeGooProvider provider = new WeGooProvider();
-        KeyBuilder keyBuilder = new KeyBuilder(provider);
+        KeyBuilder keyBuilder = new KeyBuilder();
         KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
         List<CertExtension> list = new ArrayList<>();
         CertExtension certExtension = new CertExtension("1.2.3", "demo1111".getBytes(StandardCharsets.UTF_8), CodingType.DEROCTETSTRING);

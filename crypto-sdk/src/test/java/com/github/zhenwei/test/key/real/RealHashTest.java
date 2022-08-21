@@ -18,13 +18,13 @@ public class RealHashTest {
   @Test
   public void sm3Digest() throws BaseWeGooException {
     WeGooProvider provider = new WeGooProvider();
-    HashBuilder builder = new HashBuilder(provider);
+    HashBuilder builder = new HashBuilder();
     byte[] source = "asdf".getBytes(StandardCharsets.UTF_8);
     byte[] digest = builder.digest(DigestAlgEnum.SM3, source);
     System.out.println(Hex.toHexString(digest));
 
     //公钥参与运算
-    KeyBuilder keyBuilder = new KeyBuilder(provider);
+    KeyBuilder keyBuilder = new KeyBuilder();
     KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.SM2_256);
     DigestParams digestParams = new DigestParams(keyPair.getPublic());
     digest = builder.digest(DigestAlgEnum.SM3, source, digestParams);
