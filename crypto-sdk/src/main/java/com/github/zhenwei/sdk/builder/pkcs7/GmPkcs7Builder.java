@@ -5,6 +5,7 @@ import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1Integer;
 import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.BEROctetString;
 import com.github.zhenwei.core.asn1.BERSequence;
 import com.github.zhenwei.core.asn1.DEROctetString;
@@ -12,8 +13,10 @@ import com.github.zhenwei.core.asn1.DERSequence;
 import com.github.zhenwei.core.asn1.DERSet;
 import com.github.zhenwei.core.asn1.DERTaggedObject;
 import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.Attribute;
 import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
 import com.github.zhenwei.core.asn1.pkcs.IssuerAndSerialNumber;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.SignedData;
 import com.github.zhenwei.core.asn1.pkcs.SignerInfo;
 import com.github.zhenwei.core.asn1.pkcs.Version;
@@ -73,7 +76,6 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
       if (ArrayUtils.isEmpty(certificates)) {
         throw new WeGooEnvelopException("cert can not be null");
       }
-      crls = crls == null ? new X509CRL[0] : crls;
       //version
       Version version = new Version(1);
       //digest algs
@@ -87,14 +89,17 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
       //证书集合
       DERSet setOfCerts = new DERSet(certificates);
       //crl 集合
-      ASN1EncodableVector crlVector = new ASN1EncodableVector();
-      for (X509CRL crl : crls) {
-        crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
+      DERSet setOfCrls = null;
+      if (ArrayUtils.notEmpty(crls)){
+        ASN1EncodableVector crlVector = new ASN1EncodableVector();
+        for (X509CRL crl : crls) {
+          crlVector.add(new ASN1InputStream(crl.getEncoded()).readObject());
+        }
+        setOfCrls = new DERSet(crlVector);
       }
-      DERSet setOfCrls = new DERSet(crlVector);
       //signerInfo
       ASN1EncodableVector signerInfosVector = new ASN1EncodableVector();
-      DERSet setOfSignerInfo = new DERSet(signerInfosVector);
+
       /**
        * SignerInfo ::= SEQUENCE {
        *      version Version, --版本
@@ -111,17 +116,30 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
           certificate.getSubject(), certificate.getSerialNumber().getPositiveValue());
 
       AlgorithmIdentifier hashId = new AlgorithmIdentifier(signAlgEnum.getDigestAlgEnum().getOid());
+      //GMT-0010 要求标识符为： SM2-1， 见GMT-0006：1.2.156.10197.1.301.1
+      AlgorithmIdentifier signId = new AlgorithmIdentifier(GMObjectIdentifiers.sm2sign);
 
-      AlgorithmIdentifier signId = new AlgorithmIdentifier(signAlgEnum.getOid());
-
-      //没有填充 authenticatedAttributes，unauthenticatedAttributes
+      // authenticatedAttributes，unauthenticatedAttributes
       //authenticatedAttributes 是原文的hash
-
+      /**
+       * 根据RFC 2315 - 9.2描述
+       * 如果 authenticatedAttributes存在，必须包含两个属性：
+       * 1. PKCS9的 content type
+       * 2. PKCS9的 message digest
+       * 也可以放入其他属性，例如签名时间
+       */
       byte[] digest = HashBuilder.digest(signAlgEnum.getDigestAlgEnum(), data,
           DigestParams.getInstance(certificate.getSubjectPublicKeyInfo()));
-      SignerInfo signerInfo = new SignerInfo(version, issuerAndSerialNumber, hashId, null,
+
+      ASN1EncodableVector vector = new ASN1EncodableVector();
+      vector.add(new Attribute(PKCSObjectIdentifiers.pkcs_9_at_contentType,new DERSet(GMObjectIdentifiers.data)));
+      vector.add(new Attribute(PKCSObjectIdentifiers.pkcs_9_at_messageDigest, new DERSet(new DEROctetString(digest))));
+
+      ASN1Set authenticatedAttributes = new DERSet(vector);
+      SignerInfo signerInfo = new SignerInfo(version, issuerAndSerialNumber, hashId, authenticatedAttributes,
           signId, new DEROctetString(signature), null);
       signerInfosVector.add(signerInfo);
+      DERSet setOfSignerInfo = new DERSet(signerInfosVector);
       return new SignedData(version, digestAlgorithms, contentInfo, setOfCerts, setOfCrls,
           setOfSignerInfo);
     } catch (Exception e) {
