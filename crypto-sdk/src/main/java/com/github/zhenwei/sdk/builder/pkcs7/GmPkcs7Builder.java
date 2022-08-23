@@ -67,7 +67,7 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
    * DigestAlgorithmIdentifiers::=SET OF DigestAlgorithmIdentifier
    * SignerInfos∷ =SET OF SignerInfo
    *
-   *
+   * todo 补充传入原文和私钥的方式
    */
   @Override
   ASN1Encodable genSignedData(byte[] data, SignAlgEnum signAlgEnum, byte[] signature,
@@ -114,7 +114,7 @@ public class GmPkcs7Builder extends AbstractPkcs7Builder {
       Certificate certificate = certificates[0];
       IssuerAndSerialNumber issuerAndSerialNumber = new IssuerAndSerialNumber(
           certificate.getSubject(), certificate.getSerialNumber().getPositiveValue());
-
+      //todo 是否增加一层sequence
       AlgorithmIdentifier hashId = new AlgorithmIdentifier(signAlgEnum.getDigestAlgEnum().getOid());
       //GMT-0010 要求标识符为： SM2-1， 见GMT-0006：1.2.156.10197.1.301.1
       AlgorithmIdentifier signId = new AlgorithmIdentifier(GMObjectIdentifiers.sm2sign);
