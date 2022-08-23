@@ -4,15 +4,23 @@ import com.github.zhenwei.core.asn1.ASN1Encodable;
 import com.github.zhenwei.core.asn1.ASN1EncodableVector;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.ASN1Integer;
+import com.github.zhenwei.core.asn1.ASN1ObjectIdentifier;
+import com.github.zhenwei.core.asn1.ASN1Set;
 import com.github.zhenwei.core.asn1.DEROctetString;
 import com.github.zhenwei.core.asn1.DERSet;
+import com.github.zhenwei.core.asn1.gm.GMObjectIdentifiers;
+import com.github.zhenwei.core.asn1.pkcs.Attribute;
 import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
+import com.github.zhenwei.core.asn1.pkcs.IssuerAndSerialNumber;
+import com.github.zhenwei.core.asn1.pkcs.PKCSObjectIdentifiers;
 import com.github.zhenwei.core.asn1.pkcs.SignedData;
 import com.github.zhenwei.core.asn1.pkcs.SignerInfo;
 import com.github.zhenwei.core.asn1.pkcs.Version;
+import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 import com.github.zhenwei.core.asn1.x509.Certificate;
 import com.github.zhenwei.core.enums.BasePkcs7TypeEnum;
 import com.github.zhenwei.core.enums.GmPkcs7ContentInfoTypeEnum;
+import com.github.zhenwei.core.enums.Pkcs7ContentInfoTypeEnum;
 import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
@@ -25,11 +33,9 @@ import java.security.cert.X509Certificate;
 
 public abstract class AbstractPkcs7Builder {
 
-
   public ContentInfo genPkcs7ContentInfo(BasePkcs7TypeEnum infoTypeEnum, byte[] data,
-      SignAlgEnum signAlgEnum,
-      byte[] signature, Certificate[] certificates, X509CRL[] crls, boolean isAttach)
-      throws WeGooCryptoException {
+      SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls,
+      boolean isAttach) throws WeGooCryptoException {
     ASN1Encodable asn1Encodable = null;
     switch (infoTypeEnum.name()) {
       case BasePkcs7TypeEnum.DATA:
@@ -39,7 +45,6 @@ public abstract class AbstractPkcs7Builder {
         asn1Encodable = genSignedData(data, signAlgEnum, signature, certificates, crls, isAttach);
         break;
       case BasePkcs7TypeEnum.KEY_AGREEMENT_INFO_DATA:
-
         break;
       case BasePkcs7TypeEnum.ENCRYPTED_DATA:
         break;
@@ -93,8 +98,11 @@ public abstract class AbstractPkcs7Builder {
       if (!isAttach) {
         data = null;
       }
+      BasePkcs7TypeEnum pkcs7TypeEnum =
+          signAlgEnum == SignAlgEnum.SM3_WITH_SM2 ? GmPkcs7ContentInfoTypeEnum.DATA
+              : Pkcs7ContentInfoTypeEnum.DATA;
       //若包含原文则填充原文
-      ContentInfo contentInfo = genPkcs7ContentInfo(GmPkcs7ContentInfoTypeEnum.DATA, data,
+      ContentInfo contentInfo = genPkcs7ContentInfo(pkcs7TypeEnum, data,
           signAlgEnum, null, null, null, isAttach);
       //证书集合
       DERSet setOfCerts = new DERSet(certificates);
@@ -122,8 +130,43 @@ public abstract class AbstractPkcs7Builder {
     }
   }
 
-  abstract SignerInfo genSignerInfo(ASN1Integer version, Certificate certificate,
-      SignAlgEnum signAlgEnum, byte[] digest, byte[] signature);
+  SignerInfo genSignerInfo(ASN1Integer version, Certificate certificate,
+      SignAlgEnum signAlgEnum, byte[] digest, byte[] signature) {
+    {
+      IssuerAndSerialNumber issuerAndSerialNumber = new IssuerAndSerialNumber(
+          certificate.getSubject(), certificate.getSerialNumber().getPositiveValue());
+      //todo 是否增加一层sequence
+      AlgorithmIdentifier hashId = new AlgorithmIdentifier(signAlgEnum.getDigestAlgEnum().getOid());
+      //GMT-0010 要求标识符为： SM2-1， 见GMT-0006：1.2.156.10197.1.301.1
+      ASN1ObjectIdentifier asn1ObjectIdentifier =
+          signAlgEnum == SignAlgEnum.SM3_WITH_SM2 ? GMObjectIdentifiers.sm2sign
+              : PKCSObjectIdentifiers.encryptionAlgorithm;
+      AlgorithmIdentifier signId = new AlgorithmIdentifier(asn1ObjectIdentifier);
+
+      // authenticatedAttributes，unauthenticatedAttributes
+      //authenticatedAttributes 是原文的hash
+      /**
+       * 根据RFC 2315 - 9.2描述
+       * 如果 authenticatedAttributes存在，必须包含两个属性：
+       * 1. PKCS9的 content type
+       * 2. PKCS9的 message digest
+       * 也可以放入其他属性，例如签名时间
+       */
+
+      ASN1EncodableVector vector = new ASN1EncodableVector();
+      asn1ObjectIdentifier =
+          signAlgEnum == SignAlgEnum.SM3_WITH_SM2 ? GMObjectIdentifiers.data
+              : PKCSObjectIdentifiers.data;
+      vector.add(new Attribute(PKCSObjectIdentifiers.pkcs_9_at_contentType,
+          new DERSet(asn1ObjectIdentifier)));
+      vector.add(new Attribute(PKCSObjectIdentifiers.pkcs_9_at_messageDigest,
+          new DERSet(new DEROctetString(digest))));
+
+      ASN1Set authenticatedAttributes = new DERSet(vector);
+      return new SignerInfo(version, issuerAndSerialNumber, hashId,
+          authenticatedAttributes, signId, new DEROctetString(signature), null);
+    }
+  }
 
 
   abstract ASN1Encodable enveloped(X509Certificate certificate, byte[] data)
