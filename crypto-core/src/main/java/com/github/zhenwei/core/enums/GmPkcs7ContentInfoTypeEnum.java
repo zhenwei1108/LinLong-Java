@@ -26,7 +26,11 @@ public enum GmPkcs7ContentInfoTypeEnum implements BasePkcs7TypeEnum{
         this.oid = oid;
     }
 
-    public ASN1ObjectIdentifier getOid() {
+  GmPkcs7ContentInfoTypeEnum() {
+
+  }
+
+  public ASN1ObjectIdentifier getOid() {
         return oid;
     }
 }

@@ -18,4 +18,7 @@ public interface BasePkcs7TypeEnum extends BaseEnum {
     String ENCRYPTED_DATA = "ENCRYPTED_DATA";
     String ENVELOPED_DATA = "ENVELOPED_DATA";
     String SIGNED_AND_ENVELOPED_DATA = "SIGNED_AND_ENVELOPED_DATA";
+
+
+
 }
