@@ -94,7 +94,7 @@ public abstract class AbstractPkcs7Builder {
       //version
       Version version = new Version(1);
       //digest algs
-      DERSet digestAlgorithms = new DERSet(signAlgEnum.getDigestAlgEnum().getOid());
+      DERSet digestAlgorithms = new DERSet(AlgorithmIdentifier.getInstance(signAlgEnum.getDigestAlgEnum().getOid()));
       if (!isAttach) {
         data = null;
       }
@@ -130,6 +130,25 @@ public abstract class AbstractPkcs7Builder {
     }
   }
 
+  /**
+   * @param [version, certificate, signAlgEnum, digest, signature]
+   * @return com.github.zhenwei.core.asn1.pkcs.SignerInfo
+   * @author zhangzhenwei
+   * @description
+   * SignerInfo ::= SEQUENCE {
+   *      version Version,
+   *      issuerAndSerialNumber IssuerAndSerialNumber,
+   *      digestAlgorithm DigestAlgorithmIdentifier,
+   *      authenticatedAttributes [0] IMPLICIT Attributes OPTIONAL,
+   *      digestEncryptionAlgorithm DigestEncryptionAlgorithmIdentifier,
+   *      encryptedDigest EncryptedDigest,
+   *      unauthenticatedAttributes [1] IMPLICIT Attributes OPTIONAL }
+   *
+   *    EncryptedDigest ::= OCTET STRING
+   *
+   * @date 2022/8/24  23:14
+   * @since: 1.0
+   */
   SignerInfo genSignerInfo(ASN1Integer version, Certificate certificate,
       SignAlgEnum signAlgEnum, byte[] digest, byte[] signature) {
     {
@@ -168,7 +187,24 @@ public abstract class AbstractPkcs7Builder {
     }
   }
 
+  /**
+   * @param [certificate, data]
+   * @return com.github.zhenwei.core.asn1.ASN1Encodable
+   * @author zhangzhenwei
+   * @description
+   * EnvelopedData ::= SEQUENCE {
+   *      version Version,
+   *      recipientInfos RecipientInfos,
+   *      encryptedContentInfo EncryptedContentInfo }
+   *
+   *       RecipientInfos ::= SET OF RecipientInfo
+   * @date 2022/8/24  22:54
+   * @since: 1.0
+   */
+  ASN1Encodable enveloped(X509Certificate certificate, byte[] data)
+      throws WeGooEnvelopException {
 
-  abstract ASN1Encodable enveloped(X509Certificate certificate, byte[] data)
-      throws WeGooEnvelopException;
+  return null;
+
+  }
 }
