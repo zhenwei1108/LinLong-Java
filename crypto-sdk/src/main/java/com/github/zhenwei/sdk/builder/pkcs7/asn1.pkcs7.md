@@ -25,6 +25,7 @@ SignedData::=SEQUENCE(
      )
     
  DigestAlgorithmIdentifiers::=SET OF DigestAlgorithmIdentifier
+ 
  SignerInfos∷ =SET OF SignerInfo
  
   SignerInfo ::= SEQUENCE {
@@ -38,7 +39,7 @@ SignedData::=SEQUENCE(
         
       EncryptedDigest ::= OCTET STRING
       
- 
+
 ```
 
 * EnvelopedData
