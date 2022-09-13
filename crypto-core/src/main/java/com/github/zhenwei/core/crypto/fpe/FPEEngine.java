@@ -11,7 +11,7 @@ import com.github.zhenwei.core.util.Pack;
  * Base class for format-preserving encryption.
  * 保留格式加密
  * FF1 使用十轮变换（安全性相对更高），FF3采用8轮变换（性能相对更高）。
- * AES——128本身采用十轮变换，AES-192采用十二轮，AES-256采用14轮变换。
+ * AES—128本身采用十轮变换，AES-192采用十二轮，AES-256采用14轮变换。
  * 字典表，规定了输出范围。
  * radix，字典表数量，对于数字，0-9十个数字即可，对于字母则26*2（大小写）。radix ∈ [2..216]
  * key，密钥，长度一般为 16，24，32 （貌似描述的是AES密钥）

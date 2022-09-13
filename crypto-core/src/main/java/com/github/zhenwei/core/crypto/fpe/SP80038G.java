@@ -17,9 +17,6 @@ import java.math.BigInteger;
  */
 class SP80038G {
 
-  static final String FPE_DISABLED = "org.bouncycastle.fpe.disable";
-  static final String FF1_DISABLED = "org.bouncycastle.fpe.disable_ff1";
-
   protected static final int BLOCK_SIZE = 16;
   protected static final double LOG2 = Math.log(2.0);
   protected static final double TWO_TO_96 = Math.pow(2, 96);
@@ -130,7 +127,7 @@ class SP80038G {
 
   static byte[] encryptFF1(BlockCipher cipher, int radix, byte[] tweak, byte[] buf, int off,
       int len) {
-    checkArgs(cipher, true, radix, buf, off, len);
+//    checkArgs(cipher, true, radix, buf, off, len);
 
     // Algorithm 7
     int n = len;
