@@ -137,7 +137,6 @@ class SP80038G {
     short[] B = toShort(buf, off + u, v);
 
     short[] result = encFF1(cipher, radix, tweak, n, u, v, A, B);
-    char[] chars = toChar(result);
     return toByte(result);  //short 占用2字节，byte占用1字节， 转换回丢失
   }
 
