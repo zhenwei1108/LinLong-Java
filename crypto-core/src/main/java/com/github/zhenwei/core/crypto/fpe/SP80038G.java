@@ -127,7 +127,7 @@ class SP80038G {
 
   static byte[] encryptFF1(BlockCipher cipher, int radix, byte[] tweak, byte[] buf, int off,
       int len) {
-//    checkArgs(cipher, true, radix, buf, off, len);
+    checkArgs(cipher, true, radix, buf, off, len);
 
     // Algorithm 7
     int n = len;
@@ -136,7 +136,9 @@ class SP80038G {
     short[] A = toShort(buf, off, u);
     short[] B = toShort(buf, off + u, v);
 
-    return toByte(encFF1(cipher, radix, tweak, n, u, v, A, B));
+    short[] result = encFF1(cipher, radix, tweak, n, u, v, A, B);
+    char[] chars = toChar(result);
+    return toByte(result);  //short 占用2字节，byte占用1字节， 转换回丢失
   }
 
   static short[] encryptFF1w(BlockCipher cipher, int radix, byte[] tweak, short[] buf, int off,
@@ -617,6 +619,17 @@ class SP80038G {
 
     return s;
   }
+
+  private static char[] toChar(short[] buf){
+    char[] chars = new char[buf.length];
+    for (int i = 0; i < buf.length; i++) {
+      chars[i] = (char) buf[i];
+    }
+    System.out.println(new String(chars));
+    return chars;
+  }
+
+
 
   private static short[] toShort(byte[] buf, int off, int len) {
     short[] s = new short[len];
