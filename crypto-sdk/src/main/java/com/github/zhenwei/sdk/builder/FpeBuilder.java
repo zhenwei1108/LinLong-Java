@@ -13,7 +13,7 @@ import java.security.Key;
 public class FpeBuilder {
 
 
-  public void cipher(FpeAlgEnum fpeAlgEnum, FpeTypeEnum fpeTypeEnum, byte[] tweak, String data,
+  public String cipher(FpeAlgEnum fpeAlgEnum, FpeTypeEnum fpeTypeEnum, byte[] tweak, String data,
       Key key) {
     //aes,sm4
     FPEEngine fpeEngine =
@@ -26,6 +26,7 @@ public class FpeBuilder {
     byte[] enc = new byte[chars.length];
     fpeEngine.processBlock(plainText, 0, plainText.length, enc, 0);
     char[] cipherData = fpeType.transform(enc);
+    return String.valueOf(cipherData);
   }
 
 
