@@ -3,21 +3,12 @@ package com.github.zhenwei.test.key;
 import com.github.zhenwei.core.asn1.ASN1Encoding;
 import com.github.zhenwei.core.asn1.ASN1InputStream;
 import com.github.zhenwei.core.asn1.BEROctetString;
-import com.github.zhenwei.core.asn1.pkcs.ContentInfo;
-import com.github.zhenwei.core.asn1.x509.Certificate;
-import com.github.zhenwei.core.enums.Pkcs7ContentInfoTypeEnum;
-import com.github.zhenwei.core.enums.SignAlgEnum;
 import com.github.zhenwei.core.enums.exception.CryptoExceptionMassageEnum;
 import com.github.zhenwei.core.exception.WeGooCryptoException;
-import com.github.zhenwei.core.util.encoders.Base64;
-import com.github.zhenwei.core.util.encoders.Hex;
-import com.github.zhenwei.sdk.builder.CertBuilder;
-import com.github.zhenwei.sdk.builder.pkcs7.GmPkcs7Builder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import org.junit.Test;
 
 public class Pkcs7Test {
@@ -52,14 +43,14 @@ public class Pkcs7Test {
 
     @Test
     public void pkcs7SignedData() throws WeGooCryptoException, IOException {
-        GmPkcs7Builder gmPkcs7Builder = new GmPkcs7Builder();
-        Certificate[] cers = new Certificate[]{
-            CertBuilder.getInstance(Base64.decode(rsa_cert)).getCert0()
-        };
-        ContentInfo contentInfo = gmPkcs7Builder.genPkcs7ContentInfo(
-            Pkcs7ContentInfoTypeEnum.SIGNED_DATA, "3123".getBytes(
-                StandardCharsets.UTF_8), SignAlgEnum.SHA256_WITH_RSA, new byte[32], cers, null, true);
-        System.out.println(Hex.toHexString(contentInfo.getEncoded()));
+//        GmPkcs7Builder gmPkcs7Builder = new GmPkcs7Builder();
+//        Certificate[] cers = new Certificate[]{
+//            CertBuilder.getInstance(Base64.decode(rsa_cert)).getCert0()
+//        };
+//        ContentInfo contentInfo = gmPkcs7Builder.genPkcs7ContentInfo(
+//            Pkcs7ContentInfoTypeEnum.SIGNED_DATA, "3123".getBytes(
+//                StandardCharsets.UTF_8), SignAlgEnum.SHA256_WITH_RSA, new byte[32], cers, null, true);
+//        System.out.println(Hex.toHexString(contentInfo.getEncoded()));
 
     }
 

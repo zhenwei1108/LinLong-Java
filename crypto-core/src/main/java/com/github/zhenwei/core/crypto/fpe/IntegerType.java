@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.fpe;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author: zhangzhenwei
@@ -12,18 +12,17 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class IntegerType implements FpeType {
 
-  final char[] data = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+  final Character[] data = new Character[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
-  final ConcurrentHashMap<Character, Byte> charToByte = new ConcurrentHashMap<>(
-      (int) (data.length * 1.25) + 1);
-  final ConcurrentHashMap<Byte, Character> byteToChar = new ConcurrentHashMap<>(charToByte.size());
+  final HashMap<Character, Byte> charToByte = new HashMap<>((int) (data.length * 1.25) + 1);
+  final HashMap<Byte, Character> byteToChar = new HashMap<>(charToByte.size());
 
   public IntegerType() {
     init();
   }
 
   @Override
-  public char[] available() {
+  public Character[] available() {
     return data;
   }
 

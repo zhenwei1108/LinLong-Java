@@ -2,8 +2,8 @@ package com.github.zhenwei.core.crypto.fpe;
 
 import com.github.zhenwei.core.util.Pack;
 import java.nio.ByteBuffer;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author: zhangzhenwei
@@ -14,10 +14,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ChineseType implements FpeType {
 //Unicode编码的汉字表示范围是0x4E00-0x9FA5，所以其基数radix为20902，
-  final char[] data = new char[20902];
-  final ConcurrentHashMap<Character, Short> charToByte = new ConcurrentHashMap<>(
+  final Character[] data = new Character[20902];
+  final HashMap<Character, Short> charToByte = new HashMap<>(
       (int) (data.length * 1.25) + 1);
-  final ConcurrentHashMap<Short, Character> byteToChar = new ConcurrentHashMap<>(charToByte.size());
+  final HashMap<Short, Character> byteToChar = new HashMap<>(charToByte.size());
 
   /**
    * @author zhangzhenwei
@@ -37,7 +37,7 @@ public class ChineseType implements FpeType {
   }
 
   @Override
-  public char[] available() {
+  public Character[] available() {
     return data;
   }
 
@@ -53,9 +53,7 @@ public class ChineseType implements FpeType {
 
 
   @Override
-  public byte[] transform(String data) {
-
-    char[] chars = data.toCharArray();
+  public byte[] transform(char[] chars) {
     byte[] result = new byte[chars.length << 1];
     int index = 0;
     ByteBuffer allocate = ByteBuffer.allocate(2);
@@ -70,7 +68,7 @@ public class ChineseType implements FpeType {
   }
 
   @Override
-  public String transform(byte[] data) {
+  public char[] transform(byte[] data) {
     char[] chars = new char[data.length / 2];
     for (int i = 1; i <= data.length; i++) {
       //奇数
@@ -83,12 +81,12 @@ public class ChineseType implements FpeType {
       }
 
     }
-    return new String(chars);
+    return chars;
   }
 
   @Override
   public void init() {
-    char[] available = available();
+    Character[] available = available();
     for (short i = 0; i < available.length; i++) {
       charToByte.put(available[i], i);
       byteToChar.put(i, available[i]);

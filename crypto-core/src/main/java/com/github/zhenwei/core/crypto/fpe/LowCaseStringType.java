@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.fpe;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author: zhangzhenwei 
@@ -12,20 +12,20 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class LowCaseStringType implements FpeType {
 
-  final char[] data = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+  final Character[] data = new Character[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
       'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
 
-  final ConcurrentHashMap<Character, Byte> charToByte = new ConcurrentHashMap<>(
+  final HashMap<Character, Byte> charToByte = new HashMap<>(
       (int) (data.length * 1.25) + 1);
-  final ConcurrentHashMap<Byte, Character> byteToChar = new ConcurrentHashMap<>(charToByte.size());
+  final HashMap<Byte, Character> byteToChar = new HashMap<>(charToByte.size());
 
   public LowCaseStringType() {
     init();
   }
 
   @Override
-  public char[] available() {
+  public Character[] available() {
     return data;
   }
 

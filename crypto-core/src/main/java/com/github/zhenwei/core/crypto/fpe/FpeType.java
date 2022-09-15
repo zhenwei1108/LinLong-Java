@@ -8,10 +8,9 @@ public interface FpeType {
     return available().length;
   }
 
-  char[] available();
+  Character[] available();
 
-  default byte[] transform(String data) {
-    char[] chars = data.toCharArray();
+  default byte[] transform(char[] chars) {
     byte[] result = new byte[chars.length];
     for (int i = 0; i < chars.length; i++) {
       result[i] = getCharToByte().get(chars[i]);
@@ -19,12 +18,12 @@ public interface FpeType {
     return result;
   }
 
-  default String transform(byte[] data) {
+  default char[] transform(byte[] data) {
     char[] chars = new char[data.length];
     for (int i = 0; i < data.length; i++) {
       chars[i] = getByteToChar().get(data[i]);
     }
-    return new String(chars);
+    return chars;
   }
 
   Map<Character, Byte> getCharToByte();
@@ -32,7 +31,7 @@ public interface FpeType {
   Map<Byte, Character> getByteToChar();
 
   default void init(){
-    char[] available = available();
+    Character[] available = available();
     for (Byte i = 0; i < available.length; i++) {
       getCharToByte().put(available[i], i);
       getByteToChar().put(i, available[i]);
