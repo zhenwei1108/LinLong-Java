@@ -4,7 +4,7 @@ import com.github.zhenwei.core.crypto.fpe.ChineseType;
 import com.github.zhenwei.core.crypto.fpe.FPEEngine;
 import com.github.zhenwei.core.crypto.fpe.FPEFF1Engine;
 import com.github.zhenwei.core.crypto.fpe.FpeType;
-import com.github.zhenwei.core.crypto.fpe.IntegerType;
+import com.github.zhenwei.core.crypto.fpe.DigitType;
 import com.github.zhenwei.core.crypto.fpe.MixEntity;
 import com.github.zhenwei.core.crypto.fpe.MixType;
 import com.github.zhenwei.core.crypto.params.FPEParameters;
@@ -29,7 +29,7 @@ public class FF1Encrypt {
   @Test
   public void testFF1wInteger() throws Exception {
     String data = "0123456789123";
-    FpeType integerType = new IntegerType();
+    FpeType integerType = new DigitType();
 
     char[] chars = data.toCharArray();
     byte[] plainText = integerType.transform(chars);

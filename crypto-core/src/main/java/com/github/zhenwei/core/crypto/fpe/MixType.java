@@ -26,9 +26,9 @@ public class MixType implements FpeType {
   ConcurrentHashMap<Short, Character> byteToChar;
 
   public MixType() {
-    IntegerType integerType = new IntegerType();
-    List<Character> integers = Arrays.asList(integerType.available());
-    MixEntity integersEntity = new MixEntity(integerType, integers);
+    DigitType digitType = new DigitType();
+    List<Character> integers = Arrays.asList(digitType.available());
+    MixEntity integersEntity = new MixEntity(digitType, integers);
     map.put(integersEntity, new HashMap<>());
     AlphabetType alphabetType = new AlphabetType();
     List<Character> alphabets = Arrays.asList(alphabetType.available());
