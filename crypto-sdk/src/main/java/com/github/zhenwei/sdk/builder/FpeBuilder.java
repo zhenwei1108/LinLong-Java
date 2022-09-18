@@ -1,6 +1,7 @@
 package com.github.zhenwei.sdk.builder;
 
 import com.github.zhenwei.core.crypto.engines.SM4Engine;
+import com.github.zhenwei.core.crypto.fpe.ChineseType;
 import com.github.zhenwei.core.crypto.fpe.DigitType;
 import com.github.zhenwei.core.crypto.fpe.FPEEngine;
 import com.github.zhenwei.core.crypto.fpe.FPEFF1Engine;
@@ -46,6 +47,11 @@ public class FpeBuilder {
         break;
       //汉字
       case FPE_TYPE_CHINESE_CHAR:
+        fpeType = new ChineseType();
+        plainText = fpeType.transform(chars);
+        cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
+            plainText, true);
+        transform = fpeType.transform(cipher);
         break;
       //手机号码(加密后前两位不变)
       case FPE_TYPE_MOBILE_PHONE:
