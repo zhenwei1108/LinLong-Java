@@ -31,8 +31,18 @@ public class FpeBuilder {
             plainText, true);
         transform = fpeType.transform(cipher);
         break;
-      //身份证,保留格式(出生年月正确)
+      //身份证,保留格式(出生年月正确), 最后一位计算得来
       case FPE_TYPE_IDCARD_WITH_BIRTHDAY:
+        //最后一位不参与计算，  有可能为X。
+        fpeType = new DigitType();
+        char[] realChars = new char[chars.length - 1];
+        System.arraycopy(chars, 0, realChars, 0, realChars.length);
+        plainText = fpeType.transform(chars);
+        cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
+            plainText, true);
+        transform = fpeType.transform(cipher);
+        //todo 计算最后一位
+
         break;
       //汉字
       case FPE_TYPE_CHINESE_CHAR:
