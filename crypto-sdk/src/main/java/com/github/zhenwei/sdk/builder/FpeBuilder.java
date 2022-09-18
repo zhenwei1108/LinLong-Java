@@ -55,6 +55,17 @@ public class FpeBuilder {
         break;
       //手机号码(加密后前两位不变)
       case FPE_TYPE_MOBILE_PHONE:
+        fpeType = new DigitType();
+        //前两位 不参与
+        realChars = new char[chars.length - 2];
+        System.arraycopy(chars, 2, realChars, 0, realChars.length);
+        plainText = fpeType.transform(chars);
+        cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
+            plainText, true);
+        transform = fpeType.transform(cipher);
+        //还原回来前两位
+        System.arraycopy(transform, 0, chars, 2, transform.length);
+        transform = chars;
         break;
       //中文姓名(第一个字符不变)
       case FPE_TYPE_CHINESE_NAME:
