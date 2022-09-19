@@ -348,7 +348,7 @@ public class SM2Engine {
     private BigInteger nextK() {
         int qBitLength = ecParams.getN().bitLength();
         //修改为生成N-2的私钥。 防止在计算签名时，（1+d）mod n = 0，导致死循环
-        BigInteger n = ecParams.getN().multiply(new BigInteger("2"));
+        BigInteger n = ecParams.getN().multiply(new BigInteger("1"));
         BigInteger k;
         do {
             k = BigIntegers.createRandomBigInteger(qBitLength, random);
