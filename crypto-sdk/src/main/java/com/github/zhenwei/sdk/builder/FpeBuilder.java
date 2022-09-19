@@ -43,7 +43,7 @@ public class FpeBuilder {
             plainText, true);
         transform = fpeType.transform(cipher);
         //todo 计算最后一位
-        //todo 保留日期格式，将年月日换算成5位数字（用天表示），加密后将中间5位还原成年月日，再计算最后一位
+        //todo 保留日期格式，将年月日换算成5位数字（用天表示，从1970年开始），加密后将中间5位还原成年月日，再计算最后一位。
         break;
       //汉字
       case FPE_TYPE_CHINESE_CHAR:
