@@ -12,12 +12,13 @@ import java.util.Map;
  * @date: 2022/9/14  18:15
  * @since: 1.0.0
  */
-public class ChineseType implements FpeType {
-//Unicode编码的汉字表示范围是0x4E00-0x9FA5，所以其基数radix为20902，
+public class ChineseType implements FpeType{
+
+  //Unicode编码的汉字表示范围是0x4E00-0x9FA5，所以其基数radix为20902，
   final Character[] data = new Character[20902];
-  final HashMap<Character, Short> charToByte = new HashMap<>(
+  final HashMap<Character, Short> charToShort = new HashMap<Character, Short>(
       (int) (data.length * 1.25) + 1);
-  final HashMap<Short, Character> byteToChar = new HashMap<>(charToByte.size());
+  final HashMap<Short, Character> shortToChar = new HashMap<Short, Character>(charToShort.size());
 
   /**
    * @author zhangzhenwei
@@ -41,15 +42,6 @@ public class ChineseType implements FpeType {
     return data;
   }
 
-  @Override
-  public Map<Character, Byte> getCharToByte() {
-    return null;
-  }
-
-  @Override
-  public Map<Byte, Character> getByteToChar() {
-    return null;
-  }
 
 
   @Override
@@ -58,7 +50,7 @@ public class ChineseType implements FpeType {
     int index = 0;
     ByteBuffer allocate = ByteBuffer.allocate(2);
     for (int i = 0; i < chars.length; i++) {
-      Short aShort = charToByte.get(chars[i]);
+      Short aShort = charToShort.get(chars[i]);
       byte[] array = allocate.putShort(aShort).array();
       System.arraycopy(array, 0, result, index, array.length);
       index += array.length;
@@ -76,7 +68,7 @@ public class ChineseType implements FpeType {
         byte[] bytes = new byte[2];
         System.arraycopy(data, i - 1, bytes, 0, 2);
         short i1 = Pack.bigEndianToShort(bytes, 0);
-        Character character = byteToChar.get(i1);
+        Character character = shortToChar.get(i1);
         chars[i / 2] = character;
       }
 
@@ -84,12 +76,25 @@ public class ChineseType implements FpeType {
     return chars;
   }
 
+
+  @Override
+  public Map<Character, Byte> getCharToByte() {
+    return null;
+  }
+
+  @Override
+  public Map<Byte, Character> getByteToChar() {
+    return null;
+  }
+
   @Override
   public void init() {
     Character[] available = available();
     for (short i = 0; i < available.length; i++) {
-      charToByte.put(available[i], i);
-      byteToChar.put(i, available[i]);
+      charToShort.put(available[i], i);
+      shortToChar.put(i, available[i]);
     }
   }
+
+
 }
