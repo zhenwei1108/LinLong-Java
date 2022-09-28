@@ -6,11 +6,19 @@ import com.github.zhenwei.core.crypto.fpe.DigitType;
 import com.github.zhenwei.core.crypto.fpe.FPEEngine;
 import com.github.zhenwei.core.crypto.fpe.FPEFF1Engine;
 import com.github.zhenwei.core.crypto.fpe.FpeType;
+import com.github.zhenwei.core.crypto.fpe.IdCardType;
 import com.github.zhenwei.core.enums.FpeAlgEnum;
 import com.github.zhenwei.core.enums.FpeTypeEnum;
 import java.security.Key;
 
 public class FpeBuilder {
+
+//  public static void main(String[] args) throws BaseWeGooException {
+//    FpeBuilder fpeBuilder = new FpeBuilder();
+//    Key key = new KeyBuilder().buildKey(KeyEnum.AES_128);
+//    String cipher = fpeBuilder.cipher(FpeAlgEnum.FPE_AES, FpeTypeEnum.FPE_TYPE_IDCARD_WITH_BIRTHDAY,
+//        new byte[0], "456123199901011234", key);
+//  }
 
 
   public String cipher(FpeAlgEnum fpeAlgEnum, FpeTypeEnum fpeTypeEnum, byte[] tweak, String data,
@@ -35,13 +43,13 @@ public class FpeBuilder {
       //身份证,保留格式(出生年月正确), 最后一位计算得来
       case FPE_TYPE_IDCARD_WITH_BIRTHDAY:
         //最后一位不参与计算，  有可能为X。
-        fpeType = new DigitType();
-        char[] realChars = new char[chars.length - 1];
-        System.arraycopy(chars, 0, realChars, 0, realChars.length);
+        fpeType = new IdCardType(true);
         plainText = fpeType.transform(chars);
         cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
             plainText, true);
+        //将日期还原
         transform = fpeType.transform(cipher);
+        //计算最后一位
         //todo 计算最后一位
         //todo 保留日期格式，将年月日换算成5位数字（用天表示，从1970年开始），加密后将中间5位还原成年月日，再计算最后一位。
         break;
@@ -57,7 +65,7 @@ public class FpeBuilder {
       case FPE_TYPE_MOBILE_PHONE:
         fpeType = new DigitType();
         //前两位 不参与
-        realChars = new char[chars.length - 2];
+        char[] realChars = new char[chars.length - 2];
         System.arraycopy(chars, 2, realChars, 0, realChars.length);
         plainText = fpeType.transform(chars);
         cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
