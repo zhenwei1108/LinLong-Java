@@ -4,8 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class IdCardType extends DigitType {
+  private final int[] SEED = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
+  private final char[] RESULT = {'1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'};
+  //起始时间(1900年1月1日)，用于计算目标时间的天数差值。
+  private final long START_DATE = -2209017600000L;
 
-  private final String START_DATE = "19000101";
   private final int TIME_FOR_DAY = 60 * 1000 * 60 * 24;
   private boolean keepBirthday = false;
 
@@ -37,9 +40,8 @@ public class IdCardType extends DigitType {
         char[] yyyyMMdd = new char[8];
         System.arraycopy(excLash, 6, yyyyMMdd, 0, yyyyMMdd.length);
         Date target = new SimpleDateFormat("yyyyMMdd").parse(new String(yyyyMMdd));
-        Date start = new SimpleDateFormat("yyyyMMdd").parse(START_DATE);
         //天数
-        char[] dayChars = String.valueOf((target.getTime() - start.getTime()) / TIME_FOR_DAY)
+        char[] dayChars = String.valueOf((target.getTime() - START_DATE) / TIME_FOR_DAY)
             .toCharArray();
         //结果
         char[] result = new char[14];
@@ -62,6 +64,32 @@ public class IdCardType extends DigitType {
 
   @Override
   public char[] transform(byte[] data) {
-    return super.transform(data);
+      //身份证 18位
+      byte[] result = new byte[18];
+      //中间5位数字，用于转换年月日
+      byte[] dayChars = new byte[5];
+      System.arraycopy(data, 0, result, 0, 6);
+      System.arraycopy(data, 6, dayChars, 0, dayChars.length);
+      //拷贝最后三位
+      System.arraycopy(data, data.length - 3, result, result.length - 4, 3);
+      //将中间5位数字还原成年月日
+      long days = Long.parseLong(new String(super.transform(dayChars)));
+      Date date = new Date(START_DATE + days * TIME_FOR_DAY);
+
+      char[] yyyyMMdd = new SimpleDateFormat("yyyyMMdd").format(date).toCharArray();
+      System.arraycopy(super.transform(yyyyMMdd), 0, result, 6, yyyyMMdd.length);
+      char[] transform = super.transform(result);
+      transform[transform.length - 1] = getLastNum(result);
+      return transform;
   }
+
+  private char getLastNum(byte[] data) {
+    int total = 0;
+    //由前17位计算最后一位。
+    for (int i = 0; i < 17; i++) {
+      total += (data[i] * SEED[i]);
+    }
+    return RESULT[total % 11];
+  }
+
 }
