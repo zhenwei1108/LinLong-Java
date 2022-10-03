@@ -44,14 +44,10 @@ public class FpeBuilder {
       case FPE_TYPE_IDCARD_WITH_BIRTHDAY:
         //最后一位不参与计算，  有可能为X。
         fpeType = new IdCardType(true);
-        plainText = fpeType.transform(chars);
         cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
-            plainText, true);
+            fpeType.transform(chars), true);
         //将日期还原
         transform = fpeType.transform(cipher);
-        //计算最后一位
-        //todo 计算最后一位
-        //todo 保留日期格式，将年月日换算成5位数字（用天表示，从1970年开始），加密后将中间5位还原成年月日，再计算最后一位。
         break;
       //汉字
       case FPE_TYPE_CHINESE_CHAR:
@@ -77,6 +73,10 @@ public class FpeBuilder {
         break;
       //中文姓名(第一个字符不变)
       case FPE_TYPE_CHINESE_NAME:
+        fpeType = new ChineseType();
+        cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,
+            fpeType.transform(chars), true);
+        transform = fpeType.transform(cipher);
         break;
       //混合型(包含数字,字母,汉字,标点等,其中加密后标点不变,其他都加密)
       case FPE_TYPE_MIXING_CHAR:

@@ -3,6 +3,13 @@ package com.github.zhenwei.core.crypto.fpe;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author: zhangzhenwei
+ * @description: IdCardType
+ *  保留日期格式，将年月日换算成5位数字（用天表示，从1900年开始），加密后将中间5位还原成年月日，再计算最后一位。
+ * @date: 2022/9/29  16:11
+ * @since: 1.0
+ */
 public class IdCardType extends DigitType {
   private final int[] SEED = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
   private final char[] RESULT = {'1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'};
@@ -17,7 +24,7 @@ public class IdCardType extends DigitType {
   }
 
   public IdCardType(boolean keepBirthday) {
-    super();
+    this();
     this.keepBirthday = keepBirthday;
   }
 
