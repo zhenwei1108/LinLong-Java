@@ -1,6 +1,6 @@
 package com.github.zhenwei.core.crypto.fpe;
 
-import java.util.List;
+import com.github.zhenwei.core.enums.FpeTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -8,9 +8,9 @@ import lombok.Getter;
 @Getter
 public class MixEntity {
 
-  private FpeType fpeType;
+  private FpeTypeEnum fpeTypeEnum;
 
-  private List<Character> list;
+  private FpeType fpeType;
 
 
 }

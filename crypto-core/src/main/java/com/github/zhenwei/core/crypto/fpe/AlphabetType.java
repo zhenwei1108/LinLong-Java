@@ -4,6 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * @author: zhangzhenwei
+ * @description: AlphabetType
+ *  字母
+ * @date: 2022/10/3  18:23
+ * @since: 1.0
+ */
 public class AlphabetType implements FpeType {
 
   Character[] data = new Character[]{

@@ -41,8 +41,8 @@ public interface FpeType {
   }
 
   default byte[] cipher(FPEEngine fpeEngine, byte[] key, int radix, byte[] tweak, byte[] in,
-      boolean isEncrypt) {
-    fpeEngine.init(isEncrypt, new FPEParameters(new KeyParameter(key), radix, tweak));
+      boolean doEncrypt) {
+    fpeEngine.init(doEncrypt, new FPEParameters(new KeyParameter(key), radix, tweak));
     byte[] enc = new byte[in.length];
     fpeEngine.processBlock(in, 0, in.length, enc, 0);
     return enc;
