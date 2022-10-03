@@ -3,7 +3,6 @@ package com.github.zhenwei.core.crypto.fpe;
 import com.github.zhenwei.core.util.Pack;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,29 +25,7 @@ public class MixType implements FpeType {
   ConcurrentHashMap<Short, Character> byteToChar;
 
   public MixType() {
-    DigitType digitType = new DigitType();
-    List<Character> integers = Arrays.asList(digitType.available());
-    MixEntity integersEntity = new MixEntity(digitType, integers);
-    map.put(integersEntity, new HashMap<>());
-    AlphabetType alphabetType = new AlphabetType();
-    List<Character> alphabets = Arrays.asList(alphabetType.available());
-    MixEntity alphabetsEntity = new MixEntity(alphabetType, alphabets);
-    map.put(alphabetsEntity, new HashMap<>());
-    ChineseType chineseType = new ChineseType();
-    List<Character> chineses = Arrays.asList(chineseType.available());
-    MixEntity chinesesEntity = new MixEntity(chineseType, chineses);
-    map.put(chinesesEntity, new HashMap<>());
-//    MixEntity other = new MixEntity(null, null);
-//    map.put(other, new HashMap<>());
 
-    data = new Character[integers.size() + alphabets.size() + chineses.size()];
-    int index = 0;
-    System.arraycopy(integers.toArray(), 0, data, index, index += integers.size());
-    System.arraycopy(alphabets.toArray(), 0, data, index, alphabets.size());
-    index += alphabets.size();
-    System.arraycopy(chineses.toArray(), 0, data, index, chineses.size());
-    charToByte = new ConcurrentHashMap<>((int) (data.length * 1.25) + 1);
-    byteToChar = new ConcurrentHashMap<>(charToByte.size());
     init();
   }
 
@@ -70,8 +47,8 @@ public class MixType implements FpeType {
 
   @Override
   public byte[] transform(char[] in) {
+    List<Character> characters = Arrays.asList(available());
     for (int i = 0; i < in.length; i++) {
-      List<Character> characters = Arrays.asList(available());
       int index = characters.indexOf(in[i]);
       //-1 不在范围内，或为标点符号。
       if (index > -1) {
@@ -93,10 +70,11 @@ public class MixType implements FpeType {
       MixEntity key = entry.getKey();
       Map<Integer, Character> value = entry.getValue();
       Collection<Character> values = value.values();
-      Character[] characters = values.toArray(new Character[0]);
-      char[] data = new char[characters.length];
-      for (int i = 0; i < characters.length; i++) {
-        data[i] = characters[i];
+      //将value转为数组
+      Character[] chars = values.toArray(new Character[0]);
+      char[] data = new char[chars.length];
+      for (int i = 0; i < chars.length; i++) {
+        data[i] = chars[i];
       }
       byte[] transform = key.getFpeType().transform(data);
       byte[] total = new byte[transform.length + result.length];
@@ -126,6 +104,29 @@ public class MixType implements FpeType {
 
   @Override
   public void init() {
+    DigitType digitType = new DigitType();
+    List<Character> integers = Arrays.asList(digitType.available());
+    MixEntity integersEntity = new MixEntity(digitType, integers);
+    map.put(integersEntity, new LinkedHashMap<>());
+    AlphabetType alphabetType = new AlphabetType();
+    List<Character> alphabets = Arrays.asList(alphabetType.available());
+    MixEntity alphabetsEntity = new MixEntity(alphabetType, alphabets);
+    map.put(alphabetsEntity, new LinkedHashMap<>());
+    ChineseType chineseType = new ChineseType();
+    List<Character> chineses = Arrays.asList(chineseType.available());
+    MixEntity chinesesEntity = new MixEntity(chineseType, chineses);
+    map.put(chinesesEntity, new LinkedHashMap<>());
+//    MixEntity other = new MixEntity(null, null);
+//    map.put(other, new HashMap<>());
+
+    data = new Character[integers.size() + alphabets.size() + chineses.size()];
+    int index = 0;
+    System.arraycopy(integers.toArray(), 0, data, index, index += integers.size());
+    System.arraycopy(alphabets.toArray(), 0, data, index, alphabets.size());
+    index += alphabets.size();
+    System.arraycopy(chineses.toArray(), 0, data, index, chineses.size());
+    charToByte = new ConcurrentHashMap<>((int) (data.length * 1.25) + 1);
+    byteToChar = new ConcurrentHashMap<>(charToByte.size());
     Character[] available = available();
     for (short i = 0; i < available.length; i++) {
       charToByte.put(available[i], i);
