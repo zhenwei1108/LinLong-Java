@@ -18,6 +18,9 @@ public final class FPEParameters
   public FPEParameters(KeyParameter key, int radix, byte[] tweak, boolean useInverse) {
     this.key = key;
     this.radix = radix;
+    if (tweak == null) {
+      tweak = new byte[0];
+    }
     this.tweak = Arrays.clone(tweak);
     this.useInverse = useInverse;
   }

@@ -82,7 +82,7 @@ public class FF1Encrypt {
 
   @Test
   public void testFF1wMix() throws Exception {
-    String data = "张振伟1231,23asdf1";
+    String data = "zhang，张振伟，123123123";
     MixType fpeType = new MixType();
 
     char[] in = data.toCharArray();
@@ -112,6 +112,7 @@ public class FF1Encrypt {
 
       fpeEngine.processBlock(plainText, 0, plainText.length, enc, 0);
       System.out.println("ff1w encrypt：" + new String(key.getFpeType().transform(enc)));
+
       char[] transform = key.getFpeType().transform(enc);
 
       fpeEngine.init(false, new FPEParameters(new KeyParameter(anyKey), radix, tweak));

@@ -41,7 +41,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:35
    * @since 1.0
    */
-  public KeyPair buildKeyPair(KeyPairAlgEnum keyPairEnum) throws WeGooKeyException {
+  public static KeyPair buildKeyPair(KeyPairAlgEnum keyPairEnum) throws WeGooKeyException {
     try {
       var generator = KeyPairGenerator.getInstance(keyPairEnum.getAlg(), ProviderEngine.getProvider());
       if (keyPairEnum == KeyPairAlgEnum.SM2_256) {
@@ -66,7 +66,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:34
    * @since 1.0
    */
-  public Key buildKey(KeyEnum keyEnum) throws BaseWeGooException {
+  public static Key buildKey(KeyEnum keyEnum) throws BaseWeGooException {
     try {
       val generator = KeyGenerator.getInstance(keyEnum.getAlg(), ProviderEngine.getProvider());
       generator.init(keyEnum.getKeyLen(), new SecureRandom());
@@ -109,7 +109,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:34
    * @since 1.0
    */
-  public PrivateKey convertPrivateKey(byte[] privateKey) throws Exception {
+  public static PrivateKey convertPrivateKey(byte[] privateKey) throws Exception {
     try {
       PrivateKeyInfo info = PrivateKeyInfo.getInstance(privateKey);
       if (info == null) {
@@ -134,12 +134,12 @@ public final class KeyBuilder {
    * @date 2022/2/11 22:33
    * @since 1.0
    */
-  public byte[] getRealPublicKey(PublicKey publicKey) throws WeGooKeyException {
+  public static byte[] getRealPublicKey(PublicKey publicKey) throws WeGooKeyException {
     return getRealPublicKey(publicKey.getEncoded());
   }
 
 
-  public byte[] getRealPublicKey(byte[] publicKey) throws WeGooKeyException {
+  public static byte[] getRealPublicKey(byte[] publicKey) throws WeGooKeyException {
     SubjectPublicKeyInfo keyInfo = SubjectPublicKeyInfo.getInstance(publicKey);
     if (keyInfo == null) {
       throw new WeGooKeyException(IExceptionEnum.params_err);
@@ -156,7 +156,7 @@ public final class KeyBuilder {
    * @date 2022/2/11 23:06
    * @since 1.0
    */
-  public byte[] getRealPrivateKey(byte[] privateKey) throws WeGooCryptoException {
+  public static byte[] getRealPrivateKey(byte[] privateKey) throws WeGooCryptoException {
     try {
       PrivateKeyInfo info = PrivateKeyInfo.getInstance(privateKey);
       if (info == null) {
@@ -181,11 +181,11 @@ public final class KeyBuilder {
 
   }
 
-  public byte[] getRealPrivateKey(PrivateKey privateKey) throws WeGooCryptoException {
+  public static byte[] getRealPrivateKey(PrivateKey privateKey) throws WeGooCryptoException {
     return getRealPrivateKey(privateKey.getEncoded());
   }
 
-  public Key convertKey(byte[] key, KeyEnum keyEnum) {
+  public static Key convertKey(byte[] key, KeyEnum keyEnum) {
     return new SecretKeySpec(key, keyEnum.getAlg());
   }
 
