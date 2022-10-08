@@ -90,6 +90,13 @@ public class IdCardType extends DigitType {
       return transform;
   }
 
+  /**
+   * @author zhangzhenwei
+   * @description 计算身份证最后一位
+   * @return 最后一位
+   * @date 2022/10/8  22:28
+   * @since: 1.0
+   */
   private char getLastNum(byte[] data) {
     int total = 0;
     //由前17位计算最后一位。

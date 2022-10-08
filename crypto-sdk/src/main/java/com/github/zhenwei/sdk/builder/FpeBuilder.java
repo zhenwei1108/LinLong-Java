@@ -79,7 +79,7 @@ public class FpeBuilder {
         System.arraycopy(transform, 0, chars, 2, transform.length);
         transform = chars;
         break;
-      //中文姓名(第一个字符不变)
+      //中文姓名
       case FPE_TYPE_CHINESE_NAME:
         fpeType = new ChineseType();
         cipher = fpeType.cipher(fpeEngine, key.getEncoded(), fpeType.radix(), tweak,

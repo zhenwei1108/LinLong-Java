@@ -21,10 +21,14 @@ public class FpeTest {
   public void mixDemo(){
     Key key = KeyBuilder.convertKey(anyKey, KeyEnum.AES_128);
     String data = "zhang，张振伟，123123123";
+    //加密
     String cipher = FpeBuilder.cipher(FpeAlgEnum.FPE_AES, FpeTypeEnum.FPE_TYPE_MIXING_CHAR, null,
         data, key, true);
     System.out.println(cipher);
-
+    //解密
+    data = FpeBuilder.cipher(FpeAlgEnum.FPE_AES, FpeTypeEnum.FPE_TYPE_MIXING_CHAR, null,
+        cipher, key, false);
+    System.out.println(data);
   }
 
 
