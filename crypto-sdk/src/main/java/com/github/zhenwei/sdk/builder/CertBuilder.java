@@ -85,9 +85,13 @@ public class CertBuilder {
         }
     }
 
-
-
-
+    /**
+     * @author zhangzhenwei
+     * @description 获取证书序列号
+     * @return 序列号
+     * @date 2022/10/16  21:13
+     * @since: 1.0.0
+     */
     public String getCertSn() {
         BigInteger serialNumber = this.cert.getSerialNumber();
         return Hex.toHexString(serialNumber.toByteArray());
@@ -167,20 +171,46 @@ public class CertBuilder {
         }
     }
 
-
+    /**
+     * @author zhangzhenwei
+     * @description 证书有效期，开始时间
+     * @return
+     * @date 2022/10/16  21:14
+     * @since: 1.0.0
+     */
     public Date getNotBefore() {
         return this.cert.getNotBefore();
     }
 
+    /**
+     * @author zhangzhenwei
+     * @description 证书有效期，结束时间
+     * @return
+     * @date 2022/10/16  21:14
+     * @since: 1.0.0
+     */
     public Date getNotAfter() {
         return this.cert.getNotAfter();
     }
 
+    /**
+     * @author zhangzhenwei
+     * @description 颁发者 主题项
+     * @return
+     * @date 2022/10/16  21:14
+     * @since: 1.0.0
+     */
     public String getIssuerDN() {
         return this.cert.getIssuerDN().getName();
     }
 
-
+    /**
+     * @author zhangzhenwei
+     * @description 使用者 主题项
+     * @return
+     * @date 2022/10/16  21:15
+     * @since: 1.0.0
+     */
     public String getSubjectDN() {
         return this.cert.getSubjectDN().getName();
     }
