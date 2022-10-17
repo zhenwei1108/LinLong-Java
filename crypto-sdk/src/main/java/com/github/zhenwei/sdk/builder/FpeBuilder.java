@@ -29,8 +29,7 @@ public class FpeBuilder {
 
 
   public static String cipher(FpeAlgEnum fpeAlgEnum, FpeTypeEnum fpeTypeEnum, byte[] tweak,
-      String data,
-      Key key, boolean doEncrypt) {
+      String data, Key key, boolean doEncrypt) {
     //aes,sm4
     FPEEngine fpeEngine =
         fpeAlgEnum == FpeAlgEnum.FPE_SM4 ? new FPEFF1Engine(new SM4Engine()) : new FPEFF1Engine();
