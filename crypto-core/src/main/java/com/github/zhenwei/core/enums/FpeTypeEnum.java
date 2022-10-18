@@ -3,6 +3,13 @@ package com.github.zhenwei.core.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/**
+ * @author: zhangzhenwei
+ * @description: FpeTypeEnum
+ *  FPE 处理的数据类型
+ * @date: 2022/10/17  22:35
+ * @since: 1.0
+ */
 @AllArgsConstructor
 @Getter
 public enum FpeTypeEnum {

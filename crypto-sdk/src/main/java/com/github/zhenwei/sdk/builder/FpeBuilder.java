@@ -20,14 +20,6 @@ import java.util.Map.Entry;
 
 public class FpeBuilder {
 
-//  public static void main(String[] args) throws BaseWeGooException {
-//    FpeBuilder fpeBuilder = new FpeBuilder();
-//    Key key = new KeyBuilder().buildKey(KeyEnum.AES_128);
-//    String cipher = fpeBuilder.cipher(FpeAlgEnum.FPE_AES, FpeTypeEnum.FPE_TYPE_IDCARD_WITH_BIRTHDAY,
-//        new byte[0], "456123199901011234", key);
-//  }
-
-
   public static String cipher(FpeAlgEnum fpeAlgEnum, FpeTypeEnum fpeTypeEnum, byte[] tweak,
       String data, Key key, boolean doEncrypt) {
     //aes,sm4
@@ -35,7 +27,7 @@ public class FpeBuilder {
         fpeAlgEnum == FpeAlgEnum.FPE_SM4 ? new FPEFF1Engine(new SM4Engine()) : new FPEFF1Engine();
     FpeType fpeType;
     char[] chars = data.toCharArray();
-    char[] transform = new char[0];
+    char[] transform;
     switch (fpeTypeEnum) {
       //数字
       case FPE_TYPE_DIGIT:
