@@ -1,4 +1,4 @@
-package com.github.zhenwei.core.asn1.pkcs;
+package com.github.zhenwei.core.asn1.sm2;
 
 import com.github.zhenwei.core.asn1.*;
 

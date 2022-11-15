@@ -1,7 +1,7 @@
 package com.github.zhenwei.core.crypto.engines;
 
 import com.github.zhenwei.core.asn1.*;
-import com.github.zhenwei.core.asn1.pkcs.Sm2Cipher;
+import com.github.zhenwei.core.asn1.sm2.Sm2Cipher;
 import com.github.zhenwei.core.crypto.CipherParameters;
 import com.github.zhenwei.core.crypto.Digest;
 import com.github.zhenwei.core.crypto.InvalidCipherTextException;
