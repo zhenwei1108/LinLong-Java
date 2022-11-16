@@ -11,7 +11,7 @@ import com.github.zhenwei.core.asn1.x509.AlgorithmIdentifier;
 /**
  * @author: zhangzhenwei
  * @description: Sm2EnvelopedKey
- *  SM2 密钥对保护结构
+ *  SM2 密钥对保护结构 GMT-0009#7.4
  *  SM2EnvelopedKey::=SEQUENCE(
  *    symAlgID   AlgorithmIdentifier, 算法标识
  *    symEncryptedKey  SM2Cipher,   公钥加密的  对称密钥
