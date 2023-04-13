@@ -1,6 +1,6 @@
 package com.github.zhenwei.sdk.structure;
 
-import com.github.zhenwei.core.asn1.pkcs.Sm2Signature;
+import com.github.zhenwei.core.asn1.sm2.Sm2Signature;
 import com.github.zhenwei.sdk.util.ArrayUtils;
 
 /**
