@@ -51,6 +51,7 @@ public abstract class AbstractPkcs7Builder {
       case BasePkcs7TypeEnum.ENVELOPED_DATA:
         break;
       case BasePkcs7TypeEnum.SIGNED_AND_ENVELOPED_DATA:
+        //签名值，被对称密钥加密 RFC-2315
         break;
     }
     return new ContentInfo(infoTypeEnum.getOid(), asn1Encodable);
