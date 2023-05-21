@@ -33,6 +33,7 @@ import java.security.cert.X509Certificate;
 
 public abstract class AbstractPkcs7Builder {
 
+
   public ContentInfo genPkcs7ContentInfo(BasePkcs7TypeEnum infoTypeEnum, byte[] data,
       SignAlgEnum signAlgEnum, byte[] signature, Certificate[] certificates, X509CRL[] crls,
       boolean isAttach) throws WeGooCryptoException {
