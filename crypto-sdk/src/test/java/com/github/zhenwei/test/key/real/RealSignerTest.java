@@ -6,8 +6,11 @@ import com.github.zhenwei.core.exception.BaseWeGooException;
 import com.github.zhenwei.core.util.encoders.Hex;
 import com.github.zhenwei.sdk.builder.KeyBuilder;
 import com.github.zhenwei.sdk.builder.SignBuilder;
+import com.github.zhenwei.sdk.init.ProviderEngine;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
+import java.security.Signature;
+import lombok.var;
 import org.junit.Test;
 
 public class RealSignerTest {
@@ -22,6 +25,8 @@ public class RealSignerTest {
     SignBuilder signBuilder = new SignBuilder();
     KeyBuilder keyBuilder = new KeyBuilder();
     KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
+
+
     byte[] data = signBuilder.signatureSourceData(SignAlgEnum.SHA256_WITH_RSA, keyPair.getPrivate(),
         "asdfa".getBytes(  StandardCharsets.UTF_8));
     System.out.println(Hex.toHexString(data));
@@ -29,5 +34,19 @@ public class RealSignerTest {
   }
 
 
+  public static void main(String[] args) throws Exception {
+    SignBuilder signBuilder = new SignBuilder();
+    KeyBuilder keyBuilder = new KeyBuilder();
+    KeyPair keyPair = keyBuilder.buildKeyPair(KeyPairAlgEnum.RSA_1024);
+    String data = "0001ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff003031300d06096086480165030402010500042041cf6794ba4200b839c53531555f0f3998df4cbb01a4d5cb0b94e3ca5e23947d";
+
+    var signature = Signature.getInstance("RSA", ProviderEngine.getProvider());
+    signature.initSign(keyPair.getPrivate());
+    signature.update(Hex.decode(data));
+    byte[] sign = signature.sign();
+    System.out.println(sign.length);
+    System.out.println(Hex.toHexString(sign));
+
+  }
 
 }
